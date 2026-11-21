@@ -50,8 +50,8 @@
  *    on a 50x larger and regime-stratified sample.
  *
  * SCOPE. imp-95251 objects only; validates a proof STEP (LEMMA DD), not the
- * bound. Changes NO Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. Import-light (no zeros bundle, no sibling imports).
+ * bound. Changes NO Lambda bound; NO QED; no refereed bound is changed
+ * . Import-light (no zeros bundle, no sibling imports).
  */
 
 // -- three independent evaluations of [nu_0..nu_k] phi_k ---------------------
@@ -190,7 +190,7 @@ export const IMP95327_DD_PIVOT_CROSSVALIDATION = {
     randomSeed: 31675,
   },
   verdict:
-    "VALIDATION CONFIRMED: the imp-95251 LEMMA DD contour-pivot identity I_k = [nu_0..nu_k] phi_k holds to full double precision across separated (<= 1.3e-13) and clustered rate sets and comfortably below 1e-8 on a 5000-config regime-stratified sweep; near coalescence the identity remains true but its residue/table evaluations are ill-conditioned, hitting an O(1) precision floor by minSep ~ 1e-8, confirming the COAL-N design choice to route through the coalescence-robust BN partial sums. Validates a proof STEP, not the bound; changes NO Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "VALIDATION CONFIRMED: the imp-95251 LEMMA DD contour-pivot identity I_k = [nu_0..nu_k] phi_k holds to full double precision across separated (<= 1.3e-13) and clustered rate sets and comfortably below 1e-8 on a 5000-config regime-stratified sweep; near coalescence the identity remains true but its residue/table evaluations are ill-conditioned, hitting an O(1) precision floor by minSep ~ 1e-8, confirming the COAL-N design choice to route through the coalescence-robust BN partial sums. Validates a proof STEP, not the bound; changes NO Lambda bound; NO QED; no refereed bound is changed.",
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. This validates the imp-95251 LEMMA DD proof step numerically; the N >= 3 confluent DOMINANCE conjecture of imp-95227, the majorant slack of COAL-N, and the every-octave instantiation all remain OPEN as recorded in imp-95251. No obligation is discharged.",
 };
@@ -276,7 +276,7 @@ export const IMP95327_DD_PIVOT_ASSERTIONS = [
         IMP95327_DD_PIVOT_CROSSVALIDATION.verdict,
       ) &&
       /NO QED/.test(IMP95327_DD_PIVOT_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP95327_DD_PIVOT_CROSSVALIDATION.verdict) &&
+      /refereed bound is changed/i.test(IMP95327_DD_PIVOT_CROSSVALIDATION.verdict) &&
       /STILL OPEN/.test(IMP95327_DD_PIVOT_CROSSVALIDATION.subGap),
   },
 ];

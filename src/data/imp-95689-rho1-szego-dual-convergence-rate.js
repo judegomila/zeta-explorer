@@ -75,7 +75,7 @@
  * finite-section asymptotic validated on a well-conditioned control. (c) Model
  * seam family only; the imp-95212 envelope port, signed WEIGHT, and modulus/
  * phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-95677-rho1-szego-finite-size-convergence (the float64 sub-gap this resolves)
  * @see imp-95659-twin-pair-block-floor-rho-tabulation (the rho = 1 endpoint)
@@ -137,8 +137,8 @@ export const IMP95689_RHO1_SZEGO_DUAL_CONVERGENCE_RATE = {
     "~O(N^{-3}). Resolves the imp-95677 float64 sub-gap for an established " +
     "endpoint; no new cited input. Model seam family only; the imp-95212 " +
     "envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes " +
-    "no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA.",
+    "no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95689"],
 };
 
@@ -331,7 +331,7 @@ export const IMP95689_ASSERTIONS = [
       REF.float64Resolved === true &&
       /RESOLVED/.test(REF.verdict) &&
       /EXACTLY 1/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95689-closes-self",

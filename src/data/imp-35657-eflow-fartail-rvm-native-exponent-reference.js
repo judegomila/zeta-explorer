@@ -65,7 +65,7 @@
  * NOT a rigorous asymptotic; changes no bound. E_flow > 0 strictness (imp-33848) untouched;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
  * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35577-fartail-crossings-height-map-sensitivity (the ~2x inflation attributed to the surrogate reference)
  * @see imp-35198-eflow-fartail-exponent-logn-correction (the surrogate-channel -1 + 3/log N leading form)
@@ -230,8 +230,8 @@ export const IMP35657_EFLOW_FARTAIL_RVM_NATIVE_EXPONENT_REFERENCE = {
     'regardless of reference). Derivation/measurement only on the inherited imp-3220/imp-3406 surrogate ' +
     'extrapolation, NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 ' +
-    'untouched; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'untouched; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35577 (~2x inflation attributed to the surrogate reference, tested here); imp-35198 ' +
     '(surrogate-channel -1 + 3/log N, matched-leading here); imp-35135 (far-tail E_flow quantity); ' +
@@ -271,13 +271,13 @@ export const IMP35657_EFLOW_FARTAIL_RVM_NATIVE_EXPONENT_REFERENCE_ASSERTIONS = [
       Math.abs(SUB1E4_RVM.wrongRefRemnant - 1e-4) < 5e-6,
   },
   {
-    // Honesty gate: derivation/measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35657-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Derivation/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35657_EFLOW_FARTAIL_RVM_NATIVE_EXPONENT_REFERENCE.isRigorous === false &&
       /NO QED/.test(IMP35657_EFLOW_FARTAIL_RVM_NATIVE_EXPONENT_REFERENCE.verdict) &&
-      /remains SOTA/.test(IMP35657_EFLOW_FARTAIL_RVM_NATIVE_EXPONENT_REFERENCE.verdict),
+      /refereed bound is changed/i.test(IMP35657_EFLOW_FARTAIL_RVM_NATIVE_EXPONENT_REFERENCE.verdict),
   },
 ];
 

@@ -32,7 +32,7 @@
  *  at 5900 bits, 83 s, 4.4 GB), so n = 2·10^4 is cheaper than the stated 15 GB.
  *
  * Literature (recall, not checked online): Johansson's 2015 rigorous Hurwitz-zeta paper reports λ_n for n ≤ 10^5 — the n ≤ 10^4 range here
- * is not new. Tagged [map]; no Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_35_ASSERTIONS recompute live: λ_1
+ * is not new. Tagged [map]; no Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_35_ASSERTIONS recompute live: λ_1
  * and osc_1 = γ_E, c, λ_n^arch for n ≤ 60 from Hurwitz-zeta Taylor coefficients (matching the Arb file) and its 3/4 − 1/(24n) law, the exact
  * −1 shift to the Γ(s/2) convention, λ_1…λ_3 from 31 zeros + tail, osc_10000, and the envelope ratios.
  */
@@ -83,7 +83,7 @@ export const ROUTE_35 = Object.freeze({
     + 'a separately coded Arb run confirms n ≤ 8500, and a 10^6-zero sum agrees to 4e-8). With the Γ(1+s/2) split the archimedean part is '
     + '(n/2)log n + c·n + 3/4 − 1/(24n) (constant convention-dependent: −1/4 with Γ(s/2)), and the arithmetic part osc_n grows like ≈ 0.2·√n, '
     + 'which fits RH but cannot distinguish √n from √n log n. Positivity on any finite range is weaker than what the verified zero height already '
-    + 'implies (unconditional sketch). Internal, one referee pass. No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'implies (unconditional sketch). Internal, one referee pass. No Λ bound moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_35;
@@ -148,7 +148,7 @@ export const ROUTE_35_ASSERTIONS = Object.freeze([
   {
     id: 'r35-honest-scope',
     holds: () => R.status === 'done' && /Johansson/.test(R.verdict) && /convention-dependent/.test(R.verdict) && /unconditional sketch/.test(R.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 7,
+      && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 7,
     why: 'Calibration data; reproduction credited; constant convention-dependent; finite-range positivity weaker than the verified height; no Λ change; no QED.',
   },
 ]);

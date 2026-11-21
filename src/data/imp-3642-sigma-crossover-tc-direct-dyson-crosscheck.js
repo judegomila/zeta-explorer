@@ -60,7 +60,7 @@
  *
  * MEASUREMENT/DERIVATION ONLY. RH-EQUIVALENT; necessary-but-not-sufficient. No positivity, no bridge
  * closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3620-sigma-crossover-tc-closedform-pin (the 1/log gamma_N closed form this module cross-checks)
  * @see backward-flow-stability-gronwall (imp-2520 Lemma B/C: shock time t_c ~ 1/(2 V0), V0 ~ density floor)
@@ -268,8 +268,8 @@ export const IMP3642_SIGMA_CROSSOVER_TC_DIRECT_DYSON_CROSSCHECK = {
     'NOT the microscopic nearest-pair collision; the absolute shock constant c_sh (imp-2520 SG1, OPEN) is ' +
     'untouched and the scale is still pinned to 2.37e-4 exactly as imp-398 does. Measurement/derivation ' +
     'only, RH-EQUIVALENT, necessary-but-not-sufficient; no positivity, no bridge closure, no RH claim, ' +
-    'NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3620 (1/log gamma_N closed-form pin, t_c(N_x) = 1.0452e-4, flow factor 1.0001045); imp-398 ' +
     '(backward-flow-stability t_c(N) ~ 1/log gamma_N law); imp-2520 / backward-flow-stability-gronwall ' +
@@ -318,15 +318,15 @@ export const IMP3642_SIGMA_CROSSOVER_TC_DIRECT_DYSON_CROSSCHECK_ASSERTIONS = [
       BRACKET_FRACTION_DIRECT < 0.25,
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement/derivation only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3642-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: no QED, RH-equivalent necessary-but-not-sufficient, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement/derivation only: no QED, RH-equivalent necessary-but-not-sufficient, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3642_SIGMA_CROSSOVER_TC_DIRECT_DYSON_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP3642_SIGMA_CROSSOVER_TC_DIRECT_DYSON_CROSSCHECK.verdict) &&
       /RH-EQUIVALENT/.test(IMP3642_SIGMA_CROSSOVER_TC_DIRECT_DYSON_CROSSCHECK.verdict) &&
       /necessary-but-not-sufficient/.test(IMP3642_SIGMA_CROSSOVER_TC_DIRECT_DYSON_CROSSCHECK.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3642_SIGMA_CROSSOVER_TC_DIRECT_DYSON_CROSSCHECK.verdict) &&
+      /refereed bound is changed/i.test(IMP3642_SIGMA_CROSSOVER_TC_DIRECT_DYSON_CROSSCHECK.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3642_SIGMA_CROSSOVER_TC_DIRECT_DYSON_CROSSCHECK.verdict),
   },
 ];

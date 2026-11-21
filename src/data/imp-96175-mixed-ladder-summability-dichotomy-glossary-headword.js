@@ -42,13 +42,13 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96143 cubic/square summability dichotomy
  *   for quick reference. It establishes nothing, instantiates no interval, closes no
- *   sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96143-route-i-mixed-ladder-23-prolate-spectrum-summability (source: the dichotomy this glosses)
  * @see imp-96125-route-i-corr23-continuity-reduction (the corr23 reduction that motivates the dichotomy)
  *
  * Ticket: imp-96175 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The mixed-ladder cubic/square summability dichotomy headword, baked verbatim (no re-import).
@@ -76,7 +76,7 @@ const MIXED_LADDER_DICHOTOMY_HEADWORD = Object.freeze({
     'against fact for the square tail [divergent], both robust to the exact multiplicity ' +
     'constant C (only the norm exponent and m_u = O(u) matter). Cross-checked against the ' +
     'single-prime p = 2 and p = 3 cubic tails (0.603553 / 0.341506) which sum with a cross ' +
-    'term to the mixed value. Changes no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'term to the mixed value. Changes no bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96175_MIXED_LADDER_DICHOTOMY_GLOSSARY_HEADWORD = Object.freeze({
@@ -95,8 +95,8 @@ export const IMP96175_MIXED_LADDER_DICHOTOMY_GLOSSARY_HEADWORD = Object.freeze({
     '1.769529 (C = 2) CONVERGES because it reduces to a product of two convergent ' +
     'geometric series, while the square tail Sum lam^2 = (C/4)*(#S-units) DIVERGES ' +
     'because it just counts the infinite S-unit semigroup. Establishes nothing; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96143 (the cubic/square dichotomy this glosses); imp-96125 (the corr23 ' +
     'reduction that motivates needing the cubic tail).',
@@ -123,11 +123,11 @@ export const IMP96175_MIXED_LADDER_DICHOTOMY_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96175-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96175_MIXED_LADDER_DICHOTOMY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96175_MIXED_LADDER_DICHOTOMY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96175_MIXED_LADDER_DICHOTOMY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96175_MIXED_LADDER_DICHOTOMY_GLOSSARY_HEADWORD.verdict) &&
       IMP96175_MIXED_LADDER_DICHOTOMY_GLOSSARY_HEADWORD.glosses === 'imp-96143',
   },
 ];

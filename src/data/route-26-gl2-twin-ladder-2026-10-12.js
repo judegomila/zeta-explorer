@@ -33,7 +33,7 @@
  *
  * Classical equivalences kept: Weil positivity at every support and ψ_f(x) = O(√x log² x) are equivalent to GRH for L(f,s), as are the 18.2 and
  * 18.4 analogues. No RH-level ladder statement becomes provable for GL(2); route-27 obstructions O1 (infinite rank) and O3 (no Hodge index across
- * rungs) unchanged. No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_26_ASSERTIONS recompute live: c0(k,N) by
+ * rungs) unchanged. No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_26_ASSERTIONS recompute live: c0(k,N) by
  * digamma (signs, thresholds k ≥ 14, N ≥ 126, the k ≥ 36 lemma), Sato–Tate moments 1/4 and 1/8 by quadrature, the twin's off-line offsets, the
  * Ritz thresholds exp(−λ_min), and the certified ≤ Ritz bracketing of every stored pair.
  */
@@ -93,7 +93,7 @@ export const ROUTE_26 = Object.freeze({
     + 'and ψ_f = O(√x log² x) stay classically equivalent to GRH; route-27 obstructions O1 and O3 are unchanged. What becomes provable is '
     + 'conductor-driven (no pole terms, positive bridge delay once c0 > 0, family-uniform small-support positivity above level thresholds, '
     + 'Arb-certified) and Euler-blind (the no-Euler-product twin with numerically located off-line zeros passes the same certificates to log 7). '
-    + 'Internal, one referee pass. No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'Internal, one referee pass. No Λ bound moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_26;
@@ -148,7 +148,7 @@ export const ROUTE_26_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r26-honest-scope',
-    holds: () => R.status === 'done' && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && /Euler-blind/.test(R.verdict)
+    holds: () => R.status === 'done' && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && /Euler-blind/.test(R.verdict)
       && /Weil I/.test(R.verdict) && R.refereeKilled.length === 5 && R.refereeKilled.some((x) => /analogy/.test(x)),
     why: 'Ramanujan attributed per weight (Hasse / Weil I); 18.1 ⇔ GRH kept as analogy; certificates Euler-blind; no Λ change; no QED.',
   },

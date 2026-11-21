@@ -85,7 +85,7 @@
  * 1/8 Holder coefficient) and E_trunc = 3.06e-5 (imp-2631/imp-447) are UNTOUCHED;
  * the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35555-crossover-bracketing-family-sensitivity (the +/- 5% bracket envelope this reconciles against)
  * @see imp-35458-crossover-height-map-sensitivity (the two-map -0.98% surrogate shift, ~18% raw gap)
@@ -247,7 +247,7 @@ export const IMP35616_CROSSOVER_SURROGATE_EFFECTIVE_MULT_RECONCILIATION = {
     'extrapolation, NOT a rigorous asymptotic; the C_C ansatz (imp-2642/imp-2643) and ' +
     'E_trunc = 3.06e-5 (imp-2631/imp-447) are UNTOUCHED; the C_mb GUE-conditional share per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35555 (RvM x {1.02,0.98,1.05,0.95} bracket envelope ~0.50 percent, mean slope 0.05022); ' +
     'imp-35458 (two-map crossover shift -0.98 percent, ~18 percent raw-height gap); imp-35413/imp-35280 ' +
@@ -290,13 +290,13 @@ export const IMP35616_CROSSOVER_SURROGATE_EFFECTIVE_MULT_RECONCILIATION_ASSERTIO
       PREDICTION_REL_ERROR < 2e-3,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35616-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35616_CROSSOVER_SURROGATE_EFFECTIVE_MULT_RECONCILIATION.isRigorous === false &&
       /NO QED/.test(IMP35616_CROSSOVER_SURROGATE_EFFECTIVE_MULT_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP35616_CROSSOVER_SURROGATE_EFFECTIVE_MULT_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP35616_CROSSOVER_SURROGATE_EFFECTIVE_MULT_RECONCILIATION.verdict),
   },
 ];
 

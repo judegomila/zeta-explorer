@@ -107,7 +107,7 @@ export const IMP97666_LADDER = Object.freeze([
 export const IMP97666_HONEST_BANNER =
   'imp-97666: DERIVATION/VERIFICATION ONLY. The imp-97647/imp-97432 tail constant R(d) ~ +1/(720 d^2) is the ' +
   'B_4 Euler-Maclaurin term of Sum k log k (f=x log x, f_ppp=-1/x^2, -B_4/4!=1/720); next term -1/(5040 d^4). ' +
-  'Onset stays omega=11; MCM refuted; no bound moved. PT Lambda <= 0.2 SOTA; RH open. NO QED.';
+  'Onset stays omega=11; MCM refuted; no bound moved. No refereed bound is changed; RH open. NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): recompute; any failure throws --
 
@@ -160,7 +160,7 @@ const IMP97666_ASSERTIONS = [
     id: 'imp97666-honesty-gate-no-qed',
     holds: () =>
       /NO QED/.test(IMP97666_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97666_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97666_HONEST_BANNER) &&
       /RH open/.test(IMP97666_HONEST_BANNER) &&
       /omega=11/.test(IMP97666_HONEST_BANNER) &&
       /no bound moved/.test(IMP97666_HONEST_BANNER),

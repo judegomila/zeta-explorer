@@ -66,7 +66,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate crossover map. The
  * far-tail exponent stays exactly 1/2 (imp-3463); C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; C_C_PINNED unchanged; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34954-surplus-closed-form-vs-landmark-gap-crosscheck (single-point s(N_cross)
  *      = -0.47729; attributed the offset to log T0 slow variation, never measured its
@@ -178,7 +178,7 @@ export const IMP35069_G_CONVERSION_SLOPE_N_LADDER_HALF_APPROACH = {
     'same law imp-34130 found for the sibling separated-E_coll local-exponent residual. Measurement only on the ' +
     'inherited imp-3220/imp-3406 surrogate crossover map; far-tail exponent stays 1/2 (imp-3463); C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; C_C_PINNED unchanged; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34954 (single-point s(N_cross) = -0.47729, offset attributed to log T0 slow variation, N-running ' +
     'unmeasured); imp-34130 (sibling separated-E_coll local-exponent residual to -1/2 decays as ~1/(2 log T0)); ' +
@@ -224,13 +224,13 @@ export const IMP35069_G_CONVERSION_SLOPE_N_LADDER_HALF_APPROACH_ASSERTIONS = [
       TAIL.offset_over_half_logT0 < 1.0,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35069-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35069_G_CONVERSION_SLOPE_N_LADDER_HALF_APPROACH.isRigorous === false &&
       /NO QED/.test(IMP35069_G_CONVERSION_SLOPE_N_LADDER_HALF_APPROACH.verdict) &&
-      /remains SOTA/.test(IMP35069_G_CONVERSION_SLOPE_N_LADDER_HALF_APPROACH.verdict),
+      /refereed bound is changed/i.test(IMP35069_G_CONVERSION_SLOPE_N_LADDER_HALF_APPROACH.verdict),
   },
 ];
 

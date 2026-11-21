@@ -15,7 +15,7 @@
  * IMP96938_ETA_NBIG_T800 and IMP96938_VERDICT exports (no re-derivation of the Ritz eigenvalue or
  * the Gegenbauer Galerkin build). Ritz floor is an UPPER estimate, not a certified lower bound;
  * interval-rigorous certificate reach stays 2a<=0.96; changes no bound; RH open;
- * Platt-Trudgian Lambda<=0.2 remains SOTA. NO QED.
+ * no refereed bound is changed. NO QED.
  *
  * @see imp-96938-krein-drift-calibration-096.js (IMP96938_ETA_NBIG_T800, IMP96938_VERDICT)
  *
@@ -43,7 +43,7 @@ export const IMP96959_MARGIN_CONTRAST = {
 };
 
 export const IMP96959_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every floor and margin value is copied verbatim from the imp-96938 baked IMP96938_ETA_NBIG_T800 table and IMP96938_VERDICT block (no re-derivation of the Ritz eigenvalue or the Gegenbauer Galerkin build); Ritz floor is an UPPER estimate not a certified lower bound; interval-rigorous certificate reach stays 2a<=0.96; no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every floor and margin value is copied verbatim from the imp-96938 baked IMP96938_ETA_NBIG_T800 table and IMP96938_VERDICT block (no re-derivation of the Ritz eigenvalue or the Gegenbauer Galerkin build); Ritz floor is an UPPER estimate not a certified lower bound; interval-rigorous certificate reach stays 2a<=0.96; no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -84,7 +84,7 @@ const IMP96959_ASSERTIONS = [
     id: 'imp96959-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96959_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96959_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96959_HONEST_BANNER) &&
       /NO QED/.test(IMP96959_HONEST_BANNER),
     why: 'every Route A-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

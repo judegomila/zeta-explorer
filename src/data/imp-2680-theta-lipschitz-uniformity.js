@@ -56,8 +56,8 @@
  * moves the nearest flank shifts Theta_eff by an amount that grows because the
  * colliding gap it is divided against shrinks. This retires the imp-2662
  * endpoint route too: the Gronwall divergence was reduced to a smaller named
- * quantity, but that quantity is itself N-unbounded. Platt-Trudgian Lambda <= 0.2
- * remains the rigorous SOTA. This is a diagnostic, not a proof: the constants
+ * quantity, but that quantity is itself N-unbounded. No refereed bound is changed
+ * . This is a diagnostic, not a proof: the constants
  * depend on the single-flank reduced model, but the GROWTH direction is robust
  * because both drivers (min-gap shrinkage, rising level) are independently
  * measured and both act to enlarge C_Theta.
@@ -173,8 +173,8 @@ export const IMP_2680_THETA_LIPSCHITZ = {
     'transport that nudges the nearest flank shifts Theta_eff by an amount divided ' +
     'against a colliding gap that shrinks like 1/sqrt(N). C_Theta is therefore ' +
     'N-UNBOUNDED. This retires the imp-2662 endpoint route alongside the divergent ' +
-    'Gronwall route of imp-2640. NO rigorous beat; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'Gronwall route of imp-2640. NO rigorous beat; no refereed bound is changed' +
+    '.',
   honestCaveat:
     'A diagnostic, not a proof. The absolute C_Theta constants depend on the ' +
     'single-flank reduced model and on the GUE min-gap exponent -1/2; a fuller ' +

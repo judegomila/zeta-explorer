@@ -20,7 +20,7 @@
  *
  *   Ticket: imp-35381 (ux, low). Presentation only of an already-established measurement;
  *   adds no new Lambda bound. C_mb GUE-conditional per imp-486 UNTOUCHED. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 // -- four-rung swap-fraction ladder (baked verbatim from imp-35279 RUNGS) --

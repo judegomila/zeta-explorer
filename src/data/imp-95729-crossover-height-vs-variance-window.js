@@ -60,7 +60,7 @@
  * frontier -- but their overlap AT the crossover height is UNMEASURED (the crossover sits
  * ~3.36 decades above where conservatism is measured), so the bottleneck is the frontier
  * dead zone, not an opposition. Measurement/assessment only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * Import-light: no zeros bundle, no sibling imports. The imp-3444 landmark N-values are
  * baked from that module bisected ladder; the RvM inverse is re-derived inline.
@@ -210,7 +210,7 @@ export const IMP95729_CROSSOVER_HEIGHT_VS_VARIANCE_WINDOW = {
     'GUE-conditional collision term at the frontier -- but their overlap AT the crossover height ' +
     'is UNMEASURED, since the crossover sits ~3.36 decades above where conservatism is measured. ' +
     'The bottleneck this common-scale placement exposes is the frontier dead zone, not an ' +
-    'opposition. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the ' +
+    'opposition. Changes no bound; NO QED; no refereed bound is changed; the ' +
     'zero-side route stays PCC/GRH-gated.',
   citation:
     'imp-3444 (bisected E_coll=E_trunc crossover N ~ 3.28e9); imp-3406/imp-3220/imp-3323 ' +
@@ -249,13 +249,13 @@ export const IMP95729_CROSSOVER_HEIGHT_VS_VARIANCE_WINDOW = {
     throw new Error('imp-95729: reinforce/oppose assessment missing a leg');
   if (!/dead zone/.test(IMP95729_CROSSOVER_HEIGHT_VS_VARIANCE_WINDOW.bottleneck.detail))
     throw new Error('imp-95729: bottleneck does not name the frontier dead zone');
-  // honesty gate: measurement only, no QED, PT stays SOTA.
+  // honesty gate: measurement only, no QED, no refereed bound is changed.
   if (IMP95729_CROSSOVER_HEIGHT_VS_VARIANCE_WINDOW.isRigorous !== false)
     throw new Error('imp-95729: isRigorous must be false');
   if (!/NO QED/.test(IMP95729_CROSSOVER_HEIGHT_VS_VARIANCE_WINDOW.verdict))
     throw new Error('imp-95729: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95729_CROSSOVER_HEIGHT_VS_VARIANCE_WINDOW.verdict))
-    throw new Error('imp-95729: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95729_CROSSOVER_HEIGHT_VS_VARIANCE_WINDOW.verdict))
+    throw new Error('imp-95729: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95729_CROSSOVER_HEIGHT_VS_VARIANCE_WINDOW;

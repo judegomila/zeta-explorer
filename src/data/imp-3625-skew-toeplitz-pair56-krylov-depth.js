@@ -71,7 +71,7 @@
  *   deep-N pair56 loss to a Krylov reorthogonalization limit and shows deeper depth
  *   restores it, leaving sigma_2 unchanged. Does NOT construct the missing magnitude
  *   and does NOT attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH
- *   verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   verdict, NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -166,7 +166,7 @@ export const IMP3625_SKEW_TOEPLITZ_PAIR56_KRYLOV_DEPTH = Object.freeze({
     'm = 440..640 to relative < 2e-14, so the pair56 under-resolution did NOT corrupt the imp-3602 sigma_2 value or its ' +
     'q_2 = -1.9813 exponent: the pair-internal splitting reorthogonalizes away without moving the pair distance from ' +
     'the first pair. Measurement only; does NOT construct the missing magnitude and does NOT attempt the imp-3066 ' +
-    'K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     quantityAssessed: 'third-pair degeneracy pair56 = |sigma_5-sigma_6|/sigma_5 (imp-3602 singular-value convention, sigma_i=sqrt(lambda_i)) at N=2000 vs Lanczos Krylov depth m',
@@ -249,7 +249,7 @@ export const IMP3625_SKEW_TOEPLITZ_PAIR56_KRYLOV_DEPTH = Object.freeze({
       '(m>=480) value is < 2e-14, at the same machine floor as the N<=1200 rungs. The imp-3602 sigma_2 value at N=2000 ' +
       'is unchanged and remains valid.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -292,7 +292,7 @@ export const IMP3625_SKEW_TOEPLITZ_PAIR56_KRYLOV_DEPTH_ASSERTIONS = [
   {
     id: 'imp3625-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- assesses and restores a Krylov limit in a baked degeneracy, positivity ' +
-      'not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3625_SKEW_TOEPLITZ_PAIR56_KRYLOV_DEPTH.honestCaveat;
       return (
@@ -302,7 +302,7 @@ export const IMP3625_SKEW_TOEPLITZ_PAIR56_KRYLOV_DEPTH_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.assessesNotConstructs === 'string' &&
         typeof c.supersedesImp3602Pair56AtN2000 === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

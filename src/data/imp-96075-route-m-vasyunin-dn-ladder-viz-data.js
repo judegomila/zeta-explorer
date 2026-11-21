@@ -23,8 +23,8 @@
  *       between-zero max) are plotted, not a fabricated smooth curve.
  *
  * MEASUREMENT / PRESENTATION ONLY. Changes no bound, establishes no
- * operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. RH open. NO QED.
+ * operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js
  *   (NB_DISTANCE_LADDER.rows, RECIPROCITY_STRUCTURAL_TEST.mellinResidual)
@@ -65,7 +65,7 @@ export const IMP96075_MELLIN_SUMMARY = Object.freeze({
 });
 
 export const IMP96075_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every plotted value is copied verbatim from the rh-route-m-nyman-beurling-vasyunin-reciprocity module’s own NB_DISTANCE_LADDER and RECIPROCITY_STRUCTURAL_TEST.mellinResidual records; no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every plotted value is copied verbatim from the rh-route-m-nyman-beurling-vasyunin-reciprocity module’s own NB_DISTANCE_LADDER and RECIPROCITY_STRUCTURAL_TEST.mellinResidual records; no bound is claimed and no operator positivity is established.';
 
 // imp-96119: honest-status correction. Denser later sampling (imp-96094,
 // N=250..2600; imp-96105, extended to N=6000) found the N=500 ratio=0.998
@@ -120,7 +120,7 @@ const IMP96075_ASSERTIONS = [
       IMP96075_MELLIN_SUMMARY.fracCaptured === m.fracCaptured &&
       Math.abs(IMP96075_MELLIN_SUMMARY.dN2OverBurnol / IMP96075_MELLIN_SUMMARY.oneOverLogN - 1) < 0.003 &&
       /RH open/.test(IMP96075_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96075_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96075_HONEST_BANNER) &&
       /NO QED/.test(IMP96075_HONEST_BANNER) &&
       RH_ROUTE_M.verdict.key === 'M',
     why: 'the mellin summary fields are copied verbatim (dN2/Burnol matches 1/log N to 0.3%, as the source module states) and the honest banner carries the RH-open / PT-Lambda / NO-QED markers required of every Route A-M viz surface.',

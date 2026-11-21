@@ -185,7 +185,7 @@ export default function Imp95266ThetaVsKPhaseCollapseViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a model-family numeric
         illustration, not a new theorem. It changes no Lambda bound and establishes no operator
-        positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not
+        positivity. RH does not
         follow from anything on this page. NO QED.
       </div>
 
@@ -248,8 +248,7 @@ export default function Imp95266ThetaVsKPhaseCollapseViz() {
         the imp-95233 exact BigInt rational integration and binomial identities; the
         depth-saturation gap 1/2 &minus; R_K, not plotted here but recorded in the data
         module, cross-checks the imp-95224 baked literal to 1e-4 relative; measured 3.3e-7). Changes no
-        bound, establishes no operator positivity, no RH claim; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA. NO QED.
+        bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

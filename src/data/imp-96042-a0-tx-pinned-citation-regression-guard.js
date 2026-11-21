@@ -150,7 +150,7 @@ export const A0_TX_PINNED_CITATION_REGRESSION_GUARD = {
     'No NEW clause cites a_0 = -0.176248 or T_x = 8.54e19 as a resolved/pinned value beyond the ' +
     'frozen baseline of pre-imp-96042 conditional-status prose. The imp-95987/imp-96006 ' +
     'no-collapse discipline stays enforced: it cannot silently regress without a red build. ' +
-    'Regression guard only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'Regression guard only; changes no bound; NO QED; no refereed bound is changed.',
 };
 
 export const A0_TX_PINNED_CITATION_REGRESSION_GUARD_ASSERTIONS = [

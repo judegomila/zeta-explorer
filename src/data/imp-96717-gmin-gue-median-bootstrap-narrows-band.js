@@ -1,7 +1,7 @@
 /**
  * imp-96717 -- Narrow the imp-96616/imp-96639 GUE cube-root extreme-gap tracking band with a
  * variance-reduced disjoint-window MEDIAN estimator on the full 2,001,052-zero zeros6 dataset.
- * Measurement only; NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * Measurement only; NO QED. No refereed bound is changed.
  *
  * THE OPEN QUESTION (imp-96639 headword). imp-96616 measured g_min(N)/y_N as a single RUNNING
  * MINIMUM over the first N zeros and reported it tracks the GUE median envelope 0.8582 N^{-1/3}
@@ -142,7 +142,7 @@ export const IMP96717_ASSERTIONS = [
   },
   {
     id: 'imp96717-honesty-gate-no-qed',
-    why: 'Measurement only: no bound moved, no QED, PT SOTA line present.',
+    why: 'Measurement only: no bound moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       /NO QED/.test(GMIN_GUE_MEDIAN_BOOTSTRAP.reading) &&
       GMIN_GUE_MEDIAN_BOOTSTRAP.glosses === 'imp-96616',

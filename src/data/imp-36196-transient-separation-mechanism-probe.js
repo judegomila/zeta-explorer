@@ -68,8 +68,7 @@
  *
  * MEASUREMENT/ASSESSMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no
  * interval; verifies no inequality; changes no bound; establishes no positivity; the C_mb
- * GUE-conditional constant (imp-486) is untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GUE-conditional constant (imp-486) is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36112-compensated-summation-storyline-crossref (records the transient episode as lacking a derived mechanism)
  * @see imp-36178-transient-separation-mechanism (independent derivation: 1-ULP terminal-rounding toggle, no closed form in N)
@@ -82,7 +81,7 @@
  */
 
 // -- Operative constants (import-light; matching imp-36076) ------------------------------
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const U_ROUNDOFF = 2 ** -53; // unit roundoff u (half ulp) ~ 1.11e-16
 
 // Same representative oscillatory term as imp-36076 / imp-36023.
@@ -317,8 +316,8 @@ export const IMP36196_TRANSIENT_SEPARATION_MECHANISM_PROBE = Object.freeze({
     'NON-binding throughout (imp-36076: worst Kahan / u ~ 2%). Certifies no W1 bound; evaluates no true ' +
     'H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; ' +
     'the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); ' +
-    'C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36112 (transient episode flagged as lacking a derived mechanism); imp-36178 (independent ' +
     'derivation: 1-ULP terminal-rounding toggle, no closed form in N); imp-36076 (finer small-N ' +
@@ -356,14 +355,14 @@ export const IMP36196_TRANSIENT_SEPARATION_MECHANISM_PROBE_ASSERTIONS = [
   },
   {
     id: 'imp36196-honesty-gate',
-    description: 'Measurement only; named sub-gap open; no new bound; PT Lambda<=0.2 SOTA; NO QED',
+    description: 'Measurement only; named sub-gap open; no new bound; no refereed bound is changed; NO QED',
     holds: () =>
       IMP36196_TRANSIENT_SEPARATION_MECHANISM_PROBE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /OPEN/.test(IMP36196_TRANSIENT_SEPARATION_MECHANISM_PROBE.namedSubGap) &&
       /GREENFIELD/.test(IMP36196_TRANSIENT_SEPARATION_MECHANISM_PROBE.verdict) &&
       /NO QED/.test(IMP36196_TRANSIENT_SEPARATION_MECHANISM_PROBE.verdict) &&
-      /remains SOTA/.test(IMP36196_TRANSIENT_SEPARATION_MECHANISM_PROBE.verdict),
+      /refereed bound is changed/i.test(IMP36196_TRANSIENT_SEPARATION_MECHANISM_PROBE.verdict),
   },
 ];
 

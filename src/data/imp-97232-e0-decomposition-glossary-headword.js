@@ -26,14 +26,14 @@
  *
  *   STATUS: a documentation-only lookup restating an existing derivation (imp-97202). Establishes
  *   nothing new, instantiates no interval, closes no sub-gap beyond what imp-97202 already closed.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-97202-route-m-arith-first-moment-uniform-remainder.js (source: the derivation this glosses)
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (the 2^omega-dependent bound made uniform)
  * @see imp-97158-route-m-theorem1-remainder-sharpness.js (primes-only saturation measurement)
  *
  * Ticket: imp-97232 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The E0 decomposition + moment-bound headword, baked verbatim (no re-import).
@@ -64,7 +64,7 @@ const E0_DECOMPOSITION_HEADWORD = Object.freeze({
     'Restates an existing exact derivation and a machine-precision-verified decomposition (imp-97202: ' +
     'zero violations over b in [2, 20000], decomposition matches direct E0 to 1e-6 relative on a mixed ' +
     'ladder up to b=2310). Documentation only: establishes nothing new, moves no bound, no rigorous ' +
-    'ceiling posted here; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'ceiling posted here; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97232_E0_DECOMPOSITION_GLOSSARY_HEADWORD = Object.freeze({
@@ -81,7 +81,7 @@ export const IMP97232_E0_DECOMPOSITION_GLOSSARY_HEADWORD = Object.freeze({
     'E0(b) = (1/2) Lambda(b) - (1/2) mu(b) log 2pi + E0_kernel(b) + R(b) and the kernel-moment bound ' +
     '|S_k(b)| <= zeta(k) - 1 <= 3 * 2^{-k} (k >= 2), whose geometric decay defeats the up-to-2^omega(b) ' +
     'term count and yields the uniform kernel constant 11/8. Establishes nothing; instantiates no ' +
-    'interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-97202 (the exact decomposition and moment bound this glosses); imp-97133 (the 2^omega-dependent ' +
     'bound made uniform); imp-97158 (measured primes-only saturation, ratio -> 1/4).',
@@ -109,11 +109,11 @@ export const IMP97232_E0_DECOMPOSITION_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97232-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97232_E0_DECOMPOSITION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97232_E0_DECOMPOSITION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97232_E0_DECOMPOSITION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97232_E0_DECOMPOSITION_GLOSSARY_HEADWORD.verdict) &&
       IMP97232_E0_DECOMPOSITION_GLOSSARY_HEADWORD.glosses === 'imp-97202',
   },
 ];

@@ -16,7 +16,7 @@
  *   Route II remains the pragmatic default unless panel count is the binding constraint.
  *
  *   Ticket: imp-36054 (content, low). Note only; re-reads nothing new; changes no bound;
- *   C_mb GUE-conditional (imp-486) untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   C_mb GUE-conditional (imp-486) untouched; no refereed bound is changed; NO QED.
  *
  *   @see imp-35988-i2-derivative-cap-route-comparison.js (source module this note restates)
  *   @see imp-35832-i2-derivative-bound-from-i1-enclosure-scope (named the two routes, OOM-consistent only)
@@ -91,7 +91,7 @@ export const IMP36054_ROUTE_I_TIGHTER_THAN_ROUTE_II_HONEST_STATUS = Object.freez
     certifiesI2Cap: false,
     changesAnyBound: false,
     reDerivesAnything: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -102,7 +102,7 @@ export const IMP36054_ROUTE_I_TIGHTER_THAN_ROUTE_II_HONEST_STATUS = Object.freez
     'The resulting panel-count cost of the looser Route II is MARGINAL (~2.65% more panels from the ' +
     'frequency floor alone), not an order of magnitude, so Route II remains the pragmatic default ' +
     'unless panel count binds. Restatement only; changes no bound; C_mb GUE-conditional (imp-486) ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
 });
 
 export const IMP36054_ROUTE_I_TIGHTER_THAN_ROUTE_II_HONEST_STATUS_ASSERTIONS = [
@@ -151,11 +151,11 @@ export const IMP36054_ROUTE_I_TIGHTER_THAN_ROUTE_II_HONEST_STATUS_ASSERTIONS = [
       IMP36054_ROUTE_I_TIGHTER_THAN_ROUTE_II_HONEST_STATUS.honestCaveat.certifiesDerivativeBoundB === false &&
       IMP36054_ROUTE_I_TIGHTER_THAN_ROUTE_II_HONEST_STATUS.honestCaveat.certifiesI2Cap === false &&
       IMP36054_ROUTE_I_TIGHTER_THAN_ROUTE_II_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36054_ROUTE_I_TIGHTER_THAN_ROUTE_II_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36054_ROUTE_I_TIGHTER_THAN_ROUTE_II_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36054-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP36054_ROUTE_I_TIGHTER_THAN_ROUTE_II_HONEST_STATUS.verdict),
   },
 ];

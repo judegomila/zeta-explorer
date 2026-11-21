@@ -31,7 +31,7 @@
  *
  *   Ticket: imp-36111 (content, sonnet-4-6, low). Note only; changes no bound; C_C
  *   GUE-conditional (imp-2642 / imp-2643 / imp-486) untouched; imp-35337a stays OPEN;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  * @see imp-35853-req4-required-height-continuous-sigma-knee (the two knee locators; sigma_max peak)
  * @see imp-35889-e-share-decomposition-at-knees (three-way split at the two knees; balance crossover)
@@ -134,14 +134,14 @@ export const IMP36111_E_SHARE_TAIL_STORYLINE_CROSSREF = Object.freeze({
     'flips from E_coll to E_trunc. Every one of these facts is a MEASUREMENT on the same imp-3406/imp-33582 ' +
     'surrogate; none derives a new remainder, discharges any obligation, or changes any bound. C_C = ' +
     '(1/8) sqrt(3 pi) (imp-2642/imp-2643) and C_mb GUE-conditional (imp-486) stay UNTOUCHED; imp-35337a ' +
-    'stays OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'stays OPEN; NO QED. No refereed bound is changed.',
 
   honestCaveat: Object.freeze({
     isProof: false,
     changesAnyBound: false,
     dischargesAnyObligation: false,
     portsAnyRoute: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -150,7 +150,7 @@ export const IMP36111_E_SHARE_TAIL_STORYLINE_CROSSREF = Object.freeze({
     '(imp-35889), and the three imp-36046 tail landmarks: five successive samples of one monotonically ' +
     'decaying shareColl arm past the N ~ 9.22e5 peak, running from collision-dominated (shareColl ~ 0.783) ' +
     'down to E_trunc standing essentially alone (shareColl ~ 0.0099) at the imp-35971 sole-survivor height. ' +
-    'Changes no bound; imp-35337a stays OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'Changes no bound; imp-35337a stays OPEN; NO QED. No refereed bound is changed.',
 });
 
 export const IMP36111_E_SHARE_TAIL_STORYLINE_CROSSREF_ASSERTIONS = [
@@ -210,14 +210,14 @@ export const IMP36111_E_SHARE_TAIL_STORYLINE_CROSSREF_ASSERTIONS = [
       IMP36111_E_SHARE_TAIL_STORYLINE_CROSSREF.honestCaveat.dischargesAnyObligation === false &&
       IMP36111_E_SHARE_TAIL_STORYLINE_CROSSREF.honestCaveat.portsAnyRoute === false &&
       IMP36111_E_SHARE_TAIL_STORYLINE_CROSSREF.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36111_E_SHARE_TAIL_STORYLINE_CROSSREF.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36111_E_SHARE_TAIL_STORYLINE_CROSSREF.honestCaveat.sota),
   },
   {
     id: 'imp36111-verdict-no-qed',
-    why: 'The verdict must record NO QED and the Platt-Trudgian SOTA floor, matching every source module.',
+    why: 'The verdict must record NO QED and the no-refereed-bound-change floor, matching every source module.',
     holds: () =>
       /NO QED/.test(IMP36111_E_SHARE_TAIL_STORYLINE_CROSSREF.verdict) &&
-      /remains SOTA/.test(IMP36111_E_SHARE_TAIL_STORYLINE_CROSSREF.verdict),
+      /refereed bound is changed/i.test(IMP36111_E_SHARE_TAIL_STORYLINE_CROSSREF.verdict),
   },
 ];
 

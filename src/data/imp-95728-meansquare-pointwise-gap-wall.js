@@ -60,7 +60,7 @@
  * O(1-2)-zero object (variance ratio ~0.4, band [0.35, 0.48]) whose NORMALISED size is
  * scale-invariant and whose closure requires arithmetic (explicit-formula) input beyond
  * the mean-square envelope. Assembly/assessment only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * Import-light: no zeros bundle, no sibling imports. Only the imp-95562 measured
  * literals (six sd(C - E), the aggregate mean/worst-excess columns) are baked; the
@@ -156,7 +156,7 @@ export const IMP95728_MEANSQUARE_POINTWISE_GAP_WALL = {
       'the envelope gives the AVERAGE behaviour; worst-window / uniform-in-T control needs the TAIL of the local-count distribution, an arithmetic property delivered by the explicit formula (the prime sum), not by the second-moment (mean-square) statistic. Closing the gap therefore requires arithmetic input the mean-square envelope cannot supply -- the defining feature of a wall',
   },
   verdict:
-    'ASSEMBLED as a first-class measured object: the mean-square-vs-pointwise gap (imp-95534 wall (i)) is the factor by which the GUE/mean-square envelope Sigma^2(L) over-estimates the true pointwise fluctuation of the local zero count C about L = 2 Delta delta(T). MEASURED on actual zeta zeros (imp-95562/imp-95710): the envelope is calibrated on average (|mean(C - E)| < 0.04 zeros), the pointwise variance is ~40% of the GUE asymptote (mean ratio 0.40, band [0.35, 0.48], NO trend toward GUE), and the gap is ADDITIVE not multiplicative -- the worst-window excess stays O(1-2) zeros while L grows, so the relative worst excess decays like 1/L (2.18e-2 -> 1.79e-3 across T = 1e4..5e5), the worst window ~2.5-3.3 sigma above the envelope. It is a SCALE-INVARIANT WALL because (a) F(alpha) is structurally a second moment that bounds the average not the sup, so no height converts it into a uniform pointwise bound, and (b) the normalised pointwise fluctuation (ratio ~0.4) does not decay with height; closing it needs the tail of the local-count distribution -- arithmetic (explicit-formula) input the mean-square envelope cannot supply. The imp-95709 floor-alias pinning (uniform over p <= 97) leaves it untouched. Assembly/assessment only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'ASSEMBLED as a first-class measured object: the mean-square-vs-pointwise gap (imp-95534 wall (i)) is the factor by which the GUE/mean-square envelope Sigma^2(L) over-estimates the true pointwise fluctuation of the local zero count C about L = 2 Delta delta(T). MEASURED on actual zeta zeros (imp-95562/imp-95710): the envelope is calibrated on average (|mean(C - E)| < 0.04 zeros), the pointwise variance is ~40% of the GUE asymptote (mean ratio 0.40, band [0.35, 0.48], NO trend toward GUE), and the gap is ADDITIVE not multiplicative -- the worst-window excess stays O(1-2) zeros while L grows, so the relative worst excess decays like 1/L (2.18e-2 -> 1.79e-3 across T = 1e4..5e5), the worst window ~2.5-3.3 sigma above the envelope. It is a SCALE-INVARIANT WALL because (a) F(alpha) is structurally a second moment that bounds the average not the sup, so no height converts it into a uniform pointwise bound, and (b) the normalised pointwise fluctuation (ratio ~0.4) does not decay with height; closing it needs the tail of the local-count distribution -- arithmetic (explicit-formula) input the mean-square envelope cannot supply. The imp-95709 floor-alias pinning (uniform over p <= 97) leaves it untouched. Assembly/assessment only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -184,8 +184,8 @@ export const IMP95728_MEANSQUARE_POINTWISE_GAP_WALL = {
   // honesty gate: assembly/measurement, not a bound change
   if (!/NO QED/.test(IMP95728_MEANSQUARE_POINTWISE_GAP_WALL.verdict))
     throw new Error('imp-95728: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95728_MEANSQUARE_POINTWISE_GAP_WALL.verdict))
-    throw new Error('imp-95728: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95728_MEANSQUARE_POINTWISE_GAP_WALL.verdict))
+    throw new Error('imp-95728: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95728_MEANSQUARE_POINTWISE_GAP_WALL;

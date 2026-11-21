@@ -52,7 +52,7 @@
  * inherited imp-3220/imp-3406 surrogate crossover map across N, NOT a rigorous asymptotic and NOT an RH
  * bound. C_C = (1/8) sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per
  * imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34714-krawczyk-existence-uniqueness-lemma (the lemma; rho ~ delta/U at the single N = 1e9)
  * @see imp-34726-krawczyk-outward-ulp-slack (outward-ULP slack of the N = 1e9 certificate; sub-gap imp-34714a)
@@ -174,7 +174,7 @@ export const IMP34732_KRAWCZYK_RHO_SWEEP_N = {
     'imp-3220/imp-3406 surrogate crossover map; SUB-GAP imp-34714a REMAINS OPEN (double-precision ' +
     'surrogate, not a machine certificate). The C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes ' +
-    'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34714 (Krawczyk existence-uniqueness lemma; rho ~ delta/U at the single N = 1e9); ' +
     'imp-34726 (outward-ULP slack of the N = 1e9 certificate; sub-gap imp-34714a); ' +
@@ -210,15 +210,15 @@ export const IMP34732_KRAWCZYK_RHO_SWEEP_N_ASSERTIONS = [
     holds: () => RHO_1E9 > 1.0e-5 && RHO_1E9 < 1.2e-5,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34732-honesty-gate-no-qed',
-    description: 'Sweep measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Sweep measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34732_KRAWCZYK_RHO_SWEEP_N.isRigorous === false &&
       /imp-34714a/.test(IMP34732_KRAWCZYK_RHO_SWEEP_N.subGap) &&
       /REMAINS OPEN/.test(IMP34732_KRAWCZYK_RHO_SWEEP_N.subGap) &&
       /NO QED/.test(IMP34732_KRAWCZYK_RHO_SWEEP_N.verdict) &&
-      /remains SOTA/.test(IMP34732_KRAWCZYK_RHO_SWEEP_N.verdict),
+      /refereed bound is changed/i.test(IMP34732_KRAWCZYK_RHO_SWEEP_N.verdict),
   },
 ];
 

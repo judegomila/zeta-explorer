@@ -82,7 +82,7 @@
  * It discharges NOTHING: imp-35111a / imp-35174a / imp-34997a stay OPEN as re-pointed imp-35243a. MEASUREMENT /
  * ASSESSMENT ONLY; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no
- * bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35174-reentry-band-precision-certification (discharged the ARITHMETIC half; re-pointed imp-35174a)
  * @see imp-35111-off-by-one-reentry-band-width (parent: band width/exit on double; named sub-gap imp-35111a)
@@ -270,7 +270,7 @@ export const IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT = {
     'ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/' +
     'imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail ' +
     'exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35174 (discharged the arithmetic half; re-pointed imp-35174a); imp-35111 (parent: band width/exit on ' +
     'double; sub-gap imp-35111a); imp-34997 (locates the 10^27.08 reentry; sub-gap imp-34997a); imp-34862 (two-' +
@@ -338,14 +338,14 @@ export const IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT_ASSERTIONS = [
       /BINDING/.test(FIDELITY_CERTIFICATE_REQUIREMENTS[3].status),
   },
   {
-    // Honesty gate: assessment only, discharges nothing, no QED, PT SOTA, sub-gap stays OPEN and named.
+    // Honesty gate: assessment only, discharges nothing, no QED, no refereed bound is changed, sub-gap stays OPEN and named.
     id: 'imp35243-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, band NOT established in true dynamic, no QED, PT SOTA, sub-gap named',
+    description: 'Assessment only: isRigorous false, band NOT established in true dynamic, no QED, no refereed bound is changed, sub-gap named',
     holds: () =>
       IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.isRigorous === false &&
       /NOT ESTABLISHED/.test(IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.band_is_real_in_true_dynamic) &&
       /NO QED/.test(IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.verdict) &&
       /imp-35111a/.test(IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.residual_sub_gap_imp_35243a) &&
       /imp-35243a/.test(IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.residual_sub_gap_imp_35243a),
   },

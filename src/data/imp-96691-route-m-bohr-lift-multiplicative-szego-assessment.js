@@ -71,14 +71,14 @@
  *   A structural assessment (route evaluation) plus one soft rigorous upper bound
  *   restated from imp-96443/imp-96428. It instantiates no interval, closes no
  *   Lambda sub-gap, moves no bound, establishes no operator positivity. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open.
+ *   No refereed bound is changed. RH open.
  *
  * @see imp-96603-vasyunin-gram-multiplicative-not-toeplitz-glossary-headword.js (additive-Szego obstruction this extends to the multiplicative torus)
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (measured lam_max ladder; I(1,1) = 1.2606614015078126, trace = I(1,1) H_N)
  * @see imp-96562-route-m-lammax-offdiagonal-szego-assessment.js (the additive assessment this parallels)
  *
  * Ticket: imp-96691 (proof, opus-4-8, api-pool). Assessment only; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // Diagonal numerator I(1,1) = 2C = log(2 pi) - gamma (imp-96443, full precision).
@@ -141,7 +141,7 @@ export const IMP96691_BOHR_LIFT_MULTIPLICATIVE_SZEGO_ASSESSMENT = Object.freeze(
     'carries the zeta pole (unbounded, so no Helson edge constant) and the isometry ' +
     'is not a spectral-edge theorem. Honest PARTIAL with named sub-gap ' +
     'imp-96691-multiplicative-szego-edge-constant-unavailable. Moves no bound; ' +
-    'establishes nothing; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes nothing; NO QED. No refereed bound is changed.',
   citation:
     'imp-96603 (additive-Szego obstruction extended here to the multiplicative ' +
     'torus); imp-96443 (measured lam_max ladder, I(1,1) = 1.2606614015078126, ' +
@@ -171,13 +171,13 @@ export const IMP96691_BOHR_LIFT_MULTIPLICATIVE_SZEGO_ASSESSMENT_ASSERTIONS = [
   {
     id: 'imp96691-honesty-gate-no-qed',
     why: 'Assessment only: no bound moved, honest partial with a named sub-gap, ' +
-      'PT SOTA line present, no coefficient claimed as derived.',
+      'no-refereed-bound-change line present, no coefficient claimed as derived.',
     holds: () => {
       const a = IMP96691_BOHR_LIFT_MULTIPLICATIVE_SZEGO_ASSESSMENT;
       return (
         a.anyBoundMoved === false &&
         /NO QED/.test(a.verdict) &&
-        /remains SOTA/.test(a.verdict) &&
+        /refereed bound is changed/i.test(a.verdict) &&
         a.rigorousPartial.isRigorous === true &&
         /multiplicative-szego-edge-constant-unavailable/.test(a.subGap.key)
       );

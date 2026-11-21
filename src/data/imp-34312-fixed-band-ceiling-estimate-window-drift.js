@@ -59,7 +59,7 @@
  * findings it reuses are untouched). The component model is the inherited imp-3220/imp-3406 extrapolation, NOT
  * a rigorous asymptotic; the OLS surrogate and the bounded-ceiling fit are descriptive, not derived; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34233-fixed-band-peak-combined-grid-ceiling-contest (the combined-grid AIC contest; the two anchor
  *   ceilings a ~ 1.95178 and a ~ 2.06041 whose drift this sweep tracks; machinery reused verbatim)
@@ -290,7 +290,7 @@ export const IMP34312_FIXED_BAND_CEILING_ESTIMATE_WINDOW_DRIFT = {
     'are untouched. The OLS surrogate and the bounded-ceiling fit are descriptive, not derived; the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34233 (the combined-grid AIC contest and the two anchor ceilings a ~ 1.95178 / 2.06041 whose drift ' +
     'this tracks; machinery reused verbatim); imp-34109 (the kEnd = 14..20 grid and the a ~ 1.95178 anchor); ' +
@@ -350,16 +350,16 @@ export const IMP34312_FIXED_BAND_CEILING_ESTIMATE_WINDOW_DRIFT_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement only, ceiling not converged, isRigorous false, imp-34233 / imp-34109 /
-    // imp-34169 untouched, no QED, PT SOTA, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched.
+    // imp-34169 untouched, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched.
     id: 'imp34312-honesty-gate-no-qed',
-    description: 'Measurement only: ceilingNotConverged, isRigorous false, imp-34233/imp-34109/imp-34169 untouched, no QED, PT SOTA, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched',
+    description: 'Measurement only: ceilingNotConverged, isRigorous false, imp-34233/imp-34109/imp-34169 untouched, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched',
     holds: () =>
       IMP34312_FIXED_BAND_CEILING_ESTIMATE_WINDOW_DRIFT.ceilingNotConverged === true &&
       IMP34312_FIXED_BAND_CEILING_ESTIMATE_WINDOW_DRIFT.isRigorous === false &&
       /NOT a rigorous asymptotic/.test(IMP34312_FIXED_BAND_CEILING_ESTIMATE_WINDOW_DRIFT.verdict) &&
       /are untouched/.test(IMP34312_FIXED_BAND_CEILING_ESTIMATE_WINDOW_DRIFT.verdict) &&
       /NO QED/.test(IMP34312_FIXED_BAND_CEILING_ESTIMATE_WINDOW_DRIFT.verdict) &&
-      /remains SOTA/.test(IMP34312_FIXED_BAND_CEILING_ESTIMATE_WINDOW_DRIFT.verdict) &&
+      /refereed bound is changed/i.test(IMP34312_FIXED_BAND_CEILING_ESTIMATE_WINDOW_DRIFT.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34312_FIXED_BAND_CEILING_ESTIMATE_WINDOW_DRIFT.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34312_FIXED_BAND_CEILING_ESTIMATE_WINDOW_DRIFT.verdict),
   },

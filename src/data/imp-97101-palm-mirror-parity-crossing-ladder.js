@@ -53,7 +53,7 @@
  * NO Euler product, and no finite-height count supplies a uniform-in-t, all-x
  * lower bound (residual (c) of the source module, the NS-RIGID wall). A larger
  * ln N is a taller lattice, not a proof the topmost zero at y0 receives that pull
- * uniformly. No Lambda bound follows. PT Lambda <= 0.2 remains SOTA. RH open.
+ * uniformly. No Lambda bound follows. No refereed bound is changed. RH open.
  * NO QED.
  *
  * @see imp-97080-palm-mirror-baseline-vs-preq-measurement.js (two-height anchor)
@@ -160,7 +160,7 @@ export const IMP97101_LADDER = Object.freeze({
     'effect. Neutral rigid-lattice / t = 0-proxy measurement only: the hypothesis ' +
     'concerns zeros of H_t (t > 0, no Euler product) uniformly in t and x, which no ' +
     'finite count supplies (residual (c) / NS-RIGID wall). No Lambda bound follows. ' +
-    'PT Lambda <= 0.2 remains SOTA. RH open. NO QED.',
+    'No refereed bound is changed. RH open. NO QED.',
   hypothesisHolds: false,
   anyBoundMoved: false,
 });
@@ -211,13 +211,13 @@ export const IMP97101_LADDER_ASSERTIONS = [
   {
     id: 'imp97101-honesty-gate-no-qed',
     why: 'neutral rigid-lattice measurement only: no bound moved, no Euler product ' +
-      'for t > 0, PT SOTA line and NO QED present.',
+      'for t > 0, no-refereed-bound-change line and NO QED present.',
     holds: () =>
       IMP97101_LADDER.anyBoundMoved === false &&
       IMP97101_LADDER.hypothesisHolds === false &&
       /no Euler product/i.test(IMP97101_LADDER.verdict) &&
       /No Lambda bound/.test(IMP97101_LADDER.verdict) &&
-      /remains SOTA/.test(IMP97101_LADDER.verdict) &&
+      /refereed bound is changed/i.test(IMP97101_LADDER.verdict) &&
       /NO QED/.test(IMP97101_LADDER.verdict) &&
       /RH open/.test(IMP97101_LADDER.verdict),
   },

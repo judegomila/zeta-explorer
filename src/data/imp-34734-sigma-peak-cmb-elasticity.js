@@ -62,7 +62,7 @@
  * NOT discharge the GUE conditional (imp-486): it treats C_mb as a free knob to measure its
  * leverage, it does not tighten C_mb. Changes no bound; establishes no operator positivity;
  * imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (F1: interior max N_max ~ 9.22e5, sigma_max ~ 0.94943)
  * @see imp-3220-en-bridge-fidelity-frontier (U-shaped sigma(N) decade ladder)
@@ -217,7 +217,7 @@ export const IMP34734_SIGMA_PEAK_CMB_ELASTICITY = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; this does NOT discharge the GUE ' +
     'conditional (imp-486) -- it treats C_mb as a free knob to measure leverage; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'CLOSES the C_mb-leverage question the E(N) bridge frontier opens at the imp-3406 peak: the ' +
     'peak location is C_mb-invariant and the height responds linearly at ~0.048/unit C_mb, so a ' +
@@ -280,15 +280,15 @@ export const IMP34734_SIGMA_PEAK_CMB_ELASTICITY_ASSERTIONS = [
       CMB_HALF < 0.1,
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2, no QED, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2, no QED, no refereed bound is changed.
     id: 'imp34734-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34734_SIGMA_PEAK_CMB_ELASTICITY.isRigorous === false &&
       IMP34734_SIGMA_PEAK_CMB_ELASTICITY.farTailExponent === 0.5 &&
       typeof IMP34734_SIGMA_PEAK_CMB_ELASTICITY.subGap === 'string' &&
       /NO QED/.test(IMP34734_SIGMA_PEAK_CMB_ELASTICITY.verdict) &&
-      /remains SOTA/.test(IMP34734_SIGMA_PEAK_CMB_ELASTICITY.verdict),
+      /refereed bound is changed/i.test(IMP34734_SIGMA_PEAK_CMB_ELASTICITY.verdict),
   },
 ];
 

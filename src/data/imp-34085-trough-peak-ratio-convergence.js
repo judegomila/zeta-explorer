@@ -61,7 +61,7 @@
  * imp-33843 log-linear verdict is untouched; R^2 stays > 0.99). The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate is descriptive, not
  * derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34022-argmin-argmax-migration-symmetry (the |trough|/|peak| ~0.63 near-constancy tested here)
  * @see imp-33877-widening-fit-tail-endpoint-artifact-test (BASE/EXT115/EXT12 reuse gate; model replicated)
@@ -291,7 +291,7 @@ export const IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE = {
     '(R^2 stays > 0.99). The OLS surrogate is descriptive, not derived; the component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34022 (the |trough|/|peak| ~0.63 near-constancy tested here); imp-33877 (BASE/EXT115/EXT12 reuse ' +
     'gate; model replicated); imp-33843 (the log-linear OLS re-run on the extended ladder); imp-33810 ' +
@@ -366,15 +366,15 @@ export const IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE_ASSERTIONS = [
       IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE.argminSequence.map((s) => s.k).join(',') === '9,9.25,9.5,9.5,9.75',
   },
   {
-    // Honesty gate: convergence refuted, isRigorous false, form verdict untouched (R^2 > 0.99), no QED, PT SOTA.
+    // Honesty gate: convergence refuted, isRigorous false, form verdict untouched (R^2 > 0.99), no QED, no refereed bound is changed.
     id: 'imp34085-honesty-gate-no-qed',
-    description: 'Measurement only: ratioConverges false, isRigorous false, R^2 > 0.99, no QED, PT SOTA',
+    description: 'Measurement only: ratioConverges false, isRigorous false, R^2 > 0.99, no QED, no refereed bound is changed',
     holds: () =>
       IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE.ratioConverges === false &&
       IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE.isRigorous === false &&
       IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE.r2Sequence.every((r) => r > 0.99) &&
       /NO QED/.test(IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE.verdict) &&
-      /remains SOTA/.test(IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE.verdict) &&
+      /refereed bound is changed/i.test(IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE.verdict),
   },
 ];

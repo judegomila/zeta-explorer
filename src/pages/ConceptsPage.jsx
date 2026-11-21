@@ -113,8 +113,8 @@ export default function ConceptsPage() {
         </section>
 
         <p style={{ marginTop: 30, fontSize: 13.5, color: 'var(--ink-faint)' }}>
-          Status: Λ ≤ 0.2 (Platt–Trudgian 2021) is the accepted peer-reviewed bound. Project values below 0.2
-          are computer-assisted, unreviewed and unpublished, or conditional. The Riemann Hypothesis is open.
+          Status: project values below 0.2
+          are computer-assisted and not refereed, or conditional. The Riemann Hypothesis is open.
           Engine notes (imp-NNNN entries) are in the <Link to="/wiki">glossary</Link>, not here.
         </p>
         <p style={{ marginTop: 14 }}>

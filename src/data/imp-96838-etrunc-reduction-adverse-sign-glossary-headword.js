@@ -35,14 +35,14 @@
  *   E_coll (imp-486), not by the floor.
  *
  *   STATUS: a glossary restatement of the imp-96794 verdict, not a new
- *   measurement. NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   measurement. NO QED. No refereed bound is changed.
  *
  * @see imp-96794-etrunc-reduction-peak-share-leverage.js (source: signed leverage + structural limit)
  * @see imp-3406-sigma-highN-extrapolation (interior max N_max ~ 9.22e5, sigma_max ~ 0.9494)
  * @see imp-486 (C_mb GUE-conditional; the binding share this floor cannot shrink)
  *
  * Ticket: imp-96838 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 const ETRUNC_REDUCTION_ADVERSE_SIGN_HEADWORD = Object.freeze({
@@ -74,7 +74,7 @@ const ETRUNC_REDUCTION_ADVERSE_SIGN_HEADWORD = Object.freeze({
     '(five assertions: base-peak reproduction, adverse sign, monotonicity, bounded ' +
     'magnitude, zero-floor limit); no new computation. Changes no bound, ' +
     'establishes no operator positivity, and leaves C_mb GUE-conditional (imp-486). ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96838_ETRUNC_REDUCTION_ADVERSE_SIGN_GLOSSARY_HEADWORD = Object.freeze({
@@ -96,7 +96,7 @@ export const IMP96838_ETRUNC_REDUCTION_ADVERSE_SIGN_GLOSSARY_HEADWORD = Object.f
     'only caps and places the turnover -- the ~0.95 peak share is carried by E_coll, ' +
     'not the floor. Restates the imp-96794 verdict; changes no bound and does not ' +
     'touch C_mb GUE-conditional status (imp-486). Establishes nothing; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96794 (signed leverage -0.019, structural zero-floor limit); imp-3406 ' +
     '(interior max N_max ~ 9.22e5, sigma_max ~ 0.9494); imp-486 (C_mb GUE-conditional).',
@@ -122,11 +122,11 @@ export const IMP96838_ETRUNC_REDUCTION_ADVERSE_SIGN_GLOSSARY_HEADWORD_ASSERTIONS
   },
   {
     id: 'imp96838-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96838_ETRUNC_REDUCTION_ADVERSE_SIGN_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96838_ETRUNC_REDUCTION_ADVERSE_SIGN_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96838_ETRUNC_REDUCTION_ADVERSE_SIGN_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96838_ETRUNC_REDUCTION_ADVERSE_SIGN_GLOSSARY_HEADWORD.verdict) &&
       IMP96838_ETRUNC_REDUCTION_ADVERSE_SIGN_GLOSSARY_HEADWORD.glosses === 'imp-96794',
   },
 ];

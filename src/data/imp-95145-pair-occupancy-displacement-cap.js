@@ -130,7 +130,7 @@
  * second doubling buys nothing; proving it would collapse PO onto DP
  * at 0.23208). (d) Model family, not the paper Section 4.5 packets.
  * (e) Changes no bound; does NOT promote Lambda <= 0.14; NO QED on the
- * parent; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * parent; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD (in-run refutations preserved).
  * (1) The plain nested-AY cover WITHOUT Lemma MC stalls at 2325/10000
@@ -718,7 +718,7 @@ export const IMP95145_PAIR_OCCUPANCY_DISPLACEMENT_CAP = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM PO is unconditional given the carried THEOREM FP/DP machinery: Lemma EP folding is an algebraic identity (verified on 3000 seeded multi-doubled draws to < 1e-9 relative), Lemma AY2 is sound by nonnegative separability over the carried Lemma AY (60000-draw battery, zero violations), Lemma MC is an elementary monotone bound with the arc-restricted s (120000-draw battery, zero violations), the 10-D cover is deterministic bisection with Collatz-Wielandt at arbitrary positive vectors and ZERO unresolved cells (positive caps at the mu-cell lower corner, intra floors at the upper corner - the imp-95144 sign convention), Lemma RM-PO closes the ray mu >= 9/10 penalty-free (no intra floor used, so no rate trap), Lemma OD2 folds odd parity in at 2mu inside the covered interval, and the tail constants are explicit (TR weight 12, TAILSLACK absorbs the doubled tail columns). Every approximation inflates caps - the certificate can fail spuriously but cannot certify spuriously. Scope: parity-pure model family, ONE COMMON RATE, AT MOST TWO PACKETS PER BLOCK; k >= 3 packets in a block and free rates are named sub-gaps, not covered; the constant 47/200 is weaker than the DP constant and the gap [2901/12500, 47/200) for >= 2 doubled blocks is a recorded certification gap; the class sandwich [0.2320723, 0.24502] is carried unchanged; float landmarks (pair-occupancy root 0.23207238946117456, DW family root 0.23207238781359468) are measured only; imp-95140-subgap-displacement-credit and parent imp-95130-subgap-phi-conditional-odd-mass stay OPEN; floors and ceilings of the Lambda program untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED on the parent; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM PO is unconditional given the carried THEOREM FP/DP machinery: Lemma EP folding is an algebraic identity (verified on 3000 seeded multi-doubled draws to < 1e-9 relative), Lemma AY2 is sound by nonnegative separability over the carried Lemma AY (60000-draw battery, zero violations), Lemma MC is an elementary monotone bound with the arc-restricted s (120000-draw battery, zero violations), the 10-D cover is deterministic bisection with Collatz-Wielandt at arbitrary positive vectors and ZERO unresolved cells (positive caps at the mu-cell lower corner, intra floors at the upper corner - the imp-95144 sign convention), Lemma RM-PO closes the ray mu >= 9/10 penalty-free (no intra floor used, so no rate trap), Lemma OD2 folds odd parity in at 2mu inside the covered interval, and the tail constants are explicit (TR weight 12, TAILSLACK absorbs the doubled tail columns). Every approximation inflates caps - the certificate can fail spuriously but cannot certify spuriously. Scope: parity-pure model family, ONE COMMON RATE, AT MOST TWO PACKETS PER BLOCK; k >= 3 packets in a block and free rates are named sub-gaps, not covered; the constant 47/200 is weaker than the DP constant and the gap [2901/12500, 47/200) for >= 2 doubled blocks is a recorded certification gap; the class sandwich [0.2320723, 0.24502] is carried unchanged; float landmarks (pair-occupancy root 0.23207238946117456, DW family root 0.23207238781359468) are measured only; imp-95140-subgap-displacement-credit and parent imp-95130-subgap-phi-conditional-odd-mass stay OPEN; floors and ceilings of the Lambda program untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED on the parent; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -811,11 +811,11 @@ export const IMP95145_PAIR_OCCUPANCY_DISPLACEMENT_CAP_ASSERTIONS = [
   {
     id: "imp95145-honesty-gate",
     description:
-      "the verdict is scoped: COMMON RATE only, at most two packets per block, constant weaker than DP recorded, certification gap named, class sandwich carried unchanged, k >= 3 and free-rate sub-gaps OPEN, float landmarks measured only; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: COMMON RATE only, at most two packets per block, constant weaker than DP recorded, certification gap named, class sandwich carried unchanged, k >= 3 and free-rate sub-gaps OPEN, float landmarks measured only; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95145_PAIR_OCCUPANCY_DISPLACEMENT_CAP.promotesBound === false &&
       /NO QED/.test(IMP95145_PAIR_OCCUPANCY_DISPLACEMENT_CAP.rigorScope) &&
-      /remains SOTA/.test(IMP95145_PAIR_OCCUPANCY_DISPLACEMENT_CAP.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95145_PAIR_OCCUPANCY_DISPLACEMENT_CAP.rigorScope) &&
       /ONE COMMON RATE/.test(IMP95145_PAIR_OCCUPANCY_DISPLACEMENT_CAP.rigorScope) &&
       /weaker than the DP constant/.test(IMP95145_PAIR_OCCUPANCY_DISPLACEMENT_CAP.rigorScope) &&
       /measured only/.test(IMP95145_PAIR_OCCUPANCY_DISPLACEMENT_CAP.rigorScope) &&

@@ -14,8 +14,8 @@
  *   on a point.
  *
  *   Ticket: imp-35983 (content, low). Note only; re-reads nothing new; changes no bound;
- *   C_mb GUE-conditional (imp-486) untouched; imp-35337a stays OPEN; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA; NO QED.
+ *   C_mb GUE-conditional (imp-486) untouched; imp-35337a stays OPEN; no refereed bound is changed
+ *   ; NO QED.
  *
  *   @see imp-35891-flattest-point-vs-sigmoid-knee-crosslocation.js (source module this note restates)
  *   @see imp-35853-req4-required-height-continuous-sigma-knee.js (flattest-point locator, sigma ~ 0.407)
@@ -69,7 +69,7 @@ export const IMP35983_FLATTEST_VS_INFLECTION_KNEES_DISTINCT_HONEST_STATUS = Obje
     isOneHeightTwoNames: false,
     changesAnyBound: false,
     reDerivesAnything: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -78,7 +78,7 @@ export const IMP35983_FLATTEST_VS_INFLECTION_KNEES_DISTINCT_HONEST_STATUS = Obje
     'are DISTINCT, off by ~1 decade -- NOT one height under two names -- yet ADJACENT, jointly ' +
     'bracketing the shared [1e9,1e11] downslope window. Cross-validation/measurement only; ' +
     'changes no bound; C_mb GUE-conditional (imp-486) untouched; imp-35337a stays OPEN; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
 });
 
 export const IMP35983_FLATTEST_VS_INFLECTION_KNEES_DISTINCT_HONEST_STATUS_ASSERTIONS = [
@@ -129,11 +129,11 @@ export const IMP35983_FLATTEST_VS_INFLECTION_KNEES_DISTINCT_HONEST_STATUS_ASSERT
       IMP35983_FLATTEST_VS_INFLECTION_KNEES_DISTINCT_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP35983_FLATTEST_VS_INFLECTION_KNEES_DISTINCT_HONEST_STATUS.honestCaveat.isOneHeightTwoNames === false &&
       IMP35983_FLATTEST_VS_INFLECTION_KNEES_DISTINCT_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP35983_FLATTEST_VS_INFLECTION_KNEES_DISTINCT_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP35983_FLATTEST_VS_INFLECTION_KNEES_DISTINCT_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp35983-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP35983_FLATTEST_VS_INFLECTION_KNEES_DISTINCT_HONEST_STATUS.verdict),
   },
 ];

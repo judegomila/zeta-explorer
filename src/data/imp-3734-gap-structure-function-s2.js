@@ -53,8 +53,8 @@
  * anti-correlation at r = 1 and a decorrelation plateau at 2*var; it clears REQ-i but attaches no
  * flow depth and so FAILS REQ-ii, confirming the imp-3714 K3 near-miss classification empirically.
  * Diagnostic measurement only; no construction shipped, no positivity, no bridge closure, no RH claim,
- * NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA. G6a_shock_lipschitz stays OPEN.
+ * NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed
+ * . G6a_shock_lipschitz stays OPEN.
  *
  * @see imp-3714-g6a-modulus-object-requirements (K3 = this equal-time structure function, near-miss)
  * @see imp-3693-microscopic-xdiff-route-scoping (REQ-i: per-gap field g_k is the right-TYPE object)
@@ -144,7 +144,7 @@ export const IMP3734_GAP_STRUCTURE_FUNCTION_S2 = {
     'exp(-2 s / y^2). It LOCATES the two-point scale but supplies no s(y): right TYPE, no adapted DEPTH, ' +
     'so it FAILS REQ-ii -- confirming the imp-3714 K3 near-miss empirically. Diagnostic measurement only; ' +
     'no construction, no positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal ' +
-    'endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.',
   citation:
     'imp-3714 (K3 = equal-time two-point gap structure function, classified near-miss: clears REQ-i, ' +
     'fails REQ-ii); imp-3693 (REQ-i, per-gap field g_k is the right-type object); imp-3708 (REQ-ii, ' +
@@ -181,16 +181,16 @@ export const IMP3734_GAP_STRUCTURE_FUNCTION_S2_ASSERTIONS = [
       Math.abs(PLATEAU_UNFOLDED / FIELD.twoVarUnfolded - 1) < 1e-2,
   },
   {
-    // Honesty gate: clears REQ-i, fails REQ-ii, no QED, imp-3066 untouched, PT stays SOTA, G6a open.
+    // Honesty gate: clears REQ-i, fails REQ-ii, no QED, imp-3066 untouched, no refereed bound is changed, G6a open.
     id: 'imp3734-honesty-gate-clears-reqI-fails-reqII',
-    description: 'Diagnostic only: S_2 clears REQ-i, fails REQ-ii; no QED, imp-3066 untouched, PT SOTA, G6a open',
+    description: 'Diagnostic only: S_2 clears REQ-i, fails REQ-ii; no QED, imp-3066 untouched, no refereed bound is changed, G6a open',
     holds: () =>
       IMP3734_GAP_STRUCTURE_FUNCTION_S2.clearsReqI === true &&
       IMP3734_GAP_STRUCTURE_FUNCTION_S2.failsReqII === true &&
       IMP3734_GAP_STRUCTURE_FUNCTION_S2.isRigorous === false &&
       IMP3734_GAP_STRUCTURE_FUNCTION_S2.g6aStillOpen === true &&
       /NO QED/.test(IMP3734_GAP_STRUCTURE_FUNCTION_S2.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3734_GAP_STRUCTURE_FUNCTION_S2.verdict) &&
+      /refereed bound is changed/i.test(IMP3734_GAP_STRUCTURE_FUNCTION_S2.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3734_GAP_STRUCTURE_FUNCTION_S2.verdict),
   },
 ];

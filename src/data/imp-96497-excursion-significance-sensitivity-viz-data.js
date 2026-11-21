@@ -17,7 +17,7 @@
  * operator positivity. The ~1.9-sigma figure is a lower bound on a single fixed-data-ceiling
  * dip (T = 1.5e5, dip window fully interior to the existing 10^6-ordinate set) -- reaching
  * 2-sigma needs a DEEPER excursion from new interior data, not more verified-zero height.
- * RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays
+ * RH open; NO QED; no refereed bound is changed; the zero-side route stays
  * PCC/GRH-gated.
  *
  * @see imp-96452-excursion-confidence-2sigma-reach.js (source of every literal plotted here)
@@ -67,7 +67,7 @@ export const IMP96497_TWO_SIGMA_GAP = Object.freeze({
 });
 
 export const IMP96497_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every n_w/z-score/window-gap '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every n_w/z-score/window-gap '
   + 'value is copied verbatim from the imp-96452 baked reach record; only the bar layout is computed '
   + 'here (no re-derivation). The naive ~1.9-sigma is a lower bound on a single fixed-data-ceiling dip '
   + '(T = 1.5e5, window fully interior to the existing 10^6-ordinate set); reaching 2-sigma needs a '

@@ -48,8 +48,7 @@
  * VERDICT: SCOPING ONLY, G6a STAYS OPEN. The obligation set is enumerated; the a-fortiori 2/3 margin
  * stays a finite-ladder observation, not an N-uniform bound. Nothing is discharged, no bound changes,
  * no operator positivity. G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal endpoint-Hankel
- * K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2
- * remains the rigorous SOTA.
+ * K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed.
  *
  * @see imp-35076-h3-a-fortiori-discharges-h4-numerical-verification (the finite-ladder 2/3 margin this scopes)
  * @see imp-33766-h4-independent-discharge-scoping (H3 dominates H4 a fortiori through the shared fold)
@@ -200,7 +199,7 @@ export const IMP35152_N_UNIFORM_FOLD_MODULUS_BACK_CONVERSION_SCOPING = {
     'stays a finite-ladder observation, not an N-uniform bound; nothing is discharged, no bound changes, ' +
     'no operator positivity. The open catalogue stays four rows (H0, H3, H4, H5). Scoping only; ' +
     'G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb ' +
-    'remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'remains GUE-conditional (imp-486); NO QED. No refereed bound is changed.',
   citation:
     'imp-35076-h3-a-fortiori-discharges-h4-numerical-verification (finite-ladder 2/3 margin); ' +
     'imp-33766-h4-independent-discharge-scoping (H3 dominates H4 a fortiori through the shared fold); ' +
@@ -236,16 +235,16 @@ export const IMP35152_N_UNIFORM_FOLD_MODULUS_BACK_CONVERSION_ASSERTIONS = [
       LADDER_TO_UNIFORM_GAPS.every((g) => OBLIGATIONS.some((o) => g.closedBy === o.id)),
   },
   {
-    // Honesty gate: scoping only; nothing discharged, G6a OPEN, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: scoping only; nothing discharged, G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35152-honesty-gate-no-qed',
     description:
-      'Scoping only: nothing discharged, open catalogue unchanged, G6a OPEN, no QED, PT SOTA, imp-3066 untouched',
+      'Scoping only: nothing discharged, open catalogue unchanged, G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35152_N_UNIFORM_FOLD_MODULUS_BACK_CONVERSION_SCOPING.isRigorous === false &&
       OPEN_ROWS_BEFORE.join(',') === OPEN_ROWS_AFTER.join(',') &&
       /NO QED/.test(IMP35152_N_UNIFORM_FOLD_MODULUS_BACK_CONVERSION_SCOPING.verdict) &&
       /G6a_shock_lipschitz stays OPEN/.test(IMP35152_N_UNIFORM_FOLD_MODULUS_BACK_CONVERSION_SCOPING.verdict) &&
-      /rigorous SOTA/.test(IMP35152_N_UNIFORM_FOLD_MODULUS_BACK_CONVERSION_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP35152_N_UNIFORM_FOLD_MODULUS_BACK_CONVERSION_SCOPING.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35152_N_UNIFORM_FOLD_MODULUS_BACK_CONVERSION_SCOPING.verdict,
       ),

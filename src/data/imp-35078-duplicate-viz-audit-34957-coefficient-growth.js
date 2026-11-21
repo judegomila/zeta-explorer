@@ -74,7 +74,7 @@ export const IMP35078_DUPLICATE_VIZ_AUDIT = {
     'built from the verbatim imp-34957 recurrence -- already exists in the imp-34986 viz page ' +
     '(route /viz-imp34986-crossover-numerator-polynomial-ladder). No new page created; a second ' +
     'near-identical page would only duplicate imp-34986. AUDIT-ONLY: no route change, no bound ' +
-    'change, no operator positivity, no RH verdict, NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'change, no operator positivity, no RH verdict, NO QED. No refereed bound is changed.',
   honest:
     'This module documents that imp-35078 is already satisfied by the pre-existing imp-34986 page ' +
     'so the routing/scouting layer can be corrected rather than the codebase gaining a duplicate ' +
@@ -94,11 +94,11 @@ export const IMP35078_DUPLICATE_VIZ_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-35078-audit-only-honest',
-    description: 'explicitly a duplicate-request audit, no new page built, PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly a duplicate-request audit, no new page built, no refereed bound is changed',
     holds: () =>
       /DUPLICATE REQUEST/.test(IMP35078_DUPLICATE_VIZ_AUDIT.verdict) &&
       /No new page created/.test(IMP35078_DUPLICATE_VIZ_AUDIT.verdict) &&
-      /Lambda<=0.2 remains SOTA/.test(IMP35078_DUPLICATE_VIZ_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35078_DUPLICATE_VIZ_AUDIT.verdict),
   },
 ];
 

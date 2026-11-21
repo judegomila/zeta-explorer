@@ -65,7 +65,7 @@
  * count m(n) plausibly grows, steepening past N^3), so the build hours understate.
  *
  * FEASIBILITY/COST ESTIMATE ONLY. Changes no bound, establishes no operator
- * positivity, makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity, makes no RH claim; no refereed bound is changed.
  * RH open. NO QED.
  *
  * @see imp-96487-route-m-burnol-ratio-asymptotic-remainder-model.js (the degeneracy this prices)
@@ -172,7 +172,7 @@ export const IMP96504_SUBGAP = Object.freeze({
 });
 
 export const IMP96504_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Feasibility/cost estimate only: every value is a reproducible numeric from tmp/imp-96504-scratch.mjs over the baked imp-96487 ladder, the imp-96352 cost model and the imp-96428 conditioning ceiling; no new solve, no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Feasibility/cost estimate only: every value is a reproducible numeric from tmp/imp-96504-scratch.mjs over the baked imp-96487 ladder, the imp-96352 cost model and the imp-96428 conditioning ceiling; no new solve, no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -229,7 +229,7 @@ const IMP96504_ASSERTIONS = [
     id: 'imp96504-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96504_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96504_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96504_HONEST_BANNER) &&
       /NO QED/.test(IMP96504_HONEST_BANNER) &&
       typeof IMP96504_SUBGAP.statement === 'string' &&
       /central case/.test(IMP96504_SUBGAP.statement),

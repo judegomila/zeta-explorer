@@ -10,8 +10,7 @@
  * FINITE-STRIP DERIVATION / SCOPING ONLY. Certifies no asymptotic modulus; constructs no rigorous
  * curvature bound; ports no Riemann-Hilbert fold inversion; does NOT re-attempt the RH-hard backward-flow
  * Gronwall route (imp-2640 NEGATIVE); discharges no gap; G6a_shock_lipschitz stays OPEN; C_H stays
- * symbolic ASYMPTOTICALLY; respects the imp-2519 no-overclaim guard; NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * symbolic ASYMPTOTICALLY; respects the imp-2519 no-overclaim guard; NO QED. No refereed bound is changed.
  *
  * WHAT C6 SUPPLIES AND WHAT C_H NEEDS
  * -----------------------------------------------------------------------------
@@ -97,7 +96,7 @@
  */
 
 // -- Anchor + operative constants (import-light; matching imp-354 / imp-341 / imp-36172) --------------
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this derivation
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this derivation
 const TWO_PI = 2 * Math.PI;
 const C_SELBERG = 3.0; // imp-341 Selberg constant
 const C1_IMP341 = Math.PI * C_SELBERG; // Koksma-Hlawka constant C1 = pi C_Selberg ~ 9.4248
@@ -286,8 +285,8 @@ export const IMP36217_FINITE_STRIP_HOLDER_CONSTANT_C6_GAP_FLOOR = {
     'DERIVATION / SCOPING ONLY: certifies no asymptotic modulus; constructs no rigorous curvature bound; ' +
     'ports no Riemann-Hilbert fold inversion; does NOT re-attempt the RH-hard Gronwall route; discharges ' +
     'no gap; G6a_shock_lipschitz stays OPEN; C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) ' +
-    'untouched; changes no bound; respects the imp-2519 no-overclaim guard; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'untouched; changes no bound; respects the imp-2519 no-overclaim guard; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36172 (finite-N surrogate requirements S1-S5; S2 certified finite-height curvature GREENFIELD, ' +
     'S4 finite-strip fold inversion); imp-354 / lambda-burgers-shock-lipschitz (C_H = sqrt(2 / ' +
@@ -371,9 +370,9 @@ export const IMP36217_FINITE_STRIP_HOLDER_CONSTANT_C6_GAP_FLOOR_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: derivation only; G6a open; C_H symbolic asymptotically; exponent 1/2; no QED; PT SOTA.
+    // Honesty gate: derivation only; G6a open; C_H symbolic asymptotically; exponent 1/2; no QED; no refereed bound is changed.
     id: 'imp36217-honesty-gate-no-qed',
-    description: 'finite-strip derivation only; G6a_shock_lipschitz stays OPEN; C_H symbolic asymptotically; no QED; PT SOTA',
+    description: 'finite-strip derivation only; G6a_shock_lipschitz stays OPEN; C_H symbolic asymptotically; no QED; no refereed bound is changed',
     holds: () =>
       IMP36217_FINITE_STRIP_HOLDER_CONSTANT_C6_GAP_FLOOR.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -381,7 +380,7 @@ export const IMP36217_FINITE_STRIP_HOLDER_CONSTANT_C6_GAP_FLOOR_ASSERTIONS = [
       /G6a_shock_lipschitz stays OPEN/.test(IMP36217_FINITE_STRIP_HOLDER_CONSTANT_C6_GAP_FLOOR.verdict) &&
       /C_H\(X\) stays symbolic|asymptotically C_H\s*stays symbolic/.test(IMP36217_FINITE_STRIP_HOLDER_CONSTANT_C6_GAP_FLOOR.verdict) &&
       /NO QED/.test(IMP36217_FINITE_STRIP_HOLDER_CONSTANT_C6_GAP_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP36217_FINITE_STRIP_HOLDER_CONSTANT_C6_GAP_FLOOR.verdict),
+      /refereed bound is changed/i.test(IMP36217_FINITE_STRIP_HOLDER_CONSTANT_C6_GAP_FLOOR.verdict),
   },
 ];
 

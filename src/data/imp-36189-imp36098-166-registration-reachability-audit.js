@@ -26,7 +26,7 @@
  * heavy-bundle imports found anywhere in the swept set (zero "zeros-to-1e6" matches).
  *
  * Audit + one-orphan fix; changes no bound; establishes no operator positivity; no RH
- * verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-36109-imp3603x46x61x62x-registration-reachability-audit.js (prior sweep, stops at imp-36077)
  * @see imp-36169-imp3606x82x95x96x97x-registration-reachability-audit.js (pending successor, stops at imp-36097)
@@ -105,7 +105,7 @@ export const IMP36189_IMP36098_166_REGISTRATION_REACHABILITY_AUDIT = {
     'import grep for all 37 imp-36098..imp-36166 cohort files. Result: one orphan found ' +
     '(imp-36125) and fixed via a direct DATA_MODULES entry; zero heavy-bundle imports. ' +
     'Changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36109/imp-35982/imp-35905 (registration/reachability + import-light guard audit ' +
     'method); imp-36169 (pending successor this audit picks up after); imp-36126 (prior ' +

@@ -38,7 +38,7 @@
  *   this jitter partially explains)
  *
  * Ticket: imp-97767 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The cap-metric jitter headword, baked verbatim (no re-import).
@@ -67,7 +67,7 @@ const CAP_METRIC_JITTER_HEADWORD = Object.freeze({
     'Re-cited from the imp-97736 derivation module (src/data/imp-97736-mcm-cap-jitter-dps36.js), ' +
     'with the 0.03..4.6 oscillation range and the 2847849 -> 2182639 cap shift checked verbatim. ' +
     'Naming / glossary headword only; supplies no new bound; MCM stays refuted from omega=11; RH ' +
-    'open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97767_CAP_METRIC_JITTER_GLOSSARY_HEADWORD = Object.freeze({
@@ -85,7 +85,7 @@ export const IMP97767_CAP_METRIC_JITTER_GLOSSARY_HEADWORD = Object.freeze({
     'imp-97724 trustworthy-cap latch is jitter-limited (rel oscillates 0.03..4.6 near the ' +
     'crossing; a 6.25e-17 Glaisher-constant change moves the dps=30 SNR=1 cap ~30 percent), which ' +
     'accounts for most of the 0.240-vs-0.215 SNR-threshold exponent gap. No bound moved; MCM stays ' +
-    'refuted from omega=11; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'refuted from omega=11; NO QED. No refereed bound is changed.',
   citation:
     'imp-97736 (the cap-jitter measurement this glosses); imp-97724 (the SNR-threshold exponent ' +
     'gap this jitter partially explains).',
@@ -112,11 +112,11 @@ export const IMP97767_CAP_METRIC_JITTER_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97767-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97736.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97736.',
     holds: () =>
       IMP97767_CAP_METRIC_JITTER_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97767_CAP_METRIC_JITTER_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97767_CAP_METRIC_JITTER_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97767_CAP_METRIC_JITTER_GLOSSARY_HEADWORD.verdict) &&
       IMP97767_CAP_METRIC_JITTER_GLOSSARY_HEADWORD.glosses === 'imp-97736',
   },
 ];

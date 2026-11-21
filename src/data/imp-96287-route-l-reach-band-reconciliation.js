@@ -43,7 +43,7 @@
  * lower endpoint ~1e14 stays ~14 orders beyond feasibility, so the reconciliation
  * changes nothing operationally: Route L is a fixed-cost, verified-height-dominated
  * detector, NOT a lever, at every point in the band. Derivation on baked literals
- * only; changes NO bound; RH open; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * only; changes NO bound; RH open; no refereed bound is changed; NO QED.
  *
  * Reproduce: tmp/imp-96287-band.mjs (pure JS log-log LSQ + prediction variance).
  *
@@ -114,6 +114,6 @@ export const IMP96287_VERDICT =
   + '1-sigma envelope [1.18e14, 4.87e16]; even the 1-sigma floor ~1e14 is ~14 orders beyond '
   + 'feasibility, so Route L stays a fixed-cost, verified-height-dominated detector, NOT a '
   + 'lever, across the whole band. Derivation on baked literals only; changes no bound; RH '
-  + 'open; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.';
+  + 'open; no refereed bound is changed; NO QED.';
 
 export const IMP96287_SCRIPTS = Object.freeze(['tmp/imp-96287-band.mjs']);

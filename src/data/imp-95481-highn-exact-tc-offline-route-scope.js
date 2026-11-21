@@ -9,8 +9,8 @@
  *   wall-clock bracket, a checkpoint/parallel plan, and a re-pointing analysis of
  *   how an exact t_c(2458) would move the Path C lever-arm rung. ASSESSMENT ONLY:
  *   it derives NO bound, closes NO leg, fires NO certificate, imports no data
- *   table, and asserts NO exact t_c value. R_A stays OPEN; Platt-Trudgian
- *   Lambda <= 0.2 stays SOTA. NO QED.
+ *   table, and asserts NO exact t_c value. R_A stays OPEN; no refereed bound is changed
+ *   . NO QED.
  *
  *   WHY float64 CANNOT DO IT (the wall the residual names)
  *   -----------------------------------------------------
@@ -227,8 +227,8 @@ export const HIGHN_EXACT_TC_OFFLINE_ROUTE_SCOPE = {
 
   honest:
     'Costed plan only. No exact t_c(2458) is asserted, no certificate fires, no data ' +
-    'table is imported, and no bound is moved. R_A remains OPEN and Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA. NO QED.',
+    'table is imported, and no bound is moved. R_A remains OPEN and no refereed bound is changed' +
+    '. NO QED.',
 
   sources: [
     'src/data/imp-2563-pathc-exact-tc-ladder.js (residual + imp-2605 reduction + imp-2626 ceiling)',

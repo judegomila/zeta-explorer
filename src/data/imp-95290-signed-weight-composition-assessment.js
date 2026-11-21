@@ -77,8 +77,7 @@
  * weight-priced bound is known. The count leg (SGN-C, SGN-NP) stays terminal
  * in count currency; the depth-only leg stays dead (imp-95224 DC-NOGO).
  * Sub-gap imp-95212-subgap-fresnel-airy-envelope-port STILL OPEN; obligation
- * (2) weight leg OPEN; no Lambda bound changes; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * (2) weight leg OPEN; no Lambda bound changes; NO QED; no refereed bound is changed.
  *
  * NUMERICAL RELIABILITY. All probes use shallow, well-separated,
  * well-conditioned octave-spread configs (one rate per octave, ratio 2, far
@@ -171,7 +170,7 @@ export const IMP95290_SIGNED_WEIGHT_COMPOSITION_ASSESSMENT = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. Obligation (2) currency ledger: depth leg DEAD (imp-95224 DC-NOGO); COUNT leg TERMINAL (imp-95225 SGN-C, imp-95226 SGN-NP); WEIGHT leg OPEN -- this module confirms neither SGN-C nor W composes across octaves and pins the obstruction to the composition rule; the tapered-split weight-discounted per-factor bound (imp-95133 surviving open freedom) is unchanged and OPEN; modulus/phase leg OPEN.",
   verdict:
-    "ASSESSMENT (no bound derived): the signed WEIGHT port cannot be reached by composing the SGN-C count certificate or the octave-Szasz weight W across octaves. Both reduce to an isolated-block multiplicative composition that UNDERSHOOTS the signed operator constant even when the per-octave factor is EXACT (one rate per octave, SGN-EQ), and the deficit COMPOUNDS with octave count (2.999 -> 4.998 -> 6.426 at 2/3/4 octaves) -- so the obstruction is the composition RULE (long-range cross-octave Gram mass), not per-octave pricing looseness. The surviving lever remains a tapered inner-function split whose per-factor sup-norm is discounted by the octave weight (imp-95133); no such weight-priced bound is known. Sub-gap STILL OPEN; obligation (2) weight leg OPEN; count leg unchanged and terminal; no Lambda bound changes; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT (no bound derived): the signed WEIGHT port cannot be reached by composing the SGN-C count certificate or the octave-Szasz weight W across octaves. Both reduce to an isolated-block multiplicative composition that UNDERSHOOTS the signed operator constant even when the per-octave factor is EXACT (one rate per octave, SGN-EQ), and the deficit COMPOUNDS with octave count (2.999 -> 4.998 -> 6.426 at 2/3/4 octaves) -- so the obstruction is the composition RULE (long-range cross-octave Gram mass), not per-octave pricing looseness. The surviving lever remains a tapered inner-function split whose per-factor sup-norm is discounted by the octave weight (imp-95133); no such weight-priced bound is known. Sub-gap STILL OPEN; obligation (2) weight leg OPEN; count leg unchanged and terminal; no Lambda bound changes; NO QED; no refereed bound is changed.",
   constants: {
     octaveProductPinned: OCTAVE_PRODUCT_PINNED,
     sqrtLambda2Oct: SQRT_LAMBDA_2OCT,
@@ -225,7 +224,7 @@ export const IMP95290_SIGNED_WEIGHT_COMPOSITION_ASSERTIONS = [
   {
     id: "imp95290-verdict-honesty",
     description:
-      "the verdict carries the honest scope: no bound derived, both routes fail to compose, the defect is the composition rule, the tapered-split lever is unchanged and open, sub-gap STILL OPEN, count leg terminal and unchanged, no QED, SOTA preserved",
+      "the verdict carries the honest scope: no bound derived, both routes fail to compose, the defect is the composition rule, the tapered-split lever is unchanged and open, sub-gap STILL OPEN, count leg terminal and unchanged, no QED, no refereed bound is changed",
     holds: () =>
       /no bound derived/.test(
         IMP95290_SIGNED_WEIGHT_COMPOSITION_ASSESSMENT.verdict,
@@ -241,7 +240,7 @@ export const IMP95290_SIGNED_WEIGHT_COMPOSITION_ASSERTIONS = [
         IMP95290_SIGNED_WEIGHT_COMPOSITION_ASSESSMENT.subGap,
       ) &&
       /NO QED/.test(IMP95290_SIGNED_WEIGHT_COMPOSITION_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP95290_SIGNED_WEIGHT_COMPOSITION_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP95290_SIGNED_WEIGHT_COMPOSITION_ASSESSMENT.verdict),
   },
 ];
 

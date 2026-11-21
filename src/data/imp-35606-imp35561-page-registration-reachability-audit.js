@@ -32,7 +32,7 @@
  * SCOPE. Read-only audit. No source file required correction -- the imp-35569 gap this ticket
  * follows up on was about page CONTENT (missing an arm-asymmetry note, since fixed by imp-35603),
  * not registration. Changes no bound; establishes no operator positivity; no RH verdict; NO QED.
- * Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35569-sigma-peak-page-honest-status-audit (named this page as the only sigma-peak page)
  * @see imp-35545-imp354xx-registration-reachability-audit (the registration/reachability method this ticket repeats)
@@ -73,7 +73,7 @@ export const IMP35606_IMP35561_PAGE_REGISTRATION_REACHABILITY_AUDIT = {
     'route wiring, visualizations-index.js registry wiring, and VisualizationsIndexPage.jsx ' +
     'rendering for Imp35561PeakHeightMapSensitivityViz.jsx. Result: fully registered and ' +
     'nav-reachable; no source file required correction. Changes no bound; establishes no operator ' +
-    'positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35569 (named this page as the only sigma-peak height-map page, prompting this ' +
     'registration check); imp-35545/imp-35484 (prior audits establishing the method).',
@@ -116,11 +116,11 @@ export const IMP35606_IMP35561_PAGE_REGISTRATION_REACHABILITY_AUDIT_ASSERTIONS =
   },
   {
     id: 'imp35606-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35606_IMP35561_PAGE_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35606_IMP35561_PAGE_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35606_IMP35561_PAGE_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35606_IMP35561_PAGE_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

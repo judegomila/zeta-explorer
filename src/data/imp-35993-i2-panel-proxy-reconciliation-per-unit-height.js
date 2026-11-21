@@ -19,7 +19,7 @@
  *
  * ASSESSMENT / MEASUREMENT ONLY. Certifies no cap; instantiates no interval
  * enclosure; counts no zeros; changes no bound; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * WHY THE TWO ARE NOT ONE-TO-ONE COMPARABLE (the dimensional gap)
  * -----------------------------------------------------------------------------
@@ -85,8 +85,7 @@
  * bound on a certificate, since a certified cap needs an interval UPPER bound on
  * the LOCAL rate). This module reconciles the two OOM proxies; it instantiates no
  * interval enclosure, certifies no cap, counts no zeros, fixes no Delta or h,
- * changes no bound; I2 stays GREENFIELD. NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * changes no bound; I2 stays GREENFIELD. NO QED. No refereed bound is changed.
  *
  * @see imp-35757-i2-panel-width-count-scope (route A: smooth Riemann-Siegel mean rate ~13.45, ~4.28 panels/unit height)
  * @see imp-35951-i2-i3-sizing-from-imp33923-sampled-proxy (route B: |s|=3/2 rad/rad-theta, flagged the not-comparable gap)
@@ -98,7 +97,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35757 / imp-35951) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this reconciliation
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this reconciliation
 const HALF_TURN = Math.PI; // the I2 cap threshold: |Delta arg f| < pi per panel
 
 // Route A (imp-35757): smooth along-line Riemann-Siegel mean winding rate.
@@ -200,7 +199,7 @@ export const IMP35993_I2_PANEL_PROXY_RECONCILIATION_PER_UNIT_HEIGHT = {
     'height footprint. BOTH remain PROXIES on the off-axis model cusp, NOT the true H_t = A + B - C on dR, and ' +
     'route A is the SMOOTH mean rate (a certificate needs an interval UPPER bound on the LOCAL rate). Instantiates ' +
     'no interval enclosure; certifies no cap; counts no zeros; fixes no Delta or h; changes no bound; I2 stays ' +
-    'GREENFIELD; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GREENFIELD; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35757 (I2 sized from the smooth Riemann-Siegel mean rate ~13.45, ~4.28 panels/unit height); imp-35951 ' +
     '(I2/I3 sized from the held imp-33923 slope |s|=3/2, flagged the not-one-to-one-comparable gap); imp-33923 ' +
@@ -258,9 +257,9 @@ export const IMP35993_I2_PANEL_PROXY_RECONCILIATION_PER_UNIT_HEIGHT_ASSERTIONS =
       Math.abs(residualAt(3e13) - 4 / 3) < 1e-12,
   },
   {
-    // Honesty gate: assessment only, both proxies on the model cusp, mean-gap-specific, no certification, PT SOTA.
+    // Honesty gate: assessment only, both proxies on the model cusp, mean-gap-specific, no certification, no refereed bound is changed.
     id: 'imp35993-honesty-gate-no-qed',
-    description: 'Assessment only; PROXIES on the model cusp; 4/3 exact only under the mean-gap closure; certifies no cap; I2 GREENFIELD; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Assessment only; PROXIES on the model cusp; 4/3 exact only under the mean-gap closure; certifies no cap; I2 GREENFIELD; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35993_I2_PANEL_PROXY_RECONCILIATION_PER_UNIT_HEIGHT.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -270,7 +269,7 @@ export const IMP35993_I2_PANEL_PROXY_RECONCILIATION_PER_UNIT_HEIGHT_ASSERTIONS =
       /certifies no cap/.test(IMP35993_I2_PANEL_PROXY_RECONCILIATION_PER_UNIT_HEIGHT.verdict) &&
       /I2 stays\s+GREENFIELD/.test(IMP35993_I2_PANEL_PROXY_RECONCILIATION_PER_UNIT_HEIGHT.verdict) &&
       /NO QED/.test(IMP35993_I2_PANEL_PROXY_RECONCILIATION_PER_UNIT_HEIGHT.verdict) &&
-      /remains SOTA/.test(IMP35993_I2_PANEL_PROXY_RECONCILIATION_PER_UNIT_HEIGHT.verdict),
+      /refereed bound is changed/i.test(IMP35993_I2_PANEL_PROXY_RECONCILIATION_PER_UNIT_HEIGHT.verdict),
   },
 ];
 

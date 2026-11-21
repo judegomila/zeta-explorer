@@ -55,8 +55,7 @@
  * the bridge factor. It lives entirely in the microscopic front regime that never reaches E(N).
  *
  * ASSESSMENT / DERIVATION ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3671-mesoscopic-v0-vs-g6a-shock-lipschitz-assessment (the k~8.76 half-floor scale table this assesses)
  * @see imp-3661-sigma-crossover-tc-density-corrected-pin (the density-corrected E(N) bridge flow factor)
@@ -162,8 +161,8 @@ export const IMP3691_HALF_FLOOR_SCALE_VS_EN_BRIDGE_ASSESSMENT = {
     'regime (deep k, y -> 0) is a DIFFERENT, Gronwall-vacuous scale from the mesoscopic reading that ' +
     'feeds E(N), and the k ~ 8.76 half-floor is the first landmark of that descent, past the mean ' +
     'spacing. Assessment/derivation only; no positivity, no bridge closure, no RH claim, NO QED. ' +
-    'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3671 (scale-separation table: floor(k) = exp(-k^2 E_meso), E_meso = 0.009041, half-floor at ' +
     'k ~ 8.76, y ~ 0.457 d); imp-3661 (density-corrected E(N) bridge flow factor 1.0000917, ~19.3% of ' +
@@ -214,13 +213,13 @@ export const IMP3691_HALF_FLOOR_SCALE_VS_EN_BRIDGE_ASSESSMENT_ASSERTIONS = [
       IMP3691_HALF_FLOOR_SCALE_VS_EN_BRIDGE_ASSESSMENT.halfFloorBelowMeanSpacing === true,
   },
   {
-    // Honesty gate: assessment/derivation only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: assessment/derivation only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3691-honesty-gate-no-qed',
-    description: 'Assessment/derivation only: no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Assessment/derivation only: no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3691_HALF_FLOOR_SCALE_VS_EN_BRIDGE_ASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP3691_HALF_FLOOR_SCALE_VS_EN_BRIDGE_ASSESSMENT.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3691_HALF_FLOOR_SCALE_VS_EN_BRIDGE_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP3691_HALF_FLOOR_SCALE_VS_EN_BRIDGE_ASSESSMENT.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3691_HALF_FLOOR_SCALE_VS_EN_BRIDGE_ASSESSMENT.verdict),
   },
 ];

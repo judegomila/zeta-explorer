@@ -68,7 +68,7 @@
  *   simple-zero structure is a numerical/structural observation, not a derivation; the
  *   C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
  *   operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34550-recovered-pole-ladder-two-tighter-rungs.js (E1: 1/leak-OLS pole 21.280579, residual 3.688e-4)
  *   @see imp-34310-eflow-over-resid-pole-residue-simple-pole.js (E2: resid_exp zero k* = 21.28095)
@@ -161,7 +161,7 @@ export const IMP34564_TWO_POLE_ESTIMATE_RECONCILIATION = {
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the resid_exp simple-zero structure is a numerical/structural observation, not a derivation; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed.',
 };
 
 export const IMP34564_TWO_POLE_ESTIMATE_RECONCILIATION_ASSERTIONS = [
@@ -203,13 +203,13 @@ export const IMP34564_TWO_POLE_ESTIMATE_RECONCILIATION_ASSERTIONS = [
       IMP34564_GAP_OVER_DP_FLOOR > 1000,
   },
   {
-    // Honesty gate: measurement / cross-validation only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: measurement / cross-validation only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp-34564-honesty-gate-no-qed',
-    description: 'measurement/cross-validation only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'measurement/cross-validation only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34564_TWO_POLE_ESTIMATE_RECONCILIATION.isRigorous === false &&
       /NO QED/.test(IMP34564_TWO_POLE_ESTIMATE_RECONCILIATION.honest) &&
-      /remains SOTA/.test(IMP34564_TWO_POLE_ESTIMATE_RECONCILIATION.honest) &&
+      /refereed bound is changed/i.test(IMP34564_TWO_POLE_ESTIMATE_RECONCILIATION.honest) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34564_TWO_POLE_ESTIMATE_RECONCILIATION.honest),
   },
 ];

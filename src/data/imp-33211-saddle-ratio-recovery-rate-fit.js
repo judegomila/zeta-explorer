@@ -65,8 +65,8 @@
  *   order-4/(n ln n) tail, NOT a certified limit -- a sub-unity floor is not
  *   rigorously excluded. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The
  *   operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step,
- *   imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2
- *   remains the rigorous SOTA. Tail values are grid-CONVERGENCE stable to ~5e-7
+ *   imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed
+ *   . Tail values are grid-CONVERGENCE stable to ~5e-7
  *   (inner 4800 vs 7200 over n in [624,1424], max ~4.95e-7 near the support edge),
  *   NOT certified error bounds; the finite NPHI = 10 truncation is the residual
  *   floor. imp-3869 / imp-3849 / imp-3735 assertions are LEFT INTACT: this is a
@@ -404,7 +404,7 @@ export const IMP33211_SADDLE_RATIO_RECOVERY_RATE_FIT = Object.freeze({
       'near the A(tau) support edge). The finite NPHI = 10 kernel truncation remains the residual floor. NOT certified ' +
       'error bounds.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -491,7 +491,7 @@ export const IMP33211_SADDLE_RATIO_RECOVERY_RATE_FIT_ASSERTIONS = [
     id: 'imp33211-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement/fit only, reaches-1 is an extrapolation not a certified limit, grid-stability ' +
          'not a certified bound, mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, ' +
-         'PT 0.2 stays SOTA, and imp-3869 assertions left intact.',
+         'no refereed bound is changed, and imp-3869 assertions left intact.',
     holds: () => {
       const c = IMP33211_SADDLE_RATIO_RECOVERY_RATE_FIT.honestCaveat;
       return (
@@ -502,7 +502,7 @@ export const IMP33211_SADDLE_RATIO_RECOVERY_RATE_FIT_ASSERTIONS = [
         c.isExtrapolationNotLimit === true &&
         c.didNotAttemptPositivity === true &&
         c.leavesImp3869AssertionsIntact === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

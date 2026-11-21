@@ -47,7 +47,7 @@
  * majorant (IMP96888_RAYLEIGH_TAIL_MAJORANT stays open); the power-law fit is an empirical decay law, not a
  * proven asymptotic; Rayleigh floors are UPPER bounds on the true lambda_min; establishes NO operator
  * positivity; IMP96749_UNIFORM_N_GAP_UNSETTLED stays open; interval-rigorous reach stays 2a <= 0.96; RH open;
- * Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96888-krein-tresidual-rayleigh-permode-bound.js (the min-max Rayleigh residual this leaf fits; IMP96888_RAYLEIGH_TAIL_MAJORANT)
  * @see imp-96876-krein-tresidual-crossval-measurement.js (reused build()/lam_min() solver; IMP96876_TRACE_VACUOUS)

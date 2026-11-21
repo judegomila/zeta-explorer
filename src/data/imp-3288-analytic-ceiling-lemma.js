@@ -78,7 +78,7 @@
  *   NOT touch the operator-positivity residual K_a >= 0 (the genuine section-26 Gram),
  *   makes NO claim that the cover holds or fails, and carries NO RH verdict. A ceiling
  *   below 1 for the scalar core neither proves nor refutes the operator step.
- *   Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   No refereed bound is changed. No false QED.
  *
  *   @see imp-3104-orthogonalized-opnorm-degree-sweep.js (the monomial DEG sweep this upgrades)
  *   @see imp-3007-mupass-overflow-cover.js (the scalar cover + isolated operator step)
@@ -239,7 +239,7 @@ export const IMP3288_ANALYTIC_CEILING_LEMMA = Object.freeze({
     '(~0.99474) toward tanh(3)~0.99505, and the lemma re-verifies across an (a,U) family. Operator-order ' +
     'corollary: H <= tanh(a*U) P sharply, so the scalar cosh core dominates the shear form with normalized ' +
     'deficit >= 1 - tanh(a*U) > 0, and no scalar cosh core can dominate by more than tanh(a*U). Rigorous ' +
-    'NEGATIVE result about the SCALAR core ONLY; does NOT touch K_a >= 0; carries NO RH verdict; PT 0.2 SOTA.',
+    'NEGATIVE result about the SCALAR core ONLY; does NOT touch K_a >= 0; carries NO RH verdict; no refereed bound is changed.',
 
   lemma: Object.freeze({
     statement:
@@ -310,7 +310,7 @@ export const IMP3288_ANALYTIC_CEILING_LEMMA = Object.freeze({
     scope:
       'Rigorous NEGATIVE result about the SCALAR cosh passive core only. Does NOT touch the operator-positivity ' +
       'residual K_a >= 0 (the genuine section-26 Gram), makes NO claim the cover holds or fails, no RH verdict.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -367,7 +367,7 @@ export const IMP3288_ANALYTIC_CEILING_LEMMA_ASSERTIONS = [
     id: 'imp3288-honest-scalar-core-negative-result',
     why: 'Mandatory honesty: a PROOF of the scalar-core upper bound over full L2, a NEGATIVE result about the ' +
          'scalar core ONLY -- it does NOT touch K_a >= 0, is NOT a reduction below RH, carries NO RH verdict, ' +
-         'and PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'and no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3288_ANALYTIC_CEILING_LEMMA.honestCaveat;
       return (
@@ -377,7 +377,7 @@ export const IMP3288_ANALYTIC_CEILING_LEMMA_ASSERTIONS = [
         c.touchesOperatorPositivityResidual === false &&
         c.isReductionBelowRH === false &&
         c.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

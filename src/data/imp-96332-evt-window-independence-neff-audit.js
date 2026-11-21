@@ -59,7 +59,7 @@
  * Gaussian-tail extreme-value conclusion is insensitive to the correction: every height stays
  * within the +/-2.5 Gumbel-sd envelope under both the raw-artifact and clean-tiling lag-1 values.
  * Assumption audit / measurement only; uses baked imp-95562 + imp-96171 literals; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * Import-light: no zeros bundle, no sibling imports. The imp-95562 per-height literals and the
  * imp-96171 lag-1 correlations are baked; the Gumbel closed forms and n_eff correction are
@@ -156,7 +156,7 @@ export const IMP96332_EVT_WINDOW_INDEPENDENCE_NEFF_AUDIT = {
   extremalIndexCaveat:
     'The AR(1) n_eff = n(1-r1)/(1+r1) is a VARIANCE-based count and over-states the correlation effect on EXTREMES. A stationary Gaussian sequence with r_k -> 0 has extremal index theta = 1 (Berman): its maximum is asymptotically distributed as the max of n i.i.d. Gaussians regardless of short-range correlation, so n_eff = n is the asymptotically correct batch size for the maximum and this AR(1) correction is a conservative finite-n bracket, not the sharp extreme-value adjustment.',
   verdict:
-    'The imp-96271 window-independence assumption is not exactly satisfied: the raw imp-95562 tiling carries a POSITIVE lag-1 correlation r1 = +0.2432 (an overlap artifact, imp-96171) and the true clean tiling is ANTI-correlated (r1 = -0.5126). Re-running the extreme-value z comparison with an AR(1) effective sample count n_eff = n(1-r1)/(1+r1) instead of the raw nWindows leaves the Gaussian-tail conclusion intact under BOTH measured correlations: the raw-artifact n_eff (~0.61 n) moves the z range to [-0.66, +2.13] and the clean-tiling n_eff (~3.10 n) moves it to [-2.18, +1.09], with every height staying inside imp-96271 +/-2.5 Gumbel-sd envelope. The lone crossings past +/-2 are the smallest-batch height (T = 1e4, z = +2.13, a routine tail draw for a small batch) and the T = 1.5e5 height (z = -2.18, i.e. BELOW the expected maximum -- conservative, not a spike). The extreme-value conclusion is robust to the effective-sample-size correction. Assumption audit / measurement only; uses baked imp-95562 and imp-96171 literals; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated regardless.',
+    'The imp-96271 window-independence assumption is not exactly satisfied: the raw imp-95562 tiling carries a POSITIVE lag-1 correlation r1 = +0.2432 (an overlap artifact, imp-96171) and the true clean tiling is ANTI-correlated (r1 = -0.5126). Re-running the extreme-value z comparison with an AR(1) effective sample count n_eff = n(1-r1)/(1+r1) instead of the raw nWindows leaves the Gaussian-tail conclusion intact under BOTH measured correlations: the raw-artifact n_eff (~0.61 n) moves the z range to [-0.66, +2.13] and the clean-tiling n_eff (~3.10 n) moves it to [-2.18, +1.09], with every height staying inside imp-96271 +/-2.5 Gumbel-sd envelope. The lone crossings past +/-2 are the smallest-batch height (T = 1e4, z = +2.13, a routine tail draw for a small batch) and the T = 1.5e5 height (z = -2.18, i.e. BELOW the expected maximum -- conservative, not a spike). The extreme-value conclusion is robust to the effective-sample-size correction. Assumption audit / measurement only; uses baked imp-95562 and imp-96171 literals; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated regardless.',
 };
 
 // --- self-executing internal-consistency assertions (re-derivation only; no zeros) ---
@@ -183,8 +183,8 @@ export const IMP96332_EVT_WINDOW_INDEPENDENCE_NEFF_AUDIT = {
   // honesty gates: assumption audit, not a bound change
   if (!/NO QED/.test(IMP96332_EVT_WINDOW_INDEPENDENCE_NEFF_AUDIT.verdict))
     throw new Error('imp-96332: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96332_EVT_WINDOW_INDEPENDENCE_NEFF_AUDIT.verdict))
-    throw new Error('imp-96332: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96332_EVT_WINDOW_INDEPENDENCE_NEFF_AUDIT.verdict))
+    throw new Error('imp-96332: verdict dropped the no-refereed-bound-change banner');
   if (!/theta = 1/.test(IMP96332_EVT_WINDOW_INDEPENDENCE_NEFF_AUDIT.extremalIndexCaveat))
     throw new Error('imp-96332: extremal-index caveat dropped');
 })();

@@ -40,8 +40,8 @@ export const IMP124981_SUMMARY = Object.freeze({
     'Presentation only: every row is reused verbatim from imp-124846 (a closed-form measurement, not a '
     + 'new derivation), paired into a dual-series "ratio vs nine-index" log chart. No new computation. '
     + 'Conditional-share diagnostic on the inherited imp-97723/imp-97744 bare-slope inversion, not a '
-    + 'rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian '
-    + 'Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'rigorous asymptotic. Changes no bound; establishes no operator positivity; no refereed bound is changed'
+    + '; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

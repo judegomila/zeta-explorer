@@ -17,8 +17,7 @@
  * quantity (it does not import the 16.7MB zeros bundle) -- it enumerates what such a
  * computation would need. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the
  * E_trunc = 3.06e-5 floor (imp-2631), the imp-398 C_F prefactor and C_mb
- * GUE-conditional (imp-486) are all UNTOUCHED. imp-35337a stays OPEN. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GUE-conditional (imp-486) are all UNTOUCHED. imp-35337a stays OPEN. No refereed bound is changed.
  *
  * PART A -- THE THREE SUB-TERMS BY DATA-DEPENDENCE (only one needs zero DYNAMICS)
  * -----------------------------------------------------------------------------
@@ -96,7 +95,7 @@ const E_TRUNC_PT = 3.06e-5; // fixed floor (imp-2631)
 const TC_A1_TRAP = 2.37e-4;
 const GRONWALL = Math.exp(1.0 * TC_A1_TRAP); // matches imp-3220/imp-3406/imp-35337/imp-35475 exactly
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (unchanged by any sigma-fidelity closure)
-const L_PT = 0.2; // Platt-Trudgian SOTA
+const L_PT = 0.2; // Platt-Trudgian 2021 bound
 
 // In-repo verified-zeros DATA ceiling (baked literal; the 16.7MB bundle is NEVER imported).
 const IN_REPO_GAMMA_MAX = 600269.677012445; // millionth-zero ordinate, highest in src/data/zeros-to-1e6.js
@@ -206,7 +205,7 @@ export const IMP35637_PEAK_SINGLE_POINT_SPOTCHECK_SCOPE = Object.freeze({
     'CANNOT certify the peak as an extremum -- an honest single-point noise-vs-margin sub-gap. Discharges ' +
     'NOTHING; imp-35337a stays OPEN; changes no bound; establishes no operator positivity; C_C = (1/8) ' +
     'sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631), the imp-398 C_F prefactor and C_mb ' +
-    'GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35604 (peak is data-reachable in-repo; crossover not); imp-35475 (general fidelity scope, the ' +
     '~2.14e-5 flat-cap margin); imp-35470 (peak curvature k ~ 6.43e-3); imp-35337 (imp-35337a OPEN); ' +
@@ -247,11 +246,11 @@ export const IMP35637_PEAK_SINGLE_POINT_SPOTCHECK_SCOPE_ASSERTIONS = [
       SAMPLING_FLOOR > FLAT_CAP_MARGIN, // the noise floor is genuinely above the margin it must resolve
   },
   {
-    // Part D honesty gate: assessment only, imp-35337a stays OPEN, no bound moves, PT SOTA, NO QED.
+    // Part D honesty gate: assessment only, imp-35337a stays OPEN, no bound moves, no refereed bound is changed, NO QED.
     id: 'imp35637-honesty-gate-no-qed',
     description:
       'assessment/scoping only: not rigorous, not unconditional, imp-35337a stays OPEN, no bound moves, ' +
-      'Platt-Trudgian stays SOTA, NO QED',
+      'no refereed bound is changed, NO QED',
     holds: () =>
       Math.abs(L_PT - 0.2) < 1e-15 &&
       IMP35637_PEAK_SINGLE_POINT_SPOTCHECK_SCOPE.isRigorous === false &&
@@ -260,7 +259,7 @@ export const IMP35637_PEAK_SINGLE_POINT_SPOTCHECK_SCOPE_ASSERTIONS = [
       /changes no bound/.test(IMP35637_PEAK_SINGLE_POINT_SPOTCHECK_SCOPE.verdict) &&
       /imp-486/.test(IMP35637_PEAK_SINGLE_POINT_SPOTCHECK_SCOPE.verdict) &&
       /NO QED/.test(IMP35637_PEAK_SINGLE_POINT_SPOTCHECK_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35637_PEAK_SINGLE_POINT_SPOTCHECK_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35637_PEAK_SINGLE_POINT_SPOTCHECK_SCOPE.verdict),
   },
 ];
 

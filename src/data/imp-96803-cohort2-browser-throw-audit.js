@@ -52,7 +52,7 @@
  * bit-identical by construction, and none touches an environment-dependent global. If
  * any is later wired to a lazy route (which none is yet -- imp-96707), none would blank
  * the page from this specific anti-pattern. Audit only; no bound moved; no operator
- * positivity established; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * positivity established; no refereed bound is changed; RH open; NO QED.
  */
 
 const AUDITED = Object.freeze([
@@ -144,8 +144,8 @@ export const IMP96803_COHORT2_BROWSER_THROW_AUDIT = Object.freeze({
     + 'by construction, and no module touches an environment-dependent global. None is '
     + 'currently wired to a lazy route (imp-96707), so no page is at risk today; if one is '
     + 'wired later, none would blank from this specific anti-pattern. Audit only; changes '
-    + 'no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains '
-    + 'SOTA; RH open; NO QED.',
+    + 'no bound; establishes no operator positivity; no refereed bound is changed'
+    + '; RH open; NO QED.',
   source: 'imp-96631, imp-96687, imp-96688, imp-96689, imp-96691, imp-96697, imp-96709, imp-96751, imp-96770',
 
   audited: AUDITED,
@@ -169,8 +169,8 @@ export const IMP96803_COHORT2_BROWSER_THROW_AUDIT = Object.freeze({
     + 'Margins are measured once on this machine\'s Node/V8; the qualitative point (bisection '
     + 'convergence and literal-vs-literal comparisons are structurally insensitive to '
     + 'machine-epsilon-scale differences) is what makes the finding portable across engines, '
-    + 'not the specific measured numbers. Changes no bound; Platt-Trudgian Lambda <= 0.2 '
-    + 'remains SOTA; NO QED.',
+    + 'not the specific measured numbers. Changes no bound; no refereed bound is changed'
+    + '; NO QED.',
 });
 
 export const IMP96803_COHORT2_BROWSER_THROW_AUDIT_ASSERTIONS = Object.freeze([
@@ -193,9 +193,9 @@ export const IMP96803_COHORT2_BROWSER_THROW_AUDIT_ASSERTIONS = Object.freeze([
       && IMP96803_COHORT2_BROWSER_THROW_AUDIT.verdict.modulesFlaggedRisky === 0,
   },
   {
-    name: 'honest: audit only, no bound moved, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: audit only, no bound moved, no refereed bound is changed, NO QED',
     holds: () => /changes no bound/.test(IMP96803_COHORT2_BROWSER_THROW_AUDIT.status)
-      && /Platt-Trudgian Lambda <= 0.2 remains SOTA/.test(IMP96803_COHORT2_BROWSER_THROW_AUDIT.status)
+      && /refereed bound is changed/i.test(IMP96803_COHORT2_BROWSER_THROW_AUDIT.status)
       && /NO QED/.test(IMP96803_COHORT2_BROWSER_THROW_AUDIT.status),
   },
 ]);

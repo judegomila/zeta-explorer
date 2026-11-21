@@ -107,8 +107,7 @@ export default function Imp97506WindowSetSurrogateDepthViz() {
         point below is the imp-97481 exact Mertens window limit evaluated
         verbatim. Measurement only &mdash; no operator positivity, no bound
         moves; the b/4-ceiling was exploratory Route-M, load-bearing for
-        nothing; kappa_arith unchanged; Platt-Trudgian Lambda&le;0.2 remains
-        SOTA; RH open; NO QED.
+        nothing; kappa_arith unchanged; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -150,7 +149,7 @@ export default function Imp97506WindowSetSurrogateDepthViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97481 exact closed form verbatim.
         Establishes no operator positivity; changes no bound; kappa_arith
-        unchanged; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO
+        unchanged; RH open; NO
         QED.
       </div>
     </div>

@@ -6,7 +6,7 @@
  * either (A) a self-contained ELEMENTARY in-repo derivation, or (B) a
  * LIGHTER classical substitute, or is it (C) sharply localized to one
  * irreducible classical atom? Assessment/scope only; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * RELATION TO imp-95421 (do not duplicate). imp-95421 already split the
  * CLV input of SEP-OPT into (i) an in-repo Gaussian-subordination
@@ -90,7 +90,7 @@
  * irreducible in an absolute sense". (c) Nothing here changes any Lambda
  * bound, onset, or floor value. (d) The imp-95212 envelope port, signed
  * WEIGHT, and modulus/phase legs stay OPEN and are untouched. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -168,8 +168,8 @@ export const IMP95441_CLV_LIGHTER_SUBSTITUTE_IRREDUCIBILITY = {
     "substitute among the natural candidates' is not 'absolutely " +
     "irreducible' -- and that formal proof stays a named residual. " +
     "Assessment only; changes no bound; the imp-95212 envelope port and " +
-    "signed WEIGHT / modulus-phase legs stay OPEN; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "signed WEIGHT / modulus-phase legs stay OPEN; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -286,7 +286,7 @@ export const IMP95441_CLV_SUBSTITUTE_ASSERTIONS = [
       /Assessment only/.test(REF.verdict) &&
       /stay OPEN/.test(REF.verdict) &&
       /NO QED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       /imp-95421/.test(REF.buildsOn) &&
       REF.consumes.need2.includes("A_lat"),
   },

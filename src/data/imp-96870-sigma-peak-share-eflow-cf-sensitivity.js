@@ -68,7 +68,7 @@
  * lever makes the ~0.95 conditioning burden disappear -- it is intrinsic to the dominant
  * GUE-conditional E_coll term (imp-486). Measurement/sensitivity only; C_mb/C_C stay
  * GUE-conditional (imp-486); no bound changes, no positivity, no bridge closure, no RH
- * claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * claim, NO QED. No refereed bound is changed.
  *
  * @see imp-96851-sigma-peak-share-cc-etrunc-joint-sensitivity (the C_C/E_trunc joint sweep)
  * @see imp-96831-sigma-peak-share-cc-sensitivity (the C_C single-lever partial +0.048)
@@ -215,7 +215,7 @@ export const IMP96870_SIGMA_PEAK_SHARE_EFLOW_CF_SENSITIVITY = {
     'lever makes the ~0.95 conditioning burden disappear -- it is intrinsic to the ' +
     'dominant GUE-conditional E_coll term (imp-486). Measurement/sensitivity only; ' +
     'C_mb/C_C stay GUE-conditional (imp-486); no bound changes, no positivity, no bridge ' +
-    'closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'closure, no RH claim, NO QED. No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-96851 (C_C/E_trunc joint sweep); imp-96831 (C_C single-lever partial +0.048); ' +
@@ -264,14 +264,14 @@ export const IMP96870_SIGMA_PEAK_SHARE_EFLOW_CF_SENSITIVITY_ASSERTIONS = [
     holds: () => bandMin > 0.78,
   },
   {
-    // Honesty gate: measurement/assessment only, weak-lever verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement/assessment only, weak-lever verdict, no QED, no refereed bound is changed.
     id: 'imp96870-honesty-gate-no-qed',
-    description: 'Assessment only: E_flow-lever-moves-weakly verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: E_flow-lever-moves-weakly verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP96870_SIGMA_PEAK_SHARE_EFLOW_CF_SENSITIVITY.isRigorous === false &&
       /MOVES sigma_max ONLY WEAKLY/.test(IMP96870_SIGMA_PEAK_SHARE_EFLOW_CF_SENSITIVITY.verdict) &&
       /NO QED/.test(IMP96870_SIGMA_PEAK_SHARE_EFLOW_CF_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP96870_SIGMA_PEAK_SHARE_EFLOW_CF_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP96870_SIGMA_PEAK_SHARE_EFLOW_CF_SENSITIVITY.verdict),
   },
 ];
 

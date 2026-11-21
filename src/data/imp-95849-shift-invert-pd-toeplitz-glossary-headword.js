@@ -52,15 +52,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95820 solver-design result for
  *   quick reference. It establishes nothing, instantiates no interval, closes
- *   no sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains
- *   SOTA.
+ *   no sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-95820-shift-invert-dd-toeplitz-crossing (source: the solver this glosses)
  * @see imp-95799-rstar-delta-drift-linear-fit (the crossing test the solver unblocks)
  * @see imp-95779-on2-dd-toeplitz-lambda-min-ln12 (the O(N^2) DD solver + the corrected shift claim)
  *
  * Ticket: imp-95849 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The PD-preserving shift-invert DD Toeplitz eigensolve headword, baked verbatim (no re-import).
@@ -126,7 +125,7 @@ export const IMP95849_SHIFT_INVERT_PD_TOEPLITZ_GLOSSARY_HEADWORD = Object.freeze
     'reproduces a ~5000-solve sigma=0 converged value in ~80-115 solves, ' +
     'unlike a naive Rayleigh-quotient shift which breaks Levinson-Durbin down. ' +
     'Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95820 (the shift-invert solver design and empirical confirmation ' +
     'this glosses); imp-95799 (the sigma=0 under-convergence sub-gap the ' +
@@ -153,11 +152,11 @@ export const IMP95849_SHIFT_INVERT_PD_TOEPLITZ_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95849-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95849_SHIFT_INVERT_PD_TOEPLITZ_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95849_SHIFT_INVERT_PD_TOEPLITZ_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95849_SHIFT_INVERT_PD_TOEPLITZ_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95849_SHIFT_INVERT_PD_TOEPLITZ_GLOSSARY_HEADWORD.verdict) &&
       IMP95849_SHIFT_INVERT_PD_TOEPLITZ_GLOSSARY_HEADWORD.glosses === 'imp-95820',
   },
 ];

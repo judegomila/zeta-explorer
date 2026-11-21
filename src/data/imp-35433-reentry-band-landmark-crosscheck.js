@@ -25,7 +25,7 @@
  * surrogate models the true collapse dynamic at 10^27-10^37. The C_C = (1/8) sqrt(3 pi) ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0
  * untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35372-reentry-band-drift-integral-half-offset (shipped u_half/u_cross and the discrepancy table this reproduces)
  * @see imp-35332-reentry-band-drift-analytic-derivation (derived DRIFT(N), integral = OFFSET)
@@ -169,7 +169,7 @@ export const IMP35433_REENTRY_BAND_LANDMARK_CROSSCHECK = {
     '(surrogate-fidelity), which stays OPEN with imp-35111a / imp-35174a / imp-34997a. The C_C = (1/8) sqrt(3 pi) ' +
     'ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 ' +
     'untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35372 (shipped u_half/u_cross and the discrepancy table); imp-35332 (derived DRIFT(N), integral = ' +
     'OFFSET); imp-35243 (sub-gap imp-35243a); lambda-rh-height-mapping (effectiveHeightForN RvM inverse).',
@@ -212,13 +212,13 @@ export const IMP35433_REENTRY_BAND_LANDMARK_CROSSCHECK_ASSERTIONS = [
       Math.abs(DISCREPANCY_EXIT - PUBLISHED.discrepancy_exit) < 1e-3,
   },
   {
-    // Honesty gate: verification only, discharges nothing, no QED, PT SOTA, sub-gap named/OPEN.
+    // Honesty gate: verification only, discharges nothing, no QED, no refereed bound is changed, sub-gap named/OPEN.
     id: 'imp35433-honesty-gate-no-qed',
-    description: 'Verification only: isRigorous false, no QED, PT SOTA, imp-35243a OPEN',
+    description: 'Verification only: isRigorous false, no QED, no refereed bound is changed, imp-35243a OPEN',
     holds: () =>
       IMP35433_REENTRY_BAND_LANDMARK_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP35433_REENTRY_BAND_LANDMARK_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP35433_REENTRY_BAND_LANDMARK_CROSSCHECK.verdict) &&
+      /refereed bound is changed/i.test(IMP35433_REENTRY_BAND_LANDMARK_CROSSCHECK.verdict) &&
       /imp-35243a/.test(IMP35433_REENTRY_BAND_LANDMARK_CROSSCHECK.residual_sub_gap) &&
       /stay OPEN/.test(IMP35433_REENTRY_BAND_LANDMARK_CROSSCHECK.finding),
   },

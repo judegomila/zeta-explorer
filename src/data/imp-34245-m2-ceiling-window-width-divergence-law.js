@@ -42,7 +42,7 @@
  *
  * Measurement/fit within the inherited imp-3406/imp-33810 component model only; the component model
  * is NOT a rigorous asymptotic; no bound changes; no operator positivity; C_mb GUE-conditional per
- * imp-486 untouched; imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ * imp-486 untouched; imp-3066 K_a >= 0 untouched; no refereed bound is changed. NO QED.
  *
  * @see imp-34189-m2-ceiling-next-order-window-width-correction (the recorded window-width ladder fit here)
  * @see imp-34127-m2-residual-signchange-ceiling-closed-form (leading closed form kEnd* ~ 21.00)
@@ -263,7 +263,7 @@ export const IMP34245_M2_CEILING_WINDOW_WIDTH_DIVERGENCE_LAW = {
     'crossing, best quoted from the bisection. The inherited component model is NOT a rigorous ' +
     'asymptotic; this is descriptive within the model only; changes no bound; establishes no operator ' +
     'positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34189 (the recorded window-width ladder, fit here); imp-34127 (leading closed form kEnd* ~ ' +
     '21.00); imp-34023 (bisected kEnd* ~ 21.281); imp-34188 (widening-slope limit b_inf ~ -1, cohort ' +

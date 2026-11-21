@@ -49,7 +49,7 @@
  * the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; refines, does not overturn,
- * imp-34084; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-34084; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34084-apex-cubic-tilt-coefficient (C1 fit d ~ -5.347e-4 at the SINGLE apex centre k*)
  * @see imp-34146-apex-quintic-tilt-coefficient (the odd quintic companion at the apex centre)
@@ -285,7 +285,7 @@ export const IMP34147_APEX_CUBIC_TILT_SIGN_SWEEP = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is ' +
     'descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34084 (C1 fit d ~ -5.347e-4 at the SINGLE apex centre k*; sign-persistence measured here); ' +
     'imp-34146 (odd quintic companion at the apex centre); imp-33948 (apex quadratic; k* from imp-33878); ' +
@@ -336,14 +336,14 @@ export const IMP34147_APEX_CUBIC_TILT_SIGN_SWEEP_ASSERTIONS = [
       Math.abs(DEEPEST_D) / Math.abs(D_AT_APEX) > 8,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, no refereed bound is changed.
     id: 'imp34147-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, refines imp-34084, no QED, imp-3066 untouched, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, refines imp-34084, no QED, imp-3066 untouched, no refereed bound is changed',
     holds: () =>
       IMP34147_APEX_CUBIC_TILT_SIGN_SWEEP.isRigorous === false &&
       /refines, does not overturn, imp-34084/.test(IMP34147_APEX_CUBIC_TILT_SIGN_SWEEP.verdict) &&
       /NO QED/.test(IMP34147_APEX_CUBIC_TILT_SIGN_SWEEP.verdict) &&
-      /remains SOTA/.test(IMP34147_APEX_CUBIC_TILT_SIGN_SWEEP.verdict) &&
+      /refereed bound is changed/i.test(IMP34147_APEX_CUBIC_TILT_SIGN_SWEEP.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34147_APEX_CUBIC_TILT_SIGN_SWEEP.verdict),
   },
 ];

@@ -51,7 +51,7 @@ export const IMP124815_SUMMARY = Object.freeze({
     + 'round-off artefact tracking the collapse of |E_CF| into the landmark-bisection round-off floor '
     + '(imp-124769), not a deviation from the identity. Measurement / sensitivity only on the inherited '
     + 'imp-3220/imp-3406 extrapolation surrogate, not a rigorous asymptotic. Changes no bound; '
-    + 'establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

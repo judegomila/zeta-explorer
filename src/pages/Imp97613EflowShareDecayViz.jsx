@@ -116,7 +116,7 @@ export default function Imp97613EflowShareDecayViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97585 ladder and landmarks verbatim (no re-derivation, no new
-        computation). Changes no bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open;
+        computation). Changes no bound; RH open;
         NO QED.
       </div>
 

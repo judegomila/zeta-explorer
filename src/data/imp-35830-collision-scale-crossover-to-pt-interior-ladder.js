@@ -51,8 +51,7 @@
  * interior; derives no remainder; discharges nothing; changes no bound;
  * establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/
  * imp-2643), C_H = 1/8, E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional
- * (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35764-collision-scale-pt-anchor-prefactor-propagation (endpoint reading; this module fills the interior)
  * @see imp-35814-collision-scale-slope-stability-beyond-pt-anchor (extends the ladder ABOVE the anchor; this one fills BELOW it)
@@ -79,7 +78,7 @@ const IMP35764_PT_ANCHOR_SMIN_STD = 4.1939e-5;
 const IMP35764_PT_ANCHOR_SMIN_CC = 8.5834e-5;
 const IMP35764_PT_ANCHOR_OSHIFT = 2.0466534;
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // Short-range collision constant (imp-2642/imp-2643 ansatz, C_H = 1/8).
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // ~ 0.38374752
@@ -234,8 +233,8 @@ export const IMP35830_COLLISION_SCALE_CROSSOVER_TO_PT_INTERIOR_LADDER = {
     'imp-35764 two-endpoint reading was not an artifact. Measurement only; densifies the imp-35764/imp-35696 ' +
     'propagation; derives no remainder; discharges nothing; changes no bound; establishes no operator positivity; ' +
     'C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), C_H = 1/8, E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional ' +
-    '(imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    '(imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35764 (endpoint reading; this module fills the interior); imp-35814 (extends ABOVE the anchor; this one ' +
     'fills BELOW it); imp-35724 (peak + crossover landmarks; lower-endpoint tie-back); imp-35696 (cube-root ' +
@@ -315,7 +314,7 @@ export const IMP35830_COLLISION_SCALE_CROSSOVER_TO_PT_INTERIOR_LADDER_ASSERTIONS
     },
   },
   {
-    // (7) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, NO QED.
+    // (7) honesty gate: measurement only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, NO QED.
     id: 'imp35830-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -329,7 +328,7 @@ export const IMP35830_COLLISION_SCALE_CROSSOVER_TO_PT_INTERIOR_LADDER_ASSERTIONS
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

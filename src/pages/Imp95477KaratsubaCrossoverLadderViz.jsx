@@ -135,8 +135,7 @@ export default function Imp95477KaratsubaCrossoverLadderViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a model extension over the frozen
         imp-95214/imp-95277 ledgers using the standard GMP schoolbook-to-Karatsuba multiply cost law,
         not a wall-clock measurement -- no native replay is launched and no per-platform
-        MUL_TOOM22_THRESHOLD is probed. It changes no Lambda bound. Platt&ndash;Trudgian &Lambda; &le;
-        0.2 remains state of the art. RH does not follow from anything on this page. NO QED.
+        MUL_TOOM22_THRESHOLD is probed. It changes no Lambda bound. RH does not follow from anything on this page. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -188,8 +187,7 @@ export default function Imp95477KaratsubaCrossoverLadderViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-95380
         KARATSUBA_CROSSOVER_LADDER module (values copied verbatim, no re-derivation). Changes no
-        bound, establishes no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains SOTA. NO QED.
+        bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

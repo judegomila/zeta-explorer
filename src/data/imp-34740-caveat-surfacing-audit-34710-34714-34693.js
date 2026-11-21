@@ -19,7 +19,7 @@
  *
  * METHOD. For (a): both driving pages were read directly; each renders an
  * inline "Honest status:" block repeating imp-3066 K_a>=0 untouched, C_mb
- * GUE-conditional per imp-486, NO QED, and Platt-Trudgian Lambda<=0.2 SOTA.
+ * GUE-conditional per imp-486, NO QED, and no refereed bound is changed.
  * For (b): every `import` statement was traced transitively from all six
  * modules. The chain touches only small helper modules (lambda-rh-height-
  * mapping.js, polymath15-constant-C-C.js, bridge-lambda-rh.js,
@@ -69,7 +69,7 @@ export const CAVEAT_SURFACING_AUDIT_34710_34714_34693 = {
     'page to check for a banner, and no module in the cohort or its transitive import closure ' +
     'reaches src/data/zeros-to-1e6.js. No surfacing added because none was missing. No bound ' +
     'change; imp-3066 K_a>=0 untouched; C_mb remains GUE-conditional per imp-486; NO QED; ' +
-    'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'no refereed bound is changed.',
 };
 
 export const CAVEAT_SURFACING_AUDIT_34710_34714_34693_ASSERTIONS = [
@@ -95,10 +95,10 @@ export const CAVEAT_SURFACING_AUDIT_34710_34714_34693_ASSERTIONS = [
   },
   {
     id: 'imp-34740-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(CAVEAT_SURFACING_AUDIT_34710_34714_34693.honest)
       && /No surfacing added because none was missing/.test(CAVEAT_SURFACING_AUDIT_34710_34714_34693.honest)
-      && /Lambda<=0.2 remains SOTA/.test(CAVEAT_SURFACING_AUDIT_34710_34714_34693.honest),
+      && /refereed bound is changed/i.test(CAVEAT_SURFACING_AUDIT_34710_34714_34693.honest),
   },
 ];
 

@@ -46,7 +46,7 @@
  * @see imp-96346-route-l-largegamma-residual-tail (IMP96346_LARGEGAMMA_RESIDUAL_TAIL, the fixed power law)
  *
  * Ticket: imp-96394 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The incompatible-siblings headword, baked verbatim (no re-import).
@@ -73,7 +73,7 @@ const ROUTE_L_REACH_CORRECTION_INCOMPATIBLE_SIBLINGS_HEADWORD = Object.freeze({
     'Accuracy cross-check on baked literals only (imp-96368). Changes no bound; verified-zero ' +
     'route stays cheaper; the sibling laws share one open sub-gap -- only real detector rows ' +
     'past k=20 / gamma_5=77.14 can decide fixed-exponent vs running-exponent reach. RH open; ' +
-    'PT Lambda <= 0.2 SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP96394_ROUTE_L_REACH_CORRECTION_INCOMPATIBLE_SIBLINGS_GLOSSARY_HEADWORD = Object.freeze({
@@ -91,8 +91,8 @@ export const IMP96394_ROUTE_L_REACH_CORRECTION_INCOMPATIBLE_SIBLINGS_GLOSSARY_HE
     'and a running-exponent quadratic-in-log law (imp-96347) -- that agree only inside their ' +
     'shared five-point fit window (gamma 14..77, ~15% agreement, crossing once at gamma~32.6) ' +
     'and diverge without bound outside it (1.68x at zero 40, 64.6x at gamma=1e3). Establishes ' +
-    'nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96368 (the cross-validation this glosses); imp-96347 (the quadratic-in-log law and ' +
     'C=1.6812); imp-96346 (the fixed power law and b_det=1.271686).',
@@ -118,11 +118,11 @@ export const IMP96394_ROUTE_L_REACH_CORRECTION_INCOMPATIBLE_SIBLINGS_GLOSSARY_HE
   },
   {
     id: 'imp96394-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96394_ROUTE_L_REACH_CORRECTION_INCOMPATIBLE_SIBLINGS_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96394_ROUTE_L_REACH_CORRECTION_INCOMPATIBLE_SIBLINGS_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96394_ROUTE_L_REACH_CORRECTION_INCOMPATIBLE_SIBLINGS_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96394_ROUTE_L_REACH_CORRECTION_INCOMPATIBLE_SIBLINGS_GLOSSARY_HEADWORD.verdict) &&
       IMP96394_ROUTE_L_REACH_CORRECTION_INCOMPATIBLE_SIBLINGS_GLOSSARY_HEADWORD.glosses === 'imp-96368',
   },
 ];

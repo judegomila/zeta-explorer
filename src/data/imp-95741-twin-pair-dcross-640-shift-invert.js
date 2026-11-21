@@ -63,7 +63,7 @@
  *       three digits, so the measured d640 is unbiased. Every other D-evaluation
  *       had a Ritz residual <= ~1e-12.
  *   (c) Model seam family only; the imp-95212 envelope port, signed WEIGHT, and
- *       modulus/phase legs stay OPEN. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *       modulus/phase legs stay OPEN. No refereed bound is changed.
  *
  * @see imp-95726-twin-pair-half-retention-finite-size-limit (the 40,80,160 ladder capped at 160)
  * @see imp-95703-twin-pair-half-retention-scale-derivation (the closed form extended here)
@@ -125,7 +125,7 @@ export const IMP95741_TWIN_PAIR_DCROSS_640_SHIFT_INVERT = {
     "640-pair cap is discharged: the finite-size 1/nPairs^2 law persists into the " +
     "next octave and the infinite-lattice limit is pinned two octaves further. " +
     "Numerical witness on the imp-95659/imp-95693/imp-95703 model seam; assess " +
-    "only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "only; changes no bound; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95741"],
 };
 
@@ -263,7 +263,7 @@ export const IMP95741_ASSERTIONS = [
     holds: () =>
       REF.boundChange === false &&
       REF.qed === false &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95741-closes-self",

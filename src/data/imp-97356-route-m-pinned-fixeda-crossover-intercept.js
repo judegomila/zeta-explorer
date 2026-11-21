@@ -49,8 +49,8 @@
  *
  *   Measurement only; no coefficient of g(b) or B* claimed; the b^(1/2)-vs-log^2 b separation is NOT
  *   claimed; no bound moves; the rigorous anchor stays the trace ceiling T = 2.594e7; compute
- *   (N ~ 9916, imp-96352) binds first by > 2600x; no operator positivity; PT Lambda <= 0.2 remains
- *   SOTA; RH open; NO QED.
+ *   (N ~ 9916, imp-96352) binds first by > 2600x; no operator positivity; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * @see imp-97330-route-m-smalla-intercept-closed-form (the pinned d_a closed form fed in here)
  * @see imp-97329-route-m-uniform-crossover-second-moment (the crossover / Q profile this constrains)
@@ -176,11 +176,11 @@ export const IMP97356_VERDICT = Object.freeze({
     '0.9996, imp-97292). RESIDUAL = the uniform (a ~ b) remainder profile and its Euler-Maclaurin ' +
     'crossover correction (imp-97349), unchanged here. Measurement only; no g(b) or B* coefficient ' +
     'claimed; no separation claimed; no bound moved; the rigorous anchor stays T = 2.594e7; compute ' +
-    'N ~ 9916 binds first by > 2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'N ~ 9916 binds first by > 2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97356_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: feeding the imp-97330 pinned ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: feeding the imp-97330 pinned ' +
   'fixed-a closed form into the imp-97329 crossover PINS the per-a Q summand to [(1/2) log(b/a) + ' +
   '(C + 1/2)]^2 (reproduces the exact Vasyunin summand to <= 3.73e-4 rel err) and pins the crossover ' +
   'intercept constituent to C + 1/2 = 1.1303307 UNIFORMLY over the whole fixed-a layer (a = 1..40, ' +
@@ -272,7 +272,7 @@ const IMP97356_ASSERTIONS = [
       IMP97356_VERDICT.separatesSqrtVsLog2b === false &&
       IMP97356_VERDICT.computeBindsFirst === true &&
       /RH open/.test(IMP97356_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97356_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97356_HONEST_BANNER) &&
       /NO QED/.test(IMP97356_HONEST_BANNER),
   },
 ];

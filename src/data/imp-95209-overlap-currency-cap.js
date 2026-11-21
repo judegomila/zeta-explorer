@@ -163,8 +163,7 @@
  * The numerics below CROSS-CHECK the lemma statements; they are not the
  * claim. Import-light (no heavy bundle; imports only the imp-95172 and
  * imp-95208 sibling verdict modules for carried constants). Changes no
- * bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 import BNT from "./imp-95172-ballast-necessity-tradeoff.js";
@@ -259,7 +258,7 @@ export const IMP95209_OVERLAP_CURRENCY_CAP = {
     "The identity E = X_e + X_o - N_e - N_o + 2 <U, V> is exact (Lemma PB + the parity Gram split; cross-parity pairs are cross-block since parity separates blocks); Cauchy-Schwarz and the finite-dimensional optimization (case analysis in the header, monotone in P on each branch, corner comparison factored exactly) are unconditional. THEOREM OV and its corollaries are conditional exactly as THEOREM OD (imp-95129): the class caps sigmaE/sigmaO and the odd-class cap inside THEOREM BU are the SAME carried MAJ per-pair caps + per-class Lemma SW the imp-95172/95208 chain already consumed; no new conditional input. COROLLARY GC uniqueness is analytic (strictly decreasing auxiliary function), cross-checked by a 2e6-point grid scan (rel 7e-14). The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step: the overlap-currency substitution asked for by imp-95208-subgap-overlap-currency-constant is EXECUTED in its class-internal form. The exact identity E = X_e + X_o - N_e - N_o + 2 <U, V> plus Cauchy-Schwarz replaces the norm-currency step B >= A - sqrt(D) (imp-95172 fact F6) entirely, and solving the relaxation exactly gives THEOREM OV: phi <= 1 - (1 - q) omega - (1/2)[(sqrt(1 - omega) - kappa sqrt(omega))_+]^2 with kappa = cU/sqrt(LwEven) -- a strict pointwise sharpening of THEOREM OD below omegaC = 4.2115570192839495e-4 with the parity-pure endpoint Phi(0) = 1/2 recovered exactly and continuously (COROLLARY EP). COROLLARY GC: the global cap is the closed form gammaOV = Phi(omega*) = 0.9995949885454457 at the unique stationary point omega* = 4.2047397350019407e-4, STRICTLY below the imp-95208 gammaU = 0.9996167883494768 (cap deficit +5.68 percent), so gammaOV supersedes gammaU as the operative uniform cap of the conditional class. The constant gap is thereby LOCALIZED: at small ballast the cap is already 1/2 + kappa sqrt(omega), and the surviving bump near omega* is proved irreducible within the label-block class (Cauchy-Schwarz is attained by co-located opposite-parity packets), pinning exactly where the paper block-to-support geometry must enter -- named successor sub-gap imp-95209-subgap-seam-localized-overlap. HONEST: gammaOV still far above the measured class sup phi = 0.3572 (cap, not pin; not proved attained in-class); conditional exactly as THEOREM OD, no new conditional input; model-family constants. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step: the overlap-currency substitution asked for by imp-95208-subgap-overlap-currency-constant is EXECUTED in its class-internal form. The exact identity E = X_e + X_o - N_e - N_o + 2 <U, V> plus Cauchy-Schwarz replaces the norm-currency step B >= A - sqrt(D) (imp-95172 fact F6) entirely, and solving the relaxation exactly gives THEOREM OV: phi <= 1 - (1 - q) omega - (1/2)[(sqrt(1 - omega) - kappa sqrt(omega))_+]^2 with kappa = cU/sqrt(LwEven) -- a strict pointwise sharpening of THEOREM OD below omegaC = 4.2115570192839495e-4 with the parity-pure endpoint Phi(0) = 1/2 recovered exactly and continuously (COROLLARY EP). COROLLARY GC: the global cap is the closed form gammaOV = Phi(omega*) = 0.9995949885454457 at the unique stationary point omega* = 4.2047397350019407e-4, STRICTLY below the imp-95208 gammaU = 0.9996167883494768 (cap deficit +5.68 percent), so gammaOV supersedes gammaU as the operative uniform cap of the conditional class. The constant gap is thereby LOCALIZED: at small ballast the cap is already 1/2 + kappa sqrt(omega), and the surviving bump near omega* is proved irreducible within the label-block class (Cauchy-Schwarz is attained by co-located opposite-parity packets), pinning exactly where the paper block-to-support geometry must enter -- named successor sub-gap imp-95209-subgap-seam-localized-overlap. HONEST: gammaOV still far above the measured class sup phi = 0.3572 (cap, not pin; not proved attained in-class); conditional exactly as THEOREM OD, no new conditional input; model-family constants. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ──────────────────────────
@@ -469,12 +468,12 @@ export const IMP95209_OVC_ASSERTIONS = [
   {
     id: "imp95209-ovc-honesty-gate",
     description:
-      "the verdict records the executed substitution, the strict cap improvement, the parity-pure endpoint, the in-class irreducibility of the residual bump, the surviving seam-localized sub-gap, the conditionality (exactly as THEOREM OD, no new conditional input) and the untouched ledger; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict records the executed substitution, the strict cap improvement, the parity-pure endpoint, the in-class irreducibility of the residual bump, the surviving seam-localized sub-gap, the conditionality (exactly as THEOREM OD, no new conditional input) and the untouched ledger; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95209_OVERLAP_CURRENCY_CAP.promotesBound === false &&
       IMP95209_OVERLAP_CURRENCY_CAP.openResiduals.length === 5 &&
       /NO QED/.test(IMP95209_OVERLAP_CURRENCY_CAP.verdict) &&
-      /remains SOTA/.test(IMP95209_OVERLAP_CURRENCY_CAP.verdict) &&
+      /refereed bound is changed/i.test(IMP95209_OVERLAP_CURRENCY_CAP.verdict) &&
       /Floors and ceilings untouched/.test(IMP95209_OVERLAP_CURRENCY_CAP.verdict) &&
       /seam-localized-overlap/.test(IMP95209_OVERLAP_CURRENCY_CAP.subGap) &&
       /no new conditional input/.test(IMP95209_OVERLAP_CURRENCY_CAP.rigorScope) &&

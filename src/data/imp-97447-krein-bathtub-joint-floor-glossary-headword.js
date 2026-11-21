@@ -40,7 +40,7 @@
  * @see imp-97206-krein-csharp-coupled-nt-jointlimit.js (measured c_sharp ~0.582 UPPER bracket)
  *
  * Ticket: imp-97447 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The bathtub-joint-floor headword, baked verbatim (no re-import).
@@ -69,7 +69,7 @@ const KREIN_BATHTUB_JOINT_FLOOR_HEADWORD = Object.freeze({
     'that the bathtub optimiser is not band-limited or that it discards the t^4 positive far field, ' +
     'both of which make the measured c_sharp ~ 0.582 (imp-97206) positive. Closing the sign needs a ' +
     'genuinely spectral estimate. Naming / glossary headword only; supplies no new bound; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP97447_KREIN_BATHTUB_JOINT_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
@@ -88,7 +88,7 @@ export const IMP97447_KREIN_BATHTUB_JOINT_FLOOR_GLOSSARY_HEADWORD = Object.freez
     'water-filling joint Krein floor c_sharp >= -3065.435 -- the first floor to couple the ' +
     'pointwise reproducing-kernel budget f <= a/pi with the unit-mass constraint int f = 1 ' +
     'jointly, improving imp-97399s uniform floor -3200.029 by +134.594. The floor stays negative; ' +
-    'no bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no bound moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97416 (the bathtub/water-filling derivation this glosses); imp-97399 (the uniform ' +
     'pointwise floor it improves); imp-97335 (the naive well-depth floor); imp-97206 (the measured ' +
@@ -116,11 +116,11 @@ export const IMP97447_KREIN_BATHTUB_JOINT_FLOOR_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97447-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97416.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97416.',
     holds: () =>
       IMP97447_KREIN_BATHTUB_JOINT_FLOOR_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97447_KREIN_BATHTUB_JOINT_FLOOR_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97447_KREIN_BATHTUB_JOINT_FLOOR_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97447_KREIN_BATHTUB_JOINT_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       IMP97447_KREIN_BATHTUB_JOINT_FLOOR_GLOSSARY_HEADWORD.glosses === 'imp-97416',
   },
 ];

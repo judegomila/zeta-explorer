@@ -12,7 +12,7 @@
  *   Measurement only. The Ritz value is an UPPER bound on lambda_1(T), so eta_inf / the floor is
  *   an upper estimate, NOT a certified lower bound. The imp-96969 cohort was closed as a lever;
  *   this measures only. No bound moves; interval-rigorous reach stays 2a<=0.96; RH open;
- *   Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  * DATA. Reused verbatim from imp-96911-krein-eta-nconvergence-scout.js: the full Nbig=24..240
  *   ladder at T=800 (eta N-independent for N>=12) plus the T-sensitivity rungs at Nbig in
@@ -50,7 +50,7 @@
  *   truncations push eta in opposite directions and their coupling admits no clean joint power law.
  *   SUB-GAP IMP97058_COUPLED_NT_SURFACE_FIT_YIELDS_NO_GENUINE_RATE. Ritz value is an UPPER bound so
  *   the floor is an upper estimate, not a certified LB; interval-rigorous reach stays 2a<=0.96;
- *   RH open; PT Lambda<=0.2 SOTA; NO QED.
+ *   RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96911-krein-eta-nconvergence-scout.js (the single-power fit this leaf extends to a joint surface)
  * @see imp-96969-coupled-nt-truncation-wall-cohort-index.js (the closed-lever cohort this measurement sits in)

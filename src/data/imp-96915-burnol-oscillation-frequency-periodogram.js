@@ -45,7 +45,7 @@
  * ~9-lag oscillation, NOT by w=3.85; the "w=3.85" label was itself the artifact. The qualitative VIF>1
  * conclusion (driven by the real negative ACF lobe) is UNTOUCHED. SUB-GAP IMP96915_W385_IS_NYQUIST_ALIAS_ARTIFACT.
  * Measurement only; interval-rigorous certificate reach stays 2a<=0.96; C_mb GUE-conditional (imp-486);
- * Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96832 (named the w=3.85 oscillatory-remainder frequency; never pinned or error-banded -- driver tmp/imp-96832-scratch.mjs holds the 21 ratios and the ACF)
  * @see imp-96487-* (the 21-rung Burnol ratio(N) ladder whose remainder is analyzed here)

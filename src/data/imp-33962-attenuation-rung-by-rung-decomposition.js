@@ -60,8 +60,7 @@
  * ACCURACY / MEASUREMENT ONLY. Cross-check / reconciliation diagnostic, NOT an RH bound. The inherited
  * imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the factor identity is exact WITHIN
  * that model only; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * the C_mb GUE-conditional share per imp-486 is UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * the C_mb GUE-conditional share per imp-486 is UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33922-eflow-analytic-decay-vs-widening-crosscheck (the endpoint F1..F4 slice this refines)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the 21 quarter-decade rungs)
@@ -274,7 +273,7 @@ export const IMP33962_ATTENUATION_RUNG_BY_RUNG_DECOMPOSITION = {
     'window, not a per-rung property. The inherited imp-3220/imp-3406 component model is NOT a ' +
     'rigorous asymptotic; the factor identity is exact WITHIN the model only; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional per ' +
-    'imp-486 is UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-486 is UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33922 (the endpoint F1..F4 slice this refines rung-by-rung); imp-33810 (the 21 ' +
     'quarter-decade rungs); imp-33884/imp-33885 (the exact 903.538 widening + per-rung ' +
@@ -326,13 +325,13 @@ export const IMP33962_ATTENUATION_RUNG_BY_RUNG_DECOMPOSITION_ASSERTIONS = [
     holds: () => Math.abs(AGG_MAG_SHARE_F2 - 0.9222) < 0.001 && AGG_MAG_SHARE_F2 > MAG_SHARE_MAX,
   },
   {
-    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp33962-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, no QED, PT SOTA',
+    description: 'Cross-check only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33962_ATTENUATION_RUNG_BY_RUNG_DECOMPOSITION.isRigorous === false &&
       /NO QED/.test(IMP33962_ATTENUATION_RUNG_BY_RUNG_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP33962_ATTENUATION_RUNG_BY_RUNG_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP33962_ATTENUATION_RUNG_BY_RUNG_DECOMPOSITION.verdict),
   },
 ];
 

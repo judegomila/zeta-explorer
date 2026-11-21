@@ -53,7 +53,7 @@
  * L <= ~1e5 cancellation branch; at the anchor the ppp = 3 truncation floor (~2.84e-5), not the
  * extrapolated cancellation line (~4.96e-8), sets the achievable error -- confirming and localizing the
  * imp-96448 verdict. Feasibility / cross-validation numerics only; theoretical GUE quantity, not real
- * zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side
+ * zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side
  * route stays PCC/GRH-gated.
  *
  * @see imp-96448-direct-basis-c-anchor-floor (measured the anchor floor ~2.84e-5 at ppp ~ 3; said the
@@ -185,7 +185,7 @@ export const IMP96486_BASIS_C_PPP_COLLAPSE_TRANSITION = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values. Every floor is a double-precision quadrature/cancellation artifact of this direct integral, not a property of the zeros. The two largest rungs (3e6, 5.9e6) have their high-ppp arms capped by the ~6e7-evaluation budget, so their optima are lower bounds on ppp* confirmed by the rising U-arm and by the imp-96448 uncapped anchor curve. This is feasibility / cross-validation numerics: it maps a floor transition, changes no bound, establishes no operator positivity, and does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'Mapping the direct basis-C floor across L = 960 .. 5.9e6, the optimal ppp collapses monotonically 640 -> 3, beginning immediately past the L = 960 endpoint (already 128 at L = 3e3, a true U-shape optimum, not an affordability artifact). The achievable floor follows the imp-96430 L-linear cancellation model to within ~2-4x while ppp* >= 32 (up to L ~ 1e5), then departs into the ppp-truncation regime as ppp* falls through 16 (13.5x at 3e5, 50x at 1e6, 133x at 3e6, 573x at the anchor). The model is valid only on the L <= ~1e5 cancellation branch; at the anchor the ppp = 3 truncation floor (~2.84e-5), not the extrapolated cancellation line (~4.96e-8), sets the achievable error -- confirming and localizing the imp-96448 verdict. Feasibility / cross-validation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Mapping the direct basis-C floor across L = 960 .. 5.9e6, the optimal ppp collapses monotonically 640 -> 3, beginning immediately past the L = 960 endpoint (already 128 at L = 3e3, a true U-shape optimum, not an affordability artifact). The achievable floor follows the imp-96430 L-linear cancellation model to within ~2-4x while ppp* >= 32 (up to L ~ 1e5), then departs into the ppp-truncation regime as ppp* falls through 16 (13.5x at 3e5, 50x at 1e6, 133x at 3e6, 573x at the anchor). The model is valid only on the L <= ~1e5 cancellation branch; at the anchor the ppp = 3 truncation floor (~2.84e-5), not the extrapolated cancellation line (~4.96e-8), sets the achievable error -- confirming and localizing the imp-96448 verdict. Feasibility / cross-validation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Registration (imp-96521): literal `openSubGap:` key so
@@ -244,8 +244,8 @@ export const IMP96486_OPEN_SUBGAP_REGISTRATION = Object.freeze({
   // honesty gates
   if (!/NO QED/.test(IMP96486_BASIS_C_PPP_COLLAPSE_TRANSITION.verdict))
     throw new Error('imp-96486: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96486_BASIS_C_PPP_COLLAPSE_TRANSITION.verdict))
-    throw new Error('imp-96486: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96486_BASIS_C_PPP_COLLAPSE_TRANSITION.verdict))
+    throw new Error('imp-96486: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96486_BASIS_C_PPP_COLLAPSE_TRANSITION;

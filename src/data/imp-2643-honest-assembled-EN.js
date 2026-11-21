@@ -65,8 +65,8 @@
  * (needing Polymath15 Lemma 5.2 cusp-density C_cusp for C_shock and a
  * non-Gronwall microscopic gap-stability modulus for an N-uniform C_Lip). The
  * C_Selberg Erdos-Turan bridge is a SECONDARY, non-binding gap (its term shrinks
- * with the rigorous 2.622). Until C_H is discharged, Platt-Trudgian Lambda <= 0.2
- * remains SOTA. NO false QED.
+ * with the rigorous 2.622). Until C_H is discharged, no refereed bound is changed
+ * . NO false QED.
  *
  * @see imp-2641-c-selberg-trudgian-discharge (C_Selberg -> 2.622, residual Erdos-Turan bridge)
  * @see polymath15-lemma52-shock-holder (C_H_QUADRATIC_TANGENCY_UPPER_BOUND_CHECK_IMP2642: C_H NOT a rigorous upper bound)
@@ -81,7 +81,7 @@ import { IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE } from './imp-2641-c-selberg-trudg
 
 const N_STAR = 1e4;
 const TWO_PI = 2 * Math.PI;
-const PT_BOUND = 0.2; // Platt-Trudgian 2021 SOTA unconditional Lambda upper bound.
+const PT_BOUND = 0.2; // Platt-Trudgian 2021 bound upper bound.
 
 const T0 = effectiveHeightForN(N_STAR);   // gamma_N approx 9.879e3
 const L = Math.log(T0);                   // approx 9.198
@@ -167,7 +167,7 @@ export const IMP2643_HONEST_ASSEMBLED_EN = {
     'rests on C_C = (1/8) sqrt(3 pi) whose C_H = 1/8 is an unproven ansatz (imp-2642), so ' +
     'Lambda <= E(N) is NOT a rigorous unconditional bound. The SINGLE constant blocking the ' +
     'rigorous beat is C_H. The C_Selberg Erdos-Turan bridge is a secondary, non-binding gap. ' +
-    'Until C_H is discharged, Platt-Trudgian Lambda <= 0.2 stays SOTA. NO false QED.',
+    'Until C_H is discharged, no refereed bound is changed. NO false QED.',
   citation:
     'imp-2641 (C_Selberg = 2.622 Trudgian); imp-2642 polymath15-lemma52-shock-holder (C_H not a rigorous upper bound); ' +
     'imp-2633 (E_flow/E_coll values); imp-2644 (C_G non-binding); Platt-Trudgian 2021 (PT_BOUND = 0.2)',
@@ -239,7 +239,7 @@ export const IMP2643_HONEST_ASSEMBLED_EN_ASSERTIONS = [
     holds: () =>
       /NO-GO/.test(IMP2643_HONEST_ASSEMBLED_EN.verdict) &&
       /C_H/.test(IMP2643_HONEST_ASSEMBLED_EN.blockingConstant) &&
-      /stays SOTA/.test(IMP2643_HONEST_ASSEMBLED_EN.verdict),
+      /refereed bound is changed/i.test(IMP2643_HONEST_ASSEMBLED_EN.verdict),
   },
 ];
 

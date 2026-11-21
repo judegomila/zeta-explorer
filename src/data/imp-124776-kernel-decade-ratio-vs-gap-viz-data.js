@@ -65,7 +65,7 @@ export const IMP124776_SUMMARY = Object.freeze({
     + 'relabeled by its actual near-peak gap g for a "ratio vs gap" chart axis; no new computation. '
     + 'Measurement / sensitivity only on the inherited imp-3220/imp-3406 extrapolation surrogate, not a '
     + 'rigorous asymptotic. Changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; '
-    + 'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'no RH verdict, NO QED. No refereed bound is changed.',
 });
 
 // ---------------------------------------------------------------------------

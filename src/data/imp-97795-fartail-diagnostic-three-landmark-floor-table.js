@@ -75,7 +75,7 @@
  * MEASUREMENT / CO-TABULATION ONLY. Conditional-share diagnostic, NOT an RH bound. Uses the inherited
  * imp-3406/imp-97723 component model and the imp-33708 floor swap, NOT a rigorous asymptotic; C_mb
  * stays GUE-conditional per imp-486; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97782-fartail-diagnostic-hump-peak-pin (the hump-peak pin + floor swap)
  * @see imp-97777-fartail-diagnostic-local-minimum-pin (the local-minimum pin + floor swap)
@@ -275,7 +275,7 @@ export const IMP97795_FARTAIL_DIAGNOSTIC_THREE_LANDMARK_FLOOR_TABLE = {
     'vanishes deep in the tail (the crossing). Measurement only; uses the inherited imp-3406/imp-97723 ' +
     'model and the imp-33708 floor swap, NOT a rigorous asymptotic; C_mb stays GUE-conditional ' +
     '(imp-486); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97782 (hump-peak pin + floor swap); imp-97777 (local-minimum pin + floor swap); imp-97759 ' +
     '(far-tail-crossing floor swap); imp-97723 (full diagnostic closed form, asymptote 1); imp-33708 ' +
@@ -333,13 +333,13 @@ export const IMP97795_FARTAIL_DIAGNOSTIC_THREE_LANDMARK_FLOOR_TABLE_ASSERTIONS =
       CROSS_ROW.sigma_at_landmark < MIN_ROW.sigma_at_landmark,
   },
   {
-    // Honesty gate: measurement/co-tabulation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/co-tabulation only, no QED, no refereed bound is changed.
     id: 'imp97795-honesty-gate-no-qed',
-    description: 'Measurement/co-tabulation only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement/co-tabulation only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP97795_FARTAIL_DIAGNOSTIC_THREE_LANDMARK_FLOOR_TABLE.isRigorous === false &&
       /NO QED/.test(IMP97795_FARTAIL_DIAGNOSTIC_THREE_LANDMARK_FLOOR_TABLE.verdict) &&
-      /remains SOTA/.test(IMP97795_FARTAIL_DIAGNOSTIC_THREE_LANDMARK_FLOOR_TABLE.verdict),
+      /refereed bound is changed/i.test(IMP97795_FARTAIL_DIAGNOSTIC_THREE_LANDMARK_FLOOR_TABLE.verdict),
   },
 ];
 

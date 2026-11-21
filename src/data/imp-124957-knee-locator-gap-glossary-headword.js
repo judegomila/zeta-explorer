@@ -45,7 +45,7 @@
  * @see imp-97822-sigma-knee-etrunc-floor-elasticity.js (the single-locator chord -2.099 this gap sits alongside)
  *
  * Ticket: imp-124957 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The two-definition p_knee locator-gap headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -75,7 +75,7 @@ const KNEE_LOCATOR_GAP_HEADWORD = Object.freeze({
     '(exponent-curvature), p_knee ~ -2.073 (ramp-inflection), gap ~0.0335, refinement-stable and ' +
     'stencil-form-stable. Naming / glossary headword only; supplies no new bound; whether the gap ' +
     'is a fixed additive constant across all ten imp-33708 floors remains open (imp-124971, not ' +
-    'yet answered); RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'yet answered); RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP124957_KNEE_LOCATOR_GAP_GLOSSARY_HEADWORD = Object.freeze({
@@ -95,7 +95,7 @@ export const IMP124957_KNEE_LOCATOR_GAP_GLOSSARY_HEADWORD = Object.freeze({
     '(p_knee ~ -2.1064) and ramp-inflection (p_knee ~ -2.073) -- separated by a ~0.0335 gap that ' +
     'imp-124826 confirmed is grid-refinement-stable and imp-124847 confirmed is stencil-form-' +
     'stable. No bound moved; whether the gap is a fixed per-floor constant is left open to ' +
-    'imp-124971; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-124971; NO QED. No refereed bound is changed.',
   citation:
     'imp-124814 (first side-by-side measurement of both locators); imp-124826 (grid-refinement ' +
     'stability check); imp-124847 (stencil-form stability check); imp-97822 (the single-locator ' +
@@ -125,11 +125,11 @@ export const IMP124957_KNEE_LOCATOR_GAP_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp124957-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124814.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124814.',
     holds: () =>
       IMP124957_KNEE_LOCATOR_GAP_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124957_KNEE_LOCATOR_GAP_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124957_KNEE_LOCATOR_GAP_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124957_KNEE_LOCATOR_GAP_GLOSSARY_HEADWORD.verdict) &&
       IMP124957_KNEE_LOCATOR_GAP_GLOSSARY_HEADWORD.glosses === 'imp-124814',
   },
 ];

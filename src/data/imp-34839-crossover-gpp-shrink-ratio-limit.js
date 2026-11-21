@@ -52,8 +52,7 @@
  * ACCURACY ASSESSMENT ONLY. This derives + measures the curvature-envelope shrink LIMIT of the
  * INHERITED imp-3220/imp-3406 surrogate crossover map; it introduces NO new bound and changes none.
  * The C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is
- * UNTOUCHED; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * UNTOUCHED; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34819-crossover-gpp-fifth-band-envelope-extension (5-band collapse; observed rising ladder)
  * @see imp-34792-crossover-gpp-fourth-band-envelope-extension (4-band collapse across [1e9,1e13])
@@ -220,8 +219,8 @@ export const IMP34839_CROSSOVER_GPP_SHRINK_RATIO_LIMIT = {
     '100 in the u ~ 18-24 imp-34819 window. The four imp-34819 published ratios are reproduced to < 1e-3 ' +
     'relative. Accuracy assessment only on the INHERITED imp-3220/imp-3406 surrogate map; the C_mb ' +
     'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no ' +
-    'bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34819 (5-band collapse; observed rising ladder toward 100x/decade); imp-34792 (4-band collapse ' +
     'across [1e9,1e13]); imp-34757 (per-band B; monotone within each band); imp-34731 (g_double_prime ' +
@@ -259,13 +258,13 @@ export const IMP34839_CROSSOVER_GPP_SHRINK_RATIO_LIMIT_ASSERTIONS = [
     holds: () => MAX_PUBLISHED_RATIO_DRIFT < 1e-3,
   },
   {
-    // Honesty gate: accuracy assessment only, no QED, PT stays SOTA.
+    // Honesty gate: accuracy assessment only, no QED, no refereed bound is changed.
     id: 'imp34839-honesty-gate-no-qed',
-    description: 'Accuracy assessment only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Accuracy assessment only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34839_CROSSOVER_GPP_SHRINK_RATIO_LIMIT.isRigorous === false &&
       /NO QED/.test(IMP34839_CROSSOVER_GPP_SHRINK_RATIO_LIMIT.verdict) &&
-      /remains SOTA/.test(IMP34839_CROSSOVER_GPP_SHRINK_RATIO_LIMIT.verdict),
+      /refereed bound is changed/i.test(IMP34839_CROSSOVER_GPP_SHRINK_RATIO_LIMIT.verdict),
   },
 ];
 

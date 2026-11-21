@@ -63,7 +63,7 @@
  *
  *   STATUS: a grouping/index note over four already-completed tickets, not a new derivation. No bound
  *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-97668-nonlinear-amplitude-audit.js (first-order six-probe audit; all constants collapse onto span{E_CC,E_ET,E_CF})
  * @see imp-97720-diag3-second-order-hessian.js (second-order mixed-Hessian; nonzero couplings, contraction vanishes)
@@ -73,7 +73,7 @@
  * @see imp-97689-diag3-additivity-euler-derivation.js (analytic Euler degree-0 derivation of DIAG3 == 0)
  *
  * Ticket: imp-97827 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- reference constant carried from the imp-97734 predecessor index
@@ -171,8 +171,8 @@ export const IMP97827_DIAG3_AMPLITUDE_AUDIT_COHORT_INDEX = Object.freeze({
     'individual elasticity diverges -- in both cases the exact cancellation survives, in the second case ' +
     'confirming it is a scaling symmetry (pointwise sigma invariance) rather than an artefact of ' +
     'transversal downslope crossings. No bound moves in any leaf: interval-rigorous certified reach stays ' +
-    'EXACTLY 2a<=0.96, and no model coefficient is newly pinned. RH open; NO QED. Platt-Trudgian Lambda ' +
-    '<= 0.2 remains SOTA.',
+    'EXACTLY 2a<=0.96, and no model coefficient is newly pinned. RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97668 (first-order six-probe audit); imp-97720 (second-order mixed-Hessian extension); ' +
     'imp-97710 (fourth, far-downslope landmark cross-validation); imp-97721 (peak-straddling ' +
@@ -232,13 +232,13 @@ export const IMP97827_DIAG3_AMPLITUDE_AUDIT_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97827-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97827_DIAG3_AMPLITUDE_AUDIT_COHORT_INDEX.anyBoundMoved === false &&
       IMP97827_DIAG3_AMPLITUDE_AUDIT_COHORT_INDEX.certifiedReach === 0.96 &&
       IMP97827_DIAG3_AMPLITUDE_AUDIT_COHORT_INDEX.certifiedReach < IMP97827_DIAG3_AMPLITUDE_AUDIT_COHORT_INDEX.ln3 &&
       /NO QED/.test(IMP97827_DIAG3_AMPLITUDE_AUDIT_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97827_DIAG3_AMPLITUDE_AUDIT_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97827_DIAG3_AMPLITUDE_AUDIT_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP97827_DIAG3_AMPLITUDE_AUDIT_COHORT_INDEX.verdict),
   },
 ];

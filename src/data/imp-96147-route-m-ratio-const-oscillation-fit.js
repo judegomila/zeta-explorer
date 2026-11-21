@@ -55,7 +55,7 @@
  * identification stays open -- see IMP96147_SUBGAP.
  *
  * MEASUREMENT ONLY. Changes no bound, establishes no operator positivity, makes
- * no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96105-route-m-vasyunin-gram-extend-n6000.js (source ladder to 6000)
  * @see imp-96094-route-m-burnol-ratio-dense-ladder.js (dense ladder to 2600)
@@ -143,7 +143,7 @@ export const IMP96147_SUBGAP = Object.freeze({
 });
 
 export const IMP96147_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: every value is a reproducible numeric from tmp/rh-route-m/m11-const-osc-fit.py fitting the imp-96105 baked rows (tmp/rh-route-m/m10-out.json); no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Measurement only: every value is a reproducible numeric from tmp/rh-route-m/m11-const-osc-fit.py fitting the imp-96105 baked rows (tmp/rh-route-m/m10-out.json); no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -192,7 +192,7 @@ const IMP96147_ASSERTIONS = [
     id: 'imp96147-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96147_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96147_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96147_HONEST_BANNER) &&
       /NO QED/.test(IMP96147_HONEST_BANNER) &&
       typeof IMP96147_SUBGAP.statement === 'string' &&
       /gamma1-identification/.test(IMP96147_SUBGAP.id),

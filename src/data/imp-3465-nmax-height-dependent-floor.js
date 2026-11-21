@@ -70,7 +70,7 @@
  * turnover is therefore a constant-floor artifact, confirming and sharpening imp-3443.
  *
  * MEASUREMENT / DIAGNOSTIC ONLY. RH-equivalent. No positivity, no bridge closure, no RH
- * claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * claim, NO QED. No refereed bound is changed.
  *
  * @see imp-3443-nmax-etrunc-sensitivity (fixed-floor sensitivity; N_max ~ (1/E_trunc)^1.38)
  * @see imp-3406-sigma-highN-extrapolation (interior MAX pinned N_max ~ 9.22e5, fixed floor)
@@ -228,7 +228,7 @@ export const IMP3465_NMAX_HEIGHT_DEPENDENT_FLOOR = {
     '1/2, the E_coll decay rate). Only quasi-constant LOG floors (q=1,2) preserve an ' +
     'interior MAX, landing modestly lower (~3.6e5, ~1.2e5). The imp-3406 turnover is a ' +
     'constant-floor artifact, confirming and sharpening imp-3443. No positivity, no bridge ' +
-    'closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'closure, no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-3443 (fixed-floor sensitivity N_max ~ (1/E_trunc)^1.38); imp-3406 (interior MAX ' +
     'N_max ~ 9.22e5, fixed floor); imp-3220 (U-shaped sigma(N) ladder); imp-2631 (fixed-strip ' +
@@ -278,14 +278,14 @@ export const IMP3465_NMAX_HEIGHT_DEPENDENT_FLOOR_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement/assessment only, constant-floor-artifact verdict, no QED,
-    // PT stays SOTA, no rigorous or RH claim.
+    // no refereed bound is changed, no rigorous or RH claim.
     id: 'imp3465-honesty-gate-no-qed',
-    description: 'Measurement only: constant-floor-artifact verdict, no QED, PT stays SOTA',
+    description: 'Measurement only: constant-floor-artifact verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP3465_NMAX_HEIGHT_DEPENDENT_FLOOR.isRigorous === false &&
       /CONSTANT-FLOOR ARTIFACT/.test(IMP3465_NMAX_HEIGHT_DEPENDENT_FLOOR.verdictDirection) &&
       /NO QED/.test(IMP3465_NMAX_HEIGHT_DEPENDENT_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP3465_NMAX_HEIGHT_DEPENDENT_FLOOR.verdict),
+      /refereed bound is changed/i.test(IMP3465_NMAX_HEIGHT_DEPENDENT_FLOOR.verdict),
   },
 ];
 

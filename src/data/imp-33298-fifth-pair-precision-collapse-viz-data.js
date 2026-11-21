@@ -10,8 +10,7 @@
  *   @see imp-33253-fifth-pair-condition-number-floor.js (the derived Wilkinson kappa*u floor line)
  *
  *   Ticket: imp-33298 (ux, low). Presentation of an already-established cross-check; adds no new
- *   Lambda bound. imp-3066 K_a>=0 UNTOUCHED. RH-EQUIVALENT. NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA.
+ *   Lambda bound. imp-3066 K_a>=0 UNTOUCHED. RH-EQUIVALENT. NO QED. No refereed bound is changed.
  */
 
 // -- baked from imp-33272 (fp64 vs double-double fifth-pair spread, identical N=2000 matrix) --

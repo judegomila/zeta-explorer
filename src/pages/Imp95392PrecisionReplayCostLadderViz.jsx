@@ -134,8 +134,7 @@ export default function Imp95392PrecisionReplayCostLadderViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a derivation from the frozen
         imp-95214/imp-95238/imp-95257 ledgers, not a wall-clock measurement -- no native FLINT/Arb
-        replay is launched. It changes no Lambda bound. Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains state of the art. RH does not follow from anything on this page. NO QED.
+        replay is launched. It changes no Lambda bound. RH does not follow from anything on this page. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -184,7 +183,7 @@ export default function Imp95392PrecisionReplayCostLadderViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-95277
         ladder module (values copied verbatim, no re-derivation). Changes no bound, establishes no
-        operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
+        operator positivity, no RH claim.
         NO QED.
       </div>
     </div>

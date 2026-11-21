@@ -60,7 +60,7 @@
  *   k* to within 4.64e-4, and a closed-form curvature-bias predictor reproduces the shift in sign
  *   and to ~13% in magnitude. Surrogate finite-difference decomposition on 3 rungs; NOT a
  *   rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
- *   NO QED; Platt-Trudgian Lambda<=0.2 remains the SOTA unconditional bound.
+ *   NO QED; no refereed bound is changed.
  *
  *   @see imp-34310-eflow-over-resid-pole-residue-simple-pole.js (secant zero, F4 convexity caveat)
  *   @see imp-34397-eflow-over-resid-residue-curvature-corrected.js (quadratic zero this decomposes)
@@ -135,7 +135,7 @@ export const IMP34399_SECANT_ZERO_CONVEXITY_BIAS_DECOMPOSITION = {
     'not new data; the ~10.5% residual is the uncorrected cubic term plus the bisection resolution ' +
     'of k* and is data-limited (no finer sub-rung inside (21.0, 21.28095)). Surrogate NOT rigorous; ' +
     'changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; ' +
-    'NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 };
 
 export const IMP34399_ASSERTIONS = [

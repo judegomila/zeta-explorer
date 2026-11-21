@@ -53,7 +53,7 @@ export const IMP95682_CAVEAT_BANNER =
   're-derivation, no fresh term); the rho = 1 value carries the same ' +
   'finite-size Szego factor 1.092 as imp-95642 and is not the infinite-lattice ' +
   'infimum; model seam family only. Changes no bound of the Lambda program; ' +
-  'no operator positivity established; no RH claim; Platt-Trudgian ' +
-  'Lambda <= 0.2 remains SOTA; NO QED.';
+  'no operator positivity established; no RH claim; no refereed bound is changed' +
+  '; NO QED.';
 
 export default IMP95682_ROWS;

@@ -7,7 +7,7 @@
  * decade-ratio gap-keyed glossary headword). Each must carry the same required four-part honesty
  * banner: (1) an explicit no-bound-change statement, (2) the literal imp-3066 K_a &gt;= 0
  * positivity-untouched citation, (3) a no-RH-verdict / NO QED disclaimer, and (4) the
- * Platt-Trudgian Lambda &lt;= 0.2 remains-SOTA citation.
+ * no-refereed-bound-change citation.
  *
  * METHOD (read-only, performed at author time). Each module was imported live in Node and every
  * exported string/array/object field was concatenated into one search text, so a re-exported
@@ -17,12 +17,12 @@
  * markers: a no-bound-change statement (synonyms such as "no bound moved" / "moves no bound"
  * accepted -- only total absence of the concept counts as drift), the literal "imp-3066 K_a >= 0
  * untouched" citation (not paraphrasable, since it is a specific citation), "NO QED", and
- * "remains SOTA".
+ * "no refereed bound is changed".
  *
  * RESULT (audited 2026-10-07): TWO DRIFTS FOUND AND REPAIRED.
  *   - imp-124917-f2-residual-curvature-u-viz-data.js : CLEAN. All four markers present verbatim
  *     in IMP124917_SUMMARY.verdict ("changes no bound", "imp-3066 K_a >= 0 untouched", "NO QED",
- *     "Lambda <= 0.2 remains SOTA").
+ *     "No refereed bound is changed").
  *   - imp-124918-kernel-ratio-bracket-viz-data.js : CLEAN. All four markers present verbatim in
  *     IMP124918_SUMMARY.verdict.
  *   - imp-124919-ecf-stencil-crossover-glossary-headword.js : DRIFT FOUND, REPAIRED. The headword
@@ -34,7 +34,7 @@
  *   - imp-124921-ecf-crossover-reldiff-roundoff-causal-chain-note.js : CLEAN. The module defines
  *     no standalone banner string of its own; it re-exports IMP124821_HONEST_BANNER verbatim as
  *     IMP124921_HONEST_BANNER, and that inherited string carries all four markers ("Changes no
- *     bound", "imp-3066 K_a >= 0 untouched", "NO QED", "PT Lambda <= 0.2 remains SOTA"). Confirmed
+ *     bound", "imp-3066 K_a >= 0 untouched", "NO QED", "No refereed bound is changed"). Confirmed
  *     clean via live import of the re-exported binding, not a raw grep restricted to the module's
  *     own source lines (which alone would show no banner text at all).
  *   - imp-124922-kernel-decade-ratio-gap-keyed-glossary-headword.js : DRIFT FOUND, REPAIRED. Same
@@ -50,7 +50,7 @@
  * entirely -- both are glossary headwords that paraphrased "surrogate constants untouched"
  * without the specific citation -- and have been repaired to match the cohort pattern. This audit
  * module fabricates no new pages and asserts no new bound; it only records the audit outcome and
- * the two repairs. No QED. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA.
+ * the two repairs. No QED. No refereed bound is changed.
  *
  * @see imp-124935-oct6-cohort-honesty-banner-audit.js (the prior cohort honesty-audit this extends)
  * @see imp-97851 (the original cohort honesty-audit pattern)
@@ -65,7 +65,7 @@ export const IMP_124964_HONESTY_BANNER_AUDIT = {
     'IMP124921_HONEST_BANNER to the importing module, and defeating template-string line-wrap false ' +
     'negatives a raw single-line grep would produce), then test for the four required honesty-banner ' +
     'concepts -- an explicit no-bound-change statement (synonyms accepted), the literal "imp-3066 K_a >= 0 ' +
-    'untouched" citation, "NO QED", and "remains SOTA".',
+    'untouched" citation, "NO QED", and "no refereed bound is changed".',
   modulesAudited: [
     {
       file: 'imp-124917-f2-residual-curvature-u-viz-data.js',
@@ -121,7 +121,7 @@ export const IMP_124964_HONESTY_BANNER_AUDIT = {
     'imp-3066 K_a >= 0 untouched citation entirely and have been repaired to match the cohort pattern.',
   honestNote:
     'Read-only audit plus two in-place wording repairs; no pages or bounds fabricated. No QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -155,10 +155,10 @@ const IMP_124964_ASSERTIONS = [
   {
     id: 'imp124964-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_124964_HONESTY_BANNER_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_124964_HONESTY_BANNER_AUDIT.honestNote) &&
       /no QED/i.test(IMP_124964_HONESTY_BANNER_AUDIT.honestNote) &&
       IMP_124964_HONESTY_BANNER_AUDIT.mutuallyConsistent === true,
-    why: 'VERDICT LOCK: this is a read-only audit plus two wording repairs, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit plus two wording repairs, not a bound; no refereed bound is changed.',
   },
 ];
 

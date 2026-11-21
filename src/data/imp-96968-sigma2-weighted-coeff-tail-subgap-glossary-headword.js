@@ -45,8 +45,7 @@
  *   2a<=0.96.
  *
  *   STATUS: a glossary distinction over a single finite tabulation (N=76,100,124 at
- *   2a=ln3), not a derivation of the missing component. NO QED. Platt-Trudgian
- *   Lambda <= 0.2 SOTA.
+ *   2a=ln3), not a derivation of the missing component. NO QED. No refereed bound is changed.
  *
  * @see imp-96934-bessel-onset-tail-residual-viz-data.js (source: the onset-vs-residual
  *   decomposition and sub-gap this glosses)
@@ -56,7 +55,7 @@
  *   explains)
  *
  * Ticket: imp-96968 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The sub-gap headword, baked verbatim (no re-import).
@@ -98,7 +97,7 @@ const SIGMA2_WEIGHTED_COEFF_TAIL_SUBGAP_HEADWORD = Object.freeze({
     '{76,100,124}, 2a=ln3) plus the imp-96928 super-cubic growth fit (p~3.27). ' +
     'Reconciles a single finite tabulation; not a derivation of the missing sigma_2/' +
     'coefficient-amplitude component. Changes no bound; establishes no operator ' +
-    'positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96968_SIGMA2_WEIGHTED_COEFF_TAIL_SUBGAP_GLOSSARY_HEADWORD = Object.freeze({
@@ -124,7 +123,7 @@ export const IMP96968_SIGMA2_WEIGHTED_COEFF_TAIL_SUBGAP_GLOSSARY_HEADWORD = Obje
     'which the fixed-trial-function onset model can see. Does not change the ' +
     'imp-96934/imp-96917 status: Rayleigh floor is an UPPER bound, certificate reach ' +
     'stays 2a<=0.96. Establishes nothing; instantiates no interval; moves no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-96934 (the onset-vs-residual decomposition and sub-gap this glosses); ' +
     'imp-96928 (the p~3.27 super-cubic residual growth fit); imp-96917 (the beyond-' +
@@ -151,11 +150,11 @@ export const IMP96968_SIGMA2_WEIGHTED_COEFF_TAIL_SUBGAP_GLOSSARY_HEADWORD_ASSERT
   },
   {
     id: 'imp96968-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96968_SIGMA2_WEIGHTED_COEFF_TAIL_SUBGAP_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96968_SIGMA2_WEIGHTED_COEFF_TAIL_SUBGAP_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96968_SIGMA2_WEIGHTED_COEFF_TAIL_SUBGAP_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96968_SIGMA2_WEIGHTED_COEFF_TAIL_SUBGAP_GLOSSARY_HEADWORD.verdict) &&
       IMP96968_SIGMA2_WEIGHTED_COEFF_TAIL_SUBGAP_GLOSSARY_HEADWORD.glosses === 'imp-96934',
   },
 ];

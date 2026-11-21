@@ -66,8 +66,7 @@
  *   figures, so K_eff carries that imprecision. Necessary-but-NOT-sufficient at
  *   operator order; the off-diagonal endpoint-Hankel operator step (imp-3066)
  *   remains the lone obstruction, UNTOUCHED. No positivity attempted, no
- *   reduction, no RH verdict, no false QED. Platt-Trudgian Lambda &lt;= 0.2 remains
- *   the rigorous SOTA.
+ *   reduction, no RH verdict, no false QED. No refereed bound is changed.
  *
  *   @see imp-3253-overflow-degree-reconcile.js (parent: records the underived ~0.066 step)
  *   @see imp-2686-mupass-construction.js ("64% is degree-0" scale analysis; the arbiter pointer)
@@ -227,7 +226,7 @@ export const IMP3367_OVERFLOW_SPECTRAL_REFINEMENT = Object.freeze({
       'quantifying the overflow refinement is necessary-but-NOT-sufficient at operator ' +
       'order; the off-diagonal endpoint-Hankel step (imp-3066) is the lone obstruction, untouched.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -273,7 +272,7 @@ export const IMP3367_OVERFLOW_SPECTRAL_REFINEMENT_ASSERTIONS = [
     id: 'imp3367-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC, K_eff BACKED OUT not derived, ' +
          'necessary-but-not-sufficient at operator order, positivity not attempted, ' +
-         'PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3367_OVERFLOW_SPECTRAL_REFINEMENT.honestCaveat;
       return (
@@ -281,7 +280,7 @@ export const IMP3367_OVERFLOW_SPECTRAL_REFINEMENT_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

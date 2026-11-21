@@ -53,8 +53,8 @@
  * At the anchor itself the signal (~1.82e-2) beats the floor (~5e-8) by ~3.7e5, so basis C remains a
  * genuine INDEPENDENT corroboration of basis A across the entire accessible-to-anchor range, and only
  * loses independence far past it. Cross-validation / extrapolation numerics only; theoretical GUE
- * quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; the zero-side route stays PCC/GRH-gated.
+ * quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96389-three-basis-rho-crossvalidation-table (basis-C L-linear floor is the binding floor)
  * @see imp-96369-direct-double-integral-pt-anchor-feasibility (basis C feasibility and its floor model)
@@ -204,17 +204,17 @@ export const IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER = {
     + 'Basis C still corroborates basis A at the anchor (the exact signal still beats the measured floor), '
     + 'just with far less headroom than this module’s extrapolation claimed. The crossover band '
     + '[~1.3e12, ~2.5e12] is untouched (it is calibrated from the same accessible-L rungs, not the anchor). '
-    + 'RH open; NO QED; PT Lambda <= 0.2 remains SOTA.',
+    + 'RH open; NO QED; no refereed bound is changed.',
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values. The crossover L* is an EXTRAPOLATION -- the L-linear floor model is calibrated only on accessible L (<= 960) and the direct integral is never evaluated at L ~ 1e12, so L* is a projected reach of an independence property, not a measured one. The direct-floor sweep is jittery (the L=240 rung dips below L=120), so the slope is a coarse L-linear fit and the crossover is a band [~1.3e12, ~2.5e12], not a sharp value. Changes no bound, establishes no operator positivity, does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'Extrapolating the imp-96389 basis-C L-linear cancellation floor against the exact, logarithmically-shrinking |rho + 1/2| rigidity signal, the growing floor does not overtake the shrinking signal until L* ~ 1.3e12 (conservative endpoint slope) to ~2.5e12 (mean slope) -- about five-to-six decades beyond the PT anchor L = 5.9e6, where rho ~ -0.489 and floor = signal ~ 1.1e-2. At the anchor itself the signal (~1.82e-2) beats the floor (~5e-8) by ~3.7e5, so basis C remains a genuine INDEPENDENT corroboration of basis A across the entire accessible-to-anchor range and only loses independence far past it. Cross-validation / extrapolation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Extrapolating the imp-96389 basis-C L-linear cancellation floor against the exact, logarithmically-shrinking |rho + 1/2| rigidity signal, the growing floor does not overtake the shrinking signal until L* ~ 1.3e12 (conservative endpoint slope) to ~2.5e12 (mean slope) -- about five-to-six decades beyond the PT anchor L = 5.9e6, where rho ~ -0.489 and floor = signal ~ 1.1e-2. At the anchor itself the signal (~1.82e-2) beats the floor (~5e-8) by ~3.7e5, so basis C remains a genuine INDEPENDENT corroboration of basis A across the entire accessible-to-anchor range and only loses independence far past it. Cross-validation / extrapolation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for
 // any consumer surface (e.g. the imp-96453 viz page) that renders this finding.
 export const IMP96430_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-validation / '
+  'RH open; no refereed bound is changed; NO QED. Cross-validation / '
   + 'extrapolation numerics only: rho is the theoretical GUE two-interval '
   + 'correlation, not computed from real zeros; the crossover band [1.3e12, '
   + '2.5e12] is calibrated only on accessible L (<= 960); at the PT anchor the '
@@ -250,8 +250,8 @@ export const IMP96430_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER.verdict))
     throw new Error('imp-96430: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER.verdict))
-    throw new Error('imp-96430: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER.verdict))
+    throw new Error('imp-96430: verdict dropped the no-refereed-bound-change banner');
 
   // reconciliation note (imp-96499): the anchor headroom is the imp-96448 MEASURED ~640, not this
   // module's model-quoted ~3.7e5 -- the note must stay present and carry the honesty banners too.
@@ -263,7 +263,7 @@ export const IMP96430_HONEST_BANNER =
     throw new Error('imp-96430: reconciliation note dropped the NO QED banner');
 
   // exported honest-status banner (imp-96337 / imp-96428 convention) must carry the markers
-  if (!(/RH open/.test(IMP96430_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96430_HONEST_BANNER) && /NO QED/.test(IMP96430_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96430_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96430_HONEST_BANNER) && /NO QED/.test(IMP96430_HONEST_BANNER)))
     throw new Error('imp-96430: IMP96430_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

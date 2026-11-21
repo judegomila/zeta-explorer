@@ -8,7 +8,7 @@
  * survive? Twenty-fifth-adjacent leg of the seam chain; consumes imp-95276
  * (gate-side map DISSOLVED), imp-95255 (currency per-window map, theta wall),
  * imp-95226 (signed pencil model E_V). ASSESSMENT only; changes no bound; NO
- * QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED; no refereed bound is changed.
  *
  * THE SETUP (imp-95276 reduction). imp-95276 dissolved the gate-side half of
  * seam obligation (3): the pipeline R |-> g_R = 2 R sqrt(1 - R^2) |-> gammaSL
@@ -95,7 +95,7 @@
  * is not proved here. (d) The numeric witness is a single 2x2 configuration
  * illustrating a general linear-algebra fact, not a paper-window computation.
  * Import-light (no zeros bundle, no sibling imports). Changes no bound; NO
- * QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; measured class sup
+ * QED; no refereed bound is changed; measured class sup
  * unchanged.
  */
 
@@ -189,8 +189,8 @@ export const IMP95376_FA_PORT_ADMISSIBILITY = {
     'ASSESSMENT ONLY -- no port re-run, no packet transcribed, no certificate instantiated on a paper '
     + 'window; LEG B names (does not prove) the domination inequality as the substance of the open '
     + 'imp-95212-subgap-fresnel-airy-envelope-port; the numeric witness is one 2x2 configuration '
-    + 'illustrating a general Rayleigh-sup fact. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 '
-    + 'remains SOTA.',
+    + 'illustrating a general Rayleigh-sup fact. Changes no bound; NO QED; no refereed bound is changed'
+    + '.',
   fns: { rayleigh, lambdaMaxDirect, lambda2Sgn2x },
 };
 
@@ -223,11 +223,11 @@ export const IMP95376_FA_PORT_ADMISSIBILITY_ASSERTIONS = [
   },
   {
     id: 'imp-95376-split-verdict-honest',
-    description: 'explicitly SPLIT verdict, ASSESSMENT ONLY, PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly SPLIT verdict, ASSESSMENT ONLY, no refereed bound is changed',
     holds: () =>
       IMP95376_FA_PORT_ADMISSIBILITY.verdict === 'SPLIT'
       && /ASSESSMENT ONLY/.test(IMP95376_FA_PORT_ADMISSIBILITY.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(IMP95376_FA_PORT_ADMISSIBILITY.honest),
+      && /refereed bound is changed/i.test(IMP95376_FA_PORT_ADMISSIBILITY.honest),
   },
 ];
 

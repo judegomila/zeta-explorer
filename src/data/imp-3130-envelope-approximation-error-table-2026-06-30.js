@@ -46,7 +46,7 @@
  *   measurement of how far two rough asymptotics sit from the imp-3064 scalar ratio;
  *   it neither proves nor weakens RH. The off-diagonal endpoint-Hankel operator step
  *   (imp-3066) remains the lone obstruction and is untouched. Measure only, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3105-excess-fraction-crossover-landmarks-2026-06-30.js (the single-point gap)
  *   @see imp-3064-deficit-excess-fraction-grid.js (the a*U scale invariant + phi)
@@ -183,7 +183,7 @@ export const IMP3130_ENVELOPE_APPROXIMATION_ERROR_TABLE = Object.freeze({
       'Measurement of the gap between two rough asymptotics and the imp-3064 degree-0 scalar ' +
       'ratio; the off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone ' +
       'obstruction and is NOT addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -269,7 +269,7 @@ export const IMP3130_ENVELOPE_APPROXIMATION_ERROR_TABLE_ASSERTIONS = [
   {
     id: 'imp3130-honest-rh-equivalent-not-a-reduction',
     why: 'Mandatory honesty: the table is RH-EQUIVALENT, structural/diagnostic, leaves the ' +
-         'operator step untouched, is not a proof, not a reduction below RH, and PT 0.2 stays SOTA. ' +
+         'operator step untouched, is not a proof, not a reduction below RH, and no refereed bound is changed. ' +
          'If any of these flip the module is over-claiming.',
     holds: () => {
       const c = IMP3130_ENVELOPE_APPROXIMATION_ERROR_TABLE.honestCaveat;
@@ -278,7 +278,7 @@ export const IMP3130_ENVELOPE_APPROXIMATION_ERROR_TABLE_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.isStructuralDiagnostic === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

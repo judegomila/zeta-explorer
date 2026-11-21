@@ -10,7 +10,7 @@
  * PRESENTATION ONLY. Every value here is reused verbatim from the imp-96914
  * IMP96914_BANDS / IMP96914_ORDERING / IMP96914_BINDS_FIRST / IMP96914_VERDICT records; only the
  * chart reshape is new. Changes no bound, establishes no operator positivity, no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96914-route-m-ceiling-eps-sensitivity-band.js (source measurement)
  *

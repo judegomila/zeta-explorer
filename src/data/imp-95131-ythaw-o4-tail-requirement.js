@@ -5,7 +5,7 @@
  * GRADE: MEASUREMENT ONLY. This module quantifies WHAT the O4 tail leg must
  * establish and the margin it has to work with; it does NOT derive or certify
  * an analytic tail bound. O4 stays OPEN. Changes no bound; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * WHAT O4 IS (ledger row 10 of formalization/y-thaw-01775943/
  * SHARP_WEIGHT_NATIVE_BINDING.md, section 6): the stage-2 sweep

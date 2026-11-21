@@ -13,7 +13,7 @@
  *   finite-resolution artifact that vanishes as N -> inf.
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a reduction.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   RE-POINT (imp-3216 / imp-3315). The ~1.2535 baseline is NOT a genuine
  *   Phi-autocorrelation length: imp-3216 resolved the overflow set to a single
@@ -78,7 +78,7 @@
  *   NOT re-derived. A nonzero overflow measure is necessary-but-NOT-sufficient at
  *   operator order; the off-diagonal endpoint-Hankel operator step (imp-3066) remains
  *   the lone obstruction. RH-equivalent, necessary-not-sufficient. No RH verdict, no
- *   false QED. Platt-Trudgian Lambda &lt;= 0.2 stays the rigorous SOTA.
+ *   false QED. No refereed bound is changed.
  *
  *   @see imp-3199-overflow-fraction-cell-sweep.js (the single-live-N seven-cell sweep, source of the U-drift)
  *   @see imp-3216-overflow-support-length-closed-form.js (the U-independent endpoint interval)
@@ -337,7 +337,7 @@ export const IMP3258_OVERFLOW_SUPPORT_U_DRIFT_RESOLUTION = Object.freeze({
       'A nonzero overflow measure is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -381,7 +381,7 @@ export const IMP3258_OVERFLOW_SUPPORT_U_DRIFT_RESOLUTION_ASSERTIONS = [
     id: 'imp3258-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC genuine-vs-noise resolution, overflow-support-only (not the absolute deficit ' +
          'magnitude), the length itself an underflow-horizon reading, necessary-but-not-sufficient at operator order, ' +
-         'positivity not attempted, PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'positivity not attempted, no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3258_OVERFLOW_SUPPORT_U_DRIFT_RESOLUTION.honestCaveat;
       return (
@@ -389,7 +389,7 @@ export const IMP3258_OVERFLOW_SUPPORT_U_DRIFT_RESOLUTION_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

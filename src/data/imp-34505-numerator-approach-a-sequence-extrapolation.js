@@ -45,8 +45,7 @@
  * formed, so "fixed rate" means the four per-window ratios agree, not that a fourth a estimate would confirm
  * it. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the coefficient is
  * descriptive within that model only; changes no bound; establishes no operator positivity; C_mb
- * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34489-numerator-approach-four-term-curvature-crossval (the {a2,a3,a4} triples extrapolated here)
  * @see imp-34450-numerator-approach-three-term-curvature-crossval (the three-term a3)
@@ -178,7 +177,7 @@ export const IMP34505_NUMERATOR_APPROACH_A_SEQUENCE_EXTRAPOLATION = {
     'geometric law. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the ' +
     'coefficient is descriptive within the model only; changes no bound; establishes no operator ' +
     'positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34489 (the {a2,a3,a4} triples extrapolated here); imp-34450 (the three-term a3); imp-34375 ' +
     '(the two-term a2); imp-34286 (the bias-corrected band a ~ 0.437-0.438); imp-34210 (the OLS log-log ' +
@@ -211,13 +210,13 @@ export const IMP34505_NUMERATOR_APPROACH_A_SEQUENCE_EXTRAPOLATION_ASSERTIONS = [
     holds: () => RESID_MAX < 3e-4 && ALL_AITKEN_GEOM_AGREE === true,
   },
   {
-    // Honesty gate: extrapolation only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: extrapolation only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34505-honesty-gate-no-qed',
-    description: 'Coefficient extrapolation only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Coefficient extrapolation only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34505_NUMERATOR_APPROACH_A_SEQUENCE_EXTRAPOLATION.isRigorous === false &&
       /NO QED/.test(IMP34505_NUMERATOR_APPROACH_A_SEQUENCE_EXTRAPOLATION.verdict) &&
-      /remains SOTA/.test(IMP34505_NUMERATOR_APPROACH_A_SEQUENCE_EXTRAPOLATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34505_NUMERATOR_APPROACH_A_SEQUENCE_EXTRAPOLATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34505_NUMERATOR_APPROACH_A_SEQUENCE_EXTRAPOLATION.verdict),
   },
 ];

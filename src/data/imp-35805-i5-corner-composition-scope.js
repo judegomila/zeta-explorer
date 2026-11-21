@@ -17,7 +17,7 @@
  *
  * ASSESSMENT / SCOPING ONLY. Ports nothing; composes no increments; evaluates no corner value;
  * checks no overlap; fixes no orientation; traverses no contour; evaluates no A, B, or C; fixes
- * no Delta or h; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no Delta or h; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE FOUR CORNERS AND THE SINGLE CLOSED TRAVERSAL
  * -----------------------------------------------------------------------------
@@ -87,7 +87,7 @@
  * finding (orientation + loop-closure as I5 own content), and the I5-prior-to-I4 ordering. It
  * composes no increments, evaluates no corner value, checks no overlap, fixes no orientation,
  * traverses no contour, evaluates no A / B / C, fixes no Delta or h, certifies no count, changes
- * no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-35727-w2-certified-winding-count-ingredients-scope (I5 named GREENFIELD, un-scoped)
  * @see imp-35803-i1-interval-enclosure-per-edge-scope (I1 base engine; the shared corner boxes I5 chains)
@@ -102,7 +102,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35803 / imp-35804) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 const HALF_TURN = Math.PI; // the I2 corner-panel branch cap threshold (pins the continuation branch)
 const EDGE_COUNT = 4; // dR = bottom, right, top, left
 const CORNER_COUNT = 4; // C1, C2, C3, C4
@@ -192,8 +192,8 @@ export const IMP35805_I5_CORNER_COMPOSITION_SCOPE = {
     'sum to a unique integer. The held scaffolding (imp-2696 / imp-33923 / imp-33968) sweeps a single window or axis ' +
     'and never traverses a closed rectangle, so corner composition is entirely untested. It composes no increments; ' +
     'evaluates no corner value; checks no overlap; fixes no orientation; traverses no contour; evaluates no A / B / C; ' +
-    'fixes no Delta or h; certifies no count; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'fixes no Delta or h; certifies no count; changes no bound; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35727 (I5 named GREENFIELD, un-scoped); imp-35803 (I1 base engine, the shared corner boxes I5 chains); ' +
     'imp-35777 (I2 per-panel branch cap argwidth F < pi, pins the corner branch); imp-35758 (I3 no zero on dR, arg f ' +
@@ -258,9 +258,9 @@ export const IMP35805_I5_CORNER_COMPOSITION_SCOPE_ASSERTIONS = [
       /isRigorous:false/.test(IMP35805_I5_CORNER_COMPOSITION_SCOPE.heldScaffoldingLacks),
   },
   {
-    // Honesty gate: scoping only, composes nothing, certifies no count, NO QED, PT Lambda <= 0.2 SOTA.
+    // Honesty gate: scoping only, composes nothing, certifies no count, NO QED, no refereed bound is changed.
     id: 'imp35805-honesty-gate-no-qed',
-    description: 'Scoping only; composes no increments; fixes no orientation; certifies no count; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Scoping only; composes no increments; fixes no orientation; certifies no count; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35805_I5_CORNER_COMPOSITION_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -268,7 +268,7 @@ export const IMP35805_I5_CORNER_COMPOSITION_SCOPE_ASSERTIONS = [
       Math.abs(HALF_TURN - Math.PI) < 1e-15 &&
       /certifies no count/.test(IMP35805_I5_CORNER_COMPOSITION_SCOPE.verdict) &&
       /NO QED/.test(IMP35805_I5_CORNER_COMPOSITION_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35805_I5_CORNER_COMPOSITION_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35805_I5_CORNER_COMPOSITION_SCOPE.verdict),
   },
 ];
 

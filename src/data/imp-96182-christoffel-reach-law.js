@@ -59,7 +59,7 @@
  * @see rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js (ROUTE_L base moments cm0, detector)
  *
  * Ticket: imp-96182 (numerical, medium). Measurement/derivation only; changes NO bound; RH open;
- * Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED. Sub-gap SG-96149-grid CLOSED.
+ * no refereed bound is changed; NO QED. Sub-gap SG-96149-grid CLOSED.
  */
 
 // Genuine CMV/Verblunsky Christoffel reach vs measured detector column (delta = 0.1).
@@ -103,6 +103,6 @@ export const IMP96182_VERDICT =
   + 'measured column 12, 20, 33, 48, 107 within 5% (mid-band exact, ends within one order / 3%), removing '
   + 'both endpoint errors of the imp-96165 log-background counting proxy (+67% low index, -35% at k = 20). '
   + 'So the genuine Christoffel function IS the tight analytic reach law; SG-96149-grid is CLOSED. '
-  + 'Measurement/derivation only; changes no bound; RH open; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.';
+  + 'Measurement/derivation only; changes no bound; RH open; no refereed bound is changed; NO QED.';
 
 export const IMP96182_SCRIPTS = Object.freeze(['tmp/imp-96182-christoffel.py']);

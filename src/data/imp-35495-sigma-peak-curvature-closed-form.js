@@ -57,7 +57,7 @@
  * the inherited imp-3220/imp-3406 surrogate; the surrogate-vs-true fidelity half (imp-35337a) stays OPEN and is
  * not touched. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; E_trunc = 3.06e-5 (imp-2631)
  * UNTOUCHED; the imp-398 C_F prefactor UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35470-sigma-peak-curvature-5point-stencil (DIRECT 5-point O(h^4) stencil; ~6.4319102e-3)
  * @see imp-35450-sigma-peak-curvature-direct-fd (DIRECT 3-point O(h^2) FD + Richardson; ~6.43191e-3)
@@ -262,7 +262,7 @@ export const IMP35495_SIGMA_PEAK_CURVATURE_CLOSED_FORM = {
     'is NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643), the E_trunc = 3.06e-5 floor (imp-2631) ' +
     'and the imp-398 C_F prefactor are UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; the ' +
     'surrogate-vs-true fidelity half (imp-35337a) stays OPEN; changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35470 (DIRECT 5-point O(h^4) stencil, ~6.4319102e-3); imp-35450 (DIRECT 3-point O(h^2) FD + Richardson, ' +
     '~6.43191e-3); imp-35411 (INDIRECT width-inferred k from the constant 15.3165, raw ~6.4319e-3); imp-35337 ' +
@@ -309,13 +309,13 @@ export const IMP35495_SIGMA_PEAK_CURVATURE_CLOSED_FORM_ASSERTIONS = [
     holds: () => REL_FROM_ROUNDED_HEADLINE > 1e-4 && Math.abs(K_CLOSED - 6.43191e-3) < 1e-6,
   },
   {
-    // Honesty gate: measurement/derivation only, not rigorous, no QED, PT SOTA, sub-gap imp-35337a named.
+    // Honesty gate: measurement/derivation only, not rigorous, no QED, no refereed bound is changed, sub-gap imp-35337a named.
     id: 'imp35495-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA, imp-35337a stays OPEN',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed, imp-35337a stays OPEN',
     holds: () =>
       IMP35495_SIGMA_PEAK_CURVATURE_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP35495_SIGMA_PEAK_CURVATURE_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP35495_SIGMA_PEAK_CURVATURE_CLOSED_FORM.verdict) &&
+      /refereed bound is changed/i.test(IMP35495_SIGMA_PEAK_CURVATURE_CLOSED_FORM.verdict) &&
       /imp-35337a/.test(IMP35495_SIGMA_PEAK_CURVATURE_CLOSED_FORM.residual_sub_gap),
   },
 ];

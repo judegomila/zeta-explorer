@@ -14,7 +14,7 @@
  *   Euler-product-free zero family stays unsupplied by any finite-height pointwise instrument.
  *
  *   Ticket: imp-97147 (content, low). Note only; re-reads nothing new; changes no bound;
- *   PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97117-debruijn-flow-tpos-mirror-count-assessment.js (source module this note restates)
  * @see imp-97101-palm-mirror-parity-crossing-ladder.js (t = 0-proxy ladder, residual (c))
@@ -80,7 +80,7 @@ export const IMP97147_DEBRUIJN_TPOS_MIRROR_COUNT_HONEST_STATUS = Object.freeze({
     breachesNsRigidWall: false,
     anyBoundMoved: false,
     reDerivesAnything: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -88,8 +88,8 @@ export const IMP97147_DEBRUIJN_TPOS_MIRROR_COUNT_HONEST_STATUS = Object.freeze({
     'breach the NS-RIGID wall. The only well-posed convolution direction (t < 0) is the ' +
     'opposite of the binding one; the t > 0 flow spreads the spectrum and reduces the local ' +
     'mirror count below the already-short t = 0 proxy; uniformity over t in (0, t0] on an ' +
-    'Euler-product-free family stays unsupplied. Restatement only; changes no bound; PT ' +
-    'Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'Euler-product-free family stays unsupplied. Restatement only; changes no bound; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export default IMP97147_DEBRUIJN_TPOS_MIRROR_COUNT_HONEST_STATUS;
@@ -133,11 +133,11 @@ export const IMP97147_DEBRUIJN_TPOS_MIRROR_COUNT_HONEST_STATUS_ASSERTIONS = [
       'any bound moved.',
     holds: () =>
       IMP97147_DEBRUIJN_TPOS_MIRROR_COUNT_HONEST_STATUS.honestCaveat.anyBoundMoved === false &&
-      /Platt-Trudgian/.test(IMP97147_DEBRUIJN_TPOS_MIRROR_COUNT_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP97147_DEBRUIJN_TPOS_MIRROR_COUNT_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp97147-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP97147_DEBRUIJN_TPOS_MIRROR_COUNT_HONEST_STATUS.verdict),
   },
 ];

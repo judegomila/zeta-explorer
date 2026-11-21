@@ -16,8 +16,8 @@
  *   NO RE-DERIVATION. Every value below is imported and copied verbatim from
  *   imp-96402 / imp-96426 / imp-96429 -- this module computes nothing new.
  *   TABULATION ONLY. Closes no gap, changes no bound, proves no constant. C_H
- *   stays UNPROVEN (imp-2642 / imp-2701); Platt-Trudgian Lambda <= 0.2 remains
- *   SOTA. RH remains open. NO QED.
+ *   stays UNPROVEN (imp-2642 / imp-2701); no refereed bound is changed
+ *   . RH remains open. NO QED.
  *
  * Provenance of baked inputs (single sources of truth, cited not re-derived):
  *   - imp-96402-ecoll-anchor-from-tabulated-true-zero-height.js: N=1 and
@@ -89,7 +89,7 @@ export const IMP96459_ECOLL_COUNT_MODEL_ANCHOR_LEDGER = {
     'Tabulation only: no gap closed, no bound changed, no value re-derived, ' +
     'G6_polymath15_bridge not closed, conditional C_H <= 0.127 stays ' +
     'UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701). ' +
-    'Platt-Trudgian Lambda <= 0.2 SOTA. RH open. NO QED.',
+    'No refereed bound is changed. RH open. NO QED.',
   provenance:
     'imp-96402-ecoll-anchor-from-tabulated-true-zero-height.js (N=1, N=1e22 ' +
     'rows); imp-96426-ecoll-anchor-intermediate-heights.js (N=1e3..1e6 rows); ' +
@@ -99,7 +99,7 @@ export const IMP96459_ECOLL_COUNT_MODEL_ANCHOR_LEDGER = {
 // Machine-readable honest-status banner (imp-96337 convention) for any
 // consumer surface that renders this ledger.
 export const IMP96459_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Tabulation only: every row '
+  'RH open; no refereed bound is changed; NO QED. Tabulation only: every row '
   + 'is copied verbatim from imp-96402/imp-96426/imp-96429, nothing '
   + 're-derived; no gap closed, no bound changed, conditional C_H <= 0.127 '
   + 'stays UNPROVEN.';
@@ -156,7 +156,7 @@ export const IMP96459_ECOLL_COUNT_MODEL_ANCHOR_LEDGER_ASSERTIONS = [
     id: 'imp96459-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96459_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96459_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96459_HONEST_BANNER) &&
       /NO QED/.test(IMP96459_HONEST_BANNER),
     why:
       'the honest banner carries the RH-open / PT-Lambda / NO-QED markers ' +

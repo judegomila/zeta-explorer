@@ -34,7 +34,7 @@
  *   converges, still four orders below the required 0.581059, so the m=1 enclosure stays UNUSABLE at 2a=ln3.
  *   The correction to imp-97440 FINDING 3 is that its three-point "monotone worsening" is a saturating curve,
  *   not a divergence to -infinity. Measurement only; no operator positivity; no bound on Lambda moves;
- *   Platt-Trudgian Lambda<=0.2 SOTA; interval-rigorous reach stays 2a<=0.96; RH open; NO QED.
+ *   no refereed bound is changed; interval-rigorous reach stays 2a<=0.96; RH open; NO QED.
  *   SUB-GAP IMP97455_ROUTE2_KBIG_LIMIT_FINITE_FLOOR_NOT_DIVERGENT.
  *
  * @see imp-97440-krein-route2-lambda2-lower-bound-execution.js (FINDING 3 three-point worsening this fits)

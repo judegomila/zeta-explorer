@@ -40,7 +40,7 @@
  * approaches 1 at any height reachable in this program, and GUE saturation is a
  * strictly-limiting (T -> infinity) statement, not a finite crossing. This
  * MEASURES the extrapolation and reports its fragility; it changes no bound and
- * asserts no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route
+ * asserts no QED. No refereed bound is changed; the zero-side route
  * stays PCC/GRH-gated regardless.
  *
  * Import-light: no zeros bundle, no sibling imports. Envelope/GUE formulas are
@@ -137,7 +137,7 @@ export const IMP96268_VARRATIO_GUE_SATURATION_EXTRAPOLATION = {
     minSampledLogT,
   },
   verdict:
-    'MEASURED: the six-height var-ratio ladder r(T) = sd(C-E)^2 / Sigma^2(L) is NOT monotone increasing (values 0.4797, 0.3872, 0.3487, 0.4624, 0.3780, 0.3528 in [0.349, 0.480] about mean 0.401, with a non-monotone bump at the T=1.5e5 windowing-artifact height). The OLS log-linear fit r = a + b log T has a NEGATIVE slope b = -0.0208 (a = 0.6385, R^2 = 0.296, noise-dominated), so solving a + b log T = 1 gives log T_sat = -17.36, i.e. T_sat ~ 2.9e-8 -- below the sampled range and meaningless. There is NO forward GUE-saturation height from this ladder; the naive extrapolation is DEGENERATE and maximally fragile (even the sign of the trend is not robust). The rigorous replacement is the imp-95722 monotone-decreasing envelope with r_cap(3e12) ~ 0.26 < 1: the ratio never approaches 1 at any program-accessible height, and GUE saturation is a strictly-limiting T -> infinity statement. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'MEASURED: the six-height var-ratio ladder r(T) = sd(C-E)^2 / Sigma^2(L) is NOT monotone increasing (values 0.4797, 0.3872, 0.3487, 0.4624, 0.3780, 0.3528 in [0.349, 0.480] about mean 0.401, with a non-monotone bump at the T=1.5e5 windowing-artifact height). The OLS log-linear fit r = a + b log T has a NEGATIVE slope b = -0.0208 (a = 0.6385, R^2 = 0.296, noise-dominated), so solving a + b log T = 1 gives log T_sat = -17.36, i.e. T_sat ~ 2.9e-8 -- below the sampled range and meaningless. There is NO forward GUE-saturation height from this ladder; the naive extrapolation is DEGENERATE and maximally fragile (even the sign of the trend is not robust). The rigorous replacement is the imp-95722 monotone-decreasing envelope with r_cap(3e12) ~ 0.26 < 1: the ratio never approaches 1 at any program-accessible height, and GUE saturation is a strictly-limiting T -> infinity statement. Changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -161,8 +161,8 @@ export const IMP96268_VARRATIO_GUE_SATURATION_EXTRAPOLATION = {
   // honesty gates: measurement only, no bound change
   if (!/NO QED/.test(IMP96268_VARRATIO_GUE_SATURATION_EXTRAPOLATION.verdict))
     throw new Error('imp-96268: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96268_VARRATIO_GUE_SATURATION_EXTRAPOLATION.verdict))
-    throw new Error('imp-96268: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96268_VARRATIO_GUE_SATURATION_EXTRAPOLATION.verdict))
+    throw new Error('imp-96268: verdict dropped the no-refereed-bound-change banner');
   // the rigorous replacement pointer (imp-95722) must stay attached
   if (!/imp-95722/.test(IMP96268_VARRATIO_GUE_SATURATION_EXTRAPOLATION.verdict))
     throw new Error('imp-96268: verdict dropped the imp-95722 rigorous-envelope pointer');

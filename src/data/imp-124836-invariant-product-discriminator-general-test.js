@@ -88,7 +88,7 @@
  * GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the
  * imp-398 C_F prefactor are UNTOUCHED and appear here only as the source of the anchor literals; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-124811-pairratio-reldiff-ecf-roundoff-law (the ad-hoc P = D*|X| + R discriminator formalized here)
  * @see imp-124828-extprec-pairratio-Pladder (extended precision: R collapses, reldiff -> tau = 3.333e-14; the failure regime)
@@ -294,7 +294,7 @@ export const IMP124836_INVARIANT_PRODUCT_DISCRIMINATOR_GENERAL_TEST = {
     'on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486, the C_C 1/8 ansatz, the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (used ' +
     'only as anchor literals); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124811 (the ad-hoc P = D*|X| + R discriminator formalized here); imp-124828 (extended precision: R ' +
     'collapses, reldiff -> tau = 3.333e-14, the failure regime); imp-124808 (mpmath dps=100 proof D = 0); ' +
@@ -363,13 +363,13 @@ export const IMP124836_INVARIANT_PRODUCT_DISCRIMINATOR_GENERAL_TEST_ASSERTIONS =
       Math.abs(EPS_HALVING.truncation_ratio - 1 / 16) < 1e-12 && EPS_HALVING.drift_ratio === 1,
   },
   {
-    // Honesty gate: formalization/derivation only, no QED, PT stays SOTA.
+    // Honesty gate: formalization/derivation only, no QED, no refereed bound is changed.
     id: 'imp124836-honesty-gate-no-qed',
-    description: 'Formalization/derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Formalization/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124836_INVARIANT_PRODUCT_DISCRIMINATOR_GENERAL_TEST.isRigorous === false &&
       /NO QED/.test(IMP124836_INVARIANT_PRODUCT_DISCRIMINATOR_GENERAL_TEST.verdict) &&
-      /remains SOTA/.test(IMP124836_INVARIANT_PRODUCT_DISCRIMINATOR_GENERAL_TEST.verdict),
+      /refereed bound is changed/i.test(IMP124836_INVARIANT_PRODUCT_DISCRIMINATOR_GENERAL_TEST.verdict),
   },
 ];
 

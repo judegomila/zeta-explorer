@@ -41,14 +41,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96732 verdict for quick
  *   reference. It establishes nothing, instantiates no interval, closes no
- *   sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96732-krein-extended-precision-reach-assessment (source: the finding this glosses)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24 (source literals: normGrowthLaw, epsMarginDecay, analyticObstruction, lpWallIsSymptom)
  * @see imp-96665-ecoll-count-model-gap-featureless-powerlaw-glossary-headword (the headword pattern this follows)
  *
  * Ticket: imp-96767 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The composite-wall headword, baked verbatim (no re-import).
@@ -94,7 +94,7 @@ const KREIN_COMPOSITE_WALL_HEADWORD = Object.freeze({
     '2a <= 0.96; the true operator lambda_min(T_a[sigma_2]) may still persist ' +
     'positive past 2a = 1.0, but that is the separate uniform-in-N ' +
     'spectral-gap / de Branges existence question, not an arithmetic-precision ' +
-    'one; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'one; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96767_KREIN_COMPOSITE_WALL_GLOSSARY_HEADWORD = Object.freeze({
@@ -119,7 +119,7 @@ export const IMP96767_KREIN_COMPOSITE_WALL_GLOSSARY_HEADWORD = Object.freeze({
     'finite-certificate route because eps(ln3) < 0. Establishing true operator ' +
     'positivity past 2a = 1.0 is the separate uniform-in-N spectral-gap ' +
     'question. Establishes nothing; instantiates no interval; moves no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-96732 (the extended-precision reach assessment this glosses); ' +
     'imp-96646 / rh-route-i-toeplitz-krein-certificate-2026-09-24 (source ' +
@@ -147,11 +147,11 @@ export const IMP96767_KREIN_COMPOSITE_WALL_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96767-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96767_KREIN_COMPOSITE_WALL_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96767_KREIN_COMPOSITE_WALL_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96767_KREIN_COMPOSITE_WALL_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96767_KREIN_COMPOSITE_WALL_GLOSSARY_HEADWORD.verdict) &&
       IMP96767_KREIN_COMPOSITE_WALL_GLOSSARY_HEADWORD.glosses === 'imp-96732',
   },
 ];

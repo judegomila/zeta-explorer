@@ -25,8 +25,7 @@
  *
  * VERDICT. No route bundle currently carries the zeros bundle or the Krein certificate payload
  * (imp-96644) -- both checks confirmed by static import-graph grep, not bundle analysis. This
- * check changes no bound, establishes no operator positivity, and asserts no QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * check changes no bound, establishes no operator positivity, and asserts no QED; no refereed bound is changed.
  */
 
 const ZEROS_BUNDLE_MODULE = 'zeros-to-1e6.js';

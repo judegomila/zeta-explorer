@@ -39,8 +39,8 @@
  * -------------
  * This is a theorem-MODULO-GAP(C_H), not an unconditional bound. The assertions import
  * the imp-2642 flag and REQUIRE isRigorousUpperBound === false, and separately assert
- * that EXACTLY ONE input in the enumerated chain is non-rigorous (C_H). Platt-Trudgian
- * Lambda <= 0.2 stays SOTA. NO false QED.
+ * that EXACTLY ONE input in the enumerated chain is non-rigorous (C_H). No refereed bound is changed
+ * . NO false QED.
  *
  * @see imp-2706-ecoll-conditional-modulo-ch (sibling: generous C_H <= 0.127 parameterization)
  * @see imp-2641-c-selberg-trudgian-discharge (C_Selberg -> 2.622, DISCHARGED)
@@ -54,7 +54,7 @@ import { IMP2700_ERDOS_TURAN_BRIDGE_DISCHARGE } from './imp-2700-erdos-turan-bri
 import { C_H_QUADRATIC_TANGENCY_UPPER_BOUND_CHECK_IMP2642 } from './polymath15-lemma52-shock-holder.js';
 
 const N_STAR = 1e4;
-const PT_BOUND = 0.2; // Platt-Trudgian 2021 SOTA unconditional Lambda upper bound.
+const PT_BOUND = 0.2; // Platt-Trudgian 2021 bound upper bound.
 
 // The named gap pinned to the BARE ANSATZ value (tighter than the imp-2706 generous 0.127).
 const C_H_STAR = 0.125; // = 1/8, the leading-order quadratic-tangency coefficient.
@@ -170,7 +170,7 @@ export const IMP2869_ECOLL_RIGOROUS_MODULO_CH = {
     'discharged (C_Selberg via imp-2641, the KS bridge via imp-2700, the rest deterministic), so ' +
     'the bound IF C_H <= 0.125 THEN E_coll <= 0.01164 isolates the remaining gap to the SINGLE ' +
     'inequality C_H <= 0.125. This is a scoping of the gap, NOT a discharge of C_H ' +
-    '(isRigorousUpperBound = false). Platt-Trudgian Lambda <= 0.2 stays SOTA. NO false QED.',
+    '(isRigorousUpperBound = false). No refereed bound is changed. NO false QED.',
   citation:
     'imp-2641 (C_Selberg = 2.622 Trudgian discharge); imp-2700 (KS / Koksma-Hlawka bridge ' +
     'discharge); imp-2642 polymath15-lemma52-shock-holder (C_H not a rigorous upper bound); ' +
@@ -225,7 +225,7 @@ export const IMP2869_ECOLL_RIGOROUS_MODULO_CH_ASSERTIONS = [
     description: 'Status is RIGOROUS-MODULO-NAMED-GAP(C_H) and the verdict keeps Platt-Trudgian SOTA with NO false QED',
     holds: () =>
       /RIGOROUS-MODULO-NAMED-GAP\(C_H\)/.test(IMP2869_ECOLL_RIGOROUS_MODULO_CH.status) &&
-      /stays SOTA/.test(IMP2869_ECOLL_RIGOROUS_MODULO_CH.verdict) &&
+      /refereed bound is changed/i.test(IMP2869_ECOLL_RIGOROUS_MODULO_CH.verdict) &&
       /NO false QED/.test(IMP2869_ECOLL_RIGOROUS_MODULO_CH.verdict),
   },
 ];

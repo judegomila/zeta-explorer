@@ -48,14 +48,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95863 assessment for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-95863-intermediate-ordinate-table-reach-ledger (source: the ledger this glosses)
  * @see imp-95801-ordinate-source-reach-audit (in-repo ceiling gamma_1e6 = 6.003e5, no source higher)
  * @see imp-95722 (the r_cap analytic envelope, the only lever that actually reaches T=3e12)
  *
  * Ticket: imp-95892 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The decades-bought / N_smooth(3e12) headword, baked verbatim (no re-import).
@@ -112,7 +112,7 @@ export const IMP95892_INTERMEDIATE_ORDINATE_REACH_GLOSSARY_HEADWORD = Object.fre
     + '0.0000 and the 6.6988-decade gap to T = 3.0e12 stands; closing it numerically '
     + 'needs N_smooth(3.0e12) ~ 1.2362e13 ordinates, ~1.24e7 times the in-repo table. '
     + 'Establishes nothing; instantiates no interval; moves no bound; NO QED. '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'No refereed bound is changed.',
   citation:
     'imp-95863 (the ledger this glosses); imp-95801 (in-repo ordinate-source reach audit, '
     + 'gamma_1e6 = 6.003e5 ceiling, no source higher); imp-95843 / imp-95735 (the '
@@ -139,11 +139,11 @@ export const IMP95892_INTERMEDIATE_ORDINATE_REACH_GLOSSARY_HEADWORD_ASSERTIONS =
   },
   {
     id: 'imp95892-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95892_INTERMEDIATE_ORDINATE_REACH_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95892_INTERMEDIATE_ORDINATE_REACH_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95892_INTERMEDIATE_ORDINATE_REACH_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95892_INTERMEDIATE_ORDINATE_REACH_GLOSSARY_HEADWORD.verdict) &&
       IMP95892_INTERMEDIATE_ORDINATE_REACH_GLOSSARY_HEADWORD.glosses === 'imp-95863',
   },
 ];

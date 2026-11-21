@@ -51,7 +51,7 @@
  *   proof against it -- but no closure is achieved here.
  *
  *   ASSESSMENT / MEASUREMENT ONLY. Closes no gap, changes no bound, proves no
- *   constant. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ *   constant. No refereed bound is changed. RH open. NO QED.
  *
  * Provenance of every baked literal (cited, not recomputed):
  *   - imp-96290-step4-bridge-subconstant-inventory.js: C_H = C_shock * C_Lip/4,
@@ -141,7 +141,7 @@ export const IMP96304_CLIP_FIELD_CHANNEL_REROUTE_ASSESSMENT = {
     'the OPEN bracket re-architecture, and the ansatz C_T = C_F = 1. The gate is moved ' +
     'from an impossibility-flavoured Gronwall factor (imp-2640 NEGATIVE) to a reduced-but- ' +
     'open discrete-sum certificate with no impossibility proof against it -- a qualitative ' +
-    'tractability gain, not a closure. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.',
+    'tractability gain, not a closure. No refereed bound is changed. RH open. NO QED.',
   provenance:
     'imp-96290-step4-bridge-subconstant-inventory.js; ' +
     'imp-3933-eps-field-robust-bootstrap.js (EPS_FIELD_ROBUST_BOOTSTRAP, EPS_TRUE_DECOMPOSITION)',
@@ -190,6 +190,6 @@ export const IMP96304_CLIP_FIELD_CHANNEL_REROUTE_ASSESSMENT_ASSERTIONS = [
       IMP96304_CLIP_FIELD_CHANNEL_REROUTE_ASSESSMENT.kind.includes('no closure'),
     why:
       'This ticket is assessment/measurement only. It must not claim closure of C_Lip, of ' +
-      'the E_coll reroute, or of any bound; PT Lambda <= 0.2 stays SOTA.',
+      'the E_coll reroute, or of any bound; no refereed bound is changed.',
   },
 ];

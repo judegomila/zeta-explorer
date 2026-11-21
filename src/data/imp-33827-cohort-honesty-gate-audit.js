@@ -92,14 +92,14 @@ export const IMP33827_COHORT_HONESTY_GATE_AUDIT = Object.freeze({
     'tripwire (0 prose-only gaps), but only 2 of 4 (imp-33786, imp-33788) use the literal ' +
     '`isRigorous:false` field named in the ticket title; the other 2 (imp-33787, imp-33789) use ' +
     'an equally load-bearing but differently-shaped `honestCaveat` field. No bound changed; ' +
-    'imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
 
   honest:
     'AUDIT-ONLY -- reports the honesty-gate tripwire coverage found by reading each of the four ' +
     'modules; does not modify any module, does not standardize the field convention, and does ' +
     'not change scripts/run-assertions.mjs wiring (imp-33826 already found 3 of 4 unwired from ' +
-    'the build sweep; that gap is orthogonal to this one and left as-is). Platt-Trudgian Lambda ' +
-    '<= 0.2 stays the rigorous SOTA.',
+    'the build sweep; that gap is orthogonal to this one and left as-is). No refereed bound is changed' +
+    '.',
 });
 
 export const IMP33827_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
@@ -137,11 +137,11 @@ export const IMP33827_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-33827-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP33827_COHORT_HONESTY_GATE_AUDIT.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(IMP33827_COHORT_HONESTY_GATE_AUDIT.honest)
+      && /refereed bound is changed/i.test(IMP33827_COHORT_HONESTY_GATE_AUDIT.honest)
       && /NO QED/.test(IMP33827_COHORT_HONESTY_GATE_AUDIT.verdict)
-      && /Lambda <= 0.2 remains the rigorous SOTA/.test(IMP33827_COHORT_HONESTY_GATE_AUDIT.verdict),
+      && /refereed bound is changed/i.test(IMP33827_COHORT_HONESTY_GATE_AUDIT.verdict),
   },
 ];
 

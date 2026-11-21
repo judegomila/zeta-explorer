@@ -54,7 +54,7 @@
  *   per round) was run only to round 5 (worst -0.0615, plateauing near the imp-97013 best -0.0557); a
  *   longer run to full stall is untested, but the no-guard F dip (0.953 < eps at round 5) already shows the
  *   fine-grid binding persists.
- * RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-97013-krein-finer-fineh-3e5-convergence.js (parent: FINEH=3e-5 exposes the design-F tail dip; sub-gap IMP97013_TAIL_PARAMETRISATION_OR_LARGER_T_UNTESTED)
  * @see imp-96970-krein-kmax5-100-converged-solve-verify.js (grandparent: FINEH=1e-4, residual cycles at -0.069, tail guard wall)

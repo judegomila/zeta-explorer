@@ -5,7 +5,7 @@
  * the (L4) detectable-height ceiling H(T, delta) from the exclusion threshold
  *   (RES-T*)  delta^2 S(T delta)^4 T^3 > log(H / 2pi).
  *
- * Report only. Changes no bound; NO QED; PT Lambda <= 0.2 stands; RH open.
+ * Report only. Changes no bound; NO QED; no refereed bound is changed; RH open.
  *
  * ---------------------------------------------------------------------------
  * WHY 5e-4 WAS THE CEILING. imp-95533 measured the moment by a bare composite
@@ -152,7 +152,7 @@ export const IMP95559_RES_T_MOMENT_REFINED = Object.freeze({
   residual:
     'This module sharpens the moment measurement and tabulates the (L4) ceiling only; the (L4) T > T_X existence proof still reduces to the pointwise short von-Mangoldt Dirichlet-polynomial bound (imp-95530 B3), the unclosed pointwise Hilbert-transform wall shared with imp-95519 / imp-95543. RES-T is not a Lambda lever.',
   verdict:
-    'Moment identity remeasured to a relative ~1e-13 (beats the 5e-4 spot check by five orders) and the doubly-exponential detectable-height ceiling tabulated over the verified-zero window. Changes no bound; NO QED; PT Lambda <= 0.2 stands; RH open.',
+    'Moment identity remeasured to a relative ~1e-13 (beats the 5e-4 spot check by five orders) and the doubly-exponential detectable-height ceiling tabulated over the verified-zero window. Changes no bound; NO QED; no refereed bound is changed; RH open.',
 });
 
 const relEq = (x, lit, tol) => Math.abs(x - lit) <= tol * Math.max(Math.abs(lit), 1e-300);
@@ -208,7 +208,7 @@ export const IMP95559_ASSERTIONS = [
       /pointwise Hilbert-transform wall/.test(IMP95559_RES_T_MOMENT_REFINED.residual)
       && /not a Lambda lever/.test(IMP95559_RES_T_MOMENT_REFINED.residual)
       && /RH open/.test(IMP95559_RES_T_MOMENT_REFINED.verdict)
-      && /PT Lambda <= 0.2 stands/.test(IMP95559_RES_T_MOMENT_REFINED.verdict)
+      && /refereed bound is changed/i.test(IMP95559_RES_T_MOMENT_REFINED.verdict)
       && /NO QED/.test(IMP95559_RES_T_MOMENT_REFINED.verdict),
   },
 ];

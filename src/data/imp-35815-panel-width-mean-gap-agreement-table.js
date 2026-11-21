@@ -13,8 +13,7 @@
  * supplies that table and measures the relative agreement at each rung.
  *
  * MEASUREMENT ONLY. Certifies no count; instantiates no interval enclosure; bounds no
- * B; lower-bounds no delta; changes no bound; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * B; lower-bounds no delta; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE TWO ROUTES AND WHY THEY COINCIDE
  * -----------------------------------------------------------------------------
@@ -52,8 +51,7 @@
  * lower bound on delta (imp-35777 / imp-35758), which shrink the width further and which
  * this module does NOT supply. It instantiates no interval enclosure (I1), lower-bounds
  * no modulus (I3), closes no integer (I4), composes no corner (I5); it fixes no Delta or
- * h; it certifies no count and changes no bound. NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * h; it certifies no count and changes no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-35777-i2-logderivative-panel-cap-scope (log-derivative route B; asserted the match, never tabulated)
  * @see imp-35757-i2-panel-width-count-scope (mean-winding-rate route A; the mean zero gap borderline width)
@@ -65,7 +63,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35757 / imp-35777) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const TWO_PI = 2 * Math.PI;
 const HALF_TURN = Math.PI; // the I2 cap threshold: |Delta arg f| < pi per panel
 
@@ -147,7 +145,7 @@ export const IMP35815_PANEL_WIDTH_MEAN_GAP_AGREEMENT_TABLE = {
     'not a coincidental numerical closeness. Uses the SMOOTH mean rate and the robust-regime ratio B/delta ~ w; ' +
     'bounds no B; lower-bounds no delta; instantiates no enclosure; fixes no Delta or h; certifies no count; ' +
     'establishes no positivity; certifies no non-vanishing; evaluates no |H_t| or |H_t prime| directly; I2 remains ' +
-    'GREENFIELD downstream of W1; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GREENFIELD downstream of W1; changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35777 (log-derivative route B, asserted the match, never tabulated); imp-35757 (mean-winding-rate route A, ' +
     'the mean zero gap); imp-35801 (grazing-regime blow-up, robust standoff d = 1/w); imp-35758 (I3 floor delta); ' +
@@ -209,16 +207,16 @@ export const IMP35815_PANEL_WIDTH_MEAN_GAP_AGREEMENT_TABLE_ASSERTIONS = [
       Math.abs(AGREEMENT_TABLE[AGREEMENT_TABLE.length - 1].routeA_meanGap - 0.1858957) < 1e-5,
   },
   {
-    // Honesty gate: measurement only, no certification, no QED, PT SOTA at Lambda <= 0.2.
+    // Honesty gate: measurement only, no certification, no QED, no refereed bound is changed.
     id: 'imp35815-honesty-gate-no-qed',
-    description: 'Measurement only; certifies no count; bounds no B; lower-bounds no delta; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Measurement only; certifies no count; bounds no B; lower-bounds no delta; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35815_PANEL_WIDTH_MEAN_GAP_AGREEMENT_TABLE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       Math.abs(IMP35815_PANEL_WIDTH_MEAN_GAP_AGREEMENT_TABLE.capThreshold - Math.PI) < 1e-15 &&
       /certifies no count/.test(IMP35815_PANEL_WIDTH_MEAN_GAP_AGREEMENT_TABLE.verdict) &&
       /NO QED/.test(IMP35815_PANEL_WIDTH_MEAN_GAP_AGREEMENT_TABLE.verdict) &&
-      /remains SOTA/.test(IMP35815_PANEL_WIDTH_MEAN_GAP_AGREEMENT_TABLE.verdict),
+      /refereed bound is changed/i.test(IMP35815_PANEL_WIDTH_MEAN_GAP_AGREEMENT_TABLE.verdict),
   },
 ];
 

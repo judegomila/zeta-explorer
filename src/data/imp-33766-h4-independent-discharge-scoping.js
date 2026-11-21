@@ -78,7 +78,7 @@
  * at the H3 curvature rung, decoupled from the H0 provenance and H5 transcription rows. The minimal
  * input to close H4 is therefore the SAME missing input that closes H3. Scoping only;
  * G6a_shock_lipschitz stays OPEN; no positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0
- * UNTOUCHED; C_mb share untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * UNTOUCHED; C_mb share untouched; NO QED. No refereed bound is changed.
  *
  * @see imp-33646-h4-privalov-sokhotski-constant-scoping (the H4 fold-reading derivative, exponent 3/2)
  * @see imp-33645-h3-curvature-divergence-scoping (the H3 curvature, exponent 5/2; same object one derivative up)
@@ -185,8 +185,8 @@ export const IMP33766_H4_INDEPENDENT_DISCHARGE_SCOPING = {
     'H0 provenance and H5 transcription rows -- the minimal input to close H4 is the SAME input that ' +
     'closes H3. The open catalogue stays four rows (H0, H3, H4, H5); nothing is discharged. Scoping ' +
     'only; G6a_shock_lipschitz stays OPEN; no positivity; imp-3066 off-diagonal endpoint-Hankel ' +
-    'K_a >= 0 UNTOUCHED; C_mb share untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'K_a >= 0 UNTOUCHED; C_mb share untouched; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33646-h4-privalov-sokhotski-constant-scoping (H4 fold-reading derivative, exponent 3/2); ' +
     'imp-33645-h3-curvature-divergence-scoping (H3 curvature, exponent 5/2, same object one derivative ' +
@@ -252,14 +252,14 @@ export const IMP33766_H4_INDEPENDENT_DISCHARGE_ASSERTIONS = [
       OPEN_ROWS_AFTER.includes('H4'),
   },
   {
-    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33766-honesty-gate-no-qed',
-    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33766_H4_INDEPENDENT_DISCHARGE_SCOPING.isRigorous === false &&
       /NO QED/.test(IMP33766_H4_INDEPENDENT_DISCHARGE_SCOPING.verdict) &&
       /stays OPEN/.test(IMP33766_H4_INDEPENDENT_DISCHARGE_SCOPING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33766_H4_INDEPENDENT_DISCHARGE_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP33766_H4_INDEPENDENT_DISCHARGE_SCOPING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33766_H4_INDEPENDENT_DISCHARGE_SCOPING.verdict),
   },
 ];

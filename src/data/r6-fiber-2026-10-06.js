@@ -65,7 +65,7 @@ export const R6_FIBER = Object.freeze({
   verdict: 'REFUTED (fatal): the r6 fiber certificates are not certificates (defect-form tail majorant omits the -c_r w_mu coefficients '
     + 'for N0/r < mu <= N0; per-label tails violated up to 6.2x). With the referee patch (unrefereed) WOL-C holds only at cells 234, 235, 237; '
     + '247/256 out of reach for this method; late cells 0.053-0.116. Nothing admitted; certified route P unchanged by this task. '
-    + 'PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'No refereed bound is changed. RH open. NO QED.',
 });
 
 const B = R6_FIBER;

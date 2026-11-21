@@ -17,7 +17,7 @@
  *   @see imp-3444-sigma-nshape-landmark-ladder (E_coll = E_trunc crossover, N ~ 3.280e9)
  *
  *   Ticket: imp-33628 (ux, medium). Presentation only, RH-equivalent; imp-3066
- *   untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ *   untouched; no refereed bound is changed; NO QED.
  */
 
 // Two-series ladder: N, the flat E_trunc floor, the decaying E_coll, and the

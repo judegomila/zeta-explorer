@@ -29,7 +29,7 @@
  *
  * WHAT REMAINS OPEN (unaffected by this closure): c_sharp itself -- bracketed from above only at 0.581059
  * (imp-97183/imp-97206/imp-97379), no proven positive lower bound. No bound on Lambda moves;
- * interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97400-krein-lehmann-maehly-lower-bracket-execution.js (source of every verdict flag below)
  * @see imp-97136-krein-temple-lower-bound-feasibility.js (the small-gap worry corrected by Finding 1)
@@ -37,7 +37,7 @@
  * @see imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (the FULL band-projector primitive the genuine A2 needs)
  *
  * Ticket: imp-97430 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import {
@@ -78,7 +78,7 @@ export const IMP97430_HONEST_BANNER =
   'below to -4336.198, and the trial-space compressed surrogate A2 is CIRCULAR (returns exactly the Ritz ' +
   'upper bracket 0.543044 for every shift rho). The binding obstruction is the compressed second-moment ' +
   '(graph-norm) object, not the spectral gap; a genuine bracket needs the FULL band projector P_a. No ' +
-  'bound on Lambda moves; interval-rigorous reach stays 2a <= 0.96; PT Lambda <= 0.2 remains SOTA; RH ' +
+  'bound on Lambda moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH ' +
   'open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
@@ -107,11 +107,11 @@ const IMP97430_ASSERTIONS = [
       IMP97430_STATUS.rhResolved === false &&
       IMP97430_STATUS.qed === false &&
       /NO QED/.test(IMP97430_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97430_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97430_HONEST_BANNER) &&
       /RH open/.test(IMP97430_HONEST_BANNER) &&
       /VACUOUS/.test(IMP97430_HONEST_BANNER) &&
       /CIRCULAR/.test(IMP97430_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

@@ -39,7 +39,7 @@
  * sub-gap (L, L_c, g are double-precision, defect linearization not interval-enclosed). C_mb
  * GUE-conditional per imp-486; C_C = (1/8) sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED;
  * imp-3066 K_a >= 0 untouched; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35018-four-landmark-cluster-log-n-viz-data (the cluster + its k=10-only band-membership assertion)
  * @see imp-34693-crossover-contraction-seed-band (the seed-band rung table and rho(tol,k) closed form)
@@ -125,7 +125,7 @@ export const IMP35057_LANDMARK_BAND_MEMBERSHIP_ROBUSTNESS = {
     'Reuses the imp-35018 landmark literals and imp-34693 rho(tol,k) closed form VERBATIM; inherits the ' +
     'imp-34693a double-precision / non-interval-enclosed sub-gap. C_mb GUE-conditional per imp-486 and the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35018 (four-landmark cluster + k=10-only band-membership assertion); imp-34693 (seed-band rung ' +
     'table, rho(tol,k) = tol*(1-L)/[(1-L_c)L^k]); imp-33723 (N_cross closed form); imp-33582 (N_half); ' +
@@ -165,11 +165,11 @@ export const IMP35057_LANDMARK_BAND_MEMBERSHIP_ROBUSTNESS_ASSERTIONS = [
   },
   {
     id: 'imp35057-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35057_LANDMARK_BAND_MEMBERSHIP_ROBUSTNESS.isRigorous === false &&
       /NO QED/.test(IMP35057_LANDMARK_BAND_MEMBERSHIP_ROBUSTNESS.verdict) &&
-      /remains SOTA/.test(IMP35057_LANDMARK_BAND_MEMBERSHIP_ROBUSTNESS.verdict),
+      /refereed bound is changed/i.test(IMP35057_LANDMARK_BAND_MEMBERSHIP_ROBUSTNESS.verdict),
   },
 ];
 

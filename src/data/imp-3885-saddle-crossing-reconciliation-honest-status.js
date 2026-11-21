@@ -38,7 +38,7 @@
  *   both source modules' own exported numbers (no duplicated/hand-typed literals).
  *
  *   Ticket: imp-3885 (meta, low). Read-only reconciliation note; changes no bound;
- *   imp-3066 untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ *   imp-3066 untouched; no refereed bound is changed; NO QED.
  *
  *   @see imp-3731-saddle-ratio-crossing-extended-precision.js (the superseded ladder)
  *   @see imp-3849-saddle-ratio-well-depth-inner-converged.js (the converged ladder)
@@ -120,7 +120,7 @@ export const IMP3885_SADDLE_CROSSING_RECONCILIATION_HONEST_STATUS = Object.freez
     leavesImp3731AssertionsIntact: true,
     changesAnyBound: false,
     didNotEditFlaggedTickets: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -184,7 +184,7 @@ export const IMP3885_SADDLE_CROSSING_RECONCILIATION_HONEST_STATUS_ASSERTIONS = [
     why: 'Audit-only note: no numerical bound or Lambda claim changes as a result of this reconciliation.',
     holds: () =>
       IMP3885_SADDLE_CROSSING_RECONCILIATION_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP3885_SADDLE_CROSSING_RECONCILIATION_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP3885_SADDLE_CROSSING_RECONCILIATION_HONEST_STATUS.honestCaveat.sota),
   },
 ];
 

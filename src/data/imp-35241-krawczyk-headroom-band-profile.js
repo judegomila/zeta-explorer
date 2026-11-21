@@ -43,7 +43,7 @@
  * machinery (identical K, delta, N_cross, band). The imp-34714a machine certificate REMAINS OPEN; F(m) = 0
  * stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional per imp-486
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent 1/2 per imp-3463 untouched; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35176-krawczyk-headroom-s100-crossing (reported the physical-branch min ~2500.02 but not the band profile)
  * @see imp-34996-krawczyk-headroom-safety-factor-asymptote (S_inf = 1/(2 delta) large-N floor)
@@ -194,7 +194,7 @@ export const IMP35241_KRAWCZYK_HEADROOM_BAND_PROFILE = {
     'surrogate; reproduces the imp-35176/imp-35110/imp-34996 machinery (identical K, delta, N_cross, band); the ' +
     'C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 ' +
     'untouched; far-tail exponent 1/2 per imp-3463 untouched; changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35176 (physical-branch min ~2500.02, floor from above; did not tabulate the band profile); imp-34996 ' +
     '(S_inf = 1/(2 delta) large-N floor); imp-34929 (closed-form dS/dN < 0; band-top worst case ~2555.18x); ' +
@@ -236,15 +236,15 @@ export const IMP35241_KRAWCZYK_HEADROOM_BAND_PROFILE_ASSERTIONS = [
       S_N_CROSS > S_BAND_TOP,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35241-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35241_KRAWCZYK_HEADROOM_BAND_PROFILE.isRigorous === false &&
       /imp-34714a/.test(IMP35241_KRAWCZYK_HEADROOM_BAND_PROFILE.subGap) &&
       /REMAINS OPEN/.test(IMP35241_KRAWCZYK_HEADROOM_BAND_PROFILE.subGap) &&
       /NO QED/.test(IMP35241_KRAWCZYK_HEADROOM_BAND_PROFILE.verdict) &&
-      /remains SOTA/.test(IMP35241_KRAWCZYK_HEADROOM_BAND_PROFILE.verdict),
+      /refereed bound is changed/i.test(IMP35241_KRAWCZYK_HEADROOM_BAND_PROFILE.verdict),
   },
 ];
 

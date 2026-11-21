@@ -15,8 +15,7 @@
  * the log10 axis reshaping, an abs() for the two signed gaps, a floor clip at the
  * double-precision resolution (~1e-16) so the N=1e22 rateRelGap=0 point is representable
  * on a log axis, and the single scale constant for the reference decay envelope. Changes
- * no bound; establishes no operator positivity; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no bound; establishes no operator positivity; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96426-ecoll-anchor-intermediate-heights.js (the source object this reshapes)
  * @see imp-96402-ecoll-anchor-from-tabulated-true-zero-height.js (the two-endpoint anchor
@@ -70,7 +69,7 @@ export const IMP96454_LANDMARKS = Object.freeze({
 });
 
 export const IMP96454_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every N, true height '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every N, true height '
   + 'and relative-gap value plotted here is copied verbatim from the imp-96426 baked object; '
   + 'the only new arithmetic is the log10 axis reshaping, the abs() of two signed gaps, a '
   + 'double-precision floor clip (~1e-16) so the exact-zero N=1e22 rate point is plottable on '

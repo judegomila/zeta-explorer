@@ -32,7 +32,7 @@
  *
  *   STATUS: a glossary headword pinning an already-committed identity, not a new computation or a
  *   positivity theorem. No lower bound on c_sharp is established here or in imp-97161. Certified
- *   reach stays 2a <= 0.96. NO QED. Platt-Trudgian Lambda <= 0.2 SOTA; RH open.
+ *   reach stays 2a <= 0.96. NO QED. No refereed bound is changed; RH open.
  *
  * @see imp-97161-krein-concentration-lower-bound-assessment.js (source: the c_sharp identity and
  *   the Beurling-Selberg / flat-prolate rule-out this headword glosses)
@@ -40,7 +40,7 @@
  *   input that imp-97161 pinned exactly)
  *
  * Ticket: imp-97193 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The coercivity-constant identity headword, baked verbatim (no re-import).
@@ -71,7 +71,7 @@ const COERCIVITY_CONSTANT_LAMBDA_MIN_HEADWORD = Object.freeze({
   verificationStatus:
     'Glossary headword pinning an already-committed identity and rule-out (imp-97161); no new ' +
     'numerical computation. No lower bound on c_sharp established here; certified reach unchanged ' +
-    'at 2a <= 0.96; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'at 2a <= 0.96; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97193_COERCIVITY_CONSTANT_GLOSSARY_HEADWORD = Object.freeze({
@@ -92,7 +92,7 @@ export const IMP97193_COERCIVITY_CONSTANT_GLOSSARY_HEADWORD = Object.freeze({
     'for this weight. Finite-N numerics (0.552 certificate, 0.534 Legendre, 0.476 shift-invert, ' +
     'still descending) bracket c_sharp only from ABOVE; no proven lower bound exists. Readers ' +
     'should not treat the descending finite-N numbers as approaching a floor from below. ' +
-    'Establishes nothing new; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing new; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-97161 (the c_sharp identity and the Beurling-Selberg / flat-prolate rule-out this ' +
     'headword glosses); imp-97137 (named the missing coercivity input imp-97161 pinned exactly).',
@@ -118,11 +118,11 @@ export const IMP97193_COERCIVITY_CONSTANT_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97193-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97193_COERCIVITY_CONSTANT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97193_COERCIVITY_CONSTANT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97193_COERCIVITY_CONSTANT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97193_COERCIVITY_CONSTANT_GLOSSARY_HEADWORD.verdict) &&
       IMP97193_COERCIVITY_CONSTANT_GLOSSARY_HEADWORD.glosses === 'imp-97161',
   },
 ];

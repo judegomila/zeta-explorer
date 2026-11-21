@@ -21,7 +21,7 @@
  * @see imp-124793-fartail-diagnostic-per-nine-spacing-ladder.js (pure per-nine ladder + spacing-ratio -> 10 witness)
  *
  * Ticket: imp-124837 (content, low, sonnet-4-6). Cross-reference note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97723_SIGMA_FARTAIL_DIAGNOSTIC_ASYMPTOTE_ONE } from './imp-97723-sigma-fartail-diagnostic-asymptote-one.js';
@@ -63,7 +63,7 @@ export const IMP124837_FARTAIL_RVM_PER_NINE_CONDITIONAL_SHARE_NOTE = Object.free
 });
 
 export const IMP124837_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. imp-97723 showed the far-tail diagnostic ' +
+  'RH open; no refereed bound is changed; NO QED. imp-97723 showed the far-tail diagnostic ' +
   '(1/2 - p) * 2 log T0 is exactly the Riemann-von Mangoldt log-derivative slope ' +
   '1 - 1/log(T0/2pi), which is what the conditional-share residual reduces to once sigma(N) = ' +
   'E_coll/(E_trunc + E_flow + E_coll) has decayed to negligible -- the slope climbs toward exactly ' +
@@ -73,7 +73,7 @@ export const IMP124837_HONEST_BANNER =
   'one more nine of certainty that the conditional-share residual has reached its asymptote costs ' +
   'a ten-fold jump in the required height N. This is a measurement of how the diagnostic approaches ' +
   'its limit, not a bound: changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-  'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.';
+  'untouched; no RH verdict, NO QED. No refereed bound is changed.';
 
 export default IMP124837_FARTAIL_RVM_PER_NINE_CONDITIONAL_SHARE_NOTE;
 
@@ -91,7 +91,7 @@ if (
     IMP124837_FARTAIL_RVM_PER_NINE_CONDITIONAL_SHARE_NOTE.isRigorous === false &&
     IMP124837_FARTAIL_RVM_PER_NINE_CONDITIONAL_SHARE_NOTE.qed === false &&
     /NO QED/.test(IMP124837_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP124837_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP124837_HONEST_BANNER) &&
     /RH open/.test(IMP124837_HONEST_BANNER)
   )
 ) {

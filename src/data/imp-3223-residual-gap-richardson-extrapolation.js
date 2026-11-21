@@ -74,8 +74,8 @@
  *   asymptotic order -- the true DEG -> inf behaviour past the ceiling is
  *   inaccessible to direct rebuild and could differ. No positivity attempted; not
  *   a proof or a reduction. The off-diagonal endpoint-Hankel operator step
- *   (imp-3066) remains the lone obstruction and is UNTOUCHED. Platt-Trudgian
- *   Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   (imp-3066) remains the lone obstruction and is UNTOUCHED. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3196-residual-gap-convergence-rate.js (the fitted algebraic law this extrapolates)
  *   @see imp-3177-equal-product-cell-invariance-lock.js (saturation FROM BELOW at equal-s cells)
@@ -379,7 +379,7 @@ export const IMP3223_RESIDUAL_GAP_RICHARDSON_EXTRAPOLATION = Object.freeze({
     'consistent with 0. The gap extrapolates to the analytic limit G(s) = tanh(s) - tanh(s/2) within the ' +
     'band, extending the imp-3177 from-below picture past the DEG <= 10 ceiling. EMPIRICAL EXTRAPOLATION, ' +
     'NOT a proved limit; RH-equivalent; no positivity; imp-3066 endpoint-Hankel step untouched; ' +
-    'PT Lambda <= 0.2 SOTA. No QED.',
+    'no refereed bound is changed. No QED.',
 
   construction: Object.freeze({
     inheritedFrom: 'imp-3196 (same R_orth = L H L^T construction, same quadrature, same DEG set)',
@@ -446,7 +446,7 @@ export const IMP3223_RESIDUAL_GAP_RICHARDSON_EXTRAPOLATION = Object.freeze({
       'off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction and is NOT ' +
       'addressed here.',
     imp3066Untouched: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -509,7 +509,7 @@ export const IMP3223_RESIDUAL_GAP_RICHARDSON_EXTRAPOLATION_ASSERTIONS = [
     id: 'imp3223-honest-rh-equivalent-empirical-not-a-verdict',
     why: 'Mandatory honesty: this is an EMPIRICAL EXTRAPOLATION, RH-EQUIVALENT, representative-truncation ' +
          'diagnostic, NOT a proved limit or order, leaves imp-3066 untouched, did not attempt positivity, ' +
-         'and PT 0.2 stays SOTA. If any flip, the module is over-claiming.',
+         'and no refereed bound is changed. If any flip, the module is over-claiming.',
     holds: () => {
       const c = IMP3223_RESIDUAL_GAP_RICHARDSON_EXTRAPOLATION.honestCaveat;
       return (
@@ -520,7 +520,7 @@ export const IMP3223_RESIDUAL_GAP_RICHARDSON_EXTRAPOLATION_ASSERTIONS = [
         c.isRepresentativeTruncationNotTheSection26Gram === true &&
         c.didNotAttemptPositivity === true &&
         c.imp3066Untouched === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

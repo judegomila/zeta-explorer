@@ -59,7 +59,7 @@
  * the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL
  * (imp-35725). Certifies no W1 bound; evaluates no true H_0; instantiates no interval;
  * verifies no inequality; establishes no positivity; C_mb GUE-conditional (imp-486) untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36020-w1-clustered-order-shape-argmax (the seven-shape sweep this orders; caterpillarL arg-max)
  * @see imp-35973-w1-summation-order-shape-cross-term (fixed-shape order x shape cross-term)
@@ -72,7 +72,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35893 / imp-35973 / imp-36020) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -314,7 +314,7 @@ export const IMP36063_W1_CLUSTERED_ORDER_COHERENCE_METRIC = {
     '|C_t| (imp-35760); precision is NOT the binding constraint. Certifies no W1 bound; evaluates no true H_0; ' +
     'instantiates no interval; verifies no inequality; establishes no positivity; the W1 A + B - C certificate at ' +
     'T_PT stays GREENFIELD (imp-35681 Part A); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36020 (seven-shape clustered-order sweep this orders; caterpillarL arg-max, non-monotone in depth); ' +
     'imp-35973 (fixed-shape order x shape cross-term); imp-35893 (tree-SHAPE stress, depth definitions); ' +
@@ -395,16 +395,16 @@ export const IMP36063_W1_CLUSTERED_ORDER_COHERENCE_METRIC_ASSERTIONS = [
       SKEW003.measuredErr < BALANCED.measuredErr,
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp36063-honesty-gate',
-    description: 'Measurement/regression only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement/regression only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36063_W1_CLUSTERED_ORDER_COHERENCE_METRIC.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /Spearman rho ~0.96/.test(IMP36063_W1_CLUSTERED_ORDER_COHERENCE_METRIC.conclusion.coherenceMetricDerived) &&
       /GREENFIELD/.test(IMP36063_W1_CLUSTERED_ORDER_COHERENCE_METRIC.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36063_W1_CLUSTERED_ORDER_COHERENCE_METRIC.verdict) &&
-      /remains SOTA/.test(IMP36063_W1_CLUSTERED_ORDER_COHERENCE_METRIC.verdict),
+      /refereed bound is changed/i.test(IMP36063_W1_CLUSTERED_ORDER_COHERENCE_METRIC.verdict),
   },
 ];
 

@@ -69,7 +69,7 @@
  * stays OPEN; NOT a rigorous asymptotic; discharges nothing; changes no bound. C_C ansatz
  * (imp-2642/imp-2643) and the baseline E_trunc = 3.06e-5 (imp-2631/imp-447) UNTOUCHED;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
- * no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35594-peak-crossover-mechanism-derivation (Derivation 2, checked at one height; extended here)
  * @see imp-35574-peak-location-height-map-damping (the peak-location damping ~0.553 reproduced at the peak rung)
@@ -312,7 +312,7 @@ export const IMP35633_PEAK_LOCATION_DAMPING_HEIGHT_LADDER = {
     'floor); surrogate-vs-true fidelity (imp-35337a) stays OPEN; C_C ansatz (imp-2642/imp-2643) ' +
     'and the baseline E_trunc = 3.06e-5 (imp-2631/imp-447) UNTOUCHED; C_mb GUE-conditional per ' +
     'imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; discharges nothing; changes no ' +
-    'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35594 (Derivation 2, checked at one height, extended here); imp-35574 (peak-location ' +
     'damping ~0.553 reproduced at the peak rung); imp-35632 (crossover ~L ladder trend ' +
@@ -362,13 +362,13 @@ export const IMP35633_PEAK_LOCATION_DAMPING_HEIGHT_LADDER_ASSERTIONS = [
     holds: () => MAX_SELFCHECK_DEV < 1e-4,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35633-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35633_PEAK_LOCATION_DAMPING_HEIGHT_LADDER.isRigorous === false &&
       /NO QED/.test(IMP35633_PEAK_LOCATION_DAMPING_HEIGHT_LADDER.verdict) &&
-      /remains SOTA/.test(IMP35633_PEAK_LOCATION_DAMPING_HEIGHT_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP35633_PEAK_LOCATION_DAMPING_HEIGHT_LADDER.verdict),
   },
 ];
 

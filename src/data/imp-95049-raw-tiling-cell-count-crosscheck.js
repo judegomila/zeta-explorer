@@ -66,7 +66,7 @@
  * 7.2e26 rests on an unrecorded per-index x-extent choice.
  *
  * Cross-check / measurement only; changes no bound; promotes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 // -- baked reference (imp-95012 GATE2_TARGETS) ------------------------------
@@ -152,7 +152,7 @@ export const IMP95049_RAW_TILING_CELL_COUNT_CROSSCHECK = {
     'the cell-count arithmetic (anchor width -> cells per unit x, family span, window/seam multipliers, both readings) is exact; the per-index x-extent (1D vs quadratic) is the assumed/underdetermined structural input, and the window-parameter count ~5 is the documented Gate-2 family size. No new geometry is proved; the atlas dimensionality is read from the two candidate interpretations, not derived.',
   promotesBound: false,
   verdict:
-    'CROSS-CHECK (measurement only): the imp-95012 baked rawTilingCellLowerBound = 7.2e26 is REPRODUCED to within a factor 1.23 by DeltaN^2 * (1/W_cell) * W_win * S with the anchor full cell width 5e-11 (2e10 cells/unit), family span 54109011, ~5 window parameters, and 2 seam sides - so its order of magnitude is CONFIRMED and the family span (entering quadratically, ~2.93e15) is the DOMINANT factor, the anchor inverse cell width (2e10) second, window*seam (10) minor. A physically-minimal 1D reading gives ~1.08e19, ~7-8 orders below the baked value but still >= 18 orders past feasibility, so raw tiling is confirmed non-viable under BOTH readings; the per-index x-extent choice separating the two exponents is the named sub-gap. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'CROSS-CHECK (measurement only): the imp-95012 baked rawTilingCellLowerBound = 7.2e26 is REPRODUCED to within a factor 1.23 by DeltaN^2 * (1/W_cell) * W_win * S with the anchor full cell width 5e-11 (2e10 cells/unit), family span 54109011, ~5 window parameters, and 2 seam sides - so its order of magnitude is CONFIRMED and the family span (entering quadratically, ~2.93e15) is the DOMINANT factor, the anchor inverse cell width (2e10) second, window*seam (10) minor. A physically-minimal 1D reading gives ~1.08e19, ~7-8 orders below the baked value but still >= 18 orders past feasibility, so raw tiling is confirmed non-viable under BOTH readings; the per-index x-extent choice separating the two exponents is the named sub-gap. Changes no bound; NO QED; no refereed bound is changed.',
 };
 
 // -- assertions (self-executing; throw on violation) ------------------------
@@ -196,13 +196,13 @@ export const IMP95049_RAW_TILING_CELL_COUNT_CROSSCHECK_ASSERTIONS = [
   },
   {
     id: 'imp95049-honesty-gate-no-qed',
-    description: 'cross-check-only honest partial: promotes no bound, spec-underdetermined exponent, names the sub-gap, NO QED, PT stays SOTA',
+    description: 'cross-check-only honest partial: promotes no bound, spec-underdetermined exponent, names the sub-gap, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95049_RAW_TILING_CELL_COUNT_CROSSCHECK.promotesBound === false &&
       IMP95049_RAW_TILING_CELL_COUNT_CROSSCHECK.isRigorous === false &&
       IMP95049_RAW_TILING_CELL_COUNT_CROSSCHECK.namedSubGap === 'imp-95049-sub-per-N-x-extent' &&
       /NO QED/.test(IMP95049_RAW_TILING_CELL_COUNT_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP95049_RAW_TILING_CELL_COUNT_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP95049_RAW_TILING_CELL_COUNT_CROSSCHECK.verdict),
   },
 ];
 

@@ -73,8 +73,7 @@
  * But the sign argument does NOT close R2 by itself today -- it REPLACES the
  * flow-reference-availability gate (imp-35150) with an ANALYTIC-sign-certificate
  * gate wanting I1+I2+I3 (I4 already met). Net: R2 stays OPEN past N=200; the
- * residual is reclassified, not removed. NO bound changes; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * residual is reclassified, not removed. NO bound changes; no refereed bound is changed.
  *
  * SYNTAX NOTE: avoid star-slash sequences in JSDoc; use "dt^4" / "t_c_flow" etc.
  *
@@ -169,7 +168,7 @@ export const IMP_35197_R2_SIGN_PROMOTION_ASSESSMENT = {
     doesNotAchieve:
       'Does NOT certify (S); does NOT close R2 at N >= 500; does NOT extend the ' +
       'C_mb certificate; does NOT remove the imp-486 GUE conditional; changes NO ' +
-      'Lambda bound. R2 stays OPEN past N=200. Platt-Trudgian Lambda <= 0.2 SOTA.',
+      'Lambda bound. R2 stays OPEN past N=200. No refereed bound is changed.',
   },
 };
 
@@ -215,6 +214,6 @@ export const IMP_35197_R2_SIGN_PROMOTION_ASSESSMENT_ASSERTIONS = [
       IMP_35197_R2_SIGN_PROMOTION_ASSESSMENT.changesNoBound === true,
     why:
       'This ticket is assessment/scoping only: it must never assert a QED or a bound ' +
-      'change. C_mb stays GUE-conditional (imp-486); Lambda <= 0.2 stays SOTA.',
+      'change. C_mb stays GUE-conditional (imp-486); no refereed bound is changed.',
   },
 ];

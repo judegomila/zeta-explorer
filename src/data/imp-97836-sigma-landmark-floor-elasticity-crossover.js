@@ -70,7 +70,7 @@
  * (argmax -1.375 vs level-set -> -infinity). There is therefore NO interior-to-tail crossover
  * along one curve; the ticket conflated two observables. Measurement/fit only on the
  * imp-3220/imp-3406 surrogate; C_mb stays GUE-conditional (imp-486); no bound changes;
- * imp-3066 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 untouched; NO QED; no refereed bound is changed.
  *
  * @see imp-33684-sigma-interior-peak-etrunc-model-sensitivity (peak-argmax elasticity ~ -1.375)
  * @see imp-33708-sigma-fartail-landmark-etrunc-model-sensitivity (tail crossings ~ -2.099 / -2.079)
@@ -236,8 +236,8 @@ export const IMP97836_SIGMA_LANDMARK_FLOOR_ELASTICITY_CROSSOVER = {
     '-infinity). So there is NO interior-to-tail crossover along one curve; the ticket conflated ' +
     'two observables. Reproduces both siblings at factor 1 (peak -1.375, tail crossings -2.099 / ' +
     '-2.079). Measurement/fit only on the imp-3220/imp-3406 surrogate; C_mb stays GUE-conditional ' +
-    '(imp-486); no bound changes; imp-3066 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    '(imp-486); no bound changes; imp-3066 untouched; NO QED; no refereed bound is changed' +
+    '.',
   citation:
     'imp-33684 (peak-argmax elasticity ~ -1.375); imp-33708 (tail crossings ~ -2.099 / -2.079); ' +
     'imp-97822 (ramp-knee ~ -2.10 that motivated this map); imp-33582 (far-tail landmark ' +
@@ -294,14 +294,14 @@ export const IMP97836_SIGMA_LANDMARK_FLOOR_ELASTICITY_CROSSOVER_ASSERTIONS = [
       P_MAX - PEAK_EXPONENT < -0.6, // level-set shallowest (~ -2.07) far below argmax (~ -1.375)
   },
   {
-    // Honesty gate: measurement only, premise refuted, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, premise refuted, no QED, no refereed bound is changed.
     id: 'imp97836-honesty-gate-no-qed',
-    description: 'Measurement only: crossover premise refuted, no QED, PT stays SOTA',
+    description: 'Measurement only: crossover premise refuted, no QED, no refereed bound is changed',
     holds: () =>
       IMP97836_SIGMA_LANDMARK_FLOOR_ELASTICITY_CROSSOVER.isRigorous === false &&
       /REFUTES the crossover premise/.test(IMP97836_SIGMA_LANDMARK_FLOOR_ELASTICITY_CROSSOVER.verdict) &&
       /NO QED/.test(IMP97836_SIGMA_LANDMARK_FLOOR_ELASTICITY_CROSSOVER.verdict) &&
-      /remains SOTA/.test(IMP97836_SIGMA_LANDMARK_FLOOR_ELASTICITY_CROSSOVER.verdict),
+      /refereed bound is changed/i.test(IMP97836_SIGMA_LANDMARK_FLOOR_ELASTICITY_CROSSOVER.verdict),
   },
 ];
 

@@ -333,8 +333,8 @@ export const IMP95214_TIER2_CHIRP = Object.freeze({
     '1.5 wall-days at 14 threads; ball-ops 1.55e14 = 6.5x below level 1 but honestly still ' +
     '14x above the 1.1e13 design estimate (cells + reconstruction now dominate; the panel-' +
     'pass lever is spent). Sub-range certificates only; promotion flag false; full-window run ' +
-    'NOT launched (separate decision). Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'NOT launched (separate decision). Changes no bound; NO QED; no refereed bound is changed' +
+    '.',
 });
 
 // ── self-executing assertions (import-light; recomputable arithmetic only) ───
@@ -480,13 +480,13 @@ export const IMP95214_TIER2_ASSERTIONS = [
   {
     id: 'imp95214-honesty-gate-scope-and-no-qed',
     description:
-      'fail-closed honesty: sub-range certificates only, the full-window run was NOT launched, no bound is promoted, the verdict states the residual design-budget gap, NO QED and PT-SOTA stated',
+      'fail-closed honesty: sub-range certificates only, the full-window run was NOT launched, no bound is promoted, the verdict states the residual design-budget gap, NO QED and no-refereed-bound-change stated',
     holds: () =>
       IMP95214_TIER2_CHIRP.fullWindowRunLaunched === false &&
       IMP95214_TIER2_CHIRP.promotesBound === false &&
       /still\s+14x above the 1.1e13 design/.test(IMP95214_TIER2_CHIRP.verdict) &&
       /NO QED/.test(IMP95214_TIER2_CHIRP.verdict) &&
-      /remains SOTA/.test(IMP95214_TIER2_CHIRP.verdict) &&
+      /refereed bound is changed/i.test(IMP95214_TIER2_CHIRP.verdict) &&
       (TIER2_VERDICT_MATCH.uHi - TIER2_VERDICT_MATCH.uLo) / WINDOW_WIDTH_U < 1e-3,
   },
   {

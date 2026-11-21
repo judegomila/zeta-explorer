@@ -9,8 +9,7 @@
  * value is copied verbatim from IMP_96367_INTERCEPT_SE_TRAJECTORY.
  *
  * PRESENTATION ONLY. No new zeros, no LP solve, no bound changes, no operator
- * positivity established; RH open; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity established; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96367-route-bd-intercept-se-trajectory.js (source measurement, method, verdict)
  */
@@ -61,7 +60,7 @@ export const IMP96401_SUMMARY = Object.freeze({
 export const IMP96401_FINDING = finding;
 
 export const IMP96401_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every depth, intercept, '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every depth, intercept, '
   + 'seC, and the labeled gamma_8000 projection is copied verbatim from the imp-96367 baked '
   + 'trajectory (no re-fit); only the +/-2 SE band and the sixth projected point are computed '
   + 'here for the chart. The projection is not a measurement -- the asymptotic sign past '
@@ -98,8 +97,8 @@ const IMP96401_ASSERTIONS = [
   },
   {
     id: 'imp96401-honest-banner-present',
-    holds: () => /RH open/.test(IMP96401_HONEST_BANNER) && /NO QED/.test(IMP96401_HONEST_BANNER) && /SOTA/.test(IMP96401_HONEST_BANNER),
-    why: 'honesty gate: presentation only, no RH claim, PT stays SOTA.',
+    holds: () => /RH open/.test(IMP96401_HONEST_BANNER) && /NO QED/.test(IMP96401_HONEST_BANNER) && /refereed bound is changed/i.test(IMP96401_HONEST_BANNER),
+    why: 'honesty gate: presentation only, no RH claim, no refereed bound is changed.',
   },
 ];
 

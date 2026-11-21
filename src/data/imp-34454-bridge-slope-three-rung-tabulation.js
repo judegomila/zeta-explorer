@@ -47,7 +47,7 @@
  *   independent. This is a numerical CHECK of an already-asserted relation on the self-contained leading
  *   monomial, NOT the inherited pipeline; the component model is the inherited imp-3220/imp-3406
  *   extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
- *   K_a >= 0 untouched; changes no bound; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 untouched; changes no bound; no RH verdict, NO QED; no refereed bound is changed.
  *
  *   @see imp-34398-eflow-resid-pole-residue-channel-reconciliation.js (asserts R=E_star/m and p=-1; names m the bridge)
  *   @see imp-34310-eflow-over-resid-pole-residue-simple-pole.js (raw-ratio residue R ~ -1.979e-8, slope m, E_star, flank +5.9e-7)
@@ -135,7 +135,7 @@ export const IMP34454_BRIDGE_SLOPE_THREE_RUNG_TABULATION = {
     'bridged by the local slope m. TABULATION on the self-contained leading monomial, NOT the inherited ' +
     'pipeline; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no ' +
-    'bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED; no refereed bound is changed.',
   citation:
     'imp-34398 (asserts R=E_star/m and p=-1, names m the bridge, never tabulates it); imp-34310 ' +
     '(raw-ratio residue R, slope m, E_star, flank +5.9e-7); imp-34247 (log-derivative residue +1); ' +
@@ -183,13 +183,13 @@ export const IMP34454_BRIDGE_SLOPE_THREE_RUNG_TABULATION_ASSERTIONS = [
       IMP34454_SLOPE_SPREAD_PCT < 12,
   },
   {
-    // Honesty gate: tabulation only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: tabulation only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34454-honesty-gate-no-qed',
-    description: 'tabulation only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'tabulation only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34454_BRIDGE_SLOPE_THREE_RUNG_TABULATION.isRigorous === false &&
       /NO QED/.test(IMP34454_BRIDGE_SLOPE_THREE_RUNG_TABULATION.verdict) &&
-      /remains SOTA/.test(IMP34454_BRIDGE_SLOPE_THREE_RUNG_TABULATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34454_BRIDGE_SLOPE_THREE_RUNG_TABULATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34454_BRIDGE_SLOPE_THREE_RUNG_TABULATION.verdict),
   },
 ];

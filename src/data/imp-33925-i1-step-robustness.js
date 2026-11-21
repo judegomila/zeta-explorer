@@ -51,7 +51,7 @@
  * MEASUREMENT ONLY. Same inherited imp-3220/imp-3406/imp-33582/imp-33602 component model as
  * imp-33854; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33854-log-saturation-exponent-reconciliation (I1 gap_ecoll = q + 1/2 = g at DL=1e-4)
  * @see imp-33887-ecoll-gap-anchoring-convention-reconciliation (R1 leans on I1 as reference-independent)
@@ -154,8 +154,8 @@ export const IMP33925_I1_STEP_ROBUSTNESS = {
     '(~1/DL), the round-off cancellation signature, not the DL^2 falloff of a truncation artifact, ' +
     'confirming I1 is an exact pointwise identity. Same inherited imp-3220/imp-3406 component model; ' +
     'the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33854 (I1 gap_ecoll = q + 1/2 = g at DL=1e-4); imp-33887 (R1 leans on I1); imp-33620 (E_coll ' +
     'exponent -> -1/2 from above); imp-486 (C_mb GUE-conditional); lambda-rh-height-mapping.',
@@ -184,13 +184,13 @@ export const IMP33925_I1_STEP_ROBUSTNESS_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp33925-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33925_I1_STEP_ROBUSTNESS.isRigorous === false &&
       /NO QED/.test(IMP33925_I1_STEP_ROBUSTNESS.verdict) &&
-      /remains SOTA/.test(IMP33925_I1_STEP_ROBUSTNESS.verdict),
+      /refereed bound is changed/i.test(IMP33925_I1_STEP_ROBUSTNESS.verdict),
   },
 ];
 

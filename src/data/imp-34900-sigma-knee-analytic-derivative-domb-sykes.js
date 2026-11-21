@@ -59,7 +59,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34882-sigma-knee-domb-sykes-radius (linear Domb-Sykes read R ~ 91 and the tighter-radius sub-gap this attempts)
  * @see imp-34863-sigma-knee-cauchy-hadamard-radius (root sequence, delta recursion, FD kernel this replaces with analytic)
@@ -321,7 +321,7 @@ export const IMP34900_SIGMA_KNEE_ANALYTIC_DERIVATIVE_DOMB_SYKES = {
     'because the analytic kernel removes the FD floor entirely. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ATTEMPTS the imp-34882 tighter-radius sub-gap with analytically-differentiated v-kernels (exact w = ln(T/2pi) ' +
     'derivatives, no FD). Result: the FD noise is localized in the THIRD derivative (~1.08%), analytic kernels remove ' +
@@ -394,15 +394,15 @@ export const IMP34900_SIGMA_KNEE_ANALYTIC_DERIVATIVE_DOMB_SYKES_ASSERTIONS = [
     holds: () => CONVERGENT_SURVIVES === true && R_LOW > 10,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34900-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34900_SIGMA_KNEE_ANALYTIC_DERIVATIVE_DOMB_SYKES.isRigorous === false &&
       IMP34900_SIGMA_KNEE_ANALYTIC_DERIVATIVE_DOMB_SYKES.farTailExponent === 0.5 &&
       typeof IMP34900_SIGMA_KNEE_ANALYTIC_DERIVATIVE_DOMB_SYKES.subGap === 'string' &&
       /NO QED/.test(IMP34900_SIGMA_KNEE_ANALYTIC_DERIVATIVE_DOMB_SYKES.verdict) &&
-      /remains SOTA/.test(IMP34900_SIGMA_KNEE_ANALYTIC_DERIVATIVE_DOMB_SYKES.verdict),
+      /refereed bound is changed/i.test(IMP34900_SIGMA_KNEE_ANALYTIC_DERIVATIVE_DOMB_SYKES.verdict),
   },
 ];
 

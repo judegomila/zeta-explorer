@@ -12,7 +12,7 @@
  *
  * VIZ-ONLY. Measurement/fit only, on the inherited imp-3220/imp-3406 surrogate; C_mb
  * GUE-conditional per imp-486 untouched; establishes no operator positivity; changes no
- * bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35036-sigma-fartail-exponent-log-slow-half-approach (source ladder, gap law, crossings)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (originating per-decade ladder k=6..11)
@@ -46,7 +46,7 @@ export const IMP35183_SIGMA_FARTAIL_EXPONENT_LADDER_VIZ_DATA = {
     'overtakes the vanishing sqrt(1/N) E_coll only LOGARITHMICALLY -- all imported literals, no ' +
     'new computation. Measurement on the inherited imp-3220/imp-3406 surrogate; C_mb ' +
     'GUE-conditional per imp-486 untouched; establishes no operator positivity; changes no ' +
-    'bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP35183_SIGMA_FARTAIL_EXPONENT_LADDER_VIZ_DATA_ASSERTIONS = [
@@ -71,12 +71,12 @@ export const IMP35183_SIGMA_FARTAIL_EXPONENT_LADDER_VIZ_DATA_ASSERTIONS = [
   },
   {
     id: 'imp35183-honesty-gate-no-qed',
-    description: 'Viz-only: not rigorous, far-tail exponent 1/2, no QED, PT stays SOTA',
+    description: 'Viz-only: not rigorous, far-tail exponent 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP35183_SIGMA_FARTAIL_EXPONENT_LADDER_VIZ_DATA.isRigorous === false &&
       IMP35183_SIGMA_FARTAIL_EXPONENT_LADDER_VIZ_DATA.farTailExponent === 0.5 &&
       /NO QED/.test(IMP35183_SIGMA_FARTAIL_EXPONENT_LADDER_VIZ_DATA.verdict) &&
-      /remains SOTA/.test(IMP35183_SIGMA_FARTAIL_EXPONENT_LADDER_VIZ_DATA.verdict),
+      /refereed bound is changed/i.test(IMP35183_SIGMA_FARTAIL_EXPONENT_LADDER_VIZ_DATA.verdict),
   },
 ];
 

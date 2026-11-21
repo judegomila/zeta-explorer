@@ -43,7 +43,7 @@
  * correction to T->inf is modest (~2.5-4.4% relative) and does NOT overturn the positive-plateau
  * reading near ln3 -- it strengthens it. Measurement only; the floor is a Rayleigh UPPER bound; no
  * operator positivity; interval-rigorous certificate reach stays 2a <= 0.96; RH open;
- * Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96814-krein-t-truncation-deficit-viz-data.js (the T=800 vs T=3200 deficit this extends)
  * @see imp-96768-gegenbauer-krein-lammin-recompute.js (the orthogonal Gegenbauer build reused here)

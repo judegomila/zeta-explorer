@@ -26,7 +26,7 @@
  * @see imp-97107-cauchy-schwarz-mean-square-to-first-moment-glossary-headword.js (sibling glossary headword)
  *
  * Ticket: imp-97131 (content, medium, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 export const IMP97131_KAPPA_STATUS = Object.freeze({
@@ -47,7 +47,7 @@ export const IMP97131_KAPPA_STATUS = Object.freeze({
 });
 
 export const IMP97131_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. The Route M first-moment lower bound ' +
+  'RH open; no refereed bound is changed; NO QED. The Route M first-moment lower bound ' +
   'F(b) >= kappa phi(b) b (kappa ~ 0.696) is NOT yet rigorous: kappa splits into an EXACT ' +
   'arithmetic part kappa_arith = (3/2)C - 3/8 = 0.5705 (imp-97096, PROVED) plus a cotangent part ' +
   'kappa_cot ~ +0.12 that lives entirely in an OPEN varying-modulus Bettin-Conrey mean value ' +
@@ -77,12 +77,12 @@ const IMP97131_ASSERTIONS = [
     holds: () =>
       IMP97131_KAPPA_STATUS.anyBoundMoved === false &&
       /NO QED/.test(IMP97131_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97131_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97131_HONEST_BANNER) &&
       /RH open/.test(IMP97131_HONEST_BANNER) &&
       /MEASURED/.test(IMP97131_HONEST_BANNER) &&
       /not proved/.test(IMP97131_HONEST_BANNER),
     why:
-      'Documentation only: no bound claimed moved, no QED, PT SOTA line present, and the ' +
+      'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, and the ' +
       'MEASURED-not-proved status stated explicitly.',
   },
 ];

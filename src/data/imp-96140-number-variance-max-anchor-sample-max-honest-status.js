@@ -19,7 +19,7 @@
  *   numerics) and restates its own HONEST CAVEAT as a standalone banner.
  *
  *   Ticket: imp-96140 (content, low). Note only; re-derives nothing; changes no bound;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96108-number-variance-excursion-depth-vs-max-anchor.js (source module this note restates)
  * @see imp-36182-nhalf-ncross-component-model-honest-status.js (earlier instance of the banner pattern)
@@ -69,7 +69,7 @@ export const IMP96140_NUMBER_VARIANCE_MAX_ANCHOR_SAMPLE_MAX_HONEST_STATUS = Obje
     unsampledDeeperExcursionCouldBreach: true,
     changesAnyBound: false,
     windowReachSubGapUntouched: true, // the imp-95710 window-reach sub-gap this banner does not close
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -80,7 +80,7 @@ export const IMP96140_NUMBER_VARIANCE_MAX_ANCHOR_SAMPLE_MAX_HONEST_STATUS = Obje
     'unsampled interior excursion strictly deeper than C0_max, anywhere in the ~6.8 decades up to ' +
     'the T = 3.0e12 window bottom, would breach the max anchor and is not excluded by this or the ' +
     'imp-96129 denser-grid follow-up. Note only; changes no bound; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 });
 
 export const IMP96140_NUMBER_VARIANCE_MAX_ANCHOR_SAMPLE_MAX_HONEST_STATUS_ASSERTIONS = [
@@ -109,11 +109,11 @@ export const IMP96140_NUMBER_VARIANCE_MAX_ANCHOR_SAMPLE_MAX_HONEST_STATUS_ASSERT
       IMP96140_NUMBER_VARIANCE_MAX_ANCHOR_SAMPLE_MAX_HONEST_STATUS.honestCaveat.c0MaxIsSampleMaximum === true &&
       IMP96140_NUMBER_VARIANCE_MAX_ANCHOR_SAMPLE_MAX_HONEST_STATUS.honestCaveat.c0MaxProvedHeightUniform === false &&
       IMP96140_NUMBER_VARIANCE_MAX_ANCHOR_SAMPLE_MAX_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP96140_NUMBER_VARIANCE_MAX_ANCHOR_SAMPLE_MAX_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP96140_NUMBER_VARIANCE_MAX_ANCHOR_SAMPLE_MAX_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp96140-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP96140_NUMBER_VARIANCE_MAX_ANCHOR_SAMPLE_MAX_HONEST_STATUS.verdict),
   },
 ];

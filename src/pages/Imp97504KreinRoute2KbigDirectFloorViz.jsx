@@ -158,7 +158,7 @@ export default function Imp97504KreinRoute2KbigDirectFloorViz() {
         point and bracket below is reused verbatim from imp-97482.
         Measurement only &mdash; no rigorous lower bound on lambda_2, no
         operator positivity, no bound moves; interval-rigorous reach stays
-        2a&le;0.96; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO
+        2a&le;0.96; RH open; NO
         QED.
       </div>
 
@@ -202,8 +202,7 @@ export default function Imp97504KreinRoute2KbigDirectFloorViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97482 directly-built points and brackets
-        verbatim. Establishes no operator positivity; changes no bound;
-        Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        verbatim. Establishes no operator positivity; changes no bound; RH open; NO QED.
       </div>
     </div>
   );

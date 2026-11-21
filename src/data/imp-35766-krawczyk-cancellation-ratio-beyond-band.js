@@ -48,8 +48,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate; reproduces the imp-35266/imp-35241 machinery
  * (identical K, delta, N_cross, band, decomposition form). The imp-34714a machine certificate REMAINS OPEN;
  * F(m) = 0 stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional per
- * imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35266-krawczyk-headroom-surplus-decomposition (the 2:1 split -dFP/dG ~ 2.00042, tested only in-band)
  * @see imp-35762-krawczyk-surplus-shift-residual-isolation (isolates the a(N(1-delta)) shift vs O(a^2) curvature)
@@ -190,7 +189,7 @@ export const IMP35766_KRAWCZYK_CANCELLATION_RATIO_BEYOND_BAND = {
     'layer, and F(m) = 0 remains a double-precision artifact. Measurement only on the inherited imp-3220/imp-3406 ' +
     'surrogate; reproduces the imp-35266/imp-35241/imp-34996 machinery (identical K, delta, N_cross, band); the ' +
     'C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35266 (2:1 split -dFP/dG ~ 2.00042, tested only in-band); imp-35762 (shift vs O(a^2) curvature); ' +
     'imp-35241 (band-top S ~ 2555.18); imp-34996 (S_inf = 1/(2 delta) floor; 2G/(1+G) -> 1); imp-34693 ' +
@@ -232,15 +231,15 @@ export const IMP35766_KRAWCZYK_CANCELLATION_RATIO_BEYOND_BAND_ASSERTIONS = [
     holds: () => NOISE_ONSET === true && R_1E20.R > R_1E17.R,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35766-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35766_KRAWCZYK_CANCELLATION_RATIO_BEYOND_BAND.isRigorous === false &&
       /imp-34714a/.test(IMP35766_KRAWCZYK_CANCELLATION_RATIO_BEYOND_BAND.subGap) &&
       /REMAINS OPEN/.test(IMP35766_KRAWCZYK_CANCELLATION_RATIO_BEYOND_BAND.subGap) &&
       /NO QED/.test(IMP35766_KRAWCZYK_CANCELLATION_RATIO_BEYOND_BAND.verdict) &&
-      /remains SOTA/.test(IMP35766_KRAWCZYK_CANCELLATION_RATIO_BEYOND_BAND.verdict),
+      /refereed bound is changed/i.test(IMP35766_KRAWCZYK_CANCELLATION_RATIO_BEYOND_BAND.verdict),
   },
 ];
 

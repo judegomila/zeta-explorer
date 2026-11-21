@@ -78,18 +78,18 @@
  * at any height; changes no bound; NO QED. The channel coefficients (q, the U(x) and
  * node prefactors) are order-unity illustrative -- the invariant claims are the SCALINGS
  * (p_node = 1, p_phi = 1/2, arg-reduction additive +log10 x) and their qualitative
- * compounding. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * compounding. No refereed bound is changed.
  *
  * @see imp-35811-exact-debruijn-arbitrary-precision-digit-table (the underflow-only D*(x) table this extends)
  * @see imp-35759-exact-debruijn-precision-digit-cost-scope (the OOM digit law)
  * @see imp-35781-exact-debruijn-empirical-x-ceiling-scope (the double ceiling)
  * @see scripts/imp-34813-exact-debruijn-winding-offline.mjs (the exact evaluator; window x in [20,104])
- * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; Lambda <= 0.2 SOTA)
+ * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; no refereed bound is changed)
  */
 
 // -- Anchor + operative constants (import-light; matching imp-35811) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified zero-ordinate (gamma) height
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this estimate
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this estimate
 const X_TPT = 2 * T_PT; // x = 2 gamma convention; T_PT ordinate maps to x = 6e12
 const PI = Math.PI;
 const DIGITS_PER_X = PI / (8 * Math.LN10); // ~0.170547 decimal digits per unit x (imp-35759)
@@ -215,12 +215,12 @@ export const IMP35868_EXCLUDED_COST_CHANNELS_ESTIMATE = {
     'evaluations at the T_PT height, roughly nineteen orders of magnitude of TIME beyond the storage-only ' +
     'figure. This quantifies imp-35811 "only worsen the picture": the underflow digit wall is a floor, and the ' +
     'end-to-end compute wall is far worse. Estimate only; runs no arbitrary-precision quadrature; evaluates no ' +
-    'true H_0; extends no evaluator; certifies no value; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'true H_0; extends no evaluator; certifies no value; changes no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35811 (measured underflow-only D*(x)~0.17055x, ~1.02e12 digits at x=6e12, explicitly excluded these ' +
     'channels); imp-35759 (OOM digit law); imp-35781 (double ceiling); scripts/imp-34813-exact-debruijn-winding-' +
-    'offline.mjs (the exact evaluator; window x in [20,104]); Platt-Trudgian 2021 (T_PT = 3e12; Lambda <= 0.2 SOTA).',
+    'offline.mjs (the exact evaluator; window x in [20,104]); Platt-Trudgian 2021 (T_PT = 3e12; no refereed bound is changed).',
 };
 
 export const IMP35868_EXCLUDED_COST_CHANNELS_ESTIMATE_ASSERTIONS = [
@@ -260,15 +260,15 @@ export const IMP35868_EXCLUDED_COST_CHANNELS_ESTIMATE_ASSERTIONS = [
       Math.abs(D_TPT / 1.023e12 - 1) < 0.05,
   },
   {
-    // Honesty gate: estimate only; no arbitrary-precision run; no evaluator extension; NO QED; PT SOTA.
+    // Honesty gate: estimate only; no arbitrary-precision run; no evaluator extension; NO QED; no refereed bound is changed.
     id: 'imp35868-honesty-gate-no-qed',
-    description: 'Estimate only; runs no arbitrary-precision quadrature; extends no evaluator; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Estimate only; runs no arbitrary-precision quadrature; extends no evaluator; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35868_EXCLUDED_COST_CHANNELS_ESTIMATE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /extends no evaluator/.test(IMP35868_EXCLUDED_COST_CHANNELS_ESTIMATE.verdict) &&
       /NO QED/.test(IMP35868_EXCLUDED_COST_CHANNELS_ESTIMATE.verdict) &&
-      /remains SOTA/.test(IMP35868_EXCLUDED_COST_CHANNELS_ESTIMATE.verdict),
+      /refereed bound is changed/i.test(IMP35868_EXCLUDED_COST_CHANNELS_ESTIMATE.verdict),
   },
 ];
 

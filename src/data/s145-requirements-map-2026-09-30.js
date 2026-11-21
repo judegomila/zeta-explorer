@@ -27,7 +27,7 @@
  * / '0.145 at X × 3.3, 0.14 at X × 15' — superseded by the measured floor drift (0.145 at 2.58X, 0.14 at 9.0X). Start-condition
  * gains from the model are ~40% too large (judge's exact replay: MTY q0 = 0.975110 gives 0.148103, model 0.1468).
  *
- * Verdict: no bound moves. PT Lambda <= 0.2 stands. The project's Λ ≤ 0.1758354 is an unreviewed computer-assisted candidate
+ * Verdict: no bound moves. No refereed bound is changed. The project's Λ ≤ 0.1758354 is an unreviewed computer-assisted candidate
  * (internal composition audit passed 2026-09-28; the user reports a referee check around 0.175). RH open. NO QED.
  * Scratch sources (not in the repo): /tmp/floor-audit/calc{2,3}.py, /tmp/raymond_model/*.py, /tmp/map4probe/*.py, /tmp/pm15.txt,
  * /tmp/pt2004.txt; Raymond deposit tmp/raymond-22867547/.
@@ -57,7 +57,7 @@ export const S145_REQUIREMENTS_MAP = Object.freeze({
   status:
     'SYNTHESIS of four maps + judge pass + two executed picks. Analysis (Route VII law, reproduced), literature reading '
     + '(not re-fetched in this module), heuristic pricing scaled from PT’s recorded compute, and model numbers explicitly marked '
-    + 'as superseded where the executed picks measured them. No bound moves. PT Lambda <= 0.2 stands. NO QED.',
+    + 'as superseded where the executed picks measured them. No bound moves. No refereed bound is changed. NO QED.',
 
   floorAssumptions: Object.freeze([
     { rank: 1, cls: 'M', assumption: 'Fixed-t0 region (iii): H_t0 ≠ 0 on y ∈ [y0, 1] for all x ≥ X, Λ ≤ t0 + y0²/2 (P15 Thm 1.2)',
@@ -149,7 +149,7 @@ export const S145_REQUIREMENTS_MAP = Object.freeze({
 
   verdict:
     'Requirements map only. The sub-0.145 route with measured support is the decreasing-barrier architecture plus RH verified to ~7.8e12; it is '
-    + 'conditional and unrefereed. PT Lambda <= 0.2 stands; the project Λ ≤ 0.1758354 remains an unreviewed candidate; RH open; NO QED.',
+    + 'conditional and unrefereed. No refereed bound is changed; the project Λ ≤ 0.1758354 remains an unreviewed candidate; RH open; NO QED.',
 });
 
 const M = S145_REQUIREMENTS_MAP;
@@ -228,7 +228,7 @@ export const S145_REQUIREMENTS_MAP_ASSERTIONS = Object.freeze([
   },
   {
     id: 's145-map-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(M.verdict) && /NO QED/.test(M.verdict) && /NO QED/.test(M.status)
+    holds: () => /refereed bound is changed/i.test(M.verdict) && /NO QED/.test(M.verdict) && /NO QED/.test(M.status)
       && /conditional/.test(M.verdict) && /unrefereed/.test(M.verdict) && /OPEN/.test(M.raymond.reviewed)
       && /RH open/.test(M.verdict) && !/Λ ≤ 0\.14[0-9]* (is|has been) (proved|established)/.test(JSON.stringify(M)),
     why: 'No bound is claimed; the Raymond referee gate is open; RH open.',

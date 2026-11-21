@@ -14,7 +14,7 @@
  * no bound; corrects no literal (the 0.999 C_T value is a legitimate 3-sig-fig
  * DISPLAY of the true residual mass); C_mb GUE-conditional (imp-486) UNTOUCHED;
  * the imp-34791 E_trunc barrier-lemma reclassification UNCHANGED; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * THE ARITHMETIC (baked imp-35334 sigma < 1e-3 landmark literals; no heavy import)
  * -----------------------------------------------------------------------------
@@ -158,7 +158,7 @@ export const IMP35679_POSTPORT_SHARE_SUM_UNITY_EXCESS_RECONCILIATION = {
     'full-precision vanishing E_flow. No literal is stale; the 0.999 display is legitimate. Verification ' +
     'only; corrects no literal; changes no bound; establishes no operator positivity; C_mb GUE-conditional ' +
     'per imp-486 UNTOUCHED; imp-34791 E_trunc reclassification UNCHANGED; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35654 (source: bakes share_sum ~1.000000006); imp-35686 (regression-guard pinning the same ' +
     'literals); imp-35334 (sigma<1e-3 landmark shares); imp-486 (C_mb GUE-conditional residual); imp-398 ' +
@@ -202,16 +202,16 @@ export const IMP35679_POSTPORT_SHARE_SUM_UNITY_EXCESS_RECONCILIATION_ASSERTIONS 
       IMP35679_POSTPORT_SHARE_SUM_UNITY_EXCESS_RECONCILIATION.reconciliation.verdict_is_rounding_artifact === true,
   },
   {
-    // Honesty gate: verification only, rounding artifact not a gap, no literal corrected, no QED, PT stays SOTA.
+    // Honesty gate: verification only, rounding artifact not a gap, no literal corrected, no QED, no refereed bound is changed.
     id: 'imp35679-honesty-gate-no-qed',
-    description: 'Verification only: rounding artifact (not a normalization gap), corrects no literal, no QED, PT SOTA',
+    description: 'Verification only: rounding artifact (not a normalization gap), corrects no literal, no QED, no refereed bound is changed',
     holds: () =>
       IMP35679_POSTPORT_SHARE_SUM_UNITY_EXCESS_RECONCILIATION.isRigorous === false &&
       /DISPLAY-ROUNDING ARTIFACT/.test(IMP35679_POSTPORT_SHARE_SUM_UNITY_EXCESS_RECONCILIATION.verdict) &&
       /NOT a genuine normalization gap/.test(IMP35679_POSTPORT_SHARE_SUM_UNITY_EXCESS_RECONCILIATION.verdict) &&
       /corrects no literal/.test(IMP35679_POSTPORT_SHARE_SUM_UNITY_EXCESS_RECONCILIATION.verdict) &&
       /NO QED/.test(IMP35679_POSTPORT_SHARE_SUM_UNITY_EXCESS_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP35679_POSTPORT_SHARE_SUM_UNITY_EXCESS_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP35679_POSTPORT_SHARE_SUM_UNITY_EXCESS_RECONCILIATION.verdict),
   },
 ];
 

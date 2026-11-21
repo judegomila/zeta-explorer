@@ -48,7 +48,7 @@
  * M5, does NOT touch the imp-2563 sandwich (a valid CONDITIONAL bracket), and CERTIFIES NOTHING about
  * the imp-486 GUE-conditional C_mb (it only shows the invariant HOLDS on GUE inputs, not that the
  * conditional constant is discharged). Changes no bound; establishes no operator positivity; I3 / M2 /
- * M5 stay OPEN; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * M5 stay OPEN; no RH verdict, NO QED; no refereed bound is changed.
  *
  * @see imp-35215-beta-gmin-near-front-limit (unit-spacing derivation beta*g_min*(x_2-x_0)->1; ensemble 1)
  * @see imp-35238-real-ordinate-three-factor-invariant (real Riemann ordinates; ensemble 2; parent)
@@ -451,7 +451,7 @@ export const IMP35305_GUE_ORDINATE_THREE_FACTOR_INVARIANT = {
     'conditional constant is discharged. Does NOT discharge M2 or the horizon/front bridge M5, does ' +
     'NOT touch the imp-2563 sandwich (a valid CONDITIONAL bracket). Changes no bound; establishes no ' +
     'operator positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; I3 / M2 / M5 stay OPEN; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35215 (unit-spacing derivation beta*g_min*(x_2-x_0)->1; ensemble 1); imp-35238 (real ' +
     'ordinates; ensemble 2; parent); imp-35281 (real ordinates to N=400); imp-35301 (linear approach ' +
@@ -504,9 +504,9 @@ export const IMP35305_GUE_ORDINATE_THREE_FACTOR_INVARIANT_ASSERTIONS = [
     holds: () => collapseIsInterior === true,
   },
   {
-    // Honesty gate: measurement only, no QED, I3/M2/M5 stay OPEN, C_mb conditional untouched, PT SOTA.
+    // Honesty gate: measurement only, no QED, I3/M2/M5 stay OPEN, C_mb conditional untouched, no refereed bound is changed.
     id: 'imp35305-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, NO QED, M2/M5 OPEN, C_mb GUE-conditional untouched, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, NO QED, M2/M5 OPEN, C_mb GUE-conditional untouched, no refereed bound is changed',
     holds: () =>
       IMP35305_GUE_ORDINATE_THREE_FACTOR_INVARIANT.isRigorous === false &&
       /NO QED/.test(IMP35305_GUE_ORDINATE_THREE_FACTOR_INVARIANT.verdict) &&
@@ -514,7 +514,7 @@ export const IMP35305_GUE_ORDINATE_THREE_FACTOR_INVARIANT_ASSERTIONS = [
         IMP35305_GUE_ORDINATE_THREE_FACTOR_INVARIANT.verdict,
       ) &&
       /imp-2563 sandwich/.test(IMP35305_GUE_ORDINATE_THREE_FACTOR_INVARIANT.verdict) &&
-      /Lambda <= 0.2 remains SOTA/.test(IMP35305_GUE_ORDINATE_THREE_FACTOR_INVARIANT.verdict),
+      /refereed bound is changed/i.test(IMP35305_GUE_ORDINATE_THREE_FACTOR_INVARIANT.verdict),
   },
 ];
 

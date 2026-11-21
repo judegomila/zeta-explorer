@@ -54,8 +54,7 @@
  * NOT an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34551-bignum-resid-argmax-extended-precision (the dd recompute cross-checked here)
  * @see imp-34552-residexp-precision-floor-payoff-derivation (the precision-floor scoping)
@@ -196,7 +195,7 @@ export const IMP34569_BINARY128_EMULATION_CROSS_CHECK = {
     'asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34551 (the dd recompute cross-checked here); imp-34524 (source of the nodes and vertex); ' +
     'imp-34411/imp-34508 (source of the resid_exp primitives); imp-486 (C_mb GUE-conditional); ' +
@@ -223,14 +222,14 @@ export const IMP34569_BINARY128_EMULATION_CROSS_CHECK_ASSERTIONS = [
     holds: () => DD_TIGHTER_THAN_NATIVE,
   },
   {
-    // Honesty gate: independent cross-validation only, isRigorous false, no QED, PT SOTA, cores untouched.
+    // Honesty gate: independent cross-validation only, isRigorous false, no QED, no refereed bound is changed, cores untouched.
     id: 'imp34569-honesty-gate-no-qed',
-    description: 'Independent extended-precision cross-validation only: isRigorous false, confirms the imp-34551 dd hi-word is arithmetic width, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per imp-486 untouched, C_C 1/8 ansatz untouched',
+    description: 'Independent extended-precision cross-validation only: isRigorous false, confirms the imp-34551 dd hi-word is arithmetic width, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per imp-486 untouched, C_C 1/8 ansatz untouched',
     holds: () =>
       IMP34569_BINARY128_EMULATION_CROSS_CHECK.isRigorous === false &&
       /ARITHMETIC WIDTH/.test(IMP34569_BINARY128_EMULATION_CROSS_CHECK.verdict) &&
       /NO QED/.test(IMP34569_BINARY128_EMULATION_CROSS_CHECK.verdict) &&
-      /remains SOTA/.test(IMP34569_BINARY128_EMULATION_CROSS_CHECK.verdict) &&
+      /refereed bound is changed/i.test(IMP34569_BINARY128_EMULATION_CROSS_CHECK.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34569_BINARY128_EMULATION_CROSS_CHECK.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34569_BINARY128_EMULATION_CROSS_CHECK.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34569_BINARY128_EMULATION_CROSS_CHECK.verdict),

@@ -44,7 +44,7 @@
  * ingredients are structural properties of the SURROGATE map, NOT of the RH operator. The C_mb
  * GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are
  * UNTOUCHED. Changes NO bound; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35012-crossover-complete-monotonicity-bernstein-assessment (the classification this extracts from)
  * @see imp-35113-crossover-deriv-sign-ladder-finite-difference (finite-difference sign ladder cross-check)
@@ -171,7 +171,7 @@ export const IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION = {
     'cross-check). MEASUREMENT ONLY on the surrogate map: the C_mb GUE-conditional per imp-486, the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED; establishes no operator ' +
     'positivity; changes no bound; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35012 (Bernstein classification, representation follows by Hausdorff-Bernstein-Widder); ' +
     'imp-35113 (finite-difference sign-ladder cross-check); imp-34957/imp-34880 (all-positive P_n, ' +
@@ -214,13 +214,13 @@ export const IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION_ASSERTIONS = [
     id: 'imp35114-honesty-gate-no-qed',
     description:
       'measurement scope is the surrogate-map representation ingredients only: establishes no operator ' +
-      'positivity, changes no bound, no QED, Platt-Trudgian stays SOTA',
+      'positivity, changes no bound, no QED, no refereed bound is changed',
     holds: () =>
       IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION.changesBound === false &&
       IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION.isRigorous === false &&
       /NO QED/.test(IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION.verdict) &&
       /no operator positivity/.test(IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION.verdict) &&
-      /remains SOTA/.test(IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION.verdict) &&
+      /refereed bound is changed/i.test(IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION.verdict) &&
       /surrogate/i.test(IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION.rigorousScope),
   },
 ];

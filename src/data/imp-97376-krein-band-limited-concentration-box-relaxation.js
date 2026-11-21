@@ -13,7 +13,7 @@
  *   they are negative, so no positivity follows.
  *
  *   Assessment / derivation attempt only. No operator positivity; no certified positive floor; no bound
- *   moves; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA; RH open;
+ *   moves; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open;
  *   NO QED.
  *
  * THE EXTREMAL PROBLEM (imp-97161 restatement). With F = |ghat|^2 for ghat in PW_a and int F = 1

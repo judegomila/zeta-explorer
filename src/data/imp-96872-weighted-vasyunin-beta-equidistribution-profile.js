@@ -10,8 +10,8 @@
  *
  * This module DERIVES an exact reformulation of beta as a k-independent integral of a limiting
  * profile, LOCALIZES the whole obstruction (the ~73% cotangent-fluctuation variance of imp-96850)
- * to the small-a edge, and gives a numerical estimate. No closed form is proved; PT Lambda <= 0.2
- * remains SOTA; RH open; NO QED.
+ * to the small-a edge, and gives a numerical estimate. No closed form is proved; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * STEP 1 -- EQUIDISTRIBUTION REFORMULATION (the derivation).
@@ -77,7 +77,7 @@
  *        is CANCELLED by the cotangent sum, so beta is finite but its edge piece is NOT separable
  *        term-by-term into "polynomial + variance".
  * So beta is reduced to (a fixed, computable bulk integral 2.4173) + (a small-a edge limit ~0.500)
- * whose closed form remains open. No bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * whose closed form remains open. No bound moved; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96850-coupled-weighted-vasyunin-double-sum-decoupling.js (isolated the scalar beta)
  * @see imp-96849-coprime-core-vasyunin-second-moment-ladder-extension.js (coprime-core T(N) ladder)
@@ -209,7 +209,7 @@ export const IMP96872_HONEST_BANNER =
   + 'while the edge (small a) carries the ENTIRE 1/log k drift, edge_inf~0.500, giving beta~2.9175 '
   + '(consistent with imp-96850 2.917297). This LOCALIZES the imp-96850 obstruction: the unwritten '
   + 'cotangent-fluctuation variance sits at the small-a edge and is the sole drift source. No closed '
-  + 'form is proved. No bound moved. PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  + 'form is proved. No bound moved. No refereed bound is changed; RH open; NO QED.';
 
 export const IMP96872_SUBGAP = Object.freeze({
   id: 'imp-96872-small-a-edge-limit-of-weighted-vasyunin-beta',
@@ -266,7 +266,7 @@ const IMP96872_ASSERTIONS = [
       IMP96872_VERDICT.closedFormProved === false &&
       IMP96872_VERDICT.reformulationDerived === true &&
       /NO QED/.test(IMP96872_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96872_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96872_HONEST_BANNER) &&
       /RH open/.test(IMP96872_HONEST_BANNER) &&
       /small-a-edge/.test(IMP96872_SUBGAP.id),
     why: 'derivation + measurement only: no bound moved, no closed form claimed, honesty markers present, and the small-a-edge sub-gap is recorded.',

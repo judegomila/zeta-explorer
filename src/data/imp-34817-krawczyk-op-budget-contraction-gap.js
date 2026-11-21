@@ -57,7 +57,7 @@
  * DERIVATION / ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate crossover map; NOT a rigorous
  * asymptotic and NOT an RH bound. C_C = 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional
  * per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34799-krawczyk-directed-rounding-width-bound (the gamma(n_op) width model + (H2)-margin ceiling n_op^max ~ 8.60e11 this complements)
  * @see imp-34776-krawczyk-delta-sweep (k*(delta) = delta/(2 eps)(1+O(delta)); the outward-ULP budget)
@@ -218,7 +218,7 @@ export const IMP34817_KRAWCZYK_OP_BUDGET_CONTRACTION_GAP = {
     'evaluation, it does not instantiate the imp-34687a layer. Derivation/assessment only on the inherited ' +
     'imp-3220/imp-3406 surrogate crossover map; the C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes ' +
-    'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34799 (directed-rounding width bound; gamma(n_op) model + (H2)-margin ceiling n_op^max ~ 8.60e11); ' +
     'imp-34776 (k*(delta) = delta/(2 eps)(1+O(delta)) budget); imp-34774 (fixed-point-map enclosure; F(m)=0 ' +
@@ -270,15 +270,15 @@ export const IMP34817_KRAWCZYK_OP_BUDGET_CONTRACTION_GAP_ASSERTIONS = [
       Math.abs(STAR_OVER_KSTAR / (2 * FP_LO * STAR_OVER_H2) - 1) < 1e-2,
   },
   {
-    // Honesty gate: derivation / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: derivation / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34817-honesty-gate-no-qed',
-    description: 'Op-budget contraction-gap ceiling: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Op-budget contraction-gap ceiling: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34817_KRAWCZYK_OP_BUDGET_CONTRACTION_GAP.isRigorous === false &&
       /imp-34714a/.test(IMP34817_KRAWCZYK_OP_BUDGET_CONTRACTION_GAP.subGap) &&
       /REMAINS OPEN/.test(IMP34817_KRAWCZYK_OP_BUDGET_CONTRACTION_GAP.subGap) &&
       /NO QED/.test(IMP34817_KRAWCZYK_OP_BUDGET_CONTRACTION_GAP.verdict) &&
-      /remains SOTA/.test(IMP34817_KRAWCZYK_OP_BUDGET_CONTRACTION_GAP.verdict),
+      /refereed bound is changed/i.test(IMP34817_KRAWCZYK_OP_BUDGET_CONTRACTION_GAP.verdict),
   },
 ];
 

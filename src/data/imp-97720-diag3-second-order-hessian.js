@@ -61,7 +61,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8
  * ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED and appear
  * only as symbolic differentiation axes; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97668-nonlinear-amplitude-audit (first-order six-probe audit; A1 term-prefactor axes)
  * @see imp-97689-diag3-additivity-euler-derivation (analytic first-order DIAG3 == 0, Euler degree-0)
@@ -272,7 +272,7 @@ export const IMP97720_DIAG3_SECOND_ORDER_HESSIAN = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (appear ' +
     'only as symbolic differentiation axes); changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97668 (first-order six-probe amplitude audit; A1 term-prefactor axes); imp-97689 (analytic first-order ' +
     'DIAG3 == 0, Euler degree-0 homogeneity); imp-97710 (first-order DIAG3 == 0 off-anchor at L5); imp-97644 ' +
@@ -329,13 +329,13 @@ export const IMP97720_DIAG3_SECOND_ORDER_HESSIAN_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/audit only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/audit only, no QED, no refereed bound is changed.
     id: 'imp97720-honesty-gate-no-qed',
-    description: 'Measurement/audit only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/audit only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97720_DIAG3_SECOND_ORDER_HESSIAN.isRigorous === false &&
       /NO QED/.test(IMP97720_DIAG3_SECOND_ORDER_HESSIAN.verdict) &&
-      /remains SOTA/.test(IMP97720_DIAG3_SECOND_ORDER_HESSIAN.verdict),
+      /refereed bound is changed/i.test(IMP97720_DIAG3_SECOND_ORDER_HESSIAN.verdict),
   },
 ];
 

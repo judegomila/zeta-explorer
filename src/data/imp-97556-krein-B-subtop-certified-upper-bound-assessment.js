@@ -10,8 +10,8 @@
  *   carries only ~2-3 well-modes, so a SMALL certified lambda_third-largest(B) would shrink the subtraction.
  *
  *   ASSESSMENT / DERIVATION only. No operator positivity, no coercivity constant, and no certified lower bound
- *   on lambda_3(A) is produced; no bound on Lambda moves; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian
- *   Lambda<=0.2 SOTA; RH open; NO QED.
+ *   on lambda_3(A) is produced; no bound on Lambda moves; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * WHAT A CERTIFIED UPPER BOUND ON lambda_third-largest(B) COSTS. B = P_a M_{sigma2^-} P_a is positive
  *   semidefinite (sigma2^- = max(-sigma2, 0) >= 0, P_a the type-a Paley-Wiener projector, band a = (ln3)/2,
@@ -190,7 +190,7 @@ export const IMP97556_HONEST_BANNER =
   'TBW), indicator / single-band (not the signed two-band unbounded-depth weight), and grid-based (defeated by ' +
   'the fractal / Zygmund eigenfunctions). Even a sharp bound would still need a large low-index eigenvalue of C, ' +
   'the other half of the same missing well-concentration certificate (circular). No operator positivity; no ' +
-  'bound on Lambda moves; interval-rigorous reach stays 2a<=0.96; PT Lambda<=0.2 remains SOTA; RH open; NO QED.';
+  'bound on Lambda moves; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -274,9 +274,9 @@ const IMP97556_ASSERTIONS = [
       IMP97556_VERDICT.qed === false &&
       IMP97556_VERDICT.subGap.includes('IMP97556_B_SUBTOP_CERTIFIED_ONLY_BY_TRACE_QUOTIENT_SHARP_PLUNGE_IS_FRACTAL_WALL') &&
       /NO QED/.test(IMP97556_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97556_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97556_HONEST_BANNER) &&
       /RH open/.test(IMP97556_HONEST_BANNER),
-    why: 'assessment/derivation only: no operator positivity, no certified lower bound on lambda_3(A), no bound moves; interval-rigorous reach stays 2a<=0.96; named sub-gap present; PT SOTA line present; RH open; NO QED.',
+    why: 'assessment/derivation only: no operator positivity, no certified lower bound on lambda_3(A), no bound moves; interval-rigorous reach stays 2a<=0.96; named sub-gap present; no-refereed-bound-change line present; RH open; NO QED.',
   },
 ];
 

@@ -183,8 +183,7 @@
  * The numerics below CROSS-CHECK the lemma statements; they are not the
  * claim. Import-light (no heavy bundle; imports only the four sibling
  * verdict modules for carried constants). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 import BNT from "./imp-95172-ballast-necessity-tradeoff.js";
@@ -386,7 +385,7 @@ export const IMP95211_DYADIC_RATE_LOCALIZATION = {
     "LEMMA R1, LEMMA BI and THEOREM DR are unconditional closed-form statements about lacunary exponential sums on the line/half-line (one-line absolute-value resolution; Cramer + Cauchy determinants; triangle inequality + biorthogonal coefficient bounds + monotonicity of (q+1)/(q-1)). THEOREM HL is conditional exactly as THEOREM SL / COROLLARY GC-SL (the carried imp-95172/95208/95209/95210 chain) PLUS the new named dictionary hypothesis H-DYA replacing the bare H-LOC -- H-DYA implies H-LOC by THEOREM DR, so the hypothesis has been pushed from an abstract mass-localization statement down to the concrete structural feature the paper dictionary carries. H-DYA itself is NOT instantiated for the paper packets and every conditional statement names it. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step: the rate-dressing cap demanded by imp-95210-subgap-hloc-from-dyadic-support is DERIVED from the dyadic dictionary structure at the model level. LEMMA R1: a single-rate shell collapses to a rank-one exponential trace on the far side of its collar -- in-block NG dressing is structurally impossible. LEMMA BI: the half-line exponential biorthogonal norms have the exact Cauchy closed form sqrt(2 mu_r) prod_{k != r}(mu_r + mu_k)/|mu_r - mu_k|. THEOREM DR: for lacunary ladders (ratio >= 2) these products are uniformly bounded by explicit partial products of C_inf = prod (2^k+1)/(2^k-1) = 8.255987935778247, giving the n-shell-UNIFORM cross-seam bound LamBar(m d) = [C_inf sum P_{r-1} e^(-2^(r-1) m d)]^2. THEOREM HL: H-DYA(m, d) therefore implies H-LOC with thetaE^2 = thetaO^2 = 1 - LamBar(m d) whenever m d > xStar = 2.651017799014494, and the imp-95210 cap instantiates: gammaOV = 0.9995949885454457 collapses to gammaSL = 0.8467867038778544 / 0.5495810850672158 / 0.5064185121901253 at m d = 3 / 4 / 5. The multi-shell bound reduces to the single-shell damping times explicit cross-shell Cauchy coupling constants -- the shell-decoupling shape the frontier contract asks for. HONEST: H-DYA is not instantiated for the paper packets (Fresnel-Airy port + explicit (m, d, ratio) extraction = successor sub-gap imp-95211-subgap-paper-packet-dyadic-constants); the bound is triangle-inequality lossy (true 0.020389 vs bound 0.024585 at n = 2, m d = 3) and one-sided (below xStar nothing is delivered); per-shell rate exactness is load-bearing (any rate band reopens LEMMA NG in the closure); model-family constants; gammaSL is a cap, not proved attained; measured class sup phi = 0.3572 untouched. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step: the rate-dressing cap demanded by imp-95210-subgap-hloc-from-dyadic-support is DERIVED from the dyadic dictionary structure at the model level. LEMMA R1: a single-rate shell collapses to a rank-one exponential trace on the far side of its collar -- in-block NG dressing is structurally impossible. LEMMA BI: the half-line exponential biorthogonal norms have the exact Cauchy closed form sqrt(2 mu_r) prod_{k != r}(mu_r + mu_k)/|mu_r - mu_k|. THEOREM DR: for lacunary ladders (ratio >= 2) these products are uniformly bounded by explicit partial products of C_inf = prod (2^k+1)/(2^k-1) = 8.255987935778247, giving the n-shell-UNIFORM cross-seam bound LamBar(m d) = [C_inf sum P_{r-1} e^(-2^(r-1) m d)]^2. THEOREM HL: H-DYA(m, d) therefore implies H-LOC with thetaE^2 = thetaO^2 = 1 - LamBar(m d) whenever m d > xStar = 2.651017799014494, and the imp-95210 cap instantiates: gammaOV = 0.9995949885454457 collapses to gammaSL = 0.8467867038778544 / 0.5495810850672158 / 0.5064185121901253 at m d = 3 / 4 / 5. The multi-shell bound reduces to the single-shell damping times explicit cross-shell Cauchy coupling constants -- the shell-decoupling shape the frontier contract asks for. HONEST: H-DYA is not instantiated for the paper packets (Fresnel-Airy port + explicit (m, d, ratio) extraction = successor sub-gap imp-95211-subgap-paper-packet-dyadic-constants); the bound is triangle-inequality lossy (true 0.020389 vs bound 0.024585 at n = 2, m d = 3) and one-sided (below xStar nothing is delivered); per-shell rate exactness is load-bearing (any rate band reopens LEMMA NG in the closure); model-family constants; gammaSL is a cap, not proved attained; measured class sup phi = 0.3572 untouched. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ──────────────────────────
@@ -590,12 +589,12 @@ export const IMP95211_DRL_ASSERTIONS = [
   {
     id: "imp95211-drl-honesty-gate",
     description:
-      "the verdict names H-DYA as un-instantiated for the paper packets, records the conditional collapse gammaOV -> gammaSL rows, the lossiness and one-sidedness of the bound, the surviving sub-gap imp-95211-subgap-paper-packet-dyadic-constants, and the untouched ledger; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names H-DYA as un-instantiated for the paper packets, records the conditional collapse gammaOV -> gammaSL rows, the lossiness and one-sidedness of the bound, the surviving sub-gap imp-95211-subgap-paper-packet-dyadic-constants, and the untouched ledger; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95211_DYADIC_RATE_LOCALIZATION.promotesBound === false &&
       IMP95211_DYADIC_RATE_LOCALIZATION.openResiduals.length === 5 &&
       /NO QED/.test(IMP95211_DYADIC_RATE_LOCALIZATION.verdict) &&
-      /remains SOTA/.test(IMP95211_DYADIC_RATE_LOCALIZATION.verdict) &&
+      /refereed bound is changed/i.test(IMP95211_DYADIC_RATE_LOCALIZATION.verdict) &&
       /Floors and ceilings untouched/.test(IMP95211_DYADIC_RATE_LOCALIZATION.verdict) &&
       /not instantiated for the paper packets/.test(
         IMP95211_DYADIC_RATE_LOCALIZATION.verdict,

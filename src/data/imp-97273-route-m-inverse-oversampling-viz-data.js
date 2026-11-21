@@ -13,8 +13,8 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Every (b, M2w, full, ovr, csCeiling, c1) value below is copied
  * verbatim from the imp-97225 baked IMP97225_LADDER (no re-derivation of the O(b^2) cotangent
- * kernels). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * kernels). Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-97225-route-m-inverse-oversampling-ratio-ladder.js (IMP97225_LADDER, IMP97225_MEASURED, IMP97225_VERDICT)
  *
@@ -41,7 +41,7 @@ export const IMP97273_ASYMPTOTES = Object.freeze({
 });
 
 export const IMP97273_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every (b, M2w, full, ovr, csCeiling, ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every (b, M2w, full, ovr, csCeiling, ' +
   'c1) row is copied verbatim from the imp-97225 baked IMP97225_LADDER (no re-derivation of the O(b^2) ' +
   'cotangent kernels); no bound is claimed and no operator positivity is established.';
 
@@ -92,7 +92,7 @@ const IMP97273_ASSERTIONS = [
     id: 'imp97273-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97273_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97273_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97273_HONEST_BANNER) &&
       /NO QED/.test(IMP97273_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

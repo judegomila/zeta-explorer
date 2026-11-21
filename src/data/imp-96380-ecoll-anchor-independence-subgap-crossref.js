@@ -45,7 +45,7 @@
  *   proves no constant, does not close G6_polymath15_bridge. The conditional
  *   bound C_H <= 0.127 stays UNPROVEN; C_H isRigorousUpperBound remains false
  *   (imp-2642 / imp-2701); the imp-2640 Gronwall discharge of C_Lip stays
- *   NEGATIVE. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH remains open.
+ *   NEGATIVE. No refereed bound is changed. RH remains open.
  *   NO QED.
  *
  * @see imp-96290-step4-bridge-subconstant-inventory (the one independently baked anchor pair)
@@ -55,7 +55,7 @@
  * @see imp-96363-ecoll-independent-second-anchor (independent RATE corroboration, ratio law definitionally exact)
  *
  * Ticket: imp-96380 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const ECOLL_ANCHOR_INDEPENDENCE_HEADWORD = Object.freeze({
@@ -122,8 +122,8 @@ export const IMP96380_ECOLL_ANCHOR_INDEPENDENCE_SUBGAP_CROSSREF = Object.freeze(
     'genuinely independent second anchor, but for the RATE R(N); the ratio law ' +
     'itself is definitionally exact under C_H * R(N) factorization and so is ' +
     'not the kind of claim an independent anchor can corroborate. Establishes ' +
-    'nothing new; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA. RH remains open.',
+    'nothing new; moves no bound; NO QED. No refereed bound is changed' +
+    '. RH remains open.',
   citation:
     'imp-96290 (the one independently baked E_coll anchor pair, N = 1e4); ' +
     'imp-96311 (the ratio law being cross-referenced); imp-96327 (sole ' +
@@ -190,13 +190,13 @@ export const IMP96380_ECOLL_ANCHOR_INDEPENDENCE_SUBGAP_CROSSREF_ASSERTIONS = [
   {
     id: 'imp96380-honesty-gate-no-qed',
     why:
-      'Documentation only: no bound claimed moved, no QED, PT SOTA line ' +
+      'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line ' +
       'present, G6_polymath15_bridge not asserted closed.',
     holds: () =>
       IMP96380_ECOLL_ANCHOR_INDEPENDENCE_SUBGAP_CROSSREF.anyBoundMoved ===
         false &&
       /NO QED/.test(IMP96380_ECOLL_ANCHOR_INDEPENDENCE_SUBGAP_CROSSREF.verdict) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP96380_ECOLL_ANCHOR_INDEPENDENCE_SUBGAP_CROSSREF.verdict,
       ),
   },

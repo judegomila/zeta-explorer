@@ -42,7 +42,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; C_C 1/8 ansatz (imp-2642/imp-2643) untouched; imp-3066
  * K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34950-eflow-crossing-strength-cmb-exponent-structural (q_eff ~ 0.855 at the crossing landmark)
  * @see imp-34973-pinned-product-slope-qeff-window-identity (q_eff kernel; subGap proposed a turnover)
@@ -201,8 +201,8 @@ export const IMP35039_EFLOW_QEFF_PROFILE_CROSSING_TO_FARTAIL = {
     'diagnostic on the inherited surrogate; the component model is the imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) untouched; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); ' +
-    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap:
     'ANSWERS imp-35039: the requested q_eff = 0.6 crossing on a descent toward 1/2 does NOT exist -- q_eff ' +
     '(the E_flow log-derivative) rises MONOTONICALLY toward 1 (verified 0.8463 at 1e9 -> 0.9956 at 1e300, ' +
@@ -258,15 +258,15 @@ export const IMP35039_EFLOW_QEFF_PROFILE_CROSSING_TO_FARTAIL_ASSERTIONS = [
       QEFF_AT_FAR - ECOLL_AT_FAR > 0.4,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35039-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (E_coll), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (E_coll), no QED, no refereed bound is changed',
     holds: () =>
       IMP35039_EFLOW_QEFF_PROFILE_CROSSING_TO_FARTAIL.isRigorous === false &&
       IMP35039_EFLOW_QEFF_PROFILE_CROSSING_TO_FARTAIL.farTailExponent === 0.5 &&
       typeof IMP35039_EFLOW_QEFF_PROFILE_CROSSING_TO_FARTAIL.subGap === 'string' &&
       /NO QED/.test(IMP35039_EFLOW_QEFF_PROFILE_CROSSING_TO_FARTAIL.verdict) &&
-      /remains SOTA/.test(IMP35039_EFLOW_QEFF_PROFILE_CROSSING_TO_FARTAIL.verdict),
+      /refereed bound is changed/i.test(IMP35039_EFLOW_QEFF_PROFILE_CROSSING_TO_FARTAIL.verdict),
   },
 ];
 

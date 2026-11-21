@@ -66,7 +66,7 @@ export const IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK = {
   noConsumerUsesLambdaValue: NO_CONSUMER_USES_LAMBDA_VALUE,
   honestNote:
     'Executable cross-check / accuracy guard only; pins no new bound and claims no QED. The imp-3066 ' +
-    'K_a >= 0 operator-positivity invariant is untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 operator-positivity invariant is untouched. No refereed bound is changed.',
 };
 
 // Build-time tripwires: any drift that collapses the decades-apart separation, or that lets a sigma(N)
@@ -100,10 +100,10 @@ const IMP_33818_ASSERTIONS = [
   {
     id: 'imp33818-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.honestNote) &&
       /no QED/i.test(IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.honestNote) &&
       /imp-3066/.test(IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.honestNote),
-    why: 'VERDICT LOCK: executable guard only, no bound changed; Platt-Trudgian Lambda <= 0.2 stays SOTA, imp-3066 untouched.',
+    why: 'VERDICT LOCK: executable guard only, no bound changed; no refereed bound is changed, imp-3066 untouched.',
   },
 ];
 

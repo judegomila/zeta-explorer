@@ -41,7 +41,7 @@
  *   g(x) = (C+1/2)+(1/2)log(1/x) used in the fixed point)
  *
  * Ticket: imp-97472 (content, medium, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The curvature-crossover-fixed-point headword, baked verbatim (no re-import).
@@ -75,8 +75,8 @@ const CURVATURE_CROSSOVER_FIXEDPOINT_HEADWORD = Object.freeze({
     'Re-cited from the imp-97437 measurement module ' +
     '(src/data/imp-97437-route-m-bulk-profile-curvature-crossover.js), where the crossover ' +
     'formula, kappa_eff back-solve, and curvature obstruction are all verified directly. Naming / ' +
-    'glossary headword only; supplies no new bound; RH open; Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA; NO QED.',
+    'glossary headword only; supplies no new bound; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP97472_CURVATURE_CROSSOVER_FIXEDPOINT_GLOSSARY_HEADWORD = Object.freeze({
@@ -95,7 +95,7 @@ export const IMP97472_CURVATURE_CROSSOVER_FIXEDPOINT_GLOSSARY_HEADWORD = Object.
     'kappa_eff = 0.0995 (band 0.0974..0.1017) that validates it against both converged imp-97419 ' +
     'crossovers, and the honest scope limit that the pure analytic O(x^2) curvature coefficient ' +
     'remains obstructed (model-dependent, wobble-masked). No bound moved; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97437 (the crossover formula derivation, kappa_eff validation, and curvature obstruction ' +
     'this glosses); imp-97419 (the measured crossover fractions the formula converts to analytic ' +
@@ -123,12 +123,12 @@ export const IMP97472_CURVATURE_CROSSOVER_FIXEDPOINT_GLOSSARY_HEADWORD_ASSERTION
   },
   {
     id: 'imp97472-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97437, ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97437, ' +
       'and the honest limit (pure coefficient not pinned) must be present.',
     holds: () =>
       IMP97472_CURVATURE_CROSSOVER_FIXEDPOINT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97472_CURVATURE_CROSSOVER_FIXEDPOINT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97472_CURVATURE_CROSSOVER_FIXEDPOINT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97472_CURVATURE_CROSSOVER_FIXEDPOINT_GLOSSARY_HEADWORD.verdict) &&
       IMP97472_CURVATURE_CROSSOVER_FIXEDPOINT_GLOSSARY_HEADWORD.glosses === 'imp-97437' &&
       /OBSTRUCTED/.test(
         IMP97472_CURVATURE_CROSSOVER_FIXEDPOINT_GLOSSARY_HEADWORD.headword.honestLimit,

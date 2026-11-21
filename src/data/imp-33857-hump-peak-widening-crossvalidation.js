@@ -53,7 +53,7 @@
  * bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the surrogate fits are descriptive, not derived; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33844-hump-peak-closed-form (closed-form hump peak p_ecoll^2 ln10/8 at sigma=1/2, k=9)
  * @see imp-33843-eflow-resid-widening-form-fit (log-linear widening surrogate over the same ladder)
@@ -160,7 +160,7 @@ export const IMP33857_HUMP_PEAK_WIDENING_CROSSVALIDATION = {
     'asymptotic; the surrogate fits are descriptive, not derived; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33844 (closed-form hump peak p_ecoll^2 ln10/8 at sigma=1/2, k=9); imp-33843 (log-linear ' +
     'widening surrogate over the same ladder); imp-33810 (the 21-rung ladder storing resid_exp(k)); ' +
@@ -194,14 +194,14 @@ export const IMP33857_HUMP_PEAK_WIDENING_CROSSVALIDATION_ASSERTIONS = [
       CONTINUOUS_CROSSOVER_OFFSET < 0.6,
   },
   {
-    // Honesty gate: cross-validation only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: cross-validation only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp33857-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, k-residual 0, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Cross-validation only: isRigorous false, k-residual 0, no QED, no refereed bound is changed',
     holds: () =>
       IMP33857_HUMP_PEAK_WIDENING_CROSSVALIDATION.isRigorous === false &&
       IMP33857_HUMP_PEAK_WIDENING_CROSSVALIDATION.crossValidation.kLocationResidualIntegerGrid === 0 &&
       /NO QED/.test(IMP33857_HUMP_PEAK_WIDENING_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP33857_HUMP_PEAK_WIDENING_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP33857_HUMP_PEAK_WIDENING_CROSSVALIDATION.verdict),
   },
 ];
 

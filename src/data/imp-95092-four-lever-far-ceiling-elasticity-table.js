@@ -49,7 +49,7 @@
  *
  * The numerics below CROSS-CHECK the statements; they are not the claim.
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── parameterized ceiling machinery (identical shape to imp-95026/imp-95075) ──
@@ -192,7 +192,7 @@ export const IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE = {
     "MEASUREMENT/DERIVATION. The four elasticities E_x = (dcFar/dx)(x0/cFar0) are central differences (+/- 2 percent) on the imp-95026 parameterized quadrature at the model point (sigma=1, beta=1/3, c=v=D=1, theta=10; cFar0 = 0.2717400426244421); each is cross-checked in sign and ~10 percent magnitude against the secant of the committed imp-95026 scan bracketing the model point, and the Q row reproduces imp-95075 exactly. No paper constant is instantiated (the paper text is not carried here), so the table is the local elasticity at the MODEL point, not a paper number. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT/DERIVATION assembling the four levers driving the imp-95008 far coefficient cFar onto ONE table with a common dimensionless elasticity E_x = (dcFar/dx)(x0/cFar0) at the model point. RANKING by |E_x|: theta (drives s = sigma + theta) 1.271 > sigma 0.944 > isolation Q 0.885 > beta 0.099. cFar SHRINKS with the decay controls (theta, sigma, beta) and GROWS with the isolation constant Q, matching the imp-95026 scans. Each row is cross-checked against the secant of the wider imp-95026 scan (sign and ~10 percent), and the Q row reproduces imp-95075 dcFar/dQ = 0.3816620268743663 and elasticity 0.8847868296486842 exactly. A_d does not enter (it cancels, imp-95026 Finding 0). SUB-GAP: the paper Section 4.5 constants are not pinned in this repo, so the table is the LOCAL elasticity at the MODEL point ranking transfer risk per lever, not a paper number. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT/DERIVATION assembling the four levers driving the imp-95008 far coefficient cFar onto ONE table with a common dimensionless elasticity E_x = (dcFar/dx)(x0/cFar0) at the model point. RANKING by |E_x|: theta (drives s = sigma + theta) 1.271 > sigma 0.944 > isolation Q 0.885 > beta 0.099. cFar SHRINKS with the decay controls (theta, sigma, beta) and GROWS with the isolation constant Q, matching the imp-95026 scans. Each row is cross-checked against the secant of the wider imp-95026 scan (sign and ~10 percent), and the Q row reproduces imp-95075 dcFar/dQ = 0.3816620268743663 and elasticity 0.8847868296486842 exactly. A_d does not enter (it cancels, imp-95026 Finding 0). SUB-GAP: the paper Section 4.5 constants are not pinned in this repo, so the table is the LOCAL elasticity at the MODEL point ranking transfer risk per lever, not a paper number. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -276,13 +276,13 @@ export const IMP95092_ELASTICITY_TABLE_ASSERTIONS = [
   {
     id: "imp95092-honesty-gate",
     description:
-      "the verdict names the sub-gap (paper constants not pinned; local model-point elasticity), records the ranking and A_d cancellation, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (paper constants not pinned; local model-point elasticity), records the ranking and A_d cancellation, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE.promotesBound === false &&
       IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE.openResiduals.length === 2 &&
       IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE.table.length === 4 &&
       /NO QED/.test(IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE.verdict) &&
-      /remains SOTA/.test(IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE.verdict) &&
+      /refereed bound is changed/i.test(IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE.verdict) &&
       /RANKING/.test(IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE.verdict) &&
       /SUB-GAP/.test(IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE.verdict),
   },

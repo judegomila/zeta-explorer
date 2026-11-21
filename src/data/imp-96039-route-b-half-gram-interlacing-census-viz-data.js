@@ -53,7 +53,7 @@ export const IMP96039_CAVEAT_BANNER =
   'zeta zeros at the FIRST pair (167/302 intervals violate up to gamma_300) and the violation ' +
   'fraction stays height-flat near 0.55 rather than decaying -- interlacing is never approached. ' +
   'Interlacing would presuppose RH (HKO real-rootedness); this chart establishes no operator ' +
-  'positivity and carries no RH claim. Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.';
+  'positivity and carries no RH claim. No refereed bound is changed. NO QED.';
 
 // --- self-executing internal-consistency assertions (baked-literal re-derivation only) ---
 (() => {
@@ -79,6 +79,6 @@ export const IMP96039_CAVEAT_BANNER =
     if (!(b.fraction > 0.4)) throw new Error('imp-96039: height bands must stay well above the interlacing floor');
   }
   if (!/NO QED/.test(IMP96039_CAVEAT_BANNER)) throw new Error('imp-96039: caveat banner dropped NO QED');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96039_CAVEAT_BANNER))
-    throw new Error('imp-96039: caveat banner dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96039_CAVEAT_BANNER))
+    throw new Error('imp-96039: caveat banner dropped the no-refereed-bound-change banner');
 })();

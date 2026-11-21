@@ -57,8 +57,8 @@
  *   sub-gap. So the QUALITATIVE inside/outside answer (outside, low; quadratic top rejected) is
  *   robust; the exact within-sliver value is not certified. Assessment only; instantiates no
  *   interval, closes no sub-gap, moves no bound. The only rigorous anchor stays the trace ceiling
- *   T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x regardless. PT Lambda <= 0.2
- *   remains SOTA; RH open; NO QED.
+ *   T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x regardless. No refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * @see imp-97081-route-m-farfield-ceiling-interior-anchor-discriminator (the point-anchor application)
  * @see imp-96750-route-m-interior-second-moment-upper-bound-reduction (Int(N) <= s* log N; the O(1) sub-gap)
@@ -66,7 +66,7 @@
  * @see imp-96667-route-m-frobenius-second-moment-asymptotic (the interior slope band 5.66..5.80)
  *
  * Ticket: imp-97118 (numerical, opus-4-8, api-pool). Assessment + inside/outside verdict + named
- * residual; no bound moved; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * residual; no bound moved; NO QED; no refereed bound is changed.
  */
 
 import {
@@ -145,11 +145,11 @@ export const IMP97118_VERDICT = Object.freeze({
     'second-moment O(1)/s0* sub-gap. So the QUALITATIVE inside/outside answer (outside, low; ' +
     'quadratic top rejected) is robust; the exact within-sliver value is not certified. Assessment ' +
     'only; the rigorous anchor stays T = 2.594e7; compute (N ~ 9916) binds first by >2600x; ' +
-    'changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'changes no bound; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97118_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: the imp-96750 growth law ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment only: the imp-96750 growth law ' +
   'Int(N) = Theta(log N) rejects the quadratic ceiling top end O(1)-INDEPENDENTLY (log form never ' +
   'turns over) and, via the point value F = 3.775e7, places the predicted far-field ceiling BELOW ' +
   'the +1.37% floor -- OUTSIDE the original +1.37%..+8.36% band on the low side. The qualitative ' +
@@ -203,7 +203,7 @@ const IMP97118_ASSERTIONS = [
       IMP97118_VERDICT.predictsOutsideOriginalBand === true &&
       IMP97118_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97118_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97118_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97118_HONEST_BANNER) &&
       /imp-96750/.test(IMP97118_VERDICT.conclusion),
   },
 ];

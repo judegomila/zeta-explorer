@@ -26,8 +26,7 @@
  * AUDIT-ONLY: this ticket records the gap, it does not build the missing
  * viz pages (that is separate follow-on scope, matching how prior
  * surfacing audits in this lineage separate "found the gap" from "closed
- * the gap"). No bound changes; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * the gap"). No bound changes; NO QED; no refereed bound is changed.
  */
 
 const COHORT = [
@@ -75,7 +74,7 @@ export const IMP95352_RZPEN_COHORT_SURFACING_AUDIT = {
     'None of the five has a dedicated viz page, glossary headword, or visualizations-index row yet ' +
     '(a completeness-coverage gap, not a caveat or heavy-import gap, already targeted by several ' +
     'open queue tickets). No page was fabricated by this ticket; closing that gap is separate ' +
-    'follow-on scope. No bound change; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'follow-on scope. No bound change; NO QED; no refereed bound is changed.',
 };
 
 export const IMP95352_RZPEN_COHORT_SURFACING_AUDIT_ASSERTIONS = [
@@ -102,9 +101,9 @@ export const IMP95352_RZPEN_COHORT_SURFACING_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-95352-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP95352_RZPEN_COHORT_SURFACING_AUDIT.honest)
-      && /Lambda<=0.2 remains SOTA/.test(IMP95352_RZPEN_COHORT_SURFACING_AUDIT.honest),
+      && /refereed bound is changed/i.test(IMP95352_RZPEN_COHORT_SURFACING_AUDIT.honest),
   },
 ];
 

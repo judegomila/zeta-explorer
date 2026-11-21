@@ -30,7 +30,7 @@
  *  needs exp(πt/6) pseudo-orbits); "closing the strict-0.14 contract is neither necessary for RH nor evidence about it" (moved from the verdict);
  *  "the freeze calculus cannot see RH" is INHERITED from tlb-dh-blind / dag3-dhblindln3 / NS-RIGID, NOT shown here (no RH-false control run).
  *
- * No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_28_ASSERTIONS recompute live: geodesic norms ε_t² for
+ * No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_28_ASSERTIONS recompute live: geodesic norms ε_t² for
  * traces 3–6, the collapse dimension 72 vs 256, λ_1, ζ's modulus-first threshold σ*(0) (root of ζ(σ)/ζ(2σ) = 2), the ρ/2 heights and their
  * density in [15, 26], the Berry–Keating length exponent, and the ordering of the prime-geodesic exponents.
  */
@@ -88,7 +88,7 @@ export const ROUTE_28 = Object.freeze({
     + 'attributed heuristically to zero density and shortest-geodesic size (confounded by the ρ/2 family). The half-plane RH-analogue comes from the '
     + 'self-adjoint Laplacian and does not supply the Euler-side square-root cancellation (ψ_Γ error proved to x^{25/36}, measured ≈ √x). No RH-false '
     + 'control was run, so RH-blindness of the freeze calculus is not shown here (it is inherited from the DH-blind work). No Λ bound moves. '
-    + 'PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_28;
@@ -138,7 +138,7 @@ export const ROUTE_28_ASSERTIONS = Object.freeze([
     id: 'r28-gate-statistics-and-scope',
     holds: () => { const p = R.phaseGate; return p.sigma055.selbergNegFrac > p.sigma055.zetaNegFrac && p.sigma055.zetaMinRe > 0
       && p.densityMatchedZeta.negFrac.every(([, f], i, a) => i === 0 || f <= a[i - 1][1]) && p.selbergBySieve.every(([, f], i, a) => i === 0 || f <= a[i - 1][1])
-      && R.status === 'done' && /No RH-false/.test(R.verdict) && /not shown here/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict)
+      && R.status === 'done' && /No RH-false/.test(R.verdict) && /not shown here/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict)
       && /NO QED/.test(R.verdict) && /half-plane/.test(R.headline) && R.refereeKilled.length === 8; },
     why: 'Measured difference kept (6.1% vs 0%), monotone in the number of sieved primes/geodesics; RH-blindness not claimed (no RH-false control); half-plane caveat in the headline; no Λ change; no QED.',
   },

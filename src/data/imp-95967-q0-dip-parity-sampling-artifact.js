@@ -52,7 +52,7 @@
  * certified only at m=20 (Sun 6.23 kappa); grid convergence to ~1e-11 shows the integral of the
  * reconstructed integrand is exact, NOT that the reconstruction equals Sun Prop-6.3 at m>20
  * (imp-95966 obstruction). Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author,
- * unrefereed; changes no bound; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. Import-light: bakes
+ * unrefereed; changes no bound; NO Lambda movement; no refereed bound is changed; NO QED. Import-light: bakes
  * the offline-measured Q0_RECON literals; no heavy quadrature at import.
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3, eqs (6.11)-(6.26). SCRATCH: tmp/imp-95967-scratch.mjs
@@ -127,7 +127,7 @@ export const Q0_DIP_PARITY_SAMPLING_ARTIFACT = Object.freeze({
     + 'moduli, so its 41->60 dQ/dm<0 is a parity-branch mismatch (odd minus even), NOT a genuine dip '
     + 'of the reconstruction; the even branch alone (30,60,80,110,150) is strictly monotone with no '
     + 'wobble. Certified only at m=20 (imp-95822/95966 residual); G irrationality OPEN; Sun unrefereed; '
-    + 'PT Lambda<=0.2 SOTA; NO QED',
+    + 'no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26)',
   builtOn:
@@ -206,7 +206,7 @@ export const Q0_DIP_PARITY_SAMPLING_ARTIFACT = Object.freeze({
     + 'grid + parity analysis. Q0_RECON is certified only at m=20 (Sun 6.23 kappa): grid convergence '
     + 'to ~1e-11 bounds quadrature error, not reconstruction faithfulness at m>20 (imp-95966 '
     + 'obstruction). Catalan G irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; '
-    + 'PT Lambda<=0.2 SOTA; NO QED.',
+    + 'no refereed bound is changed; NO QED.',
 });
 
 export const Q0_DIP_PARITY_SAMPLING_ARTIFACT_ASSERTIONS = Object.freeze([
@@ -259,7 +259,7 @@ export const Q0_DIP_PARITY_SAMPLING_ARTIFACT_ASSERTIONS = Object.freeze([
       return /MEASURE ONLY/.test(v.outcome)
         && /PARITY-SAMPLING ARTIFACT/.test(v.outcome)
         && /G irrationality OPEN/.test(s)
-        && /PT Lambda<=0.2 SOTA/.test(s)
+        && /refereed bound is changed/i.test(s)
         && /NO QED/.test(s);
     },
   },

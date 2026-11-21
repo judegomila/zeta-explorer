@@ -51,7 +51,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the residExp simple-zero structure is a
  * numerical/structural observation, not a derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO
- * QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED. No refereed bound is changed.
  *
  * @see imp-34468-pole-leakage-3-8-percent-crossings (the 1%/3%/8% ladder {18.106,18.497,19.034} extended here)
  * @see imp-34413-widening-slope-pole-leakage-one-percent-crossing (R1 1% crossing k~18.106)
@@ -297,7 +297,7 @@ export const IMP34512_POLE_LEAKAGE_FIT_15_20_PERCENT_CROSSINGS = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the residExp simple-zero structure is a ' +
     'numerical/structural observation, not a derivation; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34468 (the 1%/3%/8% ladder {18.106,18.497,19.034} extended here); imp-34413 (R1 1% crossing ' +
     'k~18.106); imp-34247 (R3 contaminationLadder devPct -- the metric fit here); imp-34188 (the ' +
@@ -363,13 +363,13 @@ export const IMP34512_POLE_LEAKAGE_FIT_15_20_PERCENT_CROSSINGS_ASSERTIONS = [
       Math.abs(KSTAR_FIT_CLOSEST - K_STAR) < 0.05,
   },
   {
-    // Honesty gate: measurement + fit only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: measurement + fit only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34512-honesty-gate-no-qed',
-    description: 'measurement/fit only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'measurement/fit only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34512_POLE_LEAKAGE_FIT_15_20_PERCENT_CROSSINGS.isRigorous === false &&
       /NO QED/.test(IMP34512_POLE_LEAKAGE_FIT_15_20_PERCENT_CROSSINGS.verdict) &&
-      /remains SOTA/.test(IMP34512_POLE_LEAKAGE_FIT_15_20_PERCENT_CROSSINGS.verdict) &&
+      /refereed bound is changed/i.test(IMP34512_POLE_LEAKAGE_FIT_15_20_PERCENT_CROSSINGS.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34512_POLE_LEAKAGE_FIT_15_20_PERCENT_CROSSINGS.verdict),
   },
 ];

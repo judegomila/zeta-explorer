@@ -40,7 +40,7 @@
  * @see imp-124919-ecf-stencil-crossover-glossary-headword.js (names the imp-124769 double-precision crossover)
  *
  * Ticket: imp-124956 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The extended-precision E_CF stencil floor headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -70,8 +70,8 @@ const ECF_EXTPREC_FLOOR_HEADWORD = Object.freeze({
     'Re-cited from the imp-124849 measurement module ' +
     '(src/data/imp-124849-extprec-ecf-floor-sigmacrit.js): R = 1.0819e-12 (dps-invariant for ' +
     'dps>=30), sigma_crit = 0.020385, eps^2 law slope 2.000. Naming / glossary headword only; ' +
-    'supplies no new bound; DIAG3 and the C_C 1/8 ansatz are untouched; RH open; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA; NO QED.',
+    'supplies no new bound; DIAG3 and the C_C 1/8 ansatz are untouched; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP124956_EXTPREC_ECF_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
@@ -90,7 +90,7 @@ export const IMP124956_EXTPREC_ECF_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
     'crossover sigma_crit = 0.020385, obeying R ~ eps^2 (slope 2.000) -- superseding the ' +
     'imp-124810 double-precision pin (R_inf ~ 4.46e-13, sigma_crit ~ 0.0127), which was a ' +
     'round-off-contaminated under-estimate. No bound moved; DIAG3 and all pinned surrogate ' +
-    'constants untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'constants untouched; NO QED. No refereed bound is changed.',
   citation:
     'imp-124849 (the extended-precision floor this glosses); imp-124810 (the superseded ' +
     'double-precision pin); imp-124769 (the original E_CF round-off crossover model); ' +
@@ -118,11 +118,11 @@ export const IMP124956_EXTPREC_ECF_FLOOR_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp124956-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124849.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124849.',
     holds: () =>
       IMP124956_EXTPREC_ECF_FLOOR_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124956_EXTPREC_ECF_FLOOR_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124956_EXTPREC_ECF_FLOOR_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124956_EXTPREC_ECF_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       IMP124956_EXTPREC_ECF_FLOOR_GLOSSARY_HEADWORD.glosses === 'imp-124849',
   },
 ];

@@ -63,7 +63,7 @@
  *   grade-4/5 stay out of band, grade-6/8 clear it at &lt;= 300 nodes -- not the exact per-budget ULP. The
  *   NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT;
  *   the operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED.
- *   No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33577-band-crossing-cross-solver-node-budget.js (the CC cross-solver whose driver this isolates)
  *   @see imp-33557-band-crossing-min-budget.js (the grade-4 n=596 Infinity floor this reproduces and refines)
@@ -266,7 +266,7 @@ const verdict =
       'SEPARATE-IS-THE-GRADE-(DEEP-TAIL-ORIGIN-CONCENTRATION),-NOT-THE-NODE-COUNT-AND-NOT-THE-RULE-FAMILY.-BUMPING-' +
       'GRADE-4-TO-GRADE-6-AT-THE-SAME-BUDGET-RECOVERS-THE-BAND-WITHOUT-SWITCHING-TO-CLENSHAW-CURTIS,-REFINING-THE-' +
       'imp-33577-CROSS-SOLVER-READING.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-' +
-      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33600_BAND_CROSSING_GRADE_VS_NODE_DRIVER = Object.freeze({
@@ -295,7 +295,7 @@ export const IMP33600_BAND_CROSSING_GRADE_VS_NODE_DRIVER = Object.freeze({
     'concentration), not the node count and not the rule family -- bumping grade-4 to grade-6 at the SAME budget ' +
     'recovers the band without switching to Clenshaw-Curtis. VERDICT: GRADE-ALONE-RECOVERS-THE-BAND, refining the ' +
     'imp-33577 CC cross-solver reading. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; ' +
-    'jittery lattice floor; operator positivity (imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'jittery lattice floor; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -390,7 +390,7 @@ export const IMP33600_BAND_CROSSING_GRADE_VS_NODE_DRIVER = Object.freeze({
       'exp/pow variation can shift the few-ULP measurements, so the robust reading is the QUALITATIVE separation -- ' +
       'grade-4/5 stay out of band, grade-6/8 clear it at &lt;= 300 nodes -- not the exact per-budget ULP or the exact ' +
       'minimum-in-band budget. The grade is the driver; the exact clearing budget per grade is jittery.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -443,7 +443,7 @@ export const IMP33600_BAND_CROSSING_GRADE_VS_NODE_DRIVER_ASSERTIONS = [
   {
     id: 'imp33600-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33600_BAND_CROSSING_GRADE_VS_NODE_DRIVER.honestCaveat;
       return (
@@ -452,7 +452,7 @@ export const IMP33600_BAND_CROSSING_GRADE_VS_NODE_DRIVER_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

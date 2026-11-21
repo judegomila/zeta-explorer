@@ -57,7 +57,7 @@
  * Frobenius content; the Wolkowicz-Styan two-moment pivot (a different matrix inequality) and
  * an arbitrary fit-free geometric-mean pivot both reproduce M/T = 1.5841640857 to machine
  * precision, each through a different (P/T, M/P) split. The ratio is genuinely pivot-free.
- * Accuracy audit only; no bound moved; no operator positivity; PT Lambda <= 0.2 remains SOTA;
+ * Accuracy audit only; no bound moved; no operator positivity; no refereed bound is changed;
  * RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (inherited): both anchors still rest on ~four-decade extrapolations -- T on
@@ -147,7 +147,7 @@ export const IMP96773_VERDICT = Object.freeze({
     'through a fit-free geometric-mean pivot each reproduces 1.5841640857 to machine precision ' +
     'via a DIFFERENT (P/T, M/P) split: the pivot cancels identically. The 1.5842 ratio is ' +
     'genuinely pivot-free, not an artifact of the shared Frobenius machinery. Accuracy audit ' +
-    'only; no bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'only; no bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96773_SUBGAP = Object.freeze({
@@ -160,7 +160,7 @@ export const IMP96773_SUBGAP = Object.freeze({
 });
 
 export const IMP96773_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy audit only: the anchors T (imp-96548 ' +
+  'RH open; no refereed bound is changed; NO QED. Accuracy audit only: the anchors T (imp-96548 ' +
   'trace, rigorous) and M (imp-96443 measured) are imported single-source from imp-96684 and ' +
   'carry no Frobenius content; the Wolkowicz-Styan and geometric-mean pivot re-derivations are ' +
   'pure re-analysis of M/T = (P/T)*(M/P); no bound is claimed moved and no operator positivity ' +
@@ -205,7 +205,7 @@ const IMP96773_ASSERTIONS = [
       IMP96773_VERDICT.fitFreePivotReproducesRatio === true &&
       /inherits-anchor-extrapolation/.test(IMP96773_SUBGAP.id) &&
       /NO QED/.test(IMP96773_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96773_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96773_HONEST_BANNER) &&
       /RH open/.test(IMP96773_HONEST_BANNER),
     why: 'audit only: no bound moved, the independent-pivot and fit-free-pivot invariance flags are set, and the honesty markers plus the inherited anchor-extrapolation sub-gap are present.',
   },

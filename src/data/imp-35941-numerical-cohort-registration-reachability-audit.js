@@ -39,7 +39,7 @@
  *
  * SCOPE. Audit + minimal wiring fix only. No mathematical content was changed in any
  * audited module. Changes no bound; establishes no operator positivity; no RH verdict;
- * NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35590-registration-reachability-audit (method precedent)
  * @see imp-35838-frontier-batch-registration-reachability-audit.js (method precedent)
@@ -117,7 +117,7 @@ export const IMP35941_NUMERICAL_COHORT_REGISTRATION_REACHABILITY_AUDIT = {
     'module’s static-import closure for four cohort modules. Result: one genuine orphan ' +
     '(imp-35852, missing DATA_MODULES entry) found and fixed; no viz-status mismatch; no ' +
     'heavy-bundle import. Changes no bound; establishes no operator positivity; no RH ' +
-    'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35852, imp-35853, imp-35854, imp-35855 (audited modules); imp-35590/imp-35838/' +
     'imp-35858 (registration/reachability method); imp-35827 (identical orphan class ' +
@@ -164,11 +164,11 @@ export const IMP35941_NUMERICAL_COHORT_REGISTRATION_REACHABILITY_AUDIT_ASSERTION
   },
   {
     id: 'imp35941-honesty-gate-no-qed',
-    description: 'Audit + minimal fix only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit + minimal fix only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35941_NUMERICAL_COHORT_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35941_NUMERICAL_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35941_NUMERICAL_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35941_NUMERICAL_COHORT_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

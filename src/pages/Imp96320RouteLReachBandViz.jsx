@@ -187,8 +187,7 @@ export default function Imp96320RouteLReachBandViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96287
         baked covariance-propagated band literals verbatim (only the log10 axis reshaping is
-        computed here). Derivation on baked literals only; changes no bound; RH open;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        computed here). Derivation on baked literals only; changes no bound; RH open. NO QED.
       </div>
     </div>
   );

@@ -12,8 +12,8 @@
  *
  * PRESENTATION ONLY. All rows and constants are reused verbatim from
  * imp-97502. Establishes no operator positivity; changes no bound;
- * interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 remains
- * SOTA; RH open; NO QED.
+ * interval-rigorous reach stays 2a<=0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97502-krein-named-concentration-inequality-assessment.js (the source verdict, conversion data, and per-tool booleans)
  *

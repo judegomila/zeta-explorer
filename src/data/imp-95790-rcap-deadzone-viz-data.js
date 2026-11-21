@@ -62,7 +62,7 @@ export const IMP95790_CAVEAT_BANNER =
   'descent, not a new measurement. r_cap(T) is a DERIVED upper envelope (r(T) in (0, r_cap(T)]), ' +
   'not the true pointwise ratio; the shaded band is the margin (1 - r_cap) between that envelope ' +
   'and the GUE asymptote r=1, not a measured uncertainty band. Introduces no new cited input and ' +
-  'changes no bound; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. No QED.';
+  'changes no bound; no refereed bound is changed. No QED.';
 
 export const IMP95790_RCAP_DEADZONE_VIZ_DATA_ASSERTIONS = [
   {

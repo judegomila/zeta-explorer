@@ -2,7 +2,7 @@
  * imp-96637 -- Crossover N* of the imp-96616 measured single-power fit ratio = 2.1147 N^{-0.3953}
  * against the GUE median envelope 0.8582 N^{-1/3}, and whether the measured running-min curve is a
  * strict upper bound or a two-sided oscillation about that envelope.
- * Analytic + tabular reconciliation; conditional on GUE; NO QED. PT Lambda <= 0.2 stays SOTA.
+ * Analytic + tabular reconciliation; conditional on GUE; NO QED. No refereed bound is changed.
  *
  * SETUP. imp-96616 gives two curves for g_min(N)/y_N: the measured free-power FIT
  *   f(N) = A N^b with A = 2.1147, b = -0.3953, and the GUE median ENVELOPE

@@ -68,7 +68,7 @@
  *   RH bound. Descriptive surrogate fit, NOT a rigorous asymptotic; the component model is the
  *   inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  *   changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  *   @see imp-34609-eflow-attr-near-far-slope-diff-log-corrected.js (the near/far log-corrected baselines)
  *   @see imp-34589-eflow-attr-far-side-power-law-slope-continuity.js (the window-centre-drift claim)
@@ -308,8 +308,8 @@ export const IMP34636_EFLOW_ATTR_POLE_CENTRED_WINDOW_SLOPE = {
     'CONSISTENT with (but too underpowered to CONFIRM) the centre-drift explanation. Descriptive ' +
     'surrogate fit, NOT a rigorous asymptotic; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed' +
+    '.',
 };
 
 export const IMP34636_ASSERTIONS = [
@@ -360,13 +360,13 @@ export const IMP34636_ASSERTIONS = [
       IMP34636_Q_POLE_MINUS_NEAR > 0 && IMP34636_Q_POLE_MINUS_FAR > 0,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34636-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34636_EFLOW_ATTR_POLE_CENTRED_WINDOW_SLOPE.isRigorous === false &&
       /NO QED/.test(IMP34636_EFLOW_ATTR_POLE_CENTRED_WINDOW_SLOPE.honest) &&
-      /remains SOTA/.test(IMP34636_EFLOW_ATTR_POLE_CENTRED_WINDOW_SLOPE.honest),
+      /refereed bound is changed/i.test(IMP34636_EFLOW_ATTR_POLE_CENTRED_WINDOW_SLOPE.honest),
   },
 ];
 

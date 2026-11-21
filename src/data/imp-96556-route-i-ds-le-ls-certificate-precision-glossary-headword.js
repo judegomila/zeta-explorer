@@ -43,14 +43,14 @@
  *   ------------------------
  *   A glossary-style lookup naming the precision level of an existing certificate for
  *   quick reference. It establishes nothing new, instantiates no interval, closes no
- *   sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see rh-route-i-uncertainty-concentration-certificate-2026-09-24 (source: the D_S <= L_S, 9.04e-4 certificate this glosses)
  * @see imp-96544 (the pending interval-arithmetic port of this same certificate)
  * @see rh-route-i-direct-sonine-trace-certificate-2026-09-24 (sibling module, same honest-limits framing)
  *
  * Ticket: imp-96556 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The D_S <= L_S certificate precision headword, baked verbatim (no re-import of the
@@ -83,8 +83,8 @@ const DS_LE_LS_CERTIFICATE_PRECISION_HEADWORD = Object.freeze({
   pendingIntervalPort: 'imp-96544',
   verificationStatus:
     'Verification-status classification headword (accuracy/honesty audit), not a '
-    + 'rigorous re-derivation. Changes no bound; RH open; NO QED; Platt-Trudgian '
-    + 'Lambda <= 0.2 remains SOTA.',
+    + 'rigorous re-derivation. Changes no bound; RH open; NO QED; no refereed bound is changed'
+    + '.',
 });
 
 export const IMP96556_DS_LE_LS_CERTIFICATE_PRECISION_GLOSSARY_HEADWORD = Object.freeze({
@@ -105,8 +105,8 @@ export const IMP96556_DS_LE_LS_CERTIFICATE_PRECISION_GLOSSARY_HEADWORD = Object.
     + 'Jacobi-eigenvalue Galerkin bound, explicit Bernstein-ellipse tail, checked '
     + 'across four resolution settings), NOT interval-arithmetic-verified. imp-96544 '
     + 'is the pending ticket to port it to interval arithmetic. Establishes nothing '
-    + 'new; instantiates no interval; moves no bound; NO QED. Platt-Trudgian '
-    + 'Lambda <= 0.2 remains SOTA.',
+    + 'new; instantiates no interval; moves no bound; NO QED. No refereed bound is changed'
+    + '.',
   citation:
     'rh-route-i-uncertainty-concentration-certificate-2026-09-24 (proves the D_S <= '
     + 'L_S, 9.04e-4 certificate this glosses, and states its own double-precision, '
@@ -138,11 +138,11 @@ export const IMP96556_DS_LE_LS_CERTIFICATE_PRECISION_GLOSSARY_HEADWORD_ASSERTION
   },
   {
     id: 'imp96556-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96556_DS_LE_LS_CERTIFICATE_PRECISION_GLOSSARY_HEADWORD.anyBoundMoved === false
       && /NO QED/.test(IMP96556_DS_LE_LS_CERTIFICATE_PRECISION_GLOSSARY_HEADWORD.verdict)
-      && /remains SOTA/.test(IMP96556_DS_LE_LS_CERTIFICATE_PRECISION_GLOSSARY_HEADWORD.verdict)
+      && /refereed bound is changed/i.test(IMP96556_DS_LE_LS_CERTIFICATE_PRECISION_GLOSSARY_HEADWORD.verdict)
       && IMP96556_DS_LE_LS_CERTIFICATE_PRECISION_GLOSSARY_HEADWORD.glosses
         === 'rh-route-i-uncertainty-concentration-certificate-2026-09-24',
   },

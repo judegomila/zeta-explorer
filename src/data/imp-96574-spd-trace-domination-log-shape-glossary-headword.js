@@ -47,7 +47,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96548 verdict for quick reference. It
  *   establishes nothing new, instantiates no interval, closes no sub-gap, moves no
- *   bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment (source: the assessment this glosses)
  * @see imp-96443-route-m-lammax-measured-fit (the measured 3.0247 + 0.3526 log N fit)
@@ -58,7 +58,7 @@
  *   N -> infinity, and crosses the DISTINCT 1.58 ceiling-ratio scalar near N ~ 327)
  *
  * Ticket: imp-96574 (content, low), reconciled by imp-96724 (content, medium). Documentation
- * only; establishes nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * only; establishes nothing; NO QED; no refereed bound is changed.
  */
 
 // The SPD trace-domination log-shape headword, baked verbatim (no re-import).
@@ -101,8 +101,8 @@ const SPD_TRACE_DOMINATION_LOG_SHAPE_HEADWORD = Object.freeze({
     'A rigorous, unconditional log-shape bound and a confirmed compute-first ' +
     'ceiling; the log-coefficient (0.3526) remains an unproven measurement, not a ' +
     'rigorous derivation. Changes no bound beyond the ceiling shift above; ' +
-    'establishes no operator positivity; RH open; NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; RH open; NO QED; no refereed bound is changed' +
+    '.',
 });
 
 export const IMP96574_SPD_TRACE_DOMINATION_LOG_SHAPE_GLOSSARY_HEADWORD = Object.freeze({
@@ -124,7 +124,7 @@ export const IMP96574_SPD_TRACE_DOMINATION_LOG_SHAPE_GLOSSARY_HEADWORD = Object.
     '~2600x above the imp-96352 compute ceiling), but does NOT reproduce the ' +
     'measured 0.3526 slope -- the coefficient stays an open sub-gap. Establishes ' +
     'nothing new; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96548 (the rigorous trace-domination assessment and finding this glosses); ' +
     'imp-96443/imp-96480 (the measured 3.0247 + 0.3526 log N fit); imp-96562 (the ' +
@@ -170,11 +170,11 @@ export const IMP96574_SPD_TRACE_DOMINATION_LOG_SHAPE_GLOSSARY_HEADWORD_ASSERTION
   },
   {
     id: 'imp96574-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96574_SPD_TRACE_DOMINATION_LOG_SHAPE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96574_SPD_TRACE_DOMINATION_LOG_SHAPE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96574_SPD_TRACE_DOMINATION_LOG_SHAPE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96574_SPD_TRACE_DOMINATION_LOG_SHAPE_GLOSSARY_HEADWORD.verdict) &&
       IMP96574_SPD_TRACE_DOMINATION_LOG_SHAPE_GLOSSARY_HEADWORD.glosses === 'imp-96548',
   },
 ];

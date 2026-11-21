@@ -39,7 +39,7 @@
  *   Ticket: imp-35641 (numerical, medium). ASSESSMENT ONLY; changes no bound;
  *   discharges nothing; recomputes an already-established landmark map; C_C =
  *   (1/8) sqrt(3 pi) (imp-2642/imp-2643) and C_mb GUE-conditional (imp-486)
- *   UNTOUCHED; imp-35337a stays OPEN. NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   UNTOUCHED; imp-35337a stays OPEN. NO QED. No refereed bound is changed.
  */
 
 import { IMP35597_LANDMARKS } from './imp-35597-threshold-collapse-viz-data.js';

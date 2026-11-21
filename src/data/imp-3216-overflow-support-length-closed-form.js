@@ -6,7 +6,7 @@
  *   whose U-normalization yields the imp-3175 ~0.209 overflow fraction.
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   THE QUESTION (imp-3199 finding F3)
  *   ----------------------------------
@@ -77,7 +77,7 @@
  *   it re-derives no absolute deficit magnitude. A nonzero overflow fraction is
  *   necessary-but-NOT-sufficient at operator order; the off-diagonal
  *   endpoint-Hankel operator step (imp-3066) remains the lone obstruction.
- *   No RH verdict. No false QED. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   No RH verdict. No false QED. No refereed bound is changed.
  *
  *   @see imp-3199-overflow-fraction-cell-sweep.js (the cell sweep this revises)
  *   @see imp-3175-overflow-fraction-resolution-reconcile.js (single-cell sweep)
@@ -419,7 +419,7 @@ export const IMP3216_OVERFLOW_SUPPORT_LENGTH_CLOSED_FORM = Object.freeze({
       'A nonzero overflow fraction is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -485,7 +485,7 @@ export const IMP3216_OVERFLOW_SUPPORT_LENGTH_CLOSED_FORM_ASSERTIONS = [
   {
     id: 'imp3216-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC that REVISES the imp-3199 interpretation, overflow-support geometry only, ' +
-         'necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 stays SOTA. If any ' +
+         'necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed. If any ' +
          'flip the module is over-claiming.',
     holds: () => {
       const c = IMP3216_OVERFLOW_SUPPORT_LENGTH_CLOSED_FORM.honestCaveat;
@@ -494,7 +494,7 @@ export const IMP3216_OVERFLOW_SUPPORT_LENGTH_CLOSED_FORM_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

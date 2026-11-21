@@ -77,7 +77,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS increment fit, the pole-distance
  * exponent, and the finite-limit read are descriptive, not derived; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (the 0.5-grid increments this refines; pole)
  * @see imp-34268-fixed-band-peak-reaccel-convexity-stitch (the 0.25-grid convex-branch read this refines 5x)
@@ -399,7 +399,7 @@ export const IMP34400_FIXED_BAND_PEAK_INCREMENT_FINE_GRID_POLE_APPROACH = {
     'exponent, and the finite-limit read are descriptive, not derived; the component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34169 (the 0.5-grid increments this refines; resid_exp pole at k* ~ 21.28095); imp-34268 (the ' +
     '0.25-grid convex-branch read this refines 5x); imp-34346 (the sub-unity effective-pole-order reading this ' +
@@ -464,7 +464,7 @@ export const IMP34400_FIXED_BAND_PEAK_INCREMENT_FINE_GRID_POLE_APPROACH_ASSERTIO
   {
     // Honesty gate: measurement only, sub-unity cusp, isRigorous false, sources untouched, sub-gap flagged.
     id: 'imp34400-honesty-gate-no-qed',
-    description: 'Measurement only: subUnityCusp true, isRigorous false, imp-34169/imp-34268 untouched, sub-gap flagged, no QED, PT SOTA, imp-3066 K_a>=0 & imp-486 C_mb untouched',
+    description: 'Measurement only: subUnityCusp true, isRigorous false, imp-34169/imp-34268 untouched, sub-gap flagged, no QED, no refereed bound is changed, imp-3066 K_a>=0 & imp-486 C_mb untouched',
     holds: () =>
       IMP34400_FIXED_BAND_PEAK_INCREMENT_FINE_GRID_POLE_APPROACH.subUnityCusp === true &&
       IMP34400_FIXED_BAND_PEAK_INCREMENT_FINE_GRID_POLE_APPROACH.isRigorous === false &&
@@ -472,7 +472,7 @@ export const IMP34400_FIXED_BAND_PEAK_INCREMENT_FINE_GRID_POLE_APPROACH_ASSERTIO
       /SUB-GAP-imp-34400-pole-approach-resolution-floor/.test(IMP34400_FIXED_BAND_PEAK_INCREMENT_FINE_GRID_POLE_APPROACH.verdict) &&
       /are not overturned|is untouched|are untouched/.test(IMP34400_FIXED_BAND_PEAK_INCREMENT_FINE_GRID_POLE_APPROACH.verdict) &&
       /NO QED/.test(IMP34400_FIXED_BAND_PEAK_INCREMENT_FINE_GRID_POLE_APPROACH.verdict) &&
-      /remains SOTA/.test(IMP34400_FIXED_BAND_PEAK_INCREMENT_FINE_GRID_POLE_APPROACH.verdict) &&
+      /refereed bound is changed/i.test(IMP34400_FIXED_BAND_PEAK_INCREMENT_FINE_GRID_POLE_APPROACH.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34400_FIXED_BAND_PEAK_INCREMENT_FINE_GRID_POLE_APPROACH.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34400_FIXED_BAND_PEAK_INCREMENT_FINE_GRID_POLE_APPROACH.verdict),
   },

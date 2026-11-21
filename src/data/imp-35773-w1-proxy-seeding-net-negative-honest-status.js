@@ -12,7 +12,7 @@
  *   fresh forward-evolution certificate) reuses the held negative-time object.
  *
  *   Ticket: imp-35773 (content, low). Note only; ports nothing; changes no bound;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  *   @see imp-35726-w1-sign-reconciliation-cost-scope.js (Part E: the costed verdict this note restates)
  *   @see imp-35717-w1-tsign-reconciliation-scope (enumerates prerequisites R1-R4; names the R2 fork)
@@ -51,7 +51,7 @@ export const IMP35773_W1_PROXY_SEEDING_NET_NEGATIVE_HONEST_STATUS = Object.freez
     reusesHeldProxyObject: false,
     changesAnyBound: false,
     portsAnyRoute: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -86,7 +86,7 @@ export const IMP35773_W1_PROXY_SEEDING_NET_NEGATIVE_HONEST_STATUS_ASSERTIONS = [
       IMP35773_W1_PROXY_SEEDING_NET_NEGATIVE_HONEST_STATUS.honestCaveat.reusesHeldProxyObject === false &&
       IMP35773_W1_PROXY_SEEDING_NET_NEGATIVE_HONEST_STATUS.honestCaveat.portsAnyRoute === false &&
       IMP35773_W1_PROXY_SEEDING_NET_NEGATIVE_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP35773_W1_PROXY_SEEDING_NET_NEGATIVE_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP35773_W1_PROXY_SEEDING_NET_NEGATIVE_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp35773-verdict-net-negative-no-qed',

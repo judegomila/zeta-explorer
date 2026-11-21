@@ -169,8 +169,7 @@ export default function Imp96299MarginFloorLooViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96265
         baked LOO/LTO refit tables verbatim (only the sort and delta computation happen here). The
         positive-floor sign is robust; the 0.14256 figure is an order-of-magnitude floor, not a
-        sharp value. Changes no bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        sharp value. Changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

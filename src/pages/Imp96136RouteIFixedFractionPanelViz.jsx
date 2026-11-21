@@ -211,7 +211,7 @@ export default function Imp96136RouteIFixedFractionPanelViz() {
         fixed-fraction law survives and generalizes the p = 2 half-cusp allocation, but this is
         an obstruction (dense log^2 cusps), not a rescue -- the compact-Toeplitz foothold is lost
         through cusp density and order. Supplies no new bound, establishes no operator
-        positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        positivity, no RH claim. NO QED.
       </div>
     </div>
   );

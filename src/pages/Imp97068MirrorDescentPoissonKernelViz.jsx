@@ -129,7 +129,7 @@ export default function Imp97068MirrorDescentPoissonKernelViz() {
         flow-descent theorem they feed (H_desc-mirror &rArr; &Lambda; &le; t0 + y0&sup2;/2) stays{' '}
         <strong>CONDITIONAL</strong> -- its hypothesis is open and, below y = 1/2, a pointwise
         statement at &sigma; &lt; 1 (NS-RIGID class). No new &Lambda; bound follows here;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. RH open; NO QED.
+        no refereed bound is changed. RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
@@ -208,7 +208,7 @@ export default function Imp97068MirrorDescentPoissonKernelViz() {
         &nbsp;{IMP97141_ASSESSMENT.countT0.toFixed(4)}, is already{' '}
         {IMP97141_ASSESSMENT.finding2.supShortfall.toFixed(2)}x short of p_req, so the entire
         flow trajectory lies below p_req regardless of endpoint. Assessment only; no &Lambda;
-        bound follows; Platt&ndash;Trudgian &Lambda;&le;0.2 remains SOTA; RH open; NO QED.
+        bound follows; no refereed bound is changed; RH open; NO QED.
       </div>
 
       <div
@@ -224,8 +224,7 @@ export default function Imp97068MirrorDescentPoissonKernelViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97068 viz-data leaf (every value computed with the imported f() verbatim, no
-        re-derivation). Changes no bound, establishes no operator positivity; Platt-Trudgian
-        &Lambda;&le;0.2 remains SOTA; RH open; NO QED.
+        re-derivation). Changes no bound, establishes no operator positivity; RH open; NO QED.
       </div>
     </div>
   );

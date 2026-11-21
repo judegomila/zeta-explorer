@@ -10,8 +10,8 @@
  * converting (I) from a sup over an infinite-dimensional top box into ONE scalar boundary-matching
  * condition at the archimedean edge v = 1/2 (named sub-gap SG-96164-boundary). This is a strict
  * SHRINK of the residual, NOT a proof of |lambda| < 1: the rigid profile is itself L^2 on the tail
- * half-line, so the continuum scaling law alone does not force C = 0. RH open; PT Lambda <= 0.2
- * stands; NO QED.
+ * half-line, so the continuum scaling law alone does not force C = 0. RH open; no refereed bound is changed
+ * ; NO QED.
  *
  * ---------------------------------------------------------------------------------------------------
  * SETUP (imp-96143 reduction). A modulus-1 eigenvector g = xihat of A_S23 lives on the confinement
@@ -66,7 +66,7 @@
  * NET. (I) is upgraded from "sup |lambda| < 1 over an infinite-dimensional top box" to "exclude one
  *  rigid profile at one scalar boundary condition" — a strict shrink of the residual driven entirely
  *  by the multiplicative independence of 2 and 3. Nothing here diagonalizes A_S23, moves a Lambda
- *  bound, or a verified height. RH open; PT Lambda <= 0.2 stands; NO QED.
+ *  bound, or a verified height. RH open; no refereed bound is changed; NO QED.
  *
  * Import-light: pure arithmetic (logs, geometric sums, dense-orbit gap scan), no imports, no zeros
  *  bundle. Reproduction inline in the assertions.
@@ -143,7 +143,7 @@ export const IMP_96164_OVERDETERMINATION = Object.freeze({
     'src/data/imp-96125-route-i-corr23-continuity-reduction.js (corr23 continuity needs (I) sup|lam|<1 and (II) cubic tail for A_S23)',
     'src/data/rh-route-i-sonine-excess-semilocal-port-2026-09-23.js (p=2 dyadic ladder, no modulus-1 eigenvalue, relation g(v)=2g(2v))',
   ],
-  status: 'PARTIAL — the p=3 OVER-DETERMINATION COLLAPSES the modulus-1 candidate space on the ladder-tail interior from an infinite-dimensional family of ln2-periodic (Zygmund) modulations of 1/v down to the SINGLE rigid profile g(v)=C/v. DERIVATION: (R2) g(v)=2g(2v) and (R3) g(v)=3g(3v) with their local inverses compose to g(v)=2^a 3^b g(2^a 3^b v) for all (a,b) in Z^2 on the tail interior; the multiplier is exactly e^{a ln2 + b ln3} (6e-15) and the shift Z-module {a ln2 + b ln3} is DENSE in R (ln2/ln3 = 0.63093 irrational; max gap on [0,1] falls 0.0657->0.0115 for |a|,|b|<=10..80), so by continuity of the band-limited eigenfunction g(Uv)=g(v)/U for ALL U>0, forcing the rigid power g(v)=C/v; the second period ln3 kills the ln2-periodic modulation freedom (two incommensurate periods force a constant, sampled range 1.99999). This is a strict SHRINK of (I): from a sup over an infinite-dimensional top box to ONE scalar boundary-matching condition at v=1/2 (sub-gap SG-96164-boundary). NOT a QED: the rigid profile is itself L^2 on the tail half-line (int_{1/2}^{oo} v^-2 dv = 2 < oo), so the scaling law alone does not force C=0; the p=2 top state 0.9999731 < 1 says the boundary is not met at unit modulus but the exact enclosure stays blocked by the Zygmund edge. RH open; PT Lambda <= 0.2 stands; NO QED',
+  status: 'PARTIAL — the p=3 OVER-DETERMINATION COLLAPSES the modulus-1 candidate space on the ladder-tail interior from an infinite-dimensional family of ln2-periodic (Zygmund) modulations of 1/v down to the SINGLE rigid profile g(v)=C/v. DERIVATION: (R2) g(v)=2g(2v) and (R3) g(v)=3g(3v) with their local inverses compose to g(v)=2^a 3^b g(2^a 3^b v) for all (a,b) in Z^2 on the tail interior; the multiplier is exactly e^{a ln2 + b ln3} (6e-15) and the shift Z-module {a ln2 + b ln3} is DENSE in R (ln2/ln3 = 0.63093 irrational; max gap on [0,1] falls 0.0657->0.0115 for |a|,|b|<=10..80), so by continuity of the band-limited eigenfunction g(Uv)=g(v)/U for ALL U>0, forcing the rigid power g(v)=C/v; the second period ln3 kills the ln2-periodic modulation freedom (two incommensurate periods force a constant, sampled range 1.99999). This is a strict SHRINK of (I): from a sup over an infinite-dimensional top box to ONE scalar boundary-matching condition at v=1/2 (sub-gap SG-96164-boundary). NOT a QED: the rigid profile is itself L^2 on the tail half-line (int_{1/2}^{oo} v^-2 dv = 2 < oo), so the scaling law alone does not force C=0; the p=2 top state 0.9999731 < 1 says the boundary is not met at unit modulus but the exact enclosure stays blocked by the Zygmund edge. RH open; no refereed bound is changed; NO QED',
   derivation: 'compose (R2),(R3) + local inverses over Z^2 on the tail interior -> g(v)=2^a 3^b g(2^a 3^b v); multiplier = e^{shift} exactly; shift module dense (ln2/ln3 irrational) -> continuum g(Uv)=g(v)/U -> g(v)=C/v; second incommensurate period forces the modulation constant',
   rigidityGain: 'single-prime (R2) alone admits g(v)=(1/v)Phi(log_2 v), Phi any 1-periodic modulation = infinite-dimensional Zygmund freedom; the p=3 companion collapses this to the single profile C/v — the concrete strengthening the over-determination provides',
   subGap: 'SG-96164-boundary: exclude the single rigid profile g(v)=C/v at the archimedean-box boundary condition v=1/2 (a scalar transcendental condition, not a diagonalization); numerically excluded (p=2 top 0.9999731 < 1) but exact enclosure blocked by the Zygmund edge',

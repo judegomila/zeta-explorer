@@ -9,8 +9,8 @@
  *
  *   Self-computing from the already-published imp-95753 axis landmarks and the imp-95750
  *   ceiling assessment -- no re-derivation, no fresh quadrature, no heavy imports.
- *   Presentation/reshaping only; changes no bound; Platt-Trudgian Lambda <= 0.2 remains
- *   SOTA; no QED.
+ *   Presentation/reshaping only; changes no bound; no refereed bound is changed
+ *   ; no QED.
  *
  *   @see imp-95753-crossover-height-window-viz-data.js (the three-landmark axis this extends)
  *   @see imp-95750-number-variance-deadzone-measurement-reach.js (the ceiling + reach figures)
@@ -55,7 +55,7 @@ export const IMP95772_CAVEAT_BANNER =
   'HONEST STATUS: this is a reshaped VIEW placing the already-assessed imp-95750 direct-measurement ' +
   'ceiling on the imp-95753 log-T axis. It shows how little of the dead zone the ceiling reaches -- ' +
   'about 2.4% of the gap to the crossover. Presentation only; introduces no new cited input and ' +
-  'changes no bound; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. No QED.';
+  'changes no bound; no refereed bound is changed. No QED.';
 
 export const IMP95772_DEADZONE_CEILING_REACH_VIZ_DATA_ASSERTIONS = [
   {

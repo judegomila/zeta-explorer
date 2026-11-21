@@ -13,7 +13,7 @@
  * SAME tool imp-95419 already uses for its "elementary Poisson
  * identity", so no new citation class is introduced and the
  * probabilistic input is ELIMINATED. Changes no bound of the Lambda
- * program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * program; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95419 LEMMA MIX). The theta density
  *   p(t) = pi sum_(n >= 0) (-1)^n (2n + 1) e^(-(n + 1/2)^2 pi^2 t)
@@ -138,7 +138,7 @@
  * imp-95419 conditionality ledger. (d) The imp-95212 envelope port,
  * signed WEIGHT, modulus/phase legs, and imp-95374 stay OPEN and are
  * untouched. NO QED of anything beyond the stated positivity lemma.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -203,7 +203,7 @@ export const IMP95420_EXIT_DENSITY_POSITIVITY = {
     "direct theta form is unusable in doubles below t ~ 0.02; dual form " +
     "mandatory. Changes no bound of the Lambda program; the envelope " +
     "port, signed WEIGHT, and modulus/phase legs stay OPEN; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -453,7 +453,7 @@ export const IMP95420_P_POS_ASSERTIONS = [
       /dual form [\s\S]*mandatory/.test(REF.verdict) &&
       /stay OPEN/.test(REF.verdict) &&
       /NO QED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.citedInputs.length === 1 &&
       /historical record/.test(REF.supersedes),
   },

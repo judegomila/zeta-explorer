@@ -18,12 +18,12 @@
  *
  * Measurement/documentation only: establishes nothing new; the bracket stays an UPPER bracket on
  * lambda_min, not interval-certified, not a positive lower bound; no bound moves; interval-rigorous reach
- * stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97484-krein-csharp-nscaled-tgrid-extended.js (source table, FINDING 2, and IMP97484_BEST_BRACKET.note)
  * @see imp-97456-krein-csharp-nscaled-tgrid.js (the N=84..132 well-resolved table this note also covers)
  *
- * Ticket: imp-97512 (content, low, sonnet-4-6). Documentation only; NO QED; PT Lambda <= 0.2 remains SOTA.
+ * Ticket: imp-97512 (content, low, sonnet-4-6). Documentation only; NO QED; no refereed bound is changed.
  */
 
 import {

@@ -48,7 +48,7 @@
  * MEASUREMENT / SENSITIVITY ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-95598-transition-knee-ordering-robustness (1-D single-parameter bands extended here to 2-D)
  * @see imp-95582-sigma-postpeak-fine-exponent-ramp (F3 transition-precedes-knee ordering)
@@ -254,8 +254,8 @@ export const IMP95617_TRANSITION_KNEE_ORDERING_JOINT_2D = {
     'sharpening that the ordering is invertible inside the box only at the compounded corner. The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95598 (1-D single-parameter bands extended here to the joint 2-D plane); imp-95582 (F3 ' +
     'transition-precedes-knee ordering); imp-34694 (ramp-acceleration knee p double-prime = 0); ' +
@@ -302,13 +302,13 @@ export const IMP95617_TRANSITION_KNEE_ORDERING_JOINT_2D_ASSERTIONS = [
       D_AT.cC_mult < 0.55,
   },
   {
-    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, PT SOTA.
+    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, no refereed bound is changed.
     id: 'imp95617-honesty-gate-no-qed',
-    description: 'Sensitivity/measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Sensitivity/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP95617_TRANSITION_KNEE_ORDERING_JOINT_2D.isRigorous === false &&
       /NO QED/.test(IMP95617_TRANSITION_KNEE_ORDERING_JOINT_2D.verdict) &&
-      /remains SOTA/.test(IMP95617_TRANSITION_KNEE_ORDERING_JOINT_2D.verdict),
+      /refereed bound is changed/i.test(IMP95617_TRANSITION_KNEE_ORDERING_JOINT_2D.verdict),
   },
 ];
 

@@ -57,7 +57,7 @@
  * interval overlaps, and the Route B / IMP97100_PHASE_CANCELLATION_TRIAL tail majorant does not close on the
  * remainder bound alone. Derivation only: produces no interval tail majorant for the full trial; Rayleigh
  * floors stay UPPER bounds; establishes no operator positivity; interval-rigorous reach stays 2a <= 0.96;
- * Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97227-krein-interval-annihilation-certificate.js (Obstruction A named + routed to IMP97015_ARB_INTERVAL_BESSEL)
  * @see imp-97134-krein-annihilating-rational-trial-execution.js (the annihilating degree-level trials d_k)

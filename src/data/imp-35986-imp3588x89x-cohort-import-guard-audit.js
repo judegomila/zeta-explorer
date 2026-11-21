@@ -31,8 +31,7 @@
  * self-executing THROWing assertions without hanging.
  *
  * SCOPE. Read-only import-guard + reachability audit only. No source file required correction.
- * Changes no bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian
- * Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * Changes no bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35775-s-frontier-cohort-import-light-verification (import-light verification pattern)
  * @see imp-35880-frontier-batch-cohort-verification (cohort import-guard pattern)
@@ -103,7 +102,7 @@ export const IMP35986_IMP3588X89X_COHORT_IMPORT_GUARD_AUDIT = {
     '(module plus full transitive dependency closure) for imp-35885, imp-35889, imp-35891, ' +
     'imp-35892, and imp-35893. Result: all five directly registered and import-light; no ' +
     'source file required correction. Changes no bound; establishes no operator positivity; no ' +
-    'RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35775/imp-35880 (import-light verification / cohort import-guard pattern); ' +
     'imp-35982 (sibling registration/reachability audit, overlapping cohort subset); ' +
@@ -141,11 +140,11 @@ export const IMP35986_IMP3588X89X_COHORT_IMPORT_GUARD_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35986-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35986_IMP3588X89X_COHORT_IMPORT_GUARD_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35986_IMP3588X89X_COHORT_IMPORT_GUARD_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35986_IMP3588X89X_COHORT_IMPORT_GUARD_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35986_IMP3588X89X_COHORT_IMPORT_GUARD_AUDIT.verdict),
   },
 ];
 

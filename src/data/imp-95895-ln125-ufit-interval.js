@@ -76,8 +76,8 @@
  * change to any prior certified interval (ln 1.2 imp-95881, ln 1.3 imp-95767). It fills
  * the imp-95885 ln 1.25 N/A cell without rewriting that self-consistent module. Model
  * seam family only; the imp-95212 envelope port, signed WEIGHT, and modulus / phase
- * legs stay OPEN. Changes NO bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. Sun arXiv:2609.04176 unrefereed.
+ * legs stay OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed
+ * . Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95885-per-delta-ufit-comparison-table (the three-delta table this completes; ln1.25 was N/A)
  * @see imp-95838-ln125-shift-budget-scaling (the converged ln1.25 DD shift-invert grid reused here)
@@ -165,7 +165,7 @@ export const IMP95895_LN125_UFIT_INTERVAL = {
     "grid was collected as a shift-budget grid (spacing N = 150..1523, an eight-point " +
     "grid), so the interval is grid-spacing-honest. Model seam family only; the imp-95212 " +
     "envelope port, signed WEIGHT, and modulus / phase legs stay OPEN. Changes no bound " +
-    "of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "of the Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95895"],
 };
 
@@ -417,7 +417,7 @@ export const IMP95895_ASSERTIONS = [
       REF.fillsImp95885NAcell === true &&
       REF.allThreeContainZero === true &&
       /DERIVED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.closesTickets.includes("imp-95895"),
   },
 ];

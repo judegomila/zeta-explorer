@@ -72,7 +72,7 @@
  * T=2.594e7 -- because at the extrapolation scale a flatter concave norm reaches cond#=1/eps
  * later. The straight-line F was a slight under-estimate of the fit ceiling, not an over-estimate.
  * F stays a model-dependent fit strictly above T; no rigorous ceiling is posted; the trace-lower
- * ceiling T~2.594e7 is unaffected; no bound moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * ceiling T~2.594e7 is unaffected; no bound moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96792-route-m-frobenius-ladder-direct-vs-fit-gap.js (Finding 2: fit over-predicts, norm concave)
  * @see imp-96751-route-m-frobenius-ladder-above-12000.js (the exact rungs N=13000..16000, log-linear norm fit)
@@ -225,8 +225,8 @@ export const IMP96890_VERDICT = Object.freeze({
     'F=3.7865e7 was a slight under-estimate of the fit ceiling, not an over-estimate. The shift ' +
     'is model-dependent (~6x spread); the monotone +d/N form is the safer far extrapolant (the ' +
     'quadratic turns over unphysically at N~2.31e9). F stays a model-dependent fit strictly above ' +
-    'T; no rigorous ceiling is posted; T~2.594e7 is unaffected; no bound moves; PT Lambda <= 0.2 ' +
-    'remains SOTA; RH open; NO QED.',
+    'T; no rigorous ceiling is posted; T~2.594e7 is unaffected; no bound moves; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96890_SUBGAP = Object.freeze({
@@ -241,7 +241,7 @@ export const IMP96890_SUBGAP = Object.freeze({
 });
 
 export const IMP96890_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Fit/measurement only: least-squares refit of ' +
+  'RH open; no refereed bound is changed; NO QED. Fit/measurement only: least-squares refit of ' +
   'concave-corrected ||G||_F models (quadratic in log N, and +d/N) over the exact 18-rung ' +
   'Vasyunin-Gram ladder N=250..16000, with the imp-96751 cond#=1/eps ceiling bisection re-solved ' +
   'per model. No new heavy compute; no rigorous ceiling is posted; no bound is claimed moved; the ' +
@@ -296,7 +296,7 @@ const IMP96890_ASSERTIONS = [
       IMP96890_VERDICT.normConcaveInLogN === true &&
       IMP96890_VERDICT.ceilingMovesUpNotDown === true &&
       /NO QED/.test(IMP96890_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96890_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96890_HONEST_BANNER) &&
       /RH open/.test(IMP96890_HONEST_BANNER) &&
       /moves-away-from-T/.test(IMP96890_SUBGAP.id),
     why: 'fit/measurement only: no rigorous ceiling is posted, no bound moves, the norm is measured concave, the ceiling moves UP away from T, and the honesty markers plus the model-dependent-shift sub-gap are present.',

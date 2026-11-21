@@ -44,7 +44,7 @@
  *   explicit-remainder sub-gap this law does not close)
  *
  * Ticket: imp-97258 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The two-parity residual sign law headword, baked verbatim (no re-import).
@@ -74,7 +74,7 @@ const TWO_PARITY_RESIDUAL_SIGN_LAW_HEADWORD = Object.freeze({
     '(src/data/imp-97156-route-m-primorial-signlaw-extension.js), independent O(b) Kahan-' +
     'compensated coprime-sum recompute agreeing to ~1e-14 at b=9699690. Naming / glossary ' +
     'headword only; supplies no uniform remainder bound (the imp-97096 sub-gap stays open); no ' +
-    'bound moved; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'bound moved; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97258_TWO_PARITY_RESIDUAL_SIGN_LAW_GLOSSARY_HEADWORD = Object.freeze({
@@ -94,7 +94,7 @@ export const IMP97258_TWO_PARITY_RESIDUAL_SIGN_LAW_GLOSSARY_HEADWORD = Object.fr
     'generically, but subleading Moebius-parity sign(r) = mu(b) = (-1)^omega universally takes ' +
     'over at primorials P5..P8 and near-primorial smooth moduli, driven by packing distinct ' +
     'small primes (smoothness), not omega parity alone. No bound moved; the imp-97096 sub-gap ' +
-    'stays open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'stays open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97156 (the primorial P5..P8 ladder, near-primorial extension, and repeated-prime-power ' +
     'control this glosses); imp-97140 (the leading Liouville-parity sign law being extended); ' +
@@ -123,12 +123,12 @@ export const IMP97258_TWO_PARITY_RESIDUAL_SIGN_LAW_GLOSSARY_HEADWORD_ASSERTIONS 
   },
   {
     id: 'imp97258-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, sub-gap left open, no QED, PT SOTA line ' +
+    why: 'Documentation only: no bound claimed moved, sub-gap left open, no QED, no-refereed-bound-change line ' +
       'present.',
     holds: () =>
       IMP97258_TWO_PARITY_RESIDUAL_SIGN_LAW_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97258_TWO_PARITY_RESIDUAL_SIGN_LAW_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97258_TWO_PARITY_RESIDUAL_SIGN_LAW_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97258_TWO_PARITY_RESIDUAL_SIGN_LAW_GLOSSARY_HEADWORD.verdict) &&
       IMP97258_TWO_PARITY_RESIDUAL_SIGN_LAW_GLOSSARY_HEADWORD.glosses === 'imp-97156',
   },
 ];

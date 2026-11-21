@@ -66,8 +66,8 @@
  * arithmetic-free t > 0 family provably blocks the bridge in the binding
  * direction. Sharpened obstruction unchanged: a uniform-in-t, all-x lower bound
  * on an Euler-product-free family remains the missing ingredient. Assessment
- * only: no Lambda bound follows, no Euler product for t > 0, PT Lambda <= 0.2
- * remains SOTA, RH open. NO QED.
+ * only: no Lambda bound follows, no Euler product for t > 0, no refereed bound is changed
+ * , RH open. NO QED.
  *
  * @see imp-97117-debruijn-flow-tpos-mirror-count-assessment.js (sharpened NS-RIGID wall)
  * @see imp-97101-palm-mirror-parity-crossing-ladder.js (t = 0-proxy ladder, M(0) = 2.5288)
@@ -178,7 +178,7 @@ export const IMP97141_ASSESSMENT = Object.freeze({
     'push M(0) further down; and the Euler product does not survive the t > 0 flow ' +
     'for continuity to carry. The arithmetic-free t > 0 family provably blocks the ' +
     'bridge in the binding direction. Assessment only: no Lambda bound follows, no ' +
-    'Euler product for t > 0, PT Lambda <= 0.2 remains SOTA, RH open. NO QED.',
+    'Euler product for t > 0, no refereed bound is changed, RH open. NO QED.',
   anyBoundMoved: false,
 });
 
@@ -210,13 +210,13 @@ export const IMP97141_ASSESSMENT_ASSERTIONS = [
   {
     id: 'imp97141-honesty-gate-no-qed',
     why: 'assessment only: wall not bridged, no bound moved, no Euler product for ' +
-      't > 0, PT SOTA line and NO QED present.',
+      't > 0, no-refereed-bound-change line and NO QED present.',
     holds: () =>
       IMP97141_ASSESSMENT.bridgesNsRigidWall === false &&
       IMP97141_ASSESSMENT.anyBoundMoved === false &&
       /no Euler product/i.test(IMP97141_ASSESSMENT.verdict) &&
       /no Lambda bound follows/i.test(IMP97141_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP97141_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP97141_ASSESSMENT.verdict) &&
       /RH open/.test(IMP97141_ASSESSMENT.verdict) &&
       /NO QED/.test(IMP97141_ASSESSMENT.verdict),
   },

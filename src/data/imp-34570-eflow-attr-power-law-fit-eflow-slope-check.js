@@ -52,7 +52,7 @@
  *   surrogate numerator, NOT an RH bound. The component model is the inherited
  *   imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  *   imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- *   K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34406-eflow-attr-smooth-nonzero-across-pole.js (the 8 rungs, F2 finite -2.159 slope)
  *   @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero.js (parts()/eflowLogSlope() machinery)
@@ -164,7 +164,7 @@ export const IMP34570_EFLOW_ATTR_POWER_LAW_FIT = {
     'term (E_N is E_trunc-flat). Descriptive surrogate, NOT a rigorous asymptotic; the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed.',
 };
 
 export const IMP34570_ASSERTIONS = [
@@ -206,13 +206,13 @@ export const IMP34570_ASSERTIONS = [
       IMP34570_SLOPE_RESIDUAL_PCT < 0.15,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34570-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34570_EFLOW_ATTR_POWER_LAW_FIT.isRigorous === false &&
       /NO QED/.test(IMP34570_EFLOW_ATTR_POWER_LAW_FIT.honest) &&
-      /remains SOTA/.test(IMP34570_EFLOW_ATTR_POWER_LAW_FIT.honest),
+      /refereed bound is changed/i.test(IMP34570_EFLOW_ATTR_POWER_LAW_FIT.honest),
   },
 ];
 

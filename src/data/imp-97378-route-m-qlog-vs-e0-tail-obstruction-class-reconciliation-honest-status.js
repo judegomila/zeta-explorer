@@ -79,7 +79,7 @@
  * @see imp-97297-cq-subleading-functional-form-glossary-headword.js (adjacent cq-subleading glossary headword)
  *
  * Ticket: imp-97378 (accuracy, opus-4-8, api-pool). Reconciliation / honest-status note only. No bound on
- * Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * Lambda moves; no refereed bound is changed; RH open; NO QED.
  */
 
 const GAMMA = 0.5772156649015329;
@@ -153,12 +153,12 @@ export const IMP97378_VERDICT = Object.freeze({
     'sup ~ 0.127) while Qlog diverges (imp-97307: sup = +infinity, witness |Qlog| = 0.961 > e^{-gamma}). ' +
     'Their open residuals are structurally distinct and must not be conflated: E0 = IMP97289_TAIL_O1_SUBGAP ' +
     '(bounded-cancellation, plausibly true); Qlog = joint (b/12) Qlog + C_sum = O(b) inside CK. The ' +
-    'unconditional |E1| = O(b log b), 2^omega-free, is unaffected. No bound on Lambda moves; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'unconditional |E1| = O(b log b), 2^omega-free, is unaffected. No bound on Lambda moves; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97378_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reconciliation: the imp-97288 "Qlog = same O(1)-tail ' +
+  'RH open; no refereed bound is changed; NO QED. Reconciliation: the imp-97288 "Qlog = same O(1)-tail ' +
   'class as the E0 Stirling tail" is RETRACTED -- DIFFERENT classes. Shared surface form (Moebius-signed ' +
   'divisor sums, Mertens asymptotics), opposite outcome: the E0 tail R(b) is bounded (imp-97289: < 1/12 on ' +
   'primes+prime powers, sup ~ 0.127; decaying rho_n with a positive-kernel rep), while Qlog diverges ' +
@@ -210,7 +210,7 @@ const IMP97378_ASSERTIONS = [
       /RETRACTED/.test(IMP97378_RECONCILIATION.verdict) &&
       /joint/.test(IMP97378_DO_NOT_REATTEMPT) &&
       /NO QED/.test(IMP97378_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97378_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97378_HONEST_BANNER) &&
       /RH open/.test(IMP97378_HONEST_BANNER),
     why: 'reconciliation/honest-status only: retracts the imp-97288 same-class framing, records the different ' +
       'classes with the do-not-re-attempt gate, moves no bound, posts no rigorous ceiling, no QED.',

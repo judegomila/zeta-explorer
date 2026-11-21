@@ -18,7 +18,7 @@
  * precision recompute of the same bracket certificates reproduces them and is checked against these anchors
  * inside the self-executing assertions. Accuracy cross-check only: NO new proof, NO bound on Lambda moved, the
  * residual (uniform-in-(p1,q1) tail lemma, later closed by imp-97433 with threshold Q0 = 7) is unchanged here;
- * PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97423-route-m-sign-law-omega5-binet-two-sided-estimate.js (derives BRACKET, Dlo/Dhi, certA/certB)
  * @see imp-97433-route-m-sign-law-omega5-uniform-tail-lemma.js (uniform tail lemma, threshold Q0 = 7)
@@ -101,11 +101,11 @@ export const IMP97443_FINDINGS = Object.freeze({
   X2_certificatesPositive: 'certA > 0 AND certB > 0 (and exact-D inequalities (A),(B) hold) across the whole minimal-config ladder q1 = 100 .. 10^6 for p1 = 2, 3, 5',
   X3_decayLaw: 'q1 * certA -> (1-1/p1)/12 monotonically (0.041667 / 0.055556 / 0.066667 for p1 = 2/3/5); measured certA matches the predicted (1-1/p1)/(12 q1)[1 - Sum 1/qj] to < 2% at q1 = 100 and < 1e-5 relative by q1 = 10^6',
   witness: 'certA(2;3,5,7,11) = 0.0181175340 and certB(2;3,5,7,11) = 0.0095087259 reproduce the imp-97423 stored literals at dps=60',
-  status: 'accuracy cross-check only; no proof, no bound on Lambda moved, residual (uniform tail lemma) unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED',
+  status: 'accuracy cross-check only; no proof, no bound on Lambda moved, residual (uniform tail lemma) unchanged; no refereed bound is changed; RH open; NO QED',
 });
 
 export const IMP97443_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy cross-check: an independent extended-precision ' +
+  'RH open; no refereed bound is changed; NO QED. Accuracy cross-check: an independent extended-precision ' +
   '(mpmath dps=60) recompute confirms the imp-97423 bracket certificates certA/certB stay strictly positive ' +
   'across the omega = 5 minimal-config ladder down to q1 = 10^6 for p1 = 2, 3, 5, that the bracket always ' +
   'under-estimates the exact margin (Dlo <= D <= Dhi), and that the margin decays like (1-1/p1)/(12 q1) with ' +
@@ -152,7 +152,7 @@ const IMP97443_ASSERTIONS = [
   {
     id: 'imp97443-honesty-gate-no-qed',
     holds: () => /NO QED/.test(IMP97443_HONEST_BANNER)
-      && /PT Lambda <= 0.2/.test(IMP97443_HONEST_BANNER)
+      && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97443_HONEST_BANNER)
       && /RH open/.test(IMP97443_HONEST_BANNER)
       && /accuracy cross-check only/.test(IMP97443_FINDINGS.status),
     why: 'accuracy cross-check only: no proof, no bound moved, RH open, no QED.',

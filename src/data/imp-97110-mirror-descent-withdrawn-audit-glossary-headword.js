@@ -30,7 +30,7 @@
  *   zeros-to-1e6.js).
  *
  *   STATUS: documentation only, bakes an already-closed audit; no bound moved; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ *   No refereed bound is changed; RH open.
  *
  * @see rh-bridge-mirror-descent-2026-09-25.js (source of both the withdrawal and the corrected
  *   Palm-profile model, section C1)
@@ -38,7 +38,7 @@
  *   headword glosses)
  *
  * Ticket: imp-97110 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The withdrawn-vs-corrected headword, baked verbatim (no re-import).
@@ -70,8 +70,8 @@ const MIRROR_DESCENT_WITHDRAWN_AUDIT_HEADWORD = Object.freeze({
     'rh-bridge-mirror-descent-2026-09-25.js section C1 (withdrawnMeanPointwiseLambda: [0.1035, ' +
     '0.0809]; palmFlowLambdaModel: seam2slot 0.1317, seam1slot 0.1178, n1Star2slot 0.0990, ' +
     'n1Star1slot 0.0900). The imp-97085 sweep is a closed, zero-finding audit (no file needed ' +
-    'patching). Documentation only; establishes no new numerical result; PT Lambda <= 0.2 remains ' +
-    'SOTA; RH open; NO QED.',
+    'patching). Documentation only; establishes no new numerical result; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97110_MIRROR_DESCENT_WITHDRAWN_AUDIT_GLOSSARY_HEADWORD = Object.freeze({
@@ -91,7 +91,7 @@ export const IMP97110_MIRROR_DESCENT_WITHDRAWN_AUDIT_GLOSSARY_HEADWORD = Object.
     'inconsistent baseline against the correct Palm neutral-lattice baseline, and was replaced by ' +
     'the Palm-profile flow model (Lambda ~ 0.1317 seam-2slot / 0.1178 seam-1slot / 0.0990 ' +
     'N1*-2slot / 0.0900 N1*-1slot). Zero surviving uncorrected citations found by the sweep. ' +
-    'Establishes nothing new; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing new; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-97085-mirror-descent-withdrawn-citation-audit (the closed sweep this glosses); ' +
     'rh-bridge-mirror-descent-2026-09-25 (source of both the withdrawal and the corrected model, ' +
@@ -119,11 +119,11 @@ export const IMP97110_MIRROR_DESCENT_WITHDRAWN_AUDIT_GLOSSARY_HEADWORD_ASSERTION
   },
   {
     id: 'imp97110-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97110_MIRROR_DESCENT_WITHDRAWN_AUDIT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97110_MIRROR_DESCENT_WITHDRAWN_AUDIT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97110_MIRROR_DESCENT_WITHDRAWN_AUDIT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97110_MIRROR_DESCENT_WITHDRAWN_AUDIT_GLOSSARY_HEADWORD.verdict) &&
       IMP97110_MIRROR_DESCENT_WITHDRAWN_AUDIT_GLOSSARY_HEADWORD.glosses === 'imp-97085',
   },
 ];

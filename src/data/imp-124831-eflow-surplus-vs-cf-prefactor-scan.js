@@ -53,7 +53,7 @@
  * is perturbed only as a SYMBOLIC axis (the shipped value is s = 1); the component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0
- * is untouched; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * is untouched; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35102-nhalf-ncross-strictness-multirung-verify (single-C_F surplus + rung bracket)
  * @see imp-33848-nhalf-ncross-strict-ordering-closed-form (the two closed-form conditions)
@@ -196,8 +196,8 @@ export const IMP124831_EFLOW_SURPLUS_VS_CF_PREFACTOR_SCAN = {
     'positivity of the flow term. The C_F prefactor is perturbed only as a symbolic axis (shipped ' +
     'value s = 1); the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is ' +
-    'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35102 (single-C_F surplus + rung bracket); imp-33848 (two closed-form strictness ' +
     'conditions); imp-33601 (parts(N) model + surplus identity); imp-398 (E_flow C_F prefactor); ' +
@@ -272,13 +272,13 @@ export const IMP124831_EFLOW_SURPLUS_VS_CF_PREFACTOR_SCAN_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, no QED, no refereed bound is changed.
     id: 'imp124831-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124831_EFLOW_SURPLUS_VS_CF_PREFACTOR_SCAN.isRigorous === false &&
       /NO QED/.test(IMP124831_EFLOW_SURPLUS_VS_CF_PREFACTOR_SCAN.verdict) &&
-      /remains SOTA/.test(IMP124831_EFLOW_SURPLUS_VS_CF_PREFACTOR_SCAN.verdict),
+      /refereed bound is changed/i.test(IMP124831_EFLOW_SURPLUS_VS_CF_PREFACTOR_SCAN.verdict),
   },
 ];
 

@@ -10,7 +10,7 @@
  * (imp-95212). O1 (sharp-mass y-monotonicity), O2 (barrier/winding slab),
  * O4 (analytic tail N > 3840000), and O6 (criterion assembly) remain OPEN.
  * 0.17759432 stays a package VALUE, not a bound. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * Source: formalization/y-thaw-01775943/SHARP_WEIGHT_NATIVE_BINDING.md
  * (per-obligation ledger rows), consolidated per the imp-95212/imp-95208

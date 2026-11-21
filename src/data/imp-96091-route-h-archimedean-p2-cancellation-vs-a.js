@@ -52,7 +52,7 @@
  * explicit RH-free functionals (archimedean + pole vs the p = 2 shift), i.e. Weil positivity itself,
  * so no second-direction inequality (which controls only leading order) can reproduce it -- the only
  * object at that precision is the exact semilocal S = {oo, 2} Sonine/prolate trace identity named as
- * the next step. Measurement only; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * the next step. Measurement only; RH open; NO QED; no refereed bound is changed.
  *
  * @see rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js (weilForm; ROUTE_H_LITERALS)
  * @see rh-novel-routes-sweep-synthesis-2026-09-23.js (routeH verdict, the 7.5e-5 spot value)
@@ -144,7 +144,7 @@ export const IMP96091_ROUTE_H_ARCH_P2_CANCELLATION_VS_A = {
     'In the genuine-cancellation regime a > a_* = 0.41011 the ratio is already <= 1.57e-2 and tightens quasi-exponentially: log10(ratio) slope ~ -32.1 per unit a (~one decade per delta-a ~ 0.031), locking to the double-precision floor by a = ln 2.',
   ],
   verdict:
-    'MEASURED: the Route H archimedean-vs-p=2 cancellation ratio residual/P_2 on the even Slepian minimizer is a steep monotone curve, ~2.3e3 at the ln2/2 onset -> 7.52e-5 (a=0.5) -> 2.70e-11 (a=ln2), ~14 orders of magnitude, so the 7.5e-5 spot value is one point on a fast-tightening curve. The balance loosens to ratio = 1 at a = 0.36752, but that is BELOW the even archimedean-only indefinite onset a_* = 0.41011 where the archimedean form alone is still positive; the cancellation is load-bearing only for a > a_*, and there it is already tight (<= 1.57e-2) and tightens ~one decade per delta-a ~ 0.031 down to the double-precision floor by a = ln 2. This quantifies exactly the synthesis obstruction: past a_* the surviving positive gap is 5-11 relative digits of cancellation between two explicit RH-free functionals (Weil positivity itself), beyond the reach of any leading-order second-direction inequality; the only object at that precision is the exact semilocal S = {oo, 2} Sonine/prolate trace identity named as the next step. Measurement only; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'MEASURED: the Route H archimedean-vs-p=2 cancellation ratio residual/P_2 on the even Slepian minimizer is a steep monotone curve, ~2.3e3 at the ln2/2 onset -> 7.52e-5 (a=0.5) -> 2.70e-11 (a=ln2), ~14 orders of magnitude, so the 7.5e-5 spot value is one point on a fast-tightening curve. The balance loosens to ratio = 1 at a = 0.36752, but that is BELOW the even archimedean-only indefinite onset a_* = 0.41011 where the archimedean form alone is still positive; the cancellation is load-bearing only for a > a_*, and there it is already tight (<= 1.57e-2) and tightens ~one decade per delta-a ~ 0.031 down to the double-precision floor by a = ln 2. This quantifies exactly the synthesis obstruction: past a_* the surviving positive gap is 5-11 relative digits of cancellation between two explicit RH-free functionals (Weil positivity itself), beyond the reach of any leading-order second-direction inequality; the only object at that precision is the exact semilocal S = {oo, 2} Sonine/prolate trace identity named as the next step. Measurement only; RH open; NO QED; no refereed bound is changed.',
 };
 
 // --- self-executing internal-consistency assertions (recompute from baked rows only) ---
@@ -178,5 +178,5 @@ export const IMP96091_ROUTE_H_ARCH_P2_CANCELLATION_VS_A = {
   if (!approx(decadesPerDeltaA, 0.031, 0.01)) throw new Error('imp-96091: decades-per-delta-a drifted: ' + decadesPerDeltaA);
   // honesty gates
   if (!/NO QED/.test(IMP96091_ROUTE_H_ARCH_P2_CANCELLATION_VS_A.verdict)) throw new Error('imp-96091: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96091_ROUTE_H_ARCH_P2_CANCELLATION_VS_A.verdict)) throw new Error('imp-96091: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96091_ROUTE_H_ARCH_P2_CANCELLATION_VS_A.verdict)) throw new Error('imp-96091: verdict dropped the no-refereed-bound-change banner');
 })();

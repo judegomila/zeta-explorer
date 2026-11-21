@@ -11,8 +11,8 @@
  * it establishes that the operative lower bound is DOMINATED (via an exact termwise triangle
  * inequality) by the absolute-value program already under attack in imp-97180/imp-97203, so it
  * needs NO new Bettin-Conrey input, and pins what a DIRECT signed bound (sharper, cancellation-
- * exploiting) would additionally require. No bound is proved rigorous; PT Lambda <= 0.2 remains
- * SOTA; RH open; NO QED.
+ * exploiting) would additionally require. No bound is proved rigorous; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * Notation as imp-97097/imp-97116/imp-97180. V(h,k) = Sum_{m=1}^{k-1} frac(m h/k) cot(pi m/k);
  * imp-97116 R1 gives V(b,a) = c_0(h_a/a) with h_a = b-inverse mod a. The signed operative half is
@@ -101,7 +101,7 @@
  * value Sum_a c_0(h_a/a) -- the imp-97097 period-function average, with no absolute value or square, so
  * strictly harder than the absolute/mean-square objects. The measured kappa_cot ~ +0.12 stays MEASURED,
  * not proved. No bound on Lambda moves; T ~ 2.594e7 trace anchor; compute (N ~ 9916) binds first.
- * PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * No refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97204-cotangent-signed-mean-value -- a DIRECT lower bound
  * S(b) = Sum_{a=2,(a,b)=1}^{b-1} V(b,a) >= -c_s phi(b) b with explicit c_s < |S|/A measured ~ 0.54
@@ -219,7 +219,7 @@ export const IMP97204_VERDICT = Object.freeze({
     'Bettin-Conrey mean value Sum_a c_0(h_a/a) over the inverse line, with no absolute value or square, ' +
     'so strictly harder than the absolute/mean-square objects; it is needed only for sharpness, not for ' +
     'positivity. Measured kappa_cot ~ +0.12 stays measured, not proved. No bound moved; T ~ 2.594e7 ' +
-    'anchor; compute N ~ 9916 binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'anchor; compute N ~ 9916 binds first. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97204_SUBGAP = Object.freeze({
@@ -236,7 +236,7 @@ export const IMP97204_SUBGAP = Object.freeze({
 });
 
 export const IMP97204_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment + partial only: the absolute lower bound ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment + partial only: the absolute lower bound ' +
   'kappa_cot > -kappa_arith is NOT proved. The exact termwise domination |S(b)| <= A(b) shows the ' +
   'operative lower bound (and full two-sided bound) on the signed varying-modulus half is IMPLIED by the ' +
   'absolute-value program already under attack (imp-97180 -> imp-97203), with NO new Bettin-Conrey ' +
@@ -315,7 +315,7 @@ const IMP97204_ASSERTIONS = [
       /signed-mean-value/.test(IMP97204_SUBGAP.id) &&
       /SIGNED Bettin-Conrey mean value/.test(IMP97204_SUBGAP.statement) &&
       /NO QED/.test(IMP97204_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97204_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97204_HONEST_BANNER) &&
       /RH open/.test(IMP97204_HONEST_BANNER),
     why: 'assessment + partial: no rigorous lower bound; the operative lower bound is dominated by the absolute program via |S| <= A (no new input for positivity), and the direct signed route needs the signed Bettin-Conrey mean value -- no bound moved, no rigorous ceiling, honesty markers and the named residual sub-gap present.',
   },

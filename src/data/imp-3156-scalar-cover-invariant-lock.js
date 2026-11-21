@@ -43,7 +43,7 @@
  *   diagonal/lag-symbol statement only; it is NECESSARY but NOT sufficient for the
  *   RH-equivalent operator positivity K_a >= 0. The off-diagonal endpoint-Hankel
  *   operator step (imp-3066) remains the lone obstruction and is UNTOUCHED. Lock
- *   only, no QED. Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false
+ *   only, no QED. No refereed bound is changed. No false
  *   QED.
  *
  *   @see imp-3007-mupass-overflow-cover.js (the scalar-cover invariants D_pass=0, E(a)>0)
@@ -150,7 +150,7 @@ export const IMP3156_SCALAR_COVER_INVARIANT_LOCK = Object.freeze({
       'is necessary but NOT sufficient for the RH-equivalent operator positivity K_a >= 0. ' +
       'The off-diagonal endpoint-Hankel operator step (imp-3066) is the lone obstruction ' +
       'and is NOT addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -227,7 +227,7 @@ export const IMP3156_SCALAR_COVER_INVARIANT_LOCK_ASSERTIONS = [
     id: 'imp3156-honest-necessary-not-sufficient',
     why: 'Mandatory honesty: this is pure cross-validation of a degree-0 SCALAR cover -- ' +
          'necessary but NOT sufficient for the operator step, not a proof, not a reduction ' +
-         'below RH, with the off-diagonal endpoint-Hankel step still open and PT 0.2 SOTA. ' +
+         'below RH, with the off-diagonal endpoint-Hankel step still open and no refereed bound is changed. ' +
          'Also confirms the live imp-3007 operatorStepOpen flag stays true.',
     holds: () => {
       const c = IMP3156_SCALAR_COVER_INVARIANT_LOCK.honestCaveat;
@@ -236,7 +236,7 @@ export const IMP3156_SCALAR_COVER_INVARIANT_LOCK_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isCrossValidationOnly === true &&
         c.rhEquivalent === true &&
-        /Platt-Trudgian/.test(c.sota) &&
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota) &&
         LIVE.remainingGap.operatorStepOpen === true
       );
     },

@@ -47,8 +47,8 @@
  *
  * This is an assessment of a carried literal, not a primary-source re-derivation of
  * Sun Section 6. Catalan constant G irrationality remains OPEN; Sun arXiv:2609.04176
- * single-author and unrefereed; changes no bound; NO Lambda movement; PT Lambda<=0.2
- * SOTA; NO QED.
+ * single-author and unrefereed; changes no bound; NO Lambda movement; no refereed bound is changed
+ * ; NO QED.
  *
  * HONEST-STATUS UPDATE (imp-95690, later primary-source check): the "OPEN sub-gap"
  * verdict on kappa-as-curvature below is now SUPERSEDED by a REFUTATION, not just left
@@ -111,7 +111,7 @@ export const KAPPA_PROVENANCE_ASSESSMENT = Object.freeze({
     + 'form at the verified anchor c_odd(1/20)=0.006276744725: DISCHARGED as a value at '
     + '1/20, OPEN sub-gap as a curvature (rho^2 shape uncertified). The imp-95618 robust '
     + '"> 0.037" conclusion is kappa-INSENSITIVE (binding placement A is kappa-free); '
-    + 'G irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'G irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
 
   carriedIn: {
@@ -183,10 +183,10 @@ export const KAPPA_PROVENANCE_ASSESSMENT_ASSERTIONS = Object.freeze([
     holds: () => KAPPA_BAND.every((b) => b.placementCMarginAtOpt > 0.037),
   },
   {
-    name: 'honest: assessment only, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: assessment only, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       /G irrationality OPEN/.test(KAPPA_PROVENANCE_ASSESSMENT.status)
-      && /PT Lambda<=0.2 SOTA/.test(KAPPA_PROVENANCE_ASSESSMENT.status)
+      && /refereed bound is changed/i.test(KAPPA_PROVENANCE_ASSESSMENT.status)
       && /NO QED/.test(KAPPA_PROVENANCE_ASSESSMENT.status),
   },
   {

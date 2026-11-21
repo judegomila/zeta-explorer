@@ -76,8 +76,8 @@
  *   ~3e-4. OPEN: the exact log^2 b coefficient and a rigorous b^(1/2) exclusion, needing a
  *   second-moment (variance) bound on the inverse-line cotangent residual (imp-97116 small-inverse
  *   equidistribution, one moment higher). No bound moved; the rigorous anchor stays the trace ceiling
- *   T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by > 2600x; no operator positivity; PT
- *   Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by > 2600x; no operator positivity; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97370-inverse-line-second-moment-variance -- prove |Qrr(b) - c2 phi(b)| =
  *   o(b^(1/2)) (and |Qcross - linear| = o(b^(1/2))) via a variance bound on the inverse-line cotangent
@@ -185,7 +185,7 @@ export const IMP97370_VERDICT = Object.freeze({
     'exact coefficient and a RIGOROUS b^(1/2) exclusion needs a variance (second-moment) bound on the ' +
     'inverse-line cotangent residual -- the imp-97116 small-inverse (Estermann/Kloosterman) input, one ' +
     'moment higher. No coefficient claimed; no bound moves; the rigorous anchor stays T = 2.594e7; ' +
-    'compute N ~ 9916 binds first by > 2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'compute N ~ 9916 binds first by > 2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97370_SUBGAP = Object.freeze({
@@ -204,7 +204,7 @@ export const IMP97370_SUBGAP = Object.freeze({
 });
 
 export const IMP97370_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment + reduction only: the interior second ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment + reduction only: the interior second ' +
   'moment Q = Qhat + Qcross + Qrr obeys the RIGOROUS Cauchy-Schwarz squeeze |Qcross| <= 2 sqrt(Qhat ' +
   'Qrr), which -- with Qhat a proven log-polynomial (imp-97349, no b^(1/2)) -- reduces the whole ' +
   'b^(1/2)-vs-log^2 b question to the second moment Qrr = Sum r^2/a^2. MEASURED: the coprimality ' +
@@ -297,7 +297,7 @@ const IMP97370_ASSERTIONS = [
       /inverse-line-second-moment-variance/.test(IMP97370_SUBGAP.id) &&
       /variance/i.test(IMP97370_SUBGAP.statement) &&
       /NO QED/.test(IMP97370_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97370_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97370_HONEST_BANNER) &&
       /RH open/.test(IMP97370_HONEST_BANNER),
   },
 ];

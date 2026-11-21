@@ -54,7 +54,7 @@
  * imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-96266-eflow-peak-recovery-residual (first-order reconstruction; ~9% location, <1e-3 height)
  * @see imp-96151-sigma-closed-form-crossover-fartail-reproduction (closed-form share model)
@@ -242,8 +242,8 @@ export const IMP96286_EFLOW_PEAK_LOCATION_ERROR_ORDER = {
     'geometric sum sigma_CF/(1+x) is an identity (location ~1.7e-7, height ~2e-16). Measurement on ' +
     'the inherited sub-terms only; the C_mb GUE-conditional per imp-486 stays GUE-conditional and ' +
     'UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96266 (first-order reconstruction; ~9% location, <1e-3 height); imp-96151 (closed-form ' +
     'share model); imp-3220 (interior peak sigma_max ~ 0.9494 at N ~ 9.22e5); imp-33723 (closed-form ' +
@@ -286,13 +286,13 @@ export const IMP96286_EFLOW_PEAK_LOCATION_ERROR_ORDER_ASSERTIONS = [
     holds: () => LOC_ERR_EXACT < 1e-5 && HT_ERR_EXACT < 1e-12,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp96286-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96286_EFLOW_PEAK_LOCATION_ERROR_ORDER.isRigorous === false &&
       /NO QED/.test(IMP96286_EFLOW_PEAK_LOCATION_ERROR_ORDER.verdict) &&
-      /remains SOTA/.test(IMP96286_EFLOW_PEAK_LOCATION_ERROR_ORDER.verdict),
+      /refereed bound is changed/i.test(IMP96286_EFLOW_PEAK_LOCATION_ERROR_ORDER.verdict),
   },
 ];
 

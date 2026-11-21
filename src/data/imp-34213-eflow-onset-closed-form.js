@@ -60,7 +60,7 @@
  * asymptotic. E_flow is the benign mesoscopic-Gronwall term (imp-2845); its onset here
  * does NOT touch the divergent C_Lip collision-Gronwall. The C_mb GUE-conditional per
  * imp-486 is UNTOUCHED (E_coll untouched); imp-3066 K_a >= 0 untouched; changes no
- * bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34134-eflow-etrunc-ratio-decay-onset (bisected onsets; identical sub-terms)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (sibling closed-form crossover, fixed point in N)
@@ -226,7 +226,7 @@ export const IMP34213_EFLOW_ONSET_CLOSED_FORM = {
     'NOT a rigorous asymptotic; E_flow is the benign mesoscopic-Gronwall term (imp-2845), NOT the ' +
     'divergent C_Lip collision-Gronwall. The C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll ' +
     'untouched); imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34134 (E_flow = alpha E_trunc onsets, bisected; identical sub-terms); imp-33723 (sibling ' +
     'closed-form E_coll=E_trunc crossover, fixed point in N); imp-3444 (E_flow flow sub-term); imp-2631 ' +
@@ -277,14 +277,14 @@ export const IMP34213_EFLOW_ONSET_CLOSED_FORM_ASSERTIONS = [
       ONSET_LADDER[1].contraction_at_root > ONSET_LADDER[2].contraction_at_root,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, C_mb GUE-conditional untouched, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, C_mb GUE-conditional untouched, no refereed bound is changed.
     id: 'imp34213-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, C_mb GUE-conditional per imp-486 UNTOUCHED named, PT stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, C_mb GUE-conditional per imp-486 UNTOUCHED named, no refereed bound is changed',
     holds: () =>
       IMP34213_EFLOW_ONSET_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP34213_EFLOW_ONSET_CLOSED_FORM.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34213_EFLOW_ONSET_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP34213_EFLOW_ONSET_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP34213_EFLOW_ONSET_CLOSED_FORM.verdict),
   },
 ];
 

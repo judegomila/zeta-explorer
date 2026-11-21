@@ -43,8 +43,7 @@
  * inherited pole, NOT an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation,
  * NOT a rigorous asymptotic; the residExp simple-zero structure is a numerical/structural observation, not
  * a derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34413-widening-slope-pole-leakage-one-percent-crossing (R1 1% crossing k~18.106 -- the rung below this pair)
  * @see imp-34247-widening-slope-pole-divergence (R3 contaminationLadder devPct -- the metric bisected here)
@@ -225,7 +224,7 @@ export const IMP34468_POLE_LEAKAGE_3_8_PERCENT_CROSSINGS = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the residExp simple-zero structure is a ' +
     'numerical/structural observation, not a derivation; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34413 (R1 1% crossing k~18.106 -- the rung below this pair); imp-34247 (R3 contaminationLadder ' +
     'devPct -- the metric bisected here); imp-34188 (the widening-slope surrogate); imp-34023 (residExp ' +
@@ -279,13 +278,13 @@ export const IMP34468_POLE_LEAKAGE_3_8_PERCENT_CROSSINGS_ASSERTIONS = [
       DECADES_BELOW_POLE_8PCT < 2.4,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34468-honesty-gate-no-qed',
-    description: 'measurement only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'measurement only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34468_POLE_LEAKAGE_3_8_PERCENT_CROSSINGS.isRigorous === false &&
       /NO QED/.test(IMP34468_POLE_LEAKAGE_3_8_PERCENT_CROSSINGS.verdict) &&
-      /remains SOTA/.test(IMP34468_POLE_LEAKAGE_3_8_PERCENT_CROSSINGS.verdict) &&
+      /refereed bound is changed/i.test(IMP34468_POLE_LEAKAGE_3_8_PERCENT_CROSSINGS.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34468_POLE_LEAKAGE_3_8_PERCENT_CROSSINGS.verdict),
   },
 ];

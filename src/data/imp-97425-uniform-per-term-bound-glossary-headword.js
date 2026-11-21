@@ -41,7 +41,7 @@
  *   the SIGN + MAGNITUDE reduction this per-term bound feeds)
  *
  * Ticket: imp-97425 (content, low, sonnet-4-6). Documentation only; establishes nothing
- * new; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * new; NO QED; no refereed bound is changed.
  */
 
 // The per-term-bound headword, baked verbatim (no re-import).
@@ -71,7 +71,7 @@ const UNIFORM_PER_TERM_BOUND_HEADWORD = Object.freeze({
     '(src/data/imp-97392-route-m-quarter-ceiling-omega3-magnitude-obstruction.js), where ' +
     'g(2)/2 and 1/g(2) are computed directly from the exact Glaisher-Kinkelin weight g(m) ' +
     'and verified against the omega=2,3,4,5 group-count table. Naming / glossary headword ' +
-    'only; supplies no new bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'only; supplies no new bound; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97425_UNIFORM_PER_TERM_BOUND_GLOSSARY_HEADWORD = Object.freeze({
@@ -88,8 +88,8 @@ export const IMP97425_UNIFORM_PER_TERM_BOUND_GLOSSARY_HEADWORD = Object.freeze({
     'GLOSSARY HEADWORD ONLY (documentation, not a proof). Names the imp-97392 uniform ' +
     'per-term bound max_{m>=2} g(m)/m = g(2)/2 = 0.1534264097 (attained at m=2) and the ' +
     'signed-group-size threshold 1/g(2) = 3.258891 that gates whether the per-term ' +
-    'MAGNITUDE proof extends past omega=3. No bound moved; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'MAGNITUDE proof extends past omega=3. No bound moved; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97392 (derives g(2)/2, proves omega=3 MAGNITUDE with it, pins the omega>=4 ' +
     'over-charge threshold); imp-97290 (the omega<=2 SIGN + MAGNITUDE reduction this feeds).',
@@ -116,11 +116,11 @@ export const IMP97425_UNIFORM_PER_TERM_BOUND_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97425-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97392.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97392.',
     holds: () =>
       IMP97425_UNIFORM_PER_TERM_BOUND_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97425_UNIFORM_PER_TERM_BOUND_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97425_UNIFORM_PER_TERM_BOUND_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97425_UNIFORM_PER_TERM_BOUND_GLOSSARY_HEADWORD.verdict) &&
       IMP97425_UNIFORM_PER_TERM_BOUND_GLOSSARY_HEADWORD.glosses === 'imp-97392',
   },
 ];

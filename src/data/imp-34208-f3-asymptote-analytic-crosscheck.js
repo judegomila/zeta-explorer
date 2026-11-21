@@ -46,7 +46,7 @@
  * The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; this cross-check is
  * descriptive within that model only; changes no bound; establishes no operator positivity; imp-3066
  * K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34133-f2-f3-asymptotic-constant-fit (the constant-plus-decay fit whose F3 asymptote
  *   c ~ 0.835955 this module cross-checks; same inherited sub-terms, head fixed at k=6)
@@ -175,7 +175,7 @@ export const IMP34208_F3_ASYMPTOTE_ANALYTIC_CROSSCHECK = {
     '0.83596. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; this ' +
     'cross-check is descriptive within the model only; changes no bound; establishes no operator ' +
     'positivity; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-34133 (the constant-plus-decay F2, F3 fit whose F3 asymptote c ~ 0.835955 is cross-checked ' +
@@ -230,13 +230,13 @@ export const IMP34208_F3_ASYMPTOTE_ANALYTIC_CROSSCHECK_ASSERTIONS = [
       Math.abs(IMP34208_F3_ASYMPTOTE_ANALYTIC_CROSSCHECK.f3AsymptoteAnalytic - F3_ASYMPTOTE_ANALYTIC) <= 0.5e-8,
   },
   {
-    // Honesty gate: numerical/cross-check only, isRigorous false, no QED, K_a untouched, C_mb untouched, PT SOTA.
+    // Honesty gate: numerical/cross-check only, isRigorous false, no QED, K_a untouched, C_mb untouched, no refereed bound is changed.
     id: 'imp34208-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, no QED, imp-3066 K_a >= 0 untouched, C_mb untouched, PT SOTA',
+    description: 'Cross-check only: isRigorous false, no QED, imp-3066 K_a >= 0 untouched, C_mb untouched, no refereed bound is changed',
     holds: () =>
       IMP34208_F3_ASYMPTOTE_ANALYTIC_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP34208_F3_ASYMPTOTE_ANALYTIC_CROSSCHECK.verdict) &&
-      /remains\s+SOTA/.test(IMP34208_F3_ASYMPTOTE_ANALYTIC_CROSSCHECK.verdict) &&
+      /refereed bound is changed/i.test(IMP34208_F3_ASYMPTOTE_ANALYTIC_CROSSCHECK.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34208_F3_ASYMPTOTE_ANALYTIC_CROSSCHECK.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34208_F3_ASYMPTOTE_ANALYTIC_CROSSCHECK.verdict),
   },

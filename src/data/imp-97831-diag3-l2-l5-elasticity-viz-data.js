@@ -73,7 +73,7 @@ export const IMP97831_SUMMARY = Object.freeze({
     + 'degree-0 homogeneity of sigma = E_coll/E_N), not operator positivity. Conditional-share diagnostic '
     + 'on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional '
     + 'per imp-486, the C_C 1/8 ansatz and the pinned E_trunc are untouched; changes no bound; imp-3066 '
-    + 'K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'K_a >= 0 untouched; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

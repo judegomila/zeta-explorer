@@ -48,7 +48,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-95582-sigma-postpeak-fine-exponent-ramp (half-decade ramp [1e6,1e12] extended here)
  * @see imp-3529-sigma-postpeak-decay-exponent (pointwise local exponent p(N) definition)
@@ -201,7 +201,7 @@ export const IMP95602_SIGMA_EXPONENT_RAMP_PAST_1E12 = {
     'the measured (1/2 - p) ln N ~ 0.508 in the far tail. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95582 (half-decade ramp [1e6,1e12] extended here); imp-3529 (pointwise local exponent p(N)); ' +
     'imp-3463 (far-tail leading form, exponent -> 1/2); imp-3444 (E_coll = E_trunc crossover ' +
@@ -250,14 +250,14 @@ export const IMP95602_SIGMA_EXPONENT_RAMP_PAST_1E12_ASSERTIONS = [
       CROSS_0P1PCT.log10N / CROSS_1PCT.log10N > 8,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp95602-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP95602_SIGMA_EXPONENT_RAMP_PAST_1E12.isRigorous === false &&
       IMP95602_SIGMA_EXPONENT_RAMP_PAST_1E12.farTailExponent === 0.5 &&
       /NO QED/.test(IMP95602_SIGMA_EXPONENT_RAMP_PAST_1E12.verdict) &&
-      /remains SOTA/.test(IMP95602_SIGMA_EXPONENT_RAMP_PAST_1E12.verdict),
+      /refereed bound is changed/i.test(IMP95602_SIGMA_EXPONENT_RAMP_PAST_1E12.verdict),
   },
 ];
 

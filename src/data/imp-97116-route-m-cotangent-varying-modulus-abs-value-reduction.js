@@ -8,8 +8,8 @@
  * fixed-modulus half Sum_{a in R_b} V(a,b) = 0 EXACTLY (a <-> b-a antisymmetry) and left the whole
  * leading cotangent moment ~ -0.076 phi(b) b in S(b), where a is the MODULUS (no reduced-residue
  * permutation, no Dedekind closed form). This leaf makes two genuine rigorous reductions of that
- * open piece and reports the precise remaining analytic input. No bound is proved rigorous; PT
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * open piece and reports the precise remaining analytic input. No bound is proved rigorous; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * Notation as imp-96750/imp-97071/imp-97097. V(h,k) = Sum_{m=1}^{k-1} frac(mh/k) cot(pi m/k) is the
  * Vasyunin sum; c_0(h/k) = Sum_{n=1}^{k-1} (n/k) cot(pi n h/k) is the Bettin-Conrey cotangent sum.
@@ -85,7 +85,7 @@
  * the delicate SIGNED Bettin-Conrey mean value of imp-97097 into an ABSOLUTE-VALUE bound and isolates
  * the single remaining analytic input (frequency of small inverses b-inverse mod a). The explicit c
  * stays MEASURED, not proved; no bound moved; the rigorous trace ceiling T ~ 2.594e7 stays the anchor;
- * compute (N ~ 9916) binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * compute (N ~ 9916) binds first. No refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97116-abs-value-inverse-line-mean-value -- prove A(b) = Sum_{a=2,
  * (a,b)=1}^{b-1} |c_0(b-inverse mod a / a)| <= c phi(b) b with explicit c < 0.5705, via a uniform
@@ -194,8 +194,8 @@ export const IMP97116_VERDICT = Object.freeze({
     'This converts the delicate SIGNED Bettin-Conrey mean value into a cancellation-free ' +
     'absolute-value bound and isolates the single remaining input: a uniform bound on the frequency ' +
     'of small modular inverses b-inverse mod a. The explicit c is MEASURED, not proved. No bound ' +
-    'moved, no rigorous ceiling posted; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. PT Lambda ' +
-    '<= 0.2 SOTA; RH open; NO QED.',
+    'moved, no rigorous ceiling posted; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. No refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97116_SUBGAP = Object.freeze({
@@ -212,7 +212,7 @@ export const IMP97116_SUBGAP = Object.freeze({
 });
 
 export const IMP97116_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment + partial only: the varying-modulus ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment + partial only: the varying-modulus ' +
   'Vasyunin average S(b) = Sum_{a=2,(a,b)=1}^{b-1} V(b,a) is recast rigorously as the inverse-line ' +
   'cotangent-sum average Sum_a c_0(b-inverse mod a / a) and dominated by the cancellation-free ' +
   'absolute-value sum A(b) = Sum_a |c_0(...)| (MEASURED A(b) ~ 0.14 phi(b) b << 0.5705 phi(b) b); every ' +
@@ -283,7 +283,7 @@ const IMP97116_ASSERTIONS = [
       /abs-value-inverse-line/.test(IMP97116_SUBGAP.id) &&
       /cancellation-free/.test(IMP97116_SUBGAP.statement) &&
       /NO QED/.test(IMP97116_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97116_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97116_HONEST_BANNER) &&
       /RH open/.test(IMP97116_HONEST_BANNER),
     why: 'assessment + partial: the inverse-line reduction and absolute-value domination are rigorous, but the explicit constant c is measured not proved and the remaining input is non-elementary -- no bound moved, no rigorous ceiling posted, honesty markers and the named residual sub-gap present.',
   },

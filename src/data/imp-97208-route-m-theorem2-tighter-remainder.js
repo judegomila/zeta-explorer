@@ -72,7 +72,7 @@
  * VERDICT: the imp-97133 Theorem-2 constant is replaced (measured; prime-class proved) by the ~4 log b
  * tighter C2star(b) = b/4 + 2^omega(b)(log b + 2), which tracks the true b/4 L1-remainder scale and
  * saturates -> 1 on the primes. The corollary remainder (1/2)|b E0 - E1| and the exact kappa_arith are
- * unchanged; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97158-route-m-theorem1-remainder-sharpness.js (measured the ~40x Theorem-2 looseness this fills)
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (the original Theorem-2 constant)
@@ -169,7 +169,7 @@ export const IMP97208_VERDICT = Object.freeze({
     '(0 violations, b in [2,20000]) and is ~4 log b tighter than the old constant (up to 108x at b~10^5), ' +
     'removing essentially all of the ~40x gap; a full-b proof needs the mu-cancelling divisor-sum EM (sub-gap). ' +
     'Prime powers and primorials undershoot (mu-sign cancellation of the b/4 leader). The corollary remainder ' +
-    '(1/2)|b E0 - E1| and the exact kappa_arith are unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    '(1/2)|b E0 - E1| and the exact kappa_arith are unchanged; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97208_SUBGAP = Object.freeze({
@@ -184,7 +184,7 @@ export const IMP97208_SUBGAP = Object.freeze({
 });
 
 export const IMP97208_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Tighter Theorem-2 remainder constant filling the imp-97158 ' +
+  'RH open; no refereed bound is changed; NO QED. Tighter Theorem-2 remainder constant filling the imp-97158 ' +
   '~40x residual: |E1(b)| <= b/4 + 2^omega(b)(log b + 2) tracks the true b/4 L1-remainder scale (vs the ~b log b ' +
   'over-count), saturates -> 1 on primes (proved asymptotic E1(prime b) = -b/4 + (1/12)log b + ln A), and is ' +
   '~4 log b tighter (up to 108x at b~10^5). Universal bound MEASURED (0 violations b in [2,20000]); no bound moved.';
@@ -268,7 +268,7 @@ const IMP97208_ASSERTIONS = [
       /Glaisher/.test(IMP97208_VERDICT.provedPrimeAsymptotic) &&
       /universal/.test(IMP97208_SUBGAP.statement) &&
       /NO QED/.test(IMP97208_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97208_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97208_HONEST_BANNER) &&
       /RH open/.test(IMP97208_HONEST_BANNER),
     why: 'derivation + measurement only -- proves the prime asymptotic, measures the universal tighter bound, moves no bound, posts no rigorous ceiling, claims no QED.',
   },

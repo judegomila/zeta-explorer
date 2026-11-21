@@ -57,7 +57,7 @@
  *
  * MEASUREMENT ONLY. No new Gram solve, no new statistic beyond a re-measurement of
  * the baked imp-96487 ratios on uniform subsets; no bound is moved, no operator
- * positivity is established. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open.
+ * positivity is established. No refereed bound is changed. RH open.
  * NO QED.
  *
  * @see imp-97039-vif-reconciliation-ladder.js (the full-ladder reconciliation this stress-tests; IMP97039_SUBGAP)
@@ -186,7 +186,7 @@ export const IMP97057_SUBGAP = Object.freeze({
 });
 
 export const IMP97057_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the ACF and VIF are ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the ACF and VIF are ' +
   're-measured from tmp/imp-97057-uniform-subset-acf.mjs on uniform-in-N subsets of the baked ' +
   'imp-96487 ratios -- no new Gram solve, no bound is moved and no operator positivity is ' +
   'established. Confirms only the DIRECTION of the imp-97039 reconciliation; IMP97039_SUBGAP ' +
@@ -254,7 +254,7 @@ const IMP97057_ASSERTIONS = [
       IMP97057_SUBGAP.status === 'open' &&
       IMP97057_VERDICT.subGapClosed === false &&
       /RH open/.test(IMP97057_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97057_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97057_HONEST_BANNER) &&
       /NO QED/.test(IMP97057_HONEST_BANNER),
     why: 'the sub-gap stays open (longer ladder needs the blocked Gram solve) and the honest banner carries the RH-open / PT-Lambda / NO-QED markers.',
   },

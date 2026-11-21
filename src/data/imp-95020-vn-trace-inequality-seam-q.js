@@ -77,8 +77,7 @@
  * arithmetic anchor.
  *
  * Changes no bound; does NOT promote Lambda <= 0.14; the Stop rule is not
- * arithmetically triggerable in-repo (blocked); NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * arithmetically triggerable in-repo (blocked); NO QED; no refereed bound is changed.
  */
 
 import IMP95008_EVALUATION_CHRISTOFFEL_DUALITY from './imp-95008-evaluation-christoffel-duality.js';
@@ -334,7 +333,7 @@ export const IMP95020_VN_TRACE_INEQUALITY_SEAM_Q = {
     'Lemma H (the von Neumann trace-inequality substitution and its monotone-safety) is unconditional exact linear algebra; the surrogate numbers are a mechanism cross-check on a NON-equimodular carrier-dimension-matched system, NOT the arithmetic Q. No arithmetic C_E,17 / K_17 measurement is emitted or synthesized.',
   promotesBound: false,
   verdict:
-    'HONEST PARTIAL. Lemma H substitutes the von Neumann trace inequality for Cauchy-Schwarz in the residual-(c) l2-to-pointwise passage: the pointwise constant sharpens from sqrt(K_W(x,x)) to sqrt(lambda_max(rho) K_W(x,x)) over the weld ensemble, so the move is monotone-safe (refined Q = sqrt(lambda_max(rho)) * Cauchy-Schwarz Q, never larger) and its entire payoff is the one unmeasured number lambda_max(rho) of the seam mode density. The 18-mode surrogate confirms the mechanism (trace = 18, endpoint concentration ~3.3x, lambda_max(rho) ~0.49 -> gain ~0.70, von Neumann bound holds and refined <= Cauchy-Schwarz at every sampled point, pure state recovers Cauchy-Schwarz, worst surrogate Q well below the 2.8653344 cutoff line). The ARITHMETIC seam-point Q and the Stop rule are BLOCKED on the Lane-A evaluator (imp-95013 BLOCKED-ON-SPEC); sub-gap imp-95020-sub-arithmetic-seam-Q. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'HONEST PARTIAL. Lemma H substitutes the von Neumann trace inequality for Cauchy-Schwarz in the residual-(c) l2-to-pointwise passage: the pointwise constant sharpens from sqrt(K_W(x,x)) to sqrt(lambda_max(rho) K_W(x,x)) over the weld ensemble, so the move is monotone-safe (refined Q = sqrt(lambda_max(rho)) * Cauchy-Schwarz Q, never larger) and its entire payoff is the one unmeasured number lambda_max(rho) of the seam mode density. The 18-mode surrogate confirms the mechanism (trace = 18, endpoint concentration ~3.3x, lambda_max(rho) ~0.49 -> gain ~0.70, von Neumann bound holds and refined <= Cauchy-Schwarz at every sampled point, pure state recovers Cauchy-Schwarz, worst surrogate Q well below the 2.8653344 cutoff line). The ARITHMETIC seam-point Q and the Stop rule are BLOCKED on the Lane-A evaluator (imp-95013 BLOCKED-ON-SPEC); sub-gap imp-95020-sub-arithmetic-seam-Q. Changes no bound; NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (self-executing; import-light; throw on violation) ────────────
@@ -410,12 +409,12 @@ export const IMP95020_VN_TRACE_INEQUALITY_SEAM_Q_ASSERTIONS = [
   },
   {
     id: 'imp95020-honesty-gate-no-qed',
-    description: 'honest partial: promotes no bound, names the arithmetic sub-gap, NO QED, PT stays SOTA',
+    description: 'honest partial: promotes no bound, names the arithmetic sub-gap, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95020_VN_TRACE_INEQUALITY_SEAM_Q.promotesBound === false &&
       IMP95020_VN_TRACE_INEQUALITY_SEAM_Q.namedSubGap === 'imp-95020-sub-arithmetic-seam-Q' &&
       /NO QED/.test(IMP95020_VN_TRACE_INEQUALITY_SEAM_Q.verdict) &&
-      /remains SOTA/.test(IMP95020_VN_TRACE_INEQUALITY_SEAM_Q.verdict),
+      /refereed bound is changed/i.test(IMP95020_VN_TRACE_INEQUALITY_SEAM_Q.verdict),
   },
 ];
 

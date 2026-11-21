@@ -39,7 +39,7 @@
  * The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the fit and its drift
  * are descriptive within that model only; changes no bound; establishes no operator positivity;
  * imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no RH verdict, NO
- * QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED. No refereed bound is changed.
  *
  * @see imp-34133-f2-f3-asymptotic-constant-fit (the constant-plus-decay F3 fit c ~ 0.835955 whose
  *   stability this module tests; same inherited sub-terms, head fixed at k=6)
@@ -207,7 +207,7 @@ export const IMP34209_F3_FIT_STABILITY_EXTENDED_LADDER = {
     '0.836 is a window artifact, not the limit ~0.803. The inherited imp-3220/imp-3406 component model ' +
     'is NOT a rigorous asymptotic; this probe is descriptive within the model only; changes no bound; ' +
     'establishes no operator positivity; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-34133 (the constant-plus-decay F3 fit c ~ 0.835955 whose stability is tested here); imp-34208 ' +
@@ -264,13 +264,13 @@ export const IMP34209_F3_FIT_STABILITY_EXTENDED_LADDER_ASSERTIONS = [
       Math.abs(IMP34209_F3_FIT_STABILITY_EXTENDED_LADDER.f3AnalyticFloor_imp34208 - F3_ANALYTIC_FLOOR) <= 0.5e-8,
   },
   {
-    // Honesty gate: numerical/probe only, isRigorous false, no QED, K_a untouched, C_mb untouched, PT SOTA.
+    // Honesty gate: numerical/probe only, isRigorous false, no QED, K_a untouched, C_mb untouched, no refereed bound is changed.
     id: 'imp34209-honesty-gate-no-qed',
-    description: 'Probe only: isRigorous false, no QED, imp-3066 K_a >= 0 untouched, C_mb untouched, PT SOTA',
+    description: 'Probe only: isRigorous false, no QED, imp-3066 K_a >= 0 untouched, C_mb untouched, no refereed bound is changed',
     holds: () =>
       IMP34209_F3_FIT_STABILITY_EXTENDED_LADDER.isRigorous === false &&
       /NO QED/.test(IMP34209_F3_FIT_STABILITY_EXTENDED_LADDER.verdict) &&
-      /remains\s+SOTA/.test(IMP34209_F3_FIT_STABILITY_EXTENDED_LADDER.verdict) &&
+      /refereed bound is changed/i.test(IMP34209_F3_FIT_STABILITY_EXTENDED_LADDER.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34209_F3_FIT_STABILITY_EXTENDED_LADDER.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34209_F3_FIT_STABILITY_EXTENDED_LADDER.verdict),
   },

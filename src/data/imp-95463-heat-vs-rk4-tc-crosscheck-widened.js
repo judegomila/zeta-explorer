@@ -12,7 +12,7 @@
  *   and records WHY the Path C empirical rungs {50, 100, 200, 500} cannot host
  *   the same direct float64 cross-check. MEASUREMENT ONLY: it derives NO bound,
  *   closes NO leg, fires NO certificate, and re-points no consumer. R_A stays
- *   OPEN and Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ *   OPEN and no refereed bound is changed. NO QED.
  *
  *   WHAT "THE FIVE EXACT LOW-N RUNGS" ACTUALLY ARE
  *   ----------------------------------------------
@@ -64,15 +64,14 @@
  *   ceiling ~7.4e-3 << 0.2), R_A stays open via parts (b)/(c) plus imp-2621
  *   (refuted amplified rate) and imp-35164 (E(N) does not vanish), and the
  *   high-N residual imp-2563-sub-pathc-ladder-replace-highN stays named. This is
- *   a stability MEASUREMENT, not a bound. NO QED. PT Lambda <= 0.2 SOTA.
+ *   a stability MEASUREMENT, not a bound. NO QED. No refereed bound is changed.
  *
  * @see src/data/imp-95448-ra-ladder-input-data-audit.js (Q(a3): heat-vs-RK4 witnessed only at N=8)
  * @see src/data/imp-2563-pathc-exact-tc-ladder.js (EXACT_LADDER, the N=8 witness, imp-2605/imp-2626)
  * @see src/data/imp-95481-highn-exact-tc-offline-route-scope.js (the Arb/FLINT route the blocked rungs need)
  *
  * Ticket: imp-95463 (numerical, low). Measurement only; establishes no new
- * bound; closes no leg; fires no certificate; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bound; closes no leg; fires no certificate; NO QED; no refereed bound is changed.
  */
 
 import { ZETA_ZEROS } from '../math/zeta.js';
@@ -315,7 +314,7 @@ export const HEAT_VS_RK4_TC_CROSSCHECK_WIDENED = {
     'bound, closes NO leg, fires NO certificate: the t_c^part consumer is ' +
     'non-binding (imp-2626 ceiling ~7.4e-3 << 0.2), R_A stays open via parts ' +
     '(b)/(c) plus imp-2621 and imp-35164, and the high-N residual stays named. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 
   sources: [
     'src/data/imp-95448-ra-ladder-input-data-audit.js (Q(a3): witnessed only at N=8)',
@@ -375,7 +374,7 @@ export const HEAT_VS_RK4_TC_CROSSCHECK_WIDENED_ASSERTIONS = [
         a.firesCertificate === false &&
         /R_A/.test(a.legStillOpen) &&
         /imp-2563-sub-pathc-ladder-replace-highN/.test(a.namedResidual) &&
-        /remains SOTA/.test(a.verdict) &&
+        /refereed bound is changed/i.test(a.verdict) &&
         /imp-2621/.test(a.verdict) &&
         /imp-35164/.test(a.verdict)
       );
@@ -384,7 +383,7 @@ export const HEAT_VS_RK4_TC_CROSSCHECK_WIDENED_ASSERTIONS = [
       'This is a stability MEASUREMENT: it must record that it moves no bound, ' +
       'closes no leg, fires no certificate, that R_A stays open, the high-N ' +
       'residual stays named, the fatal walls (imp-2621, imp-35164) are cited, and ' +
-      'the PT SOTA line is present -- so no reader mistakes the widened witness ' +
+      'the no-refereed-bound-change line is present -- so no reader mistakes the widened witness ' +
       'for a delivered bound. No QED.',
   },
 ];

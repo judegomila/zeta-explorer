@@ -13,8 +13,7 @@
  *   ------------------------
  *   A glossary-style set of lookup entries restating existing source-module conclusions
  *   verbatim (no re-derivation, no re-import of the source modules). Establishes nothing new,
- *   instantiates no interval, closes no sub-gap, moves no bound. NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   instantiates no interval, closes no sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96105-route-m-vasyunin-gram-extend-n6000 (source: Vasyunin cotangent sum / Gram)
  * @see rh-route-i-semilocal-sonine-trace-identity-2026-09-23 (source: semilocal Sonine trace identity)
@@ -23,7 +22,7 @@
  * @see imp-96058-fejer-ceiling-floor-ladder-viz-data (source: Fejer pure-scheme floor ladder)
  *
  * Ticket: imp-96083 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 export const IMP96083_ROUTE_VOCABULARY_GLOSSARY_HEADWORDS = Object.freeze([

@@ -3,8 +3,7 @@
  * FINITE-SECTION SPECTRAL ENVELOPE, formalized as a tracked statement.
  *
  * GRADE: analytic formalization + numerical witness. Import-light (no heavy
- * bundle, no imports). Derivation only; changes NO bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bundle, no imports). Derivation only; changes NO bound; NO QED; no refereed bound is changed.
  *
  * WHY THIS EXISTS. imp-95862 formalized the delta-uniform two-sided envelope
  *     ess-inf f_delta = A_opt(delta) <= lambda(G_n) <= ess-sup f_delta = f(0)
@@ -92,8 +91,7 @@
  * for all delta,rho). (c) The lower endpoint reproduces the imp-95693 rho-monotone
  * floor to full precision above the double-precision cancellation floor. (d) Model
  * seam family only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase
- * legs stay OPEN. Changes NO bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * legs stay OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95862-delta-uniform-two-sided-envelope-statement (the rho = 1 scalar envelope this generalizes)
  * @see imp-95707-twin-pair-block-toeplitz-interior-limit (the matrix symbol + lower edge d(0)-|off(0)|)
@@ -187,8 +185,8 @@ export const IMP95876_OFFLINE_BLOCK_TOEPLITZ_TWO_SIDED_ENVELOPE = {
     "witness of an established matrix mechanism; adds no cited input and no bound. The " +
     "attained-at-theta-0 fact is checked across the grid, not proved for all delta,rho; " +
     "model seam family only; imp-95212 envelope port, signed WEIGHT and modulus/phase " +
-    "legs stay OPEN. Changes no bound of the Lambda program; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "legs stay OPEN. Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95876"],
 };
 
@@ -466,7 +464,7 @@ export const IMP95876_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /FORMALIZED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95876-closes-self",

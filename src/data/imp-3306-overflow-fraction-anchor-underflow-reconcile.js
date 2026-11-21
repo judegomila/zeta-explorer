@@ -6,7 +6,7 @@
  *   HORIZON, not a mathematical nu &gt; mu down-crossing.
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   THE TWO CLAIMS IN TENSION
  *   -------------------------
@@ -84,7 +84,7 @@
  *   only; it re-derives no absolute deficit magnitude. A nonzero overflow fraction
  *   is necessary-but-NOT-sufficient at operator order; the off-diagonal
  *   endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH
- *   verdict. No false QED. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   verdict. No false QED. No refereed bound is changed.
  *
  *   @see imp-3175-overflow-fraction-resolution-reconcile.js (the ~0.209 anchor)
  *   @see imp-3216-overflow-support-length-closed-form.js (the underflow-horizon finding)
@@ -336,7 +336,7 @@ export const IMP3306_OVERFLOW_FRACTION_ANCHOR_UNDERFLOW_RECONCILE = Object.freez
       'A nonzero overflow fraction is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -382,7 +382,7 @@ export const IMP3306_OVERFLOW_FRACTION_ANCHOR_UNDERFLOW_RECONCILE_ASSERTIONS = [
   {
     id: 'imp3306-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC that REVISES the imp-3175 re-pointing, overflow-fraction anchor only, ' +
-         'necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 stays SOTA. If any ' +
+         'necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed. If any ' +
          'flip the module is over-claiming.',
     holds: () => {
       const c = IMP3306_OVERFLOW_FRACTION_ANCHOR_UNDERFLOW_RECONCILE.honestCaveat;
@@ -391,7 +391,7 @@ export const IMP3306_OVERFLOW_FRACTION_ANCHOR_UNDERFLOW_RECONCILE_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

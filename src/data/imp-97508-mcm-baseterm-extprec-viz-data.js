@@ -11,7 +11,7 @@
  * baked extended-precision row, reused verbatim. Establishes no operator
  * positivity; changes no bound; the x=5e5 "blip" is confirmed a
  * double-precision artifact (not charted as a reversal); kappa_arith
- * unchanged; Platt-Trudgian Lambda<=0.2 remains SOTA; RH open; NO QED.
+ * unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97478-route-m-mcm-level1-baseterm-extprec.js (the baked extended-precision ladder, closed form, and verdict)
  *

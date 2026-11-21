@@ -57,7 +57,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124772-knee-floor-elasticity-multifloor-fit (the 10-floor OLS p_knee fit; F2 residual U characterized here)
  * @see imp-97822-sigma-knee-etrunc-floor-elasticity (the two-floor knee fit; floorSweep reused here verbatim)
@@ -240,8 +240,8 @@ export const IMP124786_KNEE_FLOOR_RESIDUAL_QUADRATIC_FIT = {
     'leading power law stands (a ~0.73-decade gap to the imp-33684 interior-peak -1.375). The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124772 (10-floor OLS p_knee fit; F2 residual U characterized here); imp-97822 (two-floor knee ' +
     'fit; floorSweep reused verbatim); imp-33708 (0.5x..5x E_trunc floor sweep); imp-33684 ' +
@@ -282,13 +282,13 @@ export const IMP124786_KNEE_FLOOR_RESIDUAL_QUADRATIC_FIT_ASSERTIONS = [
     holds: () => CURVATURE_TO_SLOPE < 0.05,
   },
   {
-    // Honesty gate: measurement/fit only, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, no QED, no refereed bound is changed.
     id: 'imp124786-honesty-gate-no-qed',
-    description: 'Measurement only: characterizes the imp-124772 residual curvature, no QED, PT stays SOTA',
+    description: 'Measurement only: characterizes the imp-124772 residual curvature, no QED, no refereed bound is changed',
     holds: () =>
       IMP124786_KNEE_FLOOR_RESIDUAL_QUADRATIC_FIT.isRigorous === false &&
       /NO QED/.test(IMP124786_KNEE_FLOOR_RESIDUAL_QUADRATIC_FIT.verdict) &&
-      /remains SOTA/.test(IMP124786_KNEE_FLOOR_RESIDUAL_QUADRATIC_FIT.verdict),
+      /refereed bound is changed/i.test(IMP124786_KNEE_FLOOR_RESIDUAL_QUADRATIC_FIT.verdict),
   },
 ];
 

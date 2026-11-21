@@ -28,7 +28,7 @@
  *   STATUS: documentation glossary headword only, not a re-derivation or a new computation.
  *   Establishes nothing new; moves no bound. SUB-GAP IMP97100_PHASE_CANCELLATION_TRIAL remains
  *   open because the v0-overlap map to a certified interval enclosure is not produced. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA; RH open.
+ *   No refereed bound is changed; RH open.
  *
  * @see imp-97134-krein-annihilating-rational-trial-execution.js (source: the exact integer trials,
  *   the exact functional vanishing, and the measured O(t^-4) decay this headword glosses)
@@ -38,7 +38,7 @@
  *   cancellation premise this execution now backs with an explicit trial rather than a heuristic)
  *
  * Ticket: imp-97177 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP97134_TRIALS, IMP97134_VERDICT } from './imp-97134-krein-annihilating-rational-trial-execution.js';
@@ -73,7 +73,7 @@ const ANNIHILATING_RATIONAL_TRIALS_HEADWORD = Object.freeze({
     'measured (not proved) from exact spherical-Bessel evaluation on the committed z-ladder ' +
     '{100,200,400,800,1600,3200}. Establishes no bound and moves nothing on its own -- SUB-GAP ' +
     'IMP97100_PHASE_CANCELLATION_TRIAL remains open because the v0-overlap map to a certified ' +
-    'interval enclosure is not produced. NO QED; PT Lambda <= 0.2 remains SOTA; RH open.',
+    'interval enclosure is not produced. NO QED; no refereed bound is changed; RH open.',
 });
 
 export const IMP97177_ANNIHILATING_RATIONAL_TRIALS_GLOSSARY_HEADWORD = Object.freeze({
@@ -93,7 +93,7 @@ export const IMP97177_ANNIHILATING_RATIONAL_TRIALS_GLOSSARY_HEADWORD = Object.fr
     'force g(t) = O(t^-4) (vs. O(t^-1) for a generic non-annihilating trial) -- a three-order gain ' +
     'in g and a six-order gain in |g|^2. This backs the imp-97114 achievable floor premise with an ' +
     'explicit certified-exact trial. Establishes nothing new; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97134 (the exact integer trials, exact functional vanishing, and measured O(t^-4) decay ' +
     'this headword glosses); imp-97113 (the parity-block rank-3 scoping this execution closes); ' +
@@ -137,12 +137,12 @@ export const IMP97177_ANNIHILATING_RATIONAL_TRIALS_GLOSSARY_HEADWORD_ASSERTIONS 
   },
   {
     id: 'imp97177-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, and the source ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, and the source ' +
       'verdict this headword glosses must still show the phase-cancellation-trial sub-gap open.',
     holds: () =>
       IMP97177_ANNIHILATING_RATIONAL_TRIALS_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97177_ANNIHILATING_RATIONAL_TRIALS_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97177_ANNIHILATING_RATIONAL_TRIALS_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97177_ANNIHILATING_RATIONAL_TRIALS_GLOSSARY_HEADWORD.verdict) &&
       IMP97177_ANNIHILATING_RATIONAL_TRIALS_GLOSSARY_HEADWORD.glosses === 'imp-97134' &&
       IMP97134_VERDICT.intervalMajorantProduced === false &&
       IMP97134_VERDICT.subGap.includes('IMP97100_PHASE_CANCELLATION_TRIAL'),

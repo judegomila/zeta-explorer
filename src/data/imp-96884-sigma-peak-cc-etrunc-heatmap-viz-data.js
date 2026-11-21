@@ -18,7 +18,7 @@
  *
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity;
  * C_mb/C_C stay GUE-conditional (imp-486); interval-rigorous certificate
- * reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open;
+ * reach stays 2a<=0.96; no refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-96851-sigma-peak-share-cc-etrunc-joint-sensitivity.js (source grid + verdict)
@@ -80,7 +80,7 @@ export const IMP96884_HONEST_BANNER =
   'additively (mixed second derivative ~+0.017, an order below the dominant C_C partial ' +
   '~+0.049); over the full band sigma_max ranges only ~0.846..0.985, so no in-model ' +
   'combination shrinks the ~0.95 GUE-conditional peak share. C_mb/C_C stay GUE-conditional ' +
-  '(imp-486); RH open; PT Lambda <= 0.2 remains SOTA; NO QED.';
+  '(imp-486); RH open; no refereed bound is changed; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -126,7 +126,7 @@ const IMP96884_ASSERTIONS = [
     id: 'imp96884-honesty-markers-present',
     holds: () =>
       /RH open/.test(IMP96884_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96884_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96884_HONEST_BANNER) &&
       /NO QED/.test(IMP96884_HONEST_BANNER) &&
       /NO QED/.test(verdict),
     why: 'the viz leaf must carry the RH-open / PT-Lambda / NO-QED honesty markers, matching every sibling finding module.',

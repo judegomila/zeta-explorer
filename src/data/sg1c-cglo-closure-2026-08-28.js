@@ -96,8 +96,8 @@
  * worsening genuinely occurs (crowded near-uniform lattices) -- the C_Lip
  * local-energy route stays BASIN-CONDITIONAL exactly as before, with its basin
  * hypothesis now quantified by a proven constant instead of a scan; (iii) any
- * RH-hard object. NO Lambda improvement is claimed. Platt-Trudgian
- * Lambda <= 0.2 REMAINS the rigorous SOTA. NO false QED.
+ * RH-hard object. NO Lambda improvement is claimed. No refereed bound is changed
+ * . NO false QED.
  *
  * @see sg1c-cglo-lower-bound-2026-07-02 (imp-3236: same decomposition, lossy majorant, c_lo = 0.86566)
  * @see sg1c-halflattice-lone-limit-closed-form-2026-07-02 (imp-3270: R(rho), uniqueness, O(1/L^2))
@@ -249,7 +249,7 @@ export const SG1C_CGLO_CLOSURE = {
   scope:
     'closes the R2 isolation-persistence residual in its own terms; does NOT close R1 minimality-transfer (pair losing global minimality voids the spacing floor), does NOT cover the off-basin regime rho in (c_half, 1) where worsening genuinely occurs, and does NOT improve any Lambda bound',
   honest:
-    'RIGOROUS closure of the deterministic isolation constant only: c_glob = c_half in closed form under the globally-minimal-pair hypothesis. The C_Lip local-energy route stays BASIN-CONDITIONAL (its basin hypothesis is now anchored to a proven constant rather than a scan). Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA. NO false QED.',
+    'RIGOROUS closure of the deterministic isolation constant only: c_glob = c_half in closed form under the globally-minimal-pair hypothesis. The C_Lip local-energy route stays BASIN-CONDITIONAL (its basin hypothesis is now anchored to a proven constant rather than a scan). No refereed bound is changed. NO false QED.',
 };
 
 export const SG1C_CGLO_CLOSURE_ASSERTIONS = [
@@ -339,7 +339,7 @@ export const SG1C_CGLO_CLOSURE_ASSERTIONS = [
       && /off-basin regime/.test(SG1C_CGLO_CLOSURE.scope)
       && /does NOT improve any Lambda bound/.test(SG1C_CGLO_CLOSURE.scope)
       && /BASIN-CONDITIONAL/.test(SG1C_CGLO_CLOSURE.honest)
-      && /Lambda <= 0.2 REMAINS the rigorous SOTA/.test(SG1C_CGLO_CLOSURE.honest)
+      && /refereed bound is changed/i.test(SG1C_CGLO_CLOSURE.honest)
       && /NO false QED/.test(SG1C_CGLO_CLOSURE.honest),
   },
 ];

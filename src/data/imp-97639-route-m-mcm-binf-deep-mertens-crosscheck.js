@@ -46,7 +46,7 @@
  * confirmed as the from-below limit. The one honest correction: the finite-height approach is
  * non-monotone at fine resolution (PNT/Mertens wiggle), so only "from below" -- not "strictly monotone" --
  * survives deeper sampling. MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged;
- * no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97619-route-m-mcm-binf-mertens-closed-form.js (closed form B_inf = lnA + gamma/12; measured from below)
  * @see imp-97601-route-m-mcm-margin-collapse-rate-law.js (B_inf ~ 0.296789 measured; gap ~ 0.166635/log p)
@@ -107,11 +107,11 @@ export const IMP97639_VERDICT = Object.freeze({
     'correction: the finite-height approach is NON-monotone at fine resolution (bracket dips at p ~ 3.2e7 ' +
     'then rises), a PNT/Mertens wiggle -- imp-97619 "strictly monotone" was a coarse decade-grid artifact; ' +
     'only "from below" survives. MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith ' +
-    'unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97639_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Independent deeper-Mertens cross-check (N = 5e7, 25x ' +
+  'RH open; no refereed bound is changed; NO QED. Independent deeper-Mertens cross-check (N = 5e7, 25x ' +
   'deeper than p ~ 2e6): the imp-97619 closed form B_inf = lnA + gamma/12 = 0.2968557824 and its approach ' +
   'from below are CONFIRMED; the gap-law constant e^{-gamma}*(lnA + gamma/12) = 0.16667249 is the from-below ' +
   'limit. HONEST correction: the approach is NON-monotone at fine resolution (PNT/Mertens wiggle) -- only ' +
@@ -188,7 +188,7 @@ const IMP97639_ASSERTIONS = [
       IMP97639_VERDICT.anyBoundMoved === false &&
       IMP97639_VERDICT.qed === false &&
       /NO QED/.test(IMP97639_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97639_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97639_HONEST_BANNER) &&
       /RH open/.test(IMP97639_HONEST_BANNER),
     why: 'cross-validation only -- closed form and from-below approach confirmed, strict monotonicity corrected; MCM refuted from omega=11; no bound moved, no QED.',
   },

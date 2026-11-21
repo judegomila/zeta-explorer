@@ -146,8 +146,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are
  * not the claim. Import-light (no heavy bundle). Changes no bound; does
- * NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -349,7 +348,7 @@ export const IMP95008_RATE_RELAXED_FIXED_P_FLOOR = {
     'Lemma V is elementary convexity calculus; Theorem L and both corollaries are witness evaluations with every correlation exact (two-sided exponential autocorrelation) and legality exact (tangent envelope, equality attained), assembled exactly as Theorem K (cFar T* M >= lhs - 2 A_curr = E, T* <= T(2)). Optimality of the baked witnesses is NOT claimed - each is exhibited and evaluated. The floor quantifies over the two-currency bound class with tail functionals T* <= T(2) at cNear <= 2; bounds in other currencies are outside scope. The numerics cross-check the statements; they are not the claim.',
   promotesBound: false,
   verdict:
-    'RIGOROUS step: the eighth-continuation residual "FIXED-p far floor OPEN (p = 97 witness blind)" is RESOLVED POSITIVELY, and the blindness diagnosed as a rate-locking artifact. NEW Lemma V (exact tangent-envelope legality constant h = e^(s - mu r)(mu r/s)^s) makes every profile rate admissible; NEW Theorem L exhibits a theta-free positive excess at p = 97 (quadratic form 1.5309 at mu = 1), so the corner (cNear, cFar) = (2, 0) is infeasible at the paper reference prime for EVERY theta > 0. Optimized baked witnesses: fixed-97 theta = 10 floor 3.34686909040411e-5 (exceeds the old spacing-uniform floor), theta = 2 floor 0.1574; spacing-class theta = 10 floor 0.007612460791911987 = 291.73x Theorem K, far bracket gap 3.07e5 -> 1050.9. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RIGOROUS step: the eighth-continuation residual "FIXED-p far floor OPEN (p = 97 witness blind)" is RESOLVED POSITIVELY, and the blindness diagnosed as a rate-locking artifact. NEW Lemma V (exact tangent-envelope legality constant h = e^(s - mu r)(mu r/s)^s) makes every profile rate admissible; NEW Theorem L exhibits a theta-free positive excess at p = 97 (quadratic form 1.5309 at mu = 1), so the corner (cNear, cFar) = (2, 0) is infeasible at the paper reference prime for EVERY theta > 0. Optimized baked witnesses: fixed-97 theta = 10 floor 3.34686909040411e-5 (exceeds the old spacing-uniform floor), theta = 2 floor 0.1574; spacing-class theta = 10 floor 0.007612460791911987 = 291.73x Theorem K, far bracket gap 3.07e5 -> 1050.9. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -539,12 +538,12 @@ export const IMP95008_RRF_ASSERTIONS = [
   {
     id: 'imp95008-rrf-honesty-gate',
     description:
-      'the verdict records the residual resolution, the rate-locking diagnosis, the still-open bracket, promotes no bound, NO QED, PT stays SOTA',
+      'the verdict records the residual resolution, the rate-locking diagnosis, the still-open bracket, promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95008_RATE_RELAXED_FIXED_P_FLOOR.promotesBound === false &&
       IMP95008_RATE_RELAXED_FIXED_P_FLOOR.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_RATE_RELAXED_FIXED_P_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP95008_RATE_RELAXED_FIXED_P_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_RATE_RELAXED_FIXED_P_FLOOR.verdict) &&
       /RESOLVED POSITIVELY/.test(IMP95008_RATE_RELAXED_FIXED_P_FLOOR.verdict) &&
       /rate-locking artifact/.test(IMP95008_RATE_RELAXED_FIXED_P_FLOOR.verdict) &&
       /close the far bracket/.test(IMP95008_RATE_RELAXED_FIXED_P_FLOOR.openResiduals[4]) &&

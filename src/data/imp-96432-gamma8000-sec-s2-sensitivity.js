@@ -59,7 +59,7 @@
  *
  * UNCHANGED. No fresh rho evaluated; the binding measured envelope rho_min=0.3791 at gamma_4000
  * stays strictly positive; the uniform-in-T off-line LP stays inaccessible; changes NO Lambda
- * bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * bound; no refereed bound is changed; RH open; NO QED.
  *
  * GRADE: measurement/sensitivity only. Import-light (design + s2 recomputed from the same baked
  * imp-96224/imp-96367 arrays as imp-96392, no heavy bundle).
@@ -207,8 +207,8 @@ export const IMP_96432_SEC_S2_SENSITIVITY = {
   unchanged:
     'no fresh rho evaluated; the binding measured envelope rho_min=0.3791 at gamma_4000 stays '
     + 'strictly positive so the margin SIGN survives; the uniform-in-T off-line LP '
-    + '(Weil-positivity strength) stays inaccessible; changes NO Lambda bound; Platt-Trudgian '
-    + 'Lambda <= 0.2 remains SOTA; RH open; NO QED',
+    + '(Weil-positivity strength) stays inaccessible; changes NO Lambda bound; no refereed bound is changed'
+    + '; RH open; NO QED',
   note:
     'measurement/sensitivity only; import-light, design + s2 recomputed from the same baked '
     + 'imp-96224/imp-96367 arrays as imp-96392; no fabricated rho; the frac-tighter '
@@ -258,8 +258,8 @@ export const IMP_96432_ASSERTIONS = [
     id: 'imp-96432-no-fresh-rho-no-qed',
     holds: () => /no fabricated rho/i.test(IMP_96432_SEC_S2_SENSITIVITY.note)
       && /NO QED/.test(IMP_96432_SEC_S2_SENSITIVITY.note)
-      && /Lambda <= 0.2 remains SOTA/.test(IMP_96432_SEC_S2_SENSITIVITY.unchanged),
-    why: 'measurement only: no fresh rho, changes no bound, Platt-Trudgian Lambda <= 0.2 remains SOTA, RH open, NO QED.',
+      && /refereed bound is changed/i.test(IMP_96432_SEC_S2_SENSITIVITY.unchanged),
+    why: 'measurement only: no fresh rho, changes no bound, no refereed bound is changed, RH open, NO QED.',
   },
   {
     id: 'imp-96432-closes-self',

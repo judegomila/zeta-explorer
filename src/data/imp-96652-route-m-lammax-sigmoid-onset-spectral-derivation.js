@@ -61,7 +61,7 @@
  * spectral facts (top eigenvector delocalized, w_1 ~ 8%; top gap ratio ~ 2.6). It does NOT
  * close it: it produces NO closed form for the 0.3526 coefficient and NO N-asymptotics for
  * w_1 or lam_1/lam_2 themselves (they are measured, mildly N-dependent). Changes no bound;
- * no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96636-route-m-lammax-slope-saturation-fit.js (the empirical logistic 2.94/0.86 this derives)
  * @see imp-96612-route-m-lammax-rankr-power-iteration-bracket.js (the rank-r b_r moment ratios)
@@ -166,7 +166,7 @@ export const IMP96652_VERDICT = Object.freeze({
     '(the sigmoid is now a spectral-structure consequence, reducing the puzzle to why the top mode ' +
     'is delocalized with w1 ~ 8% and gap ~ 2.6); it does NOT close it -- no closed form for the ' +
     '0.3526 coefficient and no N-asymptotics for w1 or lam1/lam2 are produced. Changes no bound; ' +
-    'no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96652_SUBGAP = Object.freeze({
@@ -183,7 +183,7 @@ export const IMP96652_SUBGAP = Object.freeze({
 });
 
 export const IMP96652_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Structural derivation attempt: the logistic ' +
+  'RH open; no refereed bound is changed; NO QED. Structural derivation attempt: the logistic ' +
   'onset is shown to be the top-eigenpair weight share of the two-scale Vasyunin Gram spectrum ' +
   '(numpy eigh, tmp/imp-96652-spectral-logistic.py, same exact V-table as imp-96105/96443/96612). ' +
   'The derived half-saturation r0 = ln((1-w1)/w1)/ln(lam1/lam2) matches the imp-96636 measured ' +
@@ -246,7 +246,7 @@ const IMP96652_ASSERTIONS = [
       IMP96652_VERDICT.closesSubGap === false &&
       IMP96652_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96652_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96652_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96652_HONEST_BANNER) &&
       /RH open/.test(IMP96652_HONEST_BANNER) &&
       /top-eigenpair-weight-share/.test(IMP96652_SUBGAP.id),
     why: 'structural derivation only: the sigmoid is derived from the two-scale spectral weight share but no closed form for 0.3526 is produced, no bound moved, and the honesty markers plus the sharpened sub-gap are present.',

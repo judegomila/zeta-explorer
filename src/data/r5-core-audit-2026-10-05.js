@@ -46,7 +46,7 @@ export const R5_CORE_AUDIT = Object.freeze({
   verdict: 'REFUTED (fatal): the line-by-line audit found F1 (beta product of two upper-bound Taylor models) and a correct fix, but missed F3 '
     + '(the leaf-bound mapping reads a stale all-(0,0) pair table in every fresh process), so no r3core4.c floor with eta primes is certified: '
     + 'not the 145 r4 floors and not the audit\'s 50 corrected re-certificates. The 4 S={2,3,5} floors stand (bit-exact over 9254 leaves). '
-    + 'r4 P-cert 0.146808080767225 and the audit value 0.146816844000245 are NOT certified. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'r4 P-cert 0.146808080767225 and the audit value 0.146816844000245 are NOT certified. No refereed bound is changed. RH open. NO QED.',
 });
 
 const W = R5_CORE_AUDIT;
@@ -66,7 +66,7 @@ export const R5_CORE_AUDIT_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r5-core-honest',
-    holds: () => /REFUTED/.test(W.status) && /NOT certified/.test(W.verdict) && /PT Lambda <= 0\.2 stands/.test(W.verdict) && /NO QED/.test(W.verdict),
+    holds: () => /REFUTED/.test(W.status) && /NOT certified/.test(W.verdict) && /refereed bound is changed/i.test(W.verdict) && /NO QED/.test(W.verdict),
     why: 'The audit conclusion is refuted; the r3core4.c NL=2 floors are not certified; no QED.',
   },
 ]);

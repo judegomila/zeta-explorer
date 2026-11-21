@@ -64,7 +64,7 @@
  *   ~1-part-in-250 cancellation between P2 and L2 is assumed. This quantifies the imp-97617 RESULT C
  *   order-lowering epsilon from "small" to O(1e-3). No value is pinned for kappaK, kappaK_period,
  *   kappaK_pole, or kappa_smooth. The rigorous anchor stays the trace ceiling T = 2.594e7; compute
- *   (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA;
+ *   (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; no refereed bound is changed;
  *   RH open; NO QED.
  *
  *   SUB-GAP (carried forward from imp-97617, now bounded): imp-97663-bc-reflection-normalisation-scale
@@ -134,8 +134,8 @@ export const IMP97663_VERDICT = Object.freeze({
     'is O(1e-3) (|kappaK_period| <~ 3.87e-3, quantifying the imp-97617 RESULT C order-lowering epsilon) ' +
     'or P2 and L2 near-cancel to ~1 part in 250 of the bare period scale. No value is pinned for kappaK ' +
     'or kappa_smooth; the reflection index stays uncomputed; kappa_smooth stays measured. The rigorous ' +
-    'anchor stays T = 2.594e7; compute binds first by >2600x; no operator positivity; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'anchor stays T = 2.594e7; compute binds first by >2600x; no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97663_SUBGAP = Object.freeze({
@@ -150,7 +150,7 @@ export const IMP97663_SUBGAP = Object.freeze({
 });
 
 export const IMP97663_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + constraint only: the direct closed form ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + constraint only: the direct closed form ' +
   'for kappa_smooth does not close (imp-97617 reflection index uncomputed), but the measured band ' +
   '|kappa_smooth| <~ 1e-2 is ~258x below the bare period scale pi^3/12 and ~11x below the bare pole ' +
   'scale, forcing the Bettin-Conrey reflection normalisation to O(1e-3). No analytic constant is pinned; ' +
@@ -213,7 +213,7 @@ const IMP97663_ASSERTIONS = [
       IMP97663_VERDICT.anyBoundMoved === false &&
       IMP97663_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97663_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97663_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97663_HONEST_BANNER) &&
       /RH open/.test(IMP97663_HONEST_BANNER) &&
       /reflection-normalisation-scale/.test(IMP97663_SUBGAP.id),
   },

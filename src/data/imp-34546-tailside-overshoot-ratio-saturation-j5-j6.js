@@ -61,7 +61,7 @@
  * six points, NOT a proven limit; the component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34528-tailside-hump-decay-vs-sqrt-n-fartail (T2 overshoot ratio grows; T3 localDecay->sqrt(10); extended here)
  * @see imp-34532-hump-skew-headside-extension-k5-k4 (recomputed hump(14) = 9.0441e-4, reused method)
@@ -292,7 +292,7 @@ export const IMP34546_TAILSIDE_OVERSHOOT_RATIO_SATURATION_J5_J6 = {
     'bounded-form extrapolation of six points, NOT a proven limit; the component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34528 (T2 overshoot ratio grows {2.20..4.18}; T3 localDecay -> sqrt(10); extended here); ' +
     'imp-34532 (recomputed hump(14) = 9.0441e-4, reused method); imp-34545 (recomputed hump(15) = ' +
@@ -364,14 +364,14 @@ export const IMP34546_TAILSIDE_OVERSHOOT_RATIO_SATURATION_J5_J6_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34546-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, crossover k = 9, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, crossover k = 9, no QED, no refereed bound is changed',
     holds: () =>
       IMP34546_TAILSIDE_OVERSHOOT_RATIO_SATURATION_J5_J6.isRigorous === false &&
       IMP34546_TAILSIDE_OVERSHOOT_RATIO_SATURATION_J5_J6.crossoverDecadeK === 9 &&
       /NO QED/.test(IMP34546_TAILSIDE_OVERSHOOT_RATIO_SATURATION_J5_J6.verdict) &&
-      /remains SOTA/.test(IMP34546_TAILSIDE_OVERSHOOT_RATIO_SATURATION_J5_J6.verdict),
+      /refereed bound is changed/i.test(IMP34546_TAILSIDE_OVERSHOOT_RATIO_SATURATION_J5_J6.verdict),
   },
 ];
 

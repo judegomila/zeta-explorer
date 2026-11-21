@@ -6,8 +6,7 @@
  * the imp-95331 exact-root branch, with the rho = 2 anchor untouched", and
  * imp-95331 baked activationCrossoverA = 1.875 / rho ~ 6.5. The
  * r-dependence of that crossover was never mapped. This module measures it.
- * Measurement only; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Measurement only; changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95331 normalization, verbatim). a = ln rho, b = ln r,
  * tau = b / a, mu = sin^2(pi tau) / tanh^2(b/2). The RZ-PEN4 chart floor
@@ -97,7 +96,7 @@ export const IMP95339_CROSSOVER_R_INDEPENDENCE = {
     "the pure mu-free V4-floor argmin flip k = 24 -> k = 255, so it carries " +
     "no r; for r >= e^(a*/2) = 2.53724 the whole r <= sqrt(rho) window is " +
     "already active (edge gains 1.52 - 2.12); the crossover never reaches " +
-    "the rho = 2 anchor. Changes no bound; NO QED; PT Lambda <= 0.2 SOTA.",
+    "the rho = 2 anchor. Changes no bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -333,14 +332,14 @@ export const IMP95339_ASSERTIONS = [
     description:
       "the verdict and scope carry the honest labels: MEASURED, " +
       "r-independent, V4-geometry mechanism, never reaches rho = 2, no " +
-      "bound change, no QED, PT SOTA",
+      "bound change, no QED, no refereed bound is changed",
     holds: () =>
       /MEASURED/.test(REC.verdict) &&
       /r-independent/.test(REC.verdict) &&
       /never/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /measurement only/i.test(REC.honestScope),
   },
 ];

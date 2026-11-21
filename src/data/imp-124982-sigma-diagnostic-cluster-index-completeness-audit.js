@@ -53,7 +53,7 @@
  * to any of the six threads since imp-124906, and the documentation-layer leaves committed after it
  * are already served by three partial, intentionally-overlapping role/cohort indices
  * (imp-124923/124936/124975) plus a separate honesty-banner audit chain. Audit/recommendation only;
- * establishes nothing new; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes nothing new; changes no bound; NO QED. No refereed bound is changed.
  *
  * @see imp-124906-sigma-diagnostic-leaf-cluster-index.js (the index audited here)
  * @see imp-124923-doc-leaf-batch-role-cohort-index.js (partial successor, role-based, batch 1)
@@ -63,7 +63,7 @@
  * @see imp-124904-sigma-decay-landmark-consistency-audit.js (precedent audit-module shape this follows)
  *
  * Ticket: imp-124982 (meta, low, sonnet-4-6). Audit only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP124906_SIGMA_DIAGNOSTIC_LEAF_CLUSTER_INDEX } from './imp-124906-sigma-diagnostic-leaf-cluster-index.js';

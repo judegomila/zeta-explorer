@@ -124,7 +124,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are not
  * the claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── closed-form pieces (same conventions as the sibling modules) ─────────────
@@ -383,7 +383,7 @@ export const IMP95008_COLORCLASS_NEAR_BAND_SHARPENING = {
     'Theorem S-prime is conditional only on the tail-majorant hypothesis MAJ(sigma, theta) - the same hypothesis as the sibling Theorem S, strictly weaker than the Theorem N SUPPORT hypothesis. Lemmas T and G are consumed unchanged (unconditional). The numerics cross-check the statements pair-by-pair; they are not the claim.',
   promotesBound: false,
   verdict:
-    'RIGOROUS sharpening step: the near-band constant of the tail-robust cross-block aggregation drops from 2J - 1 to J via a mod-J color-class split whose within-class cross terms are paid by the existing Lemmas T and G (all within-class gaps are multiples of J >= 2), with the improved closed-form tail T_J^arith <= G(J)^(-theta)/(1 - 2^(-theta(1-beta)J)); the support limit now recovers the Theorem N constant j0 exactly, refuting the sibling module named obstruction (no Cotlar-Stein operator structure needed). Honest cost kept explicit: the far term is multiplied by J, so the deliverable is min(S, S-prime) with an exact algebraic crossover, measured in both regimes. Paper-packet envelope constants, window ceiling, phase normalization, and the l2-to-pointwise step remain open. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RIGOROUS sharpening step: the near-band constant of the tail-robust cross-block aggregation drops from 2J - 1 to J via a mod-J color-class split whose within-class cross terms are paid by the existing Lemmas T and G (all within-class gaps are multiples of J >= 2), with the improved closed-form tail T_J^arith <= G(J)^(-theta)/(1 - 2^(-theta(1-beta)J)); the support limit now recovers the Theorem N constant j0 exactly, refuting the sibling module named obstruction (no Cotlar-Stein operator structure needed). Honest cost kept explicit: the far term is multiplied by J, so the deliverable is min(S, S-prime) with an exact algebraic crossover, measured in both regimes. Paper-packet envelope constants, window ceiling, phase normalization, and the l2-to-pointwise step remain open. Changes no bound; NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -476,13 +476,13 @@ export const IMP95008_COLORCLASS_ASSERTIONS = [
   {
     id: 'imp95008-cc-honesty-gate',
     description:
-      'the verdict keeps the multiplicative-J cost and the min(S, S-prime) framing, lists the five open residuals, promotes no bound, NO QED, PT stays SOTA',
+      'the verdict keeps the multiplicative-J cost and the min(S, S-prime) framing, lists the five open residuals, promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95008_COLORCLASS_NEAR_BAND_SHARPENING.promotesBound === false &&
       IMP95008_COLORCLASS_NEAR_BAND_SHARPENING.openResiduals.length === 5 &&
       /min\(S, S-prime\)/.test(IMP95008_COLORCLASS_NEAR_BAND_SHARPENING.verdict) &&
       /NO QED/.test(IMP95008_COLORCLASS_NEAR_BAND_SHARPENING.verdict) &&
-      /remains SOTA/.test(IMP95008_COLORCLASS_NEAR_BAND_SHARPENING.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_COLORCLASS_NEAR_BAND_SHARPENING.verdict) &&
       /MAJ/.test(IMP95008_COLORCLASS_NEAR_BAND_SHARPENING.theoremSPrime),
   },
 ];

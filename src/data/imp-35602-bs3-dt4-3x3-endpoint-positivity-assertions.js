@@ -30,7 +30,7 @@
  * SCOPE: MEASUREMENT PINNING ONLY. Keeps the endpoint DP45 dt/2 worst-case
  * (imp-35412), changes NO bound, adopts NO new slack denominator, does NOT
  * advance the R2 ladder, does NOT extend the C_mb certificate, does NOT remove
- * the imp-486 GUE conditional. Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ * the imp-486 GUE conditional. No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/4" and "g_curr".
  *

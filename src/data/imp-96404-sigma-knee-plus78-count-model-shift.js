@@ -59,7 +59,7 @@
  * rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; C_H
  * isRigorousUpperBound stays false (imp-2642/imp-2701); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * Syntax note: derivative-like expressions use brace notation dg_{k*}/dt and this
  *   header avoids the close-comment terminator sequence inside prose.
@@ -259,7 +259,7 @@ export const IMP96404_SIGMA_KNEE_PLUS78_COUNT_MODEL_SHIFT = Object.freeze({
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; C_H isRigorousUpperBound stays false (imp-2642/imp-2701); changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96351 (baseline knee at log10 N* ~ 9.529 across [1e9,1e12]); imp-96387 (+7/8 count shift ' +
     '~1/N, -4.11e-6 at N=1e4 / -3.00e-8 at N=1e6); imp-96388 (knee ~0.013 log10 above the E_coll = ' +
@@ -307,11 +307,11 @@ const IMP96404_ASSERTIONS = [
   },
   {
     id: 'imp96404-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP96404_SIGMA_KNEE_PLUS78_COUNT_MODEL_SHIFT.isRigorous === false &&
       /NO QED/.test(IMP96404_SIGMA_KNEE_PLUS78_COUNT_MODEL_SHIFT.verdict) &&
-      /remains SOTA/.test(IMP96404_SIGMA_KNEE_PLUS78_COUNT_MODEL_SHIFT.verdict),
+      /refereed bound is changed/i.test(IMP96404_SIGMA_KNEE_PLUS78_COUNT_MODEL_SHIFT.verdict),
   },
 ];
 

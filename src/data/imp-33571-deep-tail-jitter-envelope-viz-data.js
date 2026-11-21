@@ -16,7 +16,7 @@
  *   @see imp-33295-graded-inner-grid-a-node-budget.js (the strict 30-ULP bar)
  *
  *   Ticket: imp-33571 (ux, low). Presentation only, RH-equivalent; imp-3066 untouched;
- *   Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  */
 
 export const IMP33571_STRICT_BAR_ULP = 30;

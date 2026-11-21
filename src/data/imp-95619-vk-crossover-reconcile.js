@@ -20,7 +20,7 @@
 //
 // Accuracy audit only; the operative unconditional region stays the classical
 // MTY one across the whole imp-95519 window (log t in [28.73, 37.48]); changes
-// no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA (imp-3463 lineage).
+// no bound; NO QED; no refereed bound is changed (imp-3463 lineage).
 
 const ln = Math.log;
 
@@ -97,7 +97,7 @@ export const IMP_95619_VK_CROSSOVER_RECONCILE = {
     + 'The round-number companion t > e^{10000} stays directionally correct (10242.24 > 10000). '
     + 'Canonical figure for downstream citation: log t = 1.0242e4. Accuracy audit only; the '
     + 'operative unconditional region stays classical over the whole window; changes no bound; '
-    + 'NO QED; PT Lambda <= 0.2 stands.',
+    + 'NO QED; no refereed bound is changed.',
   // self-check: the exact value is 1.0242e4, matches imp-95605, and rounds to 1.02e4 not 1.03e4
   holds: () =>
     Math.abs(CROSSOVER_LOG_T - 10242.2363) < 1e-2 &&

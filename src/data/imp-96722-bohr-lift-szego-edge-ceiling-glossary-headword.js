@@ -47,14 +47,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96691 verdict for quick reference.
  *   It establishes nothing, instantiates no interval, closes no sub-gap, moves
- *   no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96691-route-m-bohr-lift-multiplicative-szego-assessment.js (source: the assessment this glosses)
  * @see imp-96603-vasyunin-gram-multiplicative-not-toeplitz-glossary-headword.js (the additive obstruction this extends)
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (measured lam_max ladder; I(1,1) = 1.2606614015078126)
  *
  * Ticket: imp-96722 (content, medium, sonnet-4-6). Documentation only;
- * establishes nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * establishes nothing; NO QED; no refereed bound is changed.
  */
 
 // The Bohr-lift ceiling-plus-obstruction headword, baked verbatim (no re-import).
@@ -94,8 +94,8 @@ const BOHR_LIFT_SZEGO_EDGE_CEILING_HEADWORD = Object.freeze({
   verificationStatus:
     'Honest PARTIAL: one genuine rigorous ceiling (c <= log(2 pi) - gamma) plus ' +
     'a precisely named sub-gap for the exact value. Moves no bound beyond the ' +
-    'soft trace ceiling; establishes no operator positivity; PT Lambda <= 0.2 ' +
-    'remains SOTA; RH open; NO QED.',
+    'soft trace ceiling; establishes no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96722_BOHR_LIFT_SZEGO_EDGE_CEILING_GLOSSARY_HEADWORD = Object.freeze({
@@ -117,8 +117,8 @@ export const IMP96722_BOHR_LIFT_SZEGO_EDGE_CEILING_GLOSSARY_HEADWORD = Object.fr
     'but does NOT derive the exact 0.3526253785070698 -- the lifted symbol ' +
     'carries the zeta pole (unbounded, no Helson edge constant) and the ' +
     'isometry is not a spectral-edge theorem. Establishes nothing; instantiates ' +
-    'no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96691 (the assessment and finding this glosses); imp-96603 (additive ' +
     'obstruction extended to the multiplicative torus); imp-96443 (measured ' +
@@ -146,11 +146,11 @@ export const IMP96722_BOHR_LIFT_SZEGO_EDGE_CEILING_GLOSSARY_HEADWORD_ASSERTIONS 
   },
   {
     id: 'imp96722-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96722_BOHR_LIFT_SZEGO_EDGE_CEILING_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96722_BOHR_LIFT_SZEGO_EDGE_CEILING_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96722_BOHR_LIFT_SZEGO_EDGE_CEILING_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96722_BOHR_LIFT_SZEGO_EDGE_CEILING_GLOSSARY_HEADWORD.verdict) &&
       IMP96722_BOHR_LIFT_SZEGO_EDGE_CEILING_GLOSSARY_HEADWORD.glosses === 'imp-96691',
   },
 ];

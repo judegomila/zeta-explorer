@@ -3,7 +3,7 @@
  *
  * imp-34463 (content): AUDIT of whether the honest-status caveat block
  * (component model NOT a rigorous asymptotic, C_mb GUE-conditional per
- * imp-486, no bound change, NO QED, Platt-Trudgian Lambda<=0.2 SOTA) present
+ * imp-486, no bound change, NO QED, no refereed bound is changed) present
  * in the imp-34369/34371/34372/34373/34374/34375/34397/34398 JSDoc is ALSO
  * surfaced wherever the improvements viewer renders these cluster modules to
  * end-readers, not only in source-code comments a reader of the app never sees.
@@ -15,8 +15,8 @@
  * src/data/improvements.js for each of the 8 cohort ids' log rows confirms
  * every one of their `detail` fields ends with the standard caveat sentence
  * (component model NOT a rigorous asymptotic; C_mb GUE-conditional per
- * imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian
- * Lambda<=0.2 remains SOTA). Beyond the shared improvements log, five of the
+ * imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed
+ * ). Beyond the shared improvements log, five of the
  * eight also have a DEDICATED viz page (imp-34369, imp-34372, imp-34373,
  * imp-34375, imp-34397) whose own JSX text independently repeats the caveat;
  * imp-34372 additionally has a glossary.js headword with the caveat; imp-34398
@@ -57,7 +57,7 @@ export const CAVEAT_SURFACING_AUDIT = {
   withDedicatedPage: WITH_DEDICATED_PAGE.map((m) => m.ticket),
   fullyCoveredCount: FULLY_COVERED.length,
   gapsFound: COHORT.filter((m) => !m.improvementsLogHasCaveat).map((m) => m.ticket),
-  honest: 'AUDIT-ONLY -- confirms the caveat reaches end-readers on every surface for all 8 cohort modules; no surfacing added because none was missing. No bound change; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+  honest: 'AUDIT-ONLY -- confirms the caveat reaches end-readers on every surface for all 8 cohort modules; no surfacing added because none was missing. No bound change; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const CAVEAT_SURFACING_AUDIT_ASSERTIONS = [
@@ -90,10 +90,10 @@ export const CAVEAT_SURFACING_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34463-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(CAVEAT_SURFACING_AUDIT.honest)
       && /no surfacing added because none was missing/.test(CAVEAT_SURFACING_AUDIT.honest)
-      && /Lambda<=0.2 remains SOTA/.test(CAVEAT_SURFACING_AUDIT.honest),
+      && /refereed bound is changed/i.test(CAVEAT_SURFACING_AUDIT.honest),
   },
 ];
 

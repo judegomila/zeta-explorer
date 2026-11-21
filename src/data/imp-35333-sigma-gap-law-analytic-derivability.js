@@ -61,7 +61,7 @@
  * ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic;
  * far-tail exponent stays 1/2 (imp-3463); C_mb GUE-conditional per imp-486 UNTOUCHED; changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35036-sigma-decay-exponent-ladder-extension (identified the 1/(2 ln N) gap law by fit)
  * @see imp-35183-sigma-fartail-exponent-ladder-viz-data (rendered the fit)
@@ -200,7 +200,7 @@ export const IMP35333_SIGMA_GAP_LAW_ANALYTIC_DERIVABILITY = {
     'Assessment on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; ' +
     'far-tail exponent 1/2 per imp-3463; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35036 (identified 1/(2 ln N) by fit, extended here to a closed form); imp-35183 ' +
     '(rendered the fit); imp-35130 (sibling closed form for the sigma crossing spacing); ' +
@@ -250,14 +250,14 @@ export const IMP35333_SIGMA_GAP_LAW_ANALYTIC_DERIVABILITY_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: assessment only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: assessment only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35333-honesty-gate-no-qed',
-    description: 'Assessment only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Assessment only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP35333_SIGMA_GAP_LAW_ANALYTIC_DERIVABILITY.isRigorous === false &&
       IMP35333_SIGMA_GAP_LAW_ANALYTIC_DERIVABILITY.farTailExponent === 0.5 &&
       /NO QED/.test(IMP35333_SIGMA_GAP_LAW_ANALYTIC_DERIVABILITY.verdict) &&
-      /remains SOTA/.test(IMP35333_SIGMA_GAP_LAW_ANALYTIC_DERIVABILITY.verdict),
+      /refereed bound is changed/i.test(IMP35333_SIGMA_GAP_LAW_ANALYTIC_DERIVABILITY.verdict),
   },
 ];
 

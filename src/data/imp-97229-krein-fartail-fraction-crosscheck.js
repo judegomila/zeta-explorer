@@ -38,7 +38,7 @@
  * is NOT a rigorous majorant. No interval majorant on the residual is produced; the binding obstruction
  * stays the imp-97100/imp-97205 HARD factor (IMP97100_PHASE_CANCELLATION_TRIAL, a certified g(t)=O(t^{-4})
  * trial); IMP96888_RAYLEIGH_TAIL_MAJORANT and IMP96749_UNIFORM_N_GAP_UNSETTLED stay open; interval-rigorous
- * reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97205-krein-routeb-sigma2-majorant-execution.js (finding 4: farTailFractionMeasured, single-source)
  * @see imp-97100-krein-rayleigh-tail-interval-majorant-assessment.js (tail-decay exponent p_endpoint ~ 2.913)

@@ -49,8 +49,7 @@
  * range (sub-gap imp-35488a); INHERITS no bound (sigma is a diagnostic share, not a
  * Lambda lever); C_mb GUE-conditional per imp-486 UNTOUCHED; C_C ansatz
  * (imp-2642/imp-2643), E_trunc floor (imp-2631), imp-398 C_F prefactor UNTOUCHED;
- * changes no bound; no operator positivity; no RH verdict; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * changes no bound; no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35488-route-ii-two-height-gtrue-spotcheck (bin-pdf peak measurement this bin-free KS check strengthens; sub-gaps imp-35488a/imp-35488b)
  * @see imp-35475-sigma-fidelity-closure-scope (Part B route (ii); Part C budgets)
@@ -62,7 +61,7 @@
 
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // 0.38374752 (imp-2642/imp-2643 ansatz)
 const T_PT = 3e12; // Platt-Trudgian verified height
-const L_PT = 0.2; // SOTA (unchanged by any sigma-fidelity measurement)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any sigma-fidelity measurement)
 
 const N_PEAK = 9.2186e5;
 const N_TABLE = 1000000; // ZEROS_EXTENDED length
@@ -145,7 +144,7 @@ export const IMP35529_PEAK_KS_SUPDISTANCE = {
     'at ONE reachable height only; does NOT certify the surrogate map globally in N; INHERITS no bound ' +
     '(sigma is a diagnostic share, not a Lambda lever); C_mb GUE-conditional per imp-486 UNTOUCHED; C_C ' +
     'ansatz (imp-2642/imp-2643), E_trunc floor (imp-2631), imp-398 C_F prefactor UNTOUCHED; changes no ' +
-    'bound; no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no operator positivity; no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35488 (bin-pdf peak measurement this strengthens; sub-gaps imp-35488a/imp-35488b); imp-35475 ' +
     '(route (ii); Part-C budgets); imp-35337 (names imp-35337a; the peak landmark); gue-vs-zeros-comparison ' +
@@ -191,7 +190,7 @@ export const IMP35529_PEAK_KS_SUPDISTANCE_ASSERTIONS = [
       /imp-486/.test(IMP35529_PEAK_KS_SUPDISTANCE.verdict) &&
       /changes no[\s\S]*bound/.test(IMP35529_PEAK_KS_SUPDISTANCE.verdict) &&
       /NO QED/.test(IMP35529_PEAK_KS_SUPDISTANCE.verdict) &&
-      /remains SOTA/.test(IMP35529_PEAK_KS_SUPDISTANCE.verdict),
+      /refereed bound is changed/i.test(IMP35529_PEAK_KS_SUPDISTANCE.verdict),
   },
 ];
 

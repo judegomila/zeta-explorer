@@ -33,7 +33,7 @@
  *  Jackknife errors agree with between-block scatter (referee: 0.0039 vs 0.0030; 0.044 vs 0.044).
  *
  * Prior art in-repo: route 23 (src/data/route-23-ht-vs-dyson-bm-2026-10-11.js) recalled Λ_B = 1.57314 and measured Q + 1 at T ≈ 1e6; this
- * route re-derives Λ_B and extends the 1/L² law to 1e13. Tagged [map]; no Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free.
+ * route re-derives Λ_B and extends the 1/L² law to 1e13. Tagged [map]; no Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free.
  * ROUTE_33_ASSERTIONS recompute live: Λ_B from a prime sieve to 2e6 plus the PNT tail, the inverse-variance a_BK combination and its weight split,
  * the Q + 1 = c·12Λ_B/L² weighted fit (8 windows and high windows), the 1/L-law χ², and the converged determinantal-BK σ-distances.
  */
@@ -92,7 +92,7 @@ export const ROUTE_33 = Object.freeze({
     + 'A, the well-separated prime-power spikes and the low-zero dips are detected with amplitudes consistent with 1. BBLM\'s O(1/L²) effective-N '
     + 'truncation does not describe the gap variance at L ≤ 28. Route 23\'s Q + 1 keeps its 1/L² law (c = 0.441 ± 0.008) to 1e13 and is local '
     + '(saturated at J = 2–3); explaining it needs 3-point arithmetic correlations, not computed here. Internal, one referee pass. Nothing '
-    + 'certified; no Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'certified; no Λ bound moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_33;
@@ -150,7 +150,7 @@ export const ROUTE_33_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r33-honest-scope',
-    holds: () => R.status === 'done' && /T ≤ 1\.13e6/.test(R.verdict) && /conjectural/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict)
+    holds: () => R.status === 'done' && /T ≤ 1\.13e6/.test(R.verdict) && /conjectural/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict)
       && /NO QED/.test(R.verdict) && R.refereeKilled.length === 9 && R.refereeKilled.some((x) => /REFUTED/.test(x)),
     why: 'Mapping result; BK is conjectural (ratios conjecture); the amplitude-1 statement is dominated by T ≤ 1.13e6; no Λ change; no QED.',
   },

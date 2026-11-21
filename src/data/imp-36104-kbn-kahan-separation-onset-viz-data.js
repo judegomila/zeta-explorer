@@ -66,7 +66,7 @@ export const IMP36104_SEPARATION_ONSET_VIZ_DATA = {
     'VIZ-DATA ONLY -- baked literals reproducing the imp-36062 measurement exactly; adds no new ' +
     'derivation and changes no bound. Measurement only on a fixed representative term family; ' +
     'certifies no W1 bound; the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) ' +
-    'and MECHANICAL (imp-35725). NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'and MECHANICAL (imp-35725). NO QED. No refereed bound is changed.',
 };
 
 export const IMP36104_VIZ_ASSERTIONS = [
@@ -112,12 +112,12 @@ export const IMP36104_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp36104-honesty-gate-no-qed',
-    description: 'honest status references measurement-only, greenfield, no bound change, NO QED, SOTA',
+    description: 'honest status references measurement-only, greenfield, no bound change, NO QED, no refereed bound is changed',
     holds: () =>
       /VIZ-DATA ONLY/.test(IMP36104_SEPARATION_ONSET_VIZ_DATA.honest) &&
       /GREENFIELD/.test(IMP36104_SEPARATION_ONSET_VIZ_DATA.honest) &&
       /NO QED/.test(IMP36104_SEPARATION_ONSET_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP36104_SEPARATION_ONSET_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP36104_SEPARATION_ONSET_VIZ_DATA.honest),
   },
 ];
 

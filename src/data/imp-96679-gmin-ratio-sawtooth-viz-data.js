@@ -12,8 +12,8 @@
  * is reused verbatim from imp-96616; the plateau/reset flags and doubling
  * factors are reused verbatim from imp-96654's plateauSlope table. Only the
  * chart-friendly reshape is new here. Changes no bound, establishes no
- * operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. RH open. NO QED.
+ * operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96616-gmin-ratio-extreme-gap-decay.js (source ladder)
  * @see imp-96654-gmin-crossover-sensitivity-oscillation.js (source sawtooth / doubling analysis)

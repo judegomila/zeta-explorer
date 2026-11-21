@@ -39,7 +39,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96617 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96617-finite-L-correction-sign.js (source: the measurement this glosses)
  * @see imp-96628-boxsine-lagcorr-ibp-envelope.js (the certified C(k) that upgrades this measured envelope)
@@ -47,7 +47,7 @@
  * @see imp-96593-vif-exact-tail-rigor-upgrade-assessment (VERDICT obstruction (ii): unpinned sign)
  *
  * Ticket: imp-96638 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The two-sided-approximation headword, baked verbatim (no re-import).
@@ -85,8 +85,8 @@ const BOX_SINE_KERNEL_TWO_SIDED_APPROX_HEADWORD = Object.freeze({
   verificationStatus:
     'Sign measurement (closes off a proof route); the certified envelope constant is ' +
     'now delivered separately by imp-96628 (two-IBP bound |DeltaCov_k| <= C(k)/L^2). ' +
-    'Changes no bound; establishes no operator positivity; PT Lambda <= 0.2 remains ' +
-    'SOTA; RH open; NO QED.',
+    'Changes no bound; establishes no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96638_BOX_SINE_KERNEL_TWO_SIDED_APPROX_GLOSSARY_HEADWORD = Object.freeze({
@@ -111,7 +111,7 @@ export const IMP96638_BOX_SINE_KERNEL_TWO_SIDED_APPROX_GLOSSARY_HEADWORD = Objec
     'agreement) because the Bartlett weight kills the leading O(1/L) boundary term, so ' +
     'a two-sided enclosure is available even though a one-sided bound is not. ' +
     'Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96617 (the sign measurement and finding this glosses); imp-96567 (the closed ' +
     'form whose sign this probes); imp-96593 (names obstruction (ii) this measurement ' +
@@ -139,11 +139,11 @@ export const IMP96638_BOX_SINE_KERNEL_TWO_SIDED_APPROX_GLOSSARY_HEADWORD_ASSERTI
   },
   {
     id: 'imp96638-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96638_BOX_SINE_KERNEL_TWO_SIDED_APPROX_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96638_BOX_SINE_KERNEL_TWO_SIDED_APPROX_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96638_BOX_SINE_KERNEL_TWO_SIDED_APPROX_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96638_BOX_SINE_KERNEL_TWO_SIDED_APPROX_GLOSSARY_HEADWORD.verdict) &&
       IMP96638_BOX_SINE_KERNEL_TWO_SIDED_APPROX_GLOSSARY_HEADWORD.glosses === 'imp-96617',
   },
 ];

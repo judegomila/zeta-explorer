@@ -65,7 +65,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; the C_C 1/8 ansatz, the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are perturbed
  * here only as sensitivity probes, not re-pinned; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97689-diag3-additivity-euler-derivation (closed-form DIAG3 == 0; SUM3 identified as O(eps^2))
  * @see imp-97665-flow-etrunc-elasticity-identity-derivation (5-point O(eps^4) stencil vs 3-point truncation)
@@ -206,7 +206,7 @@ export const IMP97703_DIAG3_5POINT_STENCIL_REFINE = {
     'asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz, the pinned E_trunc 3.06e-5 and the ' +
     'imp-398 C_F prefactor are UNTOUCHED (perturbed here only as sensitivity probes, not re-pinned); changes ' +
     'no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97689 (closed-form DIAG3 == 0, SUM3 identified as O(eps^2)); imp-97665 (5-point O(eps^4) stencil vs ' +
     '3-point truncation); imp-97686 (same 5-point cure for the sqrt-wrapper E_CKH residual); imp-97644 ' +
@@ -259,13 +259,13 @@ export const IMP97703_DIAG3_5POINT_STENCIL_REFINE_ASSERTIONS = [
     holds: () => L2_QUARTERING_RATIOS.every((r) => r > 3.5 && r < 4.5),
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp97703-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97703_DIAG3_5POINT_STENCIL_REFINE.isRigorous === false &&
       /NO QED/.test(IMP97703_DIAG3_5POINT_STENCIL_REFINE.verdict) &&
-      /remains SOTA/.test(IMP97703_DIAG3_5POINT_STENCIL_REFINE.verdict),
+      /refereed bound is changed/i.test(IMP97703_DIAG3_5POINT_STENCIL_REFINE.verdict),
   },
 ];
 

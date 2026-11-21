@@ -138,7 +138,7 @@ export default function Imp95478RaLadderInputProvenanceViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a provenance-only chart of
         which ZETA_ZEROS indices the imp-95372 R_A Path C ladder rungs read, and where the exact
         heat-vs-RK4 t_c cross-check has been witnessed. It re-derives no proof and changes no
-        bound. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not follow
+        bound. RH does not follow
         from anything on this page. NO QED.
       </div>
 
@@ -196,7 +196,7 @@ export default function Imp95478RaLadderInputProvenanceViz() {
         imp-95448 baked record directly (rung set, corruption boundary, and neighbour-factor range
         copied verbatim). Closing this provenance leg produces no Lambda bound; R_A stays open via
         parts (b)/(c) and the imp-2563-sub-pathc-ladder-replace-highN residual while imp-2621 and
-        imp-35164 stand. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        imp-35164 stand. NO QED.
       </div>
     </div>
   );

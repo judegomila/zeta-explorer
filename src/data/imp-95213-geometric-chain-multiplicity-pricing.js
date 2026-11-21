@@ -165,8 +165,7 @@
  * The numerics below CROSS-CHECK the theorem statements; they are not
  * the claim. Import-light (no heavy bundle; imports only the sibling
  * verdict modules for carried constants). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 import BNT from "./imp-95172-ballast-necessity-tradeoff.js";
@@ -432,7 +431,7 @@ export const IMP95213_GEOMETRIC_CHAIN_PRICING = {
     "THEOREM DR-R and THEOREM KU are unconditional closed-form statements about multi-rate lacunary exponential sums on the half-line, proved by the imp-95211 LEMMA BI route with the beta_r factors priced along the geometric chain that H-DYA-M(ii) forces (consecutive in-shell ratios >= rho multiply to rho^distance; c(q) = (q+1)/(q-1) decreasing; all refined products converge since sum_l ln c(rho^l) <= 2 rho/(rho-1) type tails). COROLLARY CP-NS is the exhibited comparison of the two thresholds. The conditional H-LOC consequence is exactly as THEOREM HL-M with the smaller constant. H-DYA-M itself is NOT instantiated for the paper packets and every conditional statement names it. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step: the imp-95212 open question -- is the linear-in-K collar premium sharp? -- is settled in the NEGATIVE under the unchanged hypothesis H-DYA-M. THEOREM DR-R: pricing the geometric in-shell chain (ratio >= rho^distance, forced by hypothesis (ii)) refines every Cauchy factor, giving sqrt(LamRefBar) = Cstar_K sum_b R_{b-1} sum_i S_i e^(-2^(b-1) rho^i x), termwise below THEOREM DR-M, exactly THEOREM DR at K = 1. THEOREM KU: the refined series converges as K -> infinity, so the threshold is K-UNIFORM: xStarRef(K, rho) <= xStarInf(rho) = 10.89000440771252 / 6.597722130935779 at rho = 1.5 / 2, for ALL K -- versus DR-M thresholds 6.88 / 11.00 / 15.00 / 38.24 at K = 2/3/4/10 (rho = 1.5). Refined finite-K thresholds drop at every K >= 2: 6.880 -> 5.514 at (2, 1.5), 9.976 -> 5.610 at (3, 2). COROLLARY CP-NS: the linear-in-K coalescence price of COROLLARY CP was a capping artifact; the only genuine divergence is rho -> 1+ (A*(1.01) > 1e100; LEMMA NG boundary intact). Payoff at (2, 1.5): gammaSL = 0.506081468712321 / 0.5001088237268941 / 0.5000019755286718 at m d = 8/10/12 (imp-95212 rows 0.5996/0.5019/0.5000). ROUTING: the premium now sits entirely on separation rho -- for the arithmetic (1/p) paper alias grid the binding obstruction is coalescence, not count, so the extraction leg must regroup geometrically or price arithmetic separation. HONEST: the Fresnel-Airy envelope port and paper extraction remain OPEN (sub-gap imp-95212-subgap-fresnel-airy-envelope-port carried unchanged); the bound is one-sided; K-uniformity is proved for this route only, not for the true class threshold; H-DYA-M is not instantiated for the paper packets; model-family constants; gammaSL is a cap, not proved attained; measured class sup phi = 0.3572 untouched. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step: the imp-95212 open question -- is the linear-in-K collar premium sharp? -- is settled in the NEGATIVE under the unchanged hypothesis H-DYA-M. THEOREM DR-R: pricing the geometric in-shell chain (ratio >= rho^distance, forced by hypothesis (ii)) refines every Cauchy factor, giving sqrt(LamRefBar) = Cstar_K sum_b R_{b-1} sum_i S_i e^(-2^(b-1) rho^i x), termwise below THEOREM DR-M, exactly THEOREM DR at K = 1. THEOREM KU: the refined series converges as K -> infinity, so the threshold is K-UNIFORM: xStarRef(K, rho) <= xStarInf(rho) = 10.89000440771252 / 6.597722130935779 at rho = 1.5 / 2, for ALL K -- versus DR-M thresholds 6.88 / 11.00 / 15.00 / 38.24 at K = 2/3/4/10 (rho = 1.5). Refined finite-K thresholds drop at every K >= 2: 6.880 -> 5.514 at (2, 1.5), 9.976 -> 5.610 at (3, 2). COROLLARY CP-NS: the linear-in-K coalescence price of COROLLARY CP was a capping artifact; the only genuine divergence is rho -> 1+ (A*(1.01) > 1e100; LEMMA NG boundary intact). Payoff at (2, 1.5): gammaSL = 0.506081468712321 / 0.5001088237268941 / 0.5000019755286718 at m d = 8/10/12 (imp-95212 rows 0.5996/0.5019/0.5000). ROUTING: the premium now sits entirely on separation rho -- for the arithmetic (1/p) paper alias grid the binding obstruction is coalescence, not count, so the extraction leg must regroup geometrically or price arithmetic separation. HONEST: the Fresnel-Airy envelope port and paper extraction remain OPEN (sub-gap imp-95212-subgap-fresnel-airy-envelope-port carried unchanged); the bound is one-sided; K-uniformity is proved for this route only, not for the true class threshold; H-DYA-M is not instantiated for the paper packets; model-family constants; gammaSL is a cap, not proved attained; measured class sup phi = 0.3572 untouched. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ──────────────────────────
@@ -568,12 +567,12 @@ export const IMP95213_GCP_ASSERTIONS = [
   {
     id: "imp95213-gcp-honesty-gate",
     description:
-      "the verdict answers the imp-95212 open question in the negative without closing the sub-gap: names the carried sub-gap imp-95212-subgap-fresnel-airy-envelope-port as open, the one-sided bound, the rho -> 1 routing consequence for the arithmetic paper grid, the untouched ledger; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict answers the imp-95212 open question in the negative without closing the sub-gap: names the carried sub-gap imp-95212-subgap-fresnel-airy-envelope-port as open, the one-sided bound, the rho -> 1 routing consequence for the arithmetic paper grid, the untouched ledger; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95213_GEOMETRIC_CHAIN_PRICING.promotesBound === false &&
       IMP95213_GEOMETRIC_CHAIN_PRICING.openResiduals.length === 5 &&
       /NO QED/.test(IMP95213_GEOMETRIC_CHAIN_PRICING.verdict) &&
-      /remains SOTA/.test(IMP95213_GEOMETRIC_CHAIN_PRICING.verdict) &&
+      /refereed bound is changed/i.test(IMP95213_GEOMETRIC_CHAIN_PRICING.verdict) &&
       /Floors and ceilings untouched/.test(IMP95213_GEOMETRIC_CHAIN_PRICING.verdict) &&
       /remain OPEN/.test(IMP95213_GEOMETRIC_CHAIN_PRICING.verdict) &&
       /STILL OPEN/.test(IMP95213_GEOMETRIC_CHAIN_PRICING.subGap) &&

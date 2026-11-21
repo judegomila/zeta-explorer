@@ -8,7 +8,7 @@
  *
  * METHOD. (1) confirm the page's honest-status banner carries the required
  * six elements (NO QED, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per
- * imp-486 untouched, Platt-Trudgian Lambda<=0.2 remains SOTA, no bound
+ * imp-486 untouched, no refereed bound is changed, no bound
  * change / no operator positivity claim, inherited imp-3220/imp-3406
  * component model flagged as not rigorous); (2) trace every local import
  * transitively reachable from the page module and confirm none resolves to
@@ -16,7 +16,7 @@
  *
  * FINDING (honest-status banner): no gap -- the page's closing "Honest
  * status" block carries the complete banner verbatim, ending "NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA."
+ * No refereed bound is changed."
  *
  * FINDING (zeros-bundle import): no gap -- a full transitive import walk from
  * Imp34562DeepRungDoublingMapLandmarksViz.jsx (31 files reached, through
@@ -42,7 +42,7 @@ export const DOUBLING_MAP_LANDMARKS_PAGE_AUDIT = {
     'AUDIT: confirms the imp-34562 deep-rung doubling-map landmarks page carries the complete six-element ' +
     'honest-status banner and that a full transitive import walk (31 files) from its page module never ' +
     'resolves to src/data/zeros-to-1e6.js. No bound change; imp-3066 K_a>=0 untouched; C_mb GUE-conditional ' +
-    'per imp-486 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'per imp-486 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const DOUBLING_MAP_LANDMARKS_PAGE_AUDIT_ASSERTIONS = [
@@ -65,9 +65,9 @@ export const DOUBLING_MAP_LANDMARKS_PAGE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34660-audit-honest',
-    description: 'no bound change and PT Lambda <= 0.2 stays SOTA',
+    description: 'no bound change and no refereed bound is changed',
     holds: () => /No bound change/.test(DOUBLING_MAP_LANDMARKS_PAGE_AUDIT.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(DOUBLING_MAP_LANDMARKS_PAGE_AUDIT.honest),
+      && /refereed bound is changed/i.test(DOUBLING_MAP_LANDMARKS_PAGE_AUDIT.honest),
   },
 ];
 

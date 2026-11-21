@@ -87,7 +87,7 @@
  * edge T(b) >= -1/4 -- window sets [P0, Y] with P0 >= 101 have limit T <= -0.388 < -1/4, so a finite squarefree
  * b with |E1(b)| > b/4 exists. The primorial family is the SHALLOWEST window (floor -0.0468), NOT the extremizer
  * imp-97432/97461 assumed. The b/4-ceiling line is a dead route. kappa_arith unchanged; cotangent first moment
- * (imp-97097) stays open; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED. Referee-worthy.
+ * (imp-97097) stays open; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED. Referee-worthy.
  *
  * @see imp-97461-route-m-quarter-ceiling-survival-without-mcm-scope.js (asserted RL-L; primorial-extremizer premise)
  * @see imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (MCM refuted; ceiling ASSUMED safe via primorial)
@@ -173,7 +173,7 @@ export const IMP97481_VERDICT = Object.freeze({
     'primorial family is the SHALLOWEST window (floor -0.0468), NOT the extremizer imp-97432/97461 assumed; RL-L ' +
     'does not exist and the b/4-ceiling line is a dead route. This ceiling was exploratory: no Lambda bound and ' +
     'no kappa_arith value depended on it. kappa_arith unchanged; cotangent first moment (imp-97097) open; no ' +
-    'bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED. Referee-worthy.',
+    'bound on Lambda moves; no refereed bound is changed; RH open; NO QED. Referee-worthy.',
 });
 
 export const IMP97481_SUBGAP = Object.freeze({
@@ -191,7 +191,7 @@ export const IMP97481_SUBGAP = Object.freeze({
 });
 
 export const IMP97481_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Attempt to formalize the imp-97461 replacement lemma RL-L ' +
+  'RH open; no refereed bound is changed; NO QED. Attempt to formalize the imp-97461 replacement lemma RL-L ' +
   '(T(b) >= -1/4 for all squarefree b via the primorial extremizer): RL-L is REFUTED. The general-b surrogate ' +
   'closed form surrogate(b) = Pi(P)(lnA - c W(P)) plus the exact T = surrogate + Rcorr (Rcorr -> R(1) = ' +
   '1.2455e-3 for min prime >= 101) and the Mertens window limit surrogate([P0,Y]) -> ' +
@@ -272,7 +272,7 @@ const IMP97481_ASSERTIONS = [
       IMP97481_VERDICT.ceilingRefuted === true &&
       /lower-edge-false-window-sets/.test(IMP97481_SUBGAP.id) &&
       /NO QED/.test(IMP97481_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97481_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97481_HONEST_BANNER) &&
       /RH open/.test(IMP97481_HONEST_BANNER),
     why: 'proof attempt with an honest negative outcome -- RL-L refuted, the b/4-ceiling lower edge is false on window sets; the ceiling was exploratory (load-bearing for nothing), no bound moved, no QED.',
   },

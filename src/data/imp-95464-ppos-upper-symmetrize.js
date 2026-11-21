@@ -2,7 +2,7 @@
  * imp-95464: DERIVATION + MEASUREMENT -- a tighter cancellation-free
  * UPPER enclosure of the theta density p(t) that symmetrizes the
  * asymmetric imp-95420 THEOREM P-POS bracket. Derivation/measurement;
- * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; NO QED; no refereed bound is changed.
  *
  * BACKGROUND (imp-95449 RESULT 3). The imp-95420 P-POS enclosure of the
  * theta density p(t) is asymmetric about p: at the worst (regime-
@@ -72,8 +72,7 @@
  * its proof are UNTOUCHED and remain the system of record; imp-95449 is
  * the tightness measurement and imp-95422/imp-95486 the BigInt-HP
  * cross-checks. The imp-95212 envelope port, signed WEIGHT, and
- * modulus/phase legs stay OPEN. NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * modulus/phase legs stay OPEN. NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -132,7 +131,7 @@ export const IMP95464_PPOS_UPPER_SYMMETRIZE = {
     "imp-95420 positivity margin is already O(1) (min p/up = 0.606345), so this " +
     "changes NO bound, onset, or floor and the imp-95420 THEOREM P-POS proof is " +
     "UNTOUCHED. The imp-95212 envelope port and signed WEIGHT / modulus-phase " +
-    "legs stay OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "legs stay OPEN; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -331,7 +330,7 @@ export const IMP95464_UPPER_SYMMETRIZE_ASSERTIONS = [
       /UNTOUCHED/.test(REF.verdict) &&
       /stay[\s\S]*OPEN/.test(REF.verdict) &&
       /NO QED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
 ];
 

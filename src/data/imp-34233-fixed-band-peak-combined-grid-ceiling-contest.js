@@ -63,7 +63,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate, the bounded-ceiling
  * fit, and the growth-form classification are descriptive, not derived; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (the three computable windows kEnd 20/20.5/21
  *   and the k* ~ 21.28 surrogate edge this stitches onto imp-34109)
@@ -341,8 +341,8 @@ export const IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST = {
     'The OLS surrogate, the bounded-ceiling fit, and the growth-form classification are descriptive, not ' +
     'derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34169 (the three computable windows kEnd 20/20.5/21 and the k* ~ 21.28 surrogate edge this stitches ' +
     'onto imp-34109); imp-34109 (the kEnd = 14..20 grid and the bounded-vs-log contest re-run here; ' +
@@ -405,16 +405,16 @@ export const IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST_ASSERTIONS =
   },
   {
     // Honesty gate: measurement only, ceiling not selected, isRigorous false, imp-34109 / imp-34169
-    // untouched, no QED, PT SOTA, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched.
+    // untouched, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched.
     id: 'imp34233-honesty-gate-no-qed',
-    description: 'Measurement only: ceilingNotSelected, isRigorous false, imp-34109/imp-34169 untouched, no QED, PT SOTA, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched',
+    description: 'Measurement only: ceilingNotSelected, isRigorous false, imp-34109/imp-34169 untouched, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched',
     holds: () =>
       IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.ceilingNotSelected === true &&
       IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.isRigorous === false &&
       /NOT a rigorous asymptotic/.test(IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.verdict) &&
       /are untouched/.test(IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.verdict) &&
       /NO QED/.test(IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.verdict) &&
-      /remains SOTA/.test(IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.verdict) &&
+      /refereed bound is changed/i.test(IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34233_FIXED_BAND_PEAK_COMBINED_GRID_CEILING_CONTEST.verdict),
   },

@@ -73,8 +73,8 @@
  * imp-95902-ufit-reach-conditioning-joint-fit (does u_fit_rel ~ g(reach, cond) with a
  * clean form fit the three DD points and predict a fourth?). (c) Model seam family
  * only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay OPEN.
- * Changes NO bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; Sun arXiv:2609.04176 unrefereed.
+ * Changes NO bound of the Lambda program; NO QED; no refereed bound is changed
+ * ; Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95885-per-delta-ufit-comparison-table (FINDING A, original two-delta contrast)
  * @see imp-95895-ln125-ufit-interval (ln 1.25 u_fit cell + the interplay flag)
@@ -195,8 +195,8 @@ export const IMP95902_CONDITIONING_VS_REACH_CROSS_DELTA = {
     "two-variable law (SUB-GAP imp-95902-ufit-reach-conditioning-joint-fit). " +
     "Cross-delta assembly of reported values; model seam family only; the imp-95212 " +
     "envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes no bound " +
-    "of the Lambda program; changes no numeric interval value; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "of the Lambda program; changes no numeric interval value; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95902"],
 };
 
@@ -323,7 +323,7 @@ export const IMP95902_ASSERTIONS = [
       REF.qed === false &&
       REF.intervalUnchanged === true &&
       /TABULATED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.closesTickets.includes("imp-95902"),
   },
 ];

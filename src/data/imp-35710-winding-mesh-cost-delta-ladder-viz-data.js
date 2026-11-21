@@ -15,8 +15,7 @@
  *   @see imp-35653-sbarrier-finite-check-porting-scope.js (Part C derives MESH_PER_UNIT ~ 12.84)
  *
  *   Ticket: imp-35710 (ux, medium). Presentation only of an already-measured
- *   mesh-cost curve; adds no new Lambda bound. NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   mesh-cost curve; adds no new Lambda bound. NO QED. No refereed bound is changed.
  */
 
 import { IMP35675_FINITE_WINDING_MESH_COST_VS_DELTA } from './imp-35675-finite-winding-mesh-cost-vs-delta.js';
@@ -82,7 +81,7 @@ const IMP35710_ASSERTIONS = [
   },
   {
     id: 'imp35710-presentation-only-no-qed',
-    holds: () => M.isRigorous === false && /NO QED/.test(M.verdict) && /remains SOTA/.test(M.verdict),
+    holds: () => M.isRigorous === false && /NO QED/.test(M.verdict) && /refereed bound is changed/i.test(M.verdict),
     why: 'This is a presentation layer over an already-measurement-only module; it must not upgrade the honesty gate.',
   },
 ];

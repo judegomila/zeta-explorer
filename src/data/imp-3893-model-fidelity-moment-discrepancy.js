@@ -67,7 +67,7 @@
  *   tilted moments relative to the real A(tau). It establishes NO operator positivity.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0 sign-
  *   positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA. Grid-CONVERGENCE stability only.
+ *   No refereed bound is changed. Grid-CONVERGENCE stability only.
  *
  *   @see imp-3871-saddle-correction-fifth-sixth-derivative.js (localized the gap as model-fidelity; quantified here)
  *   @see imp-3690-a-weight-superexp-subleading-correction.js (r(tau) = -ln A - pi e^{4 tau} -> C_inf)
@@ -319,7 +319,7 @@ export const IMP3893_MODEL_FIDELITY_MOMENT_DISCREPANCY = Object.freeze({
     'property of the WEIGHT (true A vs surrogate), not the saddle expansion order, no number of Laplace terms can ' +
     'produce it -- confirming and QUANTIFYING the imp-3871 localization: the gap is a weight discrepancy amplified by a ' +
     'near-cancellation. MEASUREMENT/CHARACTERIZATION, RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity ' +
-    '(imp-3066) untouched; no RH verdict, no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    '(imp-3066) untouched; no RH verdict, no QED; no refereed bound is changed.',
 
   derivation: Object.freeze({
     driftDef: 'L_n = eps_n n(1+4 tau*) = (Q_n/tau*^2 - 1) n(1+4 tau*), Q_n = M_(n+2)/M_n, tau* root of n = 4 pi tau* e^{4 tau*}',
@@ -400,7 +400,7 @@ export const IMP3893_MODEL_FIDELITY_MOMENT_DISCREPANCY = Object.freeze({
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 sign-positivity (off-diagonal ' +
       'endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -451,7 +451,7 @@ export const IMP3893_MODEL_FIDELITY_MOMENT_DISCREPANCY_ASSERTIONS = [
   {
     id: 'imp3893-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement/characterization only, model-fidelity diagnostic not a certified bound, ' +
-         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3893_MODEL_FIDELITY_MOMENT_DISCREPANCY.honestCaveat;
       return (
@@ -460,7 +460,7 @@ export const IMP3893_MODEL_FIDELITY_MOMENT_DISCREPANCY_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -83,8 +83,8 @@ export const IMP95888_CAVEAT_BANNER =
   `${IMP95888_GAP_DECADES.toFixed(1)}-decade gap from the imp-95710 measured ceiling to the ` +
   'imp-95519 window bottom is analytic bridging for chart resolution, not new data. It is the ' +
   'only in-repo lever that reaches T=3.0e12 at all: no verified-zero table extends anywhere ' +
-  'near that height. Introduces no new cited input and changes no bound; Platt-Trudgian ' +
-  'Lambda <= 0.2 remains the rigorous SOTA. C0-envelope-safety is ALSO only a FINITE ' +
+  'near that height. Introduces no new cited input and changes no bound; no refereed bound is changed' +
+  '. C0-envelope-safety is ALSO only a FINITE ' +
   'super-window, not an all-heights guarantee: imp-95921 shows offset(T) drifts upward ' +
   'without bound and crosses C0 at a finite height T_x in [~5.8e17, ~1.36e28] -- comfortably ' +
   'above 3.0e12 but not beyond it. No QED.';

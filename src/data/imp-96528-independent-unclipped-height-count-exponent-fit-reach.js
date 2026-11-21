@@ -74,7 +74,7 @@
  * cannot decide the imp-96510 sub-gap by fitting relErr(T), and a rigorous decision genuinely
  * requires the higher / contiguous zero-source imp-96510 already showed does not exist. This
  * quantifies (does not close) the sub-gap. Measurement only; changes no bound; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96510-deeper-interior-dip-height-source-reach (names the open systematic-vs-noise sub-gap)
  * @see imp-96493-excursion-2sigma-interior-scan (the two interior anchors T = 1.5e5, 3.879e5)
@@ -183,12 +183,12 @@ export const IMP96528_INDEPENDENT_UNCLIPPED_HEIGHT_COUNT_EXPONENT_FIT_REACH = {
   },
   canResolveSubGap, // false
   verdict:
-    'The fixed 10^6 Odlyzko set supplies only ~6 mutually-independent unclipped +/-30% interior heights (just 2 in the T >= 1.5e5 excursion regime, i.e. exactly the two imp-96493 anchors). Relaxing the clip fraction toward +/-10% raises the raw count toward ~20, but (i) narrower windows then measure a different, narrower-span statistic rather than the sub-gap-native +/-30% dip depth, and (ii) the exponent standard error SE(p) still bottoms out near ~0.21 because the fixed ~1.5-decade lever arm and the irreducible single-height chi scatter sigma = sqrt(pi^2/8) ~ 1.11 dominate. Since the systematic (p = 0) and sampling-noise (p = -1/4) readings differ by only Delta_p = 1/4, that SE(p) separates them by at most ~1.2 sigma (and only ~0.58 sigma at +/-30%) -- far short of the ~2-3 sigma a decisive fit needs. The fixed set therefore cannot pin the relErr(T) exponent, so the imp-96510 systematic-vs-noise sub-gap stays open pending the higher / contiguous zero-source imp-96510 already showed does not exist. This quantifies (does not close) the sub-gap. Measurement only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The fixed 10^6 Odlyzko set supplies only ~6 mutually-independent unclipped +/-30% interior heights (just 2 in the T >= 1.5e5 excursion regime, i.e. exactly the two imp-96493 anchors). Relaxing the clip fraction toward +/-10% raises the raw count toward ~20, but (i) narrower windows then measure a different, narrower-span statistic rather than the sub-gap-native +/-30% dip depth, and (ii) the exponent standard error SE(p) still bottoms out near ~0.21 because the fixed ~1.5-decade lever arm and the irreducible single-height chi scatter sigma = sqrt(pi^2/8) ~ 1.11 dominate. Since the systematic (p = 0) and sampling-noise (p = -1/4) readings differ by only Delta_p = 1/4, that SE(p) separates them by at most ~1.2 sigma (and only ~0.58 sigma at +/-30%) -- far short of the ~2-3 sigma a decisive fit needs. The fixed set therefore cannot pin the relErr(T) exponent, so the imp-96510 systematic-vs-noise sub-gap stays open pending the higher / contiguous zero-source imp-96510 already showed does not exist. This quantifies (does not close) the sub-gap. Measurement only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 / imp-96510 convention).
 export const IMP96528_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the fixed 10^6 Odlyzko set supplies '
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the fixed 10^6 Odlyzko set supplies '
   + 'only ~6 mutually-independent unclipped +/-30% interior heights (2 in the excursion regime), and even at '
   + '+/-10% relaxation the relErr(T) exponent standard error stays >= ~0.21 -- separating the systematic '
   + '(p=0) and sampling-noise (p=-1/4) readings by at most ~1.2 sigma. The imp-96510 systematic-vs-noise '
@@ -224,9 +224,9 @@ export const IMP96528_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96528_INDEPENDENT_UNCLIPPED_HEIGHT_COUNT_EXPONENT_FIT_REACH.verdict))
     throw new Error('imp-96528: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96528_INDEPENDENT_UNCLIPPED_HEIGHT_COUNT_EXPONENT_FIT_REACH.verdict))
-    throw new Error('imp-96528: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-  if (!(/RH open/.test(IMP96528_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96528_HONEST_BANNER) && /NO QED/.test(IMP96528_HONEST_BANNER)))
+  if (!/refereed bound is changed/i.test(IMP96528_INDEPENDENT_UNCLIPPED_HEIGHT_COUNT_EXPONENT_FIT_REACH.verdict))
+    throw new Error('imp-96528: verdict dropped the no-refereed-bound-change banner');
+  if (!(/RH open/.test(IMP96528_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96528_HONEST_BANNER) && /NO QED/.test(IMP96528_HONEST_BANNER)))
     throw new Error('imp-96528: IMP96528_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

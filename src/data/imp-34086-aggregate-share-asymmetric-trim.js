@@ -55,7 +55,7 @@
  * NOT an RH bound. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the
  * factor identity is exact WITHIN that model only; changes no bound; establishes no operator positivity;
  * imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34009-aggregate-share-window-endpoint-sensitivity (the symmetric sweep this attributes)
  * @see imp-33962-attenuation-rung-by-rung-decomposition (the 0.9225 aggregate share)
@@ -247,7 +247,7 @@ export const IMP34086_AGGREGATE_SHARE_ASYMMETRIC_TRIM = {
     'high-N tail. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the factor ' +
     'identity is exact WITHIN the model only; changes no bound; establishes no operator positivity; ' +
     'imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34009 (the symmetric endpoint sensitivity this attributes); imp-33962 (the 0.9225 aggregate F2 ' +
     'share); imp-33810 (the 21 quarter-decade rungs); imp-33884/imp-33885 (the exact 903.538 widening + ' +
@@ -302,13 +302,13 @@ export const IMP34086_AGGREGATE_SHARE_ASYMMETRIC_TRIM_ASSERTIONS = [
       HEAD_WINDOWS[9].agg_F4 < 0.5,
   },
   {
-    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34086-honesty-gate-no-qed',
-    description: 'Directional-attribution only: isRigorous false, no QED, PT SOTA, imp-3066 untouched',
+    description: 'Directional-attribution only: isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34086_AGGREGATE_SHARE_ASYMMETRIC_TRIM.isRigorous === false &&
       /NO QED/.test(IMP34086_AGGREGATE_SHARE_ASYMMETRIC_TRIM.verdict) &&
-      /remains SOTA/.test(IMP34086_AGGREGATE_SHARE_ASYMMETRIC_TRIM.verdict) &&
+      /refereed bound is changed/i.test(IMP34086_AGGREGATE_SHARE_ASYMMETRIC_TRIM.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34086_AGGREGATE_SHARE_ASYMMETRIC_TRIM.verdict),
   },
 ];

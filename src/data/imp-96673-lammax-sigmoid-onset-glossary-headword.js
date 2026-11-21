@@ -35,14 +35,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96652 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96652-route-m-lammax-sigmoid-onset-spectral-derivation.js (source: the derivation this glosses)
  * @see imp-96636-route-m-lammax-slope-saturation-fit.js (the empirical logistic 2.94/0.86)
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (measured lam_max = 3.0247 + 0.3526 log N)
  *
  * Ticket: imp-96673 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The spectral-derivation headword, baked verbatim (no re-import).
@@ -82,7 +82,7 @@ const LAMMAX_SIGMOID_ONSET_HEADWORD = Object.freeze({
     'mystery reduces to the spectral facts w1 ~ 8% small overlap, gap ratio ~2.6), not a ' +
     'new measurement and not a closed-form derivation. w1 and lam1/lam2 remain measured, ' +
     'mildly N-dependent quantities with no closed form or N-asymptotics produced. Changes no ' +
-    'bound; establishes no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'bound; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96673_LAMMAX_SIGMOID_ONSET_GLOSSARY_HEADWORD = Object.freeze({
@@ -103,7 +103,7 @@ export const IMP96673_LAMMAX_SIGMOID_ONSET_GLOSSARY_HEADWORD = Object.freeze({
     'r0 = ln((1-w1)/w1)/ln(lam1/lam2) (top overlap w1 ~ 8%, delocalized top mode) -- the ' +
     'sigmoid is DERIVED, not coincidental, though no closed form for the 0.3526 coefficient ' +
     'or for w1/gap themselves is produced. Establishes nothing; instantiates no interval; ' +
-    'moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96652 (the spectral derivation this glosses); imp-96636 (the empirical logistic ' +
     '2.94/0.86); imp-96612 (rank-r Rayleigh moment ratios); imp-96443 (measured lam_max, ' +
@@ -131,11 +131,11 @@ export const IMP96673_LAMMAX_SIGMOID_ONSET_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96673-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96673_LAMMAX_SIGMOID_ONSET_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96673_LAMMAX_SIGMOID_ONSET_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96673_LAMMAX_SIGMOID_ONSET_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96673_LAMMAX_SIGMOID_ONSET_GLOSSARY_HEADWORD.verdict) &&
       IMP96673_LAMMAX_SIGMOID_ONSET_GLOSSARY_HEADWORD.glosses === 'imp-96652',
   },
 ];

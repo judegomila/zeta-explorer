@@ -69,7 +69,7 @@
  * The pin shows the imp-97291 Gasymp fast evaluator (not the imp-97315 direct O(b) coprime sum) is the
  * accurate one on the sup-carrying close-prime semiprime family at b ~ 1e8 (~4e-7 vs ~1e-4). The
  * monotone climb toward 1 and the M ~ sqrt(b) absolute-margin law both survive at full precision.
- * Measurement only; no bound on Lambda moves; kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * Measurement only; no bound on Lambda moves; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97315-route-m-e1-direct-exact-ratio-crosscheck.js (direct O(b) cross-check; the open figure resolved here)
  * @see imp-97291-route-m-e1-wide-composite-ratio-sweep.js (Gasymp fast sweep; RESULT 3 ladder confirmed accurate)
@@ -133,11 +133,11 @@ export const IMP97326_VERDICT = Object.freeze({
     'size ~b log b, is numerically WORSE at b ~ 1e8 than the four-term Gasymp identity, reversing the ' +
     'imp-97315 implicit evaluator ranking. The monotone climb toward 1 and the M ~ sqrt(b) absolute ' +
     'margin law (M/sqrt(b)=2.032) both survive at full precision. Measurement only; no bound on Lambda ' +
-    'moves; kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'moves; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97326_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extended-precision (exact hyperfactorial, 60 dps) ' +
+  'RH open; no refereed bound is changed; NO QED. Extended-precision (exact hyperfactorial, 60 dps) ' +
   'pin of the composite ratio r(b)=|E1(b)|/(b/4) at b=9973*10007: r = 0.999186296075801454..., which ' +
   'resolves the imp-97315 open figure and shows the direct O(b) coprime sum (assumed ground truth) was ' +
   'off by ~1.1e-4 while the imp-97291 Gasymp fast evaluator was accurate to ~4e-7 at b ~ 1e8. The ' +
@@ -196,7 +196,7 @@ const IMP97326_ASSERTIONS = [
       IMP97326_VERDICT.gasympFastWasAccurate === true &&
       IMP97326_VERDICT.monotoneClimbSurvives === true &&
       /NO QED/.test(IMP97326_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97326_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97326_HONEST_BANNER) &&
       /RH open/.test(IMP97326_HONEST_BANNER),
     why: 'measurement only -- an extended-precision pin of a ratio; no rigorous ceiling posted, no bound moved, no QED.',
   },

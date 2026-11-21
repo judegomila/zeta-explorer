@@ -16,7 +16,7 @@
  * SCOPING / ASSESSMENT ONLY. Establishes no seed; encloses no ordinate at any N;
  * certifies no spacing law; changes no bound; establishes no positivity; C_mb
  * GUE-conditional (imp-486) untouched; G-interval-enclosure and E1 stay OPEN; no
- * RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH verdict, NO QED. No refereed bound is changed.
  *
  * THE OBJECT E1 WOULD NEED
  * -----------------------------------------------------------------------------
@@ -78,7 +78,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36193 / imp-36192) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scope
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scope
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 ordinate count anchor / finite N ceiling of Branch A
 
@@ -179,7 +179,7 @@ export const IMP36240_E1_CERTIFIED_SURROGATE_SPACING_SEED_FEASIBILITY = {
     'tight-seed source (feasible only for the mean-density RvM envelope), and RH does not rescue it. E1 ' +
     'stays OPEN. Certifies nothing; encloses no ordinate at any N; establishes no seed; changes no bound; ' +
     'establishes no positivity; G-interval-enclosure stays OPEN; C_mb GUE-conditional (imp-486) untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36193 (Step-2 G-interval-enclosure N-uniform scope; E1 = certified seed intervals, OPEN); imp-362 ' +
     '(LAMBDA_INTERVAL_DYSON single-N witness; 870-zero bundle; N=2458 out of scope); imp-2520 (backward-flow ' +
@@ -230,9 +230,9 @@ export const IMP36240_E1_CERTIFIED_SURROGATE_SPACING_SEED_FEASIBILITY_ASSERTIONS
     },
   },
   {
-    // Honesty gate: refuted as tight-seed source, RH does not rescue, E1 open, no bound moved, no QED, PT SOTA.
+    // Honesty gate: refuted as tight-seed source, RH does not rescue, E1 open, no bound moved, no QED, no refereed bound is changed.
     id: 'imp36240-honesty-gate',
-    description: 'Surrogate refuted as tight seed; RH no rescue; E1 open; changes no bound; no QED; PT SOTA',
+    description: 'Surrogate refuted as tight seed; RH no rescue; E1 open; changes no bound; no QED; no refereed bound is changed',
     holds: () => {
       const o = IMP36240_E1_CERTIFIED_SURROGATE_SPACING_SEED_FEASIBILITY;
       return (
@@ -244,7 +244,7 @@ export const IMP36240_E1_CERTIFIED_SURROGATE_SPACING_SEED_FEASIBILITY_ASSERTIONS
         ) &&
         /stays OPEN/.test(o.conclusion.e1StaysOpen) &&
         /NO QED/.test(o.verdict) &&
-        /remains SOTA/.test(o.verdict)
+        /refereed bound is changed/i.test(o.verdict)
       );
     },
   },

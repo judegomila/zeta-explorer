@@ -5,8 +5,7 @@
  *   the EV-OCT-N firing onset. Does LAG-ENV tighten the onset xStarEvOct,
  *   or does it only loosen it? Where, if anywhere, does the LAG-ENV
  *   envelope become tighter than the raw coalN bracket? Measurement /
- *   assessment only; establishes NO new bound; NO QED; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   assessment only; establishes NO new bound; NO QED; no refereed bound is changed.
  *
  *   BACKGROUND
  *   -----------------------------------------------
@@ -224,7 +223,7 @@ export const IMP95311_LAGENV_VACUITY_ONSET_ASSESSMENT = {
     "does not tighten); Q3 answered (no crossover -- LAG-ENV is a " +
     "majorant). Consistent with imp-95285 HONEST LIMITS (d) and the " +
     "imp-95320 concept note. Changes no bound of the Lambda program; " +
-    "NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -307,7 +306,7 @@ export const IMP95311_ASSERTIONS = [
     id: "imp95311-verdict-honesty",
     description:
       "the record carries the honest labels: measurement/assessment only, " +
-      "no crossover, no bound change, no QED, PT SOTA",
+      "no crossover, no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT \/ ASSESSMENT only/.test(
         IMP95311_LAGENV_VACUITY_ONSET_ASSESSMENT.verdict,
@@ -317,7 +316,7 @@ export const IMP95311_ASSERTIONS = [
         IMP95311_LAGENV_VACUITY_ONSET_ASSESSMENT.verdict,
       ) &&
       /NO QED/.test(IMP95311_LAGENV_VACUITY_ONSET_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP95311_LAGENV_VACUITY_ONSET_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP95311_LAGENV_VACUITY_ONSET_ASSESSMENT.verdict),
   },
 ];
 

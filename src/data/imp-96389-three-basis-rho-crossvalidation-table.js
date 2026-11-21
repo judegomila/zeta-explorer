@@ -65,7 +65,7 @@
  * A and B are machine-epsilon closed forms (~1e-16 in the ratio), C is capped by Var = L - 2 Int
  * cancellation with an L-growing floor (~7e-14 at L=30 to ~8e-12 at L=960, ~1e-8 at the PT anchor),
  * so C is the binding floor of the table. Cross-validation only; theoretical GUE quantity, not real
- * zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side
+ * zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side
  * route stays PCC/GRH-gated.
  *
  * @see imp-96350-covariance-outoffamily-crossvalidation (basis A exact number variance + basis C direct integral)
@@ -233,7 +233,7 @@ export const IMP96389_THREE_BASIS_RHO_CROSSVALIDATION_TABLE = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; these are theoretical envelope values with no computed Riemann zeros behind them, so the table cross-validates three closed-form / quadrature evaluations of the same envelope, not a measurement of actual zeros. It changes no bound, establishes no operator positivity, and does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'Assembling the exact Dyson-Mehta number variance (A), the asymptotic module (B) and the imp-96369 direct double integral (C) in one per-L table (L = 30..480) shows the three bases agree on rho to >= 6 figures at every accessible rung, but disagree for two DISTINCT reasons: |A-C| ~ 1e-11 is pure quadrature roundoff (C samples the same sine kernel A evaluates in closed form), while |A-B| ~ 1.76e-6 -> 4.71e-9 is the analytic small-L truncation of the dropped oscillatory terms (the small-L branch of the imp-96371 U-shape). Each basis hits a distinct roundoff floor: A and B are machine-epsilon closed forms (~1e-16 in the ratio), C is capped by Var = L - 2 Int cancellation with an L-growing floor (~7e-14 at L=30 to ~8e-12 at L=960, ~1e-8 at the PT anchor), so C is the binding floor of the table. Cross-validation only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Assembling the exact Dyson-Mehta number variance (A), the asymptotic module (B) and the imp-96369 direct double integral (C) in one per-L table (L = 30..480) shows the three bases agree on rho to >= 6 figures at every accessible rung, but disagree for two DISTINCT reasons: |A-C| ~ 1e-11 is pure quadrature roundoff (C samples the same sine kernel A evaluates in closed form), while |A-B| ~ 1.76e-6 -> 4.71e-9 is the analytic small-L truncation of the dropped oscillatory terms (the small-L branch of the imp-96371 U-shape). Each basis hits a distinct roundoff floor: A and B are machine-epsilon closed forms (~1e-16 in the ratio), C is capped by Var = L - 2 Int cancellation with an L-growing floor (~7e-14 at L=30 to ~8e-12 at L=960, ~1e-8 at the PT anchor), so C is the binding floor of the table. Cross-validation only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (accessible-L re-measurement only) ---
@@ -285,8 +285,8 @@ export const IMP96389_THREE_BASIS_RHO_CROSSVALIDATION_TABLE = {
   // honesty gates
   if (!/NO QED/.test(IMP96389_THREE_BASIS_RHO_CROSSVALIDATION_TABLE.verdict))
     throw new Error('imp-96389: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96389_THREE_BASIS_RHO_CROSSVALIDATION_TABLE.verdict))
-    throw new Error('imp-96389: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96389_THREE_BASIS_RHO_CROSSVALIDATION_TABLE.verdict))
+    throw new Error('imp-96389: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96389_THREE_BASIS_RHO_CROSSVALIDATION_TABLE;

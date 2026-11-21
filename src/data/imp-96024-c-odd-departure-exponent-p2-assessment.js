@@ -59,8 +59,8 @@
  * reconstruction certified only at m=20 (Sun 6.23 kappa); this fits the RECONSTRUCTION, not a
  * Prop-6.3-certified per-m quantity (imp-95966 PIECE-A obstruction unchanged). RSS compares fit quality
  * on 15 points; a better RSS at equal parameters is evidence, not proof. p=2 is FAVORED, NOT PROVEN.
- * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; NO Lambda movement; PT
- * Lambda<=0.2 SOTA; NO QED. Import-light: bakes the imp-95967 fine-grid literals + certified kappa + the
+ * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; NO Lambda movement; no refereed bound is changed
+ * ; NO QED. Import-light: bakes the imp-95967 fine-grid literals + certified kappa + the
  * offline free-p / drift literals, and runs the (linear) fixed-p=2 and p=2 + m^-3 least squares at
  * import (15-point 2x2 / 3x3 normal equations, no heavy quadrature). SCRATCH: tmp/imp-96024-scratch.mjs.
  *
@@ -171,7 +171,7 @@ export const C_ODD_DEPARTURE_EXPONENT_P2_ASSESSMENT = Object.freeze({
     + 'correction" are near-degenerate; separating them needs either a theory-derived large-m asymptotic '
     + 'of Q0_RECON or a grid far beyond m=150, both gated by the imp-95966 PIECE-A obstruction. Fits the '
     + 'reconstruction (m=20-only certified); p=2 FAVORED NOT PROVEN; changes no bound. G irrationality '
-    + 'OPEN; Sun unrefereed; PT Lambda<=0.2 SOTA; NO QED',
+    + 'OPEN; Sun unrefereed; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26)',
   builtOn:
@@ -243,7 +243,7 @@ export const C_ODD_DEPARTURE_EXPONENT_P2_ASSESSMENT = Object.freeze({
     + 'literals. Q0_RECON is certified only at m=20 (imp-95966 PIECE-A obstruction unchanged), so this '
     + 'fits the reconstruction, not a Prop-6.3-certified per-m quantity. A better RSS at equal parameters '
     + 'is model-selection evidence, not proof: p=2 is FAVORED, NOT PROVEN. Catalan G irrationality OPEN; '
-    + 'Sun single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'Sun single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const C_ODD_DEPARTURE_EXPONENT_P2_ASSESSMENT_ASSERTIONS = Object.freeze([
@@ -288,14 +288,14 @@ export const C_ODD_DEPARTURE_EXPONENT_P2_ASSESSMENT_ASSERTIONS = Object.freeze([
       && /m=20/.test(C_ODD_DEPARTURE_EXPONENT_P2_ASSESSMENT.finding.preciseObstruction),
   },
   {
-    name: 'honest: fit only, m=20-only certified, p FAVORED NOT PROVEN, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: fit only, m=20-only certified, p FAVORED NOT PROVEN, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () => {
       const s = C_ODD_DEPARTURE_EXPONENT_P2_ASSESSMENT.status;
       return /MEASURED\/FIT/.test(s)
         && /m=20-only certified/.test(s)
         && /FAVORED NOT PROVEN/.test(s)
         && /G irrationality OPEN/.test(s)
-        && /PT Lambda<=0.2 SOTA/.test(s)
+        && /refereed bound is changed/i.test(s)
         && /NO QED/.test(s);
     },
   },

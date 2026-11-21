@@ -56,7 +56,7 @@
  * MEASUREMENT / CROSS-VALIDATION ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124772-knee-floor-elasticity-multifloor-fit (the OLS certification over the REUSED imp-97822 sweep; reproduced here)
  * @see imp-97822-sigma-knee-etrunc-floor-elasticity (the two-floor knee fit p_knee ~ -2.099; floorSweep NOT imported here)
@@ -275,8 +275,8 @@ export const IMP124814_KNEE_FLOOR_ELASTICITY_FRESH_LOCATOR_REPRO = {
     'model E_coll ~ E_trunc balance, NOT an artifact of the imp-97822 sweep array or its stencil. The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124772 (OLS certification over the REUSED imp-97822 sweep; reproduced here); imp-97822 ' +
     '(two-floor knee fit p_knee ~ -2.099; floorSweep NOT imported); imp-33708 (0.5x..5x E_trunc floor ' +
@@ -335,13 +335,13 @@ export const IMP124814_KNEE_FLOOR_ELASTICITY_FRESH_LOCATOR_REPRO_ASSERTIONS = [
       FIT_B.slope < -1.375,
   },
   {
-    // Honesty gate: cross-validation only, no QED, PT SOTA.
+    // Honesty gate: cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124814-honesty-gate-no-qed',
-    description: 'Cross-validation only: reproduces p_knee ~ -2 from a fresh locator, no QED, PT stays SOTA',
+    description: 'Cross-validation only: reproduces p_knee ~ -2 from a fresh locator, no QED, no refereed bound is changed',
     holds: () =>
       IMP124814_KNEE_FLOOR_ELASTICITY_FRESH_LOCATOR_REPRO.isRigorous === false &&
       /NO QED/.test(IMP124814_KNEE_FLOOR_ELASTICITY_FRESH_LOCATOR_REPRO.verdict) &&
-      /remains SOTA/.test(IMP124814_KNEE_FLOOR_ELASTICITY_FRESH_LOCATOR_REPRO.verdict),
+      /refereed bound is changed/i.test(IMP124814_KNEE_FLOOR_ELASTICITY_FRESH_LOCATOR_REPRO.verdict),
   },
 ];
 

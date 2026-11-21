@@ -69,7 +69,7 @@
  * FEASIBILITY / SCOPING ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate crossover map; NOT a
  * rigorous asymptotic and NOT an RH bound. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34799-krawczyk-directed-rounding-width-bound (a-priori width bound; representative n_op ~ 50 guess this DERIVES)
  * @see imp-34817-krawczyk-op-budget-contraction-gap (contraction-validity op ceiling n_op* ~ 2.2e15)
@@ -266,7 +266,7 @@ export const IMP34840_KRAWCZYK_DIRECTED_ROUNDING_OP_DAG_FEASIBILITY = {
     'machine certificate. SUB-GAP imp-34714a REMAINS OPEN. Scoping/assessment only on the inherited ' +
     'imp-3220/imp-3406 surrogate crossover map; the C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-' +
     'conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34799 (a-priori directed-rounding width bound; representative n_op ~ 50 this DERIVES); imp-34817 ' +
     '(contraction-validity op ceiling n_op* ~ 2.2e15); imp-34818 (delta*/floor = 1 + 1/(4k) ~ 1.0625); ' +
@@ -323,16 +323,16 @@ export const IMP34840_KRAWCZYK_DIRECTED_ROUNDING_OP_DAG_FEASIBILITY_ASSERTIONS =
       ENDPOINT_IMAGE_HALFWIDTH < 1e-4,
   },
   {
-    // Honesty gate: feasibility/surrogate, not rigorous, sub-gap open, margin is NOT the blocker, no QED, PT SOTA.
+    // Honesty gate: feasibility/surrogate, not rigorous, sub-gap open, margin is NOT the blocker, no QED, no refereed bound is changed.
     id: 'imp34840-honesty-gate-no-qed',
-    description: 'Op-DAG feasibility: isRigorous false, imp-34714a open, margin not the blocker, no QED, PT stays SOTA',
+    description: 'Op-DAG feasibility: isRigorous false, imp-34714a open, margin not the blocker, no QED, no refereed bound is changed',
     holds: () =>
       IMP34840_KRAWCZYK_DIRECTED_ROUNDING_OP_DAG_FEASIBILITY.isRigorous === false &&
       IMP34840_KRAWCZYK_DIRECTED_ROUNDING_OP_DAG_FEASIBILITY.feasibility.margin_is_the_blocker === false &&
       /imp-34714a/.test(IMP34840_KRAWCZYK_DIRECTED_ROUNDING_OP_DAG_FEASIBILITY.subGap) &&
       /REMAINS OPEN/.test(IMP34840_KRAWCZYK_DIRECTED_ROUNDING_OP_DAG_FEASIBILITY.subGap) &&
       /NO QED/.test(IMP34840_KRAWCZYK_DIRECTED_ROUNDING_OP_DAG_FEASIBILITY.verdict) &&
-      /remains SOTA/.test(IMP34840_KRAWCZYK_DIRECTED_ROUNDING_OP_DAG_FEASIBILITY.verdict),
+      /refereed bound is changed/i.test(IMP34840_KRAWCZYK_DIRECTED_ROUNDING_OP_DAG_FEASIBILITY.verdict),
   },
 ];
 

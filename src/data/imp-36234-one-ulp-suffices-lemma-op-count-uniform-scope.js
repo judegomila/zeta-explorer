@@ -24,8 +24,7 @@
  * SCOPING / ASSESSMENT ONLY. Proves no lemma to the standard of a verified
  * certificate; instantiates no directed rounding; encloses no collision time;
  * changes no bound; establishes no positivity; C_mb GUE-conditional (imp-486)
- * untouched; imp-34714a stays OPEN; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * untouched; imp-34714a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE QUESTION, PRECISELY
  * -----------------------------------------------------------------------------
@@ -95,7 +94,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36193 / imp-36192) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scope
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scope
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 ordinate count anchor at T_PT
 
@@ -210,7 +209,7 @@ export const IMP36234_ONE_ULP_SUFFICES_LEMMA_OP_COUNT_UNIFORM_SCOPE = {
     'rounding is mandatory" but collapses onto the OPEN imp-34867 crlibm-log scope. Proves no lemma to ' +
     'verified-certificate standard; instantiates no directed rounding; encloses no collision time; changes no ' +
     'bound; establishes no positivity; C_mb GUE-conditional (imp-486) untouched; imp-34714a stays OPEN; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36193 (parent; ingredient E2 = this question); imp-34867 (crlibm-log two-sided enclosure scope -- ' +
     'the transcendental-layer residual E2 reduces to); imp-362 (LAMBDA_INTERVAL_DYSON one-ULP outward ' +
@@ -267,9 +266,9 @@ export const IMP36234_ONE_ULP_SUFFICES_LEMMA_OP_COUNT_UNIFORM_SCOPE_ASSERTIONS =
     },
   },
   {
-    // Honesty gate: scoping only; discharges nothing; imp-34714a open; no bound moved; no QED; PT SOTA.
+    // Honesty gate: scoping only; discharges nothing; imp-34714a open; no bound moved; no QED; no refereed bound is changed.
     id: 'imp36234-honesty-gate',
-    description: 'Scoping only; discharges nothing; imp-34714a OPEN; changes no bound; no QED; PT SOTA',
+    description: 'Scoping only; discharges nothing; imp-34714a OPEN; changes no bound; no QED; no refereed bound is changed',
     holds: () =>
       IMP36234_ONE_ULP_SUFFICES_LEMMA_OP_COUNT_UNIFORM_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -278,7 +277,7 @@ export const IMP36234_ONE_ULP_SUFFICES_LEMMA_OP_COUNT_UNIFORM_SCOPE_ASSERTIONS =
         IMP36234_ONE_ULP_SUFFICES_LEMMA_OP_COUNT_UNIFORM_SCOPE.conclusion.noBoundMovesOnItsOwn
       ) &&
       /NO QED/.test(IMP36234_ONE_ULP_SUFFICES_LEMMA_OP_COUNT_UNIFORM_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP36234_ONE_ULP_SUFFICES_LEMMA_OP_COUNT_UNIFORM_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP36234_ONE_ULP_SUFFICES_LEMMA_OP_COUNT_UNIFORM_SCOPE.verdict),
   },
 ];
 

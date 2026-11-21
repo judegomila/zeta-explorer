@@ -6,8 +6,7 @@
  *   = Theta(sqrt(log N) N^{-1/2}) (imp-2642/2643 Koksma-Hlawka W_1 form), at and
  *   beyond the Platt-Trudgian anchor T_PT (N ~ 4.886e5). MEASUREMENT / comparison
  *   ONLY: closes NOTHING, discharges no gap, the per-N translation stays OPEN,
- *   respects the imp-2519 no-overclaim guard, NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA.
+ *   respects the imp-2519 no-overclaim guard, NO QED. No refereed bound is changed.
  *
  *   WHY THIS TICKET
  *   ---------------
@@ -203,7 +202,7 @@ export const IMP36140_ROUTEB_RATE_VS_ECOLL_COLLISION_RATE_COMPARISON = Object.fr
     'term per-N -- a larger bound cannot be tighter than a smaller one. This sharpens the imp-36082 ' +
     'CONSUMABLE-MODULO-ANCHOR verdict: even with the anchor set aside, Route B is quantitatively the WEAKER rate. ' +
     'Measurement / comparison ONLY; changes no bound; the per-N translation and the anchor gap stay OPEN; respects ' +
-    'the imp-2519 no-overclaim guard; NO QED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'the imp-2519 no-overclaim guard; NO QED; no refereed bound is changed.',
 
   rateForms: Object.freeze({
     routeB_rN: 'r(N) = C_prime sqrt(log gamma_N) N^{-1/4}  [Theta(sqrt(log N) N^{-1/4}), UNCONDITIONAL deviation]',
@@ -266,7 +265,7 @@ export const IMP36140_ROUTEB_RATE_VS_ECOLL_COLLISION_RATE_COMPARISON = Object.fr
       'the shared sqrt(log N) dressing cancels, and concludes Route B is strictly the weaker rate per-N (never ' +
       'below E_coll). It derives nothing new, closes no gap, and leaves the per-N translation and the imp-36082 ' +
       'anchor OPEN; respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -306,7 +305,7 @@ export const IMP36140_ROUTEB_RATE_VS_ECOLL_COLLISION_RATE_COMPARISON_ASSERTIONS 
   {
     id: 'imp36140-honest-no-closure-no-qed',
     why: 'Mandatory honesty: a MEASUREMENT that closes NOTHING, discharges no gap, changes no bound, keeps the ' +
-         'per-N translation and the imp-36082 anchor OPEN, carries NO RH verdict, PT 0.2 stays SOTA.',
+         'per-N translation and the imp-36082 anchor OPEN, carries NO RH verdict, no refereed bound is changed.',
     holds: () => {
       const h = IMP36140_ROUTEB_RATE_VS_ECOLL_COLLISION_RATE_COMPARISON.honestCaveat;
       return (
@@ -319,7 +318,7 @@ export const IMP36140_ROUTEB_RATE_VS_ECOLL_COLLISION_RATE_COMPARISON_ASSERTIONS 
         h.anchorGapStaysOpen === true &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

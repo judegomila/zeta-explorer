@@ -57,8 +57,8 @@
  * native FLINT/Arb binary, measures no wall-clock, and adds no new claim. The
  * ladder is a limb-quantized cost MODEL, not a measurement -- a real replay
  * at each precision would still need to be run to confirm the true factor
- * sits inside the stated bracket. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open.
+ * sits inside the stated bracket. Changes no bound; NO QED; no refereed bound is changed
+ * ; RH open.
  *
  * Import-light: no zeros bundle, no sibling data-module imports (all facts
  * restated as literals so this module stays independently checkable).
@@ -90,8 +90,8 @@ export const IMP95389_PRECISION_REPLAY_LADDER_WRITEUP = {
   },
   honest:
     'DERIVATION restated from a frozen limb-quantized cost model, not a wall-clock measurement -- no native '
-    + 'FLINT/Arb run at any of these precisions has been launched. Changes no bound; NO QED; Platt-Trudgian '
-    + 'Lambda <= 0.2 remains SOTA; RH open.',
+    + 'FLINT/Arb run at any of these precisions has been launched. Changes no bound; NO QED; no refereed bound is changed'
+    + '; RH open.',
   queueReconciliation:
     'imp-95415 (queue: "add a content/glossary note tabulating the imp-95277 ladder and cross-linking it to '
     + 'the imp-95238 tier-2 budget and imp-95257 3-limb rung") requests exactly this note; reconciled as '
@@ -150,11 +150,11 @@ export const IMP95389_PRECISION_REPLAY_LADDER_WRITEUP_ASSERTIONS = [
   },
   {
     id: 'imp-95389-honesty-gate-no-qed',
-    description: 'restatement-only, no bound promoted, NO QED, PT stays SOTA, RH open',
+    description: 'restatement-only, no bound promoted, NO QED, no refereed bound is changed, RH open',
     holds: () =>
       /DERIVATION restated/.test(IMP95389_PRECISION_REPLAY_LADDER_WRITEUP.honest)
       && /NO QED/.test(IMP95389_PRECISION_REPLAY_LADDER_WRITEUP.honest)
-      && /remains SOTA/.test(IMP95389_PRECISION_REPLAY_LADDER_WRITEUP.honest)
+      && /refereed bound is changed/i.test(IMP95389_PRECISION_REPLAY_LADDER_WRITEUP.honest)
       && /RH open/.test(IMP95389_PRECISION_REPLAY_LADDER_WRITEUP.honest),
   },
   {

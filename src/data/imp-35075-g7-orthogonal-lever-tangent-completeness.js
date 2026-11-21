@@ -78,8 +78,7 @@
  *   not a continuous lever inside the imp-3066 construction. The decoupled-rate and coefficient
  *   directions are DIAGNOSTIC devices used to span the transverse space, not admissible
  *   modifications. imp-3066 K_a &gt;= 0 and G7 remain UNTOUCHED; this establishes no operator
- *   positivity; it changes no bound; ||R|| carries NO RH verdict; NO QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   positivity; it changes no bound; ||R|| carries NO RH verdict; NO QED. No refereed bound is changed.
  *
  *   @see imp-33765-g7-obstruction-orthogonal-lever.js (imp-33765: the one-dimensionality + two-lever classification this completes)
  *   @see imp-33791-deg-ceiling-saturation.js (imp-33791: the truncation-size ceiling DEG+1)
@@ -338,7 +337,7 @@ export const IMP35075_G7_ORTHOGONAL_LEVER_TANGENT_COMPLETENESS = Object.freeze({
     imp33765Untouched: true,
     didNotAttemptPositivity: true,
     changesNoBound: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     noQED: true,
   }),
 });
@@ -395,7 +394,7 @@ export const IMP35075_G7_ORTHOGONAL_LEVER_TANGENT_COMPLETENESS_ASSERTIONS = [
          'scoped to the exponential-shear metric-pair family, the transverse directions are ' +
          'diagnostic (not admissible modifications), ||R|| carries no RH verdict, imp-3066 / ' +
          'imp-33765 / G7 are untouched, positivity was not attempted, it changes no bound and is ' +
-         'not a proof, and PT 0.2 stays SOTA.',
+         'not a proof, and no refereed bound is changed.',
     holds: () => {
       const c = IMP35075_G7_ORTHOGONAL_LEVER_TANGENT_COMPLETENESS.honestCaveat;
       return (
@@ -408,7 +407,7 @@ export const IMP35075_G7_ORTHOGONAL_LEVER_TANGENT_COMPLETENESS_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         c.changesNoBound === true &&
         c.noQED === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

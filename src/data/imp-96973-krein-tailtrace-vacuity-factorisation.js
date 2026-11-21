@@ -55,7 +55,7 @@
  * evaluations, NOT rigorous interval majorants; the TRACE bound remains VALID (changes no bound); Rayleigh
  * floors are UPPER bounds on the true lambda_min; establishes NO operator positivity;
  * IMP96749_UNIFORM_N_GAP_UNSETTLED and IMP96888_RAYLEIGH_TAIL_MAJORANT stay open; interval-rigorous reach
- * stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * stays 2a <= 0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96888-krein-tresidual-rayleigh-permode-bound.js (min-max Rayleigh bound; the diagnosis this leaf factorises)
  * @see imp-96876-krein-tresidual-crossval-measurement.js (IMP96876_TRACE_VACUOUS; the lambda_max-step prescription this leaf mis-localises to step 1)

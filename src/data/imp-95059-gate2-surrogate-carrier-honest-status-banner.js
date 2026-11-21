@@ -14,7 +14,7 @@
  *
  * DOCUMENTATION ONLY. Ports nothing; measures nothing new; changes no bound;
  * does not promote the strict Lambda <= 0.14 completion contract; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * THE BANNER
  * -----------------------------------------------------------------------------
@@ -76,7 +76,7 @@ export const IMP95059_GATE2_SURROGATE_CARRIER_HONEST_STATUS_BANNER = {
     'HONEST-STATUS BANNER (documentation, NOT a new claim). imp-95011 and imp-95014 deliver the decision procedure ' +
     'and the two-forms audit harness that the real Gate-2 probe will plug into, but every number they currently ' +
     'report comes from a surrogate signal, not an arithmetic measurement of C_E,17. Ports nothing; measures ' +
-    'nothing new; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'nothing new; changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95011-gate2-oscillation-probe (surrogate probeVerdict + regime map); imp-95014-gate2-lane-b-audit ' +
     '(surrogate laneA/laneB two-forms cross-check); imp-95007 (Gate-2 ranking and anchored constants).',
@@ -124,13 +124,13 @@ export const IMP95059_GATE2_SURROGATE_CARRIER_HONEST_STATUS_BANNER_ASSERTIONS = 
   },
   {
     id: 'imp95059-honesty-gate-no-qed',
-    description: 'Documentation only: not rigorous, no new claim, no QED, PT remains SOTA',
+    description: 'Documentation only: not rigorous, no new claim, no QED, no refereed bound is changed',
     holds: () =>
       IMP95059_GATE2_SURROGATE_CARRIER_HONEST_STATUS_BANNER.isRigorous === false &&
       /HONEST-STATUS BANNER/.test(IMP95059_GATE2_SURROGATE_CARRIER_HONEST_STATUS_BANNER.verdict) &&
       /NOT a new claim/.test(IMP95059_GATE2_SURROGATE_CARRIER_HONEST_STATUS_BANNER.verdict) &&
       /NO QED/.test(IMP95059_GATE2_SURROGATE_CARRIER_HONEST_STATUS_BANNER.verdict) &&
-      /remains SOTA/.test(IMP95059_GATE2_SURROGATE_CARRIER_HONEST_STATUS_BANNER.verdict),
+      /refereed bound is changed/i.test(IMP95059_GATE2_SURROGATE_CARRIER_HONEST_STATUS_BANNER.verdict),
   },
 ];
 

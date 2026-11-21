@@ -79,7 +79,7 @@
  * so it RELOCATES H3 into the imp-33603 H4 / imp-33619 uniform-Privalov-Sokhotski strip-height
  * residual rather than discharging it. Measurement only; G6a_shock_lipschitz stays OPEN; no
  * positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb share untouched;
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33619-h5-rh-transcription-scoping (names H3 the uniform-curvature obligation, OPEN)
  * @see imp-33603-lemma52-port-scoping (the H1..H5 catalogue; H4 the strip-height residual)
@@ -222,7 +222,7 @@ export const IMP33645_H3_CURVATURE_DIVERGENCE_SCOPING = {
     'whole fold-modulus back-conversion -- so it RELOCATES H3 into the imp-33603 H4 / imp-33619 ' +
     'uniform Privalov-Sokhotski strip-height residual rather than discharging it. Measurement only; ' +
     'G6a_shock_lipschitz stays OPEN; no positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 ' +
-    'UNTOUCHED; C_mb share untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'UNTOUCHED; C_mb share untouched; NO QED. No refereed bound is changed.',
   citation:
     'imp-33619-h5-rh-transcription-scoping (H3 uniform curvature OPEN); imp-33603-lemma52-port-scoping ' +
     '(H1..H5 catalogue, H4 strip-height residual); g6a-sub-hyperbolic-closure (imp-394: RvM cusp ' +
@@ -292,14 +292,14 @@ export const IMP33645_H3_CURVATURE_DIVERGENCE_ASSERTIONS = [
       /strip-height-uniformity/.test(IMP33645_H3_CURVATURE_DIVERGENCE_SCOPING.residualObstruction),
   },
   {
-    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33645-honesty-gate-no-qed',
-    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33645_H3_CURVATURE_DIVERGENCE_SCOPING.isRigorous === false &&
       /NO QED/.test(IMP33645_H3_CURVATURE_DIVERGENCE_SCOPING.verdict) &&
       /stays OPEN/.test(IMP33645_H3_CURVATURE_DIVERGENCE_SCOPING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33645_H3_CURVATURE_DIVERGENCE_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP33645_H3_CURVATURE_DIVERGENCE_SCOPING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33645_H3_CURVATURE_DIVERGENCE_SCOPING.verdict),
   },
 ];

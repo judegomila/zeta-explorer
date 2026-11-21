@@ -47,7 +47,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (the source: product -> 1/2, rate never fit)
  * @see imp-34187-ecoll-residual-milestone-ladder (the (u-1)/u factor as cf/measured ratio -> 1 from above)
@@ -258,7 +258,7 @@ export const IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE = {
     'R^2 = 1. The leading coefficient is exactly 1/2 with no subleading correction. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34130 (product log T0 * resid -> 1/2, rate never fit); imp-34187 (the (u-1)/u factor as the ' +
     'cf/measured ratio -> 1 from above); imp-33816 (sigma-share exponent gap ~ 1/(2 log T0), same law); ' +
@@ -335,14 +335,14 @@ export const IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE_ASSERTIONS = [
     },
   },
   {
-    // honesty gate: fit only, far-tail exponent = -1/2 (imp-3463), no QED, PT SOTA.
+    // honesty gate: fit only, far-tail exponent = -1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34197-honesty-gate-no-qed',
-    description: 'Fit only: far-tail exponent = -1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Fit only: far-tail exponent = -1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE.isRigorous === false &&
       IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE.farTailExponent === -0.5 &&
       /NO QED/.test(IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE.verdict) &&
-      /remains SOTA/.test(IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE.verdict),
+      /refereed bound is changed/i.test(IMP34197_LOGT0_RESID_PRODUCT_APPROACH_RATE.verdict),
   },
 ];
 

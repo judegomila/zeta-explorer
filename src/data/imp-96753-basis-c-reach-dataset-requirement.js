@@ -60,7 +60,7 @@
  *   that length. This sharpens imp-96733 Finding 3 from "unreachable from the 2e6 cache" to a precise
  *   size/height target and identifies contiguity of the ordinate list -- not zero height -- as the
  *   binding gap. Derivation/scoping only; recomputes no rho, instantiates no interval, moves no
- *   bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ *   bound; NO QED. No refereed bound is changed; RH open.
  *
  * @see imp-96733-basis-c-real-zero-intermediate-signal (Finding 3: reach rungs need 2L windows 6x..81x the 2e6 span)
  * @see imp-96690-basis-c-above-anchor-rung-ladder (the GUE-only reach ladder L = 5.9e6..8.1e7 whose rungs this scopes)
@@ -71,7 +71,7 @@
  * are baked constants; the requirement ladder is computed live from the formulas.
  *
  * Ticket: imp-96753 (numerical, medium). Scoping only; establishes nothing; moves no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const PI = Math.PI;
@@ -179,7 +179,7 @@ export const IMP96753_BASIS_C_REACH_DATASET_REQUIREMENT = Object.freeze({
     + '(~1.0e11 zeros), so the heights exist and have been rigorously computed; the BINDING gap is contiguity '
     + 'of a machine-readable ordinate list of that length, which no dataset cached here supplies. This sharpens '
     + 'imp-96733 Finding 3 from qualitative "unreachable" to a precise size/height target. Recomputes no rho, '
-    + 'instantiates no interval, moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.',
+    + 'instantiates no interval, moves no bound; NO QED. No refereed bound is changed; RH open.',
   citation:
     'imp-96733 Finding 3 (reach rungs need 2L windows 6x..81x the 2e6 span); imp-96690 (GUE-only reach ladder); '
     + 'imp-96695 (MC number-variance estimator); Riemann-von Mangoldt zero-counting formula; '
@@ -188,7 +188,7 @@ export const IMP96753_BASIS_C_REACH_DATASET_REQUIREMENT = Object.freeze({
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96753_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Scoping only: measuring rho_emp at the first Basis-C '
+  'RH open; no refereed bound is changed; NO QED. Scoping only: measuring rho_emp at the first Basis-C '
   + 'reach rung L = 5.9e6 needs a contiguous list of 3.54e8 consecutive unfolded zeros (height T ~ 1.40e8) for '
   + 'just 30 independent 2L windows -- ~177x the cached 2e6 span, yet ~214x below the Platt-Trudgian frontier '
   + 'T ~ 3e10. Binding gap = contiguity of the ordinate list, not zero height. Changes no bound.';
@@ -235,8 +235,8 @@ export default IMP96753_BASIS_C_REACH_DATASET_REQUIREMENT;
     throw new Error('imp-96753: scoping must not move any bound');
   if (!/NO QED/.test(IMP96753_BASIS_C_REACH_DATASET_REQUIREMENT.verdict))
     throw new Error('imp-96753: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96753_BASIS_C_REACH_DATASET_REQUIREMENT.verdict))
-    throw new Error('imp-96753: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-  if (!(/RH open/.test(IMP96753_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96753_HONEST_BANNER) && /NO QED/.test(IMP96753_HONEST_BANNER)))
+  if (!/refereed bound is changed/i.test(IMP96753_BASIS_C_REACH_DATASET_REQUIREMENT.verdict))
+    throw new Error('imp-96753: verdict dropped the no-refereed-bound-change banner');
+  if (!(/RH open/.test(IMP96753_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96753_HONEST_BANNER) && /NO QED/.test(IMP96753_HONEST_BANNER)))
     throw new Error('imp-96753: IMP96753_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();

@@ -68,7 +68,7 @@
  *   replaces)
  *
  * Ticket: imp-95364 (content, low). Documentation only; establishes no
- * new bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * new bound; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95330).
@@ -135,8 +135,8 @@ export const IMP95364_G_MONO_CHART_COVER_CONCEPT_NOTE = Object.freeze({
     'proven floors (measured chart-currency exhaustion 0.73% at ' +
     'K = 4096, rho = 2), while noting the det-over-trace and ' +
     'pair-identity-truncation legs remain separate open residuals. ' +
-    'Establishes nothing new; fires no certificate; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing new; fires no certificate; no refereed bound is changed' +
+    '.',
   citation:
     'imp-95330-chart-refined-pencil-floor.js (LEMMA G-MONO, THEOREM ' +
     'RZ-PEN4, COROLLARY PEN-UNIF4, COROLLARY SPLIT-PEN4); ' +
@@ -207,12 +207,11 @@ export const IMP95364_G_MONO_CHART_COVER_CONCEPT_NOTE_ASSERTIONS = [
   {
     id: 'imp95364-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present, glosses and scopes fields consistent.',
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present, glosses and scopes fields consistent.',
     holds: () =>
       IMP95364_G_MONO_CHART_COVER_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95364_G_MONO_CHART_COVER_CONCEPT_NOTE.verdict,
       ) &&
       IMP95364_G_MONO_CHART_COVER_CONCEPT_NOTE.glosses === 'imp-95330' &&

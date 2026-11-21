@@ -67,7 +67,7 @@
  * the true uniform-in-N (N->infinity) spectral gap -- both floors are still Rayleigh UPPER bounds on the
  * infinite-dimensional lambda_min, so the N->infinity limit stays open. Measurement / cross-validation
  * only; no operator positivity; interval-rigorous certificate reach stays 2a <= 0.96; RH open;
- * Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96932-krein-ln3-legendre-recondition-assessment.js (double-precision wall at N=112->124)
  * @see imp-96768-gegenbauer-krein-lammin-recompute.js (Gegenbauer C_n^{13/2}, condB=1, floor 0.510769)

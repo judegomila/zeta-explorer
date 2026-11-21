@@ -83,8 +83,7 @@
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb stays
  * GUE-conditional (imp-486); the C_C 1/8 ansatz VALUE is UNTOUCHED (imp-2642/imp-2643) -- this
  * sweep varies only a diagnostic amplitude multiplier around it; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33749-crossover-contraction-etrunc-floor-sweep (the E_trunc-axis complement; same map)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (the closed-form map + base |g_prime| ~ 4.54e-2)
@@ -232,7 +231,7 @@ export const IMP33770_CROSSOVER_CONTRACTION_CC_AMPLITUDE_SWEEP = {
     'C_mb stays GUE-conditional (imp-486); the C_C 1/8 ansatz VALUE is UNTOUCHED (imp-2642/imp-2643) ' +
     '-- this sweep varies only a diagnostic amplitude multiplier around it; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33749 (E_trunc-axis complement, same map, N ~ E_trunc^(-2) landmark span); imp-33723 ' +
     '(closed-form crossover map + base |g_prime| ~ 4.54e-2); imp-3444 (E_coll = E_trunc crossover ' +
@@ -288,14 +287,14 @@ export const IMP33770_CROSSOVER_CONTRACTION_CC_AMPLITUDE_SWEEP_ASSERTIONS = [
     holds: () => MAX_ANALYTIC_VS_CENTRAL < 1e-5,
   },
   {
-    // Honesty gate: measurement/stability only, C_C-robust verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement/stability only, C_C-robust verdict, no QED, no refereed bound is changed.
     id: 'imp33770-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, C_C-amplitude-robust verdict, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, C_C-amplitude-robust verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP33770_CROSSOVER_CONTRACTION_CC_AMPLITUDE_SWEEP.isRigorous === false &&
       /STRONG CONTRACTION IS C_C-AMPLITUDE-ROBUST/.test(IMP33770_CROSSOVER_CONTRACTION_CC_AMPLITUDE_SWEEP.verdict) &&
       /NO QED/.test(IMP33770_CROSSOVER_CONTRACTION_CC_AMPLITUDE_SWEEP.verdict) &&
-      /remains SOTA/.test(IMP33770_CROSSOVER_CONTRACTION_CC_AMPLITUDE_SWEEP.verdict),
+      /refereed bound is changed/i.test(IMP33770_CROSSOVER_CONTRACTION_CC_AMPLITUDE_SWEEP.verdict),
   },
 ];
 

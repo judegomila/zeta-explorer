@@ -4,11 +4,11 @@
  * imp-124821/124823/124824/124776/124837 documentation-leaf cohort. Each must carry the
  * same required four-part honesty banner -- (1) an explicit no-bound-change statement,
  * (2) the imp-3066 K_a &gt;= 0 positivity-untouched note, (3) a no-RH-verdict / NO QED
- * disclaimer, and (4) the Platt-Trudgian Lambda &lt;= 0.2 remains-SOTA citation.
+ * disclaimer, and (4) the no-refereed-bound-change citation.
  *
  * METHOD (read-only, performed at author time). Grep each module's exported
  * banner/verdict string for the four literal phrases: "changes no bound" (case-
- * insensitive), "imp-3066 K_a &gt;= 0 untouched", "NO QED", and "remains SOTA".
+ * insensitive), "imp-3066 K_a &gt;= 0 untouched", "NO QED", and "no refereed bound is changed".
  *
  * RESULT (audited 2026-10-06): THREE DRIFTS FOUND AND REPAIRED, TWO ALREADY CLEAN.
  *   - imp-124776-kernel-decade-ratio-vs-gap-viz-data.js : CLEAN (already repaired by imp-124838).
@@ -26,13 +26,12 @@
  *     IMP124837_HONEST_BANNER closed with a paraphrase ("no coefficient is newly
  *     pinned, no operator positivity is established") instead of the literal phrases.
  *     Repaired the closing clause to "changes no bound; establishes no operator
- *     positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- *     Lambda <= 0.2 remains SOTA."
+ *     positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed
+ *     ."
  *
  * RECOMMENDATION. Three repairs applied; the other two modules needed none. This audit
  * module fabricates no new pages and asserts no new bound; it only records the audit
- * outcome and the three repairs. No QED. Platt-Trudgian Lambda <= 0.2 stays the
- * rigorous SOTA.
+ * outcome and the three repairs. No QED. No refereed bound is changed.
  *
  * @see imp-124838 (the prior cohort honesty-audit this extends, covering imp-124793/124811/124812/124814/124776)
  * @see imp-97851 (the original cohort honesty-audit pattern)
@@ -44,7 +43,7 @@ export const IMP_124920_HONESTY_BANNER_AUDIT = {
   method:
     'Grep each of the five named modules for the four required honesty-banner phrases -- ' +
     '"changes no bound" (no-bound-change), "imp-3066 K_a >= 0 untouched" (imp-3066-untouched), ' +
-    '"NO QED" (NO-QED), and "remains SOTA" (PT-SOTA) -- and cross-compare wording for consistency.',
+    '"NO QED" (NO-QED), and "no refereed bound is changed" (no-refereed-bound-change) -- and cross-compare wording for consistency.',
   modulesAudited: [
     {
       file: 'imp-124776-kernel-decade-ratio-vs-gap-viz-data.js',
@@ -82,7 +81,7 @@ export const IMP_124920_HONESTY_BANNER_AUDIT = {
       driftDetail:
         'IMP124837_HONEST_BANNER closed with a paraphrase instead of the literal phrases. Repaired ' +
         'closing clause to "changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-        'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA."',
+        'untouched; no RH verdict, NO QED. No refereed bound is changed."',
     },
   ],
   driftCount: 3,
@@ -95,7 +94,7 @@ export const IMP_124920_HONESTY_BANNER_AUDIT = {
     'match the cohort pattern.',
   honestNote:
     'Read-only audit plus three in-place wording repairs; no pages or bounds fabricated. No QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -112,10 +111,10 @@ const IMP_124920_ASSERTIONS = [
   {
     id: 'imp124920-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_124920_HONESTY_BANNER_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_124920_HONESTY_BANNER_AUDIT.honestNote) &&
       /no QED/i.test(IMP_124920_HONESTY_BANNER_AUDIT.honestNote) &&
       IMP_124920_HONESTY_BANNER_AUDIT.mutuallyConsistent === true,
-    why: 'VERDICT LOCK: this is a read-only audit plus three wording repairs, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit plus three wording repairs, not a bound; no refereed bound is changed.',
   },
 ];
 

@@ -8,7 +8,7 @@
  *   dilution rate that imp-36151 witnessed only QUALITATIVELY as "approaching from
  *   above". Measurement ONLY: closes NOTHING, discharges no gap, changes no bound,
  *   the G5 per-N translation stays OPEN, respects the imp-2519 no-overclaim guard,
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  *   COMPLEMENT TO imp-36257 (what this adds)
  *   ----------------------------------------
@@ -169,7 +169,7 @@ const IMP36275_ASSERTIONS = [
         h.anchorGapStaysOpen === true &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

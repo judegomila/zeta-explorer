@@ -36,8 +36,7 @@
  *   FORM (delta-general) and a fitted instance (delta-local) for quick reference.
  *   It establishes nothing, fits no new curve, and does not flag an inconsistency --
  *   imp-95885 is explicit that this is "no inconsistency; the law is honestly
- *   delta-local." Changes no bound of the Lambda program; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   delta-local." Changes no bound of the Lambda program; NO QED. No refereed bound is changed.
  *
  * @see imp-95885-per-delta-ufit-comparison-table.js (source: FINDING B this glosses)
  * @see imp-95838-ln125-shift-budget-scaling (the ln 1.25 shift-budget law fit)
@@ -45,7 +44,7 @@
  * @see imp-95859-ln125-window-shift-budget (ln 1.25 worst window cell, 870 solves)
  *
  * Ticket: imp-95904 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The shift-budget delta-locality headword, baked verbatim (no re-import).
@@ -92,7 +91,7 @@ export const IMP95904_SHIFT_BUDGET_DELTA_LOCAL_GLOSSARY_HEADWORD = Object.freeze
     'p = 1.5769020) were calibrated at ln 1.25 and are delta-LOCAL, not a ' +
     'cross-delta predictor, because the three deltas span conditioning by orders of ' +
     'magnitude (5e15 / 1e17 / 5.6e22). Establishes nothing; fits no new curve; moves ' +
-    'no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95885 (per-delta u_fit comparison table, FINDING B); imp-95838 (ln 1.25 ' +
     'shift-budget scaling fit); imp-95820 (shift-invert DD-Toeplitz crossing solver, ' +
@@ -120,11 +119,11 @@ export const IMP95904_SHIFT_BUDGET_DELTA_LOCAL_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95904-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, correct glosses/scopes pointers.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, correct glosses/scopes pointers.',
     holds: () =>
       IMP95904_SHIFT_BUDGET_DELTA_LOCAL_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95904_SHIFT_BUDGET_DELTA_LOCAL_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95904_SHIFT_BUDGET_DELTA_LOCAL_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95904_SHIFT_BUDGET_DELTA_LOCAL_GLOSSARY_HEADWORD.verdict) &&
       IMP95904_SHIFT_BUDGET_DELTA_LOCAL_GLOSSARY_HEADWORD.glosses === 'imp-95885' &&
       IMP95904_SHIFT_BUDGET_DELTA_LOCAL_GLOSSARY_HEADWORD.scopes === 'imp-95820',
   },

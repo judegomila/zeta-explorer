@@ -17,7 +17,7 @@
  *
  *   ASSESSMENT/MEASUREMENT ONLY: it runs no recompute, fires no certificate,
  *   imports no data table, asserts NO exact t_c value, and moves NO bound. R_A
- *   stays OPEN; Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ *   stays OPEN; no refereed bound is changed. NO QED.
  *
  *   THE MEASURED MULTIPLY ANCHOR (from imp-95461)
  *   ---------------------------------------------
@@ -188,7 +188,7 @@ export const HIGHN_EXACT_TC_WALLCLOCK_FIRMING = {
     'Firming only. No recompute is run, no exact t_c(2458) is asserted, no certificate ' +
     'fires, no data table is imported, and no bound is moved. The measured multiply ' +
     'anchors are consumed from the concurrent imp-95461 micro-benchmark. R_A remains ' +
-    'OPEN and Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.',
+    'OPEN and no refereed bound is changed. NO QED.',
 
   sources: [
     'src/data/imp-95481-highn-exact-tc-offline-route-scope.js (route/precision/re-pointing)',

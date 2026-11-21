@@ -51,8 +51,8 @@
  * small-sample AICc all prefer the single-slope OLS baseline over the three-parameter quadratic
  * (dAIC = +0.6, dBIC = +0.2, dAICc = +18.6), confirming the imp-96712 over-parameterization caveat. The
  * ~1.07-1.17-decade-past-anchor reach conclusion is robust; the tight +/-6% bracket is not. Re-analysis of
- * baked data only; theoretical GUE, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * baked data only; theoretical GUE, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96712-basis-c-accelerating-exponent-model (the +/-6% bracket this stress-tests)
  * @see imp-96690-basis-c-above-anchor-rung-ladder (the five committed floors + OLS L* ~ 8.08e7)
@@ -267,12 +267,12 @@ export const IMP96735_BASIS_C_LSTAR_BRACKET_LOO = {
     + 'dip. AIC, BIC and the small-sample AICc all prefer the single-slope OLS baseline over the three-parameter '
     + 'quadratic (dAIC=+0.6, dBIC=+0.2, dAICc=+18.6), confirming the imp-96712 over-parameterization caveat. '
     + 'The ~1.07-1.17-decade-past-anchor reach is robust; the tight +/-6% bracket is not. Re-analysis of baked '
-    + 'data only; theoretical GUE, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= '
-    + '0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    + 'data only; theoretical GUE, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed'
+    + '; the zero-side route stays PCC/GRH-gated.',
 };
 
 export const IMP96735_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Re-analysis of baked data only: rho is the theoretical GUE '
+  'RH open; no refereed bound is changed; NO QED. Re-analysis of baked data only: rho is the theoretical GUE '
   + 'two-interval correlation, not computed from real zeros. Leave-one-out on the five imp-96690 floors spreads '
   + 'the imp-96712 reach across ~[7.0e7, 8.7e7] (~4x wider than the tight +/-6% band [7.6e7, 8.2e7]); AIC/BIC/'
   + 'AICc all prefer the single-slope OLS baseline over the three-parameter quadratic. Changes no bound.';
@@ -319,11 +319,11 @@ export const IMP96735_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96735_BASIS_C_LSTAR_BRACKET_LOO.verdict))
     throw new Error('imp-96735: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96735_BASIS_C_LSTAR_BRACKET_LOO.verdict))
-    throw new Error('imp-96735: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96735_BASIS_C_LSTAR_BRACKET_LOO.verdict))
+    throw new Error('imp-96735: verdict dropped the no-refereed-bound-change banner');
   if (!/imp-96712/.test(IMP96735_BASIS_C_LSTAR_BRACKET_LOO.source))
     throw new Error('imp-96735: source dropped the imp-96712 reference');
-  if (!(/RH open/.test(IMP96735_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96735_HONEST_BANNER) && /NO QED/.test(IMP96735_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96735_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96735_HONEST_BANNER) && /NO QED/.test(IMP96735_HONEST_BANNER)))
     throw new Error('imp-96735: IMP96735_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

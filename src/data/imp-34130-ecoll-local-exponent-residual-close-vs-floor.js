@@ -56,7 +56,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33620 (roadmap: separated E_coll local exponent -0.4810@1e12 -> -0.4848@1e15, residual ~0.0152, close-vs-floor open)
  * @see imp-34187-ecoll-residual-milestone-ladder (successor: tabulates this closing residual as a seven-rung
@@ -249,7 +249,7 @@ export const IMP34130_ECOLL_LOCAL_EXPONENT_RESIDUAL_CLOSE_VS_FLOOR = {
     'a saturation floor. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33620 (roadmap: separated E_coll local exponent, close-vs-floor open); imp-33816 (sigma-share ' +
     'exponent gap ~ 1/(2 log T0), same law); imp-33859 (log-space direct path ln N = u + log(u-1)); ' +
@@ -309,14 +309,14 @@ export const IMP34130_ECOLL_LOCAL_EXPONENT_RESIDUAL_CLOSE_VS_FLOOR_ASSERTIONS = 
     },
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = -1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = -1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34130-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = -1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = -1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP34130_ECOLL_LOCAL_EXPONENT_RESIDUAL_CLOSE_VS_FLOOR.isRigorous === false &&
       IMP34130_ECOLL_LOCAL_EXPONENT_RESIDUAL_CLOSE_VS_FLOOR.farTailExponent === -0.5 &&
       /NO QED/.test(IMP34130_ECOLL_LOCAL_EXPONENT_RESIDUAL_CLOSE_VS_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP34130_ECOLL_LOCAL_EXPONENT_RESIDUAL_CLOSE_VS_FLOOR.verdict),
+      /refereed bound is changed/i.test(IMP34130_ECOLL_LOCAL_EXPONENT_RESIDUAL_CLOSE_VS_FLOOR.verdict),
   },
 ];
 

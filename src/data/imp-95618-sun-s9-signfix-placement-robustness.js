@@ -60,7 +60,7 @@
  * primary-source re-derivation of Section 9 nor a certification of any placement.
  *
  * Catalan constant G irrationality remains OPEN; Sun arXiv:2609.04176 single-author and
- * unrefereed; changes no bound; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.
+ * unrefereed; changes no bound; NO Lambda movement; no refereed bound is changed; NO QED.
  *
  * NO heavy imports. All figures baked as literals / recomputed from the ledger.
  */
@@ -106,7 +106,7 @@ export const SUN_S9_SIGNFIX_PLACEMENT_ROBUSTNESS = Object.freeze({
     'ASSESSMENT — both sharp imp-95600 claims are PLACEMENT-A-SPECIFIC (only the (9.4) '
     + 'reading flips rho=1/20 negative and lands the optimum near 1/56); an interior '
     + 'positive optimum EXISTS under all three placements; '
-    + 'G irrationality OPEN; Sun unrefereed; PT Lambda<=0.2 SOTA; NO QED',
+    + 'G irrationality OPEN; Sun unrefereed; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   parabolaCurvatureA: PARABOLA_A,
   kappa: KAPPA,
@@ -173,10 +173,10 @@ export const SUN_S9_SIGNFIX_PLACEMENT_ROBUSTNESS_ASSERTIONS = Object.freeze([
       && PLACEMENT_C.marginAtOpt > 0.037,
   },
   {
-    name: 'honest: assessment only, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: assessment only, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       /G irrationality OPEN/.test(SUN_S9_SIGNFIX_PLACEMENT_ROBUSTNESS.status)
-      && /PT Lambda<=0.2 SOTA/.test(SUN_S9_SIGNFIX_PLACEMENT_ROBUSTNESS.status)
+      && /refereed bound is changed/i.test(SUN_S9_SIGNFIX_PLACEMENT_ROBUSTNESS.status)
       && /NO QED/.test(SUN_S9_SIGNFIX_PLACEMENT_ROBUSTNESS.status),
   },
 ]);

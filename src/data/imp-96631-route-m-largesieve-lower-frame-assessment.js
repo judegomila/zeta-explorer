@@ -87,8 +87,8 @@
  * Nyman-Beurling Riesz-sequence property, known FALSE (bottom edge 0), so the majorant
  * machinery is structurally the wrong tool. Sharpens imp-96613 FINDING 4 from "no lower-frame
  * analog identified" to a precise per-candidate obstruction. Changes no bound; no operator
- * positivity; the imp-96548 conditioning ceiling stays double-precision-limited; PT
- * Lambda <= 0.2 SOTA; RH open; NO QED.
+ * positivity; the imp-96548 conditioning ceiling stays double-precision-limited; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96613-route-m-lammin-nuniform-lowerbound-obstruction-assessment.js (FINDING 4 this drills into)
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (the top-edge rigorous UPPER bound)
@@ -178,7 +178,7 @@ export const IMP96631_VERDICT = Object.freeze({
     'cause: the lower-frame bound is the Nyman-Beurling Riesz-sequence property, known FALSE (bottom ' +
     'edge 0), so the majorant machinery is structurally the wrong tool. Sharpens imp-96613 FINDING 4 to ' +
     'a precise per-candidate obstruction. Changes no bound; no operator positivity; imp-96548 ceiling ' +
-    'stays double-precision-limited; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'stays double-precision-limited; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96631_SUBGAP = Object.freeze({
@@ -191,7 +191,7 @@ export const IMP96631_SUBGAP = Object.freeze({
 });
 
 export const IMP96631_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: a per-candidate obstruction ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment only: a per-candidate obstruction ' +
   'analysis of the lower large-sieve / PSD-minorant / Gal-lower-bound options raised by imp-96613 ' +
   'FINDING 4. No Gram was rebuilt, no bound is claimed moved and no operator positivity is established.';
 
@@ -239,7 +239,7 @@ const IMP96631_ASSERTIONS = [
       IMP96631_VERDICT.lowerFrameBoundSupplied === false &&
       IMP96631_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96631_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96631_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96631_HONEST_BANNER) &&
       /RH open/.test(IMP96631_HONEST_BANNER) &&
       /lower-frame/.test(IMP96631_SUBGAP.id),
     why: 'assessment only: no lower-frame bound supplied, no bound moved, and the honesty markers plus the lower-frame sub-gap slug are present.',

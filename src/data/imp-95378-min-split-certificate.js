@@ -4,7 +4,7 @@
  * of whether taking the min uniformly closes the imp-95256 "never diverge by
  * more than 2x" non-dominance gap or leaves a residual wedge against the
  * EXACT joint pencil. Derive/measure only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * SETUP (imp-95249 / imp-95250 / imp-95256 normalization). Two disjoint
  * blocks of exponential rates V_1, V_2 in L2(0, inf), Cauchy Gram
@@ -138,14 +138,14 @@ export const IMP95378_MIN_SPLIT_CERTIFICATE = {
     "admissibility of the min is one line (min of upper bounds is an upper " +
     "bound); the content is the residual-looseness measurement and the shared-" +
     "collar attribution; m = 2 only; model family only; changes no bound; NO " +
-    "QED; Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "QED; no refereed bound is changed",
   verdict:
     "DERIVATION + MEASUREMENT: min(SPLIT-2, SPLIT-LOO) is the correct single " +
     "admissible certificate and uniformly closes the <=2x INTER-certificate " +
     "gap of imp-95256 (residual there zero). It leaves a LARGE residual wedge " +
     "vs the EXACT pencil, unbounded as sigma -> 1, because both splits share " +
     "the angular collar the min cannot touch. Changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -435,7 +435,7 @@ export const IMP95378_ASSERTIONS = [
     description:
       "verdict and scope carry the honest labels: DERIVATION + MEASUREMENT, " +
       "closes inter-certificate gap, residual wedge vs exact, no bound change, " +
-      "no QED, PT SOTA",
+      "no QED, no refereed bound is changed",
     holds: () =>
       /DERIVATION \+ MEASUREMENT/.test(
         IMP95378_MIN_SPLIT_CERTIFICATE.verdict,
@@ -444,7 +444,7 @@ export const IMP95378_ASSERTIONS = [
       /residual wedge/.test(IMP95378_MIN_SPLIT_CERTIFICATE.verdict) &&
       /Changes no bound/.test(IMP95378_MIN_SPLIT_CERTIFICATE.verdict) &&
       /NO QED/.test(IMP95378_MIN_SPLIT_CERTIFICATE.verdict) &&
-      /remains SOTA/.test(IMP95378_MIN_SPLIT_CERTIFICATE.verdict),
+      /refereed bound is changed/i.test(IMP95378_MIN_SPLIT_CERTIFICATE.verdict),
   },
 ];
 

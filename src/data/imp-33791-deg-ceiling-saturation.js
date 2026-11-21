@@ -52,7 +52,7 @@
  *   carries NO RH verdict; it merely quantifies how the DEG-dependent ceiling is approached.
  *   K_a >= 0 was NOT attempted; imp-3066 / imp-33704 / imp-33725 / imp-33765 / G7 remain
  *   UNTOUCHED as proofs; positivity was not attempted; this is not a proof or a reduction;
- *   Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   no refereed bound is changed. No false QED.
  *
  *   @see imp-33789-decoupled-rate-grid.js (imp-33789: the decoupled pass/shear-rate grid)
  *   @see imp-33765-g7-obstruction-orthogonal-lever.js (imp-33765: the orthogonal-lever verdict)
@@ -230,7 +230,7 @@ export const IMP33791_DEG_CEILING_SATURATION = Object.freeze({
     'DEG = 4 (spread ~2.2% across DEG 2..8), NEITHER growing nor shrinking. So enlarging the ' +
     'truncation lifts the ceiling but does not move where (in s) the obstruction saturates -- ' +
     'the curve rescales vertically, quantifying the ceiling-vs-curve separation the imp-33765 ' +
-    'verdict asserts qualitatively. Diagnostic; no RH verdict; PT 0.2 SOTA.',
+    'verdict asserts qualitatively. Diagnostic; no RH verdict; no refereed bound is changed.',
 
   construction: Object.freeze({
     quadraturePanels: NQ,
@@ -286,7 +286,7 @@ export const IMP33791_DEG_CEILING_SATURATION = Object.freeze({
     didNotAttemptKaNonnegativity: true,
     didNotAttemptPositivity: true,
     carriesNoRHVerdict: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    sota: 'No refereed bound is changed.',
   }),
 });
 
@@ -330,7 +330,7 @@ export const IMP33791_DEG_CEILING_SATURATION_ASSERTIONS = [
     why: 'Mandatory honesty: this is a REPRESENTATIVE measurement / diagnostic on the coupled ' +
          '(admissible) slice, ||R|| carries no RH verdict, imp-3066 / imp-33725 / imp-33765 / G7 ' +
          'are untouched, K_a >= 0 and positivity were not attempted, it is not a proof or a ' +
-         'reduction, and PT 0.2 stays SOTA.',
+         'reduction, and no refereed bound is changed.',
     holds: () => {
       const c = IMP33791_DEG_CEILING_SATURATION.honestCaveat;
       return (
@@ -345,7 +345,7 @@ export const IMP33791_DEG_CEILING_SATURATION_ASSERTIONS = [
         c.didNotAttemptKaNonnegativity === true &&
         c.didNotAttemptPositivity === true &&
         c.carriesNoRHVerdict === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

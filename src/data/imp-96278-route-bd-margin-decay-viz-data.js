@@ -15,8 +15,7 @@
  * ROUTE_BD_MARGIN_DECAY_FITS_TABLE / ROUTE_BD_MARGIN_DECAY_FITS_SUMMARY.
  *
  * PRESENTATION ONLY. No new zeros, no Gram build, no bound changes, no
- * operator positivity established; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity established; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96148-route-bd-online-margin-decay-law.js (source column + fits, derivation)
  * @see imp-96173-route-bd-margin-decay-fits-table.js (reader-facing table this leaf reshapes)
@@ -45,7 +44,7 @@ export const IMP96278_FIT_SUMMARY = Object.freeze({
 });
 
 export const IMP96278_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every T, rhoObserved, rhoLogLinear, '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every T, rhoObserved, rhoLogLinear, '
   + 'rhoReciprocalLogFloor and segmentSlopeIn value is copied verbatim from the imp-96173 reader-facing '
   + 'table (itself consolidating the imp-96148 derivation); only lnT is computed here for the chart axis. '
   + 'No new zeros, no Gram build, no bound changes, no operator positivity established.';
@@ -86,8 +85,8 @@ const IMP96278_ASSERTIONS = [
   },
   {
     id: 'imp96278-honest-banner-present',
-    holds: () => /RH open/.test(IMP96278_HONEST_BANNER) && /NO QED/.test(IMP96278_HONEST_BANNER) && /SOTA/.test(IMP96278_HONEST_BANNER),
-    why: 'honesty gate: presentation only, no RH claim, PT stays SOTA.',
+    holds: () => /RH open/.test(IMP96278_HONEST_BANNER) && /NO QED/.test(IMP96278_HONEST_BANNER) && /refereed bound is changed/i.test(IMP96278_HONEST_BANNER),
+    why: 'honesty gate: presentation only, no RH claim, no refereed bound is changed.',
   },
 ];
 

@@ -77,8 +77,7 @@
  * C(delta) = pi^2/(2 delta^2) input is imp-95704 (small-delta dual asymptotic,
  * sharp for delta <= 1). (c) F is the same finite-size (80-point) proxy as
  * imp-95693 / imp-95708. (d) Model seam family only; the imp-95212 envelope port,
- * signed WEIGHT, and modulus/phase legs stay OPEN. NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * signed WEIGHT, and modulus/phase legs stay OPEN. NO QED; no refereed bound is changed.
  *
  * @see imp-95708-ln12-left-endpoint-dual-confirm (the one-sided endpoint step)
  * @see imp-95704-rho1-szego-coefficient-delta-scaling (C(delta) = pi^2/(2 delta^2))
@@ -151,7 +150,7 @@ export const IMP95725_SZEGO_RATIO_MONOTONICITY_ENDPOINT = {
     "SUB-GAP SZEGO-REMAINDER-MONO: the O(h^3) remainder is not analytically " +
     "bounded, so this is a leading-order proof plus a dense numerical witness, " +
     "not an all-orders proof. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   closesTickets: ["imp-95725"],
 };
 
@@ -342,7 +341,7 @@ export const IMP95725_ASSERTIONS = [
       REF.qed === false &&
       /MONOTONICITY GROUNDED TO LEADING ORDER/.test(REF.verdict) &&
       /SZEGO-REMAINDER-MONO/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95725-closes-self",

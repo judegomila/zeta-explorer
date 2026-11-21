@@ -16,7 +16,7 @@
  *   @see imp-3900-h2-flux-convexity-viz-data (companion viz for the H2 root's empirical probe, imp-3872)
  *
  *   Ticket: imp-33266 (ux, low). Presentation only; K4 stays WHOLLY NEW, G6a_shock_lipschitz stays
- *   OPEN, H2 stays UNWRITTEN; imp-3066 untouched; Platt-Trudgian Lambda<=0.2 remains SOTA; NO QED.
+ *   OPEN, H2 stays UNWRITTEN; imp-3066 untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP33266_TOOLKIT = Object.freeze([

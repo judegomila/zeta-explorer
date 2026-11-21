@@ -16,7 +16,7 @@
  *
  * FINDING: all three checks pass for both modules. No untracked/unregistered
  * gap, no heavy-bundle reach. AUDIT-ONLY: no bound change; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 const SUBJECT_MODULES = [
@@ -57,8 +57,8 @@ export const IMP95458_SEPOPT_PPOS_TRACKING_AUDIT = {
   honest: 'AUDIT-ONLY -- confirms imp-95419 (SEP-OPT) and imp-95420 (P-POS) are both git-tracked, ' +
     'both registered in the run-assertions DATA_MODULES list (since the imp-95437 batch), and both ' +
     'import-light (zero import statements each), so neither module can blank a lazy viz page or ' +
-    'silently fall out of the assertion sweep. No bound change; NO QED; Platt-Trudgian Lambda<=0.2 ' +
-    'remains SOTA.',
+    'silently fall out of the assertion sweep. No bound change; NO QED; no refereed bound is changed' +
+    '.',
 };
 
 export const IMP95458_SEPOPT_PPOS_TRACKING_AUDIT_ASSERTIONS = [
@@ -85,9 +85,9 @@ export const IMP95458_SEPOPT_PPOS_TRACKING_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-95458-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP95458_SEPOPT_PPOS_TRACKING_AUDIT.honest)
-      && /Lambda<=0.2 remains SOTA/.test(IMP95458_SEPOPT_PPOS_TRACKING_AUDIT.honest),
+      && /refereed bound is changed/i.test(IMP95458_SEPOPT_PPOS_TRACKING_AUDIT.honest),
   },
 ];
 

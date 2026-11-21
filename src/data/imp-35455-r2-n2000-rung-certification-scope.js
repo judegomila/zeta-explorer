@@ -72,8 +72,8 @@
  *
  * SCOPE: ASSESSMENT / SCOPING ONLY. Discharges nothing; advances no rung (stays
  * N=1000); recommends NO page edit (RUNGS[5] already correct per imp-35412); does
- * NOT touch the imp-486 GUE conditional. Changes NO bound. Platt-Trudgian
- * Lambda <= 0.2 stays SOTA. NO QED.
+ * NOT touch the imp-486 GUE conditional. Changes NO bound. No refereed bound is changed
+ * . NO QED.
  *
  * SYNTAX NOTE: "dt-over-2"/"dt-over-4" prose used in place of the slash form to
  * avoid the star-slash JSDoc terminator.

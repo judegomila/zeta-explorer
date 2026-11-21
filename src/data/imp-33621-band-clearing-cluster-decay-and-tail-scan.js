@@ -70,7 +70,7 @@
  *   subsides nor resolves to a lone fourth cluster -- not the exact per-rung ULP, cluster edges, or peak
  *   heights. The NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel
- *   step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the SOTA.
+ *   step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33599-wide-range-band-crossing-envelope-law.js (the three clusters this quantifies and the scan this extends)
  *   @see imp-33579-band-crossing-floor-bisection.js (the narrow-bracket scan)
@@ -321,7 +321,7 @@ const verdict =
       'imp-33599/imp-33579/imp-33557/imp-33537-latticeJitterCaveat:-THE-BAND-CLEARING-CLUSTERED-SPIKE-STRUCTURE-' +
       'IS-A-PERSISTENT-TAIL-PHENOMENON-AT-ALL-SCALES,-NEVER-SUBSIDING-AND-NEVER-A-MONOTONE-THRESHOLD.-ACCURACY/' +
       'RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-' +
-      'imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33621_BAND_CLEARING_CLUSTER_DECAY_AND_TAIL_SCAN = Object.freeze({
@@ -350,7 +350,7 @@ export const IMP33621_BAND_CLEARING_CLUSTER_DECAY_AND_TAIL_SCAN = Object.freeze(
     'SHARPENS the imp-33599/imp-33579/imp-33557/imp-33537 latticeJitterCaveat -- the band-clearing clustered ' +
     'spike is a persistent tail phenomenon at all scales examined, never subsiding and never a monotone ' +
     'threshold. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice ' +
-    'floor; operator positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'floor; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -470,7 +470,7 @@ export const IMP33621_BAND_CLEARING_CLUSTER_DECAY_AND_TAIL_SCAN = Object.freeze(
       'peaks, the ~65/~43 spacings, and the flat/weak trend slopes). The robust reading is the QUALITATIVE ' +
       'structure -- a persistent clustered-spike tail that neither subsides nor resolves to a lone fourth ' +
       'cluster, with a local [400,700] peak downtrend that does NOT extrapolate -- not the exact per-rung ULP.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -531,7 +531,7 @@ export const IMP33621_BAND_CLEARING_CLUSTER_DECAY_AND_TAIL_SCAN_ASSERTIONS = [
   {
     id: 'imp33621-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33621_BAND_CLEARING_CLUSTER_DECAY_AND_TAIL_SCAN.honestCaveat;
       return (
@@ -540,7 +540,7 @@ export const IMP33621_BAND_CLEARING_CLUSTER_DECAY_AND_TAIL_SCAN_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

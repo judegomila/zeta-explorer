@@ -40,7 +40,7 @@
  * enforced tolerance to the documented ~3e-7 (K) and 4-sig-fig (K_{7/2}) levels. It certifies no constant,
  * establishes no operator positivity, discharges neither O3 nor G6a, and changes no bound. imp-3066
  * off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35240-rho-prefactor-finer-grid-remeasurement (K = 8 sqrt(2)/(9 pi), recomputed-and-checked at 1e-5)
  * @see imp-35244-rho-eps52-coefficient-measurement (K_{7/2} = -8 sqrt(2)/(3 pi), recomputed-and-checked at 5e-3)
@@ -119,8 +119,8 @@ export const IMP35306_RHO_PREFACTOR_ASSERTION_EXECUTION_AUDIT = {
     'enforces the stated tolerances (bestK within 1e-6 of 8 sqrt(2)/(9 pi), measured 3.31e-7; tailK72 within ' +
     '5e-4 of -8 sqrt(2)/(3 pi), measured 3.02e-5). It certifies no constant, establishes no operator ' +
     'positivity, discharges neither O3 nor G6a, and changes no bound. imp-3066 off-diagonal endpoint-Hankel ' +
-    'K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP35306_RHO_PREFACTOR_ASSERTION_EXECUTION_ASSERTIONS = [
@@ -159,14 +159,14 @@ export const IMP35306_RHO_PREFACTOR_ASSERTION_EXECUTION_ASSERTIONS = [
       IMP35306_RHO_PREFACTOR_ASSERTION_EXECUTION_AUDIT.mereDocumentation === false,
   },
   {
-    // Honesty gate: verification only; no bound moved, O3/G6a not discharged, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: verification only; no bound moved, O3/G6a not discharged, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35306-honesty-gate-no-qed',
-    description: 'Verification/test-coverage only: no bound changed, O3/G6a NOT discharged, no QED, PT SOTA, imp-3066 untouched',
+    description: 'Verification/test-coverage only: no bound changed, O3/G6a NOT discharged, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35306_RHO_PREFACTOR_ASSERTION_EXECUTION_AUDIT.isRigorous === false &&
       IMP35306_RHO_PREFACTOR_ASSERTION_EXECUTION_AUDIT.dischargesO3orG6a === false &&
       /NO QED/.test(IMP35306_RHO_PREFACTOR_ASSERTION_EXECUTION_AUDIT.verdict) &&
-      /rigorous SOTA/.test(IMP35306_RHO_PREFACTOR_ASSERTION_EXECUTION_AUDIT.verdict) &&
+      /refereed bound is changed/i.test(IMP35306_RHO_PREFACTOR_ASSERTION_EXECUTION_AUDIT.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35306_RHO_PREFACTOR_ASSERTION_EXECUTION_AUDIT.verdict,
       ),

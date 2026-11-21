@@ -5,7 +5,7 @@
  * closed form kappa_arith = (3/2) C - 3/8 = 0.5704960511... quoted by imp-97516 STEP 3 against
  * imp-97096's exact evaluation, identify the constant C explicitly, and audit that every downstream
  * consumer cites the identical constant rather than a drifted decimal. No bound moves; no derivation
- * is restated or re-proved; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * is restated or re-proved; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * WHAT WAS CHECKED.
@@ -95,7 +95,7 @@ export const IMP97543_CROSSCHECK = Object.freeze({
 });
 
 export const IMP97543_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy audit only: the Route-M arithmetic ' +
+  'RH open; no refereed bound is changed; NO QED. Accuracy audit only: the Route-M arithmetic ' +
   'first-moment constant kappa_arith = (3/2) C - 3/8 = 0.5704960511308594, C = (log 2pi - gamma)/2, ' +
   'is verified against imp-97096s exact evaluation and confirmed cited identically by imp-97124, ' +
   'imp-97131, imp-97516 and the glossary. No drift, no correction, no bound moved.';
@@ -145,7 +145,7 @@ const IMP97543_ASSERTIONS = [
       IMP97543_CROSSCHECK.driftFound === false &&
       IMP97543_CROSSCHECK.reproducesToFullPrecision === true &&
       /NO QED/.test(IMP97543_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97543_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97543_HONEST_BANNER) &&
       /RH open/.test(IMP97543_HONEST_BANNER),
     why:
       'consistency audit only: closed form verified against imp-97096, no drift, no bound moved, ' +

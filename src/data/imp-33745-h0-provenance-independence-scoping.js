@@ -70,7 +70,7 @@
  * H3/H4/H5 open), so it is DISTINCT-BUT-ORTHOGONAL, not load-bearing. The open catalogue stays FOUR rows
  * (H0, H3, H4, H5); H0 remains OPEN as its own obligation. Bookkeeping / assessment only;
  * G6a_shock_lipschitz stays OPEN; no positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0
- * UNTOUCHED; C_mb share untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * UNTOUCHED; C_mb share untouched; NO QED. No refereed bound is changed.
  *
  * @see imp-33706-selection-catalogue-count-scoping (the k = 0 selection fold + the open-residual tower)
  * @see imp-33603-lemma52-port-scoping (the H0..H5 catalogue; H0 the provenance rung; H4 the residual)
@@ -178,8 +178,8 @@ export const IMP33745_H0_PROVENANCE_INDEPENDENCE_SCOPING = {
     'still leave H3/H4/H5 open on the repo own analysis). The open catalogue stays four rows ' +
     '(H0, H3, H4, H5) and H0 remains OPEN as its own standing obligation. Bookkeeping / assessment ' +
     'only; G6a_shock_lipschitz stays OPEN; no positivity; imp-3066 off-diagonal endpoint-Hankel ' +
-    'K_a >= 0 UNTOUCHED; C_mb share untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'K_a >= 0 UNTOUCHED; C_mb share untouched; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33706-selection-catalogue-count-scoping (the k = 0 selection fold + the open-residual tower ' +
     '{1/4, 3/4, 5/4}); imp-33603-lemma52-port-scoping (the H0..H5 catalogue; H0 the provenance rung; ' +
@@ -237,14 +237,14 @@ export const IMP33745_H0_PROVENANCE_INDEPENDENCE_SCOPING_ASSERTIONS = [
       OPEN_ROWS_AFTER.includes('H0'),
   },
   {
-    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33745-honesty-gate-no-qed',
-    description: 'Bookkeeping only: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Bookkeeping only: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33745_H0_PROVENANCE_INDEPENDENCE_SCOPING.isRigorous === false &&
       /NO QED/.test(IMP33745_H0_PROVENANCE_INDEPENDENCE_SCOPING.verdict) &&
       /stays OPEN/.test(IMP33745_H0_PROVENANCE_INDEPENDENCE_SCOPING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33745_H0_PROVENANCE_INDEPENDENCE_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP33745_H0_PROVENANCE_INDEPENDENCE_SCOPING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33745_H0_PROVENANCE_INDEPENDENCE_SCOPING.verdict),
   },
 ];

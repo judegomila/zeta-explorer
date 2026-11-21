@@ -12,8 +12,8 @@
  * MEASUREMENT / PRESENTATION ONLY. Every marginRelPct / caps / canonicalMarginRelPct
  * value is imported unchanged from imp-96132 (no re-derivation, no re-baking of the
  * underlying sd(C-E) / meanL literals); only the flattening for plotting happens here.
- * Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96132-max-anchor-window-robustness-four-heights.js (source measurement)
  * @see imp-96112-max-anchor-margin-window-robustness (the 5e4-only sweep this extends)
@@ -59,7 +59,7 @@ export const IMP96160_SUMMARY = {
 };
 
 export const IMP96160_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every margin value plotted '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every margin value plotted '
   + 'here is imported verbatim from imp-96132 (no re-derivation, no re-baking of the underlying '
   + 'sd(C-E) / mean-L literals); only the flattening into a 48-config chart list happens in this '
   + 'module. Changes no bound and establishes no operator positivity.';

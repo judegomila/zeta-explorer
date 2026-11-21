@@ -62,7 +62,7 @@
  * k* = 1/2, which governs a different (asymptotic) transition.
  *
  * MEASUREMENT / CERTIFICATION ONLY. Frontier-direction, RH-equivalent. No positivity, no
- * bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bridge closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-3465-nmax-height-dependent-floor (the height-dependent floor + power-family sweep)
  * @see imp-3406-sigma-highN-extrapolation (interior sigma-MAX N_max ~ 9.22e5, fixed floor)
@@ -232,7 +232,7 @@ export const IMP3486_CRITICAL_DECAY_EXPONENT = {
     'overtaken by the amplified low-N floor). This sharpens imp-3465s "any k>0 eliminates it": its ' +
     'smallest positive grid sample k=0.2 merely sat just above the threshold. Window-dependent; ' +
     'sits below the large-N limit-flip k* = 1/2. No positivity, no bridge closure, no RH claim, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-3465 (height-dependent floor, power-family sweep, k* = 1/2 limit flip); imp-3406 ' +
     '(interior sigma-MAX N_max ~ 9.22e5, fixed floor); imp-3220 (U-shaped sigma(N) ladder); ' +
@@ -278,13 +278,13 @@ export const IMP3486_CRITICAL_DECAY_EXPONENT_ASSERTIONS = [
     holds: () => K_C > 0 && K_C < 0.2 && K_C < 0.5,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA, not rigorous.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed, not rigorous.
     id: 'imp3486-honesty-gate-no-qed',
-    description: 'Measurement only: window-dependent threshold, no QED, PT stays SOTA',
+    description: 'Measurement only: window-dependent threshold, no QED, no refereed bound is changed',
     holds: () =>
       IMP3486_CRITICAL_DECAY_EXPONENT.isRigorous === false &&
       /NO QED/.test(IMP3486_CRITICAL_DECAY_EXPONENT.verdict) &&
-      /remains SOTA/.test(IMP3486_CRITICAL_DECAY_EXPONENT.verdict),
+      /refereed bound is changed/i.test(IMP3486_CRITICAL_DECAY_EXPONENT.verdict),
   },
 ];
 

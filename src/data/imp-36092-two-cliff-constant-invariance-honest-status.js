@@ -14,7 +14,7 @@
  *   constant-tunable quantity.
  *
  *   Ticket: imp-36092 (content, medium). Note only; ports nothing; changes no
- *   bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   bound; no refereed bound is changed; NO QED.
  *
  * @see imp-36021-two-cliff-gap-constant-sensitivity.js (source: the K/delta/S_inf sweep this note restates)
  * @see imp-35972-effective-height-overflow-cliff-bisection (LOCATED the two cliffs at the pinned constants)
@@ -72,7 +72,7 @@ export const IMP36092_TWO_CLIFF_CONSTANT_INVARIANCE_HONEST_STATUS = Object.freez
     changesAnyBound: false,
     portsAnyRoute: false,
     subGap: 'imp-34714a REMAINS OPEN',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -80,7 +80,7 @@ export const IMP36092_TWO_CLIFF_CONSTANT_INVARIANCE_HONEST_STATUS = Object.freez
     'under K, delta, or S_inf perturbation -- dlog10(N_A)/dlog(*) = dlog10(N_B)/dlog(*) = 0 to the last bit, ' +
     'and the ~6.2e-4-decade separation between the two cliffs has zero spread. This is a fixed geometric ' +
     'property of the double-precision effectiveHeightForN seed, not a constant-tunable RH quantity. Note ' +
-    'only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'only; changes no bound; NO QED; no refereed bound is changed.',
 });
 
 export const IMP36092_TWO_CLIFF_CONSTANT_INVARIANCE_HONEST_STATUS_ASSERTIONS = [
@@ -120,7 +120,7 @@ export const IMP36092_TWO_CLIFF_CONSTANT_INVARIANCE_HONEST_STATUS_ASSERTIONS = [
       IMP36092_TWO_CLIFF_CONSTANT_INVARIANCE_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP36092_TWO_CLIFF_CONSTANT_INVARIANCE_HONEST_STATUS.honestCaveat.isReductionBelowRH === false &&
       IMP36092_TWO_CLIFF_CONSTANT_INVARIANCE_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36092_TWO_CLIFF_CONSTANT_INVARIANCE_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36092_TWO_CLIFF_CONSTANT_INVARIANCE_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36092-verdict-constant-invariant-no-qed',

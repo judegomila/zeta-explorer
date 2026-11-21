@@ -181,8 +181,7 @@
  * The numerics below CROSS-CHECK the theorem statements; the theorems
  * consume none of them (LEMMA MULT is Plancherel, SGN-C is the h_(K-k)
  * count bound, C-CLEAN is elementary calculus). Import-light (no zeros
- * bundle, no sibling imports). Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bundle, no sibling imports). Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ── baked literals (recomputed by the assertions) ────────────────────────────
@@ -326,7 +325,7 @@ export const IMP95225_SIGNED_COUNT_PRICED_SHIFT_CERTIFICATE = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. Obligation ledger: (1) per-window Q extraction UNCHANGED (margin-sizing per imp-95222); (2) signed certificate beyond depth currency: COUNT LEG DELIVERED at model level by this module (SGN-EQ N = 1 sharp -> SGN-C any N, polynomial collar, coalescence-uniform); remaining currency legs OPEN: WEIGHT-priced signed bound (W in place of N -- the imp-95218/95219 TVC cross-octave composition is a positive-cone device, so the signed weight port needs a NEW signed composition) and per-window modulus/phase; (3) envelope-shape port and seam-to-chain-gate (gammaSL-form) map UNCHANGED; (4) paper constants per window UNCHANGED. Leg (alpha) unchanged. HONEST: the width-law alias packets have N ~ pD at x = Theta(1), deep inside the SGN-C vacuity region -- this certificate does NOT certify the paper packets, consistent with every imp-95220 no-go.",
   verdict:
-    "RIGOROUS step (positive): THEOREM SGN-C is the first signed multi-rate seam certificate -- the depth-currency vacuum left by imp-95224 (no bound R <= F(y_min) exists) is filled in count currency: R <= e^(-2x)[sum_(k<N) C(K,k)(1+e^(x/K))^k]^2, N = distinct rates, x = m d, arbitrary real amplitudes, uniform over coalescence, proved by an elementary two-lemma chain (segment reduction to an exponential sum; a Plancherel shift-multiplier cap evaluated on the Newton interpolant of w^K, whose divided differences are complete homogeneous symmetric polynomials counted by C(K,k)). It recovers the sharp SGN-EQ bound exactly at N = 1, fences the N = 2 sector within a factor below 8 against the imp-95224 coalescence-law floor (matching quadratic order), and its forced count-vacuity frontier N ~ 1.4427x sits honestly below the SGN-SAT saturation frontier N ~ 11.6893x. HONEST: the corridor between the two frontiers is open on both sides; the weight-priced and modulus/phase signed legs remain open; the width-law paper packets (N ~ pD, x = Theta(1)) are NOT certified -- no bound changed, NO QED, Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step (positive): THEOREM SGN-C is the first signed multi-rate seam certificate -- the depth-currency vacuum left by imp-95224 (no bound R <= F(y_min) exists) is filled in count currency: R <= e^(-2x)[sum_(k<N) C(K,k)(1+e^(x/K))^k]^2, N = distinct rates, x = m d, arbitrary real amplitudes, uniform over coalescence, proved by an elementary two-lemma chain (segment reduction to an exponential sum; a Plancherel shift-multiplier cap evaluated on the Newton interpolant of w^K, whose divided differences are complete homogeneous symmetric polynomials counted by C(K,k)). It recovers the sharp SGN-EQ bound exactly at N = 1, fences the N = 2 sector within a factor below 8 against the imp-95224 coalescence-law floor (matching quadratic order), and its forced count-vacuity frontier N ~ 1.4427x sits honestly below the SGN-SAT saturation frontier N ~ 11.6893x. HONEST: the corridor between the two frontiers is open on both sides; the weight-priced and modulus/phase signed legs remain open; the width-law paper packets (N ~ pD, x = Theta(1)) are NOT certified -- no bound changed, NO QED, no refereed bound is changed.",
   rigorScope:
     "LEMMA SEG-N is the imp-95223 segment argument plus rate merging. LEMMA MULT is Plancherel: extension by zero, triangle step to the full-line convolution norm, multiplier symbol p on the unit circle. THEOREM SGN-C consumes the classical identities [w_1..w_(k+1)] w^K = h_(K-k) (divided difference of a monomial = complete homogeneous symmetric polynomial) and the monomial count C(K,k), plus |w - w_j| <= 1 + h on the circle and the exact rebalancing h^(K-k)(1+h)^k = e^(-x)(1+e^(x/K))^k. C-CLEAN uses C(K,k) <= (eK/k)^k and d/dk [k ln(aK/k)] = ln(aK/k) - 1 >= ln a - 1 > 0. All numerics below are cross-checks; the theorems consume none of them.",
 };
@@ -572,7 +571,7 @@ export const IMP95225_SIGNED_ASSERTIONS = [
       ) &&
       /remain open/.test(IMP95225_SIGNED_COUNT_PRICED_SHIFT_CERTIFICATE.verdict) &&
       /NO QED/.test(IMP95225_SIGNED_COUNT_PRICED_SHIFT_CERTIFICATE.verdict) &&
-      /remains SOTA/.test(IMP95225_SIGNED_COUNT_PRICED_SHIFT_CERTIFICATE.verdict),
+      /refereed bound is changed/i.test(IMP95225_SIGNED_COUNT_PRICED_SHIFT_CERTIFICATE.verdict),
   },
 ];
 

@@ -250,7 +250,7 @@ export const IMP3400_TTILDE_SPECTRAL_SLOPE_CLOSED_FORM = Object.freeze({
     'is the transform of the truncated dBN kernel with no elementary maximizer, so C_inf ~ 0.1751 stays a ' +
     'DETERMINED NUMBER -- the formula is exact but its value needs a transcendental sup. Assessment only; ' +
     'RH-equivalent; the imp-3066 K_a >= 0 magnitude is the lone obstruction, UNTOUCHED. NO RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -317,7 +317,7 @@ export const IMP3400_TTILDE_SPECTRAL_SLOPE_CLOSED_FORM = Object.freeze({
       'The spectral-slope identity is diagnostic; the imp-3066 off-diagonal endpoint-Hankel operator magnitude ' +
       'remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -346,7 +346,7 @@ export const IMP3400_TTILDE_SPECTRAL_SLOPE_CLOSED_FORM_ASSERTIONS = [
   {
     id: 'imp3400-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- exact symbolic identity for the numerator norm, but the VALUE ' +
-      'stays transcendental (C_inf a number), positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'stays transcendental (C_inf a number), positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3400_TTILDE_SPECTRAL_SLOPE_CLOSED_FORM.honestCaveat;
       return (
@@ -356,7 +356,7 @@ export const IMP3400_TTILDE_SPECTRAL_SLOPE_CLOSED_FORM_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.closedFormIsExactSymbolIdentity === 'string' &&
         typeof c.valueStaysTranscendental === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

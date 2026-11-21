@@ -46,7 +46,7 @@
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies
  * no inequality; changes no bound; establishes no positivity; the A + B - C certificate at T_PT stays
  * GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); C_mb GUE-conditional (imp-486) untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35854-w1-summation-kappa-sweep (coarse sweep that FOUND the drop but not the crossover kappa)
  * @see imp-35812-w1-summation-scheme-measured-cost (term family + exact BigInt reference)
@@ -58,7 +58,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35812 / imp-35854) ----------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms at T_PT (imp-35674 Part D)
 
@@ -287,7 +287,7 @@ export const IMP35886_W1_SUMMATION_KAPPA_CROSSOVER = {
     'the O(1) barrier margin |A_t + B_t| - |C_t| (imp-35760); precision is NOT binding. Certifies no W1 bound; evaluates ' +
     'no true H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; the W1 ' +
     'A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); C_mb GUE-conditional ' +
-    '(imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35854 (coarse sweep that found the drop but not the crossover kappa); imp-35812 (term family + exact BigInt ' +
     'reference); imp-35871 (sqrt(N) u as an upper envelope not a tracked law); imp-35761 (pessimistic N u ceiling); ' +
@@ -364,16 +364,16 @@ export const IMP35886_W1_SUMMATION_KAPPA_CROSSOVER_ASSERTIONS = [
       /CONVENTION/.test(IMP35886_W1_SUMMATION_KAPPA_CROSSOVER.honestStatus),
   },
   {
-    // Honesty gate: measurement only; greenfield; no QED; PT Lambda<=0.2 SOTA.
+    // Honesty gate: measurement only; greenfield; no QED; no refereed bound is changed.
     id: 'imp35886-honesty-gate',
-    description: 'Measurement only; crossover located; greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; crossover located; greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35886_W1_SUMMATION_KAPPA_CROSSOVER.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /LOCATED/.test(IMP35886_W1_SUMMATION_KAPPA_CROSSOVER.conclusion.crossoverLocated) &&
       /GREENFIELD/.test(IMP35886_W1_SUMMATION_KAPPA_CROSSOVER.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35886_W1_SUMMATION_KAPPA_CROSSOVER.verdict) &&
-      /remains SOTA/.test(IMP35886_W1_SUMMATION_KAPPA_CROSSOVER.verdict),
+      /refereed bound is changed/i.test(IMP35886_W1_SUMMATION_KAPPA_CROSSOVER.verdict),
   },
 ];
 

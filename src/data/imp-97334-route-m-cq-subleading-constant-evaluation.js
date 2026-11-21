@@ -62,7 +62,7 @@
  *   asymptotic with the crossover Euler-Maclaurin correction (the imp-97329 sub-gap), NOT a longer
  *   ladder. Measurement only; pins no constant; no bound moves; the rigorous anchor stays the trace
  *   ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x; no operator
- *   positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97334-cq-constant-nonexistent-limit -- the constant-model cQ ~ -13.4 is
  *   documented, but cQ = lim (Q(b) - s0 b) does NOT exist (g(b) grows) and is coupled to s0 with
@@ -207,8 +207,8 @@ export const IMP97334_VERDICT = Object.freeze({
     'WORSE. Pinning cQ as a value (hence the far-field ceiling F) needs the analytic Bettin-Conrey ' +
     'small-a asymptotic plus the crossover Euler-Maclaurin correction (the imp-97329 sub-gap), NOT ' +
     'more finite-b compute. Measurement only; pins no constant; no bound moves; the rigorous anchor ' +
-    'stays T=2.594e7; compute N~9916 binds first by >2600x; no operator positivity; PT Lambda <= ' +
-    '0.2 SOTA; RH open; NO QED.',
+    'stays T=2.594e7; compute N~9916 binds first by >2600x; no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97334_SUBGAP = Object.freeze({
@@ -226,7 +226,7 @@ export const IMP97334_SUBGAP = Object.freeze({
 });
 
 export const IMP97334_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the sub-leading constant cQ of ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the sub-leading constant cQ of ' +
   'Q(b)=s0 b+cQ+r(b) that imp-96750 bounds but never evaluates has best documented value cQ ~ -13.4 ' +
   '(imp-97207 4-window constant-model fit, b in [100,1200], s0=1.7626; kernel validated T(250)=' +
   '11.757622), feeding the imp-97207 intercept as 2 cQ (zeta(2)-5/4) ~ -10.57. But cQ is NOT a ' +
@@ -303,7 +303,7 @@ const IMP97334_ASSERTIONS = [
       IMP97334_VERDICT.cQHasFiniteLimit === false &&
       IMP97334_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97334_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97334_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97334_HONEST_BANNER) &&
       /RH open/.test(IMP97334_HONEST_BANNER) &&
       /cq-constant-nonexistent-limit/.test(IMP97334_SUBGAP.id),
   },

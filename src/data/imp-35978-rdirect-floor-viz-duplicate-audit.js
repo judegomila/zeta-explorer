@@ -62,7 +62,7 @@ export const IMP35978_RDIRECT_FLOOR_VIZ_DUPLICATE_AUDIT = {
     'reading, plus a page/route. This module records the duplicate-ticket finding and pins a ' +
     'permanent regression guard confirming the delivered viz-data stays present and consistent. ' +
     'Presentation-only; changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP35978_RDIRECT_FLOOR_VIZ_DUPLICATE_AUDIT_ASSERTIONS = [
@@ -93,11 +93,11 @@ export const IMP35978_RDIRECT_FLOOR_VIZ_DUPLICATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35978-honesty-gate-no-qed',
-    description: 'Audit finding is non-rigorous scoping metadata; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Audit finding is non-rigorous scoping metadata; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35978_RDIRECT_FLOOR_VIZ_DUPLICATE_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35978_RDIRECT_FLOOR_VIZ_DUPLICATE_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35978_RDIRECT_FLOOR_VIZ_DUPLICATE_AUDIT.verdict) &&
+      /refereed bound is changed/i.test(IMP35978_RDIRECT_FLOOR_VIZ_DUPLICATE_AUDIT.verdict) &&
       /GUE-conditional/.test(IMP35978_RDIRECT_FLOOR_VIZ_DUPLICATE_AUDIT.verdict),
   },
 ];

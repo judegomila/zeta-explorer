@@ -149,8 +149,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are not
  * the claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -495,7 +494,7 @@ export const IMP95008_CORNER_CANCELLATION_ENVELOPE = {
     "Lemmas Q1-Q3 are closed-form calculus and the exact piecewise integral representation of the Theorem R kernel (verified algebraically in the header and numerically below). Theorem Q composes them with the fifteenth continuation Lemma U monotone envelopes on disjoint packet pairs, so every cell bound is rigorous; the ladder certificate is re-executed by the assertions below, not trusted from the comment. The ceiling covers the FROZEN terminal base, single appends, eps >= 0, all grid placements including stacked centers; it does not cover joint re-optimization or multi-append interactions. The achieved witness is an exact evaluation of a legal 14-packet configuration; optimality is NOT claimed. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step executing the fifteenth continuation REFINED residual (cancellation-aware corner envelope): NEW Lemmas Q1/Q2/Q3 (kernel distance monotonicity, integral-representation rate-difference bound, shift lower bound) and NEW Theorem Q (pair-cancellation cell envelope) replace the independent corner envelope that forced the 6e-4 certificate, and the re-run ladder certifies the terminal headline single-append gain <= 4.13e-5 (0.0427 percent relative) in 189,614 cells - 14.53x tighter than the fifteenth certificate at 55x fewer cells. With the exact achieved stacked-center append 0.000040917926919500913 (99.07 percent of the certificate), the terminal single-append lever is PRICED to the two-sided bracket [4.0918e-5, 4.13e-5], residual factor 1.00933; the measured pointwise parabola floor 4.1261e-5 shows the certificate is within 0.1 percent of the best any Theorem P ladder can do. The far bracket [0.096745062937484763, 4] is UNCHANGED - this step prices the next lever rather than pulling it. Scope: frozen terminal base, single appends, eps >= 0. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step executing the fifteenth continuation REFINED residual (cancellation-aware corner envelope): NEW Lemmas Q1/Q2/Q3 (kernel distance monotonicity, integral-representation rate-difference bound, shift lower bound) and NEW Theorem Q (pair-cancellation cell envelope) replace the independent corner envelope that forced the 6e-4 certificate, and the re-run ladder certifies the terminal headline single-append gain <= 4.13e-5 (0.0427 percent relative) in 189,614 cells - 14.53x tighter than the fifteenth certificate at 55x fewer cells. With the exact achieved stacked-center append 0.000040917926919500913 (99.07 percent of the certificate), the terminal single-append lever is PRICED to the two-sided bracket [4.0918e-5, 4.13e-5], residual factor 1.00933; the measured pointwise parabola floor 4.1261e-5 shows the certificate is within 0.1 percent of the best any Theorem P ladder can do. The far bracket [0.096745062937484763, 4] is UNCHANGED - this step prices the next lever rather than pulling it. Scope: frozen terminal base, single appends, eps >= 0. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -675,12 +674,12 @@ export const IMP95008_CCE_ASSERTIONS = [
   {
     id: "imp95008-cce-honesty-gate",
     description:
-      "the verdict states the two-sided bracket, the unchanged far bracket, the certificate scope (frozen terminal base, single appends, eps >= 0), the remaining parabola-bound lever, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict states the two-sided bracket, the unchanged far bracket, the certificate scope (frozen terminal base, single appends, eps >= 0), the remaining parabola-bound lever, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95008_CORNER_CANCELLATION_ENVELOPE.promotesBound === false &&
       IMP95008_CORNER_CANCELLATION_ENVELOPE.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_CORNER_CANCELLATION_ENVELOPE.verdict) &&
-      /remains SOTA/.test(IMP95008_CORNER_CANCELLATION_ENVELOPE.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_CORNER_CANCELLATION_ENVELOPE.verdict) &&
       /UNCHANGED/.test(IMP95008_CORNER_CANCELLATION_ENVELOPE.verdict) &&
       /PRICED/.test(IMP95008_CORNER_CANCELLATION_ENVELOPE.verdict) &&
       /frozen terminal base, single appends, eps >= 0/.test(IMP95008_CORNER_CANCELLATION_ENVELOPE.verdict) &&

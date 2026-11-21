@@ -30,7 +30,7 @@
  * derives no remainder; discharges nothing; changes no bound; establishes no
  * operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc =
  * 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a
- * stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35538-route-i-remainder-derivation-requirements (REQ 4; source of the log-heights and the two prose shortfalls)
  * @see imp-35576 (REQ-4 BUDGET sweep at fixed landmarks -- the orthogonal axis to this landmark ladder)
@@ -41,7 +41,7 @@
 
 import { IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS } from './imp-35538-route-i-remainder-derivation-requirements.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 const HR = IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS.heightRegime;
 
@@ -104,8 +104,8 @@ export const IMP35722_REQ4_REQUIRED_HEIGHT_LANDMARK_LADDER = {
     'shortfallVsCross / shortfallVsTPT figures. Re-reads the imp-35538 heightRegime; derives no remainder; discharges ' +
     'nothing; changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), ' +
     'E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; route-(ii) ' +
-    '(imp-35488 two-height spot check) remains the only viable partial; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-35488 two-height spot check) remains the only viable partial; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35538 (REQ 4; source of the landmark log-heights and the two prose shortfalls, laddered here with the new ' +
     'peak multiple); imp-35576 (orthogonal REQ-4 budget sweep); imp-35580 (REQ-4 bar-chart viz); imp-2642/imp-2643 ' +
@@ -172,7 +172,7 @@ export const IMP35722_REQ4_REQUIRED_HEIGHT_LANDMARK_LADDER_ASSERTIONS = [
       ),
   },
   {
-    // (6) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, NO QED.
+    // (6) honesty gate: measurement only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, NO QED.
     id: 'imp35722-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -184,7 +184,7 @@ export const IMP35722_REQ4_REQUIRED_HEIGHT_LANDMARK_LADDER_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

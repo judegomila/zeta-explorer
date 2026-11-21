@@ -53,7 +53,7 @@
  * curvature C_curv(N) = (y_N^sharp)^{5/2} |m_double_prime| through the fold-modulus back-conversion, not a
  * mesh-converged growth exponent at finite N; the H3-H4 coupling per imp-33766 is untouched. G6a_shock_lipschitz
  * STAYS OPEN. No positivity. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. C_mb share untouched.
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33863-cren-onset-quadrature-convergence (the H4 tail-rung panel sweep this mirrors; flagged the H3 rung unchecked)
  * @see imp-33645-h3-curvature-divergence-scoping (measured the 5/2 / 5/4 H3 curvature on the single NP = 4000 mesh)
@@ -206,8 +206,8 @@ export const IMP33899_H3_CURVATURE_QUADRATURE_CONVERGENCE = {
     'H4: the uniform bound requires the ANALYTIC tracking of the renormalized curvature ' +
     'C_curv(N) = (y_N^sharp)^{5/2} |m_double_prime| through the fold-modulus back-conversion, not a mesh ' +
     '-converged growth exponent at finite N; the H3-H4 coupling per imp-33766 is untouched. No positivity; ' +
-    'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb share untouched; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb share untouched; NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP33899_H3_CURVATURE_QUADRATURE_ASSERTIONS = [
@@ -245,15 +245,15 @@ export const IMP33899_H3_CURVATURE_QUADRATURE_ASSERTIONS = [
       IMP33899_H3_CURVATURE_QUADRATURE_CONVERGENCE.maxAbsDrift < 3.1e-9,
   },
   {
-    // Honesty gate: robustness check only, does NOT discharge H3/H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: robustness check only, does NOT discharge H3/H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33899-honesty-gate-no-qed',
-    description: 'Robustness only: does not discharge H3/H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Robustness only: does not discharge H3/H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33899_H3_CURVATURE_QUADRATURE_CONVERGENCE.isRigorous === false &&
       IMP33899_H3_CURVATURE_QUADRATURE_CONVERGENCE.dischargesH3OrH4 === false &&
       /NO QED/.test(IMP33899_H3_CURVATURE_QUADRATURE_CONVERGENCE.verdict) &&
       /STAYS OPEN/.test(IMP33899_H3_CURVATURE_QUADRATURE_CONVERGENCE.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33899_H3_CURVATURE_QUADRATURE_CONVERGENCE.verdict) &&
+      /refereed bound is changed/i.test(IMP33899_H3_CURVATURE_QUADRATURE_CONVERGENCE.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP33899_H3_CURVATURE_QUADRATURE_CONVERGENCE.verdict),
   },
 ];

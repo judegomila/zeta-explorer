@@ -14,8 +14,8 @@
  *   @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (the eps(b) envelope and E0/E1 theorems this bakes)
  *
  *   Ticket: imp-97170 (ux, low). Presentation of an already-established measurement; adds no new
- *   Lambda bound. The envelope/residual pair is a measurement, not a certificate. PT Lambda <= 0.2
- *   SOTA. RH open. NO QED.
+ *   Lambda bound. The envelope/residual pair is a measurement, not a certificate. No refereed bound is changed
+ *   . RH open. NO QED.
  */
 
 // -- recomputed directly from imp-97133's formulas: eps(b) envelope vs measured relative residual --
@@ -51,7 +51,7 @@ export const IMP97170_VERDICT = Object.freeze({
     'The eps(b) envelope from imp-97133 upper-bounds the measured relative F_arith remainder on every sampled b, ' +
     'confirming the theorem numerically. The bound is tight (ratio ~0.16-0.20) on prime b and loose by 4-5 orders ' +
     'of magnitude on primorial b, the numeric signature of the 2^omega(b)-modulus-dependence (triangle inequality, ' +
-    'no mu-cancellation) imp-97133 already names as a residual. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; ' +
+    'no mu-cancellation) imp-97133 already names as a residual. No bound on Lambda moves; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 

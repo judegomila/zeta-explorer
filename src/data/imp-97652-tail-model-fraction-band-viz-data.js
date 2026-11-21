@@ -8,7 +8,7 @@
  * brackets the imp-97564 two-rung headline ~0.5132.
  *
  * PRESENTATION ONLY. Reuses the frozen IMP97626 literals verbatim -- no re-derivation, no new
- * computation. No bound moves; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * computation. No bound moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97626-window-extrapolation-model-spread.js (IMP97626_FIT_FULL, IMP97626_FIT_TAIL4,
  *      IMP97626_SPREAD, IMP97626_TWO_RUNG_FRACTION, IMP97626_VERDICT)

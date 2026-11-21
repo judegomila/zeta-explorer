@@ -71,7 +71,7 @@
  * selection (the imp-33843 log-linear verdict is untouched). The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate is descriptive, not
  * derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34085-trough-peak-ratio-convergence (the half-decade per-step increments and the bracketed crossover located here)
  * @see imp-34154 (whether the argmin stall-then-jump behind the thin margin is a discretization artifact)
@@ -318,8 +318,8 @@ export const IMP34153_TROUGH_PEAK_PERSTEP_CROSSOVER_LOCATE = {
     'selection; the imp-33843 log-linear verdict is untouched. The OLS surrogate is descriptive, not ' +
     'derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= ' +
-    '0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34085 (the half-decade per-step increments and the bracketed crossover located here); ' +
     'imp-34154 (the argmin-relocation discretization question behind the thin margin); imp-33877 (the ' +
@@ -387,14 +387,14 @@ export const IMP34153_TROUGH_PEAK_PERSTEP_CROSSOVER_LOCATE_ASSERTIONS = [
       noEarlierCrossing === true,
   },
   {
-    // Honesty gate: measurement only -- isRigorous false, log-linear form verdict untouched, no QED, PT SOTA,
+    // Honesty gate: measurement only -- isRigorous false, log-linear form verdict untouched, no QED, no refereed bound is changed,
     // imp-3066 K_a >= 0 untouched, C_mb GUE-conditional per imp-486 untouched.
     id: 'imp34153-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, imp-3066 K_a>=0 untouched, C_mb GUE-conditional untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, C_mb GUE-conditional untouched',
     holds: () =>
       IMP34153_TROUGH_PEAK_PERSTEP_CROSSOVER_LOCATE.isRigorous === false &&
       /NO QED/.test(IMP34153_TROUGH_PEAK_PERSTEP_CROSSOVER_LOCATE.verdict) &&
-      /remains SOTA/.test(IMP34153_TROUGH_PEAK_PERSTEP_CROSSOVER_LOCATE.verdict) &&
+      /refereed bound is changed/i.test(IMP34153_TROUGH_PEAK_PERSTEP_CROSSOVER_LOCATE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34153_TROUGH_PEAK_PERSTEP_CROSSOVER_LOCATE.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34153_TROUGH_PEAK_PERSTEP_CROSSOVER_LOCATE.verdict),
   },

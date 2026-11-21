@@ -49,8 +49,7 @@
  * width is an a-priori correctly-rounded directed-rounding MODEL, NOT the imp-34687a layer (which remains
  * unimplemented); it instantiates NO certified interval, ports NO operator, and does NOT discharge the
  * F(m) = 0 residual-at-root artifact. imp-34714a and imp-34687a REMAIN OPEN; C_C = 1/8 (imp-2642/2643) and
- * C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36017-krawczyk-residual-surrogate-vs-layer-discrepancy (source: the point-input surrogate/layer sweep and the 2x claim)
  * @see imp-36066-residual-node-no-machine-certificate-honest-status (records the "a-independent 2x" this refines)
@@ -281,7 +280,7 @@ export const IMP36153_KRAWCZYK_RESIDUAL_SURROGATE_LAYER_RATIO_A_DEPENDENCE = {
     'F(m) = 0 artifact is not discharged, conservatism is NECESSARY but not SUFFICIENT. Reuses the ' +
     'imp-36017/imp-35969 machinery (identical K_AMPL, g, N_cross, nextUp/nextDown, LAYER formula); C_C = 1/8 ' +
     '(imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36017 (point-input surrogate/layer width sweep; the "a-independent 2x" claim); imp-36066 ' +
     '(residual-node no-machine-certificate honest status; records the a-independent 2x); imp-35969 ' +
@@ -322,15 +321,15 @@ export const IMP36153_KRAWCZYK_RESIDUAL_SURROGATE_LAYER_RATIO_A_DEPENDENCE_ASSER
     holds: () => CROSSOVER_SCALES_WITH_ULP === true,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gaps open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gaps open, no interval, no QED, no refereed bound is changed.
     id: 'imp36153-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a/imp-34687a open, NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a/imp-34687a open, NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP36153_KRAWCZYK_RESIDUAL_SURROGATE_LAYER_RATIO_A_DEPENDENCE.isRigorous === false &&
       /imp-34714a AND imp-34687a REMAIN OPEN/.test(IMP36153_KRAWCZYK_RESIDUAL_SURROGATE_LAYER_RATIO_A_DEPENDENCE.subGap) &&
       /NECESSARY but not SUFFICIENT/.test(IMP36153_KRAWCZYK_RESIDUAL_SURROGATE_LAYER_RATIO_A_DEPENDENCE.subGap) &&
       /NO QED/.test(IMP36153_KRAWCZYK_RESIDUAL_SURROGATE_LAYER_RATIO_A_DEPENDENCE.verdict) &&
-      /remains SOTA/.test(IMP36153_KRAWCZYK_RESIDUAL_SURROGATE_LAYER_RATIO_A_DEPENDENCE.verdict),
+      /refereed bound is changed/i.test(IMP36153_KRAWCZYK_RESIDUAL_SURROGATE_LAYER_RATIO_A_DEPENDENCE.verdict),
   },
 ];
 

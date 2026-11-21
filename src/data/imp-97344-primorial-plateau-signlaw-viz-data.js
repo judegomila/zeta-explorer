@@ -19,7 +19,7 @@
  * 0.1395 (approached from below, never proved as a bound).
  *
  * MEASUREMENT / PRESENTATION ONLY. Changes no bound, establishes no operator positivity,
- * no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-97309-route-m-arith-tail-cancellation-assessment.js (IMP97309_SIGN_LAW, IMP97309_PLATEAU_CONJECTURE)
  *
@@ -79,7 +79,7 @@ export const IMP97344_SUMMARY = Object.freeze({
 });
 
 export const IMP97344_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: the twelve (omega, b, mu, R) rows ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: the twelve (omega, b, mu, R) rows ' +
   'are baked literals independently recomputed from the imp-97309 self-contained J(n)/mobius arithmetic ' +
   '(no re-derivation of the Binet-kernel integral or the complementary-divisor identity); the plateau value ' +
   '0.1395 is the imp-97309 RESULT 5 CONJECTURE, not a proved bound.';
@@ -135,7 +135,7 @@ const IMP97344_ASSERTIONS = [
     id: 'imp97344-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97344_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97344_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97344_HONEST_BANNER) &&
       /NO QED/.test(IMP97344_HONEST_BANNER),
     why: 'every Route-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

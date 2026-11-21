@@ -38,7 +38,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96612 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96612-route-m-lammax-rankr-power-iteration-bracket.js (source: the assessment this glosses)
  * @see imp-96586-route-m-lammax-meanfield-cesaro-proxy.js (rank-one bracket [0.0166, 4.7062] this narrows)
@@ -46,7 +46,7 @@
  * @see imp-96562-route-m-lammax-offdiagonal-szego-assessment.js (names IMP96562_SUBGAP this sharpens)
  *
  * Ticket: imp-96647 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The collective-rank mode-count headword, baked verbatim (no re-import).
@@ -83,7 +83,7 @@ const VASYUNIN_LAMMAX_COLLECTIVE_RANK_HEADWORD = Object.freeze({
     'Heuristic mode-count measurement (quantifies imp-96586 FINDING 2), not an ' +
     'independent prediction of the 0.3526 coefficient and not a closed-form/averaged-' +
     'symbol/multiplicative-Toeplitz asymptotic. Changes no bound; establishes no ' +
-    'operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96647_VASYUNIN_LAMMAX_COLLECTIVE_RANK_GLOSSARY_HEADWORD = Object.freeze({
@@ -105,8 +105,8 @@ export const IMP96647_VASYUNIN_LAMMAX_COLLECTIVE_RANK_GLOSSARY_HEADWORD = Object
     'captures under 5%, and no rank-one / mean-field / multiplicative-Toeplitz ' +
     'surrogate reproduces 0.3526 with a closed form -- the convergence measures the ' +
     'collective rank, it does not independently predict the coefficient. Establishes ' +
-    'nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96612 (the rank-r power-iteration bracket and finding this glosses); ' +
     'imp-96586 (the rank-one bracket [0.0166, 4.7062] this narrows); imp-96443 (the ' +
@@ -136,11 +136,11 @@ export const IMP96647_VASYUNIN_LAMMAX_COLLECTIVE_RANK_GLOSSARY_HEADWORD_ASSERTIO
   },
   {
     id: 'imp96647-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96647_VASYUNIN_LAMMAX_COLLECTIVE_RANK_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96647_VASYUNIN_LAMMAX_COLLECTIVE_RANK_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96647_VASYUNIN_LAMMAX_COLLECTIVE_RANK_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96647_VASYUNIN_LAMMAX_COLLECTIVE_RANK_GLOSSARY_HEADWORD.verdict) &&
       IMP96647_VASYUNIN_LAMMAX_COLLECTIVE_RANK_GLOSSARY_HEADWORD.glosses === 'imp-96612',
   },
 ];

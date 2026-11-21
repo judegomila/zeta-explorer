@@ -22,8 +22,8 @@
  * either module's filename is imp-95406 (a data-only reconciliation note
  * that itself has no routed page and is not listed in
  * visualizations-index.js), so citation by imp-95406 does not establish
- * reachability. AUDIT-ONLY: no bound change; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. Flags a surfacing follow-up (dedicated viz
+ * reachability. AUDIT-ONLY: no bound change; NO QED; no refereed bound is changed
+ * . Flags a surfacing follow-up (dedicated viz
  * page for RZ-PEN7/8) as the open item, not a numerics gap.
  */
 
@@ -64,7 +64,7 @@ export const IMP95407_RZPEN7_8_SURFACING_AUDIT = {
     'has a dedicated routed viz page or a visualizations-index.js row; the only citing file is the ' +
     'data-only imp-95406 note, which does not itself establish reachability. Both remain ORPHAN. ' +
     'No page was fabricated by this ticket; it only records current state and flags a surfacing ' +
-    'follow-up as the open item. No bound change; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'follow-up as the open item. No bound change; NO QED; no refereed bound is changed.',
 };
 
 export const IMP95407_RZPEN7_8_SURFACING_AUDIT_ASSERTIONS = [
@@ -88,9 +88,9 @@ export const IMP95407_RZPEN7_8_SURFACING_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-95407-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP95407_RZPEN7_8_SURFACING_AUDIT.honest)
-      && /Lambda<=0.2 remains SOTA/.test(IMP95407_RZPEN7_8_SURFACING_AUDIT.honest),
+      && /refereed bound is changed/i.test(IMP95407_RZPEN7_8_SURFACING_AUDIT.honest),
   },
 ];
 

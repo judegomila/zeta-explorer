@@ -18,7 +18,7 @@
  * bound; establishes no operator positivity; no RH verdict, NO QED. The C_C =
  * (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the E_trunc = 3.06e-5 floor
  * (imp-2631) and the imp-398 C_F prefactor are UNTOUCHED; C_mb GUE-conditional
- * per imp-486 UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * per imp-486 UNTOUCHED. No refereed bound is changed.
  *
  * WHAT THE LITERATURE ACTUALLY OFFERS (two tiers, neither supplies route-(i))
  * -----------------------------------------------------------------------------
@@ -83,7 +83,7 @@
  * at these modest heights. So route-(ii) (the imp-35488 two-height data-anchored
  * spot check) remains the only viable partial for imp-35337a. Assessment/scoping
  * only; discharges nothing; changes no bound; establishes no positivity; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35475-sigma-fidelity-closure-scope (Part B states route-(i) is absent; Part C the budgets; Part D imp-486)
  * @see imp-35488-route-ii-two-height-gtrue-spotcheck (route-(ii) partial for imp-35337a)
@@ -95,7 +95,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // (1/8) sqrt(3 pi) ~ 0.38374752 (imp-2642/imp-2643 ansatz)
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any route-(i) assessment)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any route-(i) assessment)
 
 // The two interior landmark N values (imp-35337 / imp-35475), taken as given.
 const N_PEAK = 9.2186e5; // interior flat-cap sigma PEAK
@@ -198,7 +198,7 @@ export const IMP35493_ROUTE_I_REMAINDER_LITERATURE_SCOPE = {
     '(the imp-35488 two-height data check) remains the only viable partial for imp-35337a. Discharges ' +
     'NOTHING; changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/' +
     'imp-2643), E_trunc = 3.06e-5 (imp-2631), the imp-398 C_F prefactor and C_mb GUE-conditional (imp-486) ' +
-    'are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'are UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35475 (Part B asserts route-(i) absent, Part C the budgets, Part D imp-486); imp-35488 (route-(ii) ' +
     'two-height partial for imp-35337a); imp-35337 (names imp-35337a); imp-2642/imp-2643 (C_C = (1/8) ' +
@@ -232,7 +232,7 @@ export const IMP35493_ROUTE_I_REMAINDER_LITERATURE_SCOPE_ASSERTIONS = [
       T0_PEAK < 3e12 && T0_CROSS < 3e12, // both landmark heights below T_PT
   },
   {
-    // (c) honesty gate: inherits imp-486, no bound moves, PT stays SOTA, sub-gap named; NO QED.
+    // (c) honesty gate: inherits imp-486, no bound moves, no refereed bound is changed, sub-gap named; NO QED.
     id: 'imp35493-inherits-imp486-no-bound-moves-no-qed',
     description: 'route-(i) inherits imp-486, sigma-fidelity is not a Lambda lever so no bound moves, PT 0.2 unchanged, imp-35337a named, NO QED',
     holds: () =>
@@ -241,7 +241,7 @@ export const IMP35493_ROUTE_I_REMAINDER_LITERATURE_SCOPE_ASSERTIONS = [
       /imp-486/.test(IMP35493_ROUTE_I_REMAINDER_LITERATURE_SCOPE.classification.inheritsImp486) &&
       /imp-35337a/.test(IMP35493_ROUTE_I_REMAINDER_LITERATURE_SCOPE.citation) &&
       /NO QED/.test(IMP35493_ROUTE_I_REMAINDER_LITERATURE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35493_ROUTE_I_REMAINDER_LITERATURE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35493_ROUTE_I_REMAINDER_LITERATURE_SCOPE.verdict),
   },
 ];
 

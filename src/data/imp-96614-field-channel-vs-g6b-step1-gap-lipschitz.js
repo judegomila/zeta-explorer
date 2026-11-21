@@ -70,7 +70,7 @@
  *
  *   NET: G6b-Step1-gap-Lipschitz remains OPEN and is a genuinely DISTINCT obstruction
  *   from the E_coll C_Lip factor the field reroute re-channels. The rigor of Route B's
- *   per-N bound is unchanged by imp-3933. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   per-N bound is unchanged by imp-3933. No refereed bound is changed.
  *   Assessment / measurement only. Closes no gap, changes no bound. RH open. NO QED.
  *
  * Provenance of every baked literal (cited, not recomputed):
@@ -179,8 +179,8 @@ export const IMP96614_FIELD_CHANNEL_VS_G6B_STEP1 = {
     'W_1-metric C_Lip): here the shared-initial-data premise fails by construction. The reroute ' +
     'therefore helps only the separate E_coll leg of the Step-4 error E(N); the Route B per-N ' +
     'collision-time bound stays CONDITIONAL on G6b-Step1-gap-Lipschitz, which stays OPEN and ' +
-    'is a genuinely distinct obstruction. No bound moved. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA. RH open. NO QED.',
+    'is a genuinely distinct obstruction. No bound moved. No refereed bound is changed' +
+    '. RH open. NO QED.',
   provenance:
     'rh-bridge-route-b-overclaim-baseline-audit-2026-09-24.js (FINDING 1, requiredCLip ladder, ' +
     'G6b-Step1-gap-Lipschitz); dyson-burgers-shock.js (G6_PER_N_BOUND.status conditional, ' +
@@ -238,9 +238,9 @@ export const IMP96614_FIELD_CHANNEL_VS_G6B_STEP1_ASSERTIONS = [
     holds: () =>
       IMP96614_FIELD_CHANNEL_VS_G6B_STEP1.kind.includes('no closure') &&
       /NO QED/.test(IMP96614_FIELD_CHANNEL_VS_G6B_STEP1.verdict) &&
-      /Platt-Trudgian Lambda <= 0.2/.test(IMP96614_FIELD_CHANNEL_VS_G6B_STEP1.verdict),
+      /Platt-Trudgian Lambda <= 0.2|refereed bound is changed/.test(IMP96614_FIELD_CHANNEL_VS_G6B_STEP1.verdict),
     why:
       'This ticket is assessment/measurement only. It must not claim closure of G6b-Step1, of ' +
-      'the Route B per-N bound, or of any bound; PT Lambda <= 0.2 stays SOTA.',
+      'the Route B per-N bound, or of any bound; no refereed bound is changed.',
   },
 ];

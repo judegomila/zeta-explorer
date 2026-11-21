@@ -69,7 +69,7 @@
  *
  * Import-light (imports only the import-light imp-95026 module for the committed
  * baked values). Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP95026_PAPER_PACKET_CEILING_TRANSFER } from "./imp-95026-paper-packet-ceiling-transfer.js";
@@ -260,7 +260,7 @@ export const IMP95097_LOW_THETA_EDGE_THREE_RULE_QUADRATURE = {
     "MEASUREMENT: three independent quadrature rules evaluate the WORST_SCANNED far coefficient at theta=2, s=3. The committed midpoint rule bit-reproduces the baked ceiling 0.8924623374689161 and agrees with the corner-aware adaptive-Simpson reference (validated at the model point to 7.5e-9) to relative 1.0e-7; the full three-rule spread is ~1e-5. Both are computed directly and shown far below the margins the WORST_SCANNED row turns on. No closed-form ceiling is claimed at s=3 (none is baked); only the quadrature error is bounded. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT three-rule quadrature agreement at the low-theta EDGE theta=2, s=3 (the WORST_SCANNED transfer row). FINDING 0: the corner-aware adaptive-Simpson reference reproduces the exact closed form at the model point to 7.5e-9 (vs midpoint 2.8e-6, composite Simpson 2.2e-4), validating it as the yardstick where no closed form is baked. FINDING 1: the committed midpoint rule bit-reproduces WORST_SCANNED 0.8924623374689161 and agrees with the reference to 1.0e-7 - about 28x TIGHTER than the model-point 2.8e-6, because the thinnest-margin row s=3 has the broadest peaks and least midpoint under-resolution (imp-95073 error-grows-with-s extrapolated). FINDING 2: the full three-rule spread is 1.07e-5 (worst = corner-straddling composite Simpson; the fine midpoint beats it). FINDING 3: both 1.0e-7 and 1.07e-5 are far below every WORST_SCANNED margin (the > 3 gap below 4 and the corner-guard break separation ~0.0238), so the below-4 and s > s* verdicts are robust to quadrature error at the edge. SUB-GAP: the exact anchor is indirect (model point only); at s=3 the bound is three-rule mutual agreement, and the paper constants remain unpinned. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT three-rule quadrature agreement at the low-theta EDGE theta=2, s=3 (the WORST_SCANNED transfer row). FINDING 0: the corner-aware adaptive-Simpson reference reproduces the exact closed form at the model point to 7.5e-9 (vs midpoint 2.8e-6, composite Simpson 2.2e-4), validating it as the yardstick where no closed form is baked. FINDING 1: the committed midpoint rule bit-reproduces WORST_SCANNED 0.8924623374689161 and agrees with the reference to 1.0e-7 - about 28x TIGHTER than the model-point 2.8e-6, because the thinnest-margin row s=3 has the broadest peaks and least midpoint under-resolution (imp-95073 error-grows-with-s extrapolated). FINDING 2: the full three-rule spread is 1.07e-5 (worst = corner-straddling composite Simpson; the fine midpoint beats it). FINDING 3: both 1.0e-7 and 1.07e-5 are far below every WORST_SCANNED margin (the > 3 gap below 4 and the corner-guard break separation ~0.0238), so the below-4 and s > s* verdicts are robust to quadrature error at the edge. SUB-GAP: the exact anchor is indirect (model point only); at s=3 the bound is three-rule mutual agreement, and the paper constants remain unpinned. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -307,12 +307,12 @@ export const IMP95097_THREE_RULE_ASSERTIONS = [
   {
     id: "imp95097-honesty-gate",
     description:
-      "the verdict names the sub-gap (exact anchor indirect / at model point only; paper constants unpinned), reports the edge midpoint error and the three-rule spread, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (exact anchor indirect / at model point only; paper constants unpinned), reports the edge midpoint error and the three-rule spread, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95097_LOW_THETA_EDGE_THREE_RULE_QUADRATURE.promotesBound === false &&
       IMP95097_LOW_THETA_EDGE_THREE_RULE_QUADRATURE.openResiduals.length === 2 &&
       /NO QED/.test(IMP95097_LOW_THETA_EDGE_THREE_RULE_QUADRATURE.verdict) &&
-      /remains SOTA/.test(IMP95097_LOW_THETA_EDGE_THREE_RULE_QUADRATURE.verdict) &&
+      /refereed bound is changed/i.test(IMP95097_LOW_THETA_EDGE_THREE_RULE_QUADRATURE.verdict) &&
       /WORST_SCANNED/.test(IMP95097_LOW_THETA_EDGE_THREE_RULE_QUADRATURE.verdict),
   },
 ];

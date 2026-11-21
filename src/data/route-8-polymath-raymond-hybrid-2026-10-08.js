@@ -28,7 +28,7 @@
  *  and route 5 at 1.2161e15. x* is a P11-model measurement, not a necessary condition: longer mollifiers or the y-transfer lower it.
  * HEURISTIC: a y-transfer gain at x* like the one at X (≈ −0.003) would lower x* to ≈ 7e14.
  *
- * PT Λ ≤ 0.2 stands; 0.1758354 and 0.1787854 remain computer-assisted candidates; RH open; NO QED. Import-free.
+ * No refereed bound is changed; 0.1758354 and 0.1787854 remain computer-assisted candidates; RH open; NO QED. Import-free.
  * ROUTE_8_ASSERTIONS recompute the exact compositions, the de Bruijn ending condition, the max-over-bands rule, N* from x* and the
  * monotone lane-model bracket.
  */
@@ -87,7 +87,7 @@ export const ROUTE_8 = Object.freeze({
   verdict: 'Route 8 does not move Lambda. Theorem B\'_P (written, unrefereed) gives Λ ≤ max(Raymond band values, t0 + y0²/2); the band next to X binds, '
     + 'and Polymath near X is far weaker than Raymond (0.1758354 candidate, ≈ 0.178 lane model, vs 0.1457), so the best split is route P / route 5 '
     + 'with no Polymath band; any Polymath band gives 0.1758354 (+0.030141316127076). A Polymath band could only tie, and only from x ≥ ~1.2e15 in the '
-    + 'P11 lane model (measured). PT Lambda <= 0.2 stands; 0.1758354 and 0.1787854 remain computer-assisted candidates; RH open; NO QED.',
+    + 'P11 lane model (measured). No refereed bound is changed; 0.1758354 and 0.1787854 remain computer-assisted candidates; RH open; NO QED.',
 });
 
 const R = ROUTE_8;
@@ -138,7 +138,7 @@ export const ROUTE_8_ASSERTIONS = Object.freeze([
   {
     id: 'r8-honest-scope',
     holds: () => R.status === 'done' && /does not move Lambda/.test(R.verdict) && /computer-assisted candidates/.test(R.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && /measured/.test(R.refereeKilled[1]),
+      && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && /measured/.test(R.refereeKilled[1]),
     why: 'No Λ change; candidate status of 0.1758354 / 0.1787854 kept; the Polymath-next-to-X branch graded measured; no QED.',
   },
 ]);

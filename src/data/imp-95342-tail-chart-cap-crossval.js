@@ -31,7 +31,7 @@
  *   a = ln 2, chart k = 73), reproducing the imp-95332 literal 0.9978 to
  *   its stated precision, confirming (ii). No bound is changed; this is a
  *   verification of an already-established chartwise inequality. NO QED;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no refereed bound is changed.
  *
  *   HONEST SCOPE
  *   -----------------------------------------------
@@ -174,8 +174,8 @@ export const IMP95342_TAIL_CHART_CAP_CROSSVAL = {
     'upper bound (zero violations across 256 charts x 5 rho values, max ' +
     'overshoot 0) and is near-attained at max truth/cap ' +
     '0.9978842, reproducing the imp-95332 literal 0.9978. ' +
-    'Cross-validation only; changes no bound; NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Cross-validation only; changes no bound; NO QED; no refereed bound is changed' +
+    '.',
 };
 
 const IMP95342_TAIL_CHART_CAP_CROSSVAL_ASSERTIONS = [
@@ -216,10 +216,10 @@ const IMP95342_TAIL_CHART_CAP_CROSSVAL_ASSERTIONS = [
     id: 'imp95342-honesty-gate-no-qed',
     why:
       'Cross-validation only: no enclosure established, no bound moved, ' +
-      'PT SOTA line present, scope names the single leg being checked.',
+      'no-refereed-bound-change line present, scope names the single leg being checked.',
     holds: () =>
       IMP95342_TAIL_CHART_CAP_CROSSVAL.anyEnclosureEstablished === false &&
-      /remains SOTA/.test(IMP95342_TAIL_CHART_CAP_CROSSVAL.verdict) &&
+      /refereed bound is changed/i.test(IMP95342_TAIL_CHART_CAP_CROSSVAL.verdict) &&
       IMP95342_TAIL_CHART_CAP_CROSSVAL.glosses === 'imp-95332',
   },
 ];

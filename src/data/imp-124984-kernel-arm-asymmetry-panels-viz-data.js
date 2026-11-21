@@ -17,7 +17,7 @@
  *
  * Presentation only. Every value is reused verbatim from imp-124852 (via imp-124776); this leaf
  * only reshapes those rows into two chart-ready panels. No new kernel computation, no bound
- * moves, no operator positivity established; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open;
+ * moves, no operator positivity established; no refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-124852-kernel-arm-offset-asymmetry-viz-data.js (source of every value used here)
@@ -80,7 +80,7 @@ export const IMP124984_SUMMARY = Object.freeze({
     + 'chart panels (asymmetry ratio vs gap; leading antisymmetric offset vs higher-order symmetric '
     + 'residual vs gap). No new kernel computation; conditional-share diagnostic on the inherited '
     + 'imp-3220/imp-3406 extrapolation surrogate, not a rigorous asymptotic; changes no bound; '
-    + 'establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------
@@ -119,12 +119,12 @@ const IMP124984_ASSERTIONS = [
   },
   {
     id: 'imp124984-honesty-gate-no-qed',
-    description: 'isRigorous is false and the verdict restates no-bound-moved / NO-QED / SOTA honesty markers',
+    description: 'isRigorous is false and the verdict restates no-bound-moved / NO-QED / no-refereed-bound-change honesty markers',
     holds: () =>
       IMP124984_SUMMARY.isRigorous === false
       && /no bound/.test(IMP124984_SUMMARY.verdict)
       && /NO QED/.test(IMP124984_SUMMARY.verdict)
-      && /remains SOTA/.test(IMP124984_SUMMARY.verdict),
+      && /refereed bound is changed/i.test(IMP124984_SUMMARY.verdict),
   },
 ];
 

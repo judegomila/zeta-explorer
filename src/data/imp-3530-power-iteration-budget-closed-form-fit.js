@@ -58,7 +58,7 @@
  *   budget ladder to a convergence-rate predictor and validates it reproduces the
  *   ladder. Does NOT construct the missing magnitude and does NOT attempt the
  *   imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -333,7 +333,7 @@ export const IMP3530_POWER_ITERATION_BUDGET_CLOSED_FORM_FIT = Object.freeze({
     'budget(N) ~ K N^2; extrapolated a priori, N=1000/1200/1600 continue the monotone N^2 climb above the N=800 ' +
     '~6250, so budgets at untested N can now be set in advance. Measurement/fit only; does NOT construct the ' +
     'missing magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -405,7 +405,7 @@ export const IMP3530_POWER_ITERATION_BUDGET_CLOSED_FORM_FIT = Object.freeze({
       'The gap rho(N) and the fit are numerical at finite N; the operator norm ||Ttilde|| ~ 6.49e-5 stays a ' +
       'determined number at each section size, not a symbolic identity.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -457,7 +457,7 @@ export const IMP3530_POWER_ITERATION_BUDGET_CLOSED_FORM_FIT_ASSERTIONS = [
   {
     id: 'imp3530-honest-assessment-no-qed',
     why: 'Mandatory honesty: FIT only -- convergence-rate predictor with one fitted prefactor, positivity not ' +
-      'attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3530_POWER_ITERATION_BUDGET_CLOSED_FORM_FIT.honestCaveat;
       return (
@@ -467,7 +467,7 @@ export const IMP3530_POWER_ITERATION_BUDGET_CLOSED_FORM_FIT_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.prefactorIsFitNotDerived === 'string' &&
         typeof c.measuresBudgetNotConstructs === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

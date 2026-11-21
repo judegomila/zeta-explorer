@@ -54,7 +54,7 @@
  *   MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate. Changes NO bound;
  *   recomputes no landmark used in any bound; C_mb GUE-conditional per imp-486 is
  *   UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no
- *   RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-33744-sigma-inflection-vs-half-closed-form (sigma_infl = 1/2 - g_prime/(2 g^2); the anchor this continuously dials)
  * @see imp-36177-sigma-infl-offset-decade-ladder (offset-vs-N ladder 1e8..1e22; complementary N parameterization)
@@ -219,7 +219,7 @@ export const IMP36201_SIGMA_INFL_DEPARTURE_VS_RUNNING_STRENGTH = {
     'running strength, to leading order, and the offset vanishes with the running in the pure-power-law limit, ' +
     'exactly as imp-33744 F2 asserts. Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33744 (sigma_infl = 1/2 - g_prime/(2 g^2) closed form; the anchor this continuously dials); imp-36177 ' +
     '(offset-vs-N decade ladder; complementary N parameterization); imp-34933 / imp-34948 (N-position offset ' +
@@ -268,13 +268,13 @@ export const IMP36201_SIGMA_INFL_DEPARTURE_VS_RUNNING_STRENGTH_ASSERTIONS = [
     holds: () => CLOSED_FORM_MAX_REL_GAP < 1e-3,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp36201-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP36201_SIGMA_INFL_DEPARTURE_VS_RUNNING_STRENGTH.isRigorous === false &&
       /NO QED/.test(IMP36201_SIGMA_INFL_DEPARTURE_VS_RUNNING_STRENGTH.verdict) &&
-      /Lambda <= 0\.2 remains SOTA/.test(IMP36201_SIGMA_INFL_DEPARTURE_VS_RUNNING_STRENGTH.verdict),
+      /refereed bound is changed/i.test(IMP36201_SIGMA_INFL_DEPARTURE_VS_RUNNING_STRENGTH.verdict),
   },
 ];
 

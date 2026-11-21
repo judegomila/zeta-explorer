@@ -39,7 +39,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
  * imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34956-pinned-product-window-sensitivity (reported d ln P/dx ~ -0.8549 at the nominal window)
  * @see imp-34950-eflow-crossing-strength-cmb-exponent-structural (the local q_eff ~ 0.855 decay exponent)
@@ -206,7 +206,7 @@ export const IMP34973_PINNED_PRODUCT_SLOPE_QEFF_WINDOW_IDENTITY = {
     'diagnostic on the inherited surrogate; the component model is the imp-3220/imp-3406 extrapolation, NOT ' +
     'a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes ' +
     'no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS imp-34973: the ~0.855 match between the pinned-product sensitivity d ln P/dx and the E_flow ' +
     'decay exponent q_eff is STRUCTURAL, not a 9.53-dex coincidence -- because g* is window-independent, ' +
@@ -256,15 +256,15 @@ export const IMP34973_PINNED_PRODUCT_SLOPE_QEFF_WINDOW_IDENTITY_ASSERTIONS = [
     holds: () => Q_EFF_MIN > FAR_TAIL_Q + 0.2,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34973-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34973_PINNED_PRODUCT_SLOPE_QEFF_WINDOW_IDENTITY.isRigorous === false &&
       IMP34973_PINNED_PRODUCT_SLOPE_QEFF_WINDOW_IDENTITY.farTailExponent === 0.5 &&
       typeof IMP34973_PINNED_PRODUCT_SLOPE_QEFF_WINDOW_IDENTITY.subGap === 'string' &&
       /NO QED/.test(IMP34973_PINNED_PRODUCT_SLOPE_QEFF_WINDOW_IDENTITY.verdict) &&
-      /remains SOTA/.test(IMP34973_PINNED_PRODUCT_SLOPE_QEFF_WINDOW_IDENTITY.verdict),
+      /refereed bound is changed/i.test(IMP34973_PINNED_PRODUCT_SLOPE_QEFF_WINDOW_IDENTITY.verdict),
   },
 ];
 

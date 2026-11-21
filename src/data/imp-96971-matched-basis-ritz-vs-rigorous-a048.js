@@ -46,7 +46,7 @@
  * in the inverse-amplified estimator, NOT to basis/normalisation mismatch. Measurement only; both
  * estimators are UPPER bounds so lambda_1 is bracketed from above, NOT a certified LB; the
  * interval-rigorous certificate reach stays 2a<=0.96; operator positivity for 0.96 < 2a < ln3 stays
- * OPEN; RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * OPEN; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96958-krein-096-ritz-vs-rigorous-crossval.js (the bracket/inversion this leaf pins)
  * @see imp-96938-krein-drift-calibration-096.js (the shift-invert Ritz estimator; build_K reused)

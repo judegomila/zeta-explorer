@@ -48,7 +48,7 @@
  *   finite-difference conditioning OF that measurement, it does not rehabilitate the model. The -2
  *   asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb
  *   GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator
- *   positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34606-roundoff-amplification-exponent-ladder.js (unified q2/q3/q4 ladder on deep-group MAX; parent)
  *   @see imp-34592-q4-share-roundoff-floor-vs-dp.js (q4 O(h^4) share inflates ~1/dp^4; deep-tail dp floor)
@@ -214,8 +214,8 @@ export const IMP34627_Q2_RUNG_MEAN_AGGREGATE_LADDER_CLOSURE = Object.freeze({
     'inherited as-is -- this diagnoses the finite-difference conditioning of that measurement, it does ' +
     'not rehabilitate the model. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ' +
     'ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 ' +
-    'untouched; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'untouched; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34606 (unified q2/q3/q4 roundoff-amplification ladder on the deep-group MAX -- parent, ' +
     'reproduced here to ~1e-3 and re-closed on the MEAN); imp-34592 (q4 O(h^4) share ~1/dp^4); ' +
@@ -256,9 +256,9 @@ const IMP34627_ASSERTIONS = [
     holds: () =>
       IMP34627_Q2_RUNG_MEAN_AGGREGATE_LADDER_CLOSURE.isRigorous === false &&
       /NO QED/.test(IMP34627_Q2_RUNG_MEAN_AGGREGATE_LADDER_CLOSURE.verdict) &&
-      /remains SOTA/.test(IMP34627_Q2_RUNG_MEAN_AGGREGATE_LADDER_CLOSURE.verdict) &&
+      /refereed bound is changed/i.test(IMP34627_Q2_RUNG_MEAN_AGGREGATE_LADDER_CLOSURE.verdict) &&
       /UNTOUCHED/.test(IMP34627_Q2_RUNG_MEAN_AGGREGATE_LADDER_CLOSURE.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

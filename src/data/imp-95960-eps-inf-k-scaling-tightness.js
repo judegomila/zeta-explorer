@@ -10,8 +10,7 @@
  * tabulated. This module MEASURES eps_inf(k) for k in 4..12 at a plateaued p
  * (p=1009), reports the analytic bound, the ratio bound/measured, and checks
  * whether the k^{-4/3}(k-1)^{-2} scaling of the bound matches the measured
- * eps_inf(k) decay. Measurement only; changes NO bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * eps_inf(k) decay. Measurement only; changes NO bound; NO QED; no refereed bound is changed.
  *
  * SETUP (verbatim from imp-95898 / imp-95944). A seam window (p,k) carries p-1
  * alias packets h=1..p-1 at depth d_h = k - h/p; packet h is a two-sided
@@ -160,7 +159,7 @@ export const IMP95960_EPS_INF_K_TIGHTNESS = {
   obstruction:
     "UNCHANGED from imp-95944/imp-95898: the residue mean is NOT the physical per-window theta -- it drops the von Mangoldt x Fresnel-Airy weight A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p). The imp-95212 Fresnel-Airy envelope port is untouched and STILL OPEN. This module measures the tightness of an already-proved bound on the exact residue-mean object only.",
   verdict:
-    "MEASUREMENT (honest): the imp-95944 p-independent bound eps_p < (a*D)_max^2/2 is confirmed strict at every k=4..12 and quantified -- loose by 3.5x..6.1x, tightening monotonically with k (5.08x at k=6, reproducing the imp-95944 ~5x). The measured eps_inf(k) decays slightly SLOWER than the bound (log-log slope -3.19 vs -3.70 over k=4..12) because the bound is a worst-pair envelope. Changes no numeric bound; the imp-95212 kernel-weighted residue-bias port is untouched and STILL OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT (honest): the imp-95944 p-independent bound eps_p < (a*D)_max^2/2 is confirmed strict at every k=4..12 and quantified -- loose by 3.5x..6.1x, tightening monotonically with k (5.08x at k=6, reproducing the imp-95944 ~5x). The measured eps_inf(k) decays slightly SLOWER than the bound (log-log slope -3.19 vs -3.70 over k=4..12) because the bound is a worst-pair envelope. Changes no numeric bound; the imp-95212 kernel-weighted residue-bias port is untouched and STILL OPEN; NO QED; no refereed bound is changed.",
   rigorScope:
     "The Gram closed form and eps_p = diagFrac*(p-1)-1 are EXACT (imp-95898/imp-95944). eps_inf(k) is read at p=1009 as a saturated proxy (plateau increment from p=601 is O(1e-7)); it is not extrapolated to p=infinity. The k-decay slope is an empirical log-log fit over k=4..12, not a proved asymptotic. Measurement only; changes no bound; NO QED.",
 };
@@ -244,14 +243,14 @@ export const IMP95960_ASSERTIONS = [
   {
     id: "imp95960-verdict-honesty",
     description:
-      "the verdict carries the honest scope: MEASUREMENT only, the bound confirmed strict and tightening, eps_inf decays slower, the imp-95212 port STILL OPEN, no bound, NO QED, SOTA preserved",
+      "the verdict carries the honest scope: MEASUREMENT only, the bound confirmed strict and tightening, eps_inf decays slower, the imp-95212 port STILL OPEN, no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(IMP95960_EPS_INF_K_TIGHTNESS.verdict) &&
       /tightening/.test(IMP95960_EPS_INF_K_TIGHTNESS.verdict) &&
       /SLOWER/.test(IMP95960_EPS_INF_K_TIGHTNESS.verdict) &&
       /STILL OPEN/.test(IMP95960_EPS_INF_K_TIGHTNESS.obstruction) &&
       /NO QED/.test(IMP95960_EPS_INF_K_TIGHTNESS.verdict) &&
-      /remains SOTA/.test(IMP95960_EPS_INF_K_TIGHTNESS.verdict),
+      /refereed bound is changed/i.test(IMP95960_EPS_INF_K_TIGHTNESS.verdict),
   },
 ];
 

@@ -30,7 +30,7 @@
  * blank. AUDIT-ONLY; no fix applied because none was needed.
  *
  * AUDIT ONLY. Changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-97765-fartail-crossing-heights-viz-data.js (the audited leaf)
  * @see imp-97744-fartail-diagnostic-crossing-heights.js (its sole import, itself import-free)
@@ -64,8 +64,8 @@ export const IMP97849_FARTAIL_CROSSING_HEIGHTS_IMPORT_LIGHT_AUDIT = Object.freez
   verdict:
     'AUDIT-ONLY verification (not a new derivation): the imp-97765 leaf is import-light and ' +
     'its lazy page will not blank in the browser. Changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= ' +
-    '0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
 });
 
 // ---------------------------------------------------------------------------
@@ -97,7 +97,7 @@ const IMP97849_AUDIT_ASSERTIONS = [
     description: 'the verdict restates no-bound-moved / NO-QED honesty markers',
     holds: () =>
       /NO QED/.test(IMP97849_FARTAIL_CROSSING_HEIGHTS_IMPORT_LIGHT_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP97849_FARTAIL_CROSSING_HEIGHTS_IMPORT_LIGHT_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP97849_FARTAIL_CROSSING_HEIGHTS_IMPORT_LIGHT_AUDIT.verdict),
   },
 ];
 

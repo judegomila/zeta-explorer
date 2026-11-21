@@ -53,7 +53,7 @@
  * derives no remainder; discharges nothing; changes no bound; establishes no
  * operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), C_H = 1/8,
  * E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED;
- * imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35680-constant-mismatch-magnitude (Reading A: A_band/C_C ~ 1.3029; also records the curvature ratio)
  * @see imp-35696-collision-exponent-consistency-check (Reading B context: pi^2/3 as small-gap density coefficient, cube-root prefactor ~ 2.047)
@@ -65,7 +65,7 @@
 
 import { IMP35680_CONSTANT_MISMATCH_MAGNITUDE } from './imp-35680-constant-mismatch-magnitude.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 const ALPHA_LIMIT = 1; // Montgomery/Rudnick-Sarnak proven support |alpha| < 1
 
 // Target short-range collision constant (imp-2642/imp-2643 ansatz, C_H = 1/8).
@@ -161,7 +161,7 @@ export const IMP35721_CC_AMPLITUDE_MISMATCH_DUAL_READING_RECONCILIATION = {
     'cluster shape, not the diagonal collision amplitude. Corroborates imp-35680 and imp-35696; derives no remainder; ' +
     'discharges nothing; changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/' +
     'imp-2643), C_H = 1/8, E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a ' +
-    'stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'stays OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35680 (Reading A A_band/C_C ~ 1.3029, curvature ratio recorded); imp-35696 (Reading B pi^2/3 small-gap ' +
     'density coefficient, cube-root prefactor); imp-2642/imp-2643 (C_C = (1/8) sqrt(3 pi), C_H = 1/8); imp-2631 ' +
@@ -231,7 +231,7 @@ export const IMP35721_CC_AMPLITUDE_MISMATCH_DUAL_READING_RECONCILIATION_ASSERTIO
     },
   },
   {
-    // (6) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, NO QED.
+    // (6) honesty gate: measurement only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, NO QED.
     id: 'imp35721-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -245,7 +245,7 @@ export const IMP35721_CC_AMPLITUDE_MISMATCH_DUAL_READING_RECONCILIATION_ASSERTIO
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

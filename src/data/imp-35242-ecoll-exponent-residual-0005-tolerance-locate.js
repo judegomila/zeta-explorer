@@ -66,7 +66,7 @@
  * MEASUREMENT ONLY. The component model is the inherited imp-3220/imp-3406 extrapolation,
  * NOT a rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no
- * RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33620-etrunc-ecoll-ladder-1e15-extension (1e15 rung and the ~0.0152 residual extended here)
  * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (the residual ~ 1/(2 log T0) closing law, NO floor)
@@ -214,7 +214,7 @@ export const IMP35242_ECOLL_EXPONENT_RESIDUAL_0005_TOLERANCE_LOCATE = {
     'because the numerator log T0 grows only logarithmically. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33620 (E_coll exponent ladder to 1e15, ~0.0152 residual, extended here); imp-34130 ' +
     '(residual ~ 1/(2 log T0) closing law, no floor); imp-34187 (milestone ladder of the same law); ' +
@@ -262,13 +262,13 @@ export const IMP35242_ECOLL_EXPONENT_RESIDUAL_0005_TOLERANCE_LOCATE_ASSERTIONS =
       LOG_T0_AT_1E15 < 34,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35242-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35242_ECOLL_EXPONENT_RESIDUAL_0005_TOLERANCE_LOCATE.isRigorous === false &&
       /NO QED/.test(IMP35242_ECOLL_EXPONENT_RESIDUAL_0005_TOLERANCE_LOCATE.verdict) &&
-      /remains SOTA/.test(IMP35242_ECOLL_EXPONENT_RESIDUAL_0005_TOLERANCE_LOCATE.verdict),
+      /refereed bound is changed/i.test(IMP35242_ECOLL_EXPONENT_RESIDUAL_0005_TOLERANCE_LOCATE.verdict),
   },
 ];
 

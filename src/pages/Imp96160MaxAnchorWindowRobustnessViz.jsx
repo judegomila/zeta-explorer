@@ -242,7 +242,7 @@ export default function Imp96160MaxAnchorWindowRobustnessViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96132 baked margin table verbatim (no re-derivation of sd(C&#8211;E), the window sweep,
         or the max-anchor envelope). Changes no bound, establishes no operator positivity, no RH
-        claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        claim. NO QED.
       </div>
     </div>
   );

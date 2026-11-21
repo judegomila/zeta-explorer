@@ -11,8 +11,7 @@
  * rectangle-boundary integer count is greenfield.
  *
  * ASSESSMENT / SCOPING ONLY. Ports nothing; certifies nothing; counts no zeros;
- * changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * WHY A WINDING COUNT AT ALL (the B1 obligation)
  * -----------------------------------------------------------------------------
@@ -105,7 +104,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35726 / imp-35725) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 const HALF_TURN = Math.PI; // per-panel argument-increment cap threshold (I2)
 const CLOSURE_BUDGET = Math.PI; // accumulated argument error must stay under this to pin N (I4)
 
@@ -180,7 +179,7 @@ export const IMP35727_W2_CERTIFIED_WINDING_COUNT_INGREDIENTS_SCOPE = {
     'the accumulated increment to a UNIQUE integer within a < pi error budget; (I5) continuous corner ' +
     'composition around the closed loop. All five are GREENFIELD; the held scaffolding reduces none of them. ' +
     'Ports nothing; certifies nothing; counts no zeros; changes no bound; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-2696 (winding-Lyapunov, arg H_tau sampled, isRigorous:false); imp-33923 (off-axis phase-winding ' +
     'quadrature, model cusp); imp-33968 (winding-rate-vs-alpha least-squares slope); imp-35681 Part B ' +
@@ -235,16 +234,16 @@ export const IMP35727_W2_CERTIFIED_WINDING_COUNT_INGREDIENTS_SCOPE_ASSERTIONS = 
       /A \+ B - C/.test(IMP35727_W2_CERTIFIED_WINDING_COUNT_INGREDIENTS_SCOPE.certifiedCountIngredients.I1_intervalEnclosurePerEdge),
   },
   {
-    // Honesty gate: scoping only, no discharge, no QED, PT SOTA at Lambda <= 0.2.
+    // Honesty gate: scoping only, no discharge, no QED, no refereed bound is changed.
     id: 'imp35727-honesty-gate-no-qed',
-    description: 'Scoping only; ports nothing; certifies nothing; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Scoping only; ports nothing; certifies nothing; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35727_W2_CERTIFIED_WINDING_COUNT_INGREDIENTS_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       T_PT === 3e12 &&
       /certifies nothing/.test(IMP35727_W2_CERTIFIED_WINDING_COUNT_INGREDIENTS_SCOPE.verdict) &&
       /NO QED/.test(IMP35727_W2_CERTIFIED_WINDING_COUNT_INGREDIENTS_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35727_W2_CERTIFIED_WINDING_COUNT_INGREDIENTS_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35727_W2_CERTIFIED_WINDING_COUNT_INGREDIENTS_SCOPE.verdict),
   },
 ];
 

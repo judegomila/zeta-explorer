@@ -55,8 +55,7 @@
  * RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * SUB-GAP-imp-34411-dyadic-argmax-grid-floor: the stable argmax stabilizes at k=8.821091651900 across
  * e=20..22 on the DYADIC 6 + j/2^e grid; whether the continuum argmax sits between two dyadic nodes below
@@ -361,7 +360,7 @@ export const IMP34411_DEEP_LADDER_KAHAN_OLS_E21_E22_EXTENSION = {
     'extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive, not derived; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34325 (the e=19,20 Kahan tie-break extended here); imp-34250 (the two-estimator tie-fragile ' +
     'classification); imp-34172 (Y2 measured the e=19 tie margin); imp-34106 (the deep e=15..20 ladder); ' +
@@ -415,16 +414,16 @@ export const IMP34411_DEEP_LADDER_KAHAN_OLS_E21_E22_EXTENSION_ASSERTIONS = [
     holds: () => REPRODUCES_IMP34325 && CROSSCHECK_RUNGS.length === 2,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, extends imp-34325, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, extends imp-34325, no QED, no refereed bound is changed.
     id: 'imp34411-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, EXTENDS the imp-34325 Kahan tie-break to e=21,22, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Measurement only: isRigorous false, EXTENDS the imp-34325 Kahan tie-break to e=21,22, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34411_DEEP_LADDER_KAHAN_OLS_E21_E22_EXTENSION.isRigorous === false &&
       /EXTENDS the imp-34325 three-estimator Kahan-OLS tie-break/.test(
         IMP34411_DEEP_LADDER_KAHAN_OLS_E21_E22_EXTENSION.verdict,
       ) &&
       /NO QED/.test(IMP34411_DEEP_LADDER_KAHAN_OLS_E21_E22_EXTENSION.verdict) &&
-      /remains SOTA/.test(IMP34411_DEEP_LADDER_KAHAN_OLS_E21_E22_EXTENSION.verdict) &&
+      /refereed bound is changed/i.test(IMP34411_DEEP_LADDER_KAHAN_OLS_E21_E22_EXTENSION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34411_DEEP_LADDER_KAHAN_OLS_E21_E22_EXTENSION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34411_DEEP_LADDER_KAHAN_OLS_E21_E22_EXTENSION.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34411_DEEP_LADDER_KAHAN_OLS_E21_E22_EXTENSION.verdict),

@@ -11,7 +11,7 @@
  * SURROGATE MEASUREMENT ONLY. imp-35989 anchored its I4 accrual surrogate at N = 1 and flagged, but never
  * measured, the linear-in-N roundoff scaling. This module supplies that N-track. It sums NO real per-panel
  * increments; evaluates NO A, B, or C; certifies NO count; fixes NO Delta or h; instantiates NO interval;
- * changes NO bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes NO bound. NO QED. No refereed bound is changed.
  *
  * THE N-DEPENDENCE OF THE THREE LANDMARKS (CLOSED FORMS)
  * -----------------------------------------------------------------------------
@@ -62,18 +62,18 @@
  * constants (their landmark elasticities are <= 1/2, imp-36041); N ~ 488602 = floor(sqrt(T_PT/(4pi))) is the
  * imp-35674 Part D retained-term count, used here only as the top of the N-track. It sums no real increments,
  * evaluates no true H_t, certifies no count, fixes no Delta or h, instantiates no interval, changes no bound.
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35989-i4-accumulated-error-vs-panel-count-scale (two-channel accrual surrogate; N = 1 anchor)
  * @see imp-36041-i4-landmark-sensitivity-to-surrogate-constants (RHO_EVAL / K_TRUNC elasticities of the same landmarks)
  * @see imp-35804-i4-integer-closure-error-budget-scope (I4 < pi GLOBAL accumulated-error budget)
  * @see imp-35674 Part D (N(x) = floor(sqrt(x/4pi)) retained-term formula; N ~ 488602 at T_PT)
- * @see Polymath15 2019 (H_t = A + B - C; barrier method); Platt-Trudgian 2021 (T_PT = 3e12; Lambda <= 0.2 SOTA)
+ * @see Polymath15 2019 (H_t = A + B - C; barrier method); Platt-Trudgian 2021 (T_PT = 3e12; no refereed bound is changed)
  */
 
 // -- Anchor + operative constants (import-light; matching imp-35989 / imp-36041) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const HALF_TURN = Math.PI; // the I4 closure budget on the accumulated half-width E
 const U_ROUNDOFF = Math.pow(2, -53); // double-precision unit roundoff ~ 1.1102e-16
 const RHO_EVAL = 4; // imp-35989 per-panel arg/atan2 evaluation condition (illustrative)
@@ -180,13 +180,13 @@ export const IMP36042_I4_LANDMARKS_VS_WINDING_COUNT_SCALE = {
     'orders above the physical max. The linear-in-N roundoff growth thins the safety margin from ~7 to ~4 orders and ' +
     'relocates the U-minimum, but does not threaten pi. RHO_EVAL, K_TRUNC are the imp-35989 illustrative constants ' +
     '(landmark elasticities <= 1/2, imp-36041). It sums no real increments; evaluates no true H_t; certifies no ' +
-    'count; fixes no Delta or h; instantiates no interval; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'count; fixes no Delta or h; instantiates no interval; changes no bound; NO QED. No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-35989 (two-channel I4 accrual surrogate; N = 1 anchor; roundoff linear in |S| = 2pi*N); imp-36041 (RHO_EVAL / ' +
     'K_TRUNC landmark elasticities <= 1/2); imp-35804 (I4 < pi GLOBAL accumulated-error budget); imp-35674 Part D ' +
     '(N(x) = floor(sqrt(x/4pi)); N ~ 488602 at T_PT); Polymath15 2019 (H_t = A + B - C; barrier method); ' +
-    'Platt-Trudgian 2021 (T_PT = 3e12; Lambda <= 0.2 SOTA).',
+    'Platt-Trudgian 2021 (T_PT = 3e12; no refereed bound is changed).',
 };
 
 export const IMP36042_I4_LANDMARKS_VS_WINDING_COUNT_SCALE_ASSERTIONS = [
@@ -251,15 +251,15 @@ export const IMP36042_I4_LANDMARKS_VS_WINDING_COUNT_SCALE_ASSERTIONS = [
       LANDMARK_TABLE.find((row) => row.N === Number(N_TPT.toExponential(6))).nMinBelowPhysicalMax === true,
   },
   {
-    // Honesty gate: surrogate only, sums no increments, certifies no count, NO QED, PT Lambda <= 0.2 SOTA.
+    // Honesty gate: surrogate only, sums no increments, certifies no count, NO QED, no refereed bound is changed.
     id: 'imp36042-honesty-gate-no-qed',
-    description: 'Surrogate measurement only; sums no real increments; certifies no count; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Surrogate measurement only; sums no real increments; certifies no count; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP36042_I4_LANDMARKS_VS_WINDING_COUNT_SCALE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /certifies no count/.test(IMP36042_I4_LANDMARKS_VS_WINDING_COUNT_SCALE.verdict) &&
       /NO QED/.test(IMP36042_I4_LANDMARKS_VS_WINDING_COUNT_SCALE.verdict) &&
-      /remains SOTA/.test(IMP36042_I4_LANDMARKS_VS_WINDING_COUNT_SCALE.verdict),
+      /refereed bound is changed/i.test(IMP36042_I4_LANDMARKS_VS_WINDING_COUNT_SCALE.verdict),
   },
 ];
 

@@ -66,7 +66,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
  * imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35018 (four-landmark cluster: N_half/N_cross ~0.4% apart, N_star ~3.3% higher)
  * @see imp-33808-oneovert2-inflection-separation-derivation (closed form sigma_I = 1/2 - g_prime/(2 g^2))
@@ -251,7 +251,7 @@ export const IMP35042_INFLECTION_CROSSOVER_OFFSET_STRUCTURAL = {
     'margin. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
     'imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   subGap:
     'CLOSES the imp-35018 open question of whether N_star ~3.3% above the tight N_half/N_cross pair is ' +
     'structural or numerical: it is STRUCTURAL -- the O(1/t^2) sigmoid-asymmetry displacement 2 g_prime/g^3, ' +
@@ -310,16 +310,16 @@ export const IMP35042_INFLECTION_CROSSOVER_OFFSET_STRUCTURAL_ASSERTIONS = [
     holds: () => MARGIN_RATIO > 5 && MARGIN_RATIO < 20,
   },
   {
-    // Honesty gate: derivation/measurement only, far-tail exponent = 1/2, sub-gap named, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, far-tail exponent = 1/2, sub-gap named, no QED, no refereed bound is changed.
     id: 'imp35042-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, far-tail exponent = 1/2, sub-gap named, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, far-tail exponent = 1/2, sub-gap named, no QED, no refereed bound is changed',
     holds: () =>
       IMP35042_INFLECTION_CROSSOVER_OFFSET_STRUCTURAL.isRigorous === false &&
       IMP35042_INFLECTION_CROSSOVER_OFFSET_STRUCTURAL.farTailExponent === 0.5 &&
       typeof IMP35042_INFLECTION_CROSSOVER_OFFSET_STRUCTURAL.subGap === 'string' &&
       /imp-486/.test(IMP35042_INFLECTION_CROSSOVER_OFFSET_STRUCTURAL.subGap) &&
       /NO QED/.test(IMP35042_INFLECTION_CROSSOVER_OFFSET_STRUCTURAL.verdict) &&
-      /remains SOTA/.test(IMP35042_INFLECTION_CROSSOVER_OFFSET_STRUCTURAL.verdict),
+      /refereed bound is changed/i.test(IMP35042_INFLECTION_CROSSOVER_OFFSET_STRUCTURAL.verdict),
   },
 ];
 

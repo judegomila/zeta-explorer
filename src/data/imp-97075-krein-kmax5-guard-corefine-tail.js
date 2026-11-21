@@ -72,7 +72,7 @@
  * certified reach stays 2a<=0.96 pending that run.
  *
  * Measurement only; interval-rigorous certified reach stays exactly 2a <= 0.96; the operator floor is a
- * Rayleigh UPPER bound (no operator positivity established); RH open; Platt-Trudgian Lambda <= 0.2 SOTA;
+ * Rayleigh UPPER bound (no operator positivity established); RH open; no refereed bound is changed;
  * NO QED.
  *
  * @see imp-96868-krein-kmax5-extprec-frontier.js (parent: precision-invariant tail guard deficit at 2a=1.06, t*=37.878; degree+guard co-binding)

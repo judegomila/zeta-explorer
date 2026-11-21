@@ -17,7 +17,7 @@
  *   @see imp-97180-route-m-cotangent-absvalue-bulk-firstmoment-obstruction.js (absolute c ~ 0.145)
  *
  *   Ticket: imp-97238 (ux, low). Presentation of an already-established measurement; adds no
- *   new Lambda bound. PT Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ *   new Lambda bound. No refereed bound is changed. RH open. NO QED.
  */
 
 // -- baked from imp-97204 Result 3: signed/absolute/cancellation ladder across b=101,401,2003 --

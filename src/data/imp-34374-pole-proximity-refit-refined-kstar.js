@@ -73,8 +73,7 @@
  * extrapolation, NOT a rigorous asymptotic; the OLS surrogate, the local log-derivative, and the
  * pole-proximity regression are descriptive, not derived; the imp-34287 verdict is UNTOUCHED (only its
  * baked k* is refined); the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes
- * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34287-fixed-band-peak-growth-exponent-pole-reconciliation (the regression this refits; machinery verbatim)
  * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (the resid_exp pole bisection k* ~ 21.280947425 this refines)
@@ -362,7 +361,7 @@ export const IMP34374_POLE_PROXIMITY_REFIT_REFINED_KSTAR = {
     'regression are descriptive, not derived; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes ' +
     'no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34287 (the pole-proximity regression this refits; machinery reused verbatim); imp-34169 (the ' +
     'resid_exp pole bisection k* ~ 21.280947425 this refines to full precision); imp-34127 (the closed-form ' +
@@ -426,16 +425,16 @@ export const IMP34374_POLE_PROXIMITY_REFIT_REFINED_KSTAR_ASSERTIONS = [
       IMP34374_POLE_PROXIMITY_REFIT_REFINED_KSTAR.closedFormInadmissible.r2IsNaN === true,
   },
   {
-    // Honesty gate: measurement/sensitivity only; imp-34287 verdict UNCHANGED; sub-gap still open; no QED; PT SOTA.
+    // Honesty gate: measurement/sensitivity only; imp-34287 verdict UNCHANGED; sub-gap still open; no QED; no refereed bound is changed.
     id: 'imp34374-honesty-gate-no-qed',
-    description: 'isRigorous false; imp-34287 unchanged; SUB-GAP-imp-34287 open; no QED; PT SOTA; C_mb / imp-3066 untouched',
+    description: 'isRigorous false; imp-34287 unchanged; SUB-GAP-imp-34287 open; no QED; no refereed bound is changed; C_mb / imp-3066 untouched',
     holds: () =>
       IMP34374_POLE_PROXIMITY_REFIT_REFINED_KSTAR.isRigorous === false &&
       /verdict stands UNCHANGED/.test(IMP34374_POLE_PROXIMITY_REFIT_REFINED_KSTAR.verdict) &&
       /SUB-GAP-imp-34287-asymptotic-class-undecidable stays OPEN/.test(IMP34374_POLE_PROXIMITY_REFIT_REFINED_KSTAR.verdict) &&
       /NOT a rigorous asymptotic/.test(IMP34374_POLE_PROXIMITY_REFIT_REFINED_KSTAR.verdict) &&
       /NO QED/.test(IMP34374_POLE_PROXIMITY_REFIT_REFINED_KSTAR.verdict) &&
-      /remains SOTA/.test(IMP34374_POLE_PROXIMITY_REFIT_REFINED_KSTAR.verdict) &&
+      /refereed bound is changed/i.test(IMP34374_POLE_PROXIMITY_REFIT_REFINED_KSTAR.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34374_POLE_PROXIMITY_REFIT_REFINED_KSTAR.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34374_POLE_PROXIMITY_REFIT_REFINED_KSTAR.verdict),
   },

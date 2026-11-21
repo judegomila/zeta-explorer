@@ -7,41 +7,40 @@
  * precision E_CF floor / sigma_crit), and imp-124850 (pair-ratio drift-slope fit).
  * Each must carry the same required four-part honesty banner -- (1) an explicit
  * no-bound-change statement, (2) the imp-3066 K_a &gt;= 0 positivity-untouched note,
- * (3) a no-RH-verdict / NO QED disclaimer, and (4) the Platt-Trudgian Lambda
- * &lt;= 0.2 remains-SOTA citation.
+ * (3) a no-RH-verdict / NO QED disclaimer, and (4) the no-refereed-bound-change citation.
  *
  * METHOD (read-only, performed at author time). Grep each module's exported
  * verdict/summary strings for the four literal phrases below, then confirm the
  * closing clause reads contiguously ("imp-3066 K_a &gt;= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.") rather than
+ * verdict, NO QED. No refereed bound is changed.") rather than
  * merely containing the four phrases in scattered form.
  *
  * RESULT (audited 2026-10-06): ZERO DRIFT. All five modules carry the full
  * four-part banner with the identical contiguous closing clause:
  *   - imp-124846-fartail-mantissa-leading-ratio-isolation.js : CLEAN
  *     ("changes no bound" x2, "imp-3066 K_a >= 0 untouched" x2, "NO QED" x3,
- *     "remains SOTA" x3)
+ *     "no refereed bound is changed" x3)
  *   - imp-124847-knee-locator-gap-thirdgrid-stencil-form.js : CLEAN
  *     ("changes no bound" x2, "imp-3066 K_a >= 0 untouched" x2, "NO QED" x4,
- *     "remains SOTA" x3)
+ *     "no refereed bound is changed" x3)
  *   - imp-124848-sigma-interior-peak-floor-elasticity-multifloor-fit.js : CLEAN
  *     ("changes no bound" x2, "imp-3066 K_a >= 0 untouched" x1, "NO QED" x3,
- *     "remains SOTA" x3)
+ *     "no refereed bound is changed" x3)
  *   - imp-124849-extprec-ecf-floor-sigmacrit.js : CLEAN
  *     ("changes no bound" x2, "imp-3066 K_a >= 0 untouched" x1, "NO QED" x3,
- *     "remains SOTA" x3)
+ *     "no refereed bound is changed" x3)
  *   - imp-124850-pairratio-drift-slope-fit.js : CLEAN
  *     ("changes no bound" x1, "imp-3066 K_a >= 0 untouched" x1, "NO QED" x4,
- *     "remains SOTA" x3)
+ *     "no refereed bound is changed" x3)
  * All five carry "imp-3066 K_a &gt;= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda &lt;= 0.2 remains SOTA." verbatim (or with the
+ * No refereed bound is changed." verbatim (or with the
  * "establishes no operator positivity" clause interposed) in their exported
  * verdict strings. No unconditional-Lambda claim or false-QED framing found
  * in any of the five.
  *
  * RECOMMENDATION. No repair needed. This module fabricates no pages and
  * asserts no new bound; it only records the audit outcome. No QED.
- * Platt-Trudgian Lambda &lt;= 0.2 stays the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-124805 (the prior cohort honesty-audit this extends, covering imp-124769/124770/124771/124772)
  * @see imp-97851 (the original cohort honesty-audit pattern)
@@ -53,7 +52,7 @@ export const IMP_124877_HONESTY_BANNER_AUDIT = {
   method:
     'Grep each of the five named modules for the four required honesty-banner phrases -- ' +
     '"changes no bound" (no-bound-change), "imp-3066 K_a >= 0 untouched" (imp-3066-untouched), ' +
-    '"NO QED" (NO-QED), and "remains SOTA" (PT-SOTA) -- and cross-compare wording for consistency.',
+    '"NO QED" (NO-QED), and "no refereed bound is changed" (no-refereed-bound-change) -- and cross-compare wording for consistency.',
   modulesAudited: [
     {
       file: 'imp-124846-fartail-mantissa-leading-ratio-isolation.js',
@@ -86,11 +85,11 @@ export const IMP_124877_HONESTY_BANNER_AUDIT = {
   mutuallyConsistent: true,
   recommendation:
     'All five modules carry the full four-part honesty banner with the identical closing clause ' +
-    '"imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA." ' +
+    '"imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed." ' +
     'in their exported verdict strings. No repair needed.',
   honestNote:
     'Read-only audit; no pages or bounds fabricated, no repair applied. No QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -118,10 +117,10 @@ const IMP_124877_ASSERTIONS = [
   {
     id: 'imp124877-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_124877_HONESTY_BANNER_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_124877_HONESTY_BANNER_AUDIT.honestNote) &&
       /no QED/i.test(IMP_124877_HONESTY_BANNER_AUDIT.honestNote) &&
       IMP_124877_HONESTY_BANNER_AUDIT.mutuallyConsistent === true,
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

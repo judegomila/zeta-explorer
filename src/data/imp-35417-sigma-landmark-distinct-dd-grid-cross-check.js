@@ -44,8 +44,7 @@
  * the imp-35337 double-vs-dd agreement figures. It certifies ARITHMETIC path-insensitivity only; it does NOT
  * touch the deeper surrogate-vs-true fidelity half, which stays OPEN as imp-35337a. The C_C = (1/8) sqrt(3 pi)
  * ansatz (imp-2642/imp-2643) is UNTOUCHED; E_trunc = 3.06e-5 (imp-2631) UNTOUCHED; the imp-398 C_F prefactor
- * UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35337-sigma-landmarks-double-double-certification (the single-path figures being corroborated)
  * @see imp-35109-ceil-phase-drift-precision-certification (source dd toolkit / RvM Newton inverse)
@@ -371,7 +370,7 @@ export const IMP35417_SIGMA_LANDMARK_DISTINCT_DD_GRID_CROSS_CHECK = {
     'inherited imp-3220/imp-3406 surrogate, which is NOT a rigorous asymptotic; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643), the E_trunc = 3.06e-5 floor (imp-2631) and the imp-398 C_F prefactor are UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; the surrogate-fidelity half stays OPEN as imp-35337a; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35337 (single-path double-vs-dd landmark figures being corroborated); imp-35109 (source dd toolkit / ' +
     'RvM Newton inverse); imp-3406 (interior MAX ~ 9.22e5, 2.1e-5 flat-cap margin); imp-3444 (E_coll = E_trunc ' +
@@ -430,13 +429,13 @@ export const IMP35417_SIGMA_LANDMARK_DISTINCT_DD_GRID_CROSS_CHECK_ASSERTIONS = [
     holds: () => MAX_ABS_SIGMA_SHIFT < 1e-10 && CORROBORATES_IMP35337 === true,
   },
   {
-    // Honesty gate: verification of a surrogate arithmetic path, not rigorous, no QED, PT SOTA, sub-gap open.
+    // Honesty gate: verification of a surrogate arithmetic path, not rigorous, no QED, no refereed bound is changed, sub-gap open.
     id: 'imp35417-honesty-gate-no-qed',
-    description: 'Verification only: isRigorous false, no QED, Platt-Trudgian stays SOTA, imp-35337a stays OPEN',
+    description: 'Verification only: isRigorous false, no QED, no refereed bound is changed, imp-35337a stays OPEN',
     holds: () =>
       IMP35417_SIGMA_LANDMARK_DISTINCT_DD_GRID_CROSS_CHECK.isRigorous === false &&
       /NO QED/.test(IMP35417_SIGMA_LANDMARK_DISTINCT_DD_GRID_CROSS_CHECK.verdict) &&
-      /remains SOTA/.test(IMP35417_SIGMA_LANDMARK_DISTINCT_DD_GRID_CROSS_CHECK.verdict) &&
+      /refereed bound is changed/i.test(IMP35417_SIGMA_LANDMARK_DISTINCT_DD_GRID_CROSS_CHECK.verdict) &&
       /imp-35337a/.test(IMP35417_SIGMA_LANDMARK_DISTINCT_DD_GRID_CROSS_CHECK.residual_sub_gap),
   },
 ];

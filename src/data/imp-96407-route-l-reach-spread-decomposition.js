@@ -37,7 +37,7 @@
  * to T0; the 8.2% prefactor gap is height-independent and offsets ~15% of it. Both laws still land at
  * the same 1e15 order, so the decomposition sharpens WHY the fan opens (an over-levered exponent
  * micro-difference) without moving either conclusion. Measurement of baked literals only; changes NO
- * bound; RH open; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * bound; RH open; no refereed bound is changed; NO QED.
  *
  * Reproduce: tmp/imp-96407-spread-decomposition.mjs (pure JS, no imports).
  *
@@ -86,7 +86,7 @@ export const IMP96407_VERDICT =
   + 'gap causes only 6.3%-10.5% divergence across the shared gamma range but 93.4% at T0, a further '
   + 'factor 1.75 over the 10.59-decade extrapolation from gamma = 77.1448 to T0 = 3e12. The fan is an '
   + 'over-levered exponent micro-difference, not a robust separation; both laws still land at 1e15. '
-  + 'Measurement of baked literals only; changes no bound; RH open; Platt-Trudgian Lambda <= 0.2 stays '
-  + 'SOTA; NO QED.';
+  + 'Measurement of baked literals only; changes no bound; RH open; no refereed bound is changed'
+  + '; NO QED.';
 
 export const IMP96407_SCRIPTS = Object.freeze(['tmp/imp-96407-spread-decomposition.mjs']);

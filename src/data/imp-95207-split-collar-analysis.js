@@ -3,7 +3,7 @@
  * against the delivered true per-shard L12 minima.
  *
  * GRADE: ASSESSMENT + SHADOW MEASUREMENT. Derives no bound, certifies no
- * collar, closes no gap; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * collar, closes no gap; NO QED. No refereed bound is changed.
  * Shadow runs are UNCERTIFIED: local clang/FLINT 3.6.0 compile of the
  * delivered producer at prec 128, our arguments, not the sealed toolchain.
  *

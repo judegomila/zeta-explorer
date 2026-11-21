@@ -61,7 +61,7 @@
  * 3e12 and would overshoot the forecast target rather than land on it.) The only lever that
  * actually reaches T = 3e12 in-repo is the imp-95722 analytic r_cap envelope (r_cap(3e12) ~ 0.26),
  * not a bigger ordinate table. Assessment only; changes no bound; NO QED; the zero-side route
- * stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays PCC / GRH-gated; no refereed bound is changed.
  *
  * @see imp-95801-ordinate-source-reach-audit (in-repo ceiling gamma_1e6 = 6.003e5, no source higher)
  * @see imp-95843-number-variance-ratio-extend-data-ceiling (data-ceiling sub-gap this quantifies)
@@ -163,7 +163,7 @@ export const IMP95863_INTERMEDIATE_ORDINATE_TABLE_REACH_LEDGER = {
     'extension. Odlyzko-style LOCAL high blocks near T = 10^20..10^23 overshoot 3e12 rather than ' +
     'land on it. The only in-repo lever that actually reaches T = 3e12 is the imp-95722 analytic ' +
     'r_cap envelope (r_cap(3e12) ~ 0.26), not a bigger ordinate table. Changes no bound; NO QED; ' +
-    'the zero-side route stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'the zero-side route stays PCC / GRH-gated; no refereed bound is changed.',
   citation:
     'imp-95801 (in-repo ordinate ceiling gamma_1e6 = 6.003e5); imp-95843 (data-ceiling sub-gap); ' +
     'imp-95735 / imp-95710 / imp-95562 (number-variance ratio r(T) ~ 0.40, no GUE trend); ' +
@@ -225,13 +225,13 @@ export const IMP95863_INTERMEDIATE_ORDINATE_TABLE_REACH_LEDGER = {
   const topXcheck = RVM_SECOND_ANCHOR_CROSSCHECK[RVM_SECOND_ANCHOR_CROSSCHECK.length - 1];
   if (!(topXcheck.N === 1e6 && approx(topXcheck.relErr, 3.9132e-7, 1e-9)))
     throw new Error('imp-95883: top cross-check anchor must match the single-anchor 3.9e-7 calibration');
-  // honesty gate: assessment only, no QED, PT stays SOTA.
+  // honesty gate: assessment only, no QED, no refereed bound is changed.
   if (IMP95863_INTERMEDIATE_ORDINATE_TABLE_REACH_LEDGER.isRigorous !== false)
     throw new Error('imp-95863: isRigorous must be false');
   if (!/NO QED/.test(IMP95863_INTERMEDIATE_ORDINATE_TABLE_REACH_LEDGER.verdict))
     throw new Error('imp-95863: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95863_INTERMEDIATE_ORDINATE_TABLE_REACH_LEDGER.verdict))
-    throw new Error('imp-95863: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95863_INTERMEDIATE_ORDINATE_TABLE_REACH_LEDGER.verdict))
+    throw new Error('imp-95863: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95863_INTERMEDIATE_ORDINATE_TABLE_REACH_LEDGER;

@@ -67,7 +67,7 @@
  * distance-to-pole bound, or the imp-35167 min-gap route feeding an intrinsic
  * accumulation constant). I3 stays OPEN. Assessment only; discharges nothing;
  * establishes no operator positivity; changes no bound; C_mb GUE-conditional per
- * imp-486 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-486 UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35168-mesoscopic-i3-lipschitz-window-assessment (fixed-height precursor; the two constants)
  * @see imp-35127-g-step-error-certified-bound-scope (I3 ingredient; the coupling claim)
@@ -167,8 +167,8 @@ export const IMP35196_YSTAR_SCHEDULE_RECONCILIATION_ASSESSMENT = {
     '(constant or scheduled); I3 needs a different lever (an N-uniform field-Lipschitz surrogate not ' +
     'built from a distance-to-pole bound, or the imp-35167 min-gap route). I3 stays OPEN. Assessment ' +
     'only; discharges nothing; establishes no operator positivity; changes no bound; C_mb ' +
-    'GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35168-mesoscopic-i3-lipschitz-window-assessment (fixed-height precursor); ' +
     'imp-35127-g-step-error-certified-bound-scope (I3, coupling); backward-flow-stability-gronwall.js ' +
@@ -234,15 +234,15 @@ export const IMP35196_YSTAR_SCHEDULE_RECONCILIATION_ASSESSMENT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: assessment only, reconciles false, strictly incompatible, no QED, PT stays SOTA.
+    // Honesty gate: assessment only, reconciles false, strictly incompatible, no QED, no refereed bound is changed.
     id: 'imp35196-honesty-gate-no-qed',
-    description: 'Assessment only: reconciles false, strictly incompatible, isRigorous false, NO QED, PT stays SOTA',
+    description: 'Assessment only: reconciles false, strictly incompatible, isRigorous false, NO QED, no refereed bound is changed',
     holds: () =>
       IMP35196_YSTAR_SCHEDULE_RECONCILIATION_ASSESSMENT.reconciles === false &&
       IMP35196_YSTAR_SCHEDULE_RECONCILIATION_ASSESSMENT.strictlyIncompatible === true &&
       IMP35196_YSTAR_SCHEDULE_RECONCILIATION_ASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP35196_YSTAR_SCHEDULE_RECONCILIATION_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP35196_YSTAR_SCHEDULE_RECONCILIATION_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP35196_YSTAR_SCHEDULE_RECONCILIATION_ASSESSMENT.verdict),
   },
 ];
 

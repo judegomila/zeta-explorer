@@ -66,7 +66,7 @@
  * scope fence isolating it from OPEN R1t. Formalization ONLY on the inherited imp-3220/imp-3406 surrogate; the
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes
- * no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35357-reentry-band-pure-artifact-proof-requirement (the R1s/R1t split this formalizes)
  * @see imp-35330-reentry-band-fidelity-requirement-dependency (CLAIM 1 + the qualifier imp-35357 sharpened)
@@ -183,8 +183,8 @@ export const IMP35414_R1S_ZERO_RESIDUE_SURROGATE_LEMMA = {
     'entangled with R2/R3. Formalization only; discharges nothing; imp-35243a stays OPEN. FORMALIZATION ONLY on ' +
     'the inherited imp-3220/imp-3406 surrogate; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the ' +
     'C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35357 (R1s/R1t split this formalizes); imp-35330 (CLAIM 1 + qualifier); imp-35243 (D1 floor-sensitivity, ' +
     'monotone band slide, R1-R4); imp-35263 (D1 figure reentry-edge local, grows to ~18.95 at exit); imp-35332 ' +
@@ -256,15 +256,15 @@ export const IMP35414_R1S_ZERO_RESIDUE_SURROGATE_LEMMA_ASSERTIONS = [
       /R1t/.test(R1S_LEMMA.does_not_touch),
   },
   {
-    // Honesty gate: formalization only, isRigorous false, discharges nothing, R1t/imp-35243a OPEN, no QED, PT SOTA.
+    // Honesty gate: formalization only, isRigorous false, discharges nothing, R1t/imp-35243a OPEN, no QED, no refereed bound is changed.
     id: 'imp35414-honesty-gate-no-qed',
-    description: 'formalization only: isRigorous false, does not touch R1t, imp-35243a OPEN, no QED, PT SOTA',
+    description: 'formalization only: isRigorous false, does not touch R1t, imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP35414_R1S_ZERO_RESIDUE_SURROGATE_LEMMA.isRigorous === false &&
       /does NOT touch R1t|does not touch R1t/.test(IMP35414_R1S_ZERO_RESIDUE_SURROGATE_LEMMA.verdict) &&
       /imp-35243a/.test(IMP35414_R1S_ZERO_RESIDUE_SURROGATE_LEMMA.residual_sub_gap) &&
       /NO QED/.test(IMP35414_R1S_ZERO_RESIDUE_SURROGATE_LEMMA.verdict) &&
-      /remains SOTA/.test(IMP35414_R1S_ZERO_RESIDUE_SURROGATE_LEMMA.verdict),
+      /refereed bound is changed/i.test(IMP35414_R1S_ZERO_RESIDUE_SURROGATE_LEMMA.verdict),
   },
 ];
 

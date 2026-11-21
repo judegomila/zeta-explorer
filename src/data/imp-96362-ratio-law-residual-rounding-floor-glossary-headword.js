@@ -43,14 +43,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96327 verdict for quick reference.
  *   It establishes nothing, instantiates no interval, closes no sub-gap, moves no
- *   bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96327-ecoll-ratio-law-vs-anchor-crossvalidation (source: the residual this glosses)
  * @see imp-96311-ecoll-rate-ch-independence-tabulation (the ratio law and C_H values)
  * @see imp-96290-step4-bridge-subconstant-inventory (the two independently baked anchors)
  *
  * Ticket: imp-96362 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The rounding-floor-artifact-vs-G6-still-open headword, baked verbatim (no re-import).
@@ -76,8 +76,8 @@ const RATIO_LAW_RESIDUAL_ROUNDING_FLOOR_HEADWORD = Object.freeze({
   verificationStatus:
     'ACCURACY-AUDIT gloss, not a bound move. C_H<=0.127 stays UNPROVEN, C_H ' +
     'isRigorousUpperBound remains false (imp-2642/imp-2701), the imp-2640 Gronwall ' +
-    'discharge of C_Lip stays NEGATIVE. G6_polymath15_bridge stays open either way. PT ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'discharge of C_Lip stays NEGATIVE. G6_polymath15_bridge stays open either way. No refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96362_RATIO_LAW_RESIDUAL_ROUNDING_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
@@ -97,8 +97,8 @@ export const IMP96362_RATIO_LAW_RESIDUAL_ROUNDING_FLOOR_GLOSSARY_HEADWORD = Obje
     'ROUNDING-FLOOR ARTIFACT -- structurally guaranteed by E_coll = C_H * R(N) -- and NOT ' +
     'independent corroboration of the conditional bound. C_H<=0.127 stays UNPROVEN, C_H ' +
     'isRigorousUpperBound = false, G6_polymath15_bridge stays open. Establishes nothing; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96327 (the residual this glosses); imp-96311 (the ratio law and C_H values); ' +
     'imp-96290 (the two independently baked anchors).',
@@ -125,12 +125,12 @@ export const IMP96362_RATIO_LAW_RESIDUAL_ROUNDING_FLOOR_GLOSSARY_HEADWORD_ASSERT
   },
   {
     id: 'imp96362-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, G6 ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, G6 ' +
       'stays open.',
     holds: () =>
       IMP96362_RATIO_LAW_RESIDUAL_ROUNDING_FLOOR_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96362_RATIO_LAW_RESIDUAL_ROUNDING_FLOOR_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96362_RATIO_LAW_RESIDUAL_ROUNDING_FLOOR_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96362_RATIO_LAW_RESIDUAL_ROUNDING_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       /G6_polymath15_bridge stays open/.test(
         IMP96362_RATIO_LAW_RESIDUAL_ROUNDING_FLOOR_GLOSSARY_HEADWORD.verdict,
       ) &&

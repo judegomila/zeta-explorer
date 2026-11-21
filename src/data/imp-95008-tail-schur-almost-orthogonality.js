@@ -147,7 +147,7 @@
  * the built alias families, the geometric tail bound, and a discretized
  * tailed realization of the full Theorem S chain); they are not the claim.
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── closed-form pieces ───────────────────────────────────────────────────────
@@ -411,7 +411,7 @@ export const IMP95008_TAIL_SCHUR_ALMOST_ORTHOGONALITY = {
     'Lemmas T and G are unconditional and closed-form; Theorem S and Lemma W are conditional only on the tail-majorant hypothesis MAJ(sigma, theta), which is strictly weaker than the SUPPORT hypothesis Theorem N required. The numerics cross-check the statements; they are not the claim.',
   promotesBound: false,
   verdict:
-    'RIGOROUS aggregation step: the compact-SUPPORT hypothesis of the recorded cross-block isolation theorem is removed - polynomial-tail majorized packets obey ||sum_b w_b||^2 <= (2J-1) sum_b ||w_b||^2 + (4/(2 sigma - 1)) T(J) sum_b nTilde_b^2 with the closed-form, p-free tail constant T(J) <= G(J)^(-theta)/(1 - 2^(-theta(1-beta))), G(J) the same annulus gap ratio that defines j0. This discharges the named almost-orthogonality residual of the sibling module at the model-family level, at the explicit cost of a factor < 2 in the near band and an l1-mass far term. The paper-packet envelope constants, window ceiling, phase normalization, and the l2-to-pointwise step remain open. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RIGOROUS aggregation step: the compact-SUPPORT hypothesis of the recorded cross-block isolation theorem is removed - polynomial-tail majorized packets obey ||sum_b w_b||^2 <= (2J-1) sum_b ||w_b||^2 + (4/(2 sigma - 1)) T(J) sum_b nTilde_b^2 with the closed-form, p-free tail constant T(J) <= G(J)^(-theta)/(1 - 2^(-theta(1-beta))), G(J) the same annulus gap ratio that defines j0. This discharges the named almost-orthogonality residual of the sibling module at the model-family level, at the explicit cost of a factor < 2 in the near band and an l1-mass far term. The paper-packet envelope constants, window ceiling, phase normalization, and the l2-to-pointwise step remain open. Changes no bound; NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -487,13 +487,13 @@ export const IMP95008_TAIL_SCHUR_ASSERTIONS = [
   {
     id: 'imp95008-ts-honesty-gate',
     description:
-      'the verdict names the tail hypothesis, records the factor-2 near-band cost and the l1-currency cost, keeps the open residuals, promotes no bound, NO QED, PT stays SOTA',
+      'the verdict names the tail hypothesis, records the factor-2 near-band cost and the l1-currency cost, keeps the open residuals, promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95008_TAIL_SCHUR_ALMOST_ORTHOGONALITY.promotesBound === false &&
       IMP95008_TAIL_SCHUR_ALMOST_ORTHOGONALITY.openResiduals.length === 5 &&
       IMP95008_TAIL_SCHUR_ALMOST_ORTHOGONALITY.honestCosts.length === 3 &&
       /NO QED/.test(IMP95008_TAIL_SCHUR_ALMOST_ORTHOGONALITY.verdict) &&
-      /remains SOTA/.test(IMP95008_TAIL_SCHUR_ALMOST_ORTHOGONALITY.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_TAIL_SCHUR_ALMOST_ORTHOGONALITY.verdict) &&
       /factor < 2/.test(IMP95008_TAIL_SCHUR_ALMOST_ORTHOGONALITY.verdict) &&
       /MAJ/.test(IMP95008_TAIL_SCHUR_ALMOST_ORTHOGONALITY.theoremS),
   },

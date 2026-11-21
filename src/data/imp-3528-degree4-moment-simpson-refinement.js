@@ -63,7 +63,7 @@
  *   mathematical structure and establishes NO operator positivity. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT (imp-3481); the operator-level K_a &gt;= 0 sign-positivity
  *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3503-moment-ladder-gauss-legendre-crossval.js (the 3.8e-6 M_4 gap closed here)
  *   @see imp-3481-autocorrelation-moment-ladder.js (the composite-Simpson ladder refined here)
@@ -391,7 +391,7 @@ export const IMP3528_DEGREE4_MOMENT_SIMPSON_REFINEMENT = Object.freeze({
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT (imp-3481). The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -447,7 +447,7 @@ export const IMP3528_DEGREE4_MOMENT_SIMPSON_REFINEMENT_ASSERTIONS = [
   {
     id: 'imp3528-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: numerical certification only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3528_DEGREE4_MOMENT_SIMPSON_REFINEMENT.honestCaveat;
       return (
@@ -455,7 +455,7 @@ export const IMP3528_DEGREE4_MOMENT_SIMPSON_REFINEMENT_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

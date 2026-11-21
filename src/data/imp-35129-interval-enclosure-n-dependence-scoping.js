@@ -60,8 +60,7 @@
  * single-scale witness is NOT an N-uniform certificate; no interval enclosure growth law is
  * established; the 1/(x_k - x_j) pole reduction is NOT carried through in a certified N-uniform form
  * here. The imp-486 GUE-conditional, the C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0
- * are UNTOUCHED. Changes NO bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * are UNTOUCHED. Changes NO bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see interval-dyson-integrator (imp-362 LAMBDA_INTERVAL_DYSON witness + backwardCollisionInterval)
  * @see lambda-interval-dyson (data-layer manifest + imp362 assertions)
@@ -173,7 +172,7 @@ export const IMP35129_INTERVAL_ENCLOSURE_N_DEPENDENCE_SCOPING = {
     'documented radius(N) bound valid up to the target N. SCOPING ONLY: the single-scale witness is ' +
     'not an N-uniform certificate; the imp-486 GUE-conditional, the C_C 1/8 ansatz (imp-2642/imp-2643), ' +
     'and imp-3066 K_a >= 0 are UNTOUCHED; establishes no operator positivity; changes no bound; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-362 (LAMBDA_INTERVAL_DYSON one-ULP interval RK4 witness; backwardCollisionInterval, ' +
     'budgetForN, dysonDriftInterval reciprocal-difference sum); imp-35058 (Step-2 ' +
@@ -234,14 +233,14 @@ export const IMP35129_INTERVAL_ENCLOSURE_N_DEPENDENCE_SCOPING_ASSERTIONS = [
     id: 'imp35129-honesty-gate-no-qed',
     description:
       'scoping only: the single-scale witness is not an N-uniform certificate, no enclosure growth law ' +
-      'is established, changes no bound, no operator positivity, no QED, Platt-Trudgian stays SOTA',
+      'is established, changes no bound, no operator positivity, no QED, no refereed bound is changed',
     holds: () =>
       IMP35129_INTERVAL_ENCLOSURE_N_DEPENDENCE_SCOPING.changesBound === false &&
       IMP35129_INTERVAL_ENCLOSURE_N_DEPENDENCE_SCOPING.isRigorous === false &&
       /NO QED/.test(IMP35129_INTERVAL_ENCLOSURE_N_DEPENDENCE_SCOPING.verdict) &&
       /not an N-uniform certificate/.test(IMP35129_INTERVAL_ENCLOSURE_N_DEPENDENCE_SCOPING.verdict) &&
       /no operator positivity/.test(IMP35129_INTERVAL_ENCLOSURE_N_DEPENDENCE_SCOPING.verdict) &&
-      /remains SOTA/.test(IMP35129_INTERVAL_ENCLOSURE_N_DEPENDENCE_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP35129_INTERVAL_ENCLOSURE_N_DEPENDENCE_SCOPING.verdict) &&
       /single-scale witness/i.test(IMP35129_INTERVAL_ENCLOSURE_N_DEPENDENCE_SCOPING.rigorousScope),
   },
 ];

@@ -48,7 +48,7 @@
  * holds with ZERO boundary defect, which SHARPENS the imp-97182 "mod boundary terms" caveat to "exact",
  * and confirms STEP 3 -- the whole margin question is genuinely the first-order w_1 (sigma_1) object with
  * no boundary escape hatch. Establishes no positivity; pins no margin; interval-rigorous reach stays
- * 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97182-krein-fejer-riesz-margin-factorisation-attempt.js (STEP 2 lift; the "mod boundary terms" caveat sized here)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (w_1, sigma_1, sigma_2 symbols; reach 2a <= 0.96)

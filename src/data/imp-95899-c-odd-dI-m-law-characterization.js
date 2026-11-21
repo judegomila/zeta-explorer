@@ -51,7 +51,7 @@
  * breaks the m=20 anchor or is a three-point over-fit).
  *
  * Derive/measure only; changes no bound. Catalan G irrationality OPEN; Sun arXiv:2609.04176
- * single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports
+ * single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports
  * (reuses the imp-95878 baked kappa + Q0_RECON literals). SCRATCH: tmp/imp-95899-scratch.mjs.
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3, eqs (6.19)-(6.23).
@@ -160,7 +160,7 @@ export const C_ODD_DI_M_LAW_CHARACTERIZATION = Object.freeze({
     + 'vs 1.221); through-origin linear-in-drho coefficient spreads ~11.6%. NO clean anchor-respecting '
     + 'single-parameter law fits. imp-95878 REINFORCED: dI(m) carries no clean closed-form correction, '
     + 'the m-dependence is reconstruction-borne, further moduli need fresh Q0_recon (imp-95861 PIECE-A '
-    + 'shortfall). G irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'shortfall). G irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.19)-(6.23)',
   builtOn:
@@ -228,8 +228,8 @@ export const C_ODD_DI_M_LAW_CHARACTERIZATION = Object.freeze({
     'Measure/derive only: reuses the imp-95878 baked Sun (6.23) anchor and Q0_RECON literals over exactly '
     + 'three non-anchor moduli (m=22,30,41); adds no new modulus datum, no new quadrature, no certificate, '
     + 'no bound movement. Three-point fits are weak -- the anchor constraint dI(20)=0, not aggregate R2, is '
-    + 'the load-bearing test. Catalan G irrationality OPEN; Sun single-author, unrefereed; PT Lambda<=0.2 '
-    + 'SOTA; NO QED.',
+    + 'the load-bearing test. Catalan G irrationality OPEN; Sun single-author, unrefereed; no refereed bound is changed'
+    + '; NO QED.',
 });
 
 export const C_ODD_DI_M_LAW_CHARACTERIZATION_ASSERTIONS = Object.freeze([
@@ -268,11 +268,11 @@ export const C_ODD_DI_M_LAW_CHARACTERIZATION_ASSERTIONS = Object.freeze([
       && C_ODD_DI_M_LAW_CHARACTERIZATION.verdict.mDependenceReconstructionBorne === true,
   },
   {
-    name: 'honest: sub-gap named, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED, no bound movement',
+    name: 'honest: sub-gap named, G irrationality OPEN, no refereed bound is changed, NO QED, no bound movement',
     holds: () =>
       /no reconstruction-independent closed-form/.test(C_ODD_DI_M_LAW_CHARACTERIZATION.verdict.namedSubGap)
       && /G irrationality OPEN/.test(C_ODD_DI_M_LAW_CHARACTERIZATION.status)
-      && /PT Lambda<=0.2 SOTA/.test(C_ODD_DI_M_LAW_CHARACTERIZATION.status)
+      && /refereed bound is changed/i.test(C_ODD_DI_M_LAW_CHARACTERIZATION.status)
       && /NO QED/.test(C_ODD_DI_M_LAW_CHARACTERIZATION.status)
       && /changes no bound/.test(C_ODD_DI_M_LAW_CHARACTERIZATION.status),
   },

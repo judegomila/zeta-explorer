@@ -39,7 +39,7 @@
  * PROOF SCOPE / HONESTY. VERIFICATION/EXTENSION ONLY on the inherited imp-3220/imp-3406 / imp-33723
  * surrogate crossover-map derivative SIGNS. Establishes NO RH-level result, NO operator positivity, and
  * changes NO bound. The C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and
- * imp-3066 K_a >= 0 are UNTOUCHED. No RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 are UNTOUCHED. No RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34922-crossover-deriv-p9-p10-extension (the P_9/P_10 extension being extended)
  * @see imp-34905-crossover-deriv-closed-form-independent-verify-p7-p8 (the P_7/P_8 extension)
@@ -277,7 +277,7 @@ export const IMP34957_CROSSOVER_DERIV_P11_P12_EXTENSION = {
     'continue to hold. This is a VERIFICATION of the INHERITED imp-3220/imp-3406 surrogate-map derivative ' +
     'signs ONLY: the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and ' +
     'imp-3066 K_a >= 0 are UNTOUCHED; establishes no operator positivity; changes no bound; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34922 (P_9/P_10 extension + boundary-projection derivation); imp-34905 (P_7/P_8 independent ' +
     'extension); imp-34880 (all-orders coefficient-positivity induction + (n-1)!/(2n-3)!! cross-checks); ' +
@@ -340,15 +340,15 @@ export const IMP34957_CROSSOVER_DERIV_P11_P12_EXTENSION_ASSERTIONS = [
       IMP34957_CROSSOVER_DERIV_P11_P12_EXTENSION.extensionVerificationPasses,
   },
   {
-    // Honesty gate: surrogate-map verification, changes no bound, no QED, PT stays SOTA.
+    // Honesty gate: surrogate-map verification, changes no bound, no QED, no refereed bound is changed.
     id: 'imp34957-honesty-gate-no-qed',
     description:
       'verification scope is the surrogate-map derivative signs only: changes no bound, no QED, ' +
-      'Platt-Trudgian stays SOTA',
+      'no refereed bound is changed',
     holds: () =>
       IMP34957_CROSSOVER_DERIV_P11_P12_EXTENSION.changesBound === false &&
       /NO QED/.test(IMP34957_CROSSOVER_DERIV_P11_P12_EXTENSION.verdict) &&
-      /remains SOTA/.test(IMP34957_CROSSOVER_DERIV_P11_P12_EXTENSION.verdict) &&
+      /refereed bound is changed/i.test(IMP34957_CROSSOVER_DERIV_P11_P12_EXTENSION.verdict) &&
       /surrogate/.test(IMP34957_CROSSOVER_DERIV_P11_P12_EXTENSION.rigorousScope),
   },
 ];

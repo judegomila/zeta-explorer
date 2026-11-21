@@ -55,7 +55,7 @@
  * ordering claim to a plateau characterization.
  *
  * SIMULATION ONLY. No new zeros, no Gram build. Changes no bound, establishes no
- * operator positivity, makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity, makes no RH claim; no refereed bound is changed.
  * RH open. NO QED. Synthetic tones only; no unique identification of the real conductor
  * content or its true amplitude ratio is claimed.
  *
@@ -114,7 +114,7 @@ export const IMP96288_VERDICT = Object.freeze({
 });
 
 export const IMP96288_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Simulation only: every value is a reproducible numeric from tmp/imp-96288-scratch.mjs Monte-Carlo of a synthetic q4+q5 two-tone plus matched noise, swept at fine rho/span resolution; no new zeros, no Gram build, no bound is claimed, no operator positivity is established, and NO unique identification of the real conductor content or its amplitude ratio is claimed.';
+  'RH open; no refereed bound is changed; NO QED. Simulation only: every value is a reproducible numeric from tmp/imp-96288-scratch.mjs Monte-Carlo of a synthetic q4+q5 two-tone plus matched noise, swept at fine rho/span resolution; no new zeros, no Gram build, no bound is claimed, no operator positivity is established, and NO unique identification of the real conductor content or its amplitude ratio is claimed.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -168,7 +168,7 @@ const IMP96288_ASSERTIONS = [
     id: 'imp96288-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96288_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96288_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96288_HONEST_BANNER) &&
       /NO QED/.test(IMP96288_HONEST_BANNER),
     why: 'the honest banner carries the RH-open / PT-Lambda / NO-QED markers.',
   },

@@ -15,7 +15,7 @@
  * @see imp-97773-fold-amplitude-not-universal-honest-status.js (sibling honest-status note: K is not universal across floor/height axes)
  *
  * Ticket: imp-97786 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda
- * moves; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97764_FOLD_AMPLITUDE_WIDE_WINDOW_POWER_LAW } from './imp-97764-fold-amplitude-wide-window-power-law.js';

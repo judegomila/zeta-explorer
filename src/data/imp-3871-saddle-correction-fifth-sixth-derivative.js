@@ -77,7 +77,7 @@
  *   model, and localizes the imp-3848 overshoot as a MODEL-FIDELITY gap. It establishes NO operator
  *   positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no
- *   QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA. Grid-CONVERGENCE stability only.
+ *   QED. No refereed bound is changed. Grid-CONVERGENCE stability only.
  *
  *   @see imp-3848-moment-ratio-drift-saddle-correction.js (C1/C2/C3, truncation overshoot -- extended here)
  *   @see imp-3735-moment-ratio-correction-tail.js (measured eps_n, L_n drift through 1, n<=80)
@@ -333,7 +333,7 @@ export const IMP3871_SADDLE_CORRECTION_FIFTH_SIXTH_DERIVATIVE = Object.freeze({
     'gap between the imp-3665 super-exponential surrogate A(tau)~exp(-pi e^{4 tau}) and the real A(tau), NOT a ' +
     'truncation-order artifact -- higher-order saddle terms cannot repair a model mismatch. MEASUREMENT/CHARACTERIZATION, ' +
     'RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no RH verdict, no QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'no refereed bound is changed.',
 
   derivation: Object.freeze({
     driftDef: 'L_n = eps_n * n(1+4 tau*) = (Q_n - tau*^2)/sigma^2 = 2 tau* <x>/sigma^2 + <x^2>/sigma^2 (x = tau - tau*)',
@@ -418,7 +418,7 @@ export const IMP3871_SADDLE_CORRECTION_FIFTH_SIXTH_DERIVATIVE = Object.freeze({
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 sign-positivity (off-diagonal ' +
       'endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -476,7 +476,7 @@ export const IMP3871_SADDLE_CORRECTION_FIFTH_SIXTH_DERIVATIVE_ASSERTIONS = [
   {
     id: 'imp3871-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement/characterization only, model-fidelity diagnostic not a certified bound, ' +
-         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3871_SADDLE_CORRECTION_FIFTH_SIXTH_DERIVATIVE.honestCaveat;
       return (
@@ -485,7 +485,7 @@ export const IMP3871_SADDLE_CORRECTION_FIFTH_SIXTH_DERIVATIVE_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

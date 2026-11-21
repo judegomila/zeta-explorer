@@ -64,8 +64,7 @@
  * NOT an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34168-doubling-map-highprecision-kstar-floor (the high-precision no-departure result cross-validated here)
  * @see imp-34172-deep-ladder-second-path-crossvalidation (the second-path precedent this mirrors)
@@ -368,7 +367,7 @@ export const IMP34232_HIGHPRECISION_FLOOR_SECOND_PATH_CROSSVALIDATION = {
     'extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive, not derived; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34168 (the high-precision no-departure result cross-validated here); imp-34172 (the second-path ' +
     'precedent mirrored here); imp-34228 (the full-double-precision extension, departs at e=23); ' +
@@ -413,14 +412,14 @@ export const IMP34232_HIGHPRECISION_FLOOR_SECOND_PATH_CROSSVALIDATION_ASSERTIONS
     holds: () => MAX_REL_REPRODUCES && MAX_REL_UNROUNDED < 1e-9,
   },
   {
-    // Honesty gate: cross-check only, isRigorous false, CROSS-VALIDATES imp-34168, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: cross-check only, isRigorous false, CROSS-VALIDATES imp-34168, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34232-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, CROSS-VALIDATES the imp-34168 result, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Cross-check only: isRigorous false, CROSS-VALIDATES the imp-34168 result, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34232_HIGHPRECISION_FLOOR_SECOND_PATH_CROSSVALIDATION.isRigorous === false &&
       /CROSS-VALIDATES the imp-34168/.test(IMP34232_HIGHPRECISION_FLOOR_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /NO QED/.test(IMP34232_HIGHPRECISION_FLOOR_SECOND_PATH_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP34232_HIGHPRECISION_FLOOR_SECOND_PATH_CROSSVALIDATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34232_HIGHPRECISION_FLOOR_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34232_HIGHPRECISION_FLOOR_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34232_HIGHPRECISION_FLOOR_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34232_HIGHPRECISION_FLOOR_SECOND_PATH_CROSSVALIDATION.verdict),

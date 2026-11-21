@@ -79,8 +79,7 @@
  * MEASUREMENT / CLOSED-FORM DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97702-sigma-fartail-exponent-residual-half-loglaw (splits the residual; leaves the ~0.98 floor-vs-asymptote open)
  * @see imp-97744-fartail-diagnostic-crossing-heights (sharpens F2's order-of-magnitude "near 1e45 / near
@@ -240,7 +239,7 @@ export const IMP97723_SIGMA_FARTAIL_DIAGNOSTIC_ASYMPTOTE_ONE = {
     'approach is from below. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97702 (residual split, ~0.98 floor-vs-asymptote left open); imp-97404 (exponent ladder ' +
     'to 1e15); imp-33644 (log T0 saturation); imp-3463 (far-tail exponent -> 1/2); imp-486 (C_mb ' +
@@ -285,15 +284,15 @@ export const IMP97723_SIGMA_FARTAIL_DIAGNOSTIC_ASYMPTOTE_ONE_ASSERTIONS = [
       C_LADDER[C_LADDER.length - 1].cMeasured > C_LADDER[0].cMeasured,
   },
   {
-    // Honesty gate: measurement/derivation only, limit = 1, coefficient = -1, no QED, PT SOTA.
+    // Honesty gate: measurement/derivation only, limit = 1, coefficient = -1, no QED, no refereed bound is changed.
     id: 'imp97723-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: diagnostic limit = 1, next-order c = -1, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: diagnostic limit = 1, next-order c = -1, no QED, no refereed bound is changed',
     holds: () =>
       IMP97723_SIGMA_FARTAIL_DIAGNOSTIC_ASYMPTOTE_ONE.isRigorous === false &&
       IMP97723_SIGMA_FARTAIL_DIAGNOSTIC_ASYMPTOTE_ONE.diagnosticLimit === 1 &&
       IMP97723_SIGMA_FARTAIL_DIAGNOSTIC_ASYMPTOTE_ONE.nextOrderCoefficient === -1 &&
       /NO QED/.test(IMP97723_SIGMA_FARTAIL_DIAGNOSTIC_ASYMPTOTE_ONE.verdict) &&
-      /remains SOTA/.test(IMP97723_SIGMA_FARTAIL_DIAGNOSTIC_ASYMPTOTE_ONE.verdict),
+      /refereed bound is changed/i.test(IMP97723_SIGMA_FARTAIL_DIAGNOSTIC_ASYMPTOTE_ONE.verdict),
   },
 ];
 

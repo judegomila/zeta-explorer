@@ -65,8 +65,7 @@
  * stays OPEN; NOT a rigorous asymptotic; discharges nothing; changes no bound. C_C
  * ansatz (imp-2642/imp-2643) and the baseline E_trunc = 3.06e-5 (imp-2631/imp-447)
  * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2
- * per imp-3463; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * per imp-3463; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35594-peak-crossover-mechanism-derivation (Derivation 1, checked at one height; extended here)
  * @see imp-35458-crossover-height-map-sensitivity (the ~18x crossover damping reproduced at the L~20.86 rung)
@@ -240,7 +239,7 @@ export const IMP35632_CROSSOVER_DAMPING_HEIGHT_LADDER = {
     'floor); surrogate-vs-true fidelity (imp-35337a) stays OPEN; C_C ansatz (imp-2642/imp-2643) and ' +
     'the baseline E_trunc = 3.06e-5 (imp-2631/imp-447) UNTOUCHED; C_mb GUE-conditional per imp-486 ' +
     'UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; discharges nothing; changes no bound; no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35594 (Derivation 1, checked at one height, extended here); imp-35458 (crossover damping ' +
     '~18x reproduced at the L~20.86 rung); imp-35574 (peak-location damping ~0.55 contrasted); ' +
@@ -282,13 +281,13 @@ export const IMP35632_CROSSOVER_DAMPING_HEIGHT_LADDER_ASSERTIONS = [
     holds: () => RUNGS.every((rn) => rn.damping_over_L > 0.6 && rn.damping_over_L < 1.0),
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35632-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35632_CROSSOVER_DAMPING_HEIGHT_LADDER.isRigorous === false &&
       /NO QED/.test(IMP35632_CROSSOVER_DAMPING_HEIGHT_LADDER.verdict) &&
-      /remains SOTA/.test(IMP35632_CROSSOVER_DAMPING_HEIGHT_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP35632_CROSSOVER_DAMPING_HEIGHT_LADDER.verdict),
   },
 ];
 

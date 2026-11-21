@@ -33,7 +33,7 @@
  *
  * SCOPE. Assessment/audit only. No source file was modified as a result of this check
  * (none needed correction). Changes no bound; establishes no operator positivity; no RH
- * verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-36106-duplicate-ticket-honest-status.js (audited: dup of imp-36124)
  * @see imp-36107-duplicate-ticket-honest-status.js (audited: dup of imp-36125)
@@ -79,7 +79,7 @@ export const IMP36191_DUPLICATE_TICKET_AUDIT_VERIFICATION = {
     'original: file existence, improvement-queue.js status, and topical content match. ' +
     'Result: zero false positives, no dup flag suppresses real work, no source file ' +
     'required correction. Changes no bound; establishes no operator positivity; no RH ' +
-    'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-36106/imp-36107/imp-36122/imp-36123/imp-36161/imp-36162 (audited duplicate ' +
     'modules); imp-36124/imp-36125/imp-36104/imp-36105/imp-36142/imp-36145 (their verified ' +
@@ -107,11 +107,11 @@ export const IMP36191_DUPLICATE_TICKET_AUDIT_VERIFICATION_ASSERTIONS = [
   },
   {
     id: 'imp36191-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36191_DUPLICATE_TICKET_AUDIT_VERIFICATION.isRigorous === false &&
       /NO QED/.test(IMP36191_DUPLICATE_TICKET_AUDIT_VERIFICATION.verdict) &&
-      /remains SOTA/.test(IMP36191_DUPLICATE_TICKET_AUDIT_VERIFICATION.verdict),
+      /refereed bound is changed/i.test(IMP36191_DUPLICATE_TICKET_AUDIT_VERIFICATION.verdict),
   },
 ];
 

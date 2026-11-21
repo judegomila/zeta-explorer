@@ -62,8 +62,8 @@
  *   that truncated-kernel model, not to a certified error bound -- it confirms the feature
  *   is quadrature-rule-family-independent, not that it is exact. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA. imp-3849, imp-3868 and imp-3895 assertions are
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed
+ *   . imp-3849, imp-3868 and imp-3895 assertions are
  *   LEFT INTACT -- this is an independent re-derivation-and-tabulation alongside them.
  *
  *   @see imp-3849-saddle-ratio-well-depth-inner-converged.js (Simpson solver)
@@ -418,7 +418,7 @@ export const IMP3918_EPS_SIGN_CHANGE_THREE_SOLVER_CROSSVAL = Object.freeze({
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -486,8 +486,8 @@ export const IMP3918_EPS_SIGN_CHANGE_THREE_SOLVER_CROSSVAL_ASSERTIONS = [
   {
     id: 'imp3918-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: provenance assembly only, shared kernel truncation not a certified bound, ' +
-         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 ' +
-         'SOTA, and imp-3849/imp-3868/imp-3895 assertions left intact.',
+         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed' +
+         ', and imp-3849/imp-3868/imp-3895 assertions left intact.',
     holds: () => {
       const c = IMP3918_EPS_SIGN_CHANGE_THREE_SOLVER_CROSSVAL.honestCaveat;
       return (
@@ -498,7 +498,7 @@ export const IMP3918_EPS_SIGN_CHANGE_THREE_SOLVER_CROSSVAL_ASSERTIONS = [
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
         c.leavesImp3849Imp3868Imp3895AssertionsIntact === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

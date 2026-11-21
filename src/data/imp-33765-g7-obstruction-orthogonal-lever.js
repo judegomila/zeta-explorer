@@ -80,8 +80,8 @@
  *   admissible modification of imp-3066: it deliberately breaks the exponential shear to show
  *   that the s one-dimensionality is a CONSEQUENCE of the shared-rate exponential, not an
  *   accident. imp-3066 / imp-33704 / imp-33725 / G7 are UNTOUCHED as a proof; the K_a >= 0
- *   positivity step is NOT attempted; the bare-V pilot (imp-1240) is NOT re-run. Platt-Trudgian
- *   Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   positivity step is NOT attempted; the bare-V pilot (imp-1240) is NOT re-run. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-33725-g7-obstruction-a-scaling.js (imp-33725: the a ladder that found the s-product degeneracy)
  *   @see imp-33704-g7-obstruction-U-scaling.js (imp-33704: the complementary U ladder at fixed a = 0.5)
@@ -348,7 +348,7 @@ export const IMP33765_G7_OBSTRUCTION_ORTHOGONAL_LEVER = Object.freeze({
     imp33704Untouched: true,
     imp33725Untouched: true,
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -402,7 +402,7 @@ export const IMP33765_G7_OBSTRUCTION_ORTHOGONAL_LEVER_ASSERTIONS = [
     why: 'Mandatory honesty: this is a REPRESENTATIVE derivation / diagnostic, the decoupled probe ' +
          'is a diagnostic device (not an admissible imp-3066 modification), ||R|| carries no RH ' +
          'verdict, imp-3066 / imp-33704 / imp-33725 / G7 are untouched, positivity was not ' +
-         'attempted, it is not a proof or a reduction, and PT 0.2 stays SOTA.',
+         'attempted, it is not a proof or a reduction, and no refereed bound is changed.',
     holds: () => {
       const c = IMP33765_G7_OBSTRUCTION_ORTHOGONAL_LEVER.honestCaveat;
       return (
@@ -416,7 +416,7 @@ export const IMP33765_G7_OBSTRUCTION_ORTHOGONAL_LEVER_ASSERTIONS = [
         c.imp33725Untouched === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

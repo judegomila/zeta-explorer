@@ -54,7 +54,7 @@
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; far-tail exponent 1/2 per imp-3463; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (sigma < 0.9/0.5/0.1 landmarks, the map extended here)
  * @see imp-3463-sigma-fartail-decay (far-tail leading form, exponent -> 1/2 from below)
@@ -168,7 +168,7 @@ export const IMP35041_SIGMA_DEEP_TAIL_THRESHOLD_EXTENSION = {
     'closes at any finite N. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33582 (sigma < 0.9/0.5/0.1 threshold map, extended here); imp-3406 (interior MAX ' +
     'N ~ 9.22e5); imp-3463 (far-tail leading form, exponent -> 1/2 from below); imp-3444 ' +
@@ -216,14 +216,14 @@ export const IMP35041_SIGMA_DEEP_TAIL_THRESHOLD_EXTENSION_ASSERTIONS = [
     holds: () => EFLOW_SHARE_0_01 < 5e-4 && EFLOW_SHARE_0_001 < 5e-4 && EFLOW_SHARE_0_001 < EFLOW_SHARE_0_01,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35041-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP35041_SIGMA_DEEP_TAIL_THRESHOLD_EXTENSION.isRigorous === false &&
       IMP35041_SIGMA_DEEP_TAIL_THRESHOLD_EXTENSION.farTailExponent === 0.5 &&
       /NO QED/.test(IMP35041_SIGMA_DEEP_TAIL_THRESHOLD_EXTENSION.verdict) &&
-      /remains SOTA/.test(IMP35041_SIGMA_DEEP_TAIL_THRESHOLD_EXTENSION.verdict),
+      /refereed bound is changed/i.test(IMP35041_SIGMA_DEEP_TAIL_THRESHOLD_EXTENSION.verdict),
   },
 ];
 

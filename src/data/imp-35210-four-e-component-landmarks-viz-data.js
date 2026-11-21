@@ -23,7 +23,7 @@
  * VIZ/UX ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35153-eflow-etrunc-crossover-closed-form (L1: N ~ 1.597752e6)
  * @see imp-35154-eflow-negligible-threshold (L2: N ~ 3.246862e7; L4: N ~ 1.754552e10)

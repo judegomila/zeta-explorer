@@ -57,7 +57,7 @@
  *
  * Measurement only; interval-rigorous certified reach stays exactly 2a <= 0.96 (no verified certificate
  * produced past it); the operator floor is a Rayleigh UPPER bound (no operator positivity established);
- * RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96845-krein-kmax5-frontier-measurement.js (parent: double-precision band (1.06,1.08); SUB-GAP IMP96845_KMAX5_NEAR_FEASIBLE_UNVERIFIED flagged extended precision as next lever)
  * @see imp-96732-krein-extended-precision-reach-assessment.js (grandparent: degree + precision refinement labelled 2a >= 1.0 intrinsic)

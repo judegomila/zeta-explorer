@@ -58,7 +58,7 @@
  * estimate the imp-95806 artifact finding motivates. Assessment of the derived envelope only;
  * it does NOT sharpen the true r itself (r in (0, r_cap_mean] <= (0, r_cap_max]); adds no
  * cited input; changes no bound. The Selberg leading log log cap is unconditional; the
- * zero-side route stays PCC/GRH-gated; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * zero-side route stays PCC/GRH-gated; NO QED; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. The six sd(C - E) values are the same
  * measured literals imp-95710/imp-95722/imp-95787 bake (imp-95562 over the 10^6 Odlyzko
@@ -171,7 +171,7 @@ export const IMP95818_NUMBER_VARIANCE_CAP_MEAN_C0_TIGHTENING = {
     'mean anchor is the tighter central estimate the imp-95806 artifact finding motivates. Assesses ' +
     'the derived envelope only; does not sharpen the true r itself (r in (0, r_cap_mean]); adds no ' +
     'cited input; changes no bound. The Selberg leading log log cap is unconditional; the zero-side ' +
-    'route stays PCC/GRH-gated; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'route stays PCC/GRH-gated; NO QED; no refereed bound is changed.',
   citation:
     'imp-95766 (derived envelope r_cap, max C0); imp-95787 (max/mean/min C0 estimators, r_cap band); ' +
     'imp-95806 (C0 max pinned by the T = 1.5e5 windowing artifact); imp-95722 (offset C0 = 0.3337); ' +
@@ -209,8 +209,8 @@ export const IMP95818_NUMBER_VARIANCE_CAP_MEAN_C0_TIGHTENING = {
     throw new Error('imp-95818: isRigorous must be false');
   if (!/NO QED/.test(IMP95818_NUMBER_VARIANCE_CAP_MEAN_C0_TIGHTENING.verdict))
     throw new Error('imp-95818: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95818_NUMBER_VARIANCE_CAP_MEAN_C0_TIGHTENING.verdict))
-    throw new Error('imp-95818: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95818_NUMBER_VARIANCE_CAP_MEAN_C0_TIGHTENING.verdict))
+    throw new Error('imp-95818: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95818_NUMBER_VARIANCE_CAP_MEAN_C0_TIGHTENING;

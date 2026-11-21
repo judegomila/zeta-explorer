@@ -51,7 +51,7 @@
  * the true local windowing correction is smaller (~0.23, near the imp-95787 six-height
  * mean), so the C0 over-estimate errs conservative and the r_cap < 1 conservatism is
  * unweakened. Measurement only; the Selberg leading log log cap is unconditional; changes
- * no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays
+ * no bound; NO QED; no refereed bound is changed; the zero-side route stays
  * PCC/GRH-gated.
  *
  * Import-light: no zeros bundle, no sibling imports. Only the nine sd(C - E) literals are
@@ -135,7 +135,7 @@ export const IMP95806_NUMBER_VARIANCE_BRACKET_1P5E5_BUMP = {
     typicalLocalOffset: bracketMaxOffset, // ~0.23-0.25, near the imp-95787 six-height mean 0.2618
   },
   verdict:
-    'Re-measured across a nine-height cluster bracketing T = 1.5e5 with the same imp-95562 windowing over the 10^6 Odlyzko ordinates, the imp-95710/imp-95787 upward bump (r = 0.4627) is ISOLATED to the single sampled height: its immediate neighbours 1.35e5 (r = 0.3514) and 1.65e5 (r = 0.3461) show no elevation, and the six interior probes average r = 0.3547 (peak/mean = 1.305, peak strictly above every bracketing height). It is therefore a windowing/sampling artifact, NOT a genuine finite-height feature. Consequently the imp-95722 max-based C0 = 0.3337 and the imp-95783 s = 1 touch are pinned by this artifact height and are NOT robust as a finite-height signal; but since the max is an upper envelope, this only means the true local windowing correction is smaller (~0.23, near the imp-95787 six-height mean 0.2618), so the C0 over-estimate errs conservative and the r_cap < 1 conservatism is unweakened. Measurement only; the Selberg leading log log cap is unconditional; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Re-measured across a nine-height cluster bracketing T = 1.5e5 with the same imp-95562 windowing over the 10^6 Odlyzko ordinates, the imp-95710/imp-95787 upward bump (r = 0.4627) is ISOLATED to the single sampled height: its immediate neighbours 1.35e5 (r = 0.3514) and 1.65e5 (r = 0.3461) show no elevation, and the six interior probes average r = 0.3547 (peak/mean = 1.305, peak strictly above every bracketing height). It is therefore a windowing/sampling artifact, NOT a genuine finite-height feature. Consequently the imp-95722 max-based C0 = 0.3337 and the imp-95783 s = 1 touch are pinned by this artifact height and are NOT robust as a finite-height signal; but since the max is an upper envelope, this only means the true local windowing correction is smaller (~0.23, near the imp-95787 six-height mean 0.2618), so the C0 over-estimate errs conservative and the r_cap < 1 conservatism is unweakened. Measurement only; the Selberg leading log log cap is unconditional; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -162,8 +162,8 @@ export const IMP95806_NUMBER_VARIANCE_BRACKET_1P5E5_BUMP = {
   // honesty gates
   if (!/NO QED/.test(IMP95806_NUMBER_VARIANCE_BRACKET_1P5E5_BUMP.verdict))
     throw new Error('imp-95806: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95806_NUMBER_VARIANCE_BRACKET_1P5E5_BUMP.verdict))
-    throw new Error('imp-95806: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95806_NUMBER_VARIANCE_BRACKET_1P5E5_BUMP.verdict))
+    throw new Error('imp-95806: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95806_NUMBER_VARIANCE_BRACKET_1P5E5_BUMP;

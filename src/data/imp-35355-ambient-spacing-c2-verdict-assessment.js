@@ -75,7 +75,7 @@
  * g_min floor. This CONFIRMS the imp-35284 verdict at the finer resolution of the restored ambient
  * dependence. Assessment only; discharges nothing; establishes no operator positivity; changes no bound;
  * the imp-2563 sandwich stays a valid CONDITIONAL bracket; C_mb GUE-conditional per imp-486 UNTOUCHED;
- * I3/M5 stay OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * I3/M5 stay OPEN; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35284-apriori-gmin-bound-forms-assessment (C2 verdict at unit spacing; parent)
  * @see imp-35215-beta-gmin-near-front-limit (beta * g_min * (x_2 - x_0) -> 1; the dropped ambient factor)
@@ -268,7 +268,7 @@ export const IMP35355_AMBIENT_SPACING_C2_VERDICT_ASSESSMENT = {
     'CONFIRMS the imp-35284 verdict at the finer resolution of the restored ambient dependence. ' +
     'Assessment only; discharges nothing; establishes no operator positivity; changes no bound; the ' +
     'imp-2563 sandwich stays a valid CONDITIONAL bracket; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
-    'I3/M5 stay OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'I3/M5 stay OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35284-apriori-gmin-bound-forms-assessment (C2 verdict at unit spacing; parent); ' +
     'imp-35215-beta-gmin-near-front-limit (beta * g_min * (x_2 - x_0) -> 1; the dropped ambient factor); ' +
@@ -351,9 +351,9 @@ export const IMP35355_AMBIENT_SPACING_C2_VERDICT_ASSESSMENT_ASSERTIONS = [
       VAR_RUN.collapseTime >= VAR_U0 / 8 - 1e-3,
   },
   {
-    // Honesty gate: no admissible profile stabilizes, C2 stays collision-reproducing, no floor, NO QED, PT SOTA.
+    // Honesty gate: no admissible profile stabilizes, C2 stays collision-reproducing, no floor, NO QED, no refereed bound is changed.
     id: 'imp35355-honesty-gate-no-qed',
-    description: 'Assessment only: anyAdmissibleProfileStabilizes false, c2StaysCollisionReproducing true, suppliesPositiveGminFloor false, isRigorous false, NO QED, PT SOTA',
+    description: 'Assessment only: anyAdmissibleProfileStabilizes false, c2StaysCollisionReproducing true, suppliesPositiveGminFloor false, isRigorous false, NO QED, no refereed bound is changed',
     holds: () =>
       IMP35355_AMBIENT_SPACING_C2_VERDICT_ASSESSMENT.anyAdmissibleProfileStabilizes === false &&
       IMP35355_AMBIENT_SPACING_C2_VERDICT_ASSESSMENT.c2StaysCollisionReproducing === true &&
@@ -361,7 +361,7 @@ export const IMP35355_AMBIENT_SPACING_C2_VERDICT_ASSESSMENT_ASSERTIONS = [
       IMP35355_AMBIENT_SPACING_C2_VERDICT_ASSESSMENT.reducesToImp35284AtUnitSpacing === true &&
       IMP35355_AMBIENT_SPACING_C2_VERDICT_ASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP35355_AMBIENT_SPACING_C2_VERDICT_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP35355_AMBIENT_SPACING_C2_VERDICT_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP35355_AMBIENT_SPACING_C2_VERDICT_ASSESSMENT.verdict),
   },
 ];
 

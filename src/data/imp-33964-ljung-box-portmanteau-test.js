@@ -71,8 +71,7 @@
  * power-law form selection. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; the OLS surrogate is descriptive, not derived; the Q_m chi-square reference is a
  * small-sample asymptotic on N=21; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33921-ar1-residual-rho-reconciliation (the AR(1) rho_AR ~ 0.968 whose geometric decay is checked here)
  * @see imp-33886-widening-residual-significance-test (the lag-1 Durbin-Watson companion)
@@ -226,7 +225,7 @@ export const IMP33964_LJUNG_BOX_PORTMANTEAU_TEST = {
     'chi-square reference is a small-sample asymptotic on N=21 (higher-lag r_k rest on few pairs); the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33921 (the AR(1) rho_AR ~ 0.968 whose geometric decay is checked here); imp-33886 (the ' +
     'Durbin-Watson lag-1 companion); imp-33920 (the exact runs-test lag-1 companion); imp-33858 (the ' +
@@ -279,13 +278,13 @@ export const IMP33964_LJUNG_BOX_PORTMANTEAU_TEST_ASSERTIONS = [
       IMP33964_LJUNG_BOX_PORTMANTEAU_TEST.ar1GeometricDecayAdequate === false,
   },
   {
-    // Honesty gate: isRigorous false, no QED, PT SOTA, and the residual stays small (bound untouched).
+    // Honesty gate: isRigorous false, no QED, no refereed bound is changed, and the residual stays small (bound untouched).
     id: 'imp33964-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, RMSE-scale residual still small, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, RMSE-scale residual still small, imp-3066 untouched',
     holds: () =>
       IMP33964_LJUNG_BOX_PORTMANTEAU_TEST.isRigorous === false &&
       /NO QED/.test(IMP33964_LJUNG_BOX_PORTMANTEAU_TEST.verdict) &&
-      /remains SOTA/.test(IMP33964_LJUNG_BOX_PORTMANTEAU_TEST.verdict) &&
+      /refereed bound is changed/i.test(IMP33964_LJUNG_BOX_PORTMANTEAU_TEST.verdict) &&
       /12% multiplicative/.test(IMP33964_LJUNG_BOX_PORTMANTEAU_TEST.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP33964_LJUNG_BOX_PORTMANTEAU_TEST.verdict),
   },

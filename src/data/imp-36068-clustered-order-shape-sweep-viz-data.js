@@ -22,7 +22,7 @@
  *   @see imp-35852-w1-summation-adversarial-ordering.js (term-ORDER stress at balanced tree)
  *
  *   Ticket: imp-36068 (ux, low). Presentation only, RH-equivalent; imp-3066
- *   untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ *   untouched; no refereed bound is changed; NO QED.
  */
 
 // Per-shape combined normalized error under the clustered order, and its

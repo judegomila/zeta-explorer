@@ -57,7 +57,7 @@
  * the Q_0 sector); a B24 certificate cannot upgrade this to an independent per-modulus anchor.
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound;
- * NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports.
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3, eqs (6.11)-(6.26). SCRATCH: tmp/imp-95842-scratch.mjs.
  */
@@ -110,7 +110,7 @@ export const Q0_WIDE_MODULUS_B24_CERTIFICATE_ASSESSMENT = Object.freeze({
     + 'at m=22,30,41 only CONDITIONALLY (m-parametric structure + m-free +4 offset transport the '
     + 'm=20 certification of all but the Q_0 sector value); a B24 certificate cannot upgrade this to '
     + 'an independent per-modulus anchor. OBSTRUCTION: no closed-form c_odd(1/m) at m>20. G '
-    + 'irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26)',
   builtOn:
@@ -178,7 +178,7 @@ export const Q0_WIDE_MODULUS_B24_CERTIFICATE_ASSESSMENT = Object.freeze({
     + 'values and the imp-95745/95746 m-free offset/const-sector structure. The verdict is that a '
     + 'B24 certificate is orthogonal to the residual model/faithfulness sub-gap, not that it is '
     + 'impossible to derive. Catalan G irrationality OPEN; Sun single-author, unrefereed; NO Lambda '
-    + 'movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'movement; no refereed bound is changed; NO QED.',
 });
 
 export const Q0_WIDE_MODULUS_B24_CERTIFICATE_ASSESSMENT_ASSERTIONS = Object.freeze([
@@ -237,7 +237,7 @@ export const Q0_WIDE_MODULUS_B24_CERTIFICATE_ASSESSMENT_ASSERTIONS = Object.free
         Q0_WIDE_MODULUS_B24_CERTIFICATE_ASSESSMENT.remainingObstruction,
       )
       && /G irrationality OPEN/.test(Q0_WIDE_MODULUS_B24_CERTIFICATE_ASSESSMENT.status)
-      && /PT Lambda<=0.2 SOTA/.test(Q0_WIDE_MODULUS_B24_CERTIFICATE_ASSESSMENT.status)
+      && /refereed bound is changed/i.test(Q0_WIDE_MODULUS_B24_CERTIFICATE_ASSESSMENT.status)
       && /NO QED/.test(Q0_WIDE_MODULUS_B24_CERTIFICATE_ASSESSMENT.status),
   },
 ]);

@@ -48,7 +48,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate crossover map; NOT a rigorous asymptotic and
  * NOT an RH bound. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per
  * imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34885-krawczyk-directed-rounding-instantiation-checklist (flags / as the sole non-IEEE-754-exposed basic op; this MEASURES its ULP error)
  * @see imp-34908-krawczyk-certificate-precision-scope (residual-corrected quotient named as the / primitive; this quantifies its injected width)
@@ -238,8 +238,8 @@ export const IMP34910_RESIDUAL_CORRECTED_QUOTIENT_ULP_MEASUREMENT = {
     'gated on the external proven-ULP log binding), does NOT discharge the conditional. SUB-GAPs imp-34714a ' +
     'and imp-34687a REMAIN OPEN. Measurement only on the inherited imp-3220/imp-3406 surrogate crossover map; ' +
     'the C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 ' +
-    'untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34885 (directed-rounding instantiation checklist; / the sole non-IEEE-754-exposed basic op, needs a ' +
     'residual-corrected quotient -- this MEASURES its ULP error); imp-34908 (certificate precision scope; ' +
@@ -287,16 +287,16 @@ export const IMP34910_RESIDUAL_CORRECTED_QUOTIENT_ULP_MEASUREMENT_ASSERTIONS = [
       HEADROOM_BAND_MIN > 100,
   },
   {
-    // Honesty gate: measurement only, both sub-gaps open, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, both sub-gaps open, no QED, no refereed bound is changed.
     id: 'imp34910-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, imp-34714a and imp-34687a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, imp-34714a and imp-34687a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34910_RESIDUAL_CORRECTED_QUOTIENT_ULP_MEASUREMENT.isRigorous === false &&
       /imp-34714a/.test(IMP34910_RESIDUAL_CORRECTED_QUOTIENT_ULP_MEASUREMENT.subGap) &&
       /imp-34687a/.test(IMP34910_RESIDUAL_CORRECTED_QUOTIENT_ULP_MEASUREMENT.subGap) &&
       /REMAINS? OPEN/.test(IMP34910_RESIDUAL_CORRECTED_QUOTIENT_ULP_MEASUREMENT.subGap) &&
       /NO QED/.test(IMP34910_RESIDUAL_CORRECTED_QUOTIENT_ULP_MEASUREMENT.verdict) &&
-      /remains SOTA/.test(IMP34910_RESIDUAL_CORRECTED_QUOTIENT_ULP_MEASUREMENT.verdict),
+      /refereed bound is changed/i.test(IMP34910_RESIDUAL_CORRECTED_QUOTIENT_ULP_MEASUREMENT.verdict),
   },
 ];
 

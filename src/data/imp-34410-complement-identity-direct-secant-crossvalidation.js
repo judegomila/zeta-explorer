@@ -52,7 +52,7 @@
  * CROSS-CHECK / TABULATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34328-sigma-vs-product-gap-log2pi-shift (F2 complement identity, built from shared closed form)
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (direct local exponent p(N), log-space secant path)
@@ -187,7 +187,7 @@ export const IMP34410_COMPLEMENT_IDENTITY_DIRECT_SECANT_CROSSVALIDATION = {
     'imp-34328 F2 identity is thus VALIDATED in the tail with its finite-N validity window now quantified. ' +
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34328 (F2 complement identity from shared closed form); imp-33816 (direct local exponent p(N), ' +
     'log-space secant); imp-34197 (product gap = 1/(2u) EXACT); imp-34130 (shared resid = (1/2) d ln(log ' +
@@ -238,13 +238,13 @@ export const IMP34410_COMPLEMENT_IDENTITY_DIRECT_SECANT_CROSSVALIDATION_ASSERTIO
       }),
   },
   {
-    // Honesty gate: cross-check only, no QED, PT SOTA.
+    // Honesty gate: cross-check only, no QED, no refereed bound is changed.
     id: 'imp34410-honesty-gate-no-qed',
-    description: 'Cross-check only: not rigorous, no QED, PT stays SOTA',
+    description: 'Cross-check only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP34410_COMPLEMENT_IDENTITY_DIRECT_SECANT_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP34410_COMPLEMENT_IDENTITY_DIRECT_SECANT_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP34410_COMPLEMENT_IDENTITY_DIRECT_SECANT_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP34410_COMPLEMENT_IDENTITY_DIRECT_SECANT_CROSSVALIDATION.verdict),
   },
 ];
 

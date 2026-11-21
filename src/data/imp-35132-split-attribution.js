@@ -56,7 +56,7 @@
  *   imp-34948 / imp-35028 locators verbatim. Changes NO bound; recomputes no landmark
  *   used in any bound; C_mb GUE-conditional per imp-486 is UNTOUCHED; establishes no
  *   operator positivity; imp-3066 K_a >= 0 untouched; imp-34687a/imp-34714a stay OPEN;
- *   no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35028-running-g-ramp-vs-sigmoid-split (rules out running-g; this module inherits + completes the attribution)
  * @see imp-34948-inflection-offset-far-tail-ladder-extension (the split this attributes; locators reused verbatim)
@@ -251,7 +251,7 @@ export const IMP35132_SPLIT_ATTRIBUTION = {
     'operators, NOT E_flow and NOT log-factor running. Component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; imp-34687a/imp-34714a stay OPEN; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35028 (rules out the running-g difference; this module inherits that and completes the attribution); ' +
     'imp-34948 (the far-tail exponent split this attributes; locators reused verbatim); imp-35029 (ramp-knee ' +
@@ -313,13 +313,13 @@ export const IMP35132_SPLIT_ATTRIBUTION_ASSERTIONS = [
       IMP35132_SPLIT_ATTRIBUTION.attribution.C3_ramp_vs_sigmoid_definitional_difference === 'RULED IN',
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35132-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35132_SPLIT_ATTRIBUTION.isRigorous === false &&
       /NO QED/.test(IMP35132_SPLIT_ATTRIBUTION.verdict) &&
-      /Lambda <= 0\.2 remains SOTA/.test(IMP35132_SPLIT_ATTRIBUTION.verdict),
+      /refereed bound is changed/i.test(IMP35132_SPLIT_ATTRIBUTION.verdict),
   },
 ];
 

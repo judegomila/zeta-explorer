@@ -88,7 +88,7 @@
  *   open by imp-95332's tail-only fix)
  *
  * Ticket: imp-95346 (content, low). Documentation only; establishes no
- * new bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * new bound; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95329/95332).
@@ -152,8 +152,8 @@ export const IMP95346_C3N_THETA_UNIFORM_TAIL_MAJORANT_CONCEPT_NOTE = Object.free
     'supersession is scoped to the tail LEG (c3n replaced by c3nChart ' +
     'as the charged constant) rather than a retraction of c3n, which ' +
     'remains the base case c3nChart never exceeds. Establishes nothing ' +
-    'new; fires no certificate; Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'new; fires no certificate; no refereed bound is changed' +
+    '.',
   citation:
     'imp-95329-beta-trace-capped-pencil-floor.js (c3n, LEMMA BCAP, ' +
     'LEMMA ACAP, THEOREM RZ-PEN3); imp-95332-chart-tail-pencil-floor.js ' +
@@ -267,12 +267,11 @@ export const IMP95346_C3N_THETA_UNIFORM_TAIL_MAJORANT_CONCEPT_NOTE_ASSERTIONS = 
   {
     id: 'imp95346-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present, glosses and scopes fields consistent.',
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present, glosses and scopes fields consistent.',
     holds: () =>
       IMP95346_C3N_THETA_UNIFORM_TAIL_MAJORANT_CONCEPT_NOTE
         .anyEnclosureEstablished === false &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95346_C3N_THETA_UNIFORM_TAIL_MAJORANT_CONCEPT_NOTE.verdict
       ) &&
       IMP95346_C3N_THETA_UNIFORM_TAIL_MAJORANT_CONCEPT_NOTE.glosses ===

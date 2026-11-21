@@ -59,7 +59,7 @@
  * MEASUREMENT / SENSITIVITY ONLY. Conditional-share diagnostic, NOT an RH bound. Uses the inherited
  * imp-3406/imp-97723 component model and the imp-33708 floor swap, NOT a rigorous asymptotic; C_mb
  * stays GUE-conditional per imp-486; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97759-fartail-crossing-etrunc-floor-sensitivity-crossover (F1 local minimum, located by golden-section only)
  * @see imp-97723-sigma-fartail-diagnostic-asymptote-one (the full diagnostic closed form)
@@ -203,7 +203,7 @@ export const IMP97777_FARTAIL_DIAGNOSTIC_LOCAL_MINIMUM_PIN = {
     'floor-insensitive to < 1e-11. Measurement only; uses the inherited imp-3406/imp-97723 model and ' +
     'the imp-33708 floor swap, NOT a rigorous asymptotic; C_mb stays GUE-conditional (imp-486); ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97759 (F1 local minimum, golden-section only); imp-97723 (full diagnostic closed form); ' +
     'imp-33708 (0.5x..5x E_trunc floor swap); imp-486 (C_mb GUE-conditional); imp-2631 (E_trunc = ' +
@@ -262,13 +262,13 @@ export const IMP97777_FARTAIL_DIAGNOSTIC_LOCAL_MINIMUM_PIN_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/sensitivity only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/sensitivity only, no QED, no refereed bound is changed.
     id: 'imp97777-honesty-gate-no-qed',
-    description: 'Measurement/sensitivity only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement/sensitivity only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP97777_FARTAIL_DIAGNOSTIC_LOCAL_MINIMUM_PIN.isRigorous === false &&
       /NO QED/.test(IMP97777_FARTAIL_DIAGNOSTIC_LOCAL_MINIMUM_PIN.verdict) &&
-      /remains SOTA/.test(IMP97777_FARTAIL_DIAGNOSTIC_LOCAL_MINIMUM_PIN.verdict),
+      /refereed bound is changed/i.test(IMP97777_FARTAIL_DIAGNOSTIC_LOCAL_MINIMUM_PIN.verdict),
   },
 ];
 

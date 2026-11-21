@@ -32,8 +32,8 @@
  * ranges, and all 25 underlying data modules, already carry the full
  * honest-status caveat (inherited imp-3220/imp-3406 surrogate crossover map;
  * C_mb GUE-conditional per imp-486; C_C 1/8 ansatz imp-2642/imp-2643;
- * changes-no-bound; no operator positivity; NO QED; Platt-Trudgian
- * Lambda<=0.2 SOTA), with the Krawczyk-family subset additionally and
+ * changes-no-bound; no operator positivity; NO QED; no refereed bound is changed
+ * ), with the Krawczyk-family subset additionally and
  * correctly naming imp-34714a as REMAINS OPEN. AUDIT-ONLY, no bound change.
  */
 
@@ -88,8 +88,8 @@ export const CAVEAT_SURFACING_AUDIT_COVERAGE_GAPS = {
     + 'caveat-audit gap ranges (34847-34857, 34868-34879, 34890-34898, 34911-34921, 34934-34946) and '
     + 'confirmed every one, and its underlying src/data module, already carries the shared honest-status '
     + 'caveat (inherited imp-3220/imp-3406 surrogate crossover map; C_mb GUE-conditional per imp-486; C_C '
-    + '1/8 ansatz imp-2642/imp-2643; no operator positivity; NO QED; Platt-Trudgian Lambda<=0.2 remains '
-    + 'SOTA), with the Krawczyk-family subset (imp-34911/34915/34939/34940) additionally naming imp-34714a '
+    + '1/8 ansatz imp-2642/imp-2643; no operator positivity; NO QED; no refereed bound is changed'
+    + '), with the Krawczyk-family subset (imp-34911/34915/34939/34940) additionally naming imp-34714a '
     + 'as REMAINS OPEN and the non-Krawczyk pair (imp-34912/34913) correctly omitting that sub-gap since '
     + 'neither touches interval arithmetic. No completeness-coverage gap found. Changes no bound.',
 };
@@ -132,10 +132,10 @@ export const CAVEAT_SURFACING_AUDIT_COVERAGE_GAPS_ASSERTIONS = [
   },
   {
     id: 'imp-35020-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(CAVEAT_SURFACING_AUDIT_COVERAGE_GAPS.honest)
       && /No completeness-coverage gap found/.test(CAVEAT_SURFACING_AUDIT_COVERAGE_GAPS.honest)
-      && /Lambda<=0.2 remains SOTA/.test(CAVEAT_SURFACING_AUDIT_COVERAGE_GAPS.honest),
+      && /refereed bound is changed/i.test(CAVEAT_SURFACING_AUDIT_COVERAGE_GAPS.honest),
   },
 ];
 

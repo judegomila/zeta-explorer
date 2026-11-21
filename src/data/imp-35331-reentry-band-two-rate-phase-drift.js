@@ -73,8 +73,7 @@
  * interval enclosure). It discharges NOTHING: imp-35111a / imp-35174a / imp-35243a (R2) stay OPEN. MEASUREMENT
  * / ASSESSMENT ONLY; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35243-reentry-band-surrogate-fidelity-assessment (enumerates R1-R4; R2 single-rate fidelity)
  * @see imp-34862-iters-to-floor-two-rate-law (the two-rate law reconstructed here; does NOT remove off-by-one)
@@ -302,7 +301,7 @@ export const IMP35331_REENTRY_BAND_TWO_RATE_PHASE_DRIFT = {
     'imp-3220/imp-3406 double surrogate, IEEE-754 double precision, point rate estimates; the C_C = (1/8) ' +
     'sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 ' +
     'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35243 (enumerates R1-R4; R2 single-rate fidelity, the requirement probed here); imp-34862 (the ' +
     'two-rate law reconstructed here; does NOT remove the off-by-one); imp-35111 (single-rate frac-window ' +
@@ -371,13 +370,13 @@ export const IMP35331_REENTRY_BAND_TWO_RATE_PHASE_DRIFT_ASSERTIONS = [
     holds: () => EXACT_PEEL_MATCHES_RATIO_FIT < 1e-9,
   },
   {
-    // Honesty gate: assessment only, discharges nothing, no QED, PT SOTA, sub-gap stays OPEN.
+    // Honesty gate: assessment only, discharges nothing, no QED, no refereed bound is changed, sub-gap stays OPEN.
     id: 'imp35331-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, R2/imp-35243a OPEN, no QED, Platt-Trudgian stays SOTA',
+    description: 'Assessment only: isRigorous false, R2/imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP35331_REENTRY_BAND_TWO_RATE_PHASE_DRIFT.isRigorous === false &&
       /NO QED/.test(IMP35331_REENTRY_BAND_TWO_RATE_PHASE_DRIFT.verdict) &&
-      /remains SOTA/.test(IMP35331_REENTRY_BAND_TWO_RATE_PHASE_DRIFT.verdict) &&
+      /refereed bound is changed/i.test(IMP35331_REENTRY_BAND_TWO_RATE_PHASE_DRIFT.verdict) &&
       /imp-35243a/.test(IMP35331_REENTRY_BAND_TWO_RATE_PHASE_DRIFT.residual_sub_gap) &&
       /stay OPEN/.test(IMP35331_REENTRY_BAND_TWO_RATE_PHASE_DRIFT.residual_sub_gap),
   },

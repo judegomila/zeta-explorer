@@ -80,7 +80,7 @@
  * rigorous asymptotic; the local decade derivatives L_prime, L_dprime are finite-difference
  * measurements; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33879-geometric-center-correction-endpoint-midpoint-offset (leading factor a, residual derived here)
  * @see imp-33856-ecoll-discrete-residual-log-shortfall-fit (~4% midpoint-vs-endpoint caveat)
@@ -205,7 +205,7 @@ export const IMP33900_GEOMETRIC_CENTER_SECOND_ORDER_TAYLOR_TAIL = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; L_prime, L_dprime are ' +
     'finite-difference measurements; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33879 (leading factor a, residual derived here); imp-33856 (~4% midpoint-vs-endpoint ' +
     'caveat); imp-33816 (pointwise gap_sigma ~ 1/(2 log T0)); imp-486 (C_mb GUE-conditional); ' +
@@ -241,13 +241,13 @@ export const IMP33900_GEOMETRIC_CENTER_SECOND_ORDER_TAYLOR_TAIL_ASSERTIONS = [
       TABLE.every((r) => r.stepPiece_pctOfOffset < 0 && r.denPiece_pctOfOffset > 0),
   },
   {
-    // Honesty gate: measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp33900-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33900_GEOMETRIC_CENTER_SECOND_ORDER_TAYLOR_TAIL.isRigorous === false &&
       /NO QED/.test(IMP33900_GEOMETRIC_CENTER_SECOND_ORDER_TAYLOR_TAIL.verdict) &&
-      /remains SOTA/.test(IMP33900_GEOMETRIC_CENTER_SECOND_ORDER_TAYLOR_TAIL.verdict),
+      /refereed bound is changed/i.test(IMP33900_GEOMETRIC_CENTER_SECOND_ORDER_TAYLOR_TAIL.verdict),
   },
 ];
 

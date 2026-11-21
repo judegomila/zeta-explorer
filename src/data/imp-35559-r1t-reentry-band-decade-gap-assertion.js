@@ -35,7 +35,7 @@
  *   Ticket: imp-35559 (accuracy, medium). Verification-tooling only; recomputes the same already-
  *   established measurement figures; adds no new Lambda bound; discharges nothing; the reentry band is
  *   a diagnostic iterate-COUNT, not a Lambda lever; imp-35243a stays OPEN; C_mb GUE-conditional
- *   (imp-486) UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ *   (imp-486) UNTOUCHED. No refereed bound is changed. NO QED.
  */
 
 import { IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION } from './imp-35559-r1t-reentry-band-decade-gap-quantification.js';
@@ -156,18 +156,18 @@ export const IMP35559_DECADE_GAP_ASSERTIONS = [
       GAP_EXIT_ABOVE_IN_REPO > GAP_EXIT_ABOVE_T_PT,
   },
   {
-    // (4) honesty gate: measurement only, imp-35243a stays OPEN, no bound moves, PT 0.2 SOTA, NO QED.
+    // (4) honesty gate: measurement only, imp-35243a stays OPEN, no bound moves, no refereed bound is changed, NO QED.
     id: 'imp35559-honesty-gate-no-qed',
     description:
       'Measurement/assessment only: source isRigorous false, imp-35243a stays OPEN, route (ii) ' +
-      'INFEASIBLE, no bound moves, Platt-Trudgian stays SOTA, NO QED',
+      'INFEASIBLE, no bound moves, no refereed bound is changed, NO QED',
     holds: () =>
       IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION.isRigorous === false &&
       /imp-35243a stays OPEN/.test(IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION.residual_sub_gap) &&
       /INFEASIBLE/.test(IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION.verdict) &&
       /NO bound moves/.test(IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION.verdict) &&
       /NO QED/.test(IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION.verdict) &&
-      /remains SOTA/.test(IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION.verdict),
+      /refereed bound is changed/i.test(IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION.verdict),
   },
 ];
 

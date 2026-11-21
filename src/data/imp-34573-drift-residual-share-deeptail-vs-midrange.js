@@ -62,8 +62,7 @@
  *   is inherited as-is (stated honestly; this is a diagnostic ON that regime, not a rehabilitation
  *   OF it). The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED;
  *   the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no
- *   operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous
- *   SOTA.
+ *   operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34543-drift-residual-third-derivative-share.js (q2/q3 shares as ladder aggregates)
  *   @see imp-34566-drift-residual-fourth-difference-share.js (q4 O(h^4) term negligible; FD floor F3)
@@ -264,7 +263,7 @@ export const IMP34573_DRIFT_SHARE_DEEPTAIL_VS_MIDRANGE = Object.freeze({
     'trustworthy) is inherited as-is -- this diagnoses that regime, it does not rehabilitate it. ' +
     'The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the ' +
     'C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no ' +
-    'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34543 (q2/q3 shares as ladder aggregates, split re-measured by regime here); imp-34566 (q4 ' +
     'O(h^4) negligibility + finite-difference floor F3); imp-34531 (F2 O(h^2) coefficient ' +
@@ -314,9 +313,9 @@ const IMP34573_ASSERTIONS = [
     holds: () =>
       IMP34573_DRIFT_SHARE_DEEPTAIL_VS_MIDRANGE.isRigorous === false &&
       /NO QED/.test(IMP34573_DRIFT_SHARE_DEEPTAIL_VS_MIDRANGE.verdict) &&
-      /remains SOTA/.test(IMP34573_DRIFT_SHARE_DEEPTAIL_VS_MIDRANGE.verdict) &&
+      /refereed bound is changed/i.test(IMP34573_DRIFT_SHARE_DEEPTAIL_VS_MIDRANGE.verdict) &&
       /UNTOUCHED/.test(IMP34573_DRIFT_SHARE_DEEPTAIL_VS_MIDRANGE.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

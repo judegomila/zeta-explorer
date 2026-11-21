@@ -74,7 +74,7 @@
  *   node REGION, not the exact node. The NPHI = 10 Phi-series truncation is inherited upstream;
  *   single-platform libm. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level
  *   K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH
- *   verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33667-crossover-cross-validation.js (the two-method n=596 cross-validation this extends)
  *   @see imp-33641-grade6-node-budget-non-monotonicity.js (Method A: dense grade-6 floor argmin, n=596 only)
@@ -186,7 +186,7 @@ const verdict =
       'MISSING-(A-DENSE-GRADE-6-FLOOR-ARGMIN-SCAN-AT-ADDITIONAL-BAND-CLEARING-PEAKS-IS-NEEDED-TO-ACTUALLY-EXTEND-' +
       'THE-TWO-METHOD-NODE-CROSS-CHECK).-ACCURACY/RULE-DESIGN-COVERAGE-CROSS-CHECK-ONLY;-JITTERY-LATTICE-FLOOR;-' +
       'ROBUST-READING-IS-THE-REGION-NOT-THE-EXACT-NODE;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-' +
-      'UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33703_TWO_METHOD_CROSSOVER_DEEP_WINDOW_COVERAGE = Object.freeze({
@@ -215,8 +215,8 @@ export const IMP33703_TWO_METHOD_CROSSOVER_DEEP_WINDOW_COVERAGE = Object.freeze(
     'imp-33703-subgap-dense-grade6-argmin-deep-window-scan-missing: a dense grade-6 floor-argmin scan at more ' +
     'band-clearing peaks is needed to genuinely extend the two-method cross-check. ACCURACY/RULE-DESIGN ' +
     'COVERAGE CROSS-CHECK ONLY, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; robust ' +
-    'reading is the region not the exact node; operator positivity (imp-3066) untouched; no QED. PT Lambda ' +
-    '&lt;= 0.2 stays SOTA.',
+    'reading is the region not the exact node; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed' +
+    '.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -306,7 +306,7 @@ export const IMP33703_TWO_METHOD_CROSSOVER_DEEP_WINDOW_COVERAGE = Object.freeze(
       'imp-33296/imp-33537/imp-33605): cross-platform libm exp/pow variation can shift the exact onset node, ' +
       'so the robust reading is the node REGION, NOT the exact node.',
     singlePlatform: 'Single-platform libm exp/pow; the few-ULP floor values are platform-sensitive.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -365,7 +365,7 @@ export const IMP33703_TWO_METHOD_CROSSOVER_DEEP_WINDOW_COVERAGE_ASSERTIONS = [
   {
     id: 'imp33703-honest-coverage-check-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design coverage cross-check only, a data-limitation not a bound, ' +
-         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33703_TWO_METHOD_CROSSOVER_DEEP_WINDOW_COVERAGE.honestCaveat;
       return (
@@ -374,7 +374,7 @@ export const IMP33703_TWO_METHOD_CROSSOVER_DEEP_WINDOW_COVERAGE_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

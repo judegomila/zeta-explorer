@@ -37,8 +37,8 @@
  *       consistent with the imp-95368 named large-rho residual (pair-identity
  *       truncation + b-uniform t3 weight), not a new one.
  *
- * Changes no bound; no certificate onset moves; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. Import-light (no zeros bundle). The numerics
+ * Changes no bound; no certificate onset moves; NO QED. No refereed bound is changed
+ * . Import-light (no zeros bundle). The numerics
  * below recompute a few cheap spot-checks of the baked table; the full
  * 9-row table was produced offline with the same verbatim machinery.
  */
@@ -96,7 +96,7 @@ export const IMP95340_RUNIF6_EXACT_INFIMUM_GAP = {
     'MEASUREMENT ONLY -- this module tabulates a previously-untabulated ' +
     'quantity (the r-uniform floor gap, distinct from the fixed-r looseness ' +
     'ledger), changes no bound, moves no certificate onset, and opens no new ' +
-    'residual. NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'residual. NO QED; no refereed bound is changed.',
 };
 
 // ---------------------------------------------------------------------------
@@ -306,7 +306,7 @@ export const IMP95340_ASSERTIONS = [
       }
       return (
         /MEASUREMENT ONLY/.test(REC.honest) &&
-        /remains SOTA/.test(REC.honest) &&
+        /refereed bound is changed/i.test(REC.honest) &&
         /changes no bound/.test(REC.honest) &&
         /no new leg is opened/.test(REC.namedResidual)
       );

@@ -75,7 +75,7 @@ import { IMP2643_HONEST_ASSEMBLED_EN } from './imp-2643-honest-assembled-EN.js';
 
 const N_STAR = 1e4;
 const TWO_PI = 2 * Math.PI;
-const PT_BOUND = 0.2; // Platt-Trudgian 2021 SOTA unconditional Lambda upper bound.
+const PT_BOUND = 0.2; // Platt-Trudgian 2021 bound upper bound.
 
 const T0 = effectiveHeightForN(N_STAR); // gamma_N approx 9.879e3
 const L = Math.log(T0); // approx 9.198
@@ -223,7 +223,7 @@ export const IMP2715_WORST_CASE_EN_HEADROOM = {
     'worst-case bracket inflates it by only ~1.6%. This is a numeric robustness statement, ' +
     'NOT a rigorous unconditional bound: C_H = 0.127 is an ansatz endpoint, not a proven ' +
     'Holder-modulus upper bound (imp-2642), so Lambda <= E(N) stays NON-rigorous and ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA (imp-2643 NO-GO). NO false QED.',
+    'no refereed bound is changed (imp-2643 NO-GO). NO false QED.',
   citation:
     'imp-2643 (central-reading capstone E(N) approx 0.01291); imp-2631 (two-regime E_trunc ' +
     'tradeoff); imp-2625 (kappa_T floor 0.180, C_T threshold 1.46 at gamma = 1e13); ' +
@@ -304,7 +304,7 @@ export const IMP2715_WORST_CASE_EN_HEADROOM_ASSERTIONS = [
       E_TRUNC_ASYMPTOTIC < PT_BOUND &&
       IMP2715_WORST_CASE_EN_HEADROOM.isRigorous === false &&
       /NOT rigorous/.test(IMP2715_WORST_CASE_EN_HEADROOM.verdict) &&
-      /remains SOTA/.test(IMP2715_WORST_CASE_EN_HEADROOM.verdict),
+      /refereed bound is changed/i.test(IMP2715_WORST_CASE_EN_HEADROOM.verdict),
   },
 ];
 

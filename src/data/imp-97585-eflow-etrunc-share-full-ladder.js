@@ -42,7 +42,7 @@
  * MEASUREMENT / VERIFICATION CROSS-CHECK ONLY on the inherited imp-3220/imp-3406
  * surrogate component model. C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8
  * ansatz (imp-2642/imp-2643) UNTOUCHED; changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97520-sigma-conditional-share-landmark-ladder (single-point E_flow/E_trunc ~ 1.91e-3 at N_half)
  * @see imp-33601-sigma-half-vs-crossover-eflow-offset (identity sigma=1/2 <=> E_coll=E_trunc+E_flow)
@@ -129,7 +129,7 @@ export const IMP97585_EFLOW_ETRUNC_SHARE_FULL_LADDER = {
     'decade ladder, reproducing that value at N_half and pinning the share = 1 and share = 1e-3 ' +
     'crossings. Measurement / verification cross-check only on the inherited imp-3220/imp-3406 ' +
     'surrogate; C_mb GUE-conditional per imp-486; C_C 1/8 ansatz untouched; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP97585_EFLOW_ETRUNC_SHARE_FULL_LADDER_ASSERTIONS = [
@@ -161,11 +161,11 @@ export const IMP97585_EFLOW_ETRUNC_SHARE_FULL_LADDER_ASSERTIONS = [
   },
   {
     id: 'imp97585-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97585_EFLOW_ETRUNC_SHARE_FULL_LADDER.isRigorous === false &&
       /NO QED/.test(IMP97585_EFLOW_ETRUNC_SHARE_FULL_LADDER.note) &&
-      /remains SOTA/.test(IMP97585_EFLOW_ETRUNC_SHARE_FULL_LADDER.note),
+      /refereed bound is changed/i.test(IMP97585_EFLOW_ETRUNC_SHARE_FULL_LADDER.note),
   },
 ];
 

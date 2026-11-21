@@ -72,7 +72,7 @@
  *
  * SCOPE: MEASUREMENT ONLY. Does NOT extend the R2 ladder; does NOT extend the
  * C_mb certificate; does NOT remove the imp-486 GUE conditional; changes NO
- * bound. Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ * bound. No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2" and "gamma[i+1]-gamma[i]"
  * prose.
@@ -195,7 +195,7 @@ export const IMP_35278_R2_N2000_GATEFREE_FLOW_REFERENCE = {
     doesNotAchieve:
       'Does NOT resolve the DP45 dt/2 artifact; does NOT extend the R2 ladder to ' +
       'N=2000; does NOT extend the C_mb certificate; does NOT remove the imp-486 GUE ' +
-      'conditional; changes NO Lambda bound. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+      'conditional; changes NO Lambda bound. No refereed bound is changed.',
     subGap:
       'imp-35278-sub-within-step-stepover: the DP45 order-5 dt/2 step-over of ' +
       'pair-1495 at N=2000 completes WITHIN one step (positive signed gap at both ' +
@@ -273,6 +273,6 @@ export const IMP_35278_R2_N2000_GATEFREE_FLOW_REFERENCE_ASSERTIONS = [
       'Measurement only: never a QED or a bound change. The gate-free event does NOT ' +
       'resolve the artifact, so the R2 ladder largest-N-tested-and-met STAYS at 1000 ' +
       'and a refined sub-gap is recorded. C_mb stays GUE-conditional (imp-486); ' +
-      'Lambda <= 0.2 stays SOTA.',
+      'no refereed bound is changed.',
   },
 ];

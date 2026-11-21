@@ -21,7 +21,7 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses the recorded imp-36017 per-rung literals verbatim;
  * changes no bound; imp-34714a (Krawczyk existence/uniqueness) and imp-34687a (directed-rounding
- * layer) REMAIN OPEN/UNIMPLEMENTED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * layer) REMAIN OPEN/UNIMPLEMENTED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * HONEST-STATUS BANNER (imp-36283). The "layer" column is an a-priori correctly-rounded
  * directed-rounding MODEL only -- NOT the unimplemented imp-34687a layer -- and the surrogate

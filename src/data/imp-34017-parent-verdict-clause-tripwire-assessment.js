@@ -87,11 +87,11 @@ export const IMP34017_PARENT_VERDICT_CLAUSE_TRIPWIRE_ASSESSMENT = Object.freeze(
     'adopting an executable parent-verdict-clause regex as convention for future modules while ' +
     'deferring cohort-wide retrofit pending the separate DATA_MODULES wiring question. Does not ' +
     'modify any of the five audited modules or scripts/run-assertions.mjs. No bound changed; imp-3066 ' +
-    'K_a>=0 untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a>=0 untouched; NO QED. No refereed bound is changed.',
   honest:
     'ASSESSMENT-ONLY -- the prototype regex above is a demonstration import, not a permanent addition ' +
     'to imp-33940’s own *_ASSERTIONS array; no cohort module or the build-time sweep is modified by ' +
-    'this ticket. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA.',
+    'this ticket. No refereed bound is changed.',
 });
 
 export const IMP34017_PARENT_VERDICT_CLAUSE_TRIPWIRE_ASSESSMENT_ASSERTIONS = [
@@ -110,11 +110,11 @@ export const IMP34017_PARENT_VERDICT_CLAUSE_TRIPWIRE_ASSESSMENT_ASSERTIONS = [
   },
   {
     id: 'imp34017-honesty-gate-assessment-only-no-qed',
-    description: 'assessment-only framing, NO QED, PT SOTA line present',
+    description: 'assessment-only framing, NO QED, no-refereed-bound-change line present',
     holds: () =>
       /ASSESSMENT-ONLY/.test(IMP34017_PARENT_VERDICT_CLAUSE_TRIPWIRE_ASSESSMENT.honest) &&
       /NO QED/.test(IMP34017_PARENT_VERDICT_CLAUSE_TRIPWIRE_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP34017_PARENT_VERDICT_CLAUSE_TRIPWIRE_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP34017_PARENT_VERDICT_CLAUSE_TRIPWIRE_ASSESSMENT.verdict),
   },
 ];
 

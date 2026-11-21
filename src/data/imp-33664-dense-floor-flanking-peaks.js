@@ -67,7 +67,7 @@
  *   sub-200 floor-below-coarse signature is present at n=596 and absent at the two flanks -- not the exact per-rung
  *   floor node or ULP. The NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel
- *   step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33641-grade6-node-budget-non-monotonicity.js (the n=596 dense-floor scan this generalizes)
  *   @see imp-33600-band-crossing-grade-vs-node-driver.js (the coarse grade-6 budget row)
@@ -265,7 +265,7 @@ const verdict =
       '200->180->410-A-JITTERY-LATTICE-PROPERTY,-NOT-A-FIXED-SUB-200-FEATURE.-HONEST-NUANCE:-COARSE-LADDER-JITTER/' +
       'UNDERSAMPLING-IS-REAL-AT-EVERY-PEAK-(WIDE-COARSE-200-VS-300-SPREAD-AT-BOTH-FLANKS),-ONLY-THE-SUB-200-GEOMETRY-' +
       'IS-n=596-SPECIFIC.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-' +
-      'BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33664_DENSE_FLOOR_FLANKING_PEAKS = Object.freeze({
@@ -292,7 +292,7 @@ export const IMP33664_DENSE_FLOOR_FLANKING_PEAKS = Object.freeze({
     'spread at both flanks); only the sub-200 geometry is n=596-specific. VERDICT: ' +
     'SUB-200-NODE-TRUE-FLOOR-IS-n=596-SPECIFIC-NOT-A-GENERAL-COARSE-LADDER-MISS. ACCURACY/RULE-DESIGN MEASUREMENT, ' +
     'RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; operator positivity (imp-3066) untouched; no ' +
-    'QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -371,7 +371,7 @@ export const IMP33664_DENSE_FLOOR_FLANKING_PEAKS = Object.freeze({
       'exp/pow variation can shift the few-ULP measurements and the floor node, so the robust reading is the ' +
       'QUALITATIVE separation -- the sub-200 floor-below-coarse signature is present at n=596 and absent at both ' +
       'flanking peaks -- not the exact per-rung floor node, ULP, or the exact node count where each floor lands.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -423,7 +423,7 @@ export const IMP33664_DENSE_FLOOR_FLANKING_PEAKS_ASSERTIONS = [
   {
     id: 'imp33664-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33664_DENSE_FLOOR_FLANKING_PEAKS.honestCaveat;
       return (
@@ -432,7 +432,7 @@ export const IMP33664_DENSE_FLOOR_FLANKING_PEAKS_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

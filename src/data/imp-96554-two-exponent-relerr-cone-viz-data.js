@@ -18,7 +18,7 @@
  * two relErr(T) measurements are copied verbatim from IMP96493_EXCURSION_2SIGMA_
  * INTERIOR_SCAN (imp-96493). The only new computation here is evaluating the two
  * power laws and the cone bounds over a plotting grid. Changes no bound; establishes
- * no operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96528-independent-unclipped-height-count-exponent-fit-reach.js (SE(p), Delta_p)
  * @see imp-96493-excursion-2sigma-interior-scan.js (the two anchor measurements)
@@ -93,7 +93,7 @@ export const IMP96554_LANDMARKS = Object.freeze({
 });
 
 export const IMP96554_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: the two candidate power-law '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: the two candidate power-law '
   + 'lines and the SE(p)~0.21 cone are computed from the imp-96528 exponent-fit-reach verdict copied '
   + 'verbatim, anchored through the imp-96493 T=1.5e5 measurement; the T=3.879e5 point is the actual '
   + 'imp-96493 measurement, not a prediction. Neither exponent is established -- the fixed 10^6 '

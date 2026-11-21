@@ -17,7 +17,7 @@
  * @see imp-97722-route-m-deep-ladder-independent-crosscheck.js (the 23-rung baked ladder)
  *
  * Ticket: imp-97790 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda
- * moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import {

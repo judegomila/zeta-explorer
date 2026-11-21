@@ -59,8 +59,8 @@
  * genuinely required, and the earlier N ~ 1e5 regime yields only rough amplitudes.
  *
  * SIMULATION ONLY. No new zeros, no Gram build. Changes no bound, establishes no
- * operator positivity, makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. RH open. NO QED. Uses equal synthetic unit amplitudes; no unique
+ * operator positivity, makes no RH claim; no refereed bound is changed
+ * . RH open. NO QED. Uses equal synthetic unit amplitudes; no unique
  * identification of the real conductor content is claimed.
  *
  * @see imp-96231-route-m-band-vs-drift-identifiability.js (binary Rayleigh span + IMP96231_SUBGAP)
@@ -136,7 +136,7 @@ export const IMP96248_SUBGAP = Object.freeze({
 });
 
 export const IMP96248_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Simulation only: every value is a reproducible numeric from tmp/imp-96248-scratch.mjs Monte-Carlo of a synthetic q4+q5 two-tone plus matched noise; no new zeros, no Gram build, no bound is claimed, no operator positivity is established, and NO unique identification of the real conductor content is claimed (equal synthetic unit amplitudes are assumed).';
+  'RH open; no refereed bound is changed; NO QED. Simulation only: every value is a reproducible numeric from tmp/imp-96248-scratch.mjs Monte-Carlo of a synthetic q4+q5 two-tone plus matched noise; no new zeros, no Gram build, no bound is claimed, no operator positivity is established, and NO unique identification of the real conductor content is claimed (equal synthetic unit amplitudes are assumed).';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -189,7 +189,7 @@ const IMP96248_ASSERTIONS = [
     id: 'imp96248-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96248_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96248_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96248_HONEST_BANNER) &&
       /NO QED/.test(IMP96248_HONEST_BANNER) &&
       typeof IMP96248_SUBGAP.statement === 'string' &&
       /confident-conductor-separation/.test(IMP96248_SUBGAP.id),

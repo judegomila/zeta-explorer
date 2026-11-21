@@ -12,7 +12,7 @@
  * IS the Alpöge–Furman / Lamzouri distinct-ordinate program (ceiling: Fourier support 1 = PCC wall).
  * Route F therefore yields no independent lever; it is a stat-mech relabeling of Turing's method
  * (finite height), Hardy's sign-change method (parity), Levinson/Conrey (asymptotic proportion) and
- * the 2026 pair-correlation record (ordinate collisions). Changes no bound; PT Λ≤0.2 SOTA; RH open.
+ * the 2026 pair-correlation record (ordinate collisions). Changes no bound; no refereed bound is changed; RH open.
  * NO QED.
  *
  * 1. THE KW DICTIONARY (precise).
@@ -363,8 +363,8 @@ export const RH_ROUTE_F_KW_ASSERTIONS = Object.freeze([
   {
     id: 'honest-verdict-no-lever-no-qed',
     holds: () => /REFUTED-AS-INDEPENDENT-LEVER/.test(ROUTE_F.verdict) && /NO QED/.test(ROUTE_F.status)
-      && /RH open/.test(ROUTE_F.status) && /Λ≤0\.2/.test(ROUTE_F.status) && /none inside Route F/.test(ROUTE_F.nextTest),
-    why: 'Route F records a refutation-as-lever (reformulation), not a result; Λ≤0.2 SOTA and RH-open statements are present.',
+      && /RH open/.test(ROUTE_F.status) && /Λ≤0\.2|refereed bound is changed/.test(ROUTE_F.status) && /none inside Route F/.test(ROUTE_F.nextTest),
+    why: 'Route F records a refutation-as-lever (reformulation), not a result; no refereed bound is changed and RH-open statements are present.',
   },
 ]);
 

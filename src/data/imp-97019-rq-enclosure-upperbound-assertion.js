@@ -27,7 +27,7 @@
  * internally consistent and carry the claimed upper-bound / benign-band properties, NOT that the
  * enclosure is a fully verified interval majorant. IMP96888_RAYLEIGH_TAIL_MAJORANT and
  * IMP96749_UNIFORM_N_GAP_UNSETTLED stay open; interval-rigorous reach stays 2a <= 0.96;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96993-rayleigh-tail-interval-enclosure.js (the enclosure literals checked here)
  * @see imp-96973-krein-tailtrace-vacuity-factorisation.js (the three-factor factorisation; step 3 = this slack)
@@ -107,11 +107,11 @@ export const IMP97019_VERDICT = Object.freeze({
     'Verification only: no operator positivity is asserted, no bound is moved, and the check stays ' +
     'CONDITIONAL on IMP96993_SPECFUN_INTERVAL (the node special functions are IEEE-double, not interval ' +
     'arithmetic). IMP96888_RAYLEIGH_TAIL_MAJORANT and IMP96749_UNIFORM_N_GAP_UNSETTLED stay open; ' +
-    'interval-rigorous reach stays 2a <= 0.96; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97019_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Verification / assertion only: this module walks the ' +
+  'RH open; no refereed bound is changed; NO QED. Verification / assertion only: this module walks the ' +
   'frozen imp-96993 rq enclosure literals and confirms each rung is a valid interval whose lower edge ' +
   'stays >= the actual residual, with the recomputed slack in [1.12, 1.20]. It rebuilds no quadrature, ' +
   'asserts no operator positivity, moves no bound, and stays CONDITIONAL on IMP96993_SPECFUN_INTERVAL ' +
@@ -163,7 +163,7 @@ const IMP97019_ASSERTIONS = [
       IMP97019_VERDICT.uniformNGapSettled === false &&
       IMP97019_VERDICT.intervalRigorousReachUnchanged === 0.96 &&
       /NO QED/.test(IMP97019_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97019_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97019_HONEST_BANNER) &&
       /RH open/.test(IMP97019_HONEST_BANNER),
     why: 'verification only: no bound moved, no operator positivity asserted, the three properties are machine-checked, the check stays conditional on IMP96993_SPECFUN_INTERVAL, the open sub-gaps stand, reach is 2a<=0.96, and the honesty markers are present.',
   },

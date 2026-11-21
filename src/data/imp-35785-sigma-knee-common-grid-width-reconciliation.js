@@ -62,8 +62,7 @@
  * MEASUREMENT / RECONCILIATION ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (whole-decade ladder, knee labeled [1e10,1e11])
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade relocation, knee at N* ~ 3.38e9)
@@ -271,7 +270,7 @@ export const IMP35785_SIGMA_KNEE_COMMON_GRID_WIDTH_RECONCILIATION = {
     'unifies them at ONE knee, log10 N* ~ 9.53 (N* ~ 3.4e9). The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33701 (whole-decade ladder, knee labeled [1e10,1e11]); imp-33721 (sub-decade relocation, ' +
     'N* ~ 3.38e9, log10 ~ 9.529); imp-33582 (six-decade exponent ladder + sigma=1/2 halving ' +
@@ -343,14 +342,14 @@ export const IMP35785_SIGMA_KNEE_COMMON_GRID_WIDTH_RECONCILIATION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/reconciliation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/reconciliation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35785-honesty-gate-no-qed',
-    description: 'Measurement/reconciliation only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement/reconciliation only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP35785_SIGMA_KNEE_COMMON_GRID_WIDTH_RECONCILIATION.isRigorous === false &&
       IMP35785_SIGMA_KNEE_COMMON_GRID_WIDTH_RECONCILIATION.farTailExponent === 0.5 &&
       /NO QED/.test(IMP35785_SIGMA_KNEE_COMMON_GRID_WIDTH_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP35785_SIGMA_KNEE_COMMON_GRID_WIDTH_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP35785_SIGMA_KNEE_COMMON_GRID_WIDTH_RECONCILIATION.verdict),
   },
 ];
 

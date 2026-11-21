@@ -56,7 +56,7 @@
  *   which imp-33253 already flagged as empirical). It does NOT re-run the compute-heavy N x N offline
  *   dense solve (CPU-starved offline), does NOT re-certify the pairing (imp-3668), does NOT establish
  *   the sigma_4 amplitude LAW, and adds NO new Lambda bound. imp-3066 K_a >= 0 UNTOUCHED. RH-EQUIVALENT.
- *   NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-33253-fifth-pair-condition-number-floor.js (the derived Wilkinson kappa*u floor this cross-checks)
  *   @see imp-33231-fifth-pair-spread-n2800-resolved.js (the measured double-precision fifth-pair spreads)
@@ -64,7 +64,7 @@
  *
  *   Ticket: imp-33272 (accuracy, medium). Cross-checks the derived fifth-pair kappa*u floor against an
  *   independent extended-precision eigensolve. imp-3066 UNTOUCHED. RH-EQUIVALENT. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *   No refereed bound is changed.
  */
 
 const EPS = 2.220446049250313e-16; // IEEE double-precision unit roundoff u = 2^-52
@@ -348,7 +348,7 @@ export const IMP33272_FIFTH_PAIR_EXTENDED_PRECISION_CROSSVAL = Object.freeze({
     'the actual Gram eigenvectors), so this confirms the MECHANISM and ORDER of magnitude, NOT the exact per-rung ' +
     'realized constant c in [0.088,0.884] (empirical QL quality, per imp-33253); it re-runs NO N x N offline ' +
     'solve, re-certifies NO pairing, adds NO Lambda bound; imp-3066 K_a>=0 UNTOUCHED; RH-EQUIVALENT; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   method: Object.freeze({
     spectrum: N2000_TOP10, // actual imp-3668 N=2000 dense top-10 Gram eigenvalues
@@ -414,7 +414,7 @@ export const IMP33272_FIFTH_PAIR_EXTENDED_PRECISION_CROSSVAL = Object.freeze({
       '(CPU-starved offline), does NOT re-certify the pairing (imp-3668), does NOT establish the sigma_4 ' +
       'amplitude LAW, and does NOT attempt the imp-3066 K_a>=0 positivity.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -455,7 +455,7 @@ export const IMP33272_FIFTH_PAIR_EXTENDED_PRECISION_CROSSVAL_ASSERTIONS = [
     id: 'imp33272-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT / cross-check only -- confirms the mechanism and order via a surrogate ' +
       'rotation, NOT the exact per-rung constant; adds no Lambda bound, re-certifies nothing, positivity not ' +
-      'attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP33272_FIFTH_PAIR_EXTENDED_PRECISION_CROSSVAL.honestCaveat;
       return (
@@ -465,7 +465,7 @@ export const IMP33272_FIFTH_PAIR_EXTENDED_PRECISION_CROSSVAL_ASSERTIONS = [
         c.addsNoLambdaBound === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.surrogateRotationNotActualEigenvectors === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

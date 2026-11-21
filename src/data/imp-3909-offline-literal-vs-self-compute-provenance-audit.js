@@ -47,7 +47,7 @@
  * bottleneck.
  *
  * HONEST SCOPE. Read-only provenance audit; no new bound, no QED. imp-3066
- * K_a >= 0 positivity untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 positivity untouched. No refereed bound is changed.
  *
  * @see imp-3850-a-weight-dual-path-tau25-30-reconciliation.js
  * @see imp-3873-a-weight-offline-literal-independent-reproduction.js (closes the imp-3850 gap)
@@ -110,7 +110,7 @@ export const IMP_3909_OFFLINE_LITERAL_VS_SELF_COMPUTE_PROVENANCE_AUDIT = {
     '3-of-10-plateau coverage.',
   honestNote:
     'Read-only provenance audit; no new computation, no new bound, no QED. imp-3066 K_a >= 0 ' +
-    'positivity untouched. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity untouched. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -151,9 +151,9 @@ const IMP_3909_ASSERTIONS = [
   },
   {
     id: 'imp3909-honest-scope-locked',
-    holds: () => /SOTA/.test(IMP_3909_OFFLINE_LITERAL_VS_SELF_COMPUTE_PROVENANCE_AUDIT.honestNote) &&
+    holds: () => /refereed bound is changed/i.test(IMP_3909_OFFLINE_LITERAL_VS_SELF_COMPUTE_PROVENANCE_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3909_OFFLINE_LITERAL_VS_SELF_COMPUTE_PROVENANCE_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only provenance audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only provenance audit, not a bound; no refereed bound is changed.',
   },
 ];
 

@@ -56,7 +56,7 @@
  * conditioning one.
  *
  * MEASUREMENT / EXTRAPOLATION ONLY. Changes no bound, establishes no operator
- * positivity, makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity, makes no RH claim; no refereed bound is changed.
  * RH open. NO QED.
  *
  * @see imp-96428-route-m-vasyunin-lammin-conditioning-ceiling.js (DP ceiling + fit)
@@ -131,7 +131,7 @@ export const IMP96446_SUBGAP = Object.freeze({
 });
 
 export const IMP96446_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extrapolation only: the lam_min power law and the three lam_max proxies are inherited verbatim from imp-96428 (itself pure re-analysis of imp-96105 / imp-96325 measured lam_min); this ticket only re-evaluates the same cond# = 1/eps ceiling at eps = 1e-32 (tmp/imp-96446-scratch.mjs). No Gram was rebuilt, no bound is claimed, no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Extrapolation only: the lam_min power law and the three lam_max proxies are inherited verbatim from imp-96428 (itself pure re-analysis of imp-96105 / imp-96325 measured lam_min); this ticket only re-evaluates the same cond# = 1/eps ceiling at eps = 1e-32 (tmp/imp-96446-scratch.mjs). No Gram was rebuilt, no bound is claimed, no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -185,7 +185,7 @@ const IMP96446_ASSERTIONS = [
     id: 'imp96446-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96446_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96446_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96446_HONEST_BANNER) &&
       /NO QED/.test(IMP96446_HONEST_BANNER) &&
       typeof IMP96446_SUBGAP.statement === 'string' &&
       /dd-slowdown-not-modelled/.test(IMP96446_SUBGAP.id),

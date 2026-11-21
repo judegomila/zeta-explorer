@@ -43,8 +43,8 @@
  *   diverging ||R|| in this raw basis is NOT a claim that the cover fails (the basis is
  *   not the section-26 Gram, and the divergence is a known monomial-conditioning effect).
  *   This module MEASURES the degree-trend only; it does NOT attempt positivity, is NOT a
- *   proof or a reduction, and the bare-V pilot (imp-1240) is NOT re-run. Platt-Trudgian
- *   Lambda <= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   proof or a reduction, and the bare-V pilot (imp-1240) is NOT re-run. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3066-offdiagonal-hankel-obstruction.js (parent: the DEG = 4 single-cell gap)
  *   @see imp-3007-mupass-overflow-cover.js (the complete scalar cover whose operator step this scopes)
@@ -241,7 +241,7 @@ export const IMP3084_OFFDIAGONAL_GAP_DEGREE_SWEEP = Object.freeze({
       'basis is not the section-26 Gram and the divergence is a known monomial-conditioning effect. Only ' +
       'the existence and direction of the DEG-trend (grow, not saturate, not shrink) is asserted.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -303,7 +303,7 @@ export const IMP3084_OFFDIAGONAL_GAP_DEGREE_SWEEP_ASSERTIONS = [
   {
     id: 'imp3084-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: this is a REPRESENTATIVE diagnostic sweep, the DEG-trend carries no RH ' +
-         'verdict, positivity was not attempted, it is not a proof or a reduction, and PT 0.2 stays SOTA. ' +
+         'verdict, positivity was not attempted, it is not a proof or a reduction, and no refereed bound is changed. ' +
          'If any of these flip the module is over-claiming.',
     holds: () => {
       const c = IMP3084_OFFDIAGONAL_GAP_DEGREE_SWEEP.honestCaveat;
@@ -314,7 +314,7 @@ export const IMP3084_OFFDIAGONAL_GAP_DEGREE_SWEEP_ASSERTIONS = [
         c.isRepresentativeTruncationNotTheSection26Gram === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

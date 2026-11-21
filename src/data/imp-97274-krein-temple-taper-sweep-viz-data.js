@@ -15,7 +15,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Every (w, mu, eta2, relGrowth) value below is copied verbatim
  * from the imp-97228 baked IMP97228_TAPER_SWEEP (no re-derivation of the Gegenbauer-Galerkin build
  * or the Hann-taper coefficients). Changes no bound, establishes no operator positivity, no RH
- * claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-97228-krein-domain-respecting-trial-eta2.js (IMP97228_TAPER_SWEEP, IMP97228_BEST, IMP97228_VERDICT)
  *
@@ -48,7 +48,7 @@ export const IMP97274_ASYMPTOTES = Object.freeze({
 });
 
 export const IMP97274_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every (w, mu, eta2, relGrowth) row ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every (w, mu, eta2, relGrowth) row ' +
   'is copied verbatim from the imp-97228 baked IMP97228_TAPER_SWEEP (no re-derivation of the Hann-taper ' +
   'Gegenbauer-Galerkin build); no bound is claimed and no operator positivity is established.';
 
@@ -104,7 +104,7 @@ const IMP97274_ASSERTIONS = [
     id: 'imp97274-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97274_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97274_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97274_HONEST_BANNER) &&
       /NO QED/.test(IMP97274_HONEST_BANNER),
     why: 'every Krein Temple viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

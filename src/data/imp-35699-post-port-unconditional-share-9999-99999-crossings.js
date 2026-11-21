@@ -65,7 +65,7 @@
  * rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; the imp-34791
  * E_trunc = barrier-lemma reclassification is UNCHANGED; ports nothing; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35654 (post-port far-tail mixed-conditionality verdict: unconditional share = 1-sigma, residual = sigma)
  * @see imp-35410-far-tail-sigma-1e-4-threshold-three-way-shares (sigma<1e-4 landmark; parts() + bisection source)
@@ -232,7 +232,7 @@ export const IMP35699_POST_PORT_UNCONDITIONAL_SHARE_CROSSINGS = {
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional share per imp-486 is UNTOUCHED; the imp-34791 E_trunc = barrier-lemma ' +
     'reclassification is UNCHANGED; ports nothing; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35654 (post-port unconditional share = 1-sigma, residual GUE share = sigma); imp-35410 ' +
     '(sigma<1e-4 landmark, parts() + bisection source); imp-35334 (sigma<1e-3 ladder); imp-35337 ' +
@@ -279,9 +279,9 @@ export const IMP35699_POST_PORT_UNCONDITIONAL_SHARE_CROSSINGS_ASSERTIONS = [
   },
   {
     // Honesty gate: post-port framing is hypothetical, ports nothing, GUE-conditional per imp-486,
-    // E_trunc barrier lemma per imp-34791, no QED, PT stays SOTA.
+    // E_trunc barrier lemma per imp-34791, no QED, no refereed bound is changed.
     id: 'imp35699-honesty-gate-no-qed',
-    description: 'Measurement only: post-port hypothetical, ports nothing, C_mb GUE-conditional (imp-486), no QED, PT SOTA',
+    description: 'Measurement only: post-port hypothetical, ports nothing, C_mb GUE-conditional (imp-486), no QED, no refereed bound is changed',
     holds: () =>
       IMP35699_POST_PORT_UNCONDITIONAL_SHARE_CROSSINGS.isRigorous === false &&
       /GUE-conditional share per imp-486 is UNTOUCHED/.test(
@@ -290,7 +290,7 @@ export const IMP35699_POST_PORT_UNCONDITIONAL_SHARE_CROSSINGS_ASSERTIONS = [
       /would-be-unconditional/i.test(IMP35699_POST_PORT_UNCONDITIONAL_SHARE_CROSSINGS.verdict) &&
       /ports nothing/i.test(IMP35699_POST_PORT_UNCONDITIONAL_SHARE_CROSSINGS.verdict) &&
       /NO QED/.test(IMP35699_POST_PORT_UNCONDITIONAL_SHARE_CROSSINGS.verdict) &&
-      /remains SOTA/.test(IMP35699_POST_PORT_UNCONDITIONAL_SHARE_CROSSINGS.verdict),
+      /refereed bound is changed/i.test(IMP35699_POST_PORT_UNCONDITIONAL_SHARE_CROSSINGS.verdict),
   },
 ];
 

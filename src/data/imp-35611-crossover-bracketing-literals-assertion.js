@@ -46,7 +46,7 @@
  *   Ticket: imp-35611 (accuracy, medium). Verification-tooling only; recomputes the same
  *   already-established measurement figures; adds no new Lambda bound; the C_C = (1/8) sqrt(3 pi)
  *   ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) are UNTOUCHED; the C_mb
- *   GUE-conditional share per imp-486 is UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ *   GUE-conditional share per imp-486 is UNTOUCHED. No refereed bound is changed. NO QED.
  */
 
 import { IMP35555_CROSSOVER_BRACKETING_FAMILY_SENSITIVITY } from './imp-35555-crossover-bracketing-family-sensitivity.js';
@@ -170,13 +170,13 @@ export const IMP35611_CROSSOVER_BRACKETING_LITERALS_ASSERTIONS = [
       IMP35555_CROSSOVER_BRACKETING_FAMILY_SENSITIVITY.envelope.bracketing_inside_two_map === true,
   },
   {
-    // (4) honesty gate: measurement only, no QED, PT stays SOTA.
+    // (4) honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35611-honesty-gate-no-qed',
-    description: 'Measurement only: source isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: source isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35555_CROSSOVER_BRACKETING_FAMILY_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP35555_CROSSOVER_BRACKETING_FAMILY_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP35555_CROSSOVER_BRACKETING_FAMILY_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP35555_CROSSOVER_BRACKETING_FAMILY_SENSITIVITY.verdict),
   },
 ];
 

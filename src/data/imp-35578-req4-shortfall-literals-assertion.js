@@ -31,7 +31,7 @@
  *   Ticket: imp-35578 (accuracy, medium). Verification-tooling only; recomputes the same
  *   already-established figures; adds no new Lambda bound; derives no remainder. C_C = (1/8)
  *   sqrt(3 pi) (imp-2642/imp-2643) and C_mb GUE-conditional (imp-486) UNTOUCHED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ *   No refereed bound is changed. NO QED.
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

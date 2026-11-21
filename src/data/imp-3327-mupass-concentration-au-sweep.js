@@ -54,7 +54,7 @@
  *   blow-up), so "0.011" is purely cell-specific with no closed form. Neither
  *   changes the K_a >= 0 magnitude obstruction diagnosis; the imp-3066
  *   off-diagonal endpoint-Hankel step stays the lone obstruction; RH-equivalent,
- *   necessary-but-NOT-sufficient; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
+ *   necessary-but-NOT-sufficient; no refereed bound is changed.
  *
  *   @see imp-3221-mupass-position-concentration-measure.js (the single-cell numbers this sweeps)
  *   @see imp-3197-mupass-bridge-sign-phi-only.js (the ~97% attribution)
@@ -248,7 +248,7 @@ export const IMP3327_MUPASS_CONCENTRATION_AU_SWEEP = Object.freeze({
     'diagonal. So "0.011" is entirely cell-specific with NO closed form and NO ' +
     'cusp/arcsinh(1) constant. Assessment only; RH-equivalent, necessary-but-NOT- ' +
     'sufficient; the imp-3066 off-diagonal endpoint-Hankel step stays the lone ' +
-    'obstruction; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'obstruction; NO QED; no refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -325,7 +325,7 @@ export const IMP3327_MUPASS_CONCENTRATION_AU_SWEEP = Object.freeze({
       'Position concentration is necessary-but-NOT-sufficient; the off-diagonal endpoint-Hankel operator ' +
       'magnitude (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -377,7 +377,7 @@ export const IMP3327_MUPASS_CONCENTRATION_AU_SWEEP_ASSERTIONS = [
   {
     id: 'imp3327-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, not a reduction below RH, RH-equivalent, positivity ' +
-         'not attempted, no exact closed form claimed, imp-3066 stays the lone obstruction, PT 0.2 stays SOTA.',
+         'not attempted, no exact closed form claimed, imp-3066 stays the lone obstruction, no refereed bound is changed.',
     holds: () => {
       const c = IMP3327_MUPASS_CONCENTRATION_AU_SWEEP.honestCaveat;
       return (
@@ -385,7 +385,7 @@ export const IMP3327_MUPASS_CONCENTRATION_AU_SWEEP_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -33,7 +33,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95635 P1/P2 finding and the GM2024 one-sided-down figure
  *   for quick reference. It establishes nothing, instantiates no interval, closes no sub-gap, moves no
- *   bound. imp-2519 no-overclaim guard preserved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   bound. imp-2519 no-overclaim guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-95635-physical-bands-vs-inversion-wedge (source: the honest E_trunc/C_C bands + P1/P2 finding this glosses)
  * @see imp-95617-transition-knee-ordering-joint-2d (the arbitrary +/-50% box sweep that surfaced the wedge)
@@ -41,7 +41,7 @@
  * @see imp-95695-cf-wedge-foreclosure-glossary-headword (sibling headword: the same wedge via the C_F/cf* route)
  *
  * Ticket: imp-95666 (content, low). Documentation only; establishes nothing; wedge stays UNREACHABLE per
- * imp-95635; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * imp-95635; NO QED; no refereed bound is changed.
  */
 
 // The E_trunc one-sided-down glossary headword, baked verbatim (no re-import).
@@ -87,7 +87,7 @@ export const IMP95666_E_TRUNC_ONE_SIDED_DOWN_GLOSSARY_HEADWORD = Object.freeze({
     'E_trunc uncertainty (Guth-Maynard 2024) is ONE-SIDED DOWN (~0.458x, ceiling ~1.1x), pointing away ' +
     'from the wedge corner. Even the most-adverse defensible corner keeps the ordering gap ~+0.00353 > 0. ' +
     'The wedge is physically UNREACHABLE, an artifact of the arbitrary +/-50% modelling box. Establishes ' +
-    'nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95635 (honest C_C/E_trunc physical bands + P1/P2 finding); imp-95617 (arbitrary 2-D box ' +
     'sweep surfacing the wedge); imp-2631 (E_trunc = 3.06e-5; Guth-Maynard 2024 route c -> 1.4e-5).',
@@ -113,11 +113,11 @@ export const IMP95666_E_TRUNC_ONE_SIDED_DOWN_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95666-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, wedge stays UNREACHABLE, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, wedge stays UNREACHABLE, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95666_E_TRUNC_ONE_SIDED_DOWN_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95666_E_TRUNC_ONE_SIDED_DOWN_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95666_E_TRUNC_ONE_SIDED_DOWN_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95666_E_TRUNC_ONE_SIDED_DOWN_GLOSSARY_HEADWORD.verdict) &&
       /UNREACHABLE/.test(IMP95666_E_TRUNC_ONE_SIDED_DOWN_GLOSSARY_HEADWORD.verdict) &&
       IMP95666_E_TRUNC_ONE_SIDED_DOWN_GLOSSARY_HEADWORD.glosses === 'imp-95635' &&
       IMP95666_E_TRUNC_ONE_SIDED_DOWN_GLOSSARY_HEADWORD.scopes === 'imp-95617',

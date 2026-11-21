@@ -54,7 +54,7 @@
  * MEASUREMENT / DERIVATION ONLY on the inherited imp-3220/imp-3406 surrogate. Conditional-share
  * diagnostic, NOT an RH bound; the C_mb GUE-conditional per imp-486 is UNTOUCHED; far-tail exponent
  * 1/2 per imp-3463; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35041-sigma-deep-tail-threshold-extension (the measured 1.99/2.16/2.07 spacing derived here)
  * @see imp-3463-sigma-fartail-decay (far-tail leading form, exponent -> 1/2 from below)
@@ -185,7 +185,7 @@ export const IMP35130_SIGMA_CROSSING_SPACING_CLOSED_FORM = {
     'residual above 2 decades. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; far-tail exponent ' +
     '1/2 per imp-3463; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35041 (the measured 1.99/2.16/2.07 spacing, derived here); imp-33582 (sigma threshold map); ' +
     'imp-3463 (far-tail leading form, exponent -> 1/2); imp-3444 (E_coll = E_trunc crossover); ' +
@@ -228,14 +228,14 @@ export const IMP35130_SIGMA_CROSSING_SPACING_CLOSED_FORM_ASSERTIONS = [
       DECOMPOSITION[2].logRunTerm > DECOMPOSITION[2].shareMapTerm,
   },
   {
-    // Honesty gate: derivation/measurement only, far-tail exponent 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: derivation/measurement only, far-tail exponent 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35130-honesty-gate-no-qed',
-    description: 'Derivation only: asymptotic constant 2, no QED, PT stays SOTA',
+    description: 'Derivation only: asymptotic constant 2, no QED, no refereed bound is changed',
     holds: () =>
       IMP35130_SIGMA_CROSSING_SPACING_CLOSED_FORM.isRigorous === false &&
       IMP35130_SIGMA_CROSSING_SPACING_CLOSED_FORM.asymptoticConstant === 2.0 &&
       /NO QED/.test(IMP35130_SIGMA_CROSSING_SPACING_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP35130_SIGMA_CROSSING_SPACING_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP35130_SIGMA_CROSSING_SPACING_CLOSED_FORM.verdict),
   },
 ];
 

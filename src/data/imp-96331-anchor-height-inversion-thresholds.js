@@ -53,8 +53,7 @@
  * MAGNITUDE and moves no Lambda bound.
  *
  * GRADE: documentation/measurement/design only. Import-light (all inputs baked,
- * no heavy bundle). Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * no heavy bundle). Changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * @see imp-96307-anchor-confidence-gain-projection (the three-point projection inverted here)
  * @see imp-96289-margin-floor-t60-anchor-sensitivity (fractional SE tightening)
@@ -186,7 +185,7 @@ export const IMP_96331_ANCHOR_HEIGHT_INVERSION_THRESHOLDS = {
     + 'whole inversion reduces to inverting one monotone arm per side',
   note:
     'documentation/measurement/design only; import-light baked literals; changes '
-    + 'no Lambda bound; Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    + 'no Lambda bound; no refereed bound is changed',
   closesTickets: ['imp-96331'],
 };
 

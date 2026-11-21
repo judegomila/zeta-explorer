@@ -5,7 +5,7 @@
  * SPLIT winner flips with depth alone (example V1={1,1.05}, V2={50,52} flips
  * between x=0.05 and x=0.1) but never tabulated the exact crossover depth
  * across the family. Measurement only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECTS (imp-95256 / imp-95250 normalization). Twin-lattice family: two
  * disjoint two-rate blocks V1 = {1, r}, V2 = {s, s r} in L2(0, inf), r > 1
@@ -93,13 +93,13 @@ export const IMP95382_TWIN_LATTICE_CROSSOVER_DEPTH = {
     "the g-vs-sigma criterion is an algebraic identity of two proven closed " +
     "forms (imp-95256), not a new bound; x* is its root, a MEASUREMENT of " +
     "where the two known bounds cross; m = 2 only; twin-lattice model family " +
-    "only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "only; changes no bound; NO QED; no refereed bound is changed",
   verdict:
     "MEASUREMENT: the imp-95256 depth-driven SPLIT-2 -> SPLIT-LOO flip is " +
     "tabulated as an exact crossover-depth map x*(r,s) over the twin-lattice " +
     "family. x* is a narrow band ~0.16..0.28, non-monotone in s (peak near " +
-    "s = 3), decreasing in r. Changes no bound; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "s = 3), decreasing in r. Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -397,14 +397,14 @@ export const IMP95382_ASSERTIONS = [
     id: "imp95382-verdict-honesty",
     description:
       "verdict and scope carry the honest labels: MEASUREMENT, algebraic " +
-      "identity not a new bound, no bound change, no QED, PT SOTA",
+      "identity not a new bound, no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(IMP95382_TWIN_LATTICE_CROSSOVER_DEPTH.verdict) &&
       /Changes no bound/.test(
         IMP95382_TWIN_LATTICE_CROSSOVER_DEPTH.verdict,
       ) &&
       /NO QED/.test(IMP95382_TWIN_LATTICE_CROSSOVER_DEPTH.verdict) &&
-      /remains SOTA/.test(IMP95382_TWIN_LATTICE_CROSSOVER_DEPTH.verdict) &&
+      /refereed bound is changed/i.test(IMP95382_TWIN_LATTICE_CROSSOVER_DEPTH.verdict) &&
       /algebraic identity/.test(
         IMP95382_TWIN_LATTICE_CROSSOVER_DEPTH.honestScope,
       ),

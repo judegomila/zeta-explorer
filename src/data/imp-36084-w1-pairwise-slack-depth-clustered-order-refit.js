@@ -53,7 +53,7 @@
  * MEASUREMENT / REGRESSION reusing the imp-36020 clustered-order sweep + imp-36018 default-order
  * exponent literals. Certifies no W1 bound; evaluates no true H_0; instantiates no interval;
  * verifies no inequality; changes no bound; establishes no positivity; C_mb GUE-conditional
- * (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36018-w1-pairwise-slack-depth-scaling-exponent (default-order fit this refits under the hostile order)
  * @see imp-36020-w1-clustered-order-shape-argmax (source: per-shape clustered-order error + depth)
@@ -66,7 +66,7 @@ import { IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT } from './imp-36018-w
 
 const CLUSTERED = IMP36020_W1_CLUSTERED_ORDER_SHAPE_ARGMAX;
 const DEFAULT_FIT = IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT;
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this regression
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this regression
 const EPS_DOUBLE = 2 ** -52; // machine epsilon; the order-INDEPENDENT a-priori d*eps numerator
 
 // Ordinary least squares of y on x; returns slope, intercept and R^2.
@@ -230,7 +230,7 @@ export const IMP36084_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_ORDER_REFIT = {
     'imp-36020 kept every clustered configuration below the log2(N)*eps ceiling). Certifies no W1 bound; evaluates ' +
     'no true H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; ' +
     'the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36018 (default-order slack-vs-depth fit this refits under the hostile order); imp-36020 (source ' +
     'clustered-order seven-shape error + depth); imp-35852 (clustered worst term ORDER); imp-35970 (default-order ' +
@@ -288,16 +288,16 @@ export const IMP36084_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_ORDER_REFIT_ASSERTIONS =
       NO_L_FIT.slope < DEFAULT_EXPONENT,
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp36084-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36084_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_ORDER_REFIT.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /PERSISTS/.test(IMP36084_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_ORDER_REFIT.conclusion.subLinearPersistsUnderClusteredOrder) &&
       /GREENFIELD/.test(IMP36084_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_ORDER_REFIT.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36084_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_ORDER_REFIT.verdict) &&
-      /remains SOTA/.test(IMP36084_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_ORDER_REFIT.verdict),
+      /refereed bound is changed/i.test(IMP36084_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_ORDER_REFIT.verdict),
   },
 ];
 

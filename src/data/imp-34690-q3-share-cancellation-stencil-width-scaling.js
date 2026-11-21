@@ -48,7 +48,7 @@
  *   as-is; this characterizes the STENCIL conditioning, it does not rehabilitate the surrogate. The -2
  *   asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb
  *   GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity;
- *   no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34684-fourth-order-stencil-reference-weight-crossvalidation.js (F3/F4: the ~30x observed here)
  *   @see imp-34654-sixth-order-stencil-reference-weight-crossvalidation.js (9-point stencil / conditioning)
@@ -268,7 +268,7 @@ export const IMP34690_Q3_SHARE_CANCELLATION_STENCIL_WIDTH_SCALING = Object.freez
     'STENCIL conditioning, it does not rehabilitate the surrogate. The -2 asymptote and C_C = ' +
     '(1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per ' +
     'imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34684 (F3/F4: the ~30x severity gap resolved here); imp-34654 (9-point reference-weight ' +
     'cross-validation, raw-float ~3e-4 signature); imp-34611 (inline 7-point stencil); imp-34626 ' +
@@ -317,9 +317,9 @@ const IMP34690_ASSERTIONS = [
     holds: () =>
       IMP34690_Q3_SHARE_CANCELLATION_STENCIL_WIDTH_SCALING.isRigorous === false &&
       /NO QED/.test(IMP34690_Q3_SHARE_CANCELLATION_STENCIL_WIDTH_SCALING.verdict) &&
-      /remains SOTA/.test(IMP34690_Q3_SHARE_CANCELLATION_STENCIL_WIDTH_SCALING.verdict) &&
+      /refereed bound is changed/i.test(IMP34690_Q3_SHARE_CANCELLATION_STENCIL_WIDTH_SCALING.verdict) &&
       /UNTOUCHED/.test(IMP34690_Q3_SHARE_CANCELLATION_STENCIL_WIDTH_SCALING.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

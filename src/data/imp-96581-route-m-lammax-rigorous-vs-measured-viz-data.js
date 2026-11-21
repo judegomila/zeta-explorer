@@ -20,7 +20,7 @@
  * fit coefficients, the ceiling ratio) are reused verbatim from
  * imp-96548; only the per-N ladder recompute and the relabeled N=6000
  * value ratio are new here. Changes no bound, establishes no operator
- * positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity, no RH claim; no refereed bound is changed.
  * RH open. NO QED.
  *
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (source finding + inputs)
@@ -76,7 +76,7 @@ export const IMP96581_N6000 = Object.freeze({
 });
 
 export const IMP96581_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every ladder value is ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every ladder value is ' +
   'recomputed from the exact imp-96548 inputs (I(1,1), gamma, fit coefficients) verbatim, no ' +
   'new measurement. The rigorous curve is an unconditional SPD trace-domination upper bound; ' +
   'the measured curve is the non-rigorous imp-96443 power-iteration fit. No bound is claimed ' +
@@ -123,7 +123,7 @@ const IMP96581_ASSERTIONS = [
     id: 'imp96581-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96581_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96581_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96581_HONEST_BANNER) &&
       /NO QED/.test(IMP96581_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

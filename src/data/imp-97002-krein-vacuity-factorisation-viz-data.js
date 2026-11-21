@@ -19,7 +19,7 @@
  * the residual/trace/lambda_max/Rayleigh values remain QUADRATURE
  * evaluations, not rigorous interval majorants (sub-gap
  * IMP96888_RAYLEIGH_TAIL_MAJORANT stays open); interval-rigorous certificate
- * reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open;
+ * reach stays 2a<=0.96; no refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-96973-krein-tailtrace-vacuity-factorisation.js (source table, reused verbatim)
@@ -68,7 +68,7 @@ export const IMP97002_HONEST_BANNER =
   '~14-15 orders at every tabulated rung while the other two stay uniformly benign (<2x). Values ' +
   'are QUADRATURE evaluations, not rigorous interval majorants; sub-gap ' +
   'IMP96888_RAYLEIGH_TAIL_MAJORANT stays open; interval-rigorous certificate reach stays 2a<=0.96; ' +
-  'PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'no refereed bound is changed; RH open; NO QED.';
 
 // plain validation object (no self-executing throw; imp-96294/imp-96819 convention -- a viz-data
 // leaf must stay inert in the browser so a stale reading cannot blank a lazy-loaded page). Checked
@@ -101,7 +101,7 @@ export const IMP97002_VALIDATION = Object.freeze({
     IMP96973_VERDICT.qed === false,
   honestBannerPresent:
     /RH open/.test(IMP97002_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP97002_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97002_HONEST_BANNER) &&
     /NO QED/.test(IMP97002_HONEST_BANNER),
 });
 

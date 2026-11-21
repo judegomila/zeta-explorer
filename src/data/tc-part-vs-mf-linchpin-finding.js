@@ -84,7 +84,7 @@ export const TC_PART_VS_MF_LINCHPIN = {
   resolution: {
     routeSelection: 'PICTURE A — the bridge consumes t_c^part, the truncated-flow FIRST-collision time. There is only ONE truncated-flow object: imp-341 tau_c = 1/(2 sup Im m_N) and imp-2563 discriminant smallest-root are the SAME first-collision time, and the OLS ladder measures it. A1 (t_c^part(1e4) <= g_min^2/6 = 2.37e-4) bounds the RIGHT object.',
     theOLSartifact: 'The 0.0071 "t_c_proj" is NOT a distinct mean-field object: it is the y-intercept of a linear-in-1/N fit to small-N rows whose true decay is sub-linear, and the deep gamma~7005 Lehmer pair only enters the first-N list at N>=6710, so small-N rows have large g_min and manufacture a spurious positive intercept. imp-2621 proves the true object is O(1/sqrt N) -> 0, not 0.0066. imp-2564 said B only because imp-1149 Theorem 3 bounds a SEPARATE mean-field proxy 1/(2 M_inf), not the bridge.',
-    rigorousBeatConsequence: 'NEGATIVE. A1 is an UPPER bound on t_c; by the imp-2564 sign algebra an upper bound feeds the Rodgers-Tao-dominated LOWER face (Lambda >= -U - E <= 0) and buys nothing on the headline. The headline face Lambda <= -t_c + E(N), with t_c >= 0, reads Lambda <= E(N). So the binding quantity is the BRIDGE ERROR E(N), dominated at N=1e4 by E_coll ~ 9e-2 (C_H=1 placeholder). Route-selection does NOT yield a rigorous Lambda < 0.2; Platt-Trudgian Lambda <= 0.2 remains rigorous SOTA.',
+    rigorousBeatConsequence: 'NEGATIVE. A1 is an UPPER bound on t_c; by the imp-2564 sign algebra an upper bound feeds the Rodgers-Tao-dominated LOWER face (Lambda >= -U - E <= 0) and buys nothing on the headline. The headline face Lambda <= -t_c + E(N), with t_c >= 0, reads Lambda <= E(N). So the binding quantity is the BRIDGE ERROR E(N), dominated at N=1e4 by E_coll ~ 9e-2 (C_H=1 placeholder). Route-selection does NOT yield a rigorous Lambda < 0.2; no refereed bound is changed.',
     whatA1buys: 'The |t_c| sub-term becomes rigorous and ~30x smaller (2.37e-4, unconditional via Theta(0)=0.0017<1/4), removing it as the binding obstruction and shifting the ENTIRE remaining burden onto E(N) — consistent with imp-2564 residual R1. The genuine headline lever is now sizing E(N), above all discharging C_H in E_coll.',
   },
 };
@@ -119,7 +119,7 @@ export const TC_LINCHPIN_ASSERTIONS = [
     // and with t_c >= 0 it reduces to Lambda <= E(N). This locks that sign-algebra
     // so no future edit can silently flip NEGATIVE into a claimed rigorous beat.
     id: 'tc-linchpin-headline-sign-algebra-no-false-beat',
-    description: 'Headline sign algebra locked: an UPPER bound on t_c feeds the LOWER face and buys nothing; t_c>=0 reduces the headline to Lambda <= E(N); no rigorous beat is claimed and Platt-Trudgian 0.2 remains SOTA',
+    description: 'Headline sign algebra locked: an UPPER bound on t_c feeds the LOWER face and buys nothing; t_c>=0 reduces the headline to Lambda <= E(N); no rigorous beat is claimed and no refereed bound is changed',
     holds: () => {
       const r = TC_PART_VS_MF_LINCHPIN.resolution;
       if (!r) return false;
@@ -129,7 +129,7 @@ export const TC_LINCHPIN_ASSERTIONS = [
         /LOWER face/.test(c) &&
         /buys nothing/.test(c) &&
         /Lambda <= E\(N\)/.test(c) &&
-        /(remains rigorous SOTA|Platt-Trudgian)/.test(c);
+        /refereed bound is changed/i.test(c);
       // The A1 object must genuinely be the microscopic t_c sub-term (not E(N)):
       // if it were O(1) it could not be a mere sub-term, and the logic would not apply.
       const tcIsMicroscopicSubterm = TC_PART_VS_MF_LINCHPIN.computedAtN1e4.tcPartUpperBound_g2over6 < 1e-3;

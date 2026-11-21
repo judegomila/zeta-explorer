@@ -44,14 +44,14 @@
  *   reference. It establishes nothing, discharges no conditional, claims no
  *   input available, and changes no bound. The C_mb GUE-conditional (imp-486)
  *   stays irreducible; imp-2519 no-overclaim guard preserved; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-36180-esy-cmb-local-law-input-scope (source: the three-layer scoping this glosses)
  * @see imp-486 (exhaustive search confirming no unconditional C_mb bound -- src/math/c-mb-unconditional-bound.js)
  * @see imp-36181-step5-obligation-chain-cross-reference (Step-5 six-item overview naming G5-cmb-gue)
  *
  * Ticket: imp-36229 (content, medium). Documentation only; establishes no local
- * law; C_mb stays GUE-conditional; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * law; C_mb stays GUE-conditional; NO QED; no refereed bound is changed.
  */
 
 // The three ESY-input-layer glossary headwords, baked verbatim (no re-import).
@@ -116,8 +116,8 @@ export const IMP36229_ESY_INPUT_LAYERS_GLOSSARY_COMPANION = Object.freeze({
     '(II) rigidity scale, (III) C_mb coupling -- each proven for random/regular ' +
     'data by the CM/DBM literature but OPEN for the deterministic arithmetic seed ' +
     '{gamma_k}. Establishes nothing; discharges no conditional; the C_mb ' +
-    'GUE-conditional (imp-486) stays irreducible; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) stays irreducible; NO QED. No refereed bound is changed' +
+    '.',
   citation: 'imp-36180 (source three-layer scoping); imp-486 (C_mb irreducibility); imp-36181 (Step-5 overview).',
 });
 
@@ -153,11 +153,11 @@ export const IMP36229_ESY_INPUT_LAYERS_GLOSSARY_COMPANION_ASSERTIONS = [
   },
   {
     id: 'imp36229-honesty-gate-no-qed',
-    why: 'Documentation only: no input claimed established, C_mb stays GUE-conditional, no QED, PT SOTA line present.',
+    why: 'Documentation only: no input claimed established, C_mb stays GUE-conditional, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP36229_ESY_INPUT_LAYERS_GLOSSARY_COMPANION.anyInputEstablished === false &&
       /NO QED/.test(IMP36229_ESY_INPUT_LAYERS_GLOSSARY_COMPANION.verdict) &&
-      /remains SOTA/.test(IMP36229_ESY_INPUT_LAYERS_GLOSSARY_COMPANION.verdict) &&
+      /refereed bound is changed/i.test(IMP36229_ESY_INPUT_LAYERS_GLOSSARY_COMPANION.verdict) &&
       IMP36229_ESY_INPUT_LAYERS_GLOSSARY_COMPANION.scopes === 'imp-486' &&
       IMP36229_ESY_INPUT_LAYERS_GLOSSARY_COMPANION.glosses === 'imp-36180',
   },

@@ -115,7 +115,7 @@ export const IMP95869_VIZ_SUMMARY = Object.freeze({
     'PRESENTATION plus light recomputation of the already-verified imp-95825/imp-95846 method '
     + '(no new cited input); every row cross-checked against the frozen n=160 certified endpoints. '
     + 'Model seam family only; changes no bound of the Lambda program; NO QED; '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'no refereed bound is changed.',
 });
 
 // ---------------------------------------------------------------------------
@@ -176,8 +176,8 @@ const IMP95869_VIZ_DATA_ASSERTIONS = [
   },
   {
     id: 'imp95869-honest-status-carried',
-    description: 'summary verdict restates NO QED / SOTA honesty markers',
-    holds: () => /NO QED/.test(IMP95869_VIZ_SUMMARY.verdict) && /SOTA/.test(IMP95869_VIZ_SUMMARY.verdict),
+    description: 'summary verdict restates NO QED / no-refereed-bound-change honesty markers',
+    holds: () => /NO QED/.test(IMP95869_VIZ_SUMMARY.verdict) && /refereed bound is changed/i.test(IMP95869_VIZ_SUMMARY.verdict),
   },
 ];
 

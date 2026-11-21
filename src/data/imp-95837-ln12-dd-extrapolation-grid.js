@@ -70,7 +70,7 @@
  * the imp-95767 certified interval (that interval is at ln 1.3; this is the ln 1.2
  * companion measurement). Model seam family only; the imp-95212 envelope port,
  * signed WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the Lambda
- * program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. Sun arXiv:2609.04176
+ * program; NO QED; no refereed bound is changed. Sun arXiv:2609.04176
  * unrefereed.
  *
  * @see imp-95826-dual-primal-dd-extrapolation-limited-per-delta-audit (the sub-gap this closes)
@@ -144,7 +144,7 @@ export const IMP95837_LN12_DD_EXTRAPOLATION_GRID = {
     "sub-gap; no new cited input; no numeric change to the imp-95767 certified " +
     "interval; model seam family only; the imp-95212 envelope port, signed WEIGHT, " +
     "and modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO " +
-    "QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "QED; no refereed bound is changed.",
   closesTickets: ["imp-95837"],
 };
 
@@ -386,7 +386,7 @@ export const IMP95837_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /MEASURED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
 ];
 

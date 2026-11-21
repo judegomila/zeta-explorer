@@ -43,7 +43,7 @@
  *   frozen ladder; sub-gap still stands)
  *
  * Ticket: imp-96989 (meta, low). Documentation only; establishes no new bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP96912_LADDER } from './imp-96912-route-m-frobenius-holdout-model-discriminator.js';
@@ -79,7 +79,7 @@ export const IMP96989_IMP96912_CORRUPT_ARTIFACT_TRAP_NOTE = Object.freeze({
     'sibling-script artifact (frob=393.65 at N=8000 vs the verified 6.834107225532644) and ' +
     'must not be trusted by downstream Frobenius-ladder work; the imp-96912 sub-gap (fresh ' +
     'exact rungs beyond N=16000) still stands and needs a fresh V-table build, not this ' +
-    'file. Establishes nothing new; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'file. Establishes nothing new; no refereed bound is changed; RH open; NO QED.',
   citation:
     'imp-96912-route-m-frobenius-holdout-model-discriminator.js (source finding + ' +
     'verified IMP96912_LADDER); imp-97017-frobenius-ladder-monotonicity-assertion.js ' +
@@ -113,10 +113,10 @@ export const IMP96989_IMP96912_CORRUPT_ARTIFACT_TRAP_NOTE_ASSERTIONS = [
   },
   {
     id: 'imp96989-honesty-gate-no-qed',
-    why: 'Documentation only: no enclosure claimed established, no QED, PT SOTA line present.',
+    why: 'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96989_IMP96912_CORRUPT_ARTIFACT_TRAP_NOTE.anyEnclosureEstablished === false &&
-      /remains SOTA/.test(IMP96989_IMP96912_CORRUPT_ARTIFACT_TRAP_NOTE.verdict) &&
+      /refereed bound is changed/i.test(IMP96989_IMP96912_CORRUPT_ARTIFACT_TRAP_NOTE.verdict) &&
       IMP96989_IMP96912_CORRUPT_ARTIFACT_TRAP_NOTE.glosses === 'imp-96912',
   },
 ];

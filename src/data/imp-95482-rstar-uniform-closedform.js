@@ -61,8 +61,7 @@
  * to x = 0.1); paired with the imp-95377 Lambert form at a x ~ 0.095 seam it
  * gives a full-range uniform closed form with worst rel err 1.42% on (0, 1).
  * The single-formula (no seam) uniform closed form across the logarithmic
- * small-x branch stays open. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * small-x branch stays open. Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -161,7 +160,7 @@ export const IMP95482_RSTAR_UNIFORM = {
     "DERIVATION / MEASUREMENT ONLY. Diagonal [3/3] Pade re-summation of the " +
     "imp-95447 edge series CLOSES the named mid-band SUB-GAP (worst 2.97e-4 on " +
     "[0.3,0.6]); the Lambert-paired composite is uniform to 1.42% on (0,1). " +
-    "Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.",
+    "Changes no bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -243,12 +242,12 @@ export const IMP95482_RSTAR_UNIFORM_ASSERTIONS = [
     id: "imp95482-record-honesty",
     description:
       "the record is derivation/measurement-only, states RSTAR-UNIFORM, names " +
-      "the seam-free open residual, carries NO QED and the SOTA line",
+      "the seam-free open residual, carries NO QED and the no-refereed-bound-change line",
     holds: () =>
       /RSTAR-UNIFORM/.test(IMP95482_RSTAR_UNIFORM.padeClosedForm) &&
       /open/.test(IMP95482_RSTAR_UNIFORM.openResidual) &&
       /NO QED/.test(IMP95482_RSTAR_UNIFORM.verdict) &&
-      /SOTA/.test(IMP95482_RSTAR_UNIFORM.verdict) &&
+      /refereed bound is changed/i.test(IMP95482_RSTAR_UNIFORM.verdict) &&
       /MEASUREMENT ONLY/.test(IMP95482_RSTAR_UNIFORM.verdict),
   },
 ];

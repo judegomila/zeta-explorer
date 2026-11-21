@@ -218,9 +218,9 @@ export default function LambdaTimelinePage() {
             href="https://doi.org/10.5281/zenodo.21175533"
           />
           <EvidenceCard
-            label="private proof candidate · Romik-reviewed · unrefereed"
+            label="proof candidate · Romik-reviewed · publicly posted · not refereed"
             value="Λ ≤ 0.1787854"
-            detail="Candidate for an unconditional computer-assisted proof; reviewed by Dan Romik and being prepared for public release; unrefereed, not established or accepted. Private review-01787854-v3 at commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea."
+            detail="Candidate for an unconditional computer-assisted proof; reviewed by Dan Romik and publicly posted (judegomila.com/posts/riemann-lambda-0.1787854); not refereed, not established or accepted. Package review-01787854-v3 at commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea."
             color={ED.series1}
             route="/newman-lambda-01787854-candidate"
           />

@@ -86,7 +86,7 @@ export const IMP35866_CANCELLATION_ONSET_TOL_LADDER_DUPLICATE_AUDIT = {
     'and pins a permanent regression guard confirming the imp-35848 ladder stays present and delivers ' +
     'every quantity imp-35866 requested. Measurement only on the inherited imp-3220/imp-3406 ' +
     'surrogate; the imp-34714a machine certificate REMAINS OPEN; F(m) = 0 stays a double-precision ' +
-    'artifact; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'artifact; changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP35866_CANCELLATION_ONSET_TOL_LADDER_DUPLICATE_AUDIT_ASSERTIONS = [
@@ -117,12 +117,12 @@ export const IMP35866_CANCELLATION_ONSET_TOL_LADDER_DUPLICATE_AUDIT_ASSERTIONS =
   },
   {
     id: 'imp35866-honesty-gate-no-qed',
-    description: 'Audit finding is non-rigorous scoping metadata; imp-34714a open; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Audit finding is non-rigorous scoping metadata; imp-34714a open; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35866_CANCELLATION_ONSET_TOL_LADDER_DUPLICATE_AUDIT.isRigorous === false &&
       /imp-34714a/.test(IMP35866_CANCELLATION_ONSET_TOL_LADDER_DUPLICATE_AUDIT.verdict) &&
       /NO QED/.test(IMP35866_CANCELLATION_ONSET_TOL_LADDER_DUPLICATE_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35866_CANCELLATION_ONSET_TOL_LADDER_DUPLICATE_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35866_CANCELLATION_ONSET_TOL_LADDER_DUPLICATE_AUDIT.verdict),
   },
 ];
 

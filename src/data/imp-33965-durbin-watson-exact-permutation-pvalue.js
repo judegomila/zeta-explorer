@@ -69,7 +69,7 @@
  * The residual values come from the inherited imp-3220/imp-3406 extrapolation via imp-33810 and the
  * imp-33843 OLS, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33920-runs-test-exact-permutation-pvalue (the exact SIGN-permutation runs test; DW companion left open)
  * @see imp-33886-widening-residual-significance-test (the asymptotic d_L ~ 1.22 Durbin-Watson bound made exact here)
@@ -241,8 +241,8 @@ export const IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE = {
     'log-linear-vs-power-law form selection, leaves every bound untouched, and the residual stays small ' +
     '(~12% multiplicative); the residual values come from the inherited imp-3220/imp-3406 extrapolation via ' +
     'imp-33810, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33920 (the exact sign-permutation runs test; DW companion left open); imp-33886 (the asymptotic ' +
     'd_L ~ 1.22 Durbin-Watson bound made exact here); imp-33858 (the eyeballed "structured" verdict); ' +
@@ -285,13 +285,13 @@ export const IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE_ASSERTIONS = [
       DW_SORTED < DW_OBS,
   },
   {
-    // (R3) Honesty gate: isRigorous false, no QED, PT SOTA, residual still small, sub-gap named.
+    // (R3) Honesty gate: isRigorous false, no QED, no refereed bound is changed, residual still small, sub-gap named.
     id: 'imp33965-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, residual still small, sub-gap stated, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, residual still small, sub-gap stated, imp-3066 untouched',
     holds: () =>
       IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.isRigorous === false &&
       /NO QED/.test(IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.verdict) &&
-      /remains SOTA/.test(IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.verdict) &&
+      /refereed bound is changed/i.test(IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.verdict) &&
       /12% multiplicative/.test(IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.verdict) &&
       /SUB-GAP/.test(IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP33965_DURBIN_WATSON_EXACT_PERMUTATION_PVALUE.verdict),

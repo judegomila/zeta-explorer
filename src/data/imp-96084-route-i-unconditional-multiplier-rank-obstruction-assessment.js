@@ -55,8 +55,8 @@
  *
  * Consequence for the program: the Route I unconditional lever is intrinsically a ONE-PRIME lever (it certifies
  *  Weil positivity only up to g-support < ln 3, where only p = 2 enters). Beyond ln 3 every route measured so far
- *  is RH-conditional (discrete-P_3 pencil) or dense-obstructed (this multiplier). No bound moves; PT Lambda <= 0.2
- *  stands; RH open; NO QED.
+ *  is RH-conditional (discrete-P_3 pencil) or dense-obstructed (this multiplier). No bound moves; no refereed bound is changed
+ *  ; RH open; NO QED.
  *
  * Import-light (Route I exports only; no zeros bundle). Assertions recompute the S-unit log-group gap dichotomy
  *  (pure arithmetic, sub-ms) plus one cheap delta_S23 spike-vs-regular spot check (L = 18, ~5 ms). Changes no
@@ -94,7 +94,7 @@ export const IMP_96084_UNCONDITIONAL_MULTIPLIER_OBSTRUCTION = Object.freeze({
     'src/data/imp-96066-route-i-p3-adjoin-vs-dense-resonance-assessment.js',
     'src/data/rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js',
   ],
-  status: 'ASSESSED — OBSTRUCTED for the CC-Sonine construction. Lhat_S23 >= 0 exists only as an ABSTRACT HS-operator positivity; as a USABLE positive multiplier it is provably blocked by a RANK / density mismatch: the S-units +-2^Z 3^Z have Dirichlet rank |S| - 1 = 2 while the archimedean flow is 1-dimensional, so log(Z_S^*) = {n ln2 + m ln3} is DENSE in R (ln2/ln3 irrational), the remainder delta_S23 has dense log^2 singular support, deltahat_S23 is not a bounded/continuous multiplier, and no compact-Toeplitz foothold exists. The one-prime lever L_S >= 0 is usable precisely because rank = 1 makes log(2^Z) = {k ln2} a DISCRETE lattice. OPEN only: whether a non-CC construction could sidestep the rank obstruction. RH open; PT Lambda <= 0.2 stands; NO QED',
+  status: 'ASSESSED — OBSTRUCTED for the CC-Sonine construction. Lhat_S23 >= 0 exists only as an ABSTRACT HS-operator positivity; as a USABLE positive multiplier it is provably blocked by a RANK / density mismatch: the S-units +-2^Z 3^Z have Dirichlet rank |S| - 1 = 2 while the archimedean flow is 1-dimensional, so log(Z_S^*) = {n ln2 + m ln3} is DENSE in R (ln2/ln3 irrational), the remainder delta_S23 has dense log^2 singular support, deltahat_S23 is not a bounded/continuous multiplier, and no compact-Toeplitz foothold exists. The one-prime lever L_S >= 0 is usable precisely because rank = 1 makes log(2^Z) = {k ln2} a DISCRETE lattice. OPEN only: whether a non-CC construction could sidestep the rank obstruction. RH open; no refereed bound is changed; NO QED',
   theMechanism: {
     onePrime: 'S = {oo, 2}: S-units +-2^Z, Dirichlet rank = |S| - 1 = 1; resonances at log(2^Z) = {k ln2}, a DISCRETE lattice (spacing ln2). delta_S Toeplitz kernel singular on {0, ln2, 2 ln2, ...}; deltahat_S bounded continuous; CC compact-Toeplitz foothold exists; Lhat_S = 2 theta prime - m_2 + deltahat_S >= 0 is a usable pointwise multiplier inequality.',
     twoPrimes: 'S = {oo, 2, 3}: S-units +-2^Z 3^Z, Dirichlet rank = |S| - 1 = 2; resonances at log(2^Z 3^Z) = {n ln2 + m ln3}, a rank-2 subgroup of the 1-D flow axis R. ln2/ln3 irrational (2^n = 3^m only n=m=0) => DENSE in R, minimal log-gap -> 0. delta_S23 singular support = closure = all of R_+^* (dense log^2 spikes); deltahat_S23 not a bounded/continuous multiplier; no compact-Toeplitz foothold; Lhat_S23 >= 0 well-posed only as an abstract HS norm, not a usable multiplier.',

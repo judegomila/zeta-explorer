@@ -27,8 +27,8 @@
  * imp-35243a certificate stay OPEN; R1s (imp-35414 lemma) is untouched. The
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the E_trunc = 3.06e-5 floor
  * (imp-2631) and imp-3066 K_a >= 0 are UNTOUCHED; C_mb GUE-conditional per imp-486
- * UNTOUCHED; far-tail exponent stays 1/2 (imp-3463). Platt-Trudgian Lambda <= 0.2
- * remains SOTA. The reentry band is a diagnostic of a surrogate iterate-COUNT, not a
+ * UNTOUCHED; far-tail exponent stays 1/2 (imp-3463). No refereed bound is changed
+ * . The reentry band is a diagnostic of a surrogate iterate-COUNT, not a
  * Lambda lever, so even a perfect R1t closure would move no bound (imp-35537 Part D).
  *
  * NOTE ON THE ODLYZKO SPOT-CHECKS. Odlyzko computed isolated zeros near height 10^20
@@ -145,7 +145,7 @@ export const IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION = {
     'R1s (imp-35414) is untouched; the reentry band is a diagnostic iterate-COUNT, not a Lambda lever, so NO bound ' +
     'moves (imp-35537 Part D); C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631), imp-3066 ' +
     'K_a >= 0 and C_mb GUE-conditional (imp-486) are UNTOUCHED; far-tail exponent stays 1/2 (imp-3463); no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   residual_sub_gap:
     'imp-35243a stays OPEN: route (i) (a certified true-dynamic model, imp-35439/imp-34862) inherits the imp-486 GUE ' +
     'conditional via the C_C-derived K, and route (ii) (a data-anchored check) is now quantified as INFEASIBLE -- the ' +
@@ -188,7 +188,7 @@ export const IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION_ASSERTIONS = [
   {
     // Honesty gate: even the external 10^22 spot-check falls short; measurement only; imp-35243a OPEN; no bound moves; NO QED.
     id: 'imp35559-route-ii-infeasible-no-bound-moves-no-qed',
-    description: 'even the external 10^22 spot-check is ~5.08 decades below reentry; route (ii) infeasible; imp-35243a OPEN; no lever; PT 0.2 SOTA; NO QED',
+    description: 'even the external 10^22 spot-check is ~5.08 decades below reentry; route (ii) infeasible; imp-35243a OPEN; no lever; no refereed bound is changed; NO QED',
     holds: () =>
       GAP_REENTRY_ABOVE_SPOTCHECK > 5 && GAP_REENTRY_ABOVE_SPOTCHECK < 5.1 &&
       ODLYZKO_SPOTCHECK_LOG10 < REENTRY_LOG10_N &&
@@ -198,7 +198,7 @@ export const IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION_ASSERTIONS = [
       /NO bound moves/.test(IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION.verdict) &&
       /INFEASIBLE/.test(IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION.verdict) &&
       /NO QED/.test(IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION.verdict) &&
-      /remains SOTA/.test(IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION.verdict),
+      /refereed bound is changed/i.test(IMP35559_R1T_REENTRY_BAND_DECADE_GAP_QUANTIFICATION.verdict),
   },
 ];
 

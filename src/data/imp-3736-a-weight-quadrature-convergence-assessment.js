@@ -60,8 +60,7 @@
  *   quadratures for a fixed autocorrelation weight, a magnitude used inside a mass-feasibility
  *   diagnostic; it establishes NO operator positivity. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-3709-a-weight-logdomain-independent-reproduction.js (the graded-GL path assessed here)
  *   @see imp-3665-a-weight-superexp-decay-crosscheck.js (the baked uniform-Simpson literals)
@@ -329,7 +328,7 @@ export const IMP3736_A_WEIGHT_QUADRATURE_CONVERGENCE_ASSESSMENT = Object.freeze(
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -380,7 +379,7 @@ export const IMP3736_A_WEIGHT_QUADRATURE_CONVERGENCE_ASSESSMENT_ASSERTIONS = [
   {
     id: 'imp3736-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/convergence assessment only, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3736_A_WEIGHT_QUADRATURE_CONVERGENCE_ASSESSMENT.honestCaveat;
       return (
@@ -388,7 +387,7 @@ export const IMP3736_A_WEIGHT_QUADRATURE_CONVERGENCE_ASSESSMENT_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

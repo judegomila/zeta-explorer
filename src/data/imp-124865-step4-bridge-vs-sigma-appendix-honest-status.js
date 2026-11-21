@@ -19,7 +19,7 @@
  * @see src/data/imp-36210-step4-obligations-storyline-crossref.js (deep-dive assembly of the three Step-4 obligations)
  *
  * Ticket: imp-124865 (content, sonnet-4-6, sonnet). Honest-status note only; no bound
- * on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * on Lambda moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import { LAMBDA_ROADMAP, LAMBDA_CHAIN_STEPS } from './lambda-roadmap.js';
@@ -41,7 +41,7 @@ export const IMP124865_STEP4_BRIDGE_VS_SIGMA_APPENDIX_HONEST_STATUS = Object.fre
     'G6/G6a/C_H: three named obligations (G6a-holder-modulus, G-Etrunc-Eflow-constants, ' +
     'G-EN-ladder-verify) are all recorded OPEN in LAMBDA_CHAIN_STEPS, and Step 5 (which depends ' +
     'on Step 4) is unverified. None of the appendix measurements close any of the three ' +
-    'obligations or move Lambda; Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed SOTA.',
+    'obligations or move Lambda; no refereed bound is changed.',
   step4Label: STEP4.label,
   step4Verification: STEP4.verification,
   rigorousUpgradeGapStatus: STEP4.rigorousUpgradeGap.status,

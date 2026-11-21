@@ -16,7 +16,7 @@
  * only the chart-friendly reshape (paired anchor rows, landmark segments) is
  * new. Changes no bound, establishes no operator positivity, no RH claim;
  * the interval-rigorous reach stays exactly 2a <= 0.96 (past ln 2, short of
- * ln 3); Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * ln 3); no refereed bound is changed. RH open. NO QED.
  *
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (source literals: epsMarginDecay, normGrowthLaw, priorRange)
  * @see imp-96641-gmin-gue-envelope-viz-data.js (sibling viz-data leaf, same convention)

@@ -35,8 +35,8 @@
  * pointwise control) but numerically small in this regime: the pointwise local sum
  * exceeds the mean-square envelope only by an additive, height-decaying O(1-2)-zero
  * term whose relative size shrinks like 1/L, and which the GUE envelope over-estimates.
- * This MEASURES the gap; it changes no bound and asserts no QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated regardless.
+ * This MEASURES the gap; it changes no bound and asserts no QED. No refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated regardless.
  *
  * Import-light: no zeros bundle, no sibling imports. Envelope/GUE formulas are
  * re-derived here; only the zero-dependent statistics (mean/sd/max of D) are baked
@@ -123,7 +123,7 @@ export const IMP95562_MEANSQUARE_VS_POINTWISE_GAP = {
     worstSigmaRange: { min: Math.min(...ROWS.map((r) => r.worstSigma)), max: Math.max(...ROWS.map((r) => r.worstSigma)) },
   },
   verdict:
-    'MEASURED on actual zeta zeros: the mean-square envelope E = 2 Delta delta(T) is calibrated on average (|mean(C - E)| < 0.04 zeros at every height), but the pointwise local count C fluctuates about it with std ~0.57-0.67 zeros, the worst single window sitting ~1.5-2.0 zeros (about 2.9-3.3 sigma, Gaussian-tailed) above the envelope. The gap is ADDITIVE not multiplicative: the absolute worst excess stays O(1-2) zeros while the envelope L grows ~93 -> ~980, so the relative worst excess maxExcess/L decays like 1/L (2.18e-2 -> 1.79e-3 across T = 1e4..5e5). At these accessible heights the pointwise number variance is only ~40% of the GUE asymptote (arithmetic finite-height suppression), so the GUE/mean-square envelope over-estimates the true pointwise fluctuation here. imp-95534 wall (i) is thus genuine in principle but numerically small and height-decaying in this regime. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'MEASURED on actual zeta zeros: the mean-square envelope E = 2 Delta delta(T) is calibrated on average (|mean(C - E)| < 0.04 zeros at every height), but the pointwise local count C fluctuates about it with std ~0.57-0.67 zeros, the worst single window sitting ~1.5-2.0 zeros (about 2.9-3.3 sigma, Gaussian-tailed) above the envelope. The gap is ADDITIVE not multiplicative: the absolute worst excess stays O(1-2) zeros while the envelope L grows ~93 -> ~980, so the relative worst excess maxExcess/L decays like 1/L (2.18e-2 -> 1.79e-3 across T = 1e4..5e5). At these accessible heights the pointwise number variance is only ~40% of the GUE asymptote (arithmetic finite-height suppression), so the GUE/mean-square envelope over-estimates the true pointwise fluctuation here. imp-95534 wall (i) is thus genuine in principle but numerically small and height-decaying in this regime. Changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
   honestStatus:
     'This module tiles fixed-step 2*Delta(T_c) windows that each keep their own LOCAL half-width Delta(t); above the center height the fixed step is shorter than the local width, so adjacent windows overlap and share zeros. imp-96171 measured that this overlap injects a spurious POSITIVE lag-1 correlation (r1 = +0.243 at T = 1.5e5) into the per-window (C - E) sequence -- the wrong sign against the GUE proxy (rho_exact = -0.46398) -- and that a clean edge-to-edge unfolded tiling (no overlap) restores the correct anti-correlation (r1 = -0.5126). The per-window mean/sd/max statistics above are unaffected, but any consumer needing cross-window CORRELATION STRUCTURE should use the imp-96171 clean tiling instead. See imp-96171-number-variance-empirical-lag1-vs-gue-proxy.',
 };
@@ -147,11 +147,11 @@ export const IMP95562_MEANSQUARE_VS_POINTWISE_GAP = {
   if (!(avgVarRatio > 0 && avgVarRatio < 1)) throw new Error('imp-95562: var ratio outside (0,1)');
   // worst windows are a few sigma (Gaussian tail), not anomalous spikes
   for (const r of ROWS) if (!(r.worstSigma > 2 && r.worstSigma < 4)) throw new Error('imp-95562: anomalous worst-sigma');
-  // honesty gate: this is a measurement, not a bound change -- verdict must keep asserting NO QED and PT SOTA
+  // honesty gate: this is a measurement, not a bound change -- verdict must keep asserting NO QED and no refereed bound is changed
   if (!/NO QED/.test(IMP95562_MEANSQUARE_VS_POINTWISE_GAP.verdict))
     throw new Error('imp-95562: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95562_MEANSQUARE_VS_POINTWISE_GAP.verdict))
-    throw new Error('imp-95562: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95562_MEANSQUARE_VS_POINTWISE_GAP.verdict))
+    throw new Error('imp-95562: verdict dropped the no-refereed-bound-change banner');
   // honesty gate: the tiling-overlap caveat (imp-96171 correction) must stay attached
   if (!/imp-96171/.test(IMP95562_MEANSQUARE_VS_POINTWISE_GAP.honestStatus))
     throw new Error('imp-95562: honestStatus dropped the imp-96171 correction pointer');

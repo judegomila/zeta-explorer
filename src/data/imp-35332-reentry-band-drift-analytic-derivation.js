@@ -60,8 +60,7 @@
  * imp-3220/imp-3406 surrogate and says nothing about whether that surrogate models the true collapse
  * dynamic at 10^27-10^37. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35109-ceil-phase-drift-precision-certification (double-vs-dd certified the 0.0187 drift; sub-gap imp-35109a)
  * @see imp-35243-reentry-band-surrogate-fidelity-assessment (baked DRIFT_PER_DECADE=0.0187; sub-gap imp-35243a)
@@ -222,8 +221,8 @@ export const IMP35332_REENTRY_BAND_DRIFT_ANALYTIC_DERIVATION = {
     'surrogate; it does NOT discharge imp-35243a (surrogate-fidelity), which stays OPEN with imp-35111a / ' +
     'imp-35174a / imp-34997a. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb GUE-' +
     'conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35109 (double-vs-dd certified the drift; sub-gap imp-35109a); imp-35243 (baked DRIFT_PER_DECADE=0.0187; ' +
     'sub-gap imp-35243a); imp-34997 (grid-measured the drift and the 10^27.08 reentry); imp-35111 (band width ' +
@@ -269,13 +268,13 @@ export const IMP35332_REENTRY_BAND_DRIFT_ANALYTIC_DERIVATION_ASSERTIONS = [
       Math.abs(XARG_TRAVERSAL - OFFSET) < 1e-6,
   },
   {
-    // Honesty gate: derivation/assessment only, discharges nothing, no QED, PT SOTA, sub-gap named/OPEN.
+    // Honesty gate: derivation/assessment only, discharges nothing, no QED, no refereed bound is changed, sub-gap named/OPEN.
     id: 'imp35332-honesty-gate-no-qed',
-    description: 'Derivation/assessment only: isRigorous false, discharges nothing, no QED, PT SOTA, imp-35243a OPEN',
+    description: 'Derivation/assessment only: isRigorous false, discharges nothing, no QED, no refereed bound is changed, imp-35243a OPEN',
     holds: () =>
       IMP35332_REENTRY_BAND_DRIFT_ANALYTIC_DERIVATION.isRigorous === false &&
       /NO QED/.test(IMP35332_REENTRY_BAND_DRIFT_ANALYTIC_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP35332_REENTRY_BAND_DRIFT_ANALYTIC_DERIVATION.verdict) &&
+      /refereed bound is changed/i.test(IMP35332_REENTRY_BAND_DRIFT_ANALYTIC_DERIVATION.verdict) &&
       /imp-35243a/.test(IMP35332_REENTRY_BAND_DRIFT_ANALYTIC_DERIVATION.residual_sub_gap) &&
       /stay OPEN/.test(IMP35332_REENTRY_BAND_DRIFT_ANALYTIC_DERIVATION.finding),
   },

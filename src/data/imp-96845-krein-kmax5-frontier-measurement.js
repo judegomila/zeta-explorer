@@ -55,7 +55,7 @@
  *
  * Measurement only; interval-rigorous reach stays exactly 2a <= 0.96 (no verified certificate produced
  * past it); the operator floor is a Rayleigh UPPER bound (no operator positivity established); RH open;
- * Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96834-krein-certificate-degree-margin-assessment.js (parent: structural monotone-right claim; SUB-GAP IMP96834_HIGHER_DEGREE_LP_UNSOLVED closed by this measurement)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (source: epsMarginDecay, normGrowthLaw, baked kmax=4 l1=1.466e6 at 2a=0.96)

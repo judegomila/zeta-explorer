@@ -44,7 +44,7 @@
  * Source script: tmp/imp-97397-indep-decorrelation.py (reproduces every literal below).
  *
  * Ticket: imp-97397 (numerical, medium, opus-4-8). Measurement only; pins no coefficient; certifies
- * no asymptotic; no bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no asymptotic; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  */
 
 // Exact ladder reused (tmp/imp-97292-out.json): 43 points, b in [500, 32000].
@@ -108,8 +108,8 @@ export const IMP97397_HONEST_BANNER =
   'leading b column stays 0.973274, so the collinearity is STRUCTURAL, not a ladder-length or basis ' +
   'artifact. This corroborates imp-97319 (numerical route closed) and is consistent with the separate ' +
   'imp-97349 structural decision (log^2 b); pinning the form by fitting needs the analytic ' +
-  'Bettin-Conrey small-a asymptotic. No coefficient pinned; no bound moved; PT Lambda <= 0.2 remains ' +
-  'SOTA; RH open; NO QED.';
+  'Bettin-Conrey small-a asymptotic. No coefficient pinned; no bound moved; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97397_ASSERTIONS = [
@@ -155,9 +155,9 @@ const IMP97397_ASSERTIONS = [
       IMP97397_VERDICT.rhResolved === false &&
       IMP97397_VERDICT.qed === false &&
       /NO QED/.test(IMP97397_HONEST_BANNER) &&
-      /PT Lambda <= 0.2 remains/.test(IMP97397_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97397_HONEST_BANNER) &&
       /RH open/.test(IMP97397_HONEST_BANNER),
-    why: 'measurement only: independent designs recorded as not separating the forms, no coefficient pinned, no bound moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'measurement only: independent designs recorded as not separating the forms, no coefficient pinned, no bound moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

@@ -52,7 +52,7 @@
  * component model is the imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * E_flow > 0 strictness (imp-33848) is untouched; C_mb GUE-conditional per imp-486
  * UNTOUCHED; far-tail E_coll exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched;
- * no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35135-eflow-fartail-decay-exponent-positivity-reconciliation (the measured drift derived here)
  * @see imp-398 (C_F Gronwall flow prefactor ~ log T0 / 2pi)
@@ -154,7 +154,7 @@ export const IMP35198_EFLOW_FARTAIL_EXPONENT_LOGN_CORRECTION = {
     'extrapolation, NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 ' +
     'K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35135 (E_flow far-tail exponent drift measured, derived here); imp-398 (C_F ~ log T0/2pi ' +
     'flow prefactor); imp-3463 (E_coll far-tail exponent 1/2); imp-486 (C_mb GUE-conditional, ' +
@@ -195,13 +195,13 @@ export const IMP35198_EFLOW_FARTAIL_EXPONENT_LOGN_CORRECTION_ASSERTIONS = [
     holds: () => RUNGS.every((r) => Math.abs(r.leadMinusFull) < 0.003),
   },
   {
-    // Honesty gate: derivation only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: derivation only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35198-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35198_EFLOW_FARTAIL_EXPONENT_LOGN_CORRECTION.isRigorous === false &&
       /NO QED/.test(IMP35198_EFLOW_FARTAIL_EXPONENT_LOGN_CORRECTION.verdict) &&
-      /remains SOTA/.test(IMP35198_EFLOW_FARTAIL_EXPONENT_LOGN_CORRECTION.verdict),
+      /refereed bound is changed/i.test(IMP35198_EFLOW_FARTAIL_EXPONENT_LOGN_CORRECTION.verdict),
   },
 ];
 

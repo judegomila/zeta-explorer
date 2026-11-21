@@ -73,7 +73,7 @@
  *   peak-only -- not the exact fit coefficients. The NPHI = 10 Phi-series truncation is inherited
  *   upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-33638-band-clearing-tail-reintensification-n900-1200.js (the env-min ~17 ULP reading this tabulates)
  *   @see imp-33660-cluster-peak-envelope-height-growth-fit.js (the peak-HEIGHT slope this contrasts against)
@@ -340,7 +340,7 @@ const verdict =
       'FLOOR-DOES-NOT-DEGRADE.-THE-DEEPEST-SINGLE-TROUGH~17.1-ULP-(n~1010)-RECOVERS-THE-imp-33638-ENV-MIN,-BUT-' +
       'THAT-IS-THE-JITTER-BAND-FLOOR,-NOT-A-PERSISTENT-BASELINE-(TYPICAL-TROUGH~38.7-ULP-BECAUSE-THE-+/-5-' +
       'ROLLING-MAX-LIFTS-MOST-TROUGHS).-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-' +
-      'mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33662_INTER_CLUSTER_TROUGH_FLOOR_DRIFT = Object.freeze({
@@ -367,7 +367,7 @@ export const IMP33662_INTER_CLUSTER_TROUGH_FLOOR_DRIFT = Object.freeze({
     'weak positive growth to the PEAKS. VERDICT: TROUGH-FLOOR-FLAT-NOT-RISING -- the re-intensification is a peak ' +
     'effect, not a degrading floor; the ~17 ULP env-min the ticket cites is the single deepest trough (jitter-band ' +
     'floor), not a persistent baseline. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-' +
-    'sufficient; jittery lattice floor; operator positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'sufficient; jittery lattice floor; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -480,7 +480,7 @@ export const IMP33662_INTER_CLUSTER_TROUGH_FLOOR_DRIFT = Object.freeze({
       'slope, the ~0.04 R^2, the ~38.7 mean, and the ~17.1 deepest trough. The robust reading is the QUALITATIVE ' +
       'conclusion -- the between-cluster floor is flat, not rising, and the growth is peak-only -- not the exact ' +
       'fit coefficients.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -530,7 +530,7 @@ export const IMP33662_INTER_CLUSTER_TROUGH_FLOOR_DRIFT_ASSERTIONS = [
   {
     id: 'imp33662-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33662_INTER_CLUSTER_TROUGH_FLOOR_DRIFT.honestCaveat;
       return (
@@ -539,7 +539,7 @@ export const IMP33662_INTER_CLUSTER_TROUGH_FLOOR_DRIFT_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

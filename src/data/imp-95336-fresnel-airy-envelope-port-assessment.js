@@ -135,8 +135,7 @@
  *   concept-note pattern followed here)
  *
  * Ticket: imp-95336 (proof, medium). Assessment/scoping only; establishes
- * no new bound; fires no certificate; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no new bound; fires no certificate; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -260,7 +259,7 @@ export const IMP95336_FRESNEL_AIRY_ENVELOPE_PORT_ASSESSMENT = Object.freeze({
     'survives as CONDITIONAL on the unextracted Section 4.5 turning-point ' +
     'geometry and still inherits the MAP-2 Cauchy-Gram question. No bound ' +
     'is derived, no certificate fires, the sub-gap remains OPEN. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95212-multiplicity-priced-shift-damping.js (THEOREM DR-M/HL-M, ' +
     'COROLLARY CP, LEMMA R1/BI, the sub-gap); ' +
@@ -354,12 +353,11 @@ export const IMP95336_FRESNEL_AIRY_ENVELOPE_PORT_ASSESSMENT_ASSERTIONS = [
   {
     id: 'imp95336-honesty-gate-no-qed',
     why:
-      'Assessment only: no enclosure established, sub-gap still open, PT ' +
-      'SOTA line present, and it glosses/scopes the right sub-gap.',
+      'Assessment only: no enclosure established, sub-gap still open, no-refereed-bound-change line present, and it glosses/scopes the right sub-gap.',
     holds: () =>
       IMP95336_FRESNEL_AIRY_ENVELOPE_PORT_ASSESSMENT.anyEnclosureEstablished ===
         false &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95336_FRESNEL_AIRY_ENVELOPE_PORT_ASSESSMENT.verdict
       ) &&
       IMP95336_FRESNEL_AIRY_ENVELOPE_PORT_ASSESSMENT.glosses === 'imp-95212' &&

@@ -44,7 +44,7 @@
  * itself. F(m) = 0 remains a double-precision artifact and the machine certificate imp-34714a REMAINS OPEN.
  * C_C = 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
  * K_a >= 0 untouched; establishes no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-3463 (far-tail E_flow decay exponent 1/2)
  * @see imp-34949-krawczyk-margin-infimum-band-endpoint (the exact closed-form margin m(N) this builds on)
@@ -216,7 +216,7 @@ export const IMP34996_KRAWCZYK_HEADROOM_SAFETY_FACTOR_ASYMPTOTE = {
     'imp-3220/imp-3406 surrogate crossover map; reproduces the published 2555.18x in-band worst case; the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 ' +
     'K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34949 (exact closed-form margin m(N)); imp-34929 (closed-form dS/dN < 0, strictly decreasing S); ' +
     'imp-34906 (worst in-band case clears 100x by 25.55x); imp-34883 (k=10 band-min 2555.18x); imp-34817 ' +
@@ -262,15 +262,15 @@ export const IMP34996_KRAWCZYK_HEADROOM_SAFETY_FACTOR_ASYMPTOTE_ASSERTIONS = [
       Math.abs(HEADROOM_TO_FAILURE_DISTANCE - 2400) < 1e-9,
   },
   {
-    // Honesty gate: extrapolation / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: extrapolation / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34996-honesty-gate-no-qed',
-    description: 'extrapolation: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'extrapolation: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34996_KRAWCZYK_HEADROOM_SAFETY_FACTOR_ASYMPTOTE.isRigorous === false &&
       /imp-34714a/.test(IMP34996_KRAWCZYK_HEADROOM_SAFETY_FACTOR_ASYMPTOTE.subGap) &&
       /REMAINS OPEN/.test(IMP34996_KRAWCZYK_HEADROOM_SAFETY_FACTOR_ASYMPTOTE.subGap) &&
       /NO QED/.test(IMP34996_KRAWCZYK_HEADROOM_SAFETY_FACTOR_ASYMPTOTE.verdict) &&
-      /remains SOTA/.test(IMP34996_KRAWCZYK_HEADROOM_SAFETY_FACTOR_ASYMPTOTE.verdict),
+      /refereed bound is changed/i.test(IMP34996_KRAWCZYK_HEADROOM_SAFETY_FACTOR_ASYMPTOTE.verdict),
   },
 ];
 

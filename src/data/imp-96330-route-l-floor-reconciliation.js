@@ -49,7 +49,7 @@
  * (factor 1.248) is fully explained by the higher-reach/wider-band trade-off and
  * is NOT a discrepancy between modules. Accuracy audit only; changes NO bound;
  * Route L stays a fixed-cost, verified-height-dominated DETECTOR, not a Lambda
- * lever; RH open; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * lever; RH open; no refereed bound is changed; NO QED.
  *
  * Reproduce: tmp/imp-96330-recon.mjs (pure JS: N0 * exp(-seYhat) vs baked floors).
  *
@@ -108,6 +108,6 @@ export const IMP96330_VERDICT =
   + 'is a reach/width trade-off, not a module discrepancy; the Christoffel floor, being '
   + 'the lower of the two, sets the shared envelope lower edge 1.18e14. Accuracy audit '
   + 'only; changes no bound; Route L stays a fixed-cost, verified-height-dominated '
-  + 'detector, not a lever; RH open; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.';
+  + 'detector, not a lever; RH open; no refereed bound is changed; NO QED.';
 
 export const IMP96330_SCRIPTS = Object.freeze(['tmp/imp-96330-recon.mjs']);

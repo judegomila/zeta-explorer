@@ -59,8 +59,8 @@
  *   fully a-priori bound needs the Gram-spectral decay estimate.
  *
  *   The tr(A2) trace is a DIAGNOSTIC, not the lambda_2 floor (imp-97538 floor -310.69..-313.76 is
- *   untouched); this moves NO bound; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian
- *   Lambda <= 0.2 stays SOTA; RH open; NO QED.
+ *   untouched); this moves NO bound; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  *   @see imp-97684-tra2-fifth-block-tail-confirmation.js (empirical ratio/Aitken tail; parent)
  *   @see imp-3550-fartail-midpoint-quadrature-error-bound.js (the empirical-to-analytic upgrade precedent)
@@ -165,7 +165,7 @@ export const IMP97803_TRA2_EULER_MACLAURIN_TAIL_BOUND = Object.freeze({
     'directly from the kernel). SUB-GAP IMP97803_EM_TAIL_CONSTANT_STILL_MEASURED_NOT_APRIORI: a fully ' +
     'a-priori bound needs the Legendre-Gram spectral-decay estimate of the per-mode contribution. The ' +
     'tr(A2) trace is a diagnostic, not the lambda_2 floor (imp-97538 untouched); moves NO bound; ' +
-    'interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.',
 
   derivation: Object.freeze({
     traceAsPartialSum: 'trA2(K) = sum_{k=1..K} t_k, t_k >= 0 the per-mode reproducing-kernel contribution',
@@ -248,7 +248,7 @@ export const IMP97803_TRA2_EULER_MACLAURIN_TAIL_BOUND = Object.freeze({
       'The tr(A2) trace is a diagnostic, NOT the lambda_2 floor; the imp-97538 floor (-310.69..-313.76) is ' +
       'untouched and no operator positivity is claimed.',
     noBoundMoved: 'Interval-rigorous reach stays 2a <= 0.96; no constant pinned as rigorous.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; RH open; NO QED.',
+    sota: 'No refereed bound is changed; RH open; NO QED.',
   }),
 });
 
@@ -311,7 +311,7 @@ export const IMP97803_TRA2_EULER_MACLAURIN_TAIL_BOUND_ASSERTIONS = [
   {
     id: 'imp97803-honest-assessment-no-qed',
     why: 'Mandatory honesty: EM tail FORM derived but constant measured (named sub-gap), tr(A2) is a diagnostic not ' +
-      'the floor, no bound moved, reach stays 2a<=0.96, PT Lambda<=0.2 SOTA, RH open, NO QED.',
+      'the floor, no bound moved, reach stays 2a<=0.96, no refereed bound is changed, RH open, NO QED.',
     holds: () => {
       const c = IMP97803_TRA2_EULER_MACLAURIN_TAIL_BOUND.honestCaveat;
       return (
@@ -320,7 +320,7 @@ export const IMP97803_TRA2_EULER_MACLAURIN_TAIL_BOUND_ASSERTIONS = [
         c.movesBound === false &&
         typeof c.emFormDerivedConstantMeasured === 'string' &&
         /IMP97803_EM_TAIL_CONSTANT_STILL_MEASURED_NOT_APRIORI/.test(c.subGap) &&
-        /Platt-Trudgian Lambda <= 0.2/.test(c.sota) &&
+        /Platt-Trudgian Lambda <= 0.2|refereed bound is changed/.test(c.sota) &&
         /RH open/.test(c.sota) &&
         /NO QED/.test(c.sota)
       );

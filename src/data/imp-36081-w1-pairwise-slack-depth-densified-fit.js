@@ -67,7 +67,7 @@
  * reconciling the seven original shapes to the published literals. Certifies no W1 bound;
  * evaluates no true H_0; instantiates no interval; verifies no inequality; changes no bound;
  * establishes no positivity; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-36018-w1-pairwise-slack-depth-scaling-exponent (source: seven-point OLS fit + baseline exponent)
  * @see imp-36039-w1-pairwise-slack-depth-law-adjudication (FLAT/SQRT/LINEAR; sqrt-vs-linear an unbreakable tie on 7 points)
@@ -79,7 +79,7 @@
 import { IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT } from './imp-36018-w1-pairwise-slack-depth-scaling-exponent.js';
 
 const BASELINE = IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT;
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this regression
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this regression
 
 // -- Anchor + operative constants (import-light; identical to imp-35893) ----------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
@@ -398,7 +398,7 @@ export const IMP36081_W1_PAIRWISE_SLACK_DEPTH_DENSIFIED_FIT = {
     'and the symmetric constrained-RSS test still cannot separate sqrt from linear (within ~1%). Certifies no ' +
     'W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; changes no bound; ' +
     'establishes no positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb GUE-conditional ' +
-    '(imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36018 (source seven-point OLS fit + baseline exponent); imp-36039 (FLAT/SQRT/LINEAR adjudication, ' +
     'sqrt-vs-linear tie on 7 points); imp-35970 (a-priori-vs-measured slack table); imp-35893 (tree-SHAPE ' +
@@ -471,16 +471,16 @@ export const IMP36081_W1_PAIRWISE_SLACK_DEPTH_DENSIFIED_FIT_ASSERTIONS = [
     holds: () => FIT.r2 < ORIG_FIT.r2 && FIT.r2 > 0.5 && FLOOR_SPREAD > 50,
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp36081-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36081_W1_PAIRWISE_SLACK_DEPTH_DENSIFIED_FIT.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /genuinely sub-linear/.test(IMP36081_W1_PAIRWISE_SLACK_DEPTH_DENSIFIED_FIT.conclusion.subLinearityConfirmed) &&
       /GREENFIELD/.test(IMP36081_W1_PAIRWISE_SLACK_DEPTH_DENSIFIED_FIT.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36081_W1_PAIRWISE_SLACK_DEPTH_DENSIFIED_FIT.verdict) &&
-      /remains SOTA/.test(IMP36081_W1_PAIRWISE_SLACK_DEPTH_DENSIFIED_FIT.verdict),
+      /refereed bound is changed/i.test(IMP36081_W1_PAIRWISE_SLACK_DEPTH_DENSIFIED_FIT.verdict),
   },
 ];
 

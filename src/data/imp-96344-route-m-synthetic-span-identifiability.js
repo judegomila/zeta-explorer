@@ -84,7 +84,7 @@
  * OPEN, limited by real-Gram reach, exactly as imp-96325 recorded.
  *
  * MODEL / MEASUREMENT ONLY. Changes no bound, establishes no operator positivity,
- * makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * makes no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96325-route-m-vasyunin-gram-n1e4-run.js (IMP96325_Q2_BAND_UNIQUENESS)
  * @see imp-96231-route-m-band-vs-drift-identifiability.js (band decisively beats smooth drift; conductor content non-identifiable)
@@ -175,7 +175,7 @@ export const IMP96344_SUBGAP = Object.freeze({
 });
 
 export const IMP96344_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Model / measurement only: every value is a reproducible numeric from tmp/imp-96344-scratch.mjs / scratch2.mjs (drift-projection residual fractions and adjacent-tone overlaps) plus the analytic Rayleigh beat period 2 pi / (w_4 - w_5); no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Model / measurement only: every value is a reproducible numeric from tmp/imp-96344-scratch.mjs / scratch2.mjs (drift-projection residual fractions and adjacent-tone overlaps) plus the analytic Rayleigh beat period 2 pi / (w_4 - w_5); no bound is claimed and no operator positivity is established.';
 
 // imp-96462: plain SYNTHETIC-vs-REAL status separator, so a reader of this module
 // (or a consumer viz such as imp-96378) does not mistake the closed-form overlap
@@ -261,7 +261,7 @@ const IMP96344_ASSERTIONS = [
     id: 'imp96344-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96344_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96344_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96344_HONEST_BANNER) &&
       /NO QED/.test(IMP96344_HONEST_BANNER) &&
       typeof IMP96344_SUBGAP.statement === 'string' &&
       /required-span-vs-surrogate-circularity/.test(IMP96344_SUBGAP.id),

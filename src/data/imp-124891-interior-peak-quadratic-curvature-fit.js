@@ -66,7 +66,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124848-sigma-interior-peak-floor-elasticity-multifloor-fit (the linear OLS p_peak ~ -1.412, R^2 ~ 0.99961; the curvature this module fits explicitly)
  * @see imp-124772-knee-floor-elasticity-multifloor-fit (the far-tail knee linear OLS p_knee ~ -2.106)
@@ -293,8 +293,8 @@ export const IMP124891_INTERIOR_PEAK_QUADRATIC_CURVATURE_FIT = {
     'confirming the imp-124848 F2 attribution as a curvature rather than an elasticity shift. The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124848 (interior-peak linear OLS p_peak ~ -1.412, R^2 ~ 0.99961; the curvature fit here); ' +
     'imp-124772 (far-tail knee linear OLS p_knee ~ -2.106); imp-97822 (far-tail floorSweep, quad-fit ' +
@@ -346,13 +346,13 @@ export const IMP124891_INTERIOR_PEAK_QUADRATIC_CURVATURE_FIT_ASSERTIONS = [
       APPARENT_GAP > 0.5,
   },
   {
-    // Honesty gate: measurement/fit only, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, no QED, no refereed bound is changed.
     id: 'imp124891-honesty-gate-no-qed',
-    description: 'Measurement only: decomposes the interior-peak exponent into linear vs curvature, no QED, PT stays SOTA',
+    description: 'Measurement only: decomposes the interior-peak exponent into linear vs curvature, no QED, no refereed bound is changed',
     holds: () =>
       IMP124891_INTERIOR_PEAK_QUADRATIC_CURVATURE_FIT.isRigorous === false &&
       /NO QED/.test(IMP124891_INTERIOR_PEAK_QUADRATIC_CURVATURE_FIT.verdict) &&
-      /remains SOTA/.test(IMP124891_INTERIOR_PEAK_QUADRATIC_CURVATURE_FIT.verdict),
+      /refereed bound is changed/i.test(IMP124891_INTERIOR_PEAK_QUADRATIC_CURVATURE_FIT.verdict),
   },
 ];
 

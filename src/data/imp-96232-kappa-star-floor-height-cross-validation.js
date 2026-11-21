@@ -49,7 +49,7 @@
 // power law at the fixed certified kappa_star. No zero is verified, no new T_PT
 // is claimed, the rigorous bound stays E_trunc = 3.06e-5, and C_mb stays
 // GUE-conditional per imp-486. Changes no bound. No positivity, no bridge
-// closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH
+// closure, no RH claim, NO QED. No refereed bound is changed; RH
 // remains OPEN.
 //
 // SYNTAX SAFETY: line comments only; single-quoted strings; no apostrophes
@@ -197,7 +197,7 @@ export const IMP96232_KAPPA_STAR_FLOOR_HEIGHT_CROSS_VALIDATION = {
     '1.5588e21 (as imp-96185 tabulated). No zero is verified, no new T_PT is ' +
     'claimed, the rigorous bound stays E_trunc = 3.06e-5, C_mb stays ' +
     'GUE-conditional per imp-486. Changes no bound; no bridge closure, no RH ' +
-    'claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH OPEN.',
+    'claim, NO QED. No refereed bound is changed; RH OPEN.',
   citation:
     'imp-96207 (floors 1e-5/1e-6/1e-7); imp-96185 (floors 1e-5/1e-6/1e-8); ' +
     'imp-96229 (forward/inverse reciprocity audit); imp-96190 ' +
@@ -255,14 +255,14 @@ export const IMP96232_KAPPA_STAR_FLOOR_HEIGHT_CROSS_VALIDATION_ASSERTIONS = [
       logGap(H_1E8_CORRECT, 1.5588e21) < 0.01,
   },
   {
-    // Honesty gate: cross-validation only, no QED, PT stays SOTA, changes no bound.
+    // Honesty gate: cross-validation only, no QED, no refereed bound is changed, changes no bound.
     id: 'imp96232-honesty-gate-no-qed',
-    description: 'Cross-validation only: tables consistent, ticket note corrected, no QED, PT stays SOTA',
+    description: 'Cross-validation only: tables consistent, ticket note corrected, no QED, no refereed bound is changed',
     holds: () =>
       IMP96232_KAPPA_STAR_FLOOR_HEIGHT_CROSS_VALIDATION.isRigorous === false &&
       IMP96232_KAPPA_STAR_FLOOR_HEIGHT_CROSS_VALIDATION.tables_consistent === true &&
       /NO QED/.test(IMP96232_KAPPA_STAR_FLOOR_HEIGHT_CROSS_VALIDATION.verdict) &&
-      /remains SOTA/.test(IMP96232_KAPPA_STAR_FLOOR_HEIGHT_CROSS_VALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP96232_KAPPA_STAR_FLOOR_HEIGHT_CROSS_VALIDATION.verdict),
   },
 ];
 

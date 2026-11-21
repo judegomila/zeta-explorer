@@ -56,7 +56,7 @@
  *   endpoint-Hankel step, imp-3066) is UNTOUCHED. The NPHI=10 Phi-series truncation is inherited
  *   upstream. Cross-platform libm variation in exp/log can shift the ~1 ULP measurements; the robust
  *   reading is the collapse trend and the conservative ceiling, not any single panel count. No RH
- *   verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33296-min-node-lattice-jitter-band.js (the single-height-family jitter band this extends)
  *   @see imp-33293-a-weight-graded-gl-1ulp-budget-tau910.js (the e^{4tau} saturation mechanism)
@@ -276,7 +276,7 @@ export const IMP33312_TAU_UNIFORM_JITTER_BAND = Object.freeze({
     '(tight at low tau, slack collapsing to ~0 at tau >= 9), so the honest tau-uniform node-budget rule is ' +
     '"any resolved grade6 rule (tau* >~6.96) has worst-in-window <= ~11 ULP at all heights tau in {7..10}". ' +
     'ACCURACY MEASUREMENT/RULE-DESIGN ONLY, RH-EQUIVALENT, necessary-but-not-sufficient; operator ' +
-    'positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s) Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -376,7 +376,7 @@ export const IMP33312_TAU_UNIFORM_JITTER_BAND = Object.freeze({
       'pass-fraction at the low heights where the bar is tight. The robust, portable reading is the COLLAPSE ' +
       'trend (jitter live at tau in {7,8}, vanished at tau in {9,10}) and the conservative tau-uniform ' +
       'ceiling ~11 ULP -- NOT any single panel count.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -428,7 +428,7 @@ export const IMP33312_TAU_UNIFORM_JITTER_BAND_ASSERTIONS = [
   {
     id: 'imp33312-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy measurement/rule-design audit only, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33312_TAU_UNIFORM_JITTER_BAND.honestCaveat;
       return (
@@ -436,7 +436,7 @@ export const IMP33312_TAU_UNIFORM_JITTER_BAND_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

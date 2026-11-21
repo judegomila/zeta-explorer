@@ -58,7 +58,7 @@
  * model is the inherited imp-3220/imp-3406/imp-33810 extrapolation, NOT a rigorous asymptotic; changes no
  * bound; establishes no operator positivity; the imp-34246 derivation and imp-34247 measurement are
  * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34246-widening-slope-limit-analytic-derivation (the -ln10/2 + ln10*3/u strict-derivative form reconciled here)
  * @see imp-34247-widening-slope-pole-divergence (the pole-subtracted background B(k) reconciled here)
@@ -236,7 +236,7 @@ export const IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION = {
     'corrupt the raw slope -- exactly where both modules independently flag the ladder unreliable. Cross ' +
     '-check within the inherited imp-3220/imp-3406/imp-33810 component model, which is NOT a rigorous ' +
     'asymptotic; the imp-34246 derivation and imp-34247 measurement are UNTOUCHED; C_mb GUE-conditional per ' +
-    'imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION_ASSERTIONS = [
@@ -280,15 +280,15 @@ export const IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION_ASSERTIONS = [
       MATCHED_RESID_K20 > 3 * MAX_MATCHED_RESID_CLEAN,
   },
   {
-    // Honesty gate: reconciliation only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: reconciliation only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34326-honesty-gate-no-qed',
-    description: 'reconciliation only; backgrounds are different objects but reconciled; isRigorous false; NO QED; K_a>=0 untouched; PT SOTA',
+    description: 'reconciliation only; backgrounds are different objects but reconciled; isRigorous false; NO QED; K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION.backgroundsReconciled === true &&
       IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION.backgroundsAreDifferentObjects === true &&
       IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION.isRigorous === false &&
       /NO QED/.test(IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34326_WIDENING_SLOPE_BACKGROUND_RECONCILIATION.verdict),
   },
 ];

@@ -43,8 +43,7 @@
  *
  *   NUMERICAL MEASUREMENT ONLY. Establishes no local law, discharges no
  *   conditional, claims NO N-uniform input is available, changes no bound,
- *   respects the imp-2519 no-overclaim guard, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   respects the imp-2519 no-overclaim guard, NO QED. No refereed bound is changed.
  *
  *   @see src/data/imp-36221-layer-ii-rigidity-scale-tabulation.js (cross-window ladder sibling)
  *   @see src/data/imp-36180-esy-cmb-local-law-input-scope.js (parent: the three ESY input layers; LAYER II imported verbatim below)
@@ -52,7 +51,7 @@
  *
  *   Ticket: imp-36237 (numerical, medium). Measurement only; imports the parent
  *   layer and the enclosure rows verbatim; discharges no conditional; changes no
- *   bound; imp-2519 preserved; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   bound; imp-2519 preserved; NO QED; no refereed bound is changed.
  */
 
 import { IMP36180_ESY_CMB_LOCAL_LAW_INPUT_SCOPE } from './imp-36180-esy-cmb-local-law-input-scope.js';
@@ -187,7 +186,7 @@ export const IMP36237_LAYER_II_RIGIDITY_SCALE_ACROSS_WINDOW = Object.freeze({
       'scale past the compute-bounded window top; the C_mb conditional stays ' +
       'irreducible and GUE-conditional (imp-486); respects the imp-2519 ' +
       'no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; the assembled Route-A claim stays RH-modulo-GUE-universality',
+    sota: 'No refereed bound is changed; the assembled Route-A claim stays RH-modulo-GUE-universality',
   }),
 });
 
@@ -269,7 +268,7 @@ export const IMP36237_LAYER_II_RIGIDITY_SCALE_ACROSS_WINDOW_ASSERTIONS = [
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
         IMP36237_LAYER_II_RIGIDITY_SCALE_ACROSS_WINDOW.rigidityEstablished === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

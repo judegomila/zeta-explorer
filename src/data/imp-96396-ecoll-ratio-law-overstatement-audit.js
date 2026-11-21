@@ -71,7 +71,7 @@ export const IMP_96396_ECOLL_RATIO_LAW_OVERSTATEMENT_AUDIT = {
   honestNote:
     'Read-only citation audit; zero repairs made because zero mismatches were found. No bound ' +
     'changed. C_H <= 0.127 stays UNPROVEN (imp-2642/imp-2701); the imp-2640 Gronwall discharge of ' +
-    'C_Lip remains NEGATIVE. NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'C_Lip remains NEGATIVE. NO QED. No refereed bound is changed.',
 };
 
 const IMP_96396_ASSERTIONS = [
@@ -92,9 +92,9 @@ const IMP_96396_ASSERTIONS = [
   {
     id: 'imp96396-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_96396_ECOLL_RATIO_LAW_OVERSTATEMENT_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_96396_ECOLL_RATIO_LAW_OVERSTATEMENT_AUDIT.honestNote) &&
       /NO QED/.test(IMP_96396_ECOLL_RATIO_LAW_OVERSTATEMENT_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only citation audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only citation audit, not a bound; no refereed bound is changed.',
   },
 ];
 

@@ -84,7 +84,7 @@
  * witness batteries at the UNCERTIFIED floors (middle 0.235/0.2355, 5000
  * seeds, zero E > 0, max E = -0.0247) keep the strip a budget artifact,
  * not a believed witness region. Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * SURVIVING ROUTES for the final strip (named, NOT run):
  * (i) test-vector field BILINEAR in the field corners: per-row caps that
@@ -694,7 +694,7 @@ export const IMP95152_TF_FIELD_FINAL_STRIP = {
   ],
   promotesBound: false,
   noQED: true,
-  sota: 'Platt-Trudgian Lambda <= 0.2 remains SOTA',
+  sota: 'No refereed bound is changed',
 };
 
 // ---------------------------------------------------------------------------

@@ -54,8 +54,8 @@
  * alternating (killing the uniform bound structurally), and the TV remainder is too lossy to expose
  * even the per-lag sign the envelope's leading term already carries. Assessment only; the VIF
  * certificate does NOT close; conditional on the GUE sine kernel / Montgomery pair correlation for the
- * zeta zeros (UNPROVEN); changes NO unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * zeta zeros (UNPROVEN); changes NO unconditional bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96628-boxsine-lagcorr-ibp-envelope (the certified two-sided C(k)/L^2 envelope this probes)
  * @see imp-96617-finite-L-correction-sign (the MEASURED lag-alternating sign this re-derives from B_k)
@@ -118,12 +118,12 @@ export const IMP96812_BOXSINE_ONESIDED_SIGN_ASSESSMENT = {
   conditionality:
     'Conditional on the GUE sine kernel / Montgomery pair correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored). Changes NO unconditional bound.',
   verdict:
-    'NO. The imp-96628 certified two-sided envelope |DeltaCov_k(L)| <= C(k)/L^2 CANNOT be sharpened to the one-sided sign the imp-96593 VIF upper bound requires. The obstruction is twofold and the first horn is fatal: (A) the explicit leading term B_k(w) = -2 cos(wk)/k^2 + cos(w(k-1))/(k-1)^2 + cos(w(k+1))/(k+1)^2 governs the sign -- dropping the remainder R_k reproduces the imp-96617 measured DeltaCov_k to ~4 significant figures at every lag k = 2..6, L = 495.779 -- and its sign GENUINELY ALTERNATES with the lag (+,-,-,-,+ for k = 2..6, giving DeltaCov -,+,+,+,-), so DeltaCov_k is positive at k = 3,4,5 and no uniform-in-k one-sided bound (DeltaCov_k <= 0 for ALL k) can exist regardless of certificate precision; and (B) even the fixed-k sign is invisible to the imp-96628 certificate, because its total-variation remainder bound V(k) exceeds |B_k| at every k = 2..6 (0.591<1.389, 0.071<0.336, 0.119<0.134, 0.029<0.067, 0.038<0.038), so the certified enclosure B_k +/- V(k) straddles zero. This precisely characterizes why the oscillation blocks the sharpening: the sign is real but lag-alternating (killing the uniform bound structurally), and the TV remainder is too lossy to expose even the per-lag sign the leading term already carries. Assessment only; the VIF certificate does NOT close; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'NO. The imp-96628 certified two-sided envelope |DeltaCov_k(L)| <= C(k)/L^2 CANNOT be sharpened to the one-sided sign the imp-96593 VIF upper bound requires. The obstruction is twofold and the first horn is fatal: (A) the explicit leading term B_k(w) = -2 cos(wk)/k^2 + cos(w(k-1))/(k-1)^2 + cos(w(k+1))/(k+1)^2 governs the sign -- dropping the remainder R_k reproduces the imp-96617 measured DeltaCov_k to ~4 significant figures at every lag k = 2..6, L = 495.779 -- and its sign GENUINELY ALTERNATES with the lag (+,-,-,-,+ for k = 2..6, giving DeltaCov -,+,+,+,-), so DeltaCov_k is positive at k = 3,4,5 and no uniform-in-k one-sided bound (DeltaCov_k <= 0 for ALL k) can exist regardless of certificate precision; and (B) even the fixed-k sign is invisible to the imp-96628 certificate, because its total-variation remainder bound V(k) exceeds |B_k| at every k = 2..6 (0.591<1.389, 0.071<0.336, 0.119<0.134, 0.029<0.067, 0.038<0.038), so the certified enclosure B_k +/- V(k) straddles zero. This precisely characterizes why the oscillation blocks the sharpening: the sign is real but lag-alternating (killing the uniform bound structurally), and the TV remainder is too lossy to expose even the per-lag sign the leading term already carries. Assessment only; the VIF certificate does NOT close; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 / imp-96567 / imp-96628 convention).
 export const IMP96812_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: the imp-96628 certified two-sided '
+  'RH open; no refereed bound is changed; NO QED. Assessment only: the imp-96628 certified two-sided '
   + 'box-sine envelope CANNOT be sharpened to a one-sided sign. The explicit leading term B_k governs '
   + 'the sign (dropping R_k reproduces the imp-96617 measured DeltaCov to ~4 sig figs at L = 495.779) '
   + 'and B_k alternates with the lag (DeltaCov -,+,+,+,- for k = 2..6), so DeltaCov_k > 0 at k = 3,4,5 '
@@ -174,11 +174,11 @@ export const IMP96812_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96812_BOXSINE_ONESIDED_SIGN_ASSESSMENT.verdict))
     throw new Error('imp-96812: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96812_BOXSINE_ONESIDED_SIGN_ASSESSMENT.verdict))
-    throw new Error('imp-96812: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96812_BOXSINE_ONESIDED_SIGN_ASSESSMENT.verdict))
+    throw new Error('imp-96812: verdict dropped the no-refereed-bound-change banner');
   if (!/[Cc]onditional/.test(IMP96812_BOXSINE_ONESIDED_SIGN_ASSESSMENT.verdict))
     throw new Error('imp-96812: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96812_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96812_HONEST_BANNER) && /NO QED/.test(IMP96812_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96812_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96812_HONEST_BANNER) && /NO QED/.test(IMP96812_HONEST_BANNER)))
     throw new Error('imp-96812: IMP96812_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

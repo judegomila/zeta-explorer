@@ -107,7 +107,7 @@ export const DISCOVERABILITY_AUDIT_34948 = {
     + 'both pages\' prose -- so imp-34948 is not uniquely orphaned relative to a reachable parent. No routes '
     + 'added, no index entries changed, no Links inserted; adding a re-pointer is a distinct ux ticket per this '
     + 'ticket\'s own description. Changes no bound; establishes no operator positivity; no RH verdict; NO QED. '
-    + 'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'No refereed bound is changed.',
 };
 
 export const DISCOVERABILITY_AUDIT_34948_ASSERTIONS = [
@@ -151,12 +151,12 @@ export const DISCOVERABILITY_AUDIT_34948_ASSERTIONS = [
   },
   {
     id: 'imp-35033-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no routes/index entries/Links added) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no routes/index entries/Links added) and no refereed bound is changed',
     holds: () =>
       DISCOVERABILITY_AUDIT_34948.gapsFound.length === 0 &&
       /AUDIT-ONLY/.test(DISCOVERABILITY_AUDIT_34948.honest) &&
       /No routes added, no index entries changed/.test(DISCOVERABILITY_AUDIT_34948.honest) &&
-      /Lambda<=0.2 remains SOTA/.test(DISCOVERABILITY_AUDIT_34948.honest),
+      /refereed bound is changed/i.test(DISCOVERABILITY_AUDIT_34948.honest),
   },
 ];
 

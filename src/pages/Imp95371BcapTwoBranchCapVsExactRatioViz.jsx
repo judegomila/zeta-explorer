@@ -140,7 +140,7 @@ export default function Imp95371BcapTwoBranchCapVsExactRatioViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a presentation of an
         already-proven lemma, not a new result. It changes no Lambda bound and establishes no
-        operator positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH
+        operator positivity. RH
         does not follow from anything on this page. NO QED.
       </div>
 
@@ -200,8 +200,7 @@ export default function Imp95371BcapTwoBranchCapVsExactRatioViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95371 baked viz-data (all four curves recomputed from the imp-95329 LEMMA BCAP closed
-        forms). Changes no bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        forms). Changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

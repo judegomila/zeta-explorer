@@ -183,8 +183,7 @@
  * The numerics below CROSS-CHECK the lemma statements; they are not the
  * claim. Import-light (no heavy bundle; the only import is the sibling
  * twenty-third verdict module for the terminal-witness literals). Changes
- * no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 import ERS from "./imp-95008-witness-erealization-split.js";
@@ -305,7 +304,7 @@ export const IMP95172_BALLAST_NECESSITY_TRADEOFF = {
     "LEMMA NT is unconditional single-variable calculus with a positive-series branch comparison (proof in the header). THEOREM BW and its corollaries are conditional exactly as THEOREM OD (imp-95129): the carried MAJ per-pair envelope caps and per-class Lemma SW aggregation enter through facts F2 and F4; facts F1 (Lemma PB equality form), F3 (norm identity), F5 (Lemma NT + Cauchy-Schwarz) and F6 (triangle) are unconditional. THEOREM GB and COROLLARY OM are elementary algebra on BW + OD (identity alpha^2 xStar = LwEven(1 - xStar/(1 - q)) asserted to rel 1e-12). The m_B-boundedness hypothesis is essential to the PROOF (ell-1/ell-2 gap) and named as the successor sub-gap; whether it is essential to the TRUTH is open. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step: LEMMA NT (new unconditional closed form c(s) = exp(1/2)(1 - 1/(2s))^s / sqrt(s - 1/2) for the norm-transfer sup h(x, s)/sqrt(x), attained at x = s - 1/2; c(11) = 0.30501088924617725) supplies the K-mass vs legality-mass currency bridge that imp-95129 named as the missing tool, and THEOREM BW (six-fact chain: PB equality form + odd-class cap + norm identity + capSum split + NT + triangle) converts it into the phi-conditional odd-mass floor imp-95130 asked for: COROLLARY OM gives omega >= (LwEven/(c(s)^2 m_B))[sqrt(1 - (1 - phi_0)/(1 - q)) - sqrt(2(1 - phi_0))]^2 > 0 for phi_0 > 0.670946474458521 -- the sub-gap imp-95130-subgap-phi-conditional-odd-mass, carried OPEN by every module from imp-95130 through imp-95171, is DELIVERED in quantitative form (with an explicit 1/m_B ballast factor). Combined with THEOREM OD this closes to THEOREM GB, the FIRST uniform witness-side tradeoff ceiling: phi <= gamma(m_B) = 1 - LwEven/(alpha^2 + LwEven/(1 - q)) < 1 for every bounded-ballast witness (gamma(1) = 0.9996167824561802; gamma(10) = 0.9999601706097895 uniform over the whole carried p = 999983 grid class), so no bounded-ballast MAJ family reaches phi = 1 and any phi -> 1 family must carry unboundedly many occupied odd blocks with vanishing ell-2 but fixed ell-1 (~0.0205) ballast. COROLLARY PP adds the parity-pure caps phi <= 1/2 (even) and q/2 (odd). HONEST: constants unoptimized (gamma sits far above the measured class sup phi = 0.3572); BW is vacuous-side at every exhibited in-class witness; conditional exactly as THEOREM OD; new sub-gap imp-95172-subgap-mB-uniform-ballast named. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step: LEMMA NT (new unconditional closed form c(s) = exp(1/2)(1 - 1/(2s))^s / sqrt(s - 1/2) for the norm-transfer sup h(x, s)/sqrt(x), attained at x = s - 1/2; c(11) = 0.30501088924617725) supplies the K-mass vs legality-mass currency bridge that imp-95129 named as the missing tool, and THEOREM BW (six-fact chain: PB equality form + odd-class cap + norm identity + capSum split + NT + triangle) converts it into the phi-conditional odd-mass floor imp-95130 asked for: COROLLARY OM gives omega >= (LwEven/(c(s)^2 m_B))[sqrt(1 - (1 - phi_0)/(1 - q)) - sqrt(2(1 - phi_0))]^2 > 0 for phi_0 > 0.670946474458521 -- the sub-gap imp-95130-subgap-phi-conditional-odd-mass, carried OPEN by every module from imp-95130 through imp-95171, is DELIVERED in quantitative form (with an explicit 1/m_B ballast factor). Combined with THEOREM OD this closes to THEOREM GB, the FIRST uniform witness-side tradeoff ceiling: phi <= gamma(m_B) = 1 - LwEven/(alpha^2 + LwEven/(1 - q)) < 1 for every bounded-ballast witness (gamma(1) = 0.9996167824561802; gamma(10) = 0.9999601706097895 uniform over the whole carried p = 999983 grid class), so no bounded-ballast MAJ family reaches phi = 1 and any phi -> 1 family must carry unboundedly many occupied odd blocks with vanishing ell-2 but fixed ell-1 (~0.0205) ballast. COROLLARY PP adds the parity-pure caps phi <= 1/2 (even) and q/2 (odd). HONEST: constants unoptimized (gamma sits far above the measured class sup phi = 0.3572); BW is vacuous-side at every exhibited in-class witness; conditional exactly as THEOREM OD; new sub-gap imp-95172-subgap-mB-uniform-ballast named. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ──────────────────────────
@@ -514,12 +513,12 @@ export const IMP95172_BNT_ASSERTIONS = [
   {
     id: "imp95172-bnt-honesty-gate",
     description:
-      "the verdict scopes the conditionality (exactly as THEOREM OD), names the delivered sub-gap and the new m_B-uniform successor, records the vacuous-side status at exhibited witnesses and the unoptimized-constant gap, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict scopes the conditionality (exactly as THEOREM OD), names the delivered sub-gap and the new m_B-uniform successor, records the vacuous-side status at exhibited witnesses and the unoptimized-constant gap, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95172_BALLAST_NECESSITY_TRADEOFF.promotesBound === false &&
       IMP95172_BALLAST_NECESSITY_TRADEOFF.openResiduals.length === 5 &&
       /NO QED/.test(IMP95172_BALLAST_NECESSITY_TRADEOFF.verdict) &&
-      /remains SOTA/.test(IMP95172_BALLAST_NECESSITY_TRADEOFF.verdict) &&
+      /refereed bound is changed/i.test(IMP95172_BALLAST_NECESSITY_TRADEOFF.verdict) &&
       /Floors and ceilings untouched/.test(IMP95172_BALLAST_NECESSITY_TRADEOFF.verdict) &&
       /mB-uniform-ballast/.test(IMP95172_BALLAST_NECESSITY_TRADEOFF.subGap) &&
       /conditional exactly as THEOREM OD/.test(IMP95172_BALLAST_NECESSITY_TRADEOFF.rigorScope) &&

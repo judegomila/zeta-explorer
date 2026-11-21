@@ -86,12 +86,12 @@ export const IMP34018_ISRIGOROUS_SHAPE_NORMALIZATION_ASSESSMENT = Object.freeze(
     'ASSESSMENT ONLY (meta, frontier-direction, NOT rigorous). Recommends documenting the 3-way ' +
     'isRigorous-field shape split as an intentional reflection of each module\'s structural role ' +
     '(fresh claim / rollup / viz-caveat), not a defect to retrofit. Does not modify any of the five ' +
-    'audited modules. No bound changed; imp-3066 K_a>=0 untouched; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'audited modules. No bound changed; imp-3066 K_a>=0 untouched; NO QED. No refereed bound is changed' +
+    '.',
   honest:
     'ASSESSMENT-ONLY -- this module records a recommendation, not a permanent shape change to any ' +
-    'of the five cohort modules or to imp-33997\'s audit. Platt-Trudgian Lambda <= 0.2 stays the ' +
-    'rigorous SOTA.',
+    'of the five cohort modules or to imp-33997\'s audit. No refereed bound is changed' +
+    '.',
 });
 
 export const IMP34018_ISRIGOROUS_SHAPE_NORMALIZATION_ASSESSMENT_ASSERTIONS = [
@@ -115,11 +115,11 @@ export const IMP34018_ISRIGOROUS_SHAPE_NORMALIZATION_ASSESSMENT_ASSERTIONS = [
   },
   {
     id: 'imp34018-honesty-gate-assessment-only-no-qed',
-    description: 'assessment-only framing, NO QED, PT SOTA line present',
+    description: 'assessment-only framing, NO QED, no-refereed-bound-change line present',
     holds: () =>
       /ASSESSMENT-ONLY/.test(IMP34018_ISRIGOROUS_SHAPE_NORMALIZATION_ASSESSMENT.honest) &&
       /NO QED/.test(IMP34018_ISRIGOROUS_SHAPE_NORMALIZATION_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP34018_ISRIGOROUS_SHAPE_NORMALIZATION_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP34018_ISRIGOROUS_SHAPE_NORMALIZATION_ASSESSMENT.verdict),
   },
 ];
 

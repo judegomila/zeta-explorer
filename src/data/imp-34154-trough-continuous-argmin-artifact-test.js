@@ -72,8 +72,7 @@
  * log-linear-vs-power-law form selection (the imp-33843 log-linear verdict is untouched). The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate is
  * descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34085-trough-peak-ratio-convergence (the R3 stall-then-jump argmin tested here)
  * @see imp-34153-trough-peak-perstep-crossover-locate (the finer-grid per-step amplitude companion)
@@ -307,7 +306,7 @@ export const IMP34154_TROUGH_CONTINUOUS_ARGMIN_ARTIFACT_TEST = {
     'untouched. The OLS surrogate is descriptive, not derived; the component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34085 (the R3 stall-then-jump argmin tested here); imp-34153 (finer-grid per-step amplitude ' +
     'companion); imp-33843 (the log-linear OLS whose residual argmin is located); imp-33810 (the k=6..11 ' +
@@ -363,14 +362,14 @@ export const IMP34154_TROUGH_CONTINUOUS_ARGMIN_ARTIFACT_TEST_ASSERTIONS = [
       stallIsDiscretizationArtifact === true,
   },
   {
-    // Honesty gate: artifact verdict, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: artifact verdict, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34154-honesty-gate-no-qed',
-    description: 'Measurement only: stallIsDiscretizationArtifact true, isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Measurement only: stallIsDiscretizationArtifact true, isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34154_TROUGH_CONTINUOUS_ARGMIN_ARTIFACT_TEST.stallIsDiscretizationArtifact === true &&
       IMP34154_TROUGH_CONTINUOUS_ARGMIN_ARTIFACT_TEST.isRigorous === false &&
       /NO QED/.test(IMP34154_TROUGH_CONTINUOUS_ARGMIN_ARTIFACT_TEST.verdict) &&
-      /remains SOTA/.test(IMP34154_TROUGH_CONTINUOUS_ARGMIN_ARTIFACT_TEST.verdict) &&
+      /refereed bound is changed/i.test(IMP34154_TROUGH_CONTINUOUS_ARGMIN_ARTIFACT_TEST.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34154_TROUGH_CONTINUOUS_ARGMIN_ARTIFACT_TEST.verdict),
   },
 ];

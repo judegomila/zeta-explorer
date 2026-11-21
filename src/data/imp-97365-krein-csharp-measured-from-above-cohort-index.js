@@ -73,7 +73,7 @@
  *
  *   STATUS: a grouping/index note over six already-completed tickets, not a new derivation. No
  *   bound changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-97161-krein-concentration-lower-bound-assessment.js (pins the extremal object; rejects Beurling-Selberg/flat-Slepian)
  * @see imp-97182-krein-fejer-riesz-margin-factorisation-attempt.js (SOS factorisation attempt; margin equals c_sharp itself)
@@ -84,7 +84,7 @@
  * @see imp-97201-krein-debranges-coercivity-concentration-cohort-index.js (sibling cohort index: same c_sharp object, earlier scoping/reformulation tickets)
  *
  * Ticket: imp-97365 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- the binding 2a for the Krein floor
@@ -176,7 +176,7 @@ export const IMP97365_KREIN_CSHARP_MEASURED_FROM_ABOVE_COHORT_INDEX = Object.fre
     'EXACTLY 2a<=0.96, unchanged by this whole cohort. Future work on this thread should treat the ' +
     '~0.582 extrapolants as suggestive, not certified, and should not mistake the imp-97206/imp-97335 ' +
     'positive-looking numbers for a proof. Establishes nothing new; moves no bound; RH open; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97161 (extremal-object pinning + tool assessment); imp-97182 (Fejer-Riesz factorisation ' +
     'attempt); imp-97183 (extended-precision ladder); imp-97206 (coupled N,T joint-limit); imp-97335 ' +
@@ -221,11 +221,11 @@ export const IMP97365_KREIN_CSHARP_MEASURED_FROM_ABOVE_COHORT_INDEX_ASSERTIONS =
   },
   {
     id: 'imp97365-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97365_KREIN_CSHARP_MEASURED_FROM_ABOVE_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97365_KREIN_CSHARP_MEASURED_FROM_ABOVE_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97365_KREIN_CSHARP_MEASURED_FROM_ABOVE_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97365_KREIN_CSHARP_MEASURED_FROM_ABOVE_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP97365_KREIN_CSHARP_MEASURED_FROM_ABOVE_COHORT_INDEX.verdict),
   },
 ];

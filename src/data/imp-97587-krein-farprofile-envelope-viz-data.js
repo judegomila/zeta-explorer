@@ -12,8 +12,8 @@
  * re-derived here) evaluated at R = imp-97497's tail-converged optimum
  * R* = 3.36; the peak-validation ratios and t-values are baked verbatim from
  * imp-97497's prose measurement. Establishes no operator positivity; changes
- * no bound; interval-rigorous certified reach stays 2a<=0.96; Platt-Trudgian
- * Lambda<=0.2 remains SOTA; RH open; NO QED.
+ * no bound; interval-rigorous certified reach stays 2a<=0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97518-krein-tail-endpoint-asymptotic-closed-form.js (gppEdge, gpppEdge, biasRelCoeff closed forms)
  * @see imp-97497-krein-welloptimum-tail-converged.js (R* = 3.36; peak-validation ratios 0.9969/0.9992/0.9999)

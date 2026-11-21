@@ -8,7 +8,7 @@
  *   state of those inputs and reconciles that booking with the imp-2563 data
  *   work. ASSESSMENT/AUDIT ONLY: it derives NO bound, closes NO leg, fires NO
  *   certificate, and does NOT re-point any consumer. R_A remains OPEN and
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no refereed bound is changed.
  *
  *   THE TWO LADDER INPUTS UNDER AUDIT
  *   -----------------------------------------------
@@ -69,7 +69,7 @@
  *   all. This is a provenance/stability AUDIT: it moves NO bound, closes NO leg
  *   (R_A stays open via parts b/c and the high-N residual), and even a fully
  *   audited ladder is INERT for Lambda while imp-2621 (refuted amplified rate)
- *   and imp-35164 (E(N) does not vanish) stand. NO QED. PT Lambda <= 0.2 SOTA.
+ *   and imp-35164 (E(N) does not vanish) stand. NO QED. No refereed bound is changed.
  *
  * @see src/data/imp-95372-ra-proxy-true-gap-assessment.js (parent: R_A three
  *   questions; books part (a) as the Odlyzko data audit)
@@ -80,8 +80,7 @@
  * @see src/data/imp-2603-imp1149-meanfield-proxy-regrade.js (Theorem-3 re-grade)
  *
  * Ticket: imp-95448 (accuracy, medium). Audit only; establishes no new bound;
- * closes no leg; fires no certificate; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * closes no leg; fires no certificate; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -204,8 +203,8 @@ export const IMP95448_RA_LADDER_INPUT_DATA_AUDIT = Object.freeze({
     'all. This is a provenance/stability audit: it moves NO bound, closes NO ' +
     'leg (R_A stays open via parts b/c and the high-N residual), and even a ' +
     'fully audited ladder is INERT for Lambda while imp-2621 (refuted amplified ' +
-    'rate) and imp-35164 (E(N) does not vanish) stand. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'rate) and imp-35164 (E(N) does not vanish) stand. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95372-ra-proxy-true-gap-assessment.js (parent, books part a); ' +
     'imp-2563-zeta-zeros-corruption-audit.js (corruption detection + repair); ' +
@@ -303,13 +302,13 @@ export const IMP95448_RA_LADDER_INPUT_DATA_AUDIT_ASSERTIONS = [
   {
     id: 'imp95448-honesty-gate-no-qed',
     why:
-      'Audit only: no enclosure established, leg still open, PT SOTA line ' +
+      'Audit only: no enclosure established, leg still open, no-refereed-bound-change line ' +
       'present, scopes part (a) and glosses imp-95372.',
     holds: () => {
       const a = IMP95448_RA_LADDER_INPUT_DATA_AUDIT;
       return (
         a.anyEnclosureEstablished === false &&
-        /remains SOTA/.test(a.verdict) &&
+        /refereed bound is changed/i.test(a.verdict) &&
         a.glosses === 'imp-95372' &&
         /R_A/.test(a.legStillOpen) &&
         /part \(a\)/.test(a.scopes)

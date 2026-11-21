@@ -55,7 +55,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the
  * C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED and
  * appear only symbolically as differentiation axes; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124850-pairratio-drift-slope-fit (the single-eps OLS P = D*|E_CF| + R slope fit reused verbatim here)
  * @see imp-124836-invariant-product-discriminator-general-test (the tau-vs-D eps-scaling disambiguator applied here)
@@ -281,7 +281,7 @@ export const IMP124868_TWOEPS_TAU_DRIFT_SPLIT = {
     'on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are ' +
     'UNTOUCHED (perturbed only symbolically as differentiation axes); changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124850 (the single-eps OLS P = D*|E_CF| + R slope fit reused verbatim); imp-124836 (the tau-vs-D ' +
     'eps-scaling disambiguator applied here); imp-124811 (the L2..L7 P = |reldiff|*|E_CF| ladder + single-rung cap); ' +
@@ -335,13 +335,13 @@ export const IMP124868_TWOEPS_TAU_DRIFT_SPLIT_ASSERTIONS = [
     holds: () => Math.abs(D_TRUE) < 2 * SE_SPLIT,
   },
   {
-    // Honesty gate: numerical/cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: numerical/cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124868-honesty-gate-no-qed',
-    description: 'Numerical/cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Numerical/cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124868_TWOEPS_TAU_DRIFT_SPLIT.isRigorous === false &&
       /NO QED/.test(IMP124868_TWOEPS_TAU_DRIFT_SPLIT.verdict) &&
-      /remains SOTA/.test(IMP124868_TWOEPS_TAU_DRIFT_SPLIT.verdict),
+      /refereed bound is changed/i.test(IMP124868_TWOEPS_TAU_DRIFT_SPLIT.verdict),
   },
 ];
 

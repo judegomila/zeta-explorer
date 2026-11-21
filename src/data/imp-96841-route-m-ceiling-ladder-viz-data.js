@@ -58,7 +58,7 @@ export const IMP96841_LANDMARKS = Object.freeze({
 });
 
 export const IMP96841_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every ceiling value and ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every ceiling value and ' +
   'every adjacency ratio plotted here is copied verbatim from imp-96693 and imp-96793 (which ' +
   'itself copies imp-96693 unchanged); the only new arithmetic is the plot-ready reshaping and ' +
   'the per-leg fit-vs-flat-proxy gap. Only the trace ceiling T=2.594e7 is a rigorous lower ' +

@@ -64,7 +64,7 @@
  *
  *   Measurement only; pins NO coefficient value for the analytic curvature; no bound moves; the only
  *   rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by
- *   >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97464-twoterm-curvature-crossover-underdetermined -- the two-term model
  *   r = c2 x^2 + c3 x^3 does not reproduce x*(eps) at any tolerance because the smooth curvature is
@@ -226,7 +226,7 @@ export const IMP97464_VERDICT = Object.freeze({
     'smooth curvature being sub-wobble and (ii) the 5% crossover x*=0.945 lying far outside any ' +
     'small-x fit window (a~b symmetry peak of I(a,b)=I(b,a) governs, not local curvature). ' +
     'Measurement only; no coefficient pinned; the rigorous anchor stays T = 2.594e7; compute N ~ 9916 ' +
-    'binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'binds first by >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97464_SUBGAP = Object.freeze({
@@ -246,7 +246,7 @@ export const IMP97464_SUBGAP = Object.freeze({
 });
 
 export const IMP97464_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the two-term curvature model ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the two-term curvature model ' +
   'r(x) = c2 x^2 + c3 x^3 does NOT reproduce the imp-97441 four-tolerance crossover table ' +
   '(0.09988/0.16650/0.33131/0.94481). The smooth curvature is buried below the V(b,a) wobble ' +
   '(signal/wobble 0.029 at b=40000, 0.046 at b=1000), so (c2,c3) are undetermined and sign-swinging ' +
@@ -328,7 +328,7 @@ const IMP97464_ASSERTIONS = [
       IMP97464_VERDICT.failsWorseThanOneTerm === true &&
       IMP97464_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97464_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97464_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97464_HONEST_BANNER) &&
       /RH open/.test(IMP97464_HONEST_BANNER) &&
       /twoterm-curvature-crossover-underdetermined/.test(IMP97464_SUBGAP.id),
   },

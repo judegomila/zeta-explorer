@@ -47,8 +47,7 @@
  *   ratio only climbs as BOTH the trace and the numerator are released. The
  *   attribution split 1.006x / 1.025x / 1.66x is confirmed: the det-over-tr
  *   step is near-vacuous in the reachable regime and the 1.66x lived at the
- *   unreachable true (B, C). No bound is changed. NO QED; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   unreachable true (B, C). No bound is changed. NO QED; no refereed bound is changed.
  *
  *   HONEST SCOPE
  *   -----------------------------------------------
@@ -275,7 +274,7 @@ export const IMP95359_DETTR_ATTRIBUTION_CROSSVAL = {
     'discriminant coupling B^2 - A C: the ratio climbs only as both trace ' +
     'and numerator are released. The imp-95331 refutation of the imp-95330 ' +
     'attribution is reproduced independently. Cross-validation only; changes ' +
-    'no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no bound; NO QED; no refereed bound is changed.',
 };
 
 const IMP95359_DETTR_ATTRIBUTION_CROSSVAL_ASSERTIONS = [
@@ -336,11 +335,11 @@ const IMP95359_DETTR_ATTRIBUTION_CROSSVAL_ASSERTIONS = [
   {
     id: 'imp95359-honesty-gate-no-qed',
     why:
-      'Cross-validation only: no enclosure established, PT SOTA line ' +
+      'Cross-validation only: no enclosure established, no-refereed-bound-change line ' +
       'present, scope glosses the single finding being checked.',
     holds: () =>
       IMP95359_DETTR_ATTRIBUTION_CROSSVAL.anyEnclosureEstablished === false &&
-      /remains SOTA/.test(IMP95359_DETTR_ATTRIBUTION_CROSSVAL.verdict) &&
+      /refereed bound is changed/i.test(IMP95359_DETTR_ATTRIBUTION_CROSSVAL.verdict) &&
       IMP95359_DETTR_ATTRIBUTION_CROSSVAL.glosses === 'imp-95331',
   },
 ];

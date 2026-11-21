@@ -179,8 +179,7 @@
  * The numerics below CROSS-CHECK the lemma statements; they are not the
  * claim. Import-light (no heavy bundle; imports only the three sibling
  * verdict modules for carried constants). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 import BNT from "./imp-95172-ballast-necessity-tradeoff.js";
@@ -302,7 +301,7 @@ export const IMP95210_SEAM_MASS_LOCALIZATION_CAP = {
     "THEOREM SL is an unconditional Hilbert-space inequality GIVEN H-LOC (partition split + Cauchy-Schwarz + monotone sine; fully proved in the header). THEOREM SL-CAP and COROLLARY GC-SL are conditional exactly as THEOREM OV (the carried MAJ per-pair caps + per-class Lemma SW + THEOREM BU) PLUS the new named hypothesis H-LOC; the optimization algebra, the interiority proof (1 - 2q + g^2 > 0) and the uniqueness argument (strictly decreasing auxiliary function, as in imp-95209) are unconditional. LEMMA SP and LEMMA NG are unconditional statements about the model class (exact integrals, divided-difference closure membership, incomplete-gamma identities). H-LOC itself is NOT proved for the paper packets and every conditional statement names it. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step: the block-to-support geometry demanded by imp-95209-subgap-seam-localized-overlap is pinned to a precise minimal hypothesis and priced exactly. H-LOC(thetaE, thetaO) -- per-parity cross-seam mass localization over a measurable partition -- yields THEOREM SL: |<U, V>| <= g A B, g = thetaE sqrt(1 - thetaO^2) + thetaO sqrt(1 - thetaE^2) < 1; pushing g through the imp-95209 relaxation gives the closed-form cap PhiSL and the global cap gammaSL(g) = PhiSL(omegaStarSL(g)) with omegaStarSL always interior (1 - 2q + g^2 > 0), gammaSL(1) = gammaOV exactly, and gammaSL = 1/2 + g^2/2 + O(1/kappa): under the mu d = 2 localization profile the bump 0.9995949885454457 collapses to 0.5181405611163133. The insufficiency side is settled rigorously: LEMMA NG shows a center-collar hypothesis alone CANNOT supply H-LOC -- rate-dressed packets in the class closure (divided differences, exact incomplete-gamma cross-seam fraction Qbar(2k+1, 2 mu d)/2 -> 1/2) already violate every theta^2 > 1/2 at finite stage in-class (7-node witness 0.49999999888291247 vs plain-packet 0.27440581804701325) -- so the paper import must cap per-block rate dressing (mass), not center positions, sharpening exactly what the dyadic dictionary has to supply. HONEST: H-LOC is a hypothesis, not verified for the paper packets (successor sub-gap imp-95210-subgap-hloc-from-dyadic-support); far-branch cap deliberately loosened; whether non-mass routes beat H-COL alone stays open; model-family constants; cap not proved attained; the measured class sup phi = 0.3572 is untouched. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step: the block-to-support geometry demanded by imp-95209-subgap-seam-localized-overlap is pinned to a precise minimal hypothesis and priced exactly. H-LOC(thetaE, thetaO) -- per-parity cross-seam mass localization over a measurable partition -- yields THEOREM SL: |<U, V>| <= g A B, g = thetaE sqrt(1 - thetaO^2) + thetaO sqrt(1 - thetaE^2) < 1; pushing g through the imp-95209 relaxation gives the closed-form cap PhiSL and the global cap gammaSL(g) = PhiSL(omegaStarSL(g)) with omegaStarSL always interior (1 - 2q + g^2 > 0), gammaSL(1) = gammaOV exactly, and gammaSL = 1/2 + g^2/2 + O(1/kappa): under the mu d = 2 localization profile the bump 0.9995949885454457 collapses to 0.5181405611163133. The insufficiency side is settled rigorously: LEMMA NG shows a center-collar hypothesis alone CANNOT supply H-LOC -- rate-dressed packets in the class closure (divided differences, exact incomplete-gamma cross-seam fraction Qbar(2k+1, 2 mu d)/2 -> 1/2) already violate every theta^2 > 1/2 at finite stage in-class (7-node witness 0.49999999888291247 vs plain-packet 0.27440581804701325) -- so the paper import must cap per-block rate dressing (mass), not center positions, sharpening exactly what the dyadic dictionary has to supply. HONEST: H-LOC is a hypothesis, not verified for the paper packets (successor sub-gap imp-95210-subgap-hloc-from-dyadic-support); far-branch cap deliberately loosened; whether non-mass routes beat H-COL alone stays open; model-family constants; cap not proved attained; the measured class sup phi = 0.3572 is untouched. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ──────────────────────────
@@ -531,12 +530,12 @@ export const IMP95210_SML_ASSERTIONS = [
   {
     id: "imp95210-sml-honesty-gate",
     description:
-      "the verdict names H-LOC as an unverified hypothesis, records the conditional collapse gammaOV -> gammaSL, the insufficiency lemma, the surviving sub-gap imp-95210-subgap-hloc-from-dyadic-support, and the untouched ledger; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names H-LOC as an unverified hypothesis, records the conditional collapse gammaOV -> gammaSL, the insufficiency lemma, the surviving sub-gap imp-95210-subgap-hloc-from-dyadic-support, and the untouched ledger; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95210_SEAM_MASS_LOCALIZATION_CAP.promotesBound === false &&
       IMP95210_SEAM_MASS_LOCALIZATION_CAP.openResiduals.length === 5 &&
       /NO QED/.test(IMP95210_SEAM_MASS_LOCALIZATION_CAP.verdict) &&
-      /remains SOTA/.test(IMP95210_SEAM_MASS_LOCALIZATION_CAP.verdict) &&
+      /refereed bound is changed/i.test(IMP95210_SEAM_MASS_LOCALIZATION_CAP.verdict) &&
       /Floors and ceilings untouched/.test(IMP95210_SEAM_MASS_LOCALIZATION_CAP.verdict) &&
       /not verified for the paper packets/.test(IMP95210_SEAM_MASS_LOCALIZATION_CAP.verdict) &&
       /hloc-from-dyadic-support/.test(IMP95210_SEAM_MASS_LOCALIZATION_CAP.subGap) &&

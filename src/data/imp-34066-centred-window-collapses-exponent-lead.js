@@ -52,7 +52,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34006-pointwise-vs-window-exponent-cross-tabulation (F3: START-window lead ~half span; crossings 1e44.17 / 1e436.06)
  * @see imp-34065-window-span-scaling-of-exponent-offset (lead tracks S/2 decades across spans; centroid mechanism)
@@ -229,7 +229,7 @@ export const IMP34066_CENTRED_WINDOW_COLLAPSES_EXPONENT_LEAD = {
     'was a start-vs-centre anchoring artifact. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34006 (F3 START-window lead ~half span; crossings 1e44.17 / 1e436.06); imp-34065 (lead ' +
     'tracks S/2 decades across spans; centroid mechanism); imp-33816 (POINTWISE gap law ~1/(2 log ' +
@@ -290,14 +290,14 @@ export const IMP34066_CENTRED_WINDOW_COLLAPSES_EXPONENT_LEAD_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement/fit only, all estimators approach the imp-3463 1/2 asymptote,
-    // no QED, PT stays SOTA.
+    // no QED, no refereed bound is changed.
     id: 'imp34066-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP34066_CENTRED_WINDOW_COLLAPSES_EXPONENT_LEAD.isRigorous === false &&
       IMP34066_CENTRED_WINDOW_COLLAPSES_EXPONENT_LEAD.farTailExponent === 0.5 &&
       /NO QED/.test(IMP34066_CENTRED_WINDOW_COLLAPSES_EXPONENT_LEAD.verdict) &&
-      /remains SOTA/.test(IMP34066_CENTRED_WINDOW_COLLAPSES_EXPONENT_LEAD.verdict),
+      /refereed bound is changed/i.test(IMP34066_CENTRED_WINDOW_COLLAPSES_EXPONENT_LEAD.verdict),
   },
 ];
 

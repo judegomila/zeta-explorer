@@ -38,7 +38,7 @@
  *
  * SCOPE. Pure content synthesis; every cited number is reproduced verbatim from imp-96935 / imp-96938;
  * no new computation, no bound moved. The interval-rigorous certificate reach stays exactly 2a<=0.96;
- * operator positivity for 0.96 < 2a < ln3 stays OPEN; Platt-Trudgian Lambda<=0.2 remains SOTA; RH
+ * operator positivity for 0.96 < 2a < ln3 stays OPEN; no refereed bound is changed; RH
  * open; NO QED.
  *
  * @see imp-96935-krein-shift-drift-sensitivity.js (shift-invariance closure)
@@ -75,7 +75,7 @@ export const IMP96965_VERDICT = Object.freeze({
   driftIsPositivitySignal: false,
   operatorPositivityProved: false,
   intervalRigorousReachUnchanged: 0.96,
-  subGap: 'IMP96965_BOUNDED_RESOLVENT_DRIFT_IS_TRUNCATION_ARTIFACT_NOT_POSITIVITY_SIGNAL -- the imp-96911 coupled-(N,T) Ritz floor drift at 2a=ln3 is shift-invariant (imp-96935: ~0.13 drift, 2.06% spread across a 128x shift change) and scheme-generic (imp-96938: identical sign structure at the certified-positive 2a=0.96 endpoint, where the floor stays >= 12.0 throughout); jointly these rule out reading the drift as evidence for or against lambda_1(ln3) positivity -- it is a truncation-scheme artifact, and only the absolute floor margin (not its drift) distinguishes settled from open endpoints. Interval-rigorous certificate reach stays 2a<=0.96; operator positivity for 0.96 < 2a < ln3 stays OPEN; RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.',
+  subGap: 'IMP96965_BOUNDED_RESOLVENT_DRIFT_IS_TRUNCATION_ARTIFACT_NOT_POSITIVITY_SIGNAL -- the imp-96911 coupled-(N,T) Ritz floor drift at 2a=ln3 is shift-invariant (imp-96935: ~0.13 drift, 2.06% spread across a 128x shift change) and scheme-generic (imp-96938: identical sign structure at the certified-positive 2a=0.96 endpoint, where the floor stays >= 12.0 throughout); jointly these rule out reading the drift as evidence for or against lambda_1(ln3) positivity -- it is a truncation-scheme artifact, and only the absolute floor margin (not its drift) distinguishes settled from open endpoints. Interval-rigorous certificate reach stays 2a<=0.96; operator positivity for 0.96 < 2a < ln3 stays OPEN; RH open; no refereed bound is changed; NO QED.',
   qed: false,
 });
 export default IMP96965_VERDICT;

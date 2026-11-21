@@ -33,7 +33,7 @@
  * consumer of CF_BAND_HI anywhere in src/ cites the superseded 1.29615 pin (or the 1.914x / 6.1-8.6x
  * intermediates) as the current honest value, and the one completeness gap imp-95769 flagged has
  * since been closed. This audit changes no bound, establishes no operator positivity, and asserts no
- * QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO heavy imports.
+ * QED; no refereed bound is changed. NO heavy imports.
  */
 
 const CF_BAND_HI_PINNED = 1.29615;   // imp-95691 geometric-mean estimate, retained for numeric stability
@@ -74,7 +74,7 @@ export const IMP95894_CF_BAND_HI_PIN_CITATION_AUDIT = Object.freeze({
     + 'CF_BAND_HI value. The imp-95754 viz-data module and its rendering page now include the imp-95747 '
     + '9.5831x / minGap -0.184642 landmark that imp-95769 had flagged as missing, closing that '
     + 'completeness gap. Citation/consistency audit only; changes no bound; establishes no operator '
-    + 'positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED',
+    + 'positivity; no refereed bound is changed; NO QED',
   source: 'imp-95769 (prior audit), imp-95754 (viz, gap now closed), imp-95713 + imp-95797 (glossary headwords)',
   sites: SITES,
   verdict: Object.freeze({
@@ -86,7 +86,7 @@ export const IMP95894_CF_BAND_HI_PIN_CITATION_AUDIT = Object.freeze({
   }),
   caveats:
     'Static re-enumeration with carried literals only; no re-derivation of any box-min gap or reach '
-    + 'multiplier. Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    + 'multiplier. No refereed bound is changed; NO QED.',
 });
 
 export const IMP95894_CF_BAND_HI_PIN_CITATION_AUDIT_ASSERTIONS = Object.freeze([
@@ -112,10 +112,10 @@ export const IMP95894_CF_BAND_HI_PIN_CITATION_AUDIT_ASSERTIONS = Object.freeze([
     holds: () => CF_BAND_HI_PINNED < CF_CONVERGED,
   },
   {
-    name: 'honest: audit only, no bound moved, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: audit only, no bound moved, no refereed bound is changed, NO QED',
     holds: () =>
       /changes no bound/.test(IMP95894_CF_BAND_HI_PIN_CITATION_AUDIT.status)
-      && /Platt-Trudgian Lambda <= 0.2 remains SOTA/.test(IMP95894_CF_BAND_HI_PIN_CITATION_AUDIT.status)
+      && /refereed bound is changed/i.test(IMP95894_CF_BAND_HI_PIN_CITATION_AUDIT.status)
       && /NO QED/.test(IMP95894_CF_BAND_HI_PIN_CITATION_AUDIT.status),
   },
 ]);

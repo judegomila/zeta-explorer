@@ -108,8 +108,7 @@ export default function Imp95273ThetaVacuityDistributionViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement-only
         page tabulating where representative signed seam families sit relative to the
         imp-95233 PHASE-CERT vacuity boundary. It changes no bound and establishes no
-        operator positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the
-        art. RH does not follow from anything on this page. NO QED.
+        operator positivity. RH does not follow from anything on this page. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -164,8 +163,7 @@ export default function Imp95273ThetaVacuityDistributionViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming
         the imp-95273 baked distribution (recomputed by Simpson quadrature and
         cross-checked against the imp-95233 exact closed forms to 2e-3 relative).
-        Changes no bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        Changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

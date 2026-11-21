@@ -32,14 +32,14 @@
  *   ------------------------
  *   A presentation/reshaping module. It establishes nothing new: every number is imported
  *   verbatim from imp-96853, and the only new computation is the explicit z-shift
- *   subtraction. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ *   subtraction. NO QED. No refereed bound is changed; RH open.
  *
  * @see imp-96853-vif-twosided-envelope-partition-assessment.js (source: all three VIF levels)
  * @see imp-96628-boxsine-lagcorr-ibp-envelope (the certified two-sided C(k)/L^2 envelope)
  * @see imp-96593-vif-exact-tail-rigor-upgrade-assessment.js (residual obstruction after imp-96853)
  *
  * Ticket: imp-96887 (content, low, sonnet-4-6). Presentation only; no bound moved; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP96853_VIF_TWOSIDED_ENVELOPE_PARTITION_ASSESSMENT } from './imp-96853-vif-twosided-envelope-partition-assessment.js';
@@ -104,7 +104,7 @@ export const IMP96887_VIF_CROSSVAL_TABLE = {
     'essentially indistinguishable from the actual value. Presentation/reshaping only; every figure is ' +
     'imported verbatim from imp-96853; no bound moved; conditional on the GUE sine kernel / Montgomery ' +
     'pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
 };
 
 export default IMP96887_VIF_CROSSVAL_TABLE;
@@ -138,8 +138,8 @@ export default IMP96887_VIF_CROSSVAL_TABLE;
   // honesty gates
   if (!/NO QED/.test(IMP96887_VIF_CROSSVAL_TABLE.verdict))
     throw new Error('imp-96887: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96887_VIF_CROSSVAL_TABLE.verdict))
-    throw new Error('imp-96887: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96887_VIF_CROSSVAL_TABLE.verdict))
+    throw new Error('imp-96887: verdict dropped the no-refereed-bound-change banner');
   if (!/RH open/.test(IMP96887_VIF_CROSSVAL_TABLE.verdict))
     throw new Error('imp-96887: verdict dropped the RH-open banner');
 })();

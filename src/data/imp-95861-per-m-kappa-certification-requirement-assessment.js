@@ -62,7 +62,7 @@
  * all m at once; the independent route discharges it modulus-by-modulus.
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound;
- * NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports.
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3, eqs (6.11)-(6.26). SCRATCH: none (assessment reuses
  * the imp-95842 baked reconstruction values and m-free structure).
@@ -116,8 +116,8 @@ export const PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT = Object.freeze({
     + 'equals Sun Prop-6.3 for all m -- discharges the conditionality unconditionally and scales to an '
     + 'open-ended sweep). RESIDUAL CONDITIONALITY = a SINGLE hypothesis (integrand-faithfulness at '
     + 'm>20) attached identically to each modulus, verified only at m=20; NOT a quadrature caveat '
-    + '(that is PIECE B, already ~1e-11). G irrationality OPEN; Sun unrefereed; changes no bound; PT '
-    + 'Lambda<=0.2 SOTA; NO QED',
+    + '(that is PIECE B, already ~1e-11). G irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed'
+    + '; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26)',
   builtOn:
@@ -241,7 +241,7 @@ export const PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT = Object.freeze({
     + 'transport-route description above is the m-free QUALITATIVE structure only for curvature/const '
     + 'sector/offset -- the raw CELL COUNT itself grows with m (breakpoint set B (6.24) has O(m) '
     + 'points), so 238 is specifically the m=20 value, not an m-free constant. Catalan G irrationality '
-    + 'OPEN; Sun single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'OPEN; Sun single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT_ASSERTIONS = Object.freeze([
@@ -320,7 +320,7 @@ export const PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT_ASSERTIONS = Objec
     holds: () =>
       /PIECE A/.test(PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT.verdict.bindingShortfall)
       && /G irrationality OPEN/.test(PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT.status)
-      && /PT Lambda<=0.2 SOTA/.test(PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT.status)
+      && /refereed bound is changed/i.test(PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT.status)
       && /NO QED/.test(PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT.status),
   },
 ]);

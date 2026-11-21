@@ -43,7 +43,7 @@
  *   stays transcendental), and the convergence remains an EMPIRICAL Cauchy/O(H^2) observation over
  *   a finite ladder N <= 9600, not an analytic quadrature error bound. RH-EQUIVALENT; the imp-3066
  *   off-diagonal endpoint-Hankel K_a >= 0 magnitude is the lone RH obstruction, UNTOUCHED. NO RH
- *   verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   verdict, NO QED. No refereed bound is changed.
  *
  *   CAVEAT (imp-3647): the argmax-drift-0 discriminator used above is decisive ONLY because every
  *   rung here (N >= 1200) sits above the imp-3582 worst-case floor N_replica ~ 764. imp-3647 shows
@@ -232,7 +232,7 @@ export const IMP3558_FAR_TAIL_BAND_MAX_GRID_LADDER_N9600 = Object.freeze({
     '< 1% (~1.850e-4) and the band maxima decay MONOTONICALLY at every rung, with the peak converging (~6.5894e-5, ' +
     'spread ~4e-8, O(H^2)). So the imp-3511 far-tail bound survives another octave of refinement. ' +
     'Measurement/certification only; RH-equivalent; the imp-3066 K_a >= 0 magnitude is the lone obstruction, ' +
-    'UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     objective: 'sup_xi |P1(xi)|, P1 = dP/dxi, P(xi) = |Phihat(xi)|^2 = C^2 + S^2 (the peak slope behind ||Ttilde||)',
@@ -334,7 +334,7 @@ export const IMP3558_FAR_TAIL_BAND_MAX_GRID_LADDER_N9600 = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -408,7 +408,7 @@ export const IMP3558_FAR_TAIL_BAND_MAX_GRID_LADDER_N9600_ASSERTIONS = [
     why: 'Mandatory honesty: extends the imp-3511 TAIL bound by one doubling but NOT a closed form (equation ' +
       'transcendental), the convergence is empirical over a finite ladder, the tail bound is a monotone-decay ' +
       'argument not an analytic no-root proof, sub-Nyquist only, measures the ratio not positivity, RH-equivalent, ' +
-      'PT 0.2 stays SOTA. Any flip over-claims.',
+      'no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3558_FAR_TAIL_BAND_MAX_GRID_LADDER_N9600.honestCaveat;
       return (
@@ -420,7 +420,7 @@ export const IMP3558_FAR_TAIL_BAND_MAX_GRID_LADDER_N9600_ASSERTIONS = [
         typeof c.convergenceIsEmpirical === 'string' &&
         typeof c.finiteDomainStillFinite === 'string' &&
         typeof c.subNyquistOnly === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

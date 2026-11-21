@@ -23,7 +23,7 @@
  * changes no bound; establishes no operator positivity; no RH verdict, NO QED. The
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631)
  * and C_mb GUE-conditional (imp-486) are UNTOUCHED. imp-35337a stays OPEN.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * WHAT THE SPOT-CHECK CAN CERTIFY
  * -----------------------------------------------------------------------------
@@ -63,7 +63,7 @@
  * (imp-35488b), the missing second anchored height (imp-35488a) and the
  * full-support GUE law (imp-486) all remain OPEN. imp-35337a stays OPEN; C_mb
  * GUE-conditional; assessment/scoping only, changes no bound, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35488-route-ii-two-height-gtrue-spotcheck (the executed route-(ii) partial this module scopes)
  * @see imp-35652-req3-option-a-restricted-support-surrogate-scope (eliminated route-(i) option-(a); named route-(ii) as the sole viable partial)
@@ -74,7 +74,7 @@
  */
 
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // (1/8) sqrt(3 pi) ~ 0.38374752 (imp-2642/imp-2643 ansatz)
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any route-(ii) scoping)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any route-(ii) scoping)
 
 // The two route-(ii) landmark heights (imp-35488), taken as given.
 const N_PEAK = 9.2186e5; // interior flat-cap sigma PEAK -- the ONE in-repo-reachable height
@@ -152,8 +152,8 @@ export const IMP35672_ROUTE_II_GTRUE_SPOTCHECK_SCOPE = {
     'imp-35337a and does NOT degrade its openness -- it merely spot-confirms. imp-35488a/imp-35488b and the ' +
     'full-support law remain OPEN. Discharges nothing; certifies no surrogate map; changes no bound; establishes no ' +
     'operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb ' +
-    'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35488 (executed route-(ii) two-height g_true spot-check; sub-gaps imp-35488a crossover-out-of-table, ' +
     'imp-35488b observable -> sigma dictionary); imp-35652 (eliminated route-(i) option-(a), named route-(ii) sole ' +
@@ -224,7 +224,7 @@ export const IMP35672_ROUTE_II_GTRUE_SPOTCHECK_SCOPE_ASSERTIONS = [
     },
   },
   {
-    // (5) honesty gate: conditional, changes no bound, C_mb GUE-conditional (imp-486), imp-35337a OPEN, PT SOTA, NO QED.
+    // (5) honesty gate: conditional, changes no bound, C_mb GUE-conditional (imp-486), imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp35672-conditional-no-bound-moves-no-qed',
     description: 'the assessment is not rigorous / not unconditional, changes no bound, keeps C_mb GUE-conditional (imp-486), leaves imp-35337a OPEN, PT 0.2 unchanged, NO QED',
     holds: () => {
@@ -237,7 +237,7 @@ export const IMP35672_ROUTE_II_GTRUE_SPOTCHECK_SCOPE_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

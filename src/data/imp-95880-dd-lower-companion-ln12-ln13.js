@@ -64,7 +64,7 @@
  * their cancellation-free DD values. (c) rho = 1 model seam family only; the
  * off-line (rho != 1) matrix-symbol envelope, the imp-95212 envelope port, signed
  * WEIGHT and modulus/phase legs stay OPEN. Changes NO bound of the Lambda program;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176 unrefereed.
+ * NO QED; no refereed bound is changed; Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95862-delta-uniform-two-sided-envelope-statement (the envelope + reachability caveat this closes)
  * @see imp-95825-finite-section-positivity-certificate (the lower companion, unconfirmable in float64 at small delta)
@@ -244,7 +244,7 @@ export const IMP95880_DD_LOWER_COMPANION_LN12_LN13 = {
     "(imp-95419 / imp-95825 / imp-95841 / imp-95862); no new cited input. rho = 1 " +
     "model seam family only; the off-line matrix-symbol envelope, imp-95212 envelope " +
     "port, signed WEIGHT and modulus/phase legs stay OPEN. Changes no bound of the " +
-    "Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun " +
+    "Lambda program; NO QED; no refereed bound is changed; Sun " +
     "arXiv:2609.04176 unrefereed.",
   closesTickets: ["imp-95880"],
 };
@@ -354,7 +354,7 @@ export const IMP95880_ASSERTIONS = [
       REF.qed === false &&
       REF.lowerCompanionConfirmedDD === true &&
       /LOWER COMPANION CONFIRMED IN DOUBLE-DOUBLE/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95880-closes-self",

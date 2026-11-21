@@ -13,7 +13,7 @@
  * and the density-restoring Kadanoff rescaling both push zeros off the line; and the k=0 end of
  * the flow is not ζ but its main-sum approximant, which already has 5 off-line pairs in [10,760],
  * each at a Lehmer-type close pair of true zeros. No arithmetic real-rootedness-preserving flow
- * complementary to the heat flow was found. Changes no bound; PT Λ≤0.2 SOTA; RH open. NO QED.
+ * complementary to the heat flow was found. Changes no bound; no refereed bound is changed; RH open. NO QED.
  *
  * Numerics: tmp/rh-route-g-rg-freeze.py (main run, tmp/rh-route-g-rg-freeze-out.json),
  * tmp/rh-route-g-rg-freeze-followup.py (matching / force / phase criterion),
@@ -27,7 +27,7 @@ export const ROUTE_G = Object.freeze({
   date: '2026-09-23',
   routeKey: 'G',
   status: 'WORKED — flow defined and computed; NOT a real-rootedness-preserving arithmetic flow; '
-    + 'no bound changes; PT Λ≤0.2 SOTA; RH open; NO QED',
+    + 'no bound changes; no refereed bound is changed; RH open; NO QED',
 
   // ───────────────────────────────────────────────────────────── 1. inertness on ζ
   lemma1Inertness: {
@@ -228,8 +228,8 @@ export const ROUTE_G = Object.freeze({
     + 'close pairs. Prime freezing therefore complements the heat flow only in the trivial sense '
     + 'that both end in a crystal (heat: t→∞ Hermite-like lattice; freeze: half-Gram lattice); '
     + 'neither carries the arithmetic input the flow-blindness no-go asks for, because the '
-    + 'coarse-graining removes exactly the correlations RH is about. Changes no bound; PT Λ≤0.2 '
-    + 'SOTA; RH open; NO QED.',
+    + 'coarse-graining removes exactly the correlations RH is about. Changes no bound; no refereed bound is changed'
+    + '; RH open; NO QED.',
   siblingModule:
     'rh-route-g-block-spin-rg-freezing-2026-09-23.js (imp-96004, commit e83d97ed5) independently '
     + 'establishes Lemma 1 (exact step = P-rough Dirichlet series, frozen factor zero-free, zeros are exact '

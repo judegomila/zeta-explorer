@@ -11,7 +11,7 @@
  * fitted predictions, and the decelerating per-segment slope that selects
  * the reciprocal-log-with-floor law over the log-linear crossing model.
  *
- * Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * @see imp-96148-route-bd-online-margin-decay-law (source column + fits)
  * @see imp-96020-lp-signed-force-feasibility (rho(N,T) grid origin)
@@ -52,7 +52,7 @@ export const IMP_96173_ROUTE_BD_MARGIN_DECAY_FITS_TABLE = {
   summary: ROUTE_BD_MARGIN_DECAY_FITS_SUMMARY,
   note:
     'documentation only, consolidating imp-96148 (two OLS fits + decelerating-slope discriminator) '
-    + 'into a single ordered table; no Lambda bound moves; Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    + 'into a single ordered table; no Lambda bound moves; no refereed bound is changed',
   closesTickets: ['imp-96173'],
 };
 

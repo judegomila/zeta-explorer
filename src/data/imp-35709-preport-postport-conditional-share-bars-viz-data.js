@@ -16,8 +16,7 @@
  *   @see imp-35334-far-tail-effectively-unconditional-vs-etrunc-conditionality.js (pre-port landmark shares)
  *
  *   Ticket: imp-35709 (ux, medium). Presentation only of an already-established
- *   assessment; adds no new Lambda bound. NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   assessment; adds no new Lambda bound. NO QED. No refereed bound is changed.
  */
 
 import { IMP35654_PORTED_BARRIER_FAR_TAIL_MIXED_CONDITIONALITY } from './imp-35654-ported-barrier-far-tail-mixed-conditionality.js';

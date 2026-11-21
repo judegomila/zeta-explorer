@@ -63,8 +63,8 @@
  *   conditional on the imp-97396 reduction (not re-audited here) -- no independent QED. Thread
  *   B's MCM hypothesis is definitively FALSE from omega = 11 (imp-97432), so it cannot be used to
  *   close the ceiling beyond omega = 10; a closure for omega >= 11 needs the weaker two-sided
- *   band -1/4 <= T(b) <= 1/4 directly, not MCM's non-negativity. No bound on Lambda moves; PT
- *   Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   band -1/4 <= T(b) <= 1/4 directly, not MCM's non-negativity. No bound on Lambda moves; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * @see imp-97423-route-m-sign-law-omega5-binet-two-sided-estimate.js (two-sided Binet bracket; certA/certB; names the tail residual)
  * @see imp-97433-route-m-sign-law-omega5-uniform-tail-lemma.js (uniform tail lemma Q0=7; closes certA/certB for all omega=5 b)
@@ -75,7 +75,7 @@
  * @see imp-97422-route-m-quarter-ceiling-omega4-multiplicative-difference-reduction.js (the MCM hypothesis and omega=4 reduction)
  *
  * Ticket: imp-97474 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const ROUTE_M_CEILING = 0.25;
@@ -163,7 +163,7 @@ export const IMP97474_OMEGA5_SIGNLAW_MCM_COHORT_INDEX = Object.freeze({
     'Thread A’s omega=5 sign conclusion from a different method and b-range. Neither thread ' +
     'closes the ceiling beyond what each already states: Thread A is conditional and specific to ' +
     'omega=5; Thread B’s MCM route is dead beyond omega=10. No bound on Lambda moves; RH open; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-97423 (Binet bracket + certA/certB); imp-97433 (uniform tail lemma Q0=7); imp-97443 ' +
     '(extended-precision cross-validation); imp-97432 (MCM refuted at omega=11, ceiling safe); ' +
@@ -216,11 +216,11 @@ export const IMP97474_OMEGA5_SIGNLAW_MCM_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97474-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97474_OMEGA5_SIGNLAW_MCM_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97474_OMEGA5_SIGNLAW_MCM_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97474_OMEGA5_SIGNLAW_MCM_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97474_OMEGA5_SIGNLAW_MCM_COHORT_INDEX.verdict),
   },
 ];
 

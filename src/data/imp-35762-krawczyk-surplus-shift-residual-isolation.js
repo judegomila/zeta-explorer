@@ -48,7 +48,7 @@
  * (identical K, delta, N_cross, band, headroom form). The imp-34714a machine certificate REMAINS OPEN; F(m) = 0
  * stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional per imp-486
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent 1/2 per imp-3463 untouched; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35266-krawczyk-headroom-surplus-decomposition (D3 attributed the ~1.2 residual to the a-shift; this isolates it)
  * @see imp-35241-krawczyk-headroom-band-profile (reported the ~55.18 band-top surplus)
@@ -186,7 +186,7 @@ export const IMP35762_KRAWCZYK_SURPLUS_SHIFT_RESIDUAL_ISOLATION = {
     'imp-3220/imp-3406 surrogate; reproduces the imp-35266/imp-35241 machinery (identical K, delta, N_cross, ' +
     'band); C_C 1/8 (imp-2642/2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 ' +
     'untouched; far-tail exponent 1/2 per imp-3463 untouched; changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35266 (D3 attributed the ~1.2 residual to the a-shift; this isolates it); imp-35241 (band-top S ~ ' +
     '2555.18, surplus ~55.18); imp-34996 (S_inf = 1/(2 delta) floor); imp-34693 (admissible seed band + ' +
@@ -225,15 +225,15 @@ export const IMP35762_KRAWCZYK_SURPLUS_SHIFT_RESIDUAL_ISOLATION_ASSERTIONS = [
       TOP.curvature_residual > 40 * TOP.shift_residual,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35762-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35762_KRAWCZYK_SURPLUS_SHIFT_RESIDUAL_ISOLATION.isRigorous === false &&
       /imp-34714a/.test(IMP35762_KRAWCZYK_SURPLUS_SHIFT_RESIDUAL_ISOLATION.subGap) &&
       /REMAINS OPEN/.test(IMP35762_KRAWCZYK_SURPLUS_SHIFT_RESIDUAL_ISOLATION.subGap) &&
       /NO QED/.test(IMP35762_KRAWCZYK_SURPLUS_SHIFT_RESIDUAL_ISOLATION.verdict) &&
-      /remains SOTA/.test(IMP35762_KRAWCZYK_SURPLUS_SHIFT_RESIDUAL_ISOLATION.verdict),
+      /refereed bound is changed/i.test(IMP35762_KRAWCZYK_SURPLUS_SHIFT_RESIDUAL_ISOLATION.verdict),
   },
 ];
 

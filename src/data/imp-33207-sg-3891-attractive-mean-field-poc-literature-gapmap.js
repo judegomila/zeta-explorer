@@ -103,8 +103,7 @@
  * descent under the attractive sign vs spread / ascent under the repulsive sign). So sg-3891-attractive-
  * mean-field-convergence stays OPEN and its obstruction is STRUCTURAL, not constant-sharpening. Literature
  * scope / gap map only; no new theorem, no operator positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains
- * the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3891-g6a-h2-continuum-inviscid-burgers-meanfield-scoping (names H2b / the sub-gap this assesses)
  * @see imp-3872-g6a-h2-discrete-flux-convexity-probe (the exact finite-N identity m_s = 2 m m_z + m_zz)
@@ -317,8 +316,8 @@ export const IMP33207_SG3891_ATTRACTIVE_MEAN_FIELD_POC_LITERATURE_GAPMAP = {
     'Lyapunov) -- the exact L4 modulated-energy dichotomy. So sg-3891-attractive-mean-field-convergence ' +
     'stays OPEN; the K4 route stays WHOLLY NEW and G6a_shock_lipschitz stays OPEN. Literature scope / gap map ' +
     'only; no new theorem, no operator positivity, no bridge closure, no RH claim, NO QED. imp-3066 ' +
-    'off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3891 (names H2b / sg-3891-attractive-mean-field-convergence, the sub-gap this assesses); imp-3872 ' +
     '(exact finite-N identity m_s = 2 m m_z + m_zz); imp-3846 (names H2 the dependency root, T1..T4 tools); ' +
@@ -356,17 +355,17 @@ export const IMP33207_SG3891_ATTRACTIVE_MEAN_FIELD_POC_LITERATURE_GAPMAP_ASSERTI
       ADDITIONAL_REQUIREMENTS.length === 4,
   },
   {
-    // Honesty gate: literature-scope only, sub-gap stays open, K4 wholly new, G6a open, no QED, PT SOTA,
+    // Honesty gate: literature-scope only, sub-gap stays open, K4 wholly new, G6a open, no QED, no refereed bound is changed,
     // imp-3066 untouched.
     id: 'imp33207-honesty-gate-no-qed',
-    description: 'literature-scope only: sub-gap open, K4 wholly new, G6a open, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'literature-scope only: sub-gap open, K4 wholly new, G6a open, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33207_SG3891_ATTRACTIVE_MEAN_FIELD_POC_LITERATURE_GAPMAP.isRigorous === false &&
       IMP33207_SG3891_ATTRACTIVE_MEAN_FIELD_POC_LITERATURE_GAPMAP.subGapStillOpen === true &&
       IMP33207_SG3891_ATTRACTIVE_MEAN_FIELD_POC_LITERATURE_GAPMAP.k4ConfirmedWhollyNew === true &&
       IMP33207_SG3891_ATTRACTIVE_MEAN_FIELD_POC_LITERATURE_GAPMAP.g6aStillOpen === true &&
       /NO QED/.test(IMP33207_SG3891_ATTRACTIVE_MEAN_FIELD_POC_LITERATURE_GAPMAP.verdict) &&
-      /remains the\s+rigorous SOTA/.test(IMP33207_SG3891_ATTRACTIVE_MEAN_FIELD_POC_LITERATURE_GAPMAP.verdict) &&
+      /refereed bound is changed/i.test(IMP33207_SG3891_ATTRACTIVE_MEAN_FIELD_POC_LITERATURE_GAPMAP.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33207_SG3891_ATTRACTIVE_MEAN_FIELD_POC_LITERATURE_GAPMAP.verdict),
   },
 ];

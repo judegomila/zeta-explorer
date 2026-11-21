@@ -92,8 +92,8 @@
  *   Deterministic Richardson extrapolation of an already-frozen numerical sequence,
  *   RH-EQUIVALENT; no new heavy compute, no operator positivity, no reduction, NO
  *   QED. The imp-3066 off-diagonal endpoint-Hankel K_a >= 0 step remains the lone
- *   obstruction and is untouched. Platt-Trudgian Lambda <= 0.2 remains the rigorous
- *   SOTA. NAMED SUB-GAP: the 4th significant figure of the continuum ||V||_HS is not
+ *   obstruction and is untouched. No refereed bound is changed
+ *   . NAMED SUB-GAP: the 4th significant figure of the continuum ||V||_HS is not
  *   pinned -- two refinement families (imp-3256 U=5 halving ladder -> 1.90032e-4,
  *   imp-3343 U=6 ladder -> 1.9014e-4) disagree at the ~0.06% level; nailing it would
  *   need a shared-grid, matched-U extrapolation deeper than either current ladder.
@@ -213,7 +213,7 @@ export const IMP3345_VHS_RICHARDSON_LIMIT = Object.freeze({
     isReductionBelowRH: false,
     scope: 'deterministic Richardson extrapolation of a frozen sequence, RH-EQUIVALENT',
     residualOpen: 'operator-positivity K_a >= 0 (imp-3066 endpoint-Hankel, untouched)',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     namedSubGap:
       'the 4th significant figure of the continuum ||V||_HS is not pinned -- the imp-3256 U=5 ' +
       'and imp-3343 U=6 refinement families extrapolate to values ~0.06% apart; a shared-grid, ' +
@@ -307,14 +307,14 @@ export const IMP3345_VHS_RICHARDSON_ASSERTIONS = [
     why:
       'MANDATORY HONESTY GATE: deterministic extrapolation of a frozen sequence only, ' +
       'RH-EQUIVALENT, not a proof or reduction; imp-3066 operator positivity stays open and ' +
-      'Platt-Trudgian Lambda <= 0.2 stays SOTA. If these flags flip the module over-claims.',
+      'no refereed bound is changed. If these flags flip the module over-claims.',
     holds: () => {
       const h = IMP3345_VHS_RICHARDSON_LIMIT.honestScope;
       return (
         h.isProof === false &&
         h.isReductionBelowRH === false &&
         h.scope.includes('RH-EQUIVALENT') &&
-        h.sota.includes('Lambda <= 0.2') &&
+        h.sota.includes('efereed bound is changed') &&
         typeof h.namedSubGap === 'string' && h.namedSubGap.length > 0
       );
     },

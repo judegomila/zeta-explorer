@@ -50,7 +50,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96405-knee-crossover-forced-vs-coincidental (M3 offset decomposition this closes)
  * @see imp-96388-sigma-peak-vs-knee-cross-tabulation (the OLS-exponent knee estimator)
@@ -215,7 +215,7 @@ export const IMP96423_KNEE_OFFSET_CLOSED_FORM = Object.freeze({
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96405 (M3 offset decomposition: +0.0168, ~54 percent E_flow); imp-96388 (OLS-exponent ' +
     'knee estimator); imp-33723 (closed-form crossover N_cross ~ 3.28e9); imp-486 (C_mb ' +
@@ -254,11 +254,11 @@ const IMP96423_ASSERTIONS = [
   },
   {
     id: 'imp96423-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96423_KNEE_OFFSET_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP96423_KNEE_OFFSET_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP96423_KNEE_OFFSET_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP96423_KNEE_OFFSET_CLOSED_FORM.verdict),
   },
 ];
 

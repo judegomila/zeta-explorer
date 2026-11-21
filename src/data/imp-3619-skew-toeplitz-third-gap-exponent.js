@@ -66,8 +66,7 @@
  *   Ticket: imp-3619 (numerical, medium). MEASUREMENT ONLY: measures the third gap
  *   exponent across the ladder and confirms the imp-3602 j^2-1 amplitude law at
  *   pair j = 4. Does NOT construct the missing magnitude and does NOT attempt the
- *   imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED. No refereed bound is changed.
  *
  *   HONEST-STATUS CORRECTION (imp-3643): this module's N=2000 lambda_7=lambda_8 spread
  *   (pair78 ~= 3.99e-11, ~2e5 LARGER than the < 4e-14 spread at every shallower rung) is
@@ -236,7 +235,7 @@ export const IMP3619_SKEW_TOEPLITZ_THIRD_GAP_EXPONENT = Object.freeze({
     'pair-ratios. The lambda_7 = lambda_8 pairing holds to < 4e-14 (< 4e-11 at N=2000), matching the imp-3596/imp-3602 ' +
     'certification, so lambda_7 is a genuine fourth-pair level, not a reorthogonalization ghost. Measurement only; ' +
     'does NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity; RH-EQUIVALENT; ' +
-    'NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     gapQuantity: 'sigma_3(N) = lambda_7/lambda_1 of the Gram S = T^T T of Ttilde(u,v)=a(v-u)R(|v-u|) (Gram-eigenvalue convention = sigma_7^2/sigma_1^2, same as imp-3575/imp-3602)',
@@ -330,7 +329,7 @@ export const IMP3619_SKEW_TOEPLITZ_THIRD_GAP_EXPONENT = Object.freeze({
       'corroborated by two pair-ratios (a_3/a_2 = 8/3 from imp-3602 and a_4/a_2 = 5, a_4/a_3 = 15/8 here), tested ' +
       'through pair j = 4 only, and is offered as a candidate law, NOT a derived one.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     imp3643Correction:
       'CORRECTION (imp-3643): the N=2000 lambda_7=lambda_8 spread reported here (pair78 ~ 3.99e-11, ~2e5 larger ' +
       'than every shallower rung) is a Lanczos m=440 reorthogonalization artifact, NOT a genuine near-degeneracy ' +
@@ -398,7 +397,7 @@ export const IMP3619_SKEW_TOEPLITZ_THIRD_GAP_EXPONENT_ASSERTIONS = [
   {
     id: 'imp3619-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- measures a third gap exponent and tests the j^2-1 amplitude law at ' +
-      'pair j=4, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'pair j=4, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3619_SKEW_TOEPLITZ_THIRD_GAP_EXPONENT.honestCaveat;
       return (
@@ -408,7 +407,7 @@ export const IMP3619_SKEW_TOEPLITZ_THIRD_GAP_EXPONENT_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.measuresNotConstructs === 'string' &&
         typeof c.amplitudeLawIsEmpirical === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

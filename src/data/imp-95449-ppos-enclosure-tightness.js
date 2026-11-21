@@ -3,7 +3,7 @@
  * two-sided enclosures of the theta density p(t) versus a
  * cancellation-free high-precision-equivalent evaluation, plus the
  * strict-positivity margin min p(t)/up(t). Measure only; changes no
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  *
  * imp-95420 proved p(t) > 0 for all t > 0 with two overlapping
  * alternating-series-truncation enclosures:
@@ -67,7 +67,7 @@
  * remain the system of record; imp-95422 remains the BigInt-HP
  * cross-check of the forms themselves. The imp-95212 envelope port,
  * signed WEIGHT, and modulus/phase legs stay OPEN. NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -122,7 +122,7 @@ export const IMP95449_PPOS_ENCLOSURE_TIGHTNESS = {
     "BigInt kernel and agrees with the raw forms in the resolvable band. " +
     "Measurement only; re-derives no proof; changes no bound; the " +
     "imp-95212 envelope port and signed WEIGHT / modulus-phase legs stay " +
-    "OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "OPEN; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -332,7 +332,7 @@ export const IMP95449_ENCLOSURE_ASSERTIONS = [
       /changes no bound/.test(REF.verdict) &&
       /stay[\s\S]*OPEN/.test(REF.verdict) &&
       /NO QED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
 ];
 

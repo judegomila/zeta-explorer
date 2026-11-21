@@ -50,7 +50,7 @@
  * machine certificate REMAINS OPEN; F(m) = 0 stays a double-precision artifact; C_C = 1/8 (imp-2642/2643)
  * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent 1/2 per
  * imp-3463 untouched; establishes no operator positivity; changes no bound; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35266-krawczyk-headroom-surplus-decomposition (2:1 cancellation, -dFP/dG ~ 2.00042 reported N-flat)
  * @see imp-35241-krawczyk-headroom-band-profile (band-top S ~ 2555.18, surplus ~55.18 above the 2500 floor)
@@ -203,7 +203,7 @@ export const IMP35374_KRAWCZYK_HEADROOM_RATIO_CORRECTION = {
     'surrogate; reproduces the imp-35266/imp-35241/imp-34996 machinery (identical K, delta, N_cross, band); the ' +
     'C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 ' +
     'untouched; far-tail exponent 1/2 per imp-3463 untouched; changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35266 (2:1 cancellation, -dFP/dG ~ 2.00042 reported N-flat; lift off 2 not derived); imp-35241 ' +
     '(band-top S ~ 2555.18); imp-34996 (S_inf = 1/(2 delta) floor; 2G/(1+G) -> 1); imp-34929 (closed-form ' +
@@ -242,15 +242,15 @@ export const IMP35374_KRAWCZYK_HEADROOM_RATIO_CORRECTION_ASSERTIONS = [
       LEADING_FRACTION_TOP < 0.96,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35374-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35374_KRAWCZYK_HEADROOM_RATIO_CORRECTION.isRigorous === false &&
       /imp-34714a/.test(IMP35374_KRAWCZYK_HEADROOM_RATIO_CORRECTION.subGap) &&
       /REMAINS OPEN/.test(IMP35374_KRAWCZYK_HEADROOM_RATIO_CORRECTION.subGap) &&
       /NO QED/.test(IMP35374_KRAWCZYK_HEADROOM_RATIO_CORRECTION.verdict) &&
-      /remains SOTA/.test(IMP35374_KRAWCZYK_HEADROOM_RATIO_CORRECTION.verdict),
+      /refereed bound is changed/i.test(IMP35374_KRAWCZYK_HEADROOM_RATIO_CORRECTION.verdict),
   },
 ];
 

@@ -23,7 +23,7 @@
  *   @see imp-34045-phase-zero-endpoint-degeneracy.js (family (i) source)
  *
  *   Ticket: imp-34238 (ux, low). Presentation only; C_mb GUE-conditional per imp-486 UNTOUCHED;
- *   imp-3066 K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   imp-3066 K_a >= 0 UNTOUCHED; NO QED; no refereed bound is changed.
  */
 
 const toDeg = (rad) => (rad * 180) / Math.PI;

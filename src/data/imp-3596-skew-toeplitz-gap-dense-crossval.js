@@ -69,7 +69,7 @@
  *   paired-Ritz structure and gap ratio against an independent dense solver on reduced
  *   sections. Does NOT dense-solve N = 1600, does NOT construct the missing magnitude,
  *   and does NOT attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH
- *   verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   verdict, NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -348,8 +348,8 @@ export const IMP3596_SKEW_TOEPLITZ_GAP_DENSE_CROSSVAL = Object.freeze({
     'dense solve is feasible only at the reduced N<=80; N=1600 itself is NOT dense-solved, so this certifies the ' +
     'PAIRING mechanism (real at any N) and the Lanczos extraction (matches dense at matched N), not the exact ' +
     'rho=0.99975799 against a dense N=1600 solve. Cross-validation only; does NOT construct the missing magnitude ' +
-    'and does NOT attempt the imp-3066 K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 stays SOTA.',
+    'and does NOT attempt the imp-3066 K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. No refereed bound is changed' +
+    '.',
 
   construction: Object.freeze({
     gapQuantity: 'rho(N) = lambda_3/lambda_1 = sigma_3/sigma_1 of the Gram S = T^T T of Ttilde(u,v)=a(v-u)R(|v-u|)',
@@ -412,7 +412,7 @@ export const IMP3596_SKEW_TOEPLITZ_GAP_DENSE_CROSSVAL = Object.freeze({
       'The pairing and gap-ratio agreement are finite-N numerical measurements at reduced sections, not a proven ' +
       'symbolic degeneracy; the (v-u) antisymmetry is the heuristic mechanism, corroborated numerically here.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -447,7 +447,7 @@ export const IMP3596_SKEW_TOEPLITZ_GAP_DENSE_CROSSVAL_ASSERTIONS = [
   {
     id: 'imp3596-honest-assessment-no-qed',
     why: 'Mandatory honesty: CROSS-VALIDATION only on reduced sections -- N=1600 not dense-solved, positivity not ' +
-      'attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3596_SKEW_TOEPLITZ_GAP_DENSE_CROSSVAL.honestCaveat;
       return (
@@ -457,7 +457,7 @@ export const IMP3596_SKEW_TOEPLITZ_GAP_DENSE_CROSSVAL_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.reducedSectionsNotN1600 === 'string' &&
         typeof c.crossValidatesNotConstructs === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

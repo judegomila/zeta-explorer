@@ -109,8 +109,8 @@ export const IMP96316_CAVEAT_BANNER =
   'E_trunc scaled from its fixed-strip value) at a finer grid purely to expose the smooth crossing for ' +
   'charting -- no new derivation. The 1/sqrt(3) proximity is a crossing point, not a fixed point: ' +
   'nothing pins N_peak/N_flow there. The C_mb GUE-conditional share (imp-486) stays GUE-conditional and ' +
-  'UNTOUCHED; changes no bound; establishes no operator positivity; no RH claim; Platt-Trudgian ' +
-  'Lambda <= 0.2 remains SOTA; NO QED.';
+  'UNTOUCHED; changes no bound; establishes no operator positivity; no RH claim; no refereed bound is changed' +
+  '; NO QED.';
 
 export const IMP96316_ASSERTIONS = [
   {
@@ -146,7 +146,7 @@ export const IMP96316_ASSERTIONS = [
     holds: () =>
       /GUE-conditional/.test(IMP96316_CAVEAT_BANNER) &&
       /NO QED/.test(IMP96316_CAVEAT_BANNER) &&
-      /Lambda <= 0.2 remains SOTA/.test(IMP96316_CAVEAT_BANNER),
+      /refereed bound is changed/i.test(IMP96316_CAVEAT_BANNER),
   },
 ];
 

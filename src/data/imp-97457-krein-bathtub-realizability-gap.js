@@ -46,7 +46,7 @@
  *   from the bathtub indicator and peaks at only 52.5% of the a/pi cap. This is a MEASUREMENT: R is a finite-section
  *   IEEE-double eigenvalue, not an interval enclosure, so no rigorous bound is promoted; the scalar bound stays a
  *   negative floor; no operator positivity; no bound moves; interval-rigorous reach stays 2a <= 0.96;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *   SUB-GAP IMP97457_REALIZABLE_NEG_FLOOR_MEASURED_NEEDS_INTERVAL_EIGENVALUE_ENCLOSURE.
  *
  * @see imp-97416-krein-csharp-bathtub-joint-floor.js (the bathtub floor -3065.435 and item (a)/(b) obstruction this measures)
@@ -57,7 +57,7 @@
  *
  * Runner: tmp/imp-97457-realizability-gap.py (numpy sinc-projector matrix, mpmath dps=30 symbol; grids
  *   h = 0.02 / 0.01 / 0.005 on t in [-12,12]; the values below are the h = 0.005 run). Measurement only; NO QED.
- * Ticket: imp-97457 (numerical, medium, opus-4-8). Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Ticket: imp-97457 (numerical, medium, opus-4-8). Changes no bound; no refereed bound is changed.
  */
 
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

@@ -18,7 +18,7 @@
  * PRESENTATION ONLY. Reuses the imp-97392 groupCounts kernel and group table
  * verbatim (no re-derivation); establishes no new bound; the omega>=4 MAGNITUDE gap
  * stays open (requires the retained Moebius cancellation, per imp-97392 Result 3);
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97392-route-m-quarter-ceiling-omega3-magnitude-obstruction.js (source: groupCounts, PER_TERM, INV_G2, group table)
  * @see imp-97409-b4-ceiling-sign-condition-omega-classes-viz-data.js (sibling viz-data leaf, SIGN condition by omega class)
@@ -56,8 +56,8 @@ export const IMP97426_HONEST_BANNER =
   'from the imp-97392 groupCounts kernel. omega<=3 is PROVED (const < 1/2, genuine slack); omega>=4 is an ' +
   'OVER-CHARGE (const exceeds 1/2, then 1, then rising) because the largest signed group exceeds ' +
   '1/g(2)=3.258891 -- the per-term bound alone cannot close MAGNITUDE there; the retained Moebius cancellation ' +
-  'is required instead (imp-97392 Result 3, still open). No new bound established; PT Lambda <= 0.2 remains ' +
-  'SOTA; RH open; NO QED.';
+  'is required instead (imp-97392 Result 3, still open). No new bound established; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -120,7 +120,7 @@ const IMP97426_ASSERTIONS = [
     id: 'imp97426-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97426_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97426_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97426_HONEST_BANNER) &&
       /NO QED/.test(IMP97426_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

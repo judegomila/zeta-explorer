@@ -60,7 +60,7 @@
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34084-apex-cubic-tilt-coefficient (the apex cubic fit d ~ -5.347e-4, pulled in as-is here)
  * @see imp-34008-apex-parabola-wing-fidelity (the W2 wing-asymmetry inference cross-checked here)
@@ -292,7 +292,7 @@ export const IMP34131_CUBIC_TILT_WING_CROSSCHECK = {
     'rigorous asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34084 (apex cubic d ~ -5.347e-4 pulled in as-is; full-refit reconstruction corroborated); ' +
     'imp-34008 (W2 wing-asymmetry inference reconciled here); imp-34064 (the even quartic companion the ' +
@@ -336,14 +336,14 @@ export const IMP34131_CUBIC_TILT_WING_CROSSCHECK_ASSERTIONS = [
     holds: () => TILT_VS_REFIT_MAX_ABS < 0.01,
   },
   {
-    // Honesty gate: cross-validation only, isRigorous false, refines not overturns, no QED, PT SOTA.
+    // Honesty gate: cross-validation only, isRigorous false, refines not overturns, no QED, no refereed bound is changed.
     id: 'imp34131-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, refines imp-34008/imp-34084, no QED, imp-3066 untouched, PT SOTA',
+    description: 'Cross-validation only: isRigorous false, refines imp-34008/imp-34084, no QED, imp-3066 untouched, no refereed bound is changed',
     holds: () =>
       IMP34131_CUBIC_TILT_WING_CROSSCHECK.isRigorous === false &&
       /refines, does not overturn, imp-34008\/imp-34084/.test(IMP34131_CUBIC_TILT_WING_CROSSCHECK.verdict) &&
       /NO QED/.test(IMP34131_CUBIC_TILT_WING_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP34131_CUBIC_TILT_WING_CROSSCHECK.verdict) &&
+      /refereed bound is changed/i.test(IMP34131_CUBIC_TILT_WING_CROSSCHECK.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34131_CUBIC_TILT_WING_CROSSCHECK.verdict),
   },
 ];

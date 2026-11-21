@@ -14,8 +14,7 @@
  * existing repo machinery against them.
  *
  * ASSESSMENT / SCOPING ONLY. Continues nothing; discharges nothing; changes no
- * bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bound; establishes no positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * PART A -- TWO CANDIDATE ROUTES FROM NEGATIVE-t PROXY TO POSITIVE-t BARRIER
  * -----------------------------------------------------------------------------
@@ -97,7 +96,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35717 / imp-35674) ---
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms at T_PT (imp-35674 Part D)
 const X_EXACT_CAP = 104; // exact de Bruijn evaluator x-ceiling (scripts/imp-34813-...offline.mjs)
@@ -176,7 +175,7 @@ export const IMP35726_W1_SIGN_RECONCILIATION_COST_SCOPE = {
     'T_PT. NET: seeding W1 from the proxy is NET-NEGATIVE versus constructing the positive-t A + B - C ' +
     'directly; the proxy supplies ZERO usable reduction and the greenfield interval seed (imp-35717 R4) ' +
     'stays untouched. The cheapest path BYPASSES the proxy entirely. Ports nothing; discharges nothing; ' +
-    'changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35717 (enumerates prerequisites R1-R4; names the R2 well-posedness fork); imp-35674 Part C ' +
     '(negative de Bruijn time = harder side); imp-35681 Part A (structure held at wrong t-sign); imp-35653 ' +
@@ -215,9 +214,9 @@ export const IMP35726_W1_SIGN_RECONCILIATION_COST_SCOPE_ASSERTIONS = [
       X_EXACT_CAP === 104 && X_EXACT_CAP < T_PT,
   },
   {
-    // Part E + honesty gate: net-negative seeding, greenfield untouched, no discharge, no QED, PT SOTA.
+    // Part E + honesty gate: net-negative seeding, greenfield untouched, no discharge, no QED, no refereed bound is changed.
     id: 'imp35726-honesty-gate-net-negative-no-qed',
-    description: 'Seeding W1 from the proxy is NET-NEGATIVE; greenfield untouched; scoping only, no QED, PT SOTA',
+    description: 'Seeding W1 from the proxy is NET-NEGATIVE; greenfield untouched; scoping only, no QED, no refereed bound is changed',
     holds: () =>
       IMP35726_W1_SIGN_RECONCILIATION_COST_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -226,7 +225,7 @@ export const IMP35726_W1_SIGN_RECONCILIATION_COST_SCOPE_ASSERTIONS = [
       /NET-NEGATIVE/.test(IMP35726_W1_SIGN_RECONCILIATION_COST_SCOPE.verdict) &&
       /stays untouched/.test(IMP35726_W1_SIGN_RECONCILIATION_COST_SCOPE.verdict) &&
       /NO QED/.test(IMP35726_W1_SIGN_RECONCILIATION_COST_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35726_W1_SIGN_RECONCILIATION_COST_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35726_W1_SIGN_RECONCILIATION_COST_SCOPE.verdict),
   },
 ];
 

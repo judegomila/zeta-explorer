@@ -50,7 +50,7 @@ export const IMP_33552_RECOVERY_RATE_FIT_BANNER_SURFACING_AUDIT = {
   actionTaken: 'none -- both surfaces already carried the supersession banner; audit result recorded only',
   honestNote:
     'Read-only audit; no page or glossary content altered. No new bound, no QED. imp-3066 untouched; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'no refereed bound is changed.',
 };
 
 const IMP_33552_ASSERTIONS = [
@@ -70,9 +70,9 @@ const IMP_33552_ASSERTIONS = [
   },
   {
     id: 'imp33552-honest-scope-locked',
-    holds: () => /SOTA/.test(IMP_33552_RECOVERY_RATE_FIT_BANNER_SURFACING_AUDIT.honestNote) &&
+    holds: () => /refereed bound is changed/i.test(IMP_33552_RECOVERY_RATE_FIT_BANNER_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_33552_RECOVERY_RATE_FIT_BANNER_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

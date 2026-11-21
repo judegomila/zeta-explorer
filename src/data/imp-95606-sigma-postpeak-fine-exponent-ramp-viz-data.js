@@ -12,7 +12,7 @@
  *   so it costs nothing extra to import at page load.
  *
  *   Ticket: imp-95606 (content, medium). Presentation data only; measurement/fit, NOT an RH
- *   bound; no QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   bound; no QED; no refereed bound is changed.
  */
 
 // p_local(N) = -d ln sigma / d ln N on the half-decade grid log10(N) = 6..12 step 0.5 (13 pts).

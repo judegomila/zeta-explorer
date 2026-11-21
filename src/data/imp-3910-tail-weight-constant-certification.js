@@ -55,7 +55,7 @@
  *    while the tight ~8 realised scale remains a measured (not majorised) proxy.
  *  - Certified GIVEN the Odlyzko zero table (zeros1 3e-9) + Float64, the same
  *    input-trust basis as imp-3725/imp-3874. No positivity claim; imp-3066 K_a>=0
- *    UNTOUCHED; Platt-Trudgian Lambda <= 0.2 REMAINS SOTA; NO QED.
+ *    UNTOUCHED; no refereed bound is changed; NO QED.
  *
  * @see imp-3898-path-local-elasticity-bound.js (the majorant + the named sub-gap)
  * @see imp-3874-dpsi-sensitivity-verification.js (realised logSensBase cross-check)
@@ -150,7 +150,7 @@ export const IMP_3910_TAIL_WEIGHT_CONSTANT_CERTIFICATION = Object.freeze({
       'the per-term e_j <= 8/s_min(j)^2 substitution over-charging wide-spread far terms. ' +
       'This CLOSES the imp-3898-sub-tail-weight-constant sub-gap numerically (explicit ' +
       'bounded C exists and is certified) while the tight ~8 scale stays a measured proxy. ' +
-      'Certified given the Odlyzko table + Float64; imp-3066 untouched; PT Lambda<=0.2 SOTA; NO QED.',
+      'Certified given the Odlyzko table + Float64; imp-3066 untouched; no refereed bound is changed; NO QED.',
   },
 
   closesSubGap: {
@@ -178,7 +178,7 @@ export const IMP_3910_TAIL_WEIGHT_CONSTANT_CERTIFICATION = Object.freeze({
     certifiesExplicitCollapseConstant: true,
     noNewLambdaBound: true,
     imp3066Untouched: true,
-    plattTrudgianStillSOTA: 'Lambda <= 0.2 (PT 2021) remains SOTA',
+    plattTrudgianStillSOTA: 'No refereed bound is changed',
     noQED: true,
   },
 });
@@ -240,7 +240,7 @@ export const IMP_3910_TAIL_WEIGHT_CONSTANT_CERTIFICATION_ASSERTIONS = [
     why:
       'Honesty guard: this certifies an explicit O(1) collapse constant for the imp-3898 ' +
       'weighted majorant but asserts no new Lambda bound and no QED, leaves imp-3066 untouched, ' +
-      'and Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'and no refereed bound is changed.',
   },
 ];
 

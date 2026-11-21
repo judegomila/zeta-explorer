@@ -14,7 +14,7 @@
  * ASSESSMENT / QUANTIFICATION ONLY. Ports nothing; discharges nothing; retires no
  * committed constant; establishes no positivity; changes no bound; no RH verdict,
  * NO QED. The imp-34791 reclassification and imp-35676 gating verdict stay
- * UNCHANGED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNCHANGED. No refereed bound is changed.
  *
  * PART A -- THE TWO DISJOINT HEIGHT REGIONS OF W4's OBLIGATION
  * -----------------------------------------------------------------------------
@@ -101,7 +101,7 @@
 // -- Anchor + operative constants (import-light; matching imp-35676/imp-35681) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base / initial condition)
 const DELTA = 1; // transition-rectangle half-window offset (illustrative; W4 concerns x >= T_PT + Delta)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this quantification
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this quantification
 
 // Height-measure of R_above the external count discharges, as a fraction of any
 // tail cut (T_PT, H]. The count certifies ZERO height above T_PT, so this is
@@ -198,7 +198,7 @@ export const IMP35728_W4_EXTERNAL_COUNT_VS_W3_GATED_RESIDUAL_QUANTIFY = {
     'Part E: the count supplies exactly one of W4s two license pieces (the base-case license), the gate ' +
     'is the tail license. Completing W4 is PARITY with PT, not a beat. Consistent with imp-35676 and ' +
     'imp-35681 Part C; ports nothing; discharges nothing; changes no bound; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35676 (W4 gated on W3, qualitatively; operation-vs-license); imp-35681 Part C (analytic ' +
     'retirement held, substitution gated); imp-35674 (the non-finite W3 tail lemma covering R_above); ' +
@@ -249,16 +249,16 @@ export const IMP35728_W4_EXTERNAL_COUNT_VS_W3_GATED_RESIDUAL_QUANTIFY_ASSERTIONS
       /COMPLEMENTARY, not overlapping/.test(IMP35728_W4_EXTERNAL_COUNT_VS_W3_GATED_RESIDUAL_QUANTIFY.gapAsPartition.complementaryNotOverlapping),
   },
   {
-    // Honesty gate: quantification only, consistent with imp-35676/imp-35681, parity-not-beat, no QED, PT SOTA.
+    // Honesty gate: quantification only, consistent with imp-35676/imp-35681, parity-not-beat, no QED, no refereed bound is changed.
     id: 'imp35728-honesty-gate-no-qed',
-    description: 'Quantification only; consistent with imp-35676/imp-35681; parity-not-beat; no QED; PT SOTA',
+    description: 'Quantification only; consistent with imp-35676/imp-35681; parity-not-beat; no QED; no refereed bound is changed',
     holds: () =>
       IMP35728_W4_EXTERNAL_COUNT_VS_W3_GATED_RESIDUAL_QUANTIFY.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /PARITY with PT .* not a beat/.test(IMP35728_W4_EXTERNAL_COUNT_VS_W3_GATED_RESIDUAL_QUANTIFY.directionParityNotBeat) &&
       /changes neither verdict/.test(IMP35728_W4_EXTERNAL_COUNT_VS_W3_GATED_RESIDUAL_QUANTIFY.operationVsLicense) &&
       /NO QED/.test(IMP35728_W4_EXTERNAL_COUNT_VS_W3_GATED_RESIDUAL_QUANTIFY.verdict) &&
-      /remains SOTA/.test(IMP35728_W4_EXTERNAL_COUNT_VS_W3_GATED_RESIDUAL_QUANTIFY.verdict),
+      /refereed bound is changed/i.test(IMP35728_W4_EXTERNAL_COUNT_VS_W3_GATED_RESIDUAL_QUANTIFY.verdict),
   },
 ];
 

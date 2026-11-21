@@ -62,8 +62,7 @@
  *   constants M_k, H_k are numerically-evaluated sup norms of the smooth dBN integrand (not symbolic
  *   maxima). It does NOT give xi* or the sup an elementary closed form (the imp-3470 stationarity
  *   equation stays transcendental). RH-EQUIVALENT; the imp-3066 off-diagonal endpoint-Hankel
- *   K_a >= 0 magnitude is the lone RH obstruction, UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 stays SOTA.
+ *   K_a >= 0 magnitude is the lone RH obstruction, UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-3550-fartail-midpoint-quadrature-error-bound.js (analytic O(H^2) bound; N <= 4800; parent)
  *   @see imp-3558-far-tail-band-max-grid-ladder-n9600.js (empirical N = 9600 rung; sibling)
@@ -252,7 +251,7 @@ export const IMP3571_FARTAIL_MIDPOINT_ERROR_ENVELOPE_N9600 = Object.freeze({
     'over-estimates the true residual by orders of magnitude); it certifies the SCALING and brackets the ' +
     'ladder, not sharpness. Measurement/certification only; does NOT give xi* a closed form (imp-3470 ' +
     'stationarity stays transcendental); RH-equivalent; the imp-3066 K_a >= 0 magnitude is the lone ' +
-    'obstruction, UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'obstruction, UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   derivation: Object.freeze({
     objective: 'far-tail band max of |P1|, P1 = dP/dxi = 2(C C1 + S S1), on the imp-3511 band (320, 400]',
@@ -362,7 +361,7 @@ export const IMP3571_FARTAIL_MIDPOINT_ERROR_ENVELOPE_N9600 = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -451,7 +450,7 @@ export const IMP3571_FARTAIL_MIDPOINT_ERROR_ENVELOPE_N9600_ASSERTIONS = [
     id: 'imp3571-honest-assessment-no-qed',
     why: 'Mandatory honesty: extends an analytic O(H^2) envelope one octave but a CONSERVATIVE one, sup norms are ' +
       'numeric, the domain is still finite (monotone-decay tail, not a no-root proof), no closed form, measures ' +
-      'error not positivity, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'error not positivity, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3571_FARTAIL_MIDPOINT_ERROR_ENVELOPE_N9600.honestCaveat;
       return (
@@ -463,7 +462,7 @@ export const IMP3571_FARTAIL_MIDPOINT_ERROR_ENVELOPE_N9600_ASSERTIONS = [
         typeof c.supNormsNumeric === 'string' &&
         typeof c.finiteDomainStillFinite === 'string' &&
         typeof c.hardensTailBoundNotClosedForm === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

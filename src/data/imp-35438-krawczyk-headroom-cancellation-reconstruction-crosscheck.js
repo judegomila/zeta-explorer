@@ -36,8 +36,7 @@
  * confirmed faithful to their imp-35266 source. The imp-34714a machine certificate REMAINS OPEN;
  * F(m) = 0 stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent 1/2 per
- * imp-3463 untouched; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * imp-3463 untouched; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35404-krawczyk-headroom-cancellation-viz-data (baked the literals cross-checked here)
  * @see imp-35266-krawczyk-headroom-surplus-decomposition (source closed forms + measurement block)
@@ -133,7 +132,7 @@ export const IMP35438_SUMMARY = Object.freeze({
     '~2.7e-4, inside the toFixed(4) grain -- and ratio = -dFP/dG ~ 2.00042 plus surplus = dG + dFP ' +
     'hold at every landmark. Verification only; the imp-35404 viz literals are faithful to imp-35266. ' +
     'imp-34714a REMAINS OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 });
 
 export default Object.freeze({
@@ -184,8 +183,8 @@ const IMP35438_ASSERTIONS = [
       IMP35438_SUMMARY.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP35438_SUMMARY.verdict) &&
       /NO QED/.test(IMP35438_SUMMARY.verdict) &&
-      /remains SOTA/.test(IMP35438_SUMMARY.verdict),
-    why: 'Cross-check only: isRigorous false, sub-gap open, no QED, Platt-Trudgian stays SOTA.',
+      /refereed bound is changed/i.test(IMP35438_SUMMARY.verdict),
+    why: 'Cross-check only: isRigorous false, sub-gap open, no QED, no refereed bound is changed.',
   },
 ];
 

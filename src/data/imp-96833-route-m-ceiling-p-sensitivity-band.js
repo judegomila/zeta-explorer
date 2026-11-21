@@ -76,7 +76,7 @@
  * M in [3.958e7, 4.266e7]. The T < F < M ordering is p-invariant (shared exponent) and its bands do
  * not overlap; the >= 1500x wall-clock-binds-first conclusion survives with >= 2500x margin at the
  * low-p edge. p uncertainty is NOT a material source of error in the ceiling ladder. Sensitivity /
- * measurement only; no bound moved; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open;
+ * measurement only; no bound moved; no operator positivity; no refereed bound is changed; RH open;
  * NO QED.
  *
  * RESIDUAL SUB-GAP (inherited): this bands only the p-sensitivity. The F and M ceilings still rest
@@ -195,11 +195,11 @@ export const IMP96833_VERDICT = Object.freeze({
     'non-overlapping bands, and the smallest ceiling stays >= 2500x the compute ceiling at the ' +
     'low-p edge, above the imp-96706 >= 1500x threshold. p uncertainty is not a material error ' +
     'source in the ceiling ladder. Sensitivity only; no bound moved; no operator positivity; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96833_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Sensitivity / measurement only: p, A and the ' +
+  'RH open; no refereed bound is changed; NO QED. Sensitivity / measurement only: p, A and the ' +
   '12 lam_min rungs are reproduced from imp-96428 (matched exactly); SE(p) is the OLS slope ' +
   'standard error and every band is pure re-analysis (tmp/imp-96833-scratch.mjs); no Gram was ' +
   'rebuilt. Only the trace ceiling is a rigorous lower bound; F and M inherit the imp-96684 / ' +
@@ -261,7 +261,7 @@ const IMP96833_ASSERTIONS = [
     holds: () =>
       IMP96833_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96833_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96833_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96833_HONEST_BANNER) &&
       /RH open/.test(IMP96833_HONEST_BANNER),
     why: 'sensitivity only: no bound moved and the honesty markers (RH open, PT Lambda <= 0.2, NO QED) are present.',
   },

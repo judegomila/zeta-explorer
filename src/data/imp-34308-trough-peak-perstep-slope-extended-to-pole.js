@@ -65,7 +65,7 @@
  * form selection (the imp-33843 log-linear verdict is untouched). The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate is descriptive, not derived;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34234-trough-peak-perstep-crossover-tenth-decade (the tenth-decade grid extended here to the pole)
  * @see imp-34153-trough-peak-perstep-crossover-locate (the quarter-decade bracket)
@@ -358,7 +358,7 @@ export const IMP34308_TROUGH_PEAK_PERSTEP_SLOPE_EXTENDED_TO_POLE = {
     'log-linear verdict is untouched. The OLS surrogate is descriptive, not derived; the component model is ' +
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34234 (the tenth-decade grid and +0.00329/kEnd window slope extended here); imp-34153 (the ' +
     'quarter-decade bracket); imp-34237 (the resid_exp surrogate pole k* ~ 21.281 approached here); imp-33843 ' +
@@ -430,14 +430,14 @@ export const IMP34308_TROUGH_PEAK_PERSTEP_SLOPE_EXTENDED_TO_POLE_ASSERTIONS = [
       decadeBlockFits[4].slope < -0.1,
   },
   {
-    // Honesty gate: measurement only -- isRigorous false, log-linear form verdict untouched, no QED, PT SOTA,
+    // Honesty gate: measurement only -- isRigorous false, log-linear form verdict untouched, no QED, no refereed bound is changed,
     // imp-3066 K_a >= 0 untouched, C_mb GUE-conditional per imp-486 untouched.
     id: 'imp34308-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, imp-3066 K_a>=0 untouched, C_mb GUE-conditional untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, C_mb GUE-conditional untouched',
     holds: () =>
       IMP34308_TROUGH_PEAK_PERSTEP_SLOPE_EXTENDED_TO_POLE.isRigorous === false &&
       /NO QED/.test(IMP34308_TROUGH_PEAK_PERSTEP_SLOPE_EXTENDED_TO_POLE.verdict) &&
-      /remains SOTA/.test(IMP34308_TROUGH_PEAK_PERSTEP_SLOPE_EXTENDED_TO_POLE.verdict) &&
+      /refereed bound is changed/i.test(IMP34308_TROUGH_PEAK_PERSTEP_SLOPE_EXTENDED_TO_POLE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34308_TROUGH_PEAK_PERSTEP_SLOPE_EXTENDED_TO_POLE.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34308_TROUGH_PEAK_PERSTEP_SLOPE_EXTENDED_TO_POLE.verdict),
   },

@@ -4,7 +4,7 @@
  * "there IS eps_0(S) > 0" with P_S(eps) > 0 for 0 <= eps < eps_0(S); this
  * module makes that constant EXPLICIT and confirms it sits many orders of
  * magnitude above the unconditional Lehmer-pair collision threshold 1.15e-11.
- * Changes no bound; NO QED; PT Lambda <= 0.2 stands; RH open.
+ * Changes no bound; NO QED; no refereed bound is changed; RH open.
  *
  * SETUP (imp-95530). For finite S = {s_1..s_n} c (1, inf) the flowed
  * Caratheodory-Pick matrix and its Cauchy-Gram metric are
@@ -177,7 +177,7 @@ export const IMP95531_EPS0_PD_PERSISTENCE_WINDOW = Object.freeze({
   theoremEps0Win: 'For finite S c (1, inf) with mu_S(0) = lambda_min(P_S(0); G) > 0, the pencil min obeys |mu_S(eps) - mu_S(0)| <= eps * sup_{[0,eps]} ||G^{-1/2}(dP_S/deps) G^{-1/2}||_2, so eps_0(S) >= mu_S(0) / sup_t ||M(t)||_2; with ||M(t)||_2 measured maximal at t = 0 the explicit window is W(S) = mu_S(0) / ||G^{-1/2}(dP_S/deps at 0) G^{-1/2}||_2, and dphi_eps/deps = 2(nP*den - num*dP)/den^2 with nP = -<u^3 sinh>, dP = -<u^2 cosh>.',
   finding: 'Every tested finite-S window W(S) exceeds 1.15e-11 by 5 to 8 orders (nu={1,2,4}: 2.75e-3, x2.4e8; the tightest, nu=2^k k=0..7: 2.79e-6, x2.4e5). A4(i) flow-stability is quantified: the flow must run far past the first unconditional non-real zero before it can threaten a finite-S positivity certificate.',
   scope: 'Per finite S only. inf_S W(S) = 0 (mu_S(0) -> 0 as S grows while M1 stays O(1e-2)) -- this IS the all-S flow-criticality of imp-95530 A5 (the full family = RH), not a contradiction. The leading-order constant W(S) is exact; making it a fully a-priori window needs the (measured, unproved) monotone decay sup_t ||M(t)||_2 = ||M(0)||_2 (sub-gap EPS0-DECAY).',
-  verdict: 'A4(i) eps_0(S) is now EXPLICIT per finite S: eps_0(S) >= mu_S(0)/||G^{-1/2}(dP_S/deps)|_0 G^{-1/2}||_2, numerically 5 to 8 orders above 1.15e-11 on every tested node set. Residual sub-gap EPS0-DECAY (a-priori derivative-norm majorant). Changes no bound; RH OPEN; PT Lambda <= 0.2 stands; NO QED.',
+  verdict: 'A4(i) eps_0(S) is now EXPLICIT per finite S: eps_0(S) >= mu_S(0)/||G^{-1/2}(dP_S/deps)|_0 G^{-1/2}||_2, numerically 5 to 8 orders above 1.15e-11 on every tested node set. Residual sub-gap EPS0-DECAY (a-priori derivative-norm majorant). Changes no bound; RH OPEN; no refereed bound is changed; NO QED.',
 });
 
 const relEq = (x, lit, tol) => Math.abs(x - lit) <= tol * Math.max(Math.abs(lit), 1e-300);
@@ -217,7 +217,7 @@ export const IMP95531_ASSERTIONS = [
     holds: () => /inf_S W\(S\) = 0/.test(IMP95531_EPS0_PD_PERSISTENCE_WINDOW.scope)
       && /EPS0-DECAY/.test(IMP95531_EPS0_PD_PERSISTENCE_WINDOW.scope)
       && /RH OPEN/.test(IMP95531_EPS0_PD_PERSISTENCE_WINDOW.verdict)
-      && /PT Lambda <= 0.2 stands/.test(IMP95531_EPS0_PD_PERSISTENCE_WINDOW.verdict)
+      && /refereed bound is changed/i.test(IMP95531_EPS0_PD_PERSISTENCE_WINDOW.verdict)
       && /NO QED/.test(IMP95531_EPS0_PD_PERSISTENCE_WINDOW.verdict),
   },
 ];

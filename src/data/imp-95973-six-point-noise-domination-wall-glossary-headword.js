@@ -42,7 +42,7 @@
  *   A glossary-style lookup restating a shared obstruction already implicit across four
  *   separate tickets, for quick reference. It establishes nothing, instantiates no interval,
  *   closes no sub-gap, moves no bound. imp-2519 no-overclaim guard preserved; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-95897-c0-offset-monotonicity-envelope-safety (raw-slope R^2 = 0.0007)
  * @see imp-95940-arithmetic-intercept-a0-obstruction (a_0 spread ~1.18, straddles zero)
@@ -51,7 +51,7 @@
  * @see imp-95968-rcap-envelope-self-consistency-glossary-headword (sibling headword for the imp-95946 leg)
  *
  * Ticket: imp-95973 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The shared six-point noise-domination headword, baked verbatim (no re-import).
@@ -99,8 +99,8 @@ export const IMP95973_SIX_POINT_NOISE_DOMINATION_WALL_GLOSSARY_HEADWORD = Object
     'loglog-slope R^2 = 1.8e-4 (standard error ~27x the analytic slope); imp-95940 a_0 spread ' +
     '~1.18 straddling zero; imp-95946 reduced to a self-consistency-only check. Each thread ' +
     'therefore rests on the analytic saturated box-variance law, not the accessible data. ' +
-    'Establishes nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95897 (raw-slope R^2 = 0.0007 finding); imp-95941 (loglog cross-val R^2 = 1.8e-4 ' +
     'finding); imp-95940 (a_0 spread ~1.18 straddle-zero finding); imp-95946 (self-consistency ' +
@@ -129,12 +129,12 @@ export const IMP95973_SIX_POINT_NOISE_DOMINATION_WALL_GLOSSARY_HEADWORD_ASSERTIO
   },
   {
     id: 'imp95973-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, all four ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, all four ' +
       'source ticket ids recorded.',
     holds: () =>
       IMP95973_SIX_POINT_NOISE_DOMINATION_WALL_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95973_SIX_POINT_NOISE_DOMINATION_WALL_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95973_SIX_POINT_NOISE_DOMINATION_WALL_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95973_SIX_POINT_NOISE_DOMINATION_WALL_GLOSSARY_HEADWORD.verdict) &&
       /imp-95941/.test(IMP95973_SIX_POINT_NOISE_DOMINATION_WALL_GLOSSARY_HEADWORD.glosses) &&
       /imp-95940/.test(IMP95973_SIX_POINT_NOISE_DOMINATION_WALL_GLOSSARY_HEADWORD.glosses) &&
       /imp-95946/.test(IMP95973_SIX_POINT_NOISE_DOMINATION_WALL_GLOSSARY_HEADWORD.glosses) &&

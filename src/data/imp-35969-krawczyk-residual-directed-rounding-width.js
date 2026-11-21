@@ -47,7 +47,7 @@
  * imp-35885 asserted. The a-DEPENDENCE (flat / a-independent, far below eps/a) is the transferable finding; the
  * absolute width is surrogate-limited. imp-34714a REMAINS OPEN; C_C = 1/8 (imp-2642/2643) and C_mb
  * GUE-conditional (imp-486) UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35885-krawczyk-node-cancellation-audit (NODE B: asserts F(m) is a small tightening nonzero interval; never measured)
  * @see imp-35928-krawczyk-residual-at-root-envelope (measured the residual VALUE magnitude |F(m)|; this measures the enclosure WIDTH)
@@ -294,8 +294,8 @@ export const IMP35969_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_WIDTH = {
     'instantiated, the F(m) = 0 artifact is quantified not discharged, a-independent enclosure width is ' +
     'NECESSARY but not SUFFICIENT. Reuses the imp-34774/imp-35855/imp-35885 machinery (identical K_AMPL, g, ' +
     'aOf, N_cross, axis); C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no ' +
-    'bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35885 (NODE B: asserts a directed-rounding F(m) is a small tightening nonzero interval; never ' +
     'measured); imp-35928 (measured the residual VALUE magnitude |F(m)|; this measures the enclosure WIDTH); ' +
@@ -333,15 +333,15 @@ export const IMP35969_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_WIDTH_ASSERTIONS = [
     holds: () => DG_WIDTH_DIVERGES === true && TOP.dGRelWidth > BOTTOM.dGRelWidth,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp35969-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP35969_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_WIDTH.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP35969_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_WIDTH.subGap) &&
       /NECESSARY but not SUFFICIENT/.test(IMP35969_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_WIDTH.subGap) &&
       /NO QED/.test(IMP35969_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_WIDTH.verdict) &&
-      /remains SOTA/.test(IMP35969_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_WIDTH.verdict),
+      /refereed bound is changed/i.test(IMP35969_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_WIDTH.verdict),
   },
 ];
 

@@ -54,7 +54,7 @@
  * NUMERICAL / MEASUREMENT ONLY. The component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33887-ecoll-gap-anchoring-convention-reconciliation (exact three-way split on 1e12..1e15 anchor)
  * @see imp-33918-ecoll-g-vs-law-reference-offset-convergence-rate (I3 g-vs-law offset convergence rate)
@@ -201,7 +201,7 @@ export const IMP33919_ECOLL_THREE_WAY_DECOMPOSITION_LOWER_LADDER = {
     'cross-check). The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-33887 (exact three-way split on 1e12..1e15 anchor, two ~6.3e-4 offsets nearly cancel to ' +
     '~1e-5); imp-33918 (I3 g-vs-law offset convergence rate); imp-33856 (DISCRETE gap_ecoll vs ' +
@@ -264,13 +264,13 @@ export const IMP33919_ECOLL_THREE_WAY_DECOMPOSITION_LOWER_LADDER_ASSERTIONS = [
     holds: () => Math.abs(RESID_ABS_AT_1E12 - 6.48e-6) < 5e-8,
   },
   {
-    // Honesty gate: numerical/measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: numerical/measurement only, no QED, no refereed bound is changed.
     id: 'imp33919-honesty-gate-no-qed',
-    description: 'Numerical/measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Numerical/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33919_ECOLL_THREE_WAY_DECOMPOSITION_LOWER_LADDER.isRigorous === false &&
       /NO QED/.test(IMP33919_ECOLL_THREE_WAY_DECOMPOSITION_LOWER_LADDER.verdict) &&
-      /remains SOTA/.test(IMP33919_ECOLL_THREE_WAY_DECOMPOSITION_LOWER_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP33919_ECOLL_THREE_WAY_DECOMPOSITION_LOWER_LADDER.verdict),
   },
 ];
 

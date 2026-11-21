@@ -61,8 +61,7 @@
  *   This estimates the analytic reach of a scalar onset series; it neither proves nor
  *   weakens RH, adds no positivity, and touches neither imp-3066 (the off-diagonal
  *   endpoint-Hankel operator obstruction, the lone remaining gap) nor the bare pilot.
- *   Measurement/diagnostic only, no QED. Platt-Trudgian Lambda &lt;= 0.2 REMAINS the
- *   rigorous SOTA.
+ *   Measurement/diagnostic only, no QED. No refereed bound is changed.
  *
  *   @see imp-3383-onset-third-order-higher-pade.js (parent: closed-form A1..A4 + higher Pade)
  *   @see imp-3422-onset-coefficient-certification.js (certifies A3, A4)
@@ -261,7 +260,7 @@ export const IMP3424_ONSET_SERIES_RADIUS_OF_CONVERGENCE = Object.freeze({
       'Estimates the analytic reach of a scalar onset series; adds no positivity and touches ' +
       'neither imp-3066 (the off-diagonal endpoint-Hankel operator obstruction, the lone ' +
       'remaining gap) nor the bare pilot.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -318,7 +317,7 @@ export const IMP3424_ONSET_SERIES_RADIUS_OF_CONVERGENCE_ASSERTIONS = [
     id: 'imp3424-honest-rh-equivalent-measurement-only',
     why: 'Mandatory honesty: this is a radius-of-convergence MEASUREMENT, RH-EQUIVALENT, not a proof, ' +
          'not a reduction below RH, leaves the imp-3066 operator step untouched, does not rerun the ' +
-         'bare pilot, and PT 0.2 stays SOTA. If any of these flip the module over-claims.',
+         'bare pilot, and no refereed bound is changed. If any of these flip the module over-claims.',
     holds: () => {
       const c = IMP3424_ONSET_SERIES_RADIUS_OF_CONVERGENCE.honestCaveat;
       return (
@@ -327,7 +326,7 @@ export const IMP3424_ONSET_SERIES_RADIUS_OF_CONVERGENCE_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.isMeasurementOnly === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

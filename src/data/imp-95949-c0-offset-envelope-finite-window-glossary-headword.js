@@ -44,7 +44,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95921 conclusion for quick reference. It
  *   establishes nothing new, instantiates no interval, closes no sub-gap, moves no bound.
- *   imp-2519 no-overclaim guard preserved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   imp-2519 no-overclaim guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-95921-c0-offset-approach-analytic-bracket (source: the analytic bracket and crossing range)
  * @see imp-95897-c0-offset-monotonicity-envelope-safety (left the approach direction UNDECIDED)
@@ -52,7 +52,7 @@
  * @see imp-95722-number-variance-ratio-window-bottom-bound (r_cap envelope; C0 = max offset)
  *
  * Ticket: imp-95949 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The C0-envelope-finite-window headword, baked verbatim (no re-import of imp-95921).
@@ -99,8 +99,8 @@ export const IMP95949_C0_OFFSET_ENVELOPE_FINITE_WINDOW_GLOSSARY_HEADWORD = Objec
     'max-anchor cushion, so C0 REMAINS a valid upper envelope through the window bottom 3e12. ' +
     'This is bounded, not unconditional: offset grows without bound and crosses C0 at a finite ' +
     'height T_x in [~5.8e17, ~1.36e28], the range set by the unpinned O(1) arithmetic intercept. ' +
-    'Establishes nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95921 (analytic bracket; upward drift slope 1/2pi^2; crossing range [~5.8e17, ~1.36e28]); ' +
     'imp-95897 (left the approach direction undecided); imp-95884 (downward-drift hazard imp-95921 ' +
@@ -129,12 +129,12 @@ export const IMP95949_C0_OFFSET_ENVELOPE_FINITE_WINDOW_GLOSSARY_HEADWORD_ASSERTI
   },
   {
     id: 'imp95949-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, source ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, source ' +
       'ticket id recorded.',
     holds: () =>
       IMP95949_C0_OFFSET_ENVELOPE_FINITE_WINDOW_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95949_C0_OFFSET_ENVELOPE_FINITE_WINDOW_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95949_C0_OFFSET_ENVELOPE_FINITE_WINDOW_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95949_C0_OFFSET_ENVELOPE_FINITE_WINDOW_GLOSSARY_HEADWORD.verdict) &&
       /imp-95921/.test(IMP95949_C0_OFFSET_ENVELOPE_FINITE_WINDOW_GLOSSARY_HEADWORD.glosses),
   },
 ];

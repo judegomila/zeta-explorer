@@ -17,7 +17,7 @@
  * @see imp-97606-route-m-mcm-omega10-primorial-extremality-broadened.js (omega=10 primorial confirmed strict minimiser)
  *
  * Ticket: imp-97632 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97432_VERDICT } from './imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js';

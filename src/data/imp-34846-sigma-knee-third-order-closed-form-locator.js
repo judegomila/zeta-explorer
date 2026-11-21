@@ -56,7 +56,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent
- * stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA. The E_flow-reinstatement
+ * stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed. The E_flow-reinstatement
  * sub-gap (imp-34796/imp-34820/imp-34837) is inherited UNCHANGED: this closed form is on the no-E_flow surrogate.
  *
  * @see imp-34796-sigma-knee-gap-exact-zero-identity (the F = -g_thirdDeriv/(1-S) identity this renders in closed form)
@@ -263,8 +263,8 @@ export const IMP34846_SIGMA_KNEE_THIRD_ORDER_CLOSED_FORM_LOCATOR = {
     'inflection, has an exact closed-form locator -- but through g = ln sigma, not the third derivative of sigma. ' +
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a ' +
-    '>= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    '>= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap:
     'ANSWERS imp-34846: sigma_thirdDeriv = 0 is NOT the sigma-KNEE (a DISTINCT landmark ~1.21 dex below), but the ' +
     'g = ln sigma third-order identity g_thirdDeriv = (1-S)[u_thirdDeriv - 3S u_prime u_secondDeriv + S(2S-1) ' +
@@ -309,15 +309,15 @@ export const IMP34846_SIGMA_KNEE_THIRD_ORDER_CLOSED_FORM_LOCATOR_ASSERTIONS = [
       SCALING[SCALING.length - 1].relResid < SCALING[0].relResid,
   },
   {
-    // Honesty gate: assessment/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: assessment/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34846-honesty-gate-no-qed',
-    description: 'Assessment/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Assessment/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34846_SIGMA_KNEE_THIRD_ORDER_CLOSED_FORM_LOCATOR.isRigorous === false &&
       IMP34846_SIGMA_KNEE_THIRD_ORDER_CLOSED_FORM_LOCATOR.farTailExponent === 0.5 &&
       typeof IMP34846_SIGMA_KNEE_THIRD_ORDER_CLOSED_FORM_LOCATOR.subGap === 'string' &&
       /NO QED/.test(IMP34846_SIGMA_KNEE_THIRD_ORDER_CLOSED_FORM_LOCATOR.verdict) &&
-      /remains SOTA/.test(IMP34846_SIGMA_KNEE_THIRD_ORDER_CLOSED_FORM_LOCATOR.verdict),
+      /refereed bound is changed/i.test(IMP34846_SIGMA_KNEE_THIRD_ORDER_CLOSED_FORM_LOCATOR.verdict),
   },
 ];
 

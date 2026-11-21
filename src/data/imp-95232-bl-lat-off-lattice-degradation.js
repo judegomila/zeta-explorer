@@ -4,7 +4,7 @@
  * IN-OCTAVE multiplicity -- the two named residuals of the signed
  * cross-octave leg. Quantifies how far the near-sharp (ratio 1.028)
  * lattice result carries to generic rate sets. MEASUREMENT ONLY; changes
- * no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT. On distinct rates nu_1 < ... < nu_N > 0 and depth d, the signed
  * seam constant Lambda = lambda_max of the pencil (D G D, G) with Cauchy
@@ -76,7 +76,7 @@
  * (vacuous below in-octave ratio ~1.4). The named residuals are therefore
  * asymmetric: OFF-LATTICE is a mild, quantified degradation; IN-OCTAVE
  * MULTIPLICITY is a genuine wall that routes to SGN-C. MEASUREMENT ONLY;
- * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -141,7 +141,7 @@ export const IMP95232_BL_LAT_OFF_LATTICE_DEGRADATION = {
     "worst 1.14 at +-10% jitter, always firing); in-octave multiplicity = " +
     "genuine wall (vacuous below ratio ~1.4) routing to SGN-C; the LAT " +
     "collar itself is ~70x loose at finite N (count-uniform price). Changes " +
-    "no bound of the Lambda program; NO QED; PT Lambda <= 0.2 remains SOTA.",
+    "no bound of the Lambda program; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -286,7 +286,7 @@ export const IMP95232_BL_LAT_ASSERTIONS = [
       ) &&
       /routing to SGN-C/.test(IMP95232_BL_LAT_OFF_LATTICE_DEGRADATION.verdict) &&
       /NO QED/.test(IMP95232_BL_LAT_OFF_LATTICE_DEGRADATION.verdict) &&
-      /remains SOTA/.test(IMP95232_BL_LAT_OFF_LATTICE_DEGRADATION.verdict),
+      /refereed bound is changed/i.test(IMP95232_BL_LAT_OFF_LATTICE_DEGRADATION.verdict),
   },
 ];
 

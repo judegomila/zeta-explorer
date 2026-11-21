@@ -41,7 +41,7 @@
  *   beats the double-precision floor)
  *
  * Ticket: imp-124864 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The bisection round-off floor headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -71,8 +71,8 @@ const BISECTION_ROUNDOFF_FLOOR_HEADWORD = Object.freeze({
     'strictly decreases while tolerance-limited, saturates exactly at TOL <= 1e-15, and the ' +
     'saturated sigma_crit (~1.27e-2) lies strictly between 0.005 and 0.02 at every swept TOL. ' +
     'Naming / glossary headword only; supplies no new bound; the C_C 1/8 ansatz and ' +
-    'E_trunc/E_flow component model are untouched; RH open; Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA; NO QED.',
+    'E_trunc/E_flow component model are untouched; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP124864_BISECTION_ROUNDOFF_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
@@ -94,8 +94,8 @@ export const IMP124864_BISECTION_ROUNDOFF_FLOOR_GLOSSARY_HEADWORD = Object.freez
     'DIAG3 eps-ladder rungs. The L6 eps-ladder non-monotonicity is therefore a ' +
     'double-precision-limited artifact of the bisection solve, curable only by extended precision ' +
     '(imp-124808), not by tightening the bisection tolerance. No bound moved; the component model ' +
-    'and all pinned surrogate constants are untouched; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'and all pinned surrogate constants are untouched; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124810 (the TOL sweep and saturation verdict this glosses); imp-124769 (the original ' +
     'machine-limit R ~ 4.5e-13 / sigma_crit ~ 0.013 pin); imp-97821 (the L6 non-monotone ' +
@@ -123,11 +123,11 @@ export const IMP124864_BISECTION_ROUNDOFF_FLOOR_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp124864-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124810.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124810.',
     holds: () =>
       IMP124864_BISECTION_ROUNDOFF_FLOOR_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124864_BISECTION_ROUNDOFF_FLOOR_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124864_BISECTION_ROUNDOFF_FLOOR_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124864_BISECTION_ROUNDOFF_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       IMP124864_BISECTION_ROUNDOFF_FLOOR_GLOSSARY_HEADWORD.glosses === 'imp-124810',
   },
 ];

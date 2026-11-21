@@ -12,7 +12,7 @@
  *   interval sum (imp-35725), not the choice of summation scheme.
  *
  *   Ticket: imp-35962 (content, low). Note only; ports nothing; changes no bound;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  *   @see imp-35893-w1-summation-pairwise-tree-shape.js (source: the tree-SHAPE sweep this note restates)
  *   @see imp-35852-w1-summation-adversarial-ordering (companion stress: term ORDER, not tree shape)
@@ -54,7 +54,7 @@ export const IMP35962_W1_PAIRWISE_TREE_SHAPE_ROBUST_HONEST_STATUS = Object.freez
     isReductionBelowRH: false,
     changesAnyBound: false,
     portsAnyRoute: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -97,7 +97,7 @@ export const IMP35962_W1_PAIRWISE_TREE_SHAPE_ROBUST_HONEST_STATUS_ASSERTIONS = [
       IMP35962_W1_PAIRWISE_TREE_SHAPE_ROBUST_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP35962_W1_PAIRWISE_TREE_SHAPE_ROBUST_HONEST_STATUS.honestCaveat.isReductionBelowRH === false &&
       IMP35962_W1_PAIRWISE_TREE_SHAPE_ROBUST_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP35962_W1_PAIRWISE_TREE_SHAPE_ROBUST_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP35962_W1_PAIRWISE_TREE_SHAPE_ROBUST_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp35962-verdict-robust-no-qed',

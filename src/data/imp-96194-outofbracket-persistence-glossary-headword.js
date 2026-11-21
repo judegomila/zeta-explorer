@@ -45,14 +45,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96170 out-of-bracket measurement for quick
  *   reference. It establishes nothing, instantiates no interval, closes no sub-gap, moves
- *   no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96170-number-variance-two-interval-covariance-outofbracket-heights (source: the measurement this glosses)
  * @see imp-96150-number-variance-two-interval-covariance-heldout-heights (the five in-band held-out heights this extends)
  * @see imp-96128-number-variance-two-interval-covariance-exact (the single significant-height T = 1.5e5 census)
  *
  * Ticket: imp-96194 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The out-of-bracket persistence headword, baked verbatim (no re-import).
@@ -86,7 +86,7 @@ const OUTOFBRACKET_PERSISTENCE_HEADWORD = Object.freeze({
     'beyond their sampled band, not a new bound: both fresh heights stay on the safe side of ' +
     'the positive flip threshold rho_crit = 0.57443 by ~1.04 in rho units. Changes no bound; ' +
     'does not raise the ~1.9-sigma significant-dip confidence (set by excursion depth, not ' +
-    'the correlation model); PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'the correlation model); no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96194_OUTOFBRACKET_PERSISTENCE_GLOSSARY_HEADWORD = Object.freeze({
@@ -105,7 +105,7 @@ export const IMP96194_OUTOFBRACKET_PERSISTENCE_GLOSSARY_HEADWORD = Object.freeze
     'band, the AR-1 factor stays near 2.7x (f = 2.72095 / 2.75103) and the flip-gap stays ' +
     '~1.04 in rho units on the safe side (1.03693 / 1.04124), with rho_exact continuing its ' +
     'monotone drift toward -1/2. Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96170 (the out-of-bracket measurement this glosses); imp-96150 (the five in-band ' +
     'held-out heights this extends); imp-96128 (the significant-height T = 1.5e5 census).',
@@ -131,11 +131,11 @@ export const IMP96194_OUTOFBRACKET_PERSISTENCE_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96194-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96194_OUTOFBRACKET_PERSISTENCE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96194_OUTOFBRACKET_PERSISTENCE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96194_OUTOFBRACKET_PERSISTENCE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96194_OUTOFBRACKET_PERSISTENCE_GLOSSARY_HEADWORD.verdict) &&
       IMP96194_OUTOFBRACKET_PERSISTENCE_GLOSSARY_HEADWORD.glosses === 'imp-96170',
   },
 ];

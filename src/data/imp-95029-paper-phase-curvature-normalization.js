@@ -64,8 +64,7 @@
  * (mu_eff = (S(b)/S(0))^(-3/2) stays in ~[0.75, 1] across most of a cell); it
  * does NOT supply a paper number. The numerics below CROSS-CHECK the exact
  * statements; they are not the claim. Import-light (no heavy bundle). Changes
- * no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 const P = 97; // the telescope prime (Theorem D reference)
@@ -149,7 +148,7 @@ export const IMP95029_PAPER_PHASE_CURVATURE_NORMALIZATION = {
     "Finding 1 (ledger scaling mu^(-2/3)) is an exact homogeneity observation on Theorem D. Finding 2 (mu = 1 model tautology) restates the exact construction of the quadratic Fresnel phase. Finding 3 is a MEASUREMENT of the named scalar under the additive-base-curvature model at p = 97: b = 0 reproduces the Theorem D closed form to rel 5.5e-16, the period-1 (not 1/p) structure and the poles at (1/p)Z are exhibited directly, and the bounded non-resonant band and the resonance divergence are computed. No paper constant is instantiated, so no transferred normalization is CLAIMED - only the DEPENDENCE (single lever mu^(-2/3); b = 0 local best; bounded off-resonance; divergent at resonance) is asserted. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT/DERIVATION assessment of the paper phase curvature normalization (Theorem D residual, openResiduals[2]) and its effect on the far-bracket ledger. FINDING 1: the normalization enters ONLY as the multiplicative factor mu^(-2/3) on the named-scalar ceiling (a fifth, independent lever beside imp-95026 sigma/theta/beta/Q). FINDING 2: mu = 1 is the model TAUTOLOGY (the quadratic Fresnel curvature at u* is exactly |k - h/p|), not a free assumption. FINDING 3: under an additive base curvature b the named scalar S(b) = (1/p^2) sum dist(h/p - b, Z)^(-2/3) recovers the model at b = 0 (S(0) = 0.03811163970959591 = Theorem D value), is period-1 (not 1/p) and even, has POLES at b in (1/p)Z (RESONANCE), and off-resonance stays within order tens of percent of the model (1.27x at b = 0.3, 1.03x within a half-cell), diverging (6.83x) as b approaches a pole. DIRECTION: b = 0 is a local minimum, so the paper phase can only DEGRADE the ledger, bounded unless it resonates. SUB-GAP: the paper base curvature b is not pinned in this repo; whether the Section 4.5 phase resonates with a worst alias is the open risk this isolates. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT/DERIVATION assessment of the paper phase curvature normalization (Theorem D residual, openResiduals[2]) and its effect on the far-bracket ledger. FINDING 1: the normalization enters ONLY as the multiplicative factor mu^(-2/3) on the named-scalar ceiling (a fifth, independent lever beside imp-95026 sigma/theta/beta/Q). FINDING 2: mu = 1 is the model TAUTOLOGY (the quadratic Fresnel curvature at u* is exactly |k - h/p|), not a free assumption. FINDING 3: under an additive base curvature b the named scalar S(b) = (1/p^2) sum dist(h/p - b, Z)^(-2/3) recovers the model at b = 0 (S(0) = 0.03811163970959591 = Theorem D value), is period-1 (not 1/p) and even, has POLES at b in (1/p)Z (RESONANCE), and off-resonance stays within order tens of percent of the model (1.27x at b = 0.3, 1.03x within a half-cell), diverging (6.83x) as b approaches a pole. DIRECTION: b = 0 is a local minimum, so the paper phase can only DEGRADE the ledger, bounded unless it resonates. SUB-GAP: the paper base curvature b is not pinned in this repo; whether the Section 4.5 phase resonates with a worst alias is the open risk this isolates. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -254,12 +253,12 @@ export const IMP95029_CURVATURE_NORMALIZATION_ASSERTIONS = [
   {
     id: "imp95029-honesty-gate",
     description:
-      "the verdict names the sub-gap (paper base curvature not pinned; resonance risk), records the single mu^(-2/3) lever and the b=0 local best, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (paper base curvature not pinned; resonance risk), records the single mu^(-2/3) lever and the b=0 local best, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95029_PAPER_PHASE_CURVATURE_NORMALIZATION.promotesBound === false &&
       IMP95029_PAPER_PHASE_CURVATURE_NORMALIZATION.openResiduals.length === 2 &&
       /NO QED/.test(IMP95029_PAPER_PHASE_CURVATURE_NORMALIZATION.verdict) &&
-      /remains SOTA/.test(IMP95029_PAPER_PHASE_CURVATURE_NORMALIZATION.verdict) &&
+      /refereed bound is changed/i.test(IMP95029_PAPER_PHASE_CURVATURE_NORMALIZATION.verdict) &&
       /mu\^\(-2\/3\)/.test(IMP95029_PAPER_PHASE_CURVATURE_NORMALIZATION.verdict) &&
       /RESONANCE/.test(IMP95029_PAPER_PHASE_CURVATURE_NORMALIZATION.verdict) &&
       /local minimum/.test(IMP95029_PAPER_PHASE_CURVATURE_NORMALIZATION.verdict),

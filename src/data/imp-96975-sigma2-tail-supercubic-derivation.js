@@ -55,7 +55,7 @@
  * imp-96975-minimiser-coeff-spectrum-supercubic-residue: closing p in closed form needs the
  * asymptotics of the minimiser coefficient decay, not the bare endpoint law. Derivation only; the
  * floor is a Rayleigh UPPER bound; no operator positivity; interval-rigorous certificate reach stays
- * 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96957-bessel-onset-tail-finer-ladder-viz-data.js (measured p_global=3.228 on {88..124})
  * @see imp-96934-bessel-onset-tail-residual-viz-data.js (the onset table this derives the scaling for)

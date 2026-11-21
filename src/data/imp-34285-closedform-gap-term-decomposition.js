@@ -52,7 +52,7 @@
  * bound. Reuses the imp-3406/imp-33810 sub-terms verbatim; the inherited imp-3220/imp-3406 component model is
  * NOT a rigorous asymptotic; the crossing is descriptive within that model only; changes no bound;
  * establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34211-closedform-vs-bisection-kend-gap (the ~0.278 gap decomposed here)
  * @see imp-34127-m2-residual-signchange-ceiling-closed-form (the closed form and the continuous-residual identity)
@@ -286,7 +286,7 @@ export const IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION = {
     'percentage-split (ill-conditioned by the near-total dA-dB cancellation). The inherited imp-3220/' +
     'imp-3406 component model is NOT a rigorous asymptotic; the crossing is descriptive within that model ' +
     'only; changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 ' +
-    'untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34211 (the ~0.278 gap decomposed here); imp-34127 (the closed form and the continuous-residual ' +
     'identity); imp-34150 (the direct-bisection root 21.28094743); imp-34023 (F4 = resid(hi)/resid(lo), a ' +
@@ -343,13 +343,13 @@ export const IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION_ASSERTIONS = [
         'SUB-GAP-imp-34285-per-estimator-percentage-split',
   },
   {
-    // Honesty gate: decomposition only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: decomposition only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34285-honesty-gate-no-qed',
-    description: 'Decomposition only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Decomposition only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION.isRigorous === false &&
       /NO QED/.test(IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION.verdict) &&
+      /refereed bound is changed/i.test(IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34285_CLOSEDFORM_GAP_TERM_DECOMPOSITION.verdict),
   },
 ];

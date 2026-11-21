@@ -59,7 +59,7 @@
  *   machinery, NOT arithmetic measurements of C_E,17.
  *
  * Changes no bound; does NOT promote Lambda <= 0.14; promotes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 // ── anchored constants (from imp-95006 / imp-95007 / imp-95010) ─────────────
@@ -273,7 +273,7 @@ export const IMP95011_GATE2_OSCILLATION_PROBE = {
     'The decision procedure and the regime-decisiveness claim are exact; the surrogate scan numbers are structural demonstrations of the machinery, not arithmetic measurements of C_E,17.',
   promotesBound: false,
   verdict:
-    'HONEST PARTIAL: delivers the falsifiable kill-criteria decision procedure and a regime map proving the batching premise is decision-decisive (smooth phase -> L << 1e-2 survives; raw alias phase -> L >> 1e-2 dies), sharpening the sub-gap to the single arithmetic question of which phase regime the 18-moment carrier inhabits near the correlated lower edge. The real sampled sup and L remain UNMEASURED (offline/native). Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'HONEST PARTIAL: delivers the falsifiable kill-criteria decision procedure and a regime map proving the batching premise is decision-decisive (smooth phase -> L << 1e-2 survives; raw alias phase -> L >> 1e-2 dies), sharpening the sub-gap to the single arithmetic question of which phase regime the 18-moment carrier inhabits near the correlated lower edge. The real sampled sup and L remain UNMEASURED (offline/native). Changes no bound; NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -336,13 +336,13 @@ export const IMP95011_GATE2_OSCILLATION_PROBE_ASSERTIONS = [
   },
   {
     id: 'imp95011-honesty-gate-no-qed',
-    description: 'measurement-only honest partial: promotes no bound, names the unmeasured offline sub-gap, NO QED, PT stays SOTA',
+    description: 'measurement-only honest partial: promotes no bound, names the unmeasured offline sub-gap, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95011_GATE2_OSCILLATION_PROBE.promotesBound === false &&
       IMP95011_GATE2_OSCILLATION_PROBE.isRigorous === false &&
       IMP95011_GATE2_OSCILLATION_PROBE.namedSubGap === 'imp-95011-sub-arithmetic-carrier-scan' &&
       /NO QED/.test(IMP95011_GATE2_OSCILLATION_PROBE.verdict) &&
-      /remains SOTA/.test(IMP95011_GATE2_OSCILLATION_PROBE.verdict),
+      /refereed bound is changed/i.test(IMP95011_GATE2_OSCILLATION_PROBE.verdict),
   },
 ];
 
@@ -362,7 +362,7 @@ for (const a of IMP95011_GATE2_OSCILLATION_PROBE_ASSERTIONS) {
 // is bounded in [0, 1] exactly: a ratio near 1 means no cancellation (correlated
 // sum saturates the decoupled l1 mass); a small ratio means the enclosure lives
 // on heavy phase cancellation. Surrogate carrier only, NOT arithmetic C_E,17;
-// measurement only; changes no bound; PT Lambda <= 0.2 remains SOTA.
+// measurement only; changes no bound; no refereed bound is changed.
 function tabulateCorrelationGain(phaseModel, M) {
   const samples = logSpacedSamples(M);
   const ratios = [];
@@ -422,7 +422,7 @@ export const IMP95051_CORRELATION_GAIN_TABLE = {
     'the ratio bound in [0,1] is exact (triangle inequality); the tabulated distribution is a structural demonstration on the SURROGATE carrier, NOT an arithmetic measurement of C_E,17 (offline sub-gap imp-95011-sub-arithmetic-carrier-scan).',
   promotesBound: false,
   verdict:
-    'MEASUREMENT ONLY: tabulates the imp-95011 correlation-gain ratio across the entire smooth-regime surrogate sample set (min/max/mean/median/p05/p95 + decile histogram), quantifying the average cancellation the enclosure depends on. Surrogate carrier, NOT arithmetic C_E,17; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'MEASUREMENT ONLY: tabulates the imp-95011 correlation-gain ratio across the entire smooth-regime surrogate sample set (min/max/mean/median/p05/p95 + decile histogram), quantifying the average cancellation the enclosure depends on. Surrogate carrier, NOT arithmetic C_E,17; changes no bound; NO QED; no refereed bound is changed.',
 };
 
 export const IMP95051_CORRELATION_GAIN_ASSERTIONS = [
@@ -450,12 +450,12 @@ export const IMP95051_CORRELATION_GAIN_ASSERTIONS = [
   },
   {
     id: 'imp95051-measurement-only-no-qed',
-    description: 'measurement-only honest partial: promotes no bound, surrogate not arithmetic, NO QED, PT stays SOTA',
+    description: 'measurement-only honest partial: promotes no bound, surrogate not arithmetic, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95051_CORRELATION_GAIN_TABLE.promotesBound === false &&
       IMP95051_CORRELATION_GAIN_TABLE.isRigorous === false &&
       /NO QED/.test(IMP95051_CORRELATION_GAIN_TABLE.verdict) &&
-      /remains SOTA/.test(IMP95051_CORRELATION_GAIN_TABLE.verdict),
+      /refereed bound is changed/i.test(IMP95051_CORRELATION_GAIN_TABLE.verdict),
   },
 ];
 

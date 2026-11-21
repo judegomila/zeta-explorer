@@ -60,7 +60,7 @@
  * L_pt / E_trunc = 3954.2, so the conditionality headroom against L_pt has nearly saturated.
  *
  * ASSESSMENT ONLY. C_mb remains GUE-conditional per imp-486. No positivity, no bridge
- * closure, no bound change, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * closure, no bound change, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-33620-etrunc-ecoll-ladder-1e15-extension (sigma < 0.01 far-tail landmark bisection)
  * @see imp-34453-crossover-en-headline-slack-vs-lpt (E_coll = E_trunc crossover headline slack)
@@ -191,7 +191,7 @@ export const IMP34474_FAR_TAIL_EN_HEADLINE_SLACK_VS_LPT = {
     'L_pt / E_trunc = 3954.2 -- so the conditionality headroom against L_pt has nearly saturated. ' +
     'A CONDITIONALITY gap throughout (GUE-conditional E_coll, C_H = 1/8, vs fully-unconditional L_pt). ' +
     'C_mb remains GUE-conditional per imp-486. No positivity, no bridge closure, no bound change, ' +
-    'no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-33620 (sigma < 0.01 far-tail landmark N ~ 4.62e13, log10-N bisection); imp-34453 (imp-3444 ' +
     'E_coll = E_trunc crossover headline slack, E(N) ~ 6.1258e-5); imp-3406 (N-shape sigma(N)); ' +
@@ -238,14 +238,14 @@ export const IMP34474_FAR_TAIL_EN_HEADLINE_SLACK_VS_LPT_ASSERTIONS = [
       CEILING_FRACTION > 0.98,
   },
   {
-    // Honesty gate: measurement only, GUE-conditional, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, GUE-conditional, no QED, no refereed bound is changed.
     id: 'imp34474-honesty-gate-no-qed',
-    description: 'Measurement only: C_mb GUE-conditional, no bound change, no QED, PT stays SOTA',
+    description: 'Measurement only: C_mb GUE-conditional, no bound change, no QED, no refereed bound is changed',
     holds: () =>
       IMP34474_FAR_TAIL_EN_HEADLINE_SLACK_VS_LPT.isRigorous === false &&
       /GUE-conditional per imp-486/.test(IMP34474_FAR_TAIL_EN_HEADLINE_SLACK_VS_LPT.verdict) &&
       /NO QED/.test(IMP34474_FAR_TAIL_EN_HEADLINE_SLACK_VS_LPT.verdict) &&
-      /remains SOTA/.test(IMP34474_FAR_TAIL_EN_HEADLINE_SLACK_VS_LPT.verdict),
+      /refereed bound is changed/i.test(IMP34474_FAR_TAIL_EN_HEADLINE_SLACK_VS_LPT.verdict),
   },
 ];
 

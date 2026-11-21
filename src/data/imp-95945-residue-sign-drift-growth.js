@@ -169,7 +169,7 @@ export const IMP95945_RESIDUE_SIGN_DRIFT_GROWTH = {
   obstruction:
     "UNCHANGED from imp-95918/imp-95898: the residue mean is NOT the physical per-window theta -- it drops the von Mangoldt x Fresnel-Airy weight A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p). The gap remains the kernel-weighted residue bias against uniform (the imp-95212 Fresnel-Airy envelope port), STILL OPEN. This module measures the exact residue-mean object only.",
   verdict:
-    "MEASUREMENT (honest): extending the exact imp-95898 residue-mean sign image to p up to 101 SETTLES the imp-95918 saturation-vs-growth question -- the theta*(p-1)^2 drift KEEPS GROWING, following a near-perfect linear law theta*(p-1)^2 = A_k + B_k*p (R^2 = 1.0000000) with a small positive k-dependent slope. So the finite-D residual is a genuine growing correction and the true deep-p asymptotic is ~1/p (crossover at p ~ A_k/B_k, ~1508 at k=6), NOT the small-p 1/(p-1)^2 law. Changes no numeric bound; the imp-95212 kernel-weighted residue-bias port is untouched and STILL OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT (honest): extending the exact imp-95898 residue-mean sign image to p up to 101 SETTLES the imp-95918 saturation-vs-growth question -- the theta*(p-1)^2 drift KEEPS GROWING, following a near-perfect linear law theta*(p-1)^2 = A_k + B_k*p (R^2 = 1.0000000) with a small positive k-dependent slope. So the finite-D residual is a genuine growing correction and the true deep-p asymptotic is ~1/p (crossover at p ~ A_k/B_k, ~1508 at k=6), NOT the small-p 1/(p-1)^2 law. Changes no numeric bound; the imp-95212 kernel-weighted residue-bias port is untouched and STILL OPEN; NO QED; no refereed bound is changed.",
   rigorScope:
     "The Gram closed form, the character-orthogonality average, and <theta_C> = (p tr(G) - S)/((p-1) S) are EXACT (inherited from imp-95898/imp-95918; the imp-95918 k=6 column reproduces to <1e-5). The linear law theta*(p-1)^2 = A_k + B_k*p is an EMPIRICAL fit over p in [3,101] (R^2 = 1.0000000 here), extremely straight but not a proved identity; the ~1/p tail and the p ~ A_k/B_k crossover are its numerical implication, not an analytic theorem. The residue mean is NOT the physical theta. Changes no bound; NO QED.",
 };
@@ -260,14 +260,14 @@ export const IMP95945_ASSERTIONS = [
   {
     id: "imp95945-verdict-honesty",
     description:
-      "the verdict carries the honest scope: MEASUREMENT only, drift KEEPS GROWING via a linear law, true deep-p asymptotic ~1/p not 1/(p-1)^2, the imp-95212 port STILL OPEN, no bound, NO QED, SOTA preserved",
+      "the verdict carries the honest scope: MEASUREMENT only, drift KEEPS GROWING via a linear law, true deep-p asymptotic ~1/p not 1/(p-1)^2, the imp-95212 port STILL OPEN, no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(IMP95945_RESIDUE_SIGN_DRIFT_GROWTH.verdict) &&
       /KEEPS GROWING/.test(IMP95945_RESIDUE_SIGN_DRIFT_GROWTH.verdict) &&
       /1\/\(p-1\)\^2/.test(IMP95945_RESIDUE_SIGN_DRIFT_GROWTH.verdict) &&
       /STILL OPEN/.test(IMP95945_RESIDUE_SIGN_DRIFT_GROWTH.obstruction) &&
       /NO QED/.test(IMP95945_RESIDUE_SIGN_DRIFT_GROWTH.verdict) &&
-      /remains SOTA/.test(IMP95945_RESIDUE_SIGN_DRIFT_GROWTH.verdict),
+      /refereed bound is changed/i.test(IMP95945_RESIDUE_SIGN_DRIFT_GROWTH.verdict),
   },
 ];
 

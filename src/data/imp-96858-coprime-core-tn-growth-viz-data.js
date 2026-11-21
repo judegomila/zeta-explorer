@@ -14,7 +14,7 @@
  *
  * PRESENTATION ONLY. Proves no growth law; establishes no operator
  * positivity; interval-rigorous certificate reach stays 2a<=0.96;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96828-coprime-core-vasyunin-second-moment-growth.js (source ladder + fits)
  * @see imp-96856-krein-tresidual-envelope-viz-data.js (sibling viz-data leaf convention)
@@ -58,7 +58,7 @@ export const IMP96858_HONEST_BANNER =
   'rows, no re-fit and no new numbers. The linear-in-log curve T ~ 3.542 log N - 1.426 fits ' +
   'the measured ladder to rms 0.002; the pure-quadratic curve T ~ 0.450 (log N)^2 is the ' +
   'REJECTED model (rms 2.544, ~1300x worse); the local exponent stays flat near 1.06, not ' +
-  'climbing toward 2. Proves no growth law; PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  'climbing toward 2. Proves no growth law; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -95,7 +95,7 @@ const IMP96858_ASSERTIONS = [
       IMP96828_VERDICT.quadraticLawConfirmed === false &&
       IMP96828_VERDICT.linearInLogFitsBest === true &&
       /RH open/.test(IMP96858_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96858_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96858_HONEST_BANNER) &&
       /NO QED/.test(IMP96858_HONEST_BANNER),
     why: 'the viz leaf must not drift from the source verdict (no quadratic law, linear-in-log fits best) and must carry the RH-open / PT-Lambda / NO-QED markers.',
   },

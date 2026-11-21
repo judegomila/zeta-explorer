@@ -64,7 +64,7 @@ export const IMP_33936_SIGMA_DECAY_COHORT_CITATION_AUDIT = {
   honestNote:
     'Read-only citation audit; zero repairs made because zero mismatches were found. No bound ' +
     'changed, no operator positivity attempted. imp-3066 K_a >= 0 untouched. NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
 };
 
 const IMP_33936_ASSERTIONS = [
@@ -86,9 +86,9 @@ const IMP_33936_ASSERTIONS = [
   {
     id: 'imp33936-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33936_SIGMA_DECAY_COHORT_CITATION_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33936_SIGMA_DECAY_COHORT_CITATION_AUDIT.honestNote) &&
       /no QED/i.test(IMP_33936_SIGMA_DECAY_COHORT_CITATION_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only citation audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only citation audit, not a bound; no refereed bound is changed.',
   },
 ];
 

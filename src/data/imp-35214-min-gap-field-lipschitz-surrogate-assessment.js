@@ -72,7 +72,7 @@
  * one binding lever (M5) instead of two independent walls -- but it is NOT a
  * discharge: M5 is OPEN, so I3 stays OPEN. Assessment only; discharges nothing;
  * establishes no operator positivity; changes no bound; C_mb GUE-conditional per
- * imp-486 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-486 UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35196-ystar-schedule-reconciliation-assessment (strip route eliminated; names this lever)
  * @see imp-35167-g-min-non-collision-certificate-scope (M2/M5 min-gap certificate; the OPEN Q3)
@@ -191,7 +191,7 @@ export const IMP35214_MIN_GAP_FIELD_LIPSCHITZ_SURROGATE_ASSESSMENT = {
     'certificate). That is genuine progress (two Step-2 walls unify to one binding lever M5) but not a ' +
     'discharge: M5 is OPEN, so I3 stays OPEN. Assessment only; discharges nothing; establishes no operator ' +
     'positivity; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35196-ystar-schedule-reconciliation-assessment (strip route eliminated; names this lever); ' +
     'imp-35167-g-min-non-collision-certificate-scope (M2/M5 min-gap certificate; the OPEN Q3); ' +
@@ -258,9 +258,9 @@ export const IMP35214_MIN_GAP_FIELD_LIPSCHITZ_SURROGATE_ASSESSMENT_ASSERTIONS = 
       BETA_GMIN_TIGHTEST < BETA_GMIN_WIDEST,
   },
   {
-    // Honesty gate: defeats the strip obstruction but relocates M5; supplies NO N-uniform surrogate; NO QED; PT SOTA.
+    // Honesty gate: defeats the strip obstruction but relocates M5; supplies NO N-uniform surrogate; NO QED; no refereed bound is changed.
     id: 'imp35214-honesty-gate-no-qed',
-    description: 'Assessment only: defeats strip obstruction true, relocates M5 true, supplies N-uniform surrogate FALSE, isRigorous false, NO QED, PT SOTA',
+    description: 'Assessment only: defeats strip obstruction true, relocates M5 true, supplies N-uniform surrogate FALSE, isRigorous false, NO QED, no refereed bound is changed',
     holds: () =>
       IMP35214_MIN_GAP_FIELD_LIPSCHITZ_SURROGATE_ASSESSMENT.defeatsStripObstruction === true &&
       IMP35214_MIN_GAP_FIELD_LIPSCHITZ_SURROGATE_ASSESSMENT.inheritsSelfReferentialCoupling === true &&
@@ -268,7 +268,7 @@ export const IMP35214_MIN_GAP_FIELD_LIPSCHITZ_SURROGATE_ASSESSMENT_ASSERTIONS = 
       IMP35214_MIN_GAP_FIELD_LIPSCHITZ_SURROGATE_ASSESSMENT.suppliesNUniformSurrogate === false &&
       IMP35214_MIN_GAP_FIELD_LIPSCHITZ_SURROGATE_ASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP35214_MIN_GAP_FIELD_LIPSCHITZ_SURROGATE_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP35214_MIN_GAP_FIELD_LIPSCHITZ_SURROGATE_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP35214_MIN_GAP_FIELD_LIPSCHITZ_SURROGATE_ASSESSMENT.verdict),
   },
 ];
 

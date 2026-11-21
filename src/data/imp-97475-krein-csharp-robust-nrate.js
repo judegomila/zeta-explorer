@@ -18,8 +18,8 @@
  *       Aitken/Shanks on the 4-point outer sequence + a power-law fit lam_inf(N) = cinf + A*N^-q.
  *
  *   MEASUREMENT ONLY. lam_min(N,.) are Rayleigh-Ritz UPPER brackets; establishes NO operator positivity;
- *   NO lower bound; no bound moves; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian
- *   Lambda<=0.2 SOTA; RH open; NO QED.
+ *   NO lower bound; no bound moves; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * FINDING 1 -- THE INNER T->inf CONDITIONING OBSTRUCTION IS BYPASSED. The two robust methods AGREE and
  *   neither rails. Per-N inner limits (A2 primary / A1 cross-check), with A2 fit exponent p_T:

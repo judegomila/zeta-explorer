@@ -92,7 +92,7 @@
  *   cancellation mass and is valid only under a data-dependent sign-geometry
  *   condition invisible to (theta, y_min), so it cannot strengthen PHASE-AM
  *   uniformly -- at most a pointwise conditional sharpening. Assessment only;
- *   changes NO Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   changes NO Lambda bound; NO QED; no refereed bound is changed.
  *
  * @see imp-95254-orthant-split-phase-certificate.js (LEMMA ODROP, LEMMA ENT,
  *   THEOREM PHASE-AM)
@@ -161,7 +161,7 @@ export const IMP95313_MULTI_ORTHANT_DROP_ASSESSMENT = Object.freeze({
     'mass and is valid only under a data-dependent sign-geometry condition ' +
     'invisible to (theta, y_min), so it cannot strengthen PHASE-AM ' +
     'uniformly -- at most a pointwise conditional sharpening. Changes NO ' +
-    'Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'Lambda bound; NO QED; no refereed bound is changed.',
   citation:
     'imp-95254-orthant-split-phase-certificate.js (LEMMA ODROP / ENT / ' +
     'THEOREM PHASE-AM); imp-95321 (ODROP concept note).',
@@ -330,13 +330,13 @@ export const IMP95313_MULTI_ORTHANT_DROP_ASSERTIONS = [
   {
     id: 'imp95313-honesty-gate-no-qed',
     why:
-      'Assessment only: no enclosure established, PT SOTA line present, ' +
+      'Assessment only: no enclosure established, no-refereed-bound-change line present, ' +
       'glosses imp-95254.',
     holds: () =>
       IMP95313_MULTI_ORTHANT_DROP_ASSESSMENT.anyEnclosureEstablished ===
         false &&
       IMP95313_MULTI_ORTHANT_DROP_ASSESSMENT.glosses === 'imp-95254' &&
-      /remains SOTA/.test(IMP95313_MULTI_ORTHANT_DROP_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP95313_MULTI_ORTHANT_DROP_ASSESSMENT.verdict) &&
       /CONDITION MOD/.test(IMP95313_MULTI_ORTHANT_DROP_ASSESSMENT.verdict) &&
       /NO QED/.test(IMP95313_MULTI_ORTHANT_DROP_ASSESSMENT.verdict),
   },

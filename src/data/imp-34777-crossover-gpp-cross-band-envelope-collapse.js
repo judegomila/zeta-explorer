@@ -48,7 +48,7 @@
  * ACCURACY CHECK ONLY. This guards the curvature bound of the INHERITED imp-3220/imp-3406
  * surrogate crossover map; it changes NO bound. The C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; establishes no operator positivity; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34757-crossover-gpp-dense-cross-check (per-band B; monotone WITHIN each band)
  * @see imp-34768-crossover-gppp-global-envelope (global-grid monotonicity via g_triple_prime > 0)
@@ -170,7 +170,7 @@ export const IMP34777_CROSSOVER_GPP_CROSS_BAND_ENVELOPE_COLLAPSE = {
     'coarse per-band-bound cross-band tripwire complementing the imp-34768 global-grid check. ' +
     'Accuracy check only on the INHERITED imp-3220/imp-3406 surrogate map; the C_mb GUE-conditional ' +
     'per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34757 (per-band B; monotone within each band); imp-34768 (global-grid monotonicity via ' +
     'g_triple_prime > 0); imp-34731 (g_double_prime closed form; 5-probe check); imp-34750 ' +
@@ -202,13 +202,13 @@ export const IMP34777_CROSSOVER_GPP_CROSS_BAND_ENVELOPE_COLLAPSE_ASSERTIONS = [
     holds: () => MAX_LITERAL_DRIFT < 1e-3,
   },
   {
-    // Honesty gate: accuracy check only, no QED, PT stays SOTA.
+    // Honesty gate: accuracy check only, no QED, no refereed bound is changed.
     id: 'imp34777-honesty-gate-no-qed',
-    description: 'Accuracy check only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Accuracy check only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34777_CROSSOVER_GPP_CROSS_BAND_ENVELOPE_COLLAPSE.isRigorous === false &&
       /NO QED/.test(IMP34777_CROSSOVER_GPP_CROSS_BAND_ENVELOPE_COLLAPSE.verdict) &&
-      /remains SOTA/.test(IMP34777_CROSSOVER_GPP_CROSS_BAND_ENVELOPE_COLLAPSE.verdict),
+      /refereed bound is changed/i.test(IMP34777_CROSSOVER_GPP_CROSS_BAND_ENVELOPE_COLLAPSE.verdict),
   },
 ];
 

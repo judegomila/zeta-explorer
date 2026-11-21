@@ -12,7 +12,7 @@
  * @see imp-3646-remainder-tail-moment-ratio-asymptotics.js (source module: rungs, verdict)
  *
  * Ticket: imp-3678 (ux, low). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP3678_RUNGS = [

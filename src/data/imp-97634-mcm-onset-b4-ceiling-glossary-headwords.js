@@ -53,7 +53,7 @@
  *   cross-check across classes)
  *
  * Ticket: imp-97634 (meta, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP97432_RESULTS } from './imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js';
@@ -79,7 +79,7 @@ const MCM_ONSET_HEADWORD = Object.freeze({
   verificationStatus:
     'Re-cited from imp-97432 (proof: MCM refuted) and imp-97583 (measurement: exact onset ' +
     'located at omega=11 across omega=6..15). Naming / glossary headword only; supplies no new ' +
-    'bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'bound; RH open; no refereed bound is changed; NO QED.',
 });
 
 // Headword 2: b/4 ceiling, baked verbatim from the imp-97208/imp-97269 class-uniform bound.
@@ -102,7 +102,7 @@ const B4_CEILING_HEADWORD = Object.freeze({
   verificationStatus:
     'Re-cited from imp-97208 (class-uniform bound, prime-class exact asymptotic) and imp-97269 ' +
     '(saturation-ratio cross-check). Naming / glossary headword only; supplies no new bound; ' +
-    'RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97634_MCM_ONSET_GLOSSARY_HEADWORD = Object.freeze({
@@ -116,7 +116,7 @@ export const IMP97634_MCM_ONSET_GLOSSARY_HEADWORD = Object.freeze({
     'GLOSSARY HEADWORD ONLY (documentation, not a proof). Names the imp-97583 measurement: MCM ' +
     'holds through omega = 10 and first fails at omega = 11 (b = p_11# = 200560490130); the ' +
     'smooth surrogate fails one order earlier and the bounded R-correction buys exactly that one ' +
-    'order. No bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'order. No bound moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (MCM refuted, ceiling survives); ' +
     'imp-97583-route-m-mcm-onset-omega11-primorial.js (onset ladder, omega=6..15).',
@@ -133,7 +133,7 @@ export const IMP97634_B4_CEILING_GLOSSARY_HEADWORD = Object.freeze({
     'GLOSSARY HEADWORD ONLY (documentation, not a proof). Names the imp-97208/imp-97269 ' +
     'class-uniform bound |E1(b)| <= b/4 + 2^omega(b)(log b + 2), tight on primes, and records ' +
     'that the imp-97432 MCM refutation does not touch it (the first counterexample stays deep ' +
-    'inside the band). No bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'inside the band). No bound moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97208-route-m-theorem2-tighter-remainder.js (class-uniform bound, prime-class exact ' +
     'asymptotic); imp-97269-route-m-e1-quarter-b-class-uniformity-crosscheck.js (saturation-ratio ' +
@@ -197,15 +197,15 @@ const IMP97634_ASSERTIONS = [
   },
   {
     id: 'imp97634-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present on both ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present on both ' +
       'headwords.',
     holds: () =>
       IMP97634_MCM_ONSET_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       IMP97634_B4_CEILING_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97634_MCM_ONSET_GLOSSARY_HEADWORD.verdict) &&
       /NO QED/.test(IMP97634_B4_CEILING_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97634_MCM_ONSET_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97634_B4_CEILING_GLOSSARY_HEADWORD.verdict),
+      /refereed bound is changed/i.test(IMP97634_MCM_ONSET_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97634_B4_CEILING_GLOSSARY_HEADWORD.verdict),
   },
 ];
 

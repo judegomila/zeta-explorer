@@ -65,7 +65,7 @@
  *   is a two-outlier artifact -- not the exact statistics. The NPHI = 10 Phi-series truncation is
  *   inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-33660-cluster-peak-envelope-height-growth-fit.js (the sixteen peaks this half-splits)
  *   @see imp-33662-inter-cluster-trough-floor-drift-n400-1200.js (the trough half-split this mirrors)
@@ -180,7 +180,7 @@ const verdict =
       '~135.0-n~1198)-ARE-REMOVED,-CROSS-CONSISTENT-WITH-THE-imp-33680-LEAVE-TWO-OUT-SLOPE-COLLAPSE-(~1/9-SURVIVAL).-' +
       'THE-TAIL-RE-INTENSIFICATION-IS-CARRIED-BY-TWO-CLUSTERS,-NOT-A-DISTRIBUTED-SECOND-HALF-BASELINE-LIFT.-' +
       'ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-' +
-      'imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33688_CLUSTER_PEAK_HEIGHT_FIRST_SECOND_HALF_SPLIT = Object.freeze({
@@ -206,7 +206,7 @@ export const IMP33688_CLUSTER_PEAK_HEIGHT_FIRST_SECOND_HALF_SPLIT = Object.freez
     'with the imp-33680 leave-two-out slope collapse (~1/9 survival). VERDICT: ' +
     'SECOND-HALF-RISE-IS-THE-TWO-OUTLIER-ARTIFACT-NOT-A-BASELINE-REINTENSIFICATION. ' +
     'ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; ' +
-    'operator positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 SOTA.',
+    'operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     source: 'the EXACT sixteen imp-33660 measured.peakNs / measured.peakHeights (frozen import, no re-scan, no drift)',
@@ -308,7 +308,7 @@ export const IMP33688_CLUSTER_PEAK_HEIGHT_FIRST_SECOND_HALF_SPLIT = Object.freez
       'the ~69.72 / ~85.77 half-means, the ~+16.05 split delta, and the ~1.69 / ~0.76 Welch t. The robust reading ' +
       'is the QUALITATIVE conclusion -- the raw second-half rise is real in sign but collapses when the two ' +
       'tallest clusters are removed, so it is a two-outlier artifact -- not the exact statistics.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -368,7 +368,7 @@ export const IMP33688_CLUSTER_PEAK_HEIGHT_FIRST_SECOND_HALF_SPLIT_ASSERTIONS = [
   {
     id: 'imp33688-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33688_CLUSTER_PEAK_HEIGHT_FIRST_SECOND_HALF_SPLIT.honestCaveat;
       return (
@@ -377,7 +377,7 @@ export const IMP33688_CLUSTER_PEAK_HEIGHT_FIRST_SECOND_HALF_SPLIT_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

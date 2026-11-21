@@ -8,7 +8,7 @@
  *
  * No re-derivation: every log10 N / spacing / ratio value is copied verbatim from
  * IMP124793_FARTAIL_DIAGNOSTIC_PER_NINE_SPACING_LADDER. Presentation only; changes no bound;
- * establishes no operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * establishes no operator positivity; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-124793-fartail-diagnostic-per-nine-spacing-ladder.js (the source object this reshapes)
  *
@@ -42,7 +42,7 @@ export const IMP124840_SPACING_ROWS = Object.freeze(
 export const IMP124840_SPACING_RATIO_LIMIT = SRC.spacingRatioLimit; // 10
 
 export const IMP124840_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every log10 N / spacing / '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every log10 N / spacing / '
   + 'ratio value plotted here is copied verbatim from the imp-124793 pure per-nine far-tail ladder '
   + '(a closed-form RvM inversion, not a rigorous asymptotic). Conditional-share diagnostic, changes '
   + 'no bound, establishes no operator positivity.';

@@ -5,7 +5,7 @@
  * b/4-ceiling counterexample size around P0~1409 to a fine prime grid, pinning the exact size-optimal P0
  * and the true smallest reachable witness digit count. The b/4-ceiling line is already a dead route
  * (imp-97481/97496); this only sharpens the smallest explicit witness. No bound moves; kappa_arith
- * unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED).
+ * unchanged; no refereed bound is changed; RH open; NO QED).
  *
  *   Task (imp-97500 RESULT 3 residual): imp-97500 located an INTERIOR minimum of the counterexample size
  *   b = Prod_{P0<=p<=Ycross} p at P0~1409 from a COARSE grid {1009,1409,2003} (crossings from an exact 1e8
@@ -45,8 +45,8 @@
  * ~17.822M digits), only ~0.004% below the imp-97500 P0=1409 estimate; and the minimum is FLAT (neighbours
  * +26/+111 digits, a <0.63% span over +/-220 primes). The b/4-ceiling lower edge was already REFUTED
  * (imp-97481) and the line is a dead route; this leaf only sharpens the smallest explicit witness. No Lambda
- * bound and no kappa_arith value depended on the ceiling; nothing in the verified ledger moves. PT
- * Lambda <= 0.2 SOTA; cotangent first moment (imp-97097) open; RH open; NO QED. Referee-worthy.
+ * bound and no kappa_arith value depended on the ceiling; nothing in the verified ledger moves. No refereed bound is changed
+ * ; cotangent first moment (imp-97097) open; RH open; NO QED. Referee-worthy.
  *
  * @see imp-97500-route-m-window-surrogate-descent-rate-min-b-crossing.js (coarse interior optimum P0~1409)
  * @see imp-97496-route-m-quarter-ceiling-explicit-crossing-window.js (P0=379 witness b*; two-term law)
@@ -134,12 +134,12 @@ export const IMP97540_VERDICT = Object.freeze({
     'below the imp-97500 coarse P0=1409 estimate and ~44.2% smaller than the imp-97496 P0=379 witness ' +
     '(~31.97M). The minimum is FLAT: immediate prime neighbours cost +26/+111 digits and the size spans ' +
     'only 0.63% over a +/-220-prime window. The b/4-ceiling lower edge was already refuted (imp-97481) and ' +
-    'is a dead route; this only sharpens the witness. No bound moved; kappa_arith unchanged; PT ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED. Referee-worthy.',
+    'is a dead route; this only sharpens the witness. No bound moved; kappa_arith unchanged; no refereed bound is changed' +
+    '; RH open; NO QED. Referee-worthy.',
 });
 
 export const IMP97540_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. MEASUREMENT refining the imp-97500 interior-P0 minimum ' +
+  'RH open; no refereed bound is changed; NO QED. MEASUREMENT refining the imp-97500 interior-P0 minimum ' +
   'of the b/4-ceiling counterexample size: the true size-optimum is P0 = 1429 (b_min = ' +
   'Prod_{1429<=p<=41,043,647} p, log10 = 17,822,309, ~17.822M digits), only ~0.004% below the coarse ' +
   'P0=1409 estimate and ~44.2% smaller than the imp-97496 P0=379 witness; the minimum is FLAT (neighbours ' +
@@ -203,7 +203,7 @@ const IMP97540_ASSERTIONS = [
       IMP97540_VERDICT.minimumIsFlat === true &&
       Math.abs(TARGET - (-0.25 - (1 / 4 - LN_A))) < 1e-15 &&
       /NO QED/.test(IMP97540_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97540_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97540_HONEST_BANNER) &&
       /RH open/.test(IMP97540_HONEST_BANNER),
     why: 'measurement only -- the b/4-ceiling line was already refuted and is load-bearing for nothing; no bound moved, no QED.',
   },

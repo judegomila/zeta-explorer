@@ -57,7 +57,7 @@
  * driven >= 0 at 2a=1.00 (cycles at -0.069); a much finer FINEH / different tail parametrisation is
  * untested. SUB-GAP IMP96970_FINER_HC_OR_BOUND_SWAP_UNRUN -- whether a much finer hc (2e-4 and below,
  * the hc=2e-4 run did not complete) or the imp-96992 cell-local |w1-prime-prime| swap clears the t~35
- * band over the full [0,40] domain remains open. RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * band over the full [0,40] domain remains open. RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96956-krein-kmax5-100-interval-verify.js (parent: lean VIOLTOL=0.4 iterate collapse; sub-gap IMP96956_CONVERGED_KMAX5_100_UNPRODUCED)
  * @see imp-96991-krein-fulldomain-hc1em3-rerun.js (sibling: hc=1e-3 on the lean iterate, 91 cells at t~24-38, deepest -4.19)

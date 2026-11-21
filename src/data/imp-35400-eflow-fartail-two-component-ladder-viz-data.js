@@ -24,7 +24,7 @@
  *
  *   Ticket: imp-35400 (ux, medium). Presentation only of an already-established measurement;
  *   adds no new Lambda bound. C_mb GUE-conditional per imp-486 UNTOUCHED. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 // -- four-rung two-component decomposition: swap gap vs fd-vs-analytic remnant --

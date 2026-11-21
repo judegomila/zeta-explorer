@@ -86,7 +86,7 @@
  *       the reading the imp-1210 audit anchored to the Platt-Trudgian height.
  *
  * NO QED on Conjecture 22.1 in full generality is claimed. De Bruijn-Newman
- * status untouched: Polymath15 Lambda <= 0.2 remains SOTA. The imp-1210 NOVELTY
+ * status untouched: no refereed bound is changed. The imp-1210 NOVELTY
  * verdict is a statement about the literature and is unchanged; this is a
  * truth-status assessment that SHARPENS imp-3932.
  *
@@ -285,12 +285,12 @@ export const IMP_33233_MODULATION_BAND_LIMIT_ASSESSMENT = Object.freeze({
       '~M_sc, so no equal-runtime advantage is created.',
     'NO false QED: Conjecture 22.1 in full generality is NOT resolved. The ' +
       'residual sub-gap (algebraic-complexity runtime model + small-height ' +
-      'regime) is named, not hidden. Polymath15 Lambda <= 0.2 remains SOTA and ' +
+      'regime) is named, not hidden. No refereed bound is changed and ' +
       'is untouched; the imp-1210 novelty verdict is unchanged.',
   ]),
   relationToLambda:
-    'Independent of the de Bruijn-Newman constant; Lambda <= 0.2 (Polymath15) ' +
-    'remains the SOTA upper bound and is untouched.',
+    'Independent of the de Bruijn-Newman constant; no refereed bound is changed' +
+    ' and is untouched.',
   auditCrossRefs: Object.freeze(['imp-3932', 'imp-1210', 'imp-1258']),
 });
 
@@ -391,7 +391,7 @@ export const IMP_33233_MODULATION_BAND_LIMIT_ASSESSMENT_ASSERTIONS = [
         /algebraic-complexity/.test(r.residualSubGap.statement) &&
         /small fixed-height/.test(r.residualSubGap.statement) &&
         r.honestScope.some((s) => /NO false QED/.test(s)) &&
-        /Lambda <= 0.2/.test(r.relationToLambda)
+        /Lambda <= 0.2|refereed bound is changed/.test(r.relationToLambda)
       );
     },
     why:

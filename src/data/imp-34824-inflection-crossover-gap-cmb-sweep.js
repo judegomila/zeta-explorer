@@ -61,7 +61,7 @@
  * conditional (imp-486) -- it treats C_mb as a free knob to measure the gap leverage, it does not tighten
  * C_mb; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator
  * positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34800-ncross-three-way-crossvalidation-banach-krawczyk-inflection (the +2.95% R3-vs-R1/R2 residual)
  * @see imp-34734-sigma-peak-cmb-elasticity (C_mb elasticity of the peak; peak LOCATION is C_mb-invariant)
@@ -312,7 +312,7 @@ export const IMP34824_INFLECTION_CROSSOVER_GAP_CMB_SWEEP = {
     'NOT a rigorous asymptotic; this does NOT discharge the GUE conditional (imp-486) -- it treats C_mb as a ' +
     'free knob to measure the gap leverage; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'CLOSES the never-cross-checked question of whether the imp-34800 +2.95% inflection-vs-crossover residual ' +
     'is stable under the imp-34734 C_mb sweep: it is NOT -- the gap moves monotonically with C_mb and inverts ' +
@@ -378,16 +378,16 @@ export const IMP34824_INFLECTION_CROSSOVER_GAP_CMB_SWEEP_ASSERTIONS = [
     holds: () => DGAP_DCMB > 1e-2 && DGAP_DCMB < 4e-2,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap named, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap named, no QED, no refereed bound is changed.
     id: 'imp34824-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap named, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap named, no QED, no refereed bound is changed',
     holds: () =>
       IMP34824_INFLECTION_CROSSOVER_GAP_CMB_SWEEP.isRigorous === false &&
       IMP34824_INFLECTION_CROSSOVER_GAP_CMB_SWEEP.farTailExponent === 0.5 &&
       typeof IMP34824_INFLECTION_CROSSOVER_GAP_CMB_SWEEP.subGap === 'string' &&
       /imp-486/.test(IMP34824_INFLECTION_CROSSOVER_GAP_CMB_SWEEP.subGap) &&
       /NO QED/.test(IMP34824_INFLECTION_CROSSOVER_GAP_CMB_SWEEP.verdict) &&
-      /remains SOTA/.test(IMP34824_INFLECTION_CROSSOVER_GAP_CMB_SWEEP.verdict),
+      /refereed bound is changed/i.test(IMP34824_INFLECTION_CROSSOVER_GAP_CMB_SWEEP.verdict),
   },
 ];
 

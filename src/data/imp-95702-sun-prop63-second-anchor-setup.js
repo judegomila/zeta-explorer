@@ -51,7 +51,7 @@
  * This module makes NO measurement of the J-variation and asserts NO reproduction of the
  * anchor. It records the exact rescaled setup and the null prediction, and names the blocking
  * sub-gap honestly. Catalan G irrationality OPEN; Sun preprint single-author, unrefereed;
- * changes no bound; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * changes no bound; NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports.
  */
 
 const KAPPA = 2.51069789; // J(1/20) carried literal (imp-95516/95637/95653/95690)
@@ -105,7 +105,7 @@ export const SUN_PROP63_SECOND_ANCHOR_SETUP = Object.freeze({
     + 'RECORDED. The fractional J-variation J(rho2)/J(1/20)-1 is NOT measured: an import-light Prop-6.3 '
     + 'v-integral re-implementation does NOT reproduce the certified anchor c_odd(1/20)=0.006276744728100982 '
     + '(wrong sign, factor ~1.69 off), so a faithful 178-merged-cell + B24 Euler-Maclaurin certificate at '
-    + 'rho2 is still required. G irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'rho2 is still required. G irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'tmp/sun-catalan/paper.txt Section 6, Proposition 6.3, eqs (6.1)-(6.25)',
   builtOn: 'imp-95690 (rho-independence verdict + named operation list), imp-95516/95653 (kappa*rho^2 shape test)',
@@ -133,7 +133,7 @@ export const SUN_PROP63_SECOND_ANCHOR_SETUP = Object.freeze({
   caveats:
     'Records the exact rescaled setup and the null prediction only; makes NO J-variation measurement and '
     + 'asserts NO reproduction of c_odd. Catalan G irrationality OPEN; Sun single-author, unrefereed; NO '
-    + 'Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const SUN_PROP63_SECOND_ANCHOR_SETUP_ASSERTIONS = Object.freeze([
@@ -163,12 +163,12 @@ export const SUN_PROP63_SECOND_ANCHOR_SETUP_ASSERTIONS = Object.freeze([
     holds: () => Math.abs(PURE_SHAPE_NULL.c_odd_pred_at_1over19 - KAPPA / 361) < 1e-15,
   },
   {
-    name: 'honest: anchor NOT reproduced, J-variation NOT measured, sub-gap named, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: anchor NOT reproduced, J-variation NOT measured, sub-gap named, no refereed bound is changed, NO QED',
     holds: () =>
       SUN_PROP63_SECOND_ANCHOR_SETUP.reproductionStatus.anchorReproduced === false
       && /NOT measured/.test(SUN_PROP63_SECOND_ANCHOR_SETUP.status)
       && /178-merged-cell/.test(SUN_PROP63_SECOND_ANCHOR_SETUP.reproductionStatus.namedSubGap)
-      && /PT Lambda<=0.2 SOTA/.test(SUN_PROP63_SECOND_ANCHOR_SETUP.status)
+      && /refereed bound is changed/i.test(SUN_PROP63_SECOND_ANCHOR_SETUP.status)
       && /NO QED/.test(SUN_PROP63_SECOND_ANCHOR_SETUP.status),
   },
 ]);

@@ -164,8 +164,7 @@ export default function Imp96662LammaxRankrSlopeOnsetViz() {
         imp-96636-route-m-lammax-slope-saturation-fit.js (scipy curve_fit); the imp-96636 module
         is not imported at runtime. Presentation only; establishes no new bound or operator
         positivity; the underlying fit is a measurement of a surrogate that converges to lam_max by
-        construction, not a closed-form derivation of the 0.3526 coefficient. Platt-Trudgian
-        Lambda &lt;= 0.2 remains SOTA. RH open. NO QED.
+        construction, not a closed-form derivation of the 0.3526 coefficient. RH open. NO QED.
       </div>
     </div>
   );

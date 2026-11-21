@@ -74,7 +74,7 @@
  * DERIVATION / ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate crossover map; NOT a rigorous
  * asymptotic and NOT an RH bound. C_C = (1/8) sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34774-krawczyk-fixed-point-map-enclosure (F(m)=0 double-precision artifact; nominal image collapses to m; sub-gap imp-34714a)
  * @see imp-34776-krawczyk-delta-sweep (k*(delta) = delta/(2 eps)(1+O(delta)); the surrogate slack budget this ceiling recovers)
@@ -271,7 +271,7 @@ export const IMP34799_KRAWCZYK_DIRECTED_ROUNDING_WIDTH_BOUND = {
     'not instantiate the imp-34687a layer. Derivation/assessment only on the inherited imp-3220/imp-3406 ' +
     'surrogate crossover map; the C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 ' +
     'are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34774 (fixed-point-map enclosure; F(m)=0 double-precision artifact; nominal image collapses to ' +
     'm; sub-gap imp-34714a); imp-34776 (k*(delta) = delta/(2 eps)(1+O(delta)) budget this ceiling ' +
@@ -332,15 +332,15 @@ export const IMP34799_KRAWCZYK_DIRECTED_ROUNDING_WIDTH_BOUND_ASSERTIONS = [
       Math.abs(CEILING_OVER_KSTAR - 2 * FP_LO) < 1e-4,
   },
   {
-    // Honesty gate: derivation / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: derivation / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34799-honesty-gate-no-qed',
-    description: 'Directed-rounding width bound: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Directed-rounding width bound: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34799_KRAWCZYK_DIRECTED_ROUNDING_WIDTH_BOUND.isRigorous === false &&
       /imp-34714a/.test(IMP34799_KRAWCZYK_DIRECTED_ROUNDING_WIDTH_BOUND.subGap) &&
       /REMAINS OPEN/.test(IMP34799_KRAWCZYK_DIRECTED_ROUNDING_WIDTH_BOUND.subGap) &&
       /NO QED/.test(IMP34799_KRAWCZYK_DIRECTED_ROUNDING_WIDTH_BOUND.verdict) &&
-      /remains SOTA/.test(IMP34799_KRAWCZYK_DIRECTED_ROUNDING_WIDTH_BOUND.verdict),
+      /refereed bound is changed/i.test(IMP34799_KRAWCZYK_DIRECTED_ROUNDING_WIDTH_BOUND.verdict),
   },
 ];
 

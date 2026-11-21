@@ -68,7 +68,7 @@
  * or the Weyl bounded-perturbation mechanism because the dip |sigma_2^min| = 4336 >> mu ~ 0.55; a
  * positive Kato-Temple floor needs a genuinely non-pointwise lower-spectral seed, none of which is
  * in hand. Derivation/assessment only; no operator positivity proved; interval-rigorous certificate
- * reach stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ * reach stays 2a <= 0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96846-krein-uniform-N-lower-bound-routes-assessment.js (Route C = min-max complementary is most tractable; SUB-GAP IMP96846_COMPLEMENTARY_NEEDS_LAMBDA2_LOWER_BOUND)
  * @see imp-96749-krein-lammin-N-trend-measurement.js (Rayleigh floors 0.6174/0.5786/0.5521 at N=20/28/36 for 2a=ln3; the mu values fed here)

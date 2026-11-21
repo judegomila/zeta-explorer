@@ -6,7 +6,7 @@
  * inter-cluster TROUGH-floor drift measurement, and an extended recovery-grade-vs-spike-height
  * correlation) across the combined [400,1200] window, by EVIDENCE CLASS, and confirming each
  * module carries the mandatory honest banner: no-QED, the imp-3066 K_a >= 0 operator-positivity
- * invariant untouched, and Platt-Trudgian Lambda <= 0.2 SOTA, following the
+ * invariant untouched, and no refereed bound is changed, following the
  * imp-3886/imp-33247/imp-33268/imp-33287/imp-33307/imp-3931/imp-33551/imp-33574 audit pattern.
  *
  * METHOD (read-only, performed at author time). Each module's @fileoverview/detail block was
@@ -25,7 +25,7 @@
  *     re-testing whether the exact-rung floor reading remains tautological and the
  *     cluster-envelope reading remains uncorrelated.
  * The honest-banner check greps each module for the mandatory phrases (no QED, imp-3066 K_a >= 0
- * untouched, Platt-Trudgian Lambda <= 0.2 SOTA) and for the Polymath15 G6a/H2 bridge status line;
+ * untouched, no refereed bound is changed) and for the Polymath15 G6a/H2 bridge status line;
  * shared-caveat coverage (NPHI=10 Phi-series truncation, the imp-33249/imp-33296/imp-33599/
  * imp-33621/imp-33638 latticeJitterCaveat) and glossary/viz-page coverage were cross-checked
  * against src/data/glossary.js and src/pages. imp-33695 additionally grepped each module's
@@ -70,8 +70,8 @@ export const IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP = {
     'classify by evidence class (peak-envelope height growth-law fit / extended ' +
     'spacing-periodicity irregularity confirmation / inter-cluster trough-floor flatness ' +
     'measurement / extended recovery-grade correlation tautology confirmation); grep for the ' +
-    'mandatory honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian ' +
-    'Lambda <= 0.2 SOTA) plus the explicit G6a/H2 bridge status and the shared-caveat phrases ' +
+    'mandatory honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed' +
+    ') plus the explicit G6a/H2 bridge status and the shared-caveat phrases ' +
     '(NPHI=10, latticeJitterCaveat); cross-check glossary.js and src/pages for dedicated coverage.',
   modules: [
     {
@@ -149,7 +149,7 @@ export const IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP = {
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
     'itself. imp-3066 K_a >= 0 positivity untouched across all four cohort members. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -178,7 +178,7 @@ const IMP_33693_ASSERTIONS = [
         (x) => x.noQED === true && x.untouchedInvariant === 'imp-3066 K_a >= 0' && x.plattTrudgianSOTA === true
       ) && IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 4,
     why: 'Every module in the cohort must state no-QED, imp-3066 K_a >= 0 untouched, and ' +
-      'Platt-Trudgian Lambda <= 0.2 SOTA -- grep-verified against the source files.',
+      'no refereed bound is changed -- grep-verified against the source files.',
   },
   {
     id: 'imp33693-zero-bridge-touching-consistent-not-referenced',
@@ -226,11 +226,11 @@ const IMP_33693_ASSERTIONS = [
   {
     id: 'imp33693-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33693_33660_33663_COHORT_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

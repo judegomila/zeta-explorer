@@ -135,7 +135,7 @@ export const EN_GAP_REGISTRY_ASSERTIONS = [
   },
   {
     id: "imp2713-live-imp2643-no-rigorous-beat",
-    description: "Live import: imp-2643 rigorousBeat=false confirms the BINDING-BLOCKER persists and PT Lambda<=0.2 stays SOTA",
+    description: "Live import: imp-2643 rigorousBeat=false confirms the BINDING-BLOCKER persists and no refereed bound is changed",
     holds: () => IMP2643_HONEST_ASSEMBLED_EN.rigorousBeat === false,
   },
   {

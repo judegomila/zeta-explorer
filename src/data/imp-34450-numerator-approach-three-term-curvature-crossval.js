@@ -46,7 +46,7 @@
  * the leading coefficient. Cross-validation / measurement only. The inherited imp-3220/imp-3406 component
  * model is NOT a rigorous asymptotic; the coefficient is descriptive within that model only; changes no bound;
  * establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34375-numerator-approach-two-term-curvature-crossval (the two-term fit a-stability extended here)
  * @see imp-34286-numerator-approach-coefficient-fd-crossval (the bias-corrected a ~ 0.437-0.438 band)
@@ -296,7 +296,7 @@ export const IMP34450_NUMERATOR_APPROACH_THREE_TERM_CURVATURE_CROSSVAL = {
     'term only in the a-extraction step, not the numerator internals. The inherited imp-3220/imp-3406 component ' +
     'model is NOT a rigorous asymptotic; the coefficient is descriptive within the model only; changes no ' +
     'bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34375 (the two-term fit a-stability extended here); imp-34286 (the bias-corrected band a ~ ' +
     '0.437-0.438); imp-34210 (the OLS log-log intercept a ~ 0.4293 and the g*kEnd plateau); imp-34151 (the ' +
@@ -335,13 +335,13 @@ export const IMP34450_NUMERATOR_APPROACH_THREE_TERM_CURVATURE_CROSSVAL_ASSERTION
       MAX_ABS_LEAD_SHIFT_23 > 0.4 * IMP34375_TWO_TERM_MAX_SHIFT,
   },
   {
-    // Honesty gate: cross-validation only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: cross-validation only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34450-honesty-gate-no-qed',
-    description: 'Coefficient cross-validation only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Coefficient cross-validation only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34450_NUMERATOR_APPROACH_THREE_TERM_CURVATURE_CROSSVAL.isRigorous === false &&
       /NO QED/.test(IMP34450_NUMERATOR_APPROACH_THREE_TERM_CURVATURE_CROSSVAL.verdict) &&
-      /remains SOTA/.test(IMP34450_NUMERATOR_APPROACH_THREE_TERM_CURVATURE_CROSSVAL.verdict) &&
+      /refereed bound is changed/i.test(IMP34450_NUMERATOR_APPROACH_THREE_TERM_CURVATURE_CROSSVAL.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34450_NUMERATOR_APPROACH_THREE_TERM_CURVATURE_CROSSVAL.verdict),
   },
 ];

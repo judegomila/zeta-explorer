@@ -66,7 +66,7 @@ export const IMP35767_GLOSSARY_HEADWORD_DUPLICATE_AUDIT = {
     'AUDIT ONLY. No new glossary entry added -- imp-35817 already supplies the full I1-I5 ' +
     'enumeration and GREENFIELD verdict. This module records the duplicate-ticket finding and ' +
     'pins a permanent regression guard confirming the existing headword stays present and ' +
-    'consistent. Changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'consistent. Changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP35767_GLOSSARY_HEADWORD_DUPLICATE_AUDIT_ASSERTIONS = [
@@ -97,11 +97,11 @@ export const IMP35767_GLOSSARY_HEADWORD_DUPLICATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35767-honesty-gate-no-qed',
-    description: 'Audit finding is non-rigorous scoping metadata; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Audit finding is non-rigorous scoping metadata; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35767_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35767_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35767_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35767_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.verdict),
   },
 ];
 

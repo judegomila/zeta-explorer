@@ -16,7 +16,7 @@
  * imp-96265 module.
  *
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity;
- * RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96265-margin-floor-loo-stability.js (LOO/LTO refits this reshapes)
  *
@@ -60,7 +60,7 @@ export const IMP96299_ANCHORS = Object.freeze({
 });
 
 export const IMP96299_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every LOO/LTO floor value '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every LOO/LTO floor value '
   + 'is copied verbatim from the imp-96265 baked refit tables; only the by-dropped-height sort and '
   + 'delta-from-full-fit are computed here (no re-derivation, no new refit). The positive-floor sign '
   + 'is robust across every held-out subset; the magnitude is endpoint-driven by the T=60 cutoff.';

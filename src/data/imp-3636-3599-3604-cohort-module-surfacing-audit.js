@@ -44,8 +44,7 @@
  * rather than being a standalone narrative result: it should stay an
  * intentionally-unwired compute module, consistent with the imp-3576/
  * imp-3579 precedent in the imp-3615 audit. This module fabricates NO
- * pages; it only records the audit. No new bound, no QED; Platt-Trudgian
- * Lambda <= 0.2 stays SOTA.
+ * pages; it only records the audit. No new bound, no QED; no refereed bound is changed.
  *
  * @see imp-3459, imp-3480, imp-3498, imp-3517, imp-3539, imp-3568, imp-3593, imp-3615 (the prior audits in this series)
  */
@@ -75,7 +74,7 @@ export const IMP_3636_3599_3604_COHORT_MODULE_SURFACING_AUDIT = {
     'imp-3644) rather than a standalone narrative result, and should stay an ' +
     'intentionally-unwired compute module -- consistent with the imp-3576/imp-3579 precedent.',
   honestNote:
-    'Read-only audit; no pages fabricated. No new bound, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages fabricated. No new bound, no QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -113,9 +112,9 @@ const IMP_3636_ASSERTIONS = [
   },
   {
     id: 'imp3636-honest-scope-locked',
-    holds: () => /SOTA/.test(IMP_3636_3599_3604_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
+    holds: () => /refereed bound is changed/i.test(IMP_3636_3599_3604_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3636_3599_3604_COHORT_MODULE_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

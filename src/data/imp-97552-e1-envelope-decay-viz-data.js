@@ -11,7 +11,7 @@
  * PRESENTATION ONLY. All (b, ratio, env) points are reused verbatim from the
  * committed IMP97539_LADDER; nothing is re-derived. Establishes no operator
  * positivity; changes no bound; kappa_arith = 0.5704960511 unchanged;
- * PT Lambda<=0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97539-route-m-e1-envelope-ladder.js (the tabulated 12-point ladder, reused verbatim)
  * @see imp-97516-route-m-quarter-edge-breach-vs-first-moment-companion.js (STEP 3, the stated-not-tabulated claim)

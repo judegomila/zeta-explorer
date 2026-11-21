@@ -63,8 +63,8 @@
  *   statement: pointwise scalar domination mu^pass >= nu is NECESSARY but NOT
  *   sufficient for the operator positivity K_a >= 0 (the degree-0 relative
  *   operator R = Gpass^{-1/2} Gshear Gpass^{-1/2} must still be a contraction).
- *   The bare-V pilot (imp-1240) is NOT re-run. Platt-Trudgian Lambda <= 0.2
- *   REMAINS the rigorous SOTA. No false QED.
+ *   The bare-V pilot (imp-1240) is NOT re-run. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see section26-verdict-volterra-not-a-reduction-2026-06-18.js (conj263: "64% of tau")
  *   @see imp-2686-mupass-construction.js (the cosh-completion that covers this deficit)
@@ -240,7 +240,7 @@ export const IMP_MU_PASS_OVERFLOW_QUANTIFICATION = Object.freeze({
       'sufficient for K_a >= 0; the degree-0 relative operator R = Gpass^{-1/2} ' +
       'Gshear Gpass^{-1/2} must still be a contraction. So even a complete mu^pass ' +
       'is a faithful RH-equivalent restatement, not a shortcut.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -314,8 +314,8 @@ export const IMP_MU_PASS_OVERFLOW_QUANTIFICATION_ASSERTIONS = [
   {
     id: 'imp2841-honest-rh-equivalent-structural-not-a-reduction',
     why: 'Mandatory honesty: the deficit profile is structural/diagnostic, RH-EQUIVALENT, ' +
-         'necessary-but-not-sufficient, not a proof, not a reduction below RH, and PT 0.2 ' +
-         'stays SOTA. If any flips the module is over-claiming.',
+         'necessary-but-not-sufficient, not a proof, not a reduction below RH, and no refereed bound is changed' +
+         '. If any flips the module is over-claiming.',
     holds: () => {
       const c = IMP_MU_PASS_OVERFLOW_QUANTIFICATION.honestCaveat;
       return (
@@ -324,7 +324,7 @@ export const IMP_MU_PASS_OVERFLOW_QUANTIFICATION_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.isStructuralDiagnostic === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -72,7 +72,7 @@
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33983-sawtooth-residue-finer-grid-verification (the frozen gap and out-of-ladder rungs, scheduled here)
  * @see imp-33942-hump-argmax-gap-step-proportionality (P3 sawtooth-residue closed form, scheduled here)
@@ -307,7 +307,7 @@ export const IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is ' +
     'descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33983 (the frozen gap and out-of-ladder rungs scheduled here; corrected by one rung); ' +
     'imp-33942 (P3 sawtooth-residue closed form); imp-33878 (source of k*~8.821092 and the ' +
@@ -342,14 +342,14 @@ export const IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE_ASSERTIONS = [
     holds: () => FIRST_DESCENT_AT_1024,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, characterizes imp-33983, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, characterizes imp-33983, no QED, no refereed bound is changed.
     id: 'imp34044-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, CHARACTERIZES the imp-33983 freeze, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Measurement only: isRigorous false, CHARACTERIZES the imp-33983 freeze, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE.isRigorous === false &&
       /CHARACTERIZES the imp-33983/.test(IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE.verdict) &&
       /NO QED/.test(IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE.verdict) &&
-      /remains SOTA/.test(IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE.verdict) &&
+      /refereed bound is changed/i.test(IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE.verdict),
   },
 ];

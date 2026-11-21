@@ -51,8 +51,7 @@
  * inherited pole, NOT an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation,
  * NOT a rigorous asymptotic; the residExp simple-zero structure is a numerical/structural observation,
  * not a derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34247-widening-slope-pole-divergence (R3 contaminationLadder devPct bisected here to the exact 1% crossing)
  * @see imp-34326-widening-slope-background-reconciliation (F3 clean-window match breaks past k>=19)
@@ -240,7 +239,7 @@ export const IMP34413_WIDENING_SLOPE_POLE_LEAKAGE_ONE_PERCENT_CROSSING = {
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'residExp simple-zero structure is a numerical/structural observation, not a derivation; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34247 (R3 contaminationLadder devPct bisected here to the exact 1% crossing); imp-34326 (F3 ' +
     'clean-window match breaks past k>=19); imp-34330 (F2 leading form stops improving at k~17.80, ' +
@@ -293,13 +292,13 @@ export const IMP34413_WIDENING_SLOPE_POLE_LEAKAGE_ONE_PERCENT_CROSSING_ASSERTION
       DECADES_BELOW_POLE < 3.4,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34413-honesty-gate-no-qed',
-    description: 'measurement only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'measurement only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34413_WIDENING_SLOPE_POLE_LEAKAGE_ONE_PERCENT_CROSSING.isRigorous === false &&
       /NO QED/.test(IMP34413_WIDENING_SLOPE_POLE_LEAKAGE_ONE_PERCENT_CROSSING.verdict) &&
-      /remains SOTA/.test(IMP34413_WIDENING_SLOPE_POLE_LEAKAGE_ONE_PERCENT_CROSSING.verdict) &&
+      /refereed bound is changed/i.test(IMP34413_WIDENING_SLOPE_POLE_LEAKAGE_ONE_PERCENT_CROSSING.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34413_WIDENING_SLOPE_POLE_LEAKAGE_ONE_PERCENT_CROSSING.verdict),
   },
 ];

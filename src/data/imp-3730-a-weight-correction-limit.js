@@ -71,7 +71,7 @@
  *   rate, a quantity used inside a mass-feasibility diagnostic; it establishes NO operator
  *   positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict,
- *   no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   no QED. No refereed bound is changed.
  *
  *   @see imp-3716-a-weight-ratio-crossing-nonexistence.js (names the open sub-gap resolved here)
  *   @see imp-3709-a-weight-logdomain-independent-reproduction.js (source: peak-adapted graded GL)
@@ -229,8 +229,8 @@ export const IMP3730_A_WEIGHT_CORRECTION_LIMIT = Object.freeze({
     'double digits cancel at tau=6 and the ladder goes noisy past tau ~ 6.5 (a floating-point cancellation ' +
     'floor, not a quadrature failure -- the integral is bit-stable there); the plateau is already reached, ' +
     'so the positive-constant verdict does not depend on pushing further. MEASUREMENT ONLY, RH-EQUIVALENT, ' +
-    'necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 stays SOTA.',
+    'necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed' +
+    '.',
 
   method: Object.freeze({
     correction: 'c(tau) = -ln A(tau) - pi e^{4 tau}; A(tau) = int_0^HI Phi(s) Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel',
@@ -303,7 +303,7 @@ export const IMP3730_A_WEIGHT_CORRECTION_LIMIT = Object.freeze({
     residualNote:
       'Extending the measured ladder past tau ~ 6.5 needs an extended-precision -ln A to beat the ' +
       'double-precision difference-cancellation floor; it would lengthen the ladder but cannot change c_inf > 0.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -350,7 +350,7 @@ export const IMP3730_A_WEIGHT_CORRECTION_LIMIT_ASSERTIONS = [
   {
     id: 'imp3730-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement only, mass-feasibility necessary-but-not-sufficient, operator ' +
-         'positivity (imp-3066) untouched, resolved sub-gap named, PT 0.2 stays SOTA.',
+         'positivity (imp-3066) untouched, resolved sub-gap named, no refereed bound is changed.',
     holds: () => {
       const c = IMP3730_A_WEIGHT_CORRECTION_LIMIT.honestCaveat;
       return (
@@ -359,7 +359,7 @@ export const IMP3730_A_WEIGHT_CORRECTION_LIMIT_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
         c.resolvedSubGap === 'sg-3716-correction-limit' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

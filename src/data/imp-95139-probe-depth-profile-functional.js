@@ -170,8 +170,7 @@
  * ~1.3e-4; the constant 0.24505 is nonetheless below the OLD frame root,
  * so unlike imp-95138 the certified gain here is NOT reachable by
  * certification of the previous frame. (e) Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD. (1) Lemma DL approached on ~20000 seeded
  * clusters against the EXACT piecewise depth-Laplace transform of each
@@ -866,7 +865,7 @@ export const IMP95139_PROBE_DEPTH_PROFILE_FUNCTIONAL = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM PD is unconditional given the sibling-chain witness conventions: Lemma DL is exact algebra on the carried Lemma DG plus an indicator-integral identity on a finite sum; Lemma PP is the carried gap-capped pairing with the algebraic observation that the psi ramp top equals V for every probe depth; Lemma RD is a pointwise weight domination plus Lemma GT on the piece; Corollary PF assembles them with the L2 triangle inequality, Corollary DM, and the clamp-general Lemma TS; the spectral frame, parity split (separate odd sweep with parameter-free caps), and head/tail reductions are carried; the head certificate is the carried adaptive per-term-corner + shifted Collatz-Wielandt technology through the two alternating-series constants U >= exp(-mu) >= L with explicit float slacks, terminating with zero unresolved cells. The batteries and scans are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure, model-family constants; the certified constant 4901/20000 is not the sharp threshold (sandwich [0.23, 0.24505]; float landmarks 0.2321 and 0.24496 measured only); 49/200 measured certification-infeasible; the phantom-near-mass leg stays OPEN under the ramp-interior-linearization residual; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM PD is unconditional given the sibling-chain witness conventions: Lemma DL is exact algebra on the carried Lemma DG plus an indicator-integral identity on a finite sum; Lemma PP is the carried gap-capped pairing with the algebraic observation that the psi ramp top equals V for every probe depth; Lemma RD is a pointwise weight domination plus Lemma GT on the piece; Corollary PF assembles them with the L2 triangle inequality, Corollary DM, and the clamp-general Lemma TS; the spectral frame, parity split (separate odd sweep with parameter-free caps), and head/tail reductions are carried; the head certificate is the carried adaptive per-term-corner + shifted Collatz-Wielandt technology through the two alternating-series constants U >= exp(-mu) >= L with explicit float slacks, terminating with zero unresolved cells. The batteries and scans are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure, model-family constants; the certified constant 4901/20000 is not the sharp threshold (sandwich [0.23, 0.24505]; float landmarks 0.2321 and 0.24496 measured only); 49/200 measured certification-infeasible; the phantom-near-mass leg stays OPEN under the ramp-interior-linearization residual; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -1031,11 +1030,11 @@ export const IMP95139_PROBE_DEPTH_PROFILE_FUNCTIONAL_ASSERTIONS = [
   {
     id: "imp95139-pd-honesty-gate",
     description:
-      "the verdict is scoped: parity-pure, model family, 4901/20000 certified not sharp, 49/200 measured certification-infeasible, the phantom-near-mass leg stays OPEN under the ramp-interior-linearization residual, parent sub-gap stays OPEN; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: parity-pure, model family, 4901/20000 certified not sharp, 49/200 measured certification-infeasible, the phantom-near-mass leg stays OPEN under the ramp-interior-linearization residual, parent sub-gap stays OPEN; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95139_PROBE_DEPTH_PROFILE_FUNCTIONAL.promotesBound === false &&
       /NO QED/.test(IMP95139_PROBE_DEPTH_PROFILE_FUNCTIONAL.rigorScope) &&
-      /remains SOTA/.test(IMP95139_PROBE_DEPTH_PROFILE_FUNCTIONAL.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95139_PROBE_DEPTH_PROFILE_FUNCTIONAL.rigorScope) &&
       /stays OPEN/.test(IMP95139_PROBE_DEPTH_PROFILE_FUNCTIONAL.rigorScope) &&
       /certification-infeasible/.test(IMP95139_PROBE_DEPTH_PROFILE_FUNCTIONAL.rigorScope) &&
       /remains OPEN/.test(IMP95139_PROBE_DEPTH_PROFILE_FUNCTIONAL.openResiduals[0]) &&

@@ -67,7 +67,7 @@
  * a sub-percent asymptote only for x <~ 0.05 (degrading to ~32% at its x=2/e^2
  * ceiling); the quartic series-inversion form r_q(x) is the matched mid-range
  * surrogate, exact as x -> 1-, refined to <= 3.8% by two Newton steps. Changes
- * no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -160,7 +160,7 @@ export const IMP95427_RSTAR_LAMBERT_SURROGATE = {
     "MEASUREMENT / DERIVATION ONLY. Leading form is sub-percent only for " +
     "x <~ 0.05; quartic form is the matched mid-range surrogate, exact as " +
     "x -> 1-, refined to <= 3.8% by two Newton steps. Changes no bound; NO " +
-    "QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -281,7 +281,7 @@ export const IMP95427_RSTAR_LAMBERT_SURROGATE_ASSERTIONS = [
         IMP95427_RSTAR_LAMBERT_SURROGATE.extensionIdentity,
       ) &&
       /NO\s*\n?\s*QED|NO QED/.test(IMP95427_RSTAR_LAMBERT_SURROGATE.verdict) &&
-      /SOTA/.test(IMP95427_RSTAR_LAMBERT_SURROGATE.verdict) &&
+      /refereed bound is changed/i.test(IMP95427_RSTAR_LAMBERT_SURROGATE.verdict) &&
       /MEASUREMENT \/ DERIVATION ONLY/.test(
         IMP95427_RSTAR_LAMBERT_SURROGATE.verdict,
       ),

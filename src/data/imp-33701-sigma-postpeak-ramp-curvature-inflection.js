@@ -59,8 +59,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (the six-decade ladder whose curvature this measures)
  * @see imp-33274-sigma-postpeak-later-window-decay-exponent (FAR-tail sliding window, p_eff -> 1/2)
@@ -202,7 +201,7 @@ export const IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION = {
     'far-tail 1/2. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33582 (six-decade local-exponent ladder whose curvature this measures); imp-33274 ' +
     '(FAR-tail sliding-window p_eff -> 1/2); imp-3406 (interior MAX N ~ 9.22e5); imp-3463 ' +
@@ -267,14 +266,14 @@ export const IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION_ASSERTIONS = [
       D1[STEEPEST_IDX].d1 - D1[STEEPEST_IDX - 1].d1 < 5e-3,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp33701-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION.isRigorous === false &&
       IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION.farTailExponent === 0.5 &&
       /NO QED/.test(IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION.verdict) &&
-      /remains SOTA/.test(IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION.verdict),
+      /refereed bound is changed/i.test(IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION.verdict),
   },
 ];
 

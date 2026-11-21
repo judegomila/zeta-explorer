@@ -12,7 +12,7 @@
  *
  *   MEASUREMENT / DERIVATION ONLY. This neither closes nor weakens Conjecture 26.3,
  *   computes no genuine section-26 Gram, attempts no positivity, and carries NO RH
- *   verdict. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. No false QED.
+ *   verdict. No refereed bound is changed. No false QED.
  *
  *   THE PROXY (what changes vs the imp-3066 toy)
  *   --------------------------------------------
@@ -364,7 +364,7 @@ export const IMP3131_SECTION26_PASTFUTURE_BLOCK_DIAGONAL_DOMINANCE = Object.free
       'This measures a representative Phi-windowed past-future block proxy and reports which toy ' +
       'facts survive the swap; it does NOT compute the genuine section-26 Gram and asserts nothing ' +
       'about whether the cover holds or fails. Conjecture 26.3 stays exactly open.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -424,7 +424,7 @@ export const IMP3131_SECTION26_PASTFUTURE_BLOCK_DIAGONAL_DOMINANCE_ASSERTIONS = 
   {
     id: 'imp3131-honest-no-verdict',
     why: 'Mandatory honesty: measurement only, representative proxy, does not compute the genuine ' +
-         'Gram, neither closes nor weakens Conj 26.3, no RH verdict, PT 0.2 stays SOTA.',
+         'Gram, neither closes nor weakens Conj 26.3, no RH verdict, no refereed bound is changed.',
     holds: () => {
       const c = IMP3131_SECTION26_PASTFUTURE_BLOCK_DIAGONAL_DOMINANCE.honestCaveat;
       return (
@@ -436,7 +436,7 @@ export const IMP3131_SECTION26_PASTFUTURE_BLOCK_DIAGONAL_DOMINANCE_ASSERTIONS = 
         c.closesConjecture263 === false &&
         c.weakensConjecture263 === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

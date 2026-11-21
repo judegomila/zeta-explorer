@@ -67,7 +67,7 @@
  * identity for the TIER-3 K_v coefficients (imp-95877, open).
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound;
- * NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. Import-light: bakes the imp-95925 Q0_RECON
+ * NO Lambda movement; no refereed bound is changed; NO QED. Import-light: bakes the imp-95925 Q0_RECON
  * literals + the certified kappa; no heavy quadrature at import. SCRATCH: tmp/imp-95966-scratch.mjs.
  *
  * SOURCE: arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.23).
@@ -125,7 +125,7 @@ export const Q0_RECON_LARGEM_CERTIFICATION_OBSTRUCTION = Object.freeze({
     + 'coefficients, so the residual is a SINGLE integrand-faithfulness hypothesis verified only at m=20. '
     + 'Consequence: the imp-95925 clean-cancellation finding rests on that offset-certain, '
     + 'structurally-transported reconstruction, not a per-m Prop-6.3 certification. G irrationality '
-    + 'OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.23)',
   builtOn:
@@ -179,7 +179,7 @@ export const Q0_RECON_LARGEM_CERTIFICATION_OBSTRUCTION = Object.freeze({
     'Assessment only; recomputes the Prop-6.3 comparison quantity c_odd(1/m) from the baked imp-95925 '
     + 'Q0_RECON literals and records the precise obstruction. No new quadrature; no independent Sun '
     + 'anchor at m>20 exists to check against. Catalan G irrationality OPEN; Sun single-author, '
-    + 'unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const Q0_RECON_LARGEM_CERTIFICATION_OBSTRUCTION_ASSERTIONS = Object.freeze([
@@ -233,12 +233,12 @@ export const Q0_RECON_LARGEM_CERTIFICATION_OBSTRUCTION_ASSERTIONS = Object.freez
     },
   },
   {
-    name: 'honest: assessment only, obstruction recorded, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: assessment only, obstruction recorded, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () => {
       const s = Q0_RECON_LARGEM_CERTIFICATION_OBSTRUCTION.status;
       return /ASSESSED \(obstruction recorded\)/.test(s)
         && /G irrationality OPEN/.test(s)
-        && /PT Lambda<=0.2 SOTA/.test(s)
+        && /refereed bound is changed/i.test(s)
         && /NO QED/.test(s);
     },
   },

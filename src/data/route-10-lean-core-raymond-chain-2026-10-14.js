@@ -36,7 +36,7 @@
  *  (ii) fragility — most raymond-core/.lake/packages entries are symlinks into /tmp/qrh-verify/lean (not a git repository, so no pinned OAI
  *  commit); lake-manifest.json is excluded by formalization/lean/.gitignore.
  *
- * Verdict: Lean infrastructure; no Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_10_ASSERTIONS recompute
+ * Verdict: Lean infrastructure; no Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_10_ASSERTIONS recompute
  * live: the ε_R bounds, the Λ ≤ (2θ−1)²/2 ladder and the clamp, the ordered/unordered pair-atom identity, and c_n(t) ≥ 0 nondecreasing for
  * n ≤ 3000 on a t-grid (Lemma CG / G0-a), plus the referee re-build record.
  */
@@ -82,7 +82,7 @@ export const ROUTE_10 = Object.freeze({
     + 'analytic core and its numerical claim are Lean theorems conditional on AF (4.6) and Φ\' = Re β_t. The substitution lemma is fully proved as a '
     + 'statement about the standard H_t (θ = 7/8 rests only on the openai/math Lean theorem, not peer-reviewed); whether it is the input Raymond\'s '
     + 'chain uses (q0 and the AF §11 strict-entry check) is still an open referee item. Referee re-build confirmed. The barrier chain from q0 to '
-    + '0.1177 is not formalised and Λ ≤ 9/32 is above 0.2, so no Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + '0.1177 is not formalised and Λ ≤ 9/32 is above 0.2, so no Λ bound moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_10;
@@ -132,7 +132,7 @@ export const ROUTE_10_ASSERTIONS = Object.freeze([
     id: 'r10-referee-rebuild-and-scope',
     holds: () => { const rb = R.lean.refereeRebuild; return rb.stagesExit0 === rb.stages && rb.axiomLines === rb.standardAxiomLines
         && Object.values(rb.split).reduce((a, b) => a + b, 0) === rb.axiomLines && R.lean.sorry === 0 && R.lean.axioms.length === 3
-        && R.status === 'partial' && /Φ' = Re β_t/.test(R.verdict) && /open referee item/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict)
+        && R.status === 'partial' && /Φ' = Re β_t/.test(R.verdict) && /open referee item/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict)
         && /NO QED/.test(R.verdict) && R.refereeKilled.length === 5 && sqrt(9 / 16) === 0.75; },
     why: 'Referee re-build: 6/6 stages exit 0, 18/18 axiom lines [propext, Classical.choice, Quot.sound]; Lemma R conditional on AF (4.6) and Φ\' = Re β_t; AF §2/§11 reading open; no Λ change; no QED.',
   },

@@ -37,7 +37,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96487 verdict for quick
  *   reference. It establishes nothing, instantiates no interval, closes no
- *   sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96487-route-m-burnol-ratio-asymptotic-remainder-model (source: the fit and sub-gap this glosses)
  * @see imp-96094-route-m-burnol-ratio-dense-ladder (N=250..2600 rungs)
@@ -45,7 +45,7 @@
  * @see imp-96325-route-m-vasyunin-gram-n1e4-run (N=7000..10000 rungs)
  *
  * Ticket: imp-96519 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The plateau-vs-asymptote headword, baked verbatim
@@ -86,7 +86,7 @@ const ROUTE_M_PLATEAU_VS_RH_HEADWORD = Object.freeze({
   verificationStatus:
     'Measurement classification (fit-only, no new solve), not a rigorous ' +
     'derivation. Changes no bound; establishes no operator positivity; ' +
-    'RH open; PT Lambda <= 0.2 remains SOTA; NO QED.',
+    'RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP96519_ROUTE_M_PLATEAU_VS_RH_GLOSSARY_HEADWORD = Object.freeze({
@@ -108,7 +108,7 @@ export const IMP96519_ROUTE_M_PLATEAU_VS_RH_GLOSSARY_HEADWORD = Object.freeze({
     'asymptotic, because the 3.689-wide log-N window (~2.26 periods) leaves ' +
     'the centerline and decay exponent jointly underdetermined. Establishes ' +
     'nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96487 (the asymptotic-remainder fit and sub-gap this glosses, ' +
     'c0~0.9846, rms ratio 1.9849x at p=2); imp-96094/imp-96105/imp-96325 ' +
@@ -137,11 +137,11 @@ export const IMP96519_ROUTE_M_PLATEAU_VS_RH_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96519-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96519_ROUTE_M_PLATEAU_VS_RH_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96519_ROUTE_M_PLATEAU_VS_RH_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96519_ROUTE_M_PLATEAU_VS_RH_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96519_ROUTE_M_PLATEAU_VS_RH_GLOSSARY_HEADWORD.verdict) &&
       IMP96519_ROUTE_M_PLATEAU_VS_RH_GLOSSARY_HEADWORD.glosses === 'imp-96487',
   },
 ];

@@ -155,8 +155,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are not
  * the claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -410,7 +409,7 @@ export const IMP95008_EXPONENT_SPLIT_FAR_CEILING = {
     "Lemma T-STAR is the fifth-continuation Lemma T proof with a free exponent-split parameter - triangle inequality, an exact pointwise product inequality, and Cauchy-Schwarz with an exact integral; Lemma O is one-variable calculus on the family; Theorem Y-STAR is the eleventh-continuation roll-up with the optimized envelope substituted through the Lemma X pair floors (psi nonincreasing). The new ceiling is an ACHIEVED upper bound in the Theorem K bracket class {cNear <= 2, Tstar <= Tx(2)}; optimality of the ceiling is NOT claimed (the outer parity factor 2 and the Cauchy-Schwarz half-exponent remain as named slack). Witness floors are carried literals of the fifteenth/sixteenth continuations; the headline floor is re-derived in-module. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step executing achieved-side lever (ii) of the eleventh continuation (the Lemma T constant): NEW Lemma T-STAR makes the envelope exponent split a free parameter, NEW Lemma O optimizes it in closed form - psi(T) = e log(1+T) (1+T)^(1/2-s) past the seam, sharp at the Delta = 0 corner of its own family - and NEW Theorem Y-STAR re-runs the block-resolved parity roll-up with psi. The reference theta = 10 far ceiling drops 4 -> 2.9469476400572421, the FIRST ceiling-side move since the eleventh continuation: headline far bracket gap 41.345779087298143 -> 30.460961526910332, fixed-97 gap 3318.2150696382446 -> 2444.6515171682004, floors untouched. The per-pair improvement at the dominant corner is the closed form (e/2) log(1 + 2^(1/3)) (1 + 2^(1/3))^(-1/2) = 0.73714209152912802, theta-independent while the optimum is interior. Remaining achieved-side slack stated plainly: the outer parity factor 2 and the Cauchy-Schwarz half-exponent. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step executing achieved-side lever (ii) of the eleventh continuation (the Lemma T constant): NEW Lemma T-STAR makes the envelope exponent split a free parameter, NEW Lemma O optimizes it in closed form - psi(T) = e log(1+T) (1+T)^(1/2-s) past the seam, sharp at the Delta = 0 corner of its own family - and NEW Theorem Y-STAR re-runs the block-resolved parity roll-up with psi. The reference theta = 10 far ceiling drops 4 -> 2.9469476400572421, the FIRST ceiling-side move since the eleventh continuation: headline far bracket gap 41.345779087298143 -> 30.460961526910332, fixed-97 gap 3318.2150696382446 -> 2444.6515171682004, floors untouched. The per-pair improvement at the dominant corner is the closed form (e/2) log(1 + 2^(1/3)) (1 + 2^(1/3))^(-1/2) = 0.73714209152912802, theta-independent while the optimum is interior. Remaining achieved-side slack stated plainly: the outer parity factor 2 and the Cauchy-Schwarz half-exponent. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -565,12 +564,12 @@ export const IMP95008_ESFC_ASSERTIONS = [
   {
     id: "imp95008-esfc-honesty-gate",
     description:
-      "the verdict states the ceiling move with floors untouched, names the remaining achieved-side slack (outer parity factor 2, Cauchy-Schwarz half-exponent), promotes no bound, NO QED, PT stays SOTA; ceiling optimality is NOT claimed in scope",
+      "the verdict states the ceiling move with floors untouched, names the remaining achieved-side slack (outer parity factor 2, Cauchy-Schwarz half-exponent), promotes no bound, NO QED, no refereed bound is changed; ceiling optimality is NOT claimed in scope",
     holds: () =>
       IMP95008_EXPONENT_SPLIT_FAR_CEILING.promotesBound === false &&
       IMP95008_EXPONENT_SPLIT_FAR_CEILING.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_EXPONENT_SPLIT_FAR_CEILING.verdict) &&
-      /remains SOTA/.test(IMP95008_EXPONENT_SPLIT_FAR_CEILING.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_EXPONENT_SPLIT_FAR_CEILING.verdict) &&
       /floors untouched/.test(IMP95008_EXPONENT_SPLIT_FAR_CEILING.verdict) &&
       /FIRST ceiling-side move since the eleventh/.test(IMP95008_EXPONENT_SPLIT_FAR_CEILING.verdict) &&
       /outer parity factor 2 and the Cauchy-Schwarz half-exponent/.test(IMP95008_EXPONENT_SPLIT_FAR_CEILING.verdict) &&

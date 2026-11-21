@@ -9,8 +9,7 @@
  * from IMP96387_ECOLL_ANCHOR_COUNT_MODEL_SENSITIVITY_N1E4.
  *
  * PRESENTATION ONLY. No new zeros, no LP solve, no bound changes, no operator
- * positivity established; RH open; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity established; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96387-ecoll-anchor-count-model-sensitivity-n1e4.js (source measurement, method, verdict)
  */
@@ -50,7 +49,7 @@ export const IMP96413_FINDING =
   IMP96387_ECOLL_ANCHOR_COUNT_MODEL_SENSITIVITY_N1E4.verdict;
 
 export const IMP96413_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: both rungs of the ladder '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: both rungs of the ladder '
   + '(N = 1e4 and N = 1e6) and the scaling ratios are copied verbatim from the imp-96387 '
   + 'measurement (no re-fit, no re-derivation) -- only the chart-ready reshaping is computed '
   + 'here. Absolute anchor shifts stay tiny (~4.5e-8) despite the ~137x relative-sensitivity '
@@ -85,8 +84,8 @@ const IMP96413_ASSERTIONS = [
   },
   {
     id: 'imp96413-honest-banner-present',
-    holds: () => /RH open/.test(IMP96413_HONEST_BANNER) && /NO QED/.test(IMP96413_HONEST_BANNER) && /SOTA/.test(IMP96413_HONEST_BANNER),
-    why: 'honesty gate: presentation only, no RH claim, PT stays SOTA.',
+    holds: () => /RH open/.test(IMP96413_HONEST_BANNER) && /NO QED/.test(IMP96413_HONEST_BANNER) && /refereed bound is changed/i.test(IMP96413_HONEST_BANNER),
+    why: 'honesty gate: presentation only, no RH claim, no refereed bound is changed.',
   },
 ];
 

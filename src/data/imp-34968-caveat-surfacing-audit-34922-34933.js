@@ -6,8 +6,8 @@
  * stays a free knob, not a discharge of that conditional; C_C 1/8 ansatz
  * imp-2642/imp-2643 UNTOUCHED; for the precision/Krawczyk-family modules the
  * imp-34714a directed-rounding certificate REMAINS OPEN; changes-no-bound;
- * establishes no operator positivity; NO QED; Platt-Trudgian Lambda<=0.2
- * remains SOTA) is carried by every module in the imp-34922..imp-34933 cohort
+ * establishes no operator positivity; NO QED; no refereed bound is changed
+ * ) is carried by every module in the imp-34922..imp-34933 cohort
  * and every downstream viz/glossary surface built from it, extending the
  * imp-34725/imp-34812/imp-34834/imp-34857/imp-34879/imp-34897/imp-34921/
  * imp-34946 caveat-surfacing audit lineage.
@@ -106,7 +106,7 @@ export const CAVEAT_SURFACING_AUDIT_34922_34933 = {
     + 'headword body, which is not their own surface) -- a completeness-coverage gap, not a caveat gap, no '
     + 'surfacing was added because none of the existing surfaces was missing its caveat. No bound change; '
     + 'sub-gap imp-34714a stays OPEN; C_mb GUE-conditional share (imp-486) untouched; C_C 1/8 ansatz '
-    + '(imp-2642/imp-2643) untouched; no operator positivity; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + '(imp-2642/imp-2643) untouched; no operator positivity; NO QED; no refereed bound is changed.',
 };
 
 export const CAVEAT_SURFACING_AUDIT_34922_34933_ASSERTIONS = [
@@ -153,10 +153,10 @@ export const CAVEAT_SURFACING_AUDIT_34922_34933_ASSERTIONS = [
   },
   {
     id: 'imp-34968-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(CAVEAT_SURFACING_AUDIT_34922_34933.honest)
       && /no surfacing was added because none/.test(CAVEAT_SURFACING_AUDIT_34922_34933.honest)
-      && /Lambda<=0.2 remains SOTA/.test(CAVEAT_SURFACING_AUDIT_34922_34933.honest),
+      && /refereed bound is changed/i.test(CAVEAT_SURFACING_AUDIT_34922_34933.honest),
   },
 ];
 

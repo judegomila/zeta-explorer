@@ -43,8 +43,8 @@
  * the largest rung reproduces the baked dps=30/35 ladder residuals to ~10.5-11 significant figures
  * (|abs diff| 3e-17 .. 7e-19), confirming the imp-97659/imp-97722 ladder is precision-clean and its
  * decay-exponent / sign-oscillation conclusions do not rest on a precision artifact. MCM stays refuted
- * from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2
- * SOTA; RH open; NO QED.
+ * from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97722-route-m-deep-ladder-independent-crosscheck.js (the 23-rung baked ladder)
  * @see imp-97659-route-m-gap-law-decay-extprec.js (dps=30 11-rung source)
@@ -108,11 +108,11 @@ export const IMP97742_VERDICT = Object.freeze({
     '~1e-16. The imp-97659/imp-97722 ladder is precision-clean, NOT precision-limited, so its ' +
     'decay-exponent oscillation and "outruns every fixed power <= 3" readings do not rest on a precision ' +
     'artifact. MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound ' +
-    'on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97742_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Independent mpmath dps=40 recompute of the smallest, ' +
+  'RH open; no refereed bound is changed; NO QED. Independent mpmath dps=40 recompute of the smallest, ' +
   'a mid, and the largest rung of the imp-97659/imp-97722 Route M gap-law residual ladder: all three ' +
   'reproduce the baked dps=30/35 literals to ~10.5-11 significant figures (|abs diff| 3e-17 .. 7e-19), ' +
   'confirming the ladder is precision-clean and NOT precision-limited. MCM refuted from omega=11; no bound moved.';
@@ -156,7 +156,7 @@ const IMP97742_ASSERTIONS = [
       IMP97742_VERDICT.anyBoundMoved === false &&
       IMP97742_VERDICT.qed === false &&
       /NO QED/.test(IMP97742_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97742_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97742_HONEST_BANNER) &&
       /RH open/.test(IMP97742_HONEST_BANNER),
     why: 'cross-validation only -- the ladder reproduces at dps=40, is not precision-limited; MCM refuted from omega=11; no bound moved, no QED.',
   },

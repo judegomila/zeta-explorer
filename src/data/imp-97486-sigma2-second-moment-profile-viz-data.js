@@ -18,7 +18,7 @@
  * same sigma2() used by imp-97458 (cheap, ~800 evals); the region boundaries
  * and far-tail table are reused verbatim from imp-97458. Establishes no
  * operator positivity; changes no bound; interval-rigorous certificate reach
- * stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 remains SOTA; RH open; NO QED.
+ * stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97458-krein-csharp-discarded-positive-far-field.js (the measured findings, region boundaries, far-tail table)
  * @see imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (the confined negative set)

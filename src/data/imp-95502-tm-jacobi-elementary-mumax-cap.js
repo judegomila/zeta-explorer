@@ -10,8 +10,7 @@
  * form whose rate DIFFERENCES appear only in NUMERATORS -- no separation
  * denominators anywhere -- so Gershgorin row sums give a closed-form,
  * coalescence-continuous, O(K^2)-arithmetic upper bound on mu_max.
- * Derivation + measurement; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Derivation + measurement; changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95226 / imp-95499 / imp-95500 / imp-95501 normalization).
  * Rate set P = {p_1 < ... < p_K} of positive reals (sorted ascending;
@@ -448,8 +447,8 @@ export const IMP95502_TM_JACOBI_ELEMENTARY_MUMAX_CAP = {
     "14.97/15.46. Byproduct: float-stable mu_max evaluation where the " +
     "Cauchy-pencil Cholesky fails. Elementary sharpness (CONF-DOM) stays " +
     "OPEN and is recorded as the successor conjecture. Changes no bound; " +
-    "does NOT promote any Lambda claim; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "does NOT promote any Lambda claim; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -652,11 +651,11 @@ export const IMP95502_ASSERTIONS = [
     id: "imp95502-honesty-gate",
     description:
       "the verdict names the executed residual, keeps CONF-DOM as an open " +
-      "conjecture, promotes no bound, NO QED, PT stays SOTA",
+      "conjecture, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95502_TM_JACOBI_ELEMENTARY_MUMAX_CAP.promotesBound === false &&
       /NO QED/.test(IMP95502_TM_JACOBI_ELEMENTARY_MUMAX_CAP.verdict) &&
-      /remains SOTA/.test(IMP95502_TM_JACOBI_ELEMENTARY_MUMAX_CAP.verdict) &&
+      /refereed bound is changed/i.test(IMP95502_TM_JACOBI_ELEMENTARY_MUMAX_CAP.verdict) &&
       /OPEN/.test(IMP95502_TM_JACOBI_ELEMENTARY_MUMAX_CAP.conjectureConfDom) &&
       /ii-next2/.test(IMP95502_TM_JACOBI_ELEMENTARY_MUMAX_CAP.title) &&
       maxAbs([E_C8[7] - MU_CLUSTER8_TM]) < 1e-10,

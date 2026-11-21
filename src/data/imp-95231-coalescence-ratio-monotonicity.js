@@ -66,7 +66,7 @@
  * VERDICT. RIGOROUS at the stated scope: LEMMA RI exact, THEOREM COAL-DESC
  * proven elementarily (phi >= 2x^3). The interior h_r > 0 bump is the named
  * OPEN sub-gap of the ratio-monotonicity proof. Changes no bound of the
- * Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda program; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -114,8 +114,8 @@ export const IMP95231_COALESCENCE_RATIO_MONOTONICITY = {
     "RIGOROUS at scope: LEMMA RI exact and THEOREM COAL-DESC proven " +
     "elementarily (phi >= 2x^3); the interior h_r > 0 bump was the named OPEN " +
     "sub-gap AT THIS MODULE writing and is now CLOSED by THEOREM RATE-MONO " +
-    "(see residualNowClosed). Changes no bound; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 SOTA.",
+    "(see residualNowClosed). Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -244,12 +244,12 @@ export const IMP95231_RATIO_MONOTONICITY_ASSERTIONS = [
     id: "imp95231-verdict-honesty",
     description:
       "the record names the OPEN interior sub-gap, states RI/COAL-DESC as the " +
-      "proven scope, and carries no QED and the SOTA line",
+      "proven scope, and carries no QED and the no-refereed-bound-change line",
     holds: () =>
       /OPEN/.test(IMP95231_COALESCENCE_RATIO_MONOTONICITY.residualSubGap) &&
       /interior/.test(IMP95231_COALESCENCE_RATIO_MONOTONICITY.residualSubGap) &&
       /NO QED/.test(IMP95231_COALESCENCE_RATIO_MONOTONICITY.verdict) &&
-      /SOTA/.test(IMP95231_COALESCENCE_RATIO_MONOTONICITY.verdict),
+      /refereed bound is changed/i.test(IMP95231_COALESCENCE_RATIO_MONOTONICITY.verdict),
   },
 ];
 

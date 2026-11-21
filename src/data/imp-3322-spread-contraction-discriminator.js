@@ -14,7 +14,7 @@
  *   becoming better-resolved as N grows -- which would ALSO contract the spread?
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   THE CONFOUND imp-3224 DID NOT CONTROL FOR
  *   -----------------------------------------
@@ -83,7 +83,7 @@
  *   deficit MAGNITUDE is not re-derived. A nonzero overflow measure is
  *   necessary-but-NOT-sufficient at operator order; the off-diagonal endpoint-Hankel
  *   step (imp-3066) remains the lone obstruction. RH-equivalent. No RH verdict, no
- *   false QED. Platt-Trudgian Lambda &lt;= 0.2 stays the rigorous SOTA.
+ *   false QED. No refereed bound is changed.
  *
  *   @see imp-3224-overflow-support-finer-N-crossval.js (the C1/C2/C3 finer-N verdict)
  *   @see imp-3216-overflow-support-length-closed-form.js (the underflow-horizon endpoint)
@@ -414,7 +414,7 @@ export const IMP3322_SPREAD_CONTRACTION_DISCRIMINATOR = Object.freeze({
       'A nonzero overflow measure is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -466,7 +466,7 @@ export const IMP3322_SPREAD_CONTRACTION_DISCRIMINATOR_ASSERTIONS = [
   {
     id: 'imp3322-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC reconciliation, overflow-support-only (not the absolute deficit ' +
-         'magnitude), necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 stays SOTA.',
+         'magnitude), necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3322_SPREAD_CONTRACTION_DISCRIMINATOR.honestCaveat;
       return (
@@ -474,7 +474,7 @@ export const IMP3322_SPREAD_CONTRACTION_DISCRIMINATOR_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

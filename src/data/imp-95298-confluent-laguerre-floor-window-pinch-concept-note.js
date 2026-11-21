@@ -59,7 +59,7 @@
  *   A plain-language restatement of the imp-95286 module verdict scope for
  *   quick reference. It establishes nothing new, fires no certificate, and
  *   does not decide the imp-95227 dominance conjecture, which REMAINS OPEN;
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-95286-confluent-laguerre-floor.js (source: LEMMA LT, THEOREM
  *   CONF-LB, COROLLARY CONF-EXACT / WINDOW-PINCH, all proven there)
@@ -70,7 +70,7 @@
  *
  * Ticket: imp-95298 (content, medium). Documentation only; establishes no
  * new bound; imp-95227 dominance conjecture stays OPEN; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95286).
@@ -126,7 +126,7 @@ export const IMP95298_CONFLUENT_LAGUERRE_FLOOR_CONCEPT_NOTE = Object.freeze({
     'THEOREM CONF-LB floor and COROLLARY WINDOW-PINCH bracket in plain ' +
     'terms and their measured over-pricing caps. Establishes nothing new; ' +
     'fires no certificate; the imp-95227 N >= 3 dominance conjecture ' +
-    'REMAINS OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'REMAINS OPEN; NO QED. No refereed bound is changed.',
   citation:
     'imp-95286 (LEMMA LT, THEOREM CONF-LB, COROLLARY CONF-EXACT / ' +
     'WINDOW-PINCH, all proven there); imp-95251 (THEOREM COAL-N ceiling); ' +
@@ -159,12 +159,12 @@ export const IMP95298_CONFLUENT_LAGUERRE_FLOOR_CONCEPT_NOTE_ASSERTIONS = [
     id: 'imp95298-honesty-gate-no-qed',
     why:
       'Documentation only: no enclosure claimed established, imp-95227 ' +
-      'stays OPEN, no QED, PT SOTA line present.',
+      'stays OPEN, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95298_CONFLUENT_LAGUERRE_FLOOR_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
       /NO QED/.test(IMP95298_CONFLUENT_LAGUERRE_FLOOR_CONCEPT_NOTE.verdict) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95298_CONFLUENT_LAGUERRE_FLOOR_CONCEPT_NOTE.verdict
       ) &&
       /REMAINS OPEN/.test(

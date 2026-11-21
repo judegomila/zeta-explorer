@@ -44,15 +44,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96133 direct-bootstrap
  *   cross-check for quick reference. It establishes nothing, instantiates no
- *   interval, closes no sub-gap, moves no bound. NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   interval, closes no sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96133-mean-anchor-dip-bootstrap-crosscheck (source: the direct-bootstrap cross-check this glosses)
  * @see imp-96089-mean-anchor-window-count-significance-verdict (the chi-square z-score verdict re-derived)
  * @see imp-96114-mean-anchor-dip-zscore-crosscheck (the independent z-score re-derivation)
  *
  * Ticket: imp-96161 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The direct-bootstrap cross-check headword, baked verbatim (no re-import).
@@ -102,7 +101,7 @@ export const IMP96161_BOOTSTRAP_CROSSCHECK_GLOSSARY_HEADWORD = Object.freeze({
     '~0.0145 one-sided); the normal approximation did not distort the verdict. Names ' +
     'the deferred non-parametric ordinate-level sub-gap SG-96133-empirical-ordinate-' +
     'bootstrap. Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96133 (the direct parametric-bootstrap cross-check this glosses); imp-96089 ' +
     '(the chi-square z-score verdict re-derived); imp-96114 (the independent z-score ' +
@@ -130,11 +129,11 @@ export const IMP96161_BOOTSTRAP_CROSSCHECK_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96161-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96161_BOOTSTRAP_CROSSCHECK_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96161_BOOTSTRAP_CROSSCHECK_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96161_BOOTSTRAP_CROSSCHECK_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96161_BOOTSTRAP_CROSSCHECK_GLOSSARY_HEADWORD.verdict) &&
       IMP96161_BOOTSTRAP_CROSSCHECK_GLOSSARY_HEADWORD.glosses === 'imp-96133',
   },
 ];

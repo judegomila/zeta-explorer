@@ -64,7 +64,7 @@
  * rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED (the
  * E_coll term is untouched here); the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; imp-3066 K_a >= 0 is untouched; establishes no operator positivity;
- * Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound. E_flow is
+ * no refereed bound is changed. E_flow is
  * the benign mesoscopic-Gronwall term (imp-2845); its vanishing here does NOT
  * touch the divergent C_Lip collision-Gronwall.
  *
@@ -223,7 +223,7 @@ export const IMP34174_CROSSOVER_SURPLUS_THRESHOLD_FAMILY_DECAY = {
     'model; NO QED. The component model is NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED (E_coll untouched); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; ' +
     'imp-3066 K_a >= 0 untouched; establishes no operator positivity; changes no bound; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound. E_flow is the benign ' +
+    'no refereed bound is changed. E_flow is the benign ' +
     'mesoscopic-Gronwall term (imp-2845); its vanishing here does NOT touch the divergent C_Lip ' +
     'collision-Gronwall.',
   citation:
@@ -274,14 +274,14 @@ export const IMP34174_CROSSOVER_SURPLUS_THRESHOLD_FAMILY_DECAY_ASSERTIONS = [
       Math.abs(surplusClosedForm(THR_SURPLUS_1EM4) - 1e-4) < 1e-9,
   },
   {
-    // Honesty gate: derivation/measurement only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: derivation/measurement only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34174-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; PT SOTA',
+    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34174_CROSSOVER_SURPLUS_THRESHOLD_FAMILY_DECAY.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34174_CROSSOVER_SURPLUS_THRESHOLD_FAMILY_DECAY.honestScope) &&
       /NO QED/.test(IMP34174_CROSSOVER_SURPLUS_THRESHOLD_FAMILY_DECAY.honestScope) &&
-      /remains the SOTA/.test(IMP34174_CROSSOVER_SURPLUS_THRESHOLD_FAMILY_DECAY.honestScope),
+      /refereed bound is changed/i.test(IMP34174_CROSSOVER_SURPLUS_THRESHOLD_FAMILY_DECAY.honestScope),
   },
 ];
 

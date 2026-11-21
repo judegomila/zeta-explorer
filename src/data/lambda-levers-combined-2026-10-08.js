@@ -41,7 +41,7 @@
  *  misfired; the guard is now strict (pass_ok: x is True or x == 'True') on the three route-P consumer-path guards; values unchanged.
  *  The joint run with route 9 (marginal exactly 0) and newer campaign certificates is src/data/lambda-levers-combined-2026-10-09.js.
  *
- * PT Λ ≤ 0.2 stands; RH open; NO QED. Import-free. LAMBDA_LEVERS_COMBINED_ASSERTIONS recompute every stack step, the decomposition,
+ * No refereed bound is changed; RH open; NO QED. Import-free. LAMBDA_LEVERS_COMBINED_ASSERTIONS recompute every stack step, the decomposition,
  * the projections and the layout maxima in exact rationals.
  */
 
@@ -116,7 +116,7 @@ export const LAMBDA_LEVERS_COMBINED = Object.freeze({
   verdict: 'Certified relative to the shared ledger (hence conditional), single implementation, internal referee: Λ ≤ 0.145322418219213 at PT height '
     + '(3-band layout, 281 certified λ < 2 kernels, current route-1 certificates incl. floors 246 and 248); the 00:12-certfile value 0.145322556216865 remains '
     + 'valid. −3.72e-4 against 0.145694083872924, still 3.22e-4 above 0.145. Measured projection: remaining route-1 floors at target give 0.1449636–0.1449666 '
-    + '(3-band only; the X150 band caps 4 bands at 0.145333). Route 9 not yet stacked (option union). Λ < 0.145 is not certified. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + '(3-band only; the X150 band caps 4 bands at 0.145333). Route 9 not yet stacked (option union). Λ < 0.145 is not certified. No refereed bound is changed; RH open; NO QED.',
 });
 
 const C = LAMBDA_LEVERS_COMBINED;
@@ -173,7 +173,7 @@ export const LAMBDA_LEVERS_COMBINED_ASSERTIONS = Object.freeze([
   },
   {
     id: 'llc-honest-scope',
-    holds: () => C.status === 'done' && /not certified/.test(C.verdict) && /conditional/.test(C.verdict) && /PT Lambda <= 0\.2 stands/.test(C.verdict)
+    holds: () => C.status === 'done' && /not certified/.test(C.verdict) && /conditional/.test(C.verdict) && /refereed bound is changed/i.test(C.verdict)
       && /NO QED/.test(C.verdict) && /not additive/.test(C.excluded.route9) && C.e6AltlogRuns.includes('j4'),
     why: 'Λ < 0.145 not certified; certified value conditional on the ledger; route 9 not stacked; E6-altlog flags recorded; no QED.',
   },

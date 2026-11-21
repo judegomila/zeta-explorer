@@ -46,8 +46,7 @@
  * MEASUREMENT / DETECTABILITY DIAGNOSTIC ONLY. Conditional-share curvature diagnostic, NOT an RH
  * bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34291-sigma-inflection-uniqueness-robustness (39-config uniqueness sweep; under-count F2/F3)
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade knee LOCATION N* ~ 3.38e9)
@@ -275,7 +274,7 @@ export const IMP34371_D2_KNEE_DETECTABILITY_THRESHOLD = {
     'by widening. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34291 (39-config uniqueness sweep; under-count-to-zero F2/F3); imp-33721 (sub-decade knee ' +
     'location N* ~ 3.38e9); imp-33701 (whole-decade single D2 knee); imp-33582 (six-decade exponent ' +
@@ -336,13 +335,13 @@ export const IMP34371_D2_KNEE_DETECTABILITY_THRESHOLD_ASSERTIONS = [
       ),
   },
   {
-    // Honesty gate: detectability diagnostic only, no QED, PT stays SOTA.
+    // Honesty gate: detectability diagnostic only, no QED, no refereed bound is changed.
     id: 'imp34371-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP34371_D2_KNEE_DETECTABILITY_THRESHOLD.isRigorous === false &&
       /NO QED/.test(IMP34371_D2_KNEE_DETECTABILITY_THRESHOLD.verdict) &&
-      /remains SOTA/.test(IMP34371_D2_KNEE_DETECTABILITY_THRESHOLD.verdict),
+      /refereed bound is changed/i.test(IMP34371_D2_KNEE_DETECTABILITY_THRESHOLD.verdict),
   },
 ];
 

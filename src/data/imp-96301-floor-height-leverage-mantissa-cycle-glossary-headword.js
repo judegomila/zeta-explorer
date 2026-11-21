@@ -38,7 +38,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96247 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96247-floor-height-law-extension-1e9-1e10 (source: the extended law and mantissa cycle this glosses)
  * @see imp-96232-kappa-star-floor-height-cross-validation (floors 1e-5..1e-8, the union this extends)
@@ -46,7 +46,7 @@
  * @see imp-486 (C_mb GUE-conditional, UNTOUCHED)
  *
  * Ticket: imp-96301 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The floor-height leverage / mantissa-cycle headword, baked verbatim (no re-import).
@@ -72,7 +72,7 @@ const FLOOR_HEIGHT_LEVERAGE_MANTISSA_CYCLE_HEADWORD = Object.freeze({
     'Measurement / extension only, re-inverting the imp-2322 audit power law at the fixed ' +
     'certified kappa_star = 0.4. No zero is verified, no new T_PT is claimed, rigorous bound ' +
     'stays E_trunc = 3.06e-5, C_mb stays GUE-conditional (imp-486, UNTOUCHED). Changes no ' +
-    'bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96301_FLOOR_HEIGHT_LEVERAGE_MANTISSA_CYCLE_GLOSSARY_HEADWORD = Object.freeze({
@@ -93,7 +93,7 @@ export const IMP96301_FLOOR_HEIGHT_LEVERAGE_MANTISSA_CYCLE_GLOSSARY_HEADWORD = O
     'with the leading mantissa cycling 4.9295 -> 1.5588 by floor-exponent parity (odd -> ' +
     '4.9295, even -> 1.5588) -- a direct fingerprint of 1/kappa_star = 2.5 being a half-' +
     'integer. Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96247 (the extended law and mantissa cycle this glosses); imp-96232 (floors ' +
     '1e-5..1e-8 union this extends); imp-2322 (forward E_trunc(T_PT) power law, elasticity ' +
@@ -119,11 +119,11 @@ export const IMP96301_FLOOR_HEIGHT_LEVERAGE_MANTISSA_CYCLE_GLOSSARY_HEADWORD_ASS
   },
   {
     id: 'imp96301-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96301_FLOOR_HEIGHT_LEVERAGE_MANTISSA_CYCLE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96301_FLOOR_HEIGHT_LEVERAGE_MANTISSA_CYCLE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96301_FLOOR_HEIGHT_LEVERAGE_MANTISSA_CYCLE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96301_FLOOR_HEIGHT_LEVERAGE_MANTISSA_CYCLE_GLOSSARY_HEADWORD.verdict) &&
       IMP96301_FLOOR_HEIGHT_LEVERAGE_MANTISSA_CYCLE_GLOSSARY_HEADWORD.glosses === 'imp-96247',
   },
 ];

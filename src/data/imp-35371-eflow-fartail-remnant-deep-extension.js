@@ -49,8 +49,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate extrapolation, NOT a rigorous
  * asymptotic; changes no bound. E_flow > 0 strictness (imp-33848) untouched; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066
- * K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35280-eflow-fartail-fd-vs-analytic-surrogate-gap (the four-rung remnant this extends)
  * @see imp-35279-eflow-fartail-inverse-swap-ladder (same remnant column, from the swap-gap side)
@@ -163,7 +162,7 @@ export const IMP35371_EFLOW_FARTAIL_REMNANT_DEEP_EXTENSION = {
     'Measurement only on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; ' +
     'E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
     'E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no bound; no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35280 (four-rung fd-vs-analytic remnant, extended here); imp-35279 (same remnant column, ' +
     'swap-gap side); imp-35217 (leading residual); imp-35198 (analytic -1 + 3/log N); imp-35135 ' +
@@ -211,13 +210,13 @@ export const IMP35371_EFLOW_FARTAIL_REMNANT_DEEP_EXTENSION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35371-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35371_EFLOW_FARTAIL_REMNANT_DEEP_EXTENSION.isRigorous === false &&
       /NO QED/.test(IMP35371_EFLOW_FARTAIL_REMNANT_DEEP_EXTENSION.verdict) &&
-      /remains SOTA/.test(IMP35371_EFLOW_FARTAIL_REMNANT_DEEP_EXTENSION.verdict),
+      /refereed bound is changed/i.test(IMP35371_EFLOW_FARTAIL_REMNANT_DEEP_EXTENSION.verdict),
   },
 ];
 

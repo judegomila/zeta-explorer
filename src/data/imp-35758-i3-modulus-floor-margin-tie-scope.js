@@ -11,8 +11,7 @@
  * on the boundary, and whether that bound clears the cap to leave a nonzero delta.
  *
  * ORDER-OF-MAGNITUDE SCOPING ONLY. Establishes no positivity; certifies no
- * non-vanishing; changes no bound; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * non-vanishing; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE REVERSE-TRIANGLE TIE (I3 reads off the W1 cap, it is not independent)
  * -----------------------------------------------------------------------------
@@ -64,8 +63,7 @@
  * no delta > 0. It only records that I3 REDUCES to the imp-35725 cap surplus by the
  * reverse triangle inequality, and that where the barrier holds the surplus is a
  * many-orders-robust floor. Establishes no positivity; certifies no non-vanishing;
- * changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED. No refereed bound is changed.
  *
  * @see imp-35727-w2-certified-winding-count-ingredients-scope (I3 named GREENFIELD, unlinked to the cap)
  * @see imp-35725-w1-effective-error-cap-budget (C_t^{cap}=E_A+E_B+E_{C_0}; the strict-inequality margin I3 reads off)
@@ -77,7 +75,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35725 / imp-35757) ----
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 const N_AT_TPT = Math.floor(Math.sqrt(T_PT / (4 * Math.PI))); // ~488602 retained terms (imp-35674 Part D)
 
 // Reverse-triangle modulus floor: |H_t| >= (|A_t+B_t| - |C_t|) - cap = margin - cap.
@@ -149,7 +147,7 @@ export const IMP35758_I3_MODULUS_FLOOR_MARGIN_TIE_SCOPE = {
     'certified iff the interval strict inequality clears the cap at EVERY panel of dR -- the SAME greenfield ' +
     'interval check imp-35725 named, downstream of the I1 / W1 enclosure. Evaluates no margin; positions no ' +
     'rectangle; verifies no inequality; certifies no delta > 0; establishes no positivity; changes no bound; ' +
-    'C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35727 (I3 named GREENFIELD, unlinked to the cap); imp-35725 (C_t^{cap}=E_A+E_B+E_{C_0}; strict-inequality ' +
     'margin |A_t+B_t| - |C_t|); imp-35757 (sibling I2 panel-width/count); imp-35681 Part A/B (A+B-C interval ' +
@@ -198,16 +196,16 @@ export const IMP35758_I3_MODULUS_FLOOR_MARGIN_TIE_SCOPE_ASSERTIONS = [
       /SAME greenfield obstruction/.test(IMP35758_I3_MODULUS_FLOOR_MARGIN_TIE_SCOPE.caveat.sameGreenfield),
   },
   {
-    // Honesty gate: OOM scoping only, no positivity, no non-vanishing certificate, no QED, PT SOTA.
+    // Honesty gate: OOM scoping only, no positivity, no non-vanishing certificate, no QED, no refereed bound is changed.
     id: 'imp35758-honesty-gate-no-qed',
-    description: 'Scoping only; establishes no positivity; certifies no delta>0; changes no bound; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Scoping only; establishes no positivity; certifies no delta>0; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35758_I3_MODULUS_FLOOR_MARGIN_TIE_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /establishes no positivity/.test(IMP35758_I3_MODULUS_FLOOR_MARGIN_TIE_SCOPE.verdict) &&
       /certifies no delta > 0/.test(IMP35758_I3_MODULUS_FLOOR_MARGIN_TIE_SCOPE.verdict) &&
       /NO QED/.test(IMP35758_I3_MODULUS_FLOOR_MARGIN_TIE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35758_I3_MODULUS_FLOOR_MARGIN_TIE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35758_I3_MODULUS_FLOOR_MARGIN_TIE_SCOPE.verdict),
   },
 ];
 

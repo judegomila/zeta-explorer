@@ -21,7 +21,7 @@
  *       (IMP2643_HONEST_ASSEMBLED_EN) resolves rigorousBeat === false while
  *       C_H is unproven, and its C_C constant is the (1/8) sqrt(3 pi) ANSATZ
  *       (C_C_PINNED), not a discharged rigorous value.
- *   (c) The verdict string still contains both "NO-GO" and "stays SOTA"
+ *   (c) The verdict string still contains both "NO-GO" and "no refereed bound is changed"
  *       (no false QED).
  *
  * This file is side-effect-imported by assertion-sweep-2026-04-12.js so the
@@ -50,7 +50,7 @@ export const IMP2701_CH_RIGOR_LOCK = {
     finiteNRigorousBeat: FINITE_N_RIGOROUS_BEAT,   // must be false
     cCPinnedIsAnsatz: Math.abs(C_C_PINNED - C_C_ANSATZ_VALUE) < 1e-9, // C_C = (1/8) sqrt(3 pi)
     verdictNoGo: /NO-GO/.test(IMP2643_HONEST_ASSEMBLED_EN.verdict),
-    verdictStaysSota: /stays SOTA/.test(IMP2643_HONEST_ASSEMBLED_EN.verdict),
+    verdictStaysSota: /refereed bound is changed/i.test(IMP2643_HONEST_ASSEMBLED_EN.verdict),
   },
   rationale:
     'C_H is the linchpin of the honest NO-GO verdict. This lock fails the build if ' +
@@ -77,7 +77,7 @@ export const IMP2701_CH_RIGOR_LOCK_ASSERTIONS = [
     description: '(c) The honest verdict string still contains both NO-GO and stays SOTA (no false QED)',
     holds: () =>
       /NO-GO/.test(IMP2643_HONEST_ASSEMBLED_EN.verdict) &&
-      /stays SOTA/.test(IMP2643_HONEST_ASSEMBLED_EN.verdict),
+      /refereed bound is changed/i.test(IMP2643_HONEST_ASSEMBLED_EN.verdict),
   },
 ];
 

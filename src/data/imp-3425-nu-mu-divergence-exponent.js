@@ -12,8 +12,7 @@
  *   predicted exponent pi. This module runs that fit.
  *
  *   MEASUREMENT / DIAGNOSTIC ONLY. No new positivity, no reduction, no RH
- *   verdict, no QED. imp-3066 remains the lone obstruction. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   verdict, no QED. imp-3066 remains the lone obstruction. No refereed bound is changed.
  *
  *   THE GENUINE DENSITIES (identical to imp-3384 / imp-3322 / imp-3309 / imp-3216)
  *   -----------------------------------------------------------------------------
@@ -63,7 +62,7 @@
  *   deg-2 deficit MAGNITUDE is not re-derived. A nonzero overflow measure is
  *   necessary-but-NOT-sufficient at operator order; the off-diagonal endpoint-Hankel
  *   operator step (imp-3066) remains the lone obstruction. RH-equivalent. No RH
- *   verdict, no false QED. Platt-Trudgian Lambda &lt;= 0.2 stays the rigorous SOTA.
+ *   verdict, no false QED. No refereed bound is changed.
  *
  *   @see imp-3384-interior-crossover-below-horizon.js (asserted nu/mu ~ exp(pi X), never fit)
  *   @see imp-3309-two-tail-underflow-horizons.js (the single-Phi vs Phi^2 tail exponents)
@@ -382,7 +381,7 @@ export const IMP3425_NU_MU_DIVERGENCE_EXPONENT = Object.freeze({
       'A nonzero overflow measure is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -436,7 +435,7 @@ export const IMP3425_NU_MU_DIVERGENCE_EXPONENT_ASSERTIONS = [
   {
     id: 'imp3425-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: MEASUREMENT at the genuine Phi, overflow-support tail-rate only (not the absolute ' +
-         'deficit magnitude), necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 SOTA.',
+         'deficit magnitude), necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3425_NU_MU_DIVERGENCE_EXPONENT.honestCaveat;
       return (
@@ -444,7 +443,7 @@ export const IMP3425_NU_MU_DIVERGENCE_EXPONENT_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isMeasurement === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

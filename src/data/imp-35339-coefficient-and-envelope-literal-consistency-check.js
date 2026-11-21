@@ -25,8 +25,7 @@
  *
  * LITERAL-CONSISTENCY / MEASUREMENT CHECK ONLY. Changes no bound; recomputes no underlying
  * quantity; O3 stays OPEN; G6a_shock_lipschitz stays OPEN; C_mb GUE-conditional per imp-486
- * UNTOUCHED; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * UNTOUCHED; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35322-rho-eps-expansion-cohort-provenance-rollup (coefficient decimals checked in (1),(2))
  * @see imp-35183-sigma-fartail-exponent-ladder-viz-data (p_envelope ladder checked in (4))
@@ -89,7 +88,7 @@ export const IMP35339_COEFFICIENT_AND_ENVELOPE_LITERAL_CHECK_ASSERTIONS = [
       }),
   },
   {
-    // Honesty gate: audit only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: audit only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35339-honesty-gate-no-derivation-change',
     description:
       'every catalogued coefficient module stays isRigorous:false and imp-35183 stays isRigorous:false with NO QED',

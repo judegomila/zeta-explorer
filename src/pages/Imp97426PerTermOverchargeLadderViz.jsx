@@ -143,8 +143,7 @@ export default function Imp97426PerTermOverchargeLadderViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming
         the imp-97392 groupCounts kernel verbatim; no re-derivation. Establishes no new
-        bound; the omega&ge;4 MAGNITUDE gap stays open; Platt-Trudgian Lambda&le;0.2
-        remains SOTA; RH open; NO QED.
+        bound; the omega&ge;4 MAGNITUDE gap stays open; RH open; NO QED.
       </div>
     </div>
   );

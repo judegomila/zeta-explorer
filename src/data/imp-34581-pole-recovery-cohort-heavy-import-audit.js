@@ -75,7 +75,7 @@ export const POLE_RECOVERY_COHORT_HEAVY_IMPORT_AUDIT = {
   heavyBundleFile: 'src/data/zeros-to-1e6.js',
   registrationGapsFoundBeforeFix: REGISTRATION_GAPS_FOUND,
   registrationGapsFixed: REGISTRATION_GAPS_FOUND,
-  honest: 'AUDIT: confirms all 4 named cohort modules (imp-34405/34406/34543/34548) are import-light and none imports the heavy zeros bundle directly or transitively. While auditing, found imp-34543 and imp-34548 were missing from run-assertions.mjs DATA_MODULES (their self-executing assertions never ran in the build-time sweep) and wired both in. No bound change; imp-3066 K_a>=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+  honest: 'AUDIT: confirms all 4 named cohort modules (imp-34405/34406/34543/34548) are import-light and none imports the heavy zeros bundle directly or transitively. While auditing, found imp-34543 and imp-34548 were missing from run-assertions.mjs DATA_MODULES (their self-executing assertions never ran in the build-time sweep) and wired both in. No bound change; imp-3066 K_a>=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const POLE_RECOVERY_COHORT_HEAVY_IMPORT_AUDIT_ASSERTIONS = [
@@ -110,9 +110,9 @@ export const POLE_RECOVERY_COHORT_HEAVY_IMPORT_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34581-audit-honest',
-    description: 'no bound change and PT Lambda <= 0.2 stays SOTA',
+    description: 'no bound change and no refereed bound is changed',
     holds: () => /No bound change/.test(POLE_RECOVERY_COHORT_HEAVY_IMPORT_AUDIT.honest)
-      && /Lambda<=0.2 remains SOTA/.test(POLE_RECOVERY_COHORT_HEAVY_IMPORT_AUDIT.honest),
+      && /refereed bound is changed/i.test(POLE_RECOVERY_COHORT_HEAVY_IMPORT_AUDIT.honest),
   },
 ];
 

@@ -165,8 +165,7 @@
  * packets. (b) 1/4 is the certified constant, not the sharp class
  * threshold (sandwich [0.23, 0.25]; float landmarks 0.2321 and 0.2451
  * measured only). (c) Parity-pure only. (d) Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD. (1) The termwise TS inequality was
  * approached on 60000 seeded pairs (rates to 21x the floor, edge-biased
@@ -616,7 +615,7 @@ export const IMP95137_TWO_SIDED_TILT_VECTOR_CAP = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM VC is unconditional given the sibling-chain witness conventions: Lemma TS is proved termwise from the exact imp-95134 excess identity plus three elementary steps (the kernel factorization is exact algebra, the p-convexity endpoint evaluation is exact, and the closing inequality is concavity with the tanh(mu W) <= mu W endpoint), the pair extraction is the carried imp-95134 gap-capped-tilt Cauchy-Schwarz, the spectral frame and parity/tail reductions are carried from imp-95136 (with the odd-parity entry domination re-proved for parametrized entries: e^{-2z}(1+2z) <= 1 and 1 + 2zq <= (1+z)(1+zq) for q <= 1), and the head certificate is a 200x200 entrywise-max cell grid bounded by Collatz-Wielandt through the single alternating-series constant U50 >= exp(-1/2) with explicit float slacks. The batteries and grids are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure, model-family constants; the certified constant 1/4 is not the sharp threshold (sandwich [0.23, 0.25]; float landmarks 0.2321 and 0.2451 measured only); the cap-simultaneity leg stays OPEN under the probe-depth residual; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM VC is unconditional given the sibling-chain witness conventions: Lemma TS is proved termwise from the exact imp-95134 excess identity plus three elementary steps (the kernel factorization is exact algebra, the p-convexity endpoint evaluation is exact, and the closing inequality is concavity with the tanh(mu W) <= mu W endpoint), the pair extraction is the carried imp-95134 gap-capped-tilt Cauchy-Schwarz, the spectral frame and parity/tail reductions are carried from imp-95136 (with the odd-parity entry domination re-proved for parametrized entries: e^{-2z}(1+2z) <= 1 and 1 + 2zq <= (1+z)(1+zq) for q <= 1), and the head certificate is a 200x200 entrywise-max cell grid bounded by Collatz-Wielandt through the single alternating-series constant U50 >= exp(-1/2) with explicit float slacks. The batteries and grids are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure, model-family constants; the certified constant 1/4 is not the sharp threshold (sandwich [0.23, 0.25]; float landmarks 0.2321 and 0.2451 measured only); the cap-simultaneity leg stays OPEN under the probe-depth residual; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -768,11 +767,11 @@ export const IMP95137_TWO_SIDED_TILT_VECTOR_CAP_ASSERTIONS = [
   {
     id: "imp95137-vc-honesty-gate",
     description:
-      "the verdict is scoped: parity-pure, model family, 1/4 certified not sharp, the cap-simultaneity leg stays OPEN under the probe-depth residual, parent sub-gap stays OPEN; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: parity-pure, model family, 1/4 certified not sharp, the cap-simultaneity leg stays OPEN under the probe-depth residual, parent sub-gap stays OPEN; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95137_TWO_SIDED_TILT_VECTOR_CAP.promotesBound === false &&
       /NO QED/.test(IMP95137_TWO_SIDED_TILT_VECTOR_CAP.rigorScope) &&
-      /remains SOTA/.test(IMP95137_TWO_SIDED_TILT_VECTOR_CAP.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95137_TWO_SIDED_TILT_VECTOR_CAP.rigorScope) &&
       /stays OPEN/.test(IMP95137_TWO_SIDED_TILT_VECTOR_CAP.rigorScope) &&
       /remains OPEN/.test(IMP95137_TWO_SIDED_TILT_VECTOR_CAP.openResiduals[0]) &&
       /stays OPEN, narrowed/.test(IMP95137_TWO_SIDED_TILT_VECTOR_CAP.openResiduals[1]) &&

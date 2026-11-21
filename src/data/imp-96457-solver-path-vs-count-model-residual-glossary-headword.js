@@ -42,7 +42,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96404/imp-96427 verdicts for quick
  *   reference. It establishes nothing, instantiates no interval, closes no
- *   sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96427-knee-crossover-solver-path-spread (source: the solver-path residual this glosses)
  * @see imp-96404-sigma-knee-plus78-count-model-shift (source: the count-model residual this glosses)
@@ -50,7 +50,7 @@
  * @see imp-96388-sigma-peak-vs-knee-cross-tabulation (knee sits ~0.015 log10 above the crossover)
  *
  * Ticket: imp-96457 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The solver-path-vs-count-model residual-classification headword, baked verbatim
@@ -86,8 +86,8 @@ const SOLVER_PATH_VS_COUNT_MODEL_RESIDUAL_HEADWORD = Object.freeze({
   verificationStatus:
     'Measurement classification (accuracy audit), not a rigorous derivation of ' +
     'either residual. Changes no bound; the conditional C_H <= 0.127 stays ' +
-    'UNPROVEN; C_H isRigorousUpperBound remains false (imp-2642/imp-2701); PT ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'UNPROVEN; C_H isRigorousUpperBound remains false (imp-2642/imp-2701); no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96457_SOLVER_PATH_VS_COUNT_MODEL_RESIDUAL_GLOSSARY_HEADWORD = Object.freeze({
@@ -108,7 +108,7 @@ export const IMP96457_SOLVER_PATH_VS_COUNT_MODEL_RESIDUAL_GLOSSARY_HEADWORD = Ob
     'count gamma_N solves) and the SOLVER-PATH residual (imp-96427, ~1.2e-13, ' +
     'floating-point noise from swapping how that count is inverted, ~1e3x smaller). ' +
     'Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96427 (the solver-path residual this glosses, ~1.2e-13 log10 N* spread, ' +
     'Newton vs Lambert-W); imp-96404 (the count-model residual this glosses, ' +
@@ -138,11 +138,11 @@ export const IMP96457_SOLVER_PATH_VS_COUNT_MODEL_RESIDUAL_GLOSSARY_HEADWORD_ASSE
   },
   {
     id: 'imp96457-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96457_SOLVER_PATH_VS_COUNT_MODEL_RESIDUAL_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96457_SOLVER_PATH_VS_COUNT_MODEL_RESIDUAL_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96457_SOLVER_PATH_VS_COUNT_MODEL_RESIDUAL_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96457_SOLVER_PATH_VS_COUNT_MODEL_RESIDUAL_GLOSSARY_HEADWORD.verdict) &&
       IMP96457_SOLVER_PATH_VS_COUNT_MODEL_RESIDUAL_GLOSSARY_HEADWORD.glosses === 'imp-96427',
   },
 ];

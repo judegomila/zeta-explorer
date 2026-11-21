@@ -22,7 +22,7 @@
  * are exact recomputations / verbatim reuse of the imp-97457 measurement; the
  * f_real curve is a labeled illustrative schematic, not new data. Establishes
  * no operator positivity; changes no bound; interval-rigorous certificate
- * reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 remains SOTA; RH open;
+ * reach stays 2a<=0.96; no refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-97457-krein-bathtub-realizability-gap.js (the measured R, gap attribution, verdict)

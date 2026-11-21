@@ -39,7 +39,7 @@
  * Measurement only, within the inherited imp-3406/imp-33810 component model; the component model is
  * NOT a rigorous asymptotic; the imp-34189 21.281 canonical reading is unchanged; changes no bound;
  * establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0
- * untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ * untouched; no refereed bound is changed. NO QED.
  *
  * @see imp-34189-m2-ceiling-next-order-window-width-correction (finding C: the diverging window ladder)
  * @see imp-34311-m2-closedform-5point-endpoint-stencil-share (matched 5-point stencil at w = 1)
@@ -212,7 +212,7 @@ export const IMP34350_M2_CEILING_WINDOW_DIVERGENCE_5POINT_ENDPOINT_SURVIVAL = {
     'unchanged. Descriptive within the inherited imp-3406/imp-33810 component model only; the component ' +
     'model is NOT a rigorous asymptotic; changes no bound; establishes no operator positivity; C_mb ' +
     'GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34189 (finding C: the diverging window ladder, reproduced here); imp-34311 (matched 5-point ' +
     'stencil at w = 1, extended here across the ladder); imp-34267 (2-point-pEcoll endpoint ' +
@@ -262,12 +262,12 @@ export const IMP34350_M2_CEILING_WINDOW_DIVERGENCE_5POINT_ENDPOINT_SURVIVAL_ASSE
     holds: () => FIVE_POINT_NO_CROSSING_ANY_W === true && TWO_POINT_DIVERGES === true,
   },
   {
-    // (G) Governance: measurement only, NO QED, SOTA preserved.
+    // (G) Governance: measurement only, NO QED, no refereed bound is changed.
     id: 'imp34350-governance-no-qed-sota',
-    description: 'isRigorous false and the verdict carries the NO QED / remains SOTA governance markers',
+    description: 'isRigorous false and the verdict carries the NO QED / no-refereed-bound-change governance markers',
     holds: () =>
       IMP34350_M2_CEILING_WINDOW_DIVERGENCE_5POINT_ENDPOINT_SURVIVAL.isRigorous === false &&
       /NO QED/.test(IMP34350_M2_CEILING_WINDOW_DIVERGENCE_5POINT_ENDPOINT_SURVIVAL.verdict) &&
-      /remains SOTA/.test(IMP34350_M2_CEILING_WINDOW_DIVERGENCE_5POINT_ENDPOINT_SURVIVAL.verdict),
+      /refereed bound is changed/i.test(IMP34350_M2_CEILING_WINDOW_DIVERGENCE_5POINT_ENDPOINT_SURVIVAL.verdict),
   },
 ];

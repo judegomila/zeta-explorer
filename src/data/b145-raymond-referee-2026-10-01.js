@@ -23,7 +23,7 @@
  * PROVED: nothing new (re-derivations of Raymond’s steps). CERTIFIED: Raymond’s exact Bernstein kernel checker replayed (8,280
  *  coefficients, 41 leaves); H2 (old band, d ≥ 4) arb positivity. MEASURED: independent float/mpmath/arb checks listed per section.
  *  HEURISTIC: lever sweep (kernel domains not re-checked: upper limits on gains).
- * Verdict: SOUND (no ERROR) on AF §§2–5, §§10–12, Part II. PT Lambda <= 0.2 stands. RH open. NO QED.
+ * Verdict: SOUND (no ERROR) on AF §§2–5, §§10–12, Part II. No refereed bound is changed. RH open. NO QED.
  * Files: tmp/b145-C-refA-*.py (+ .out), tmp/b145-C-refB-*.py (+ .out/.json), tmp/b145-C-refC-*.py; /tmp/b145-C-refB-kroot/out.json.
  * Import-free. ASSERTIONS recompute the PT clearance, the first-contact entry numbers, v*, the r = 3/5 self cap, the far-field d^-4
  * coefficient sign, q_MTY of the old band, the Abel floor margins and the lever sweep crossing.
@@ -84,7 +84,7 @@ export const B145_RAYMOND_REFEREE = Object.freeze({
     'Three internal referee passes find NO ERROR in Raymond’s AF §§2–5 (incl. the §3 Abel transfer), §§10–12 (incl. §11 first contact) '
     + 'and Part II; all graded SOUND with expository GAPs. G0 is narrowed to AF §§6–9 / main Lemmas 2–4 (self-reviewed only), the main §5 '
     + 'c_n monotonicity (measured only) and an external review. These passes move no bound: at PT height the chain still gives 0.149395. '
-    + 'PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'No refereed bound is changed. RH open. NO QED.',
 });
 
 const C = B145_RAYMOND_REFEREE;
@@ -147,7 +147,7 @@ export const B145_RAYMOND_REFEREE_ASSERTIONS = Object.freeze([
     id: 'b145-ref-grades',
     holds: () => C.sections.every((s) => /SOUND/.test(s.grade)) && !C.sections.some((s) => /ERROR/.test(s.grade))
       && C.sections.some((s) => /H1 OPEN/.test(s.grade)) && C.openForG0.length >= 3
-      && /PT Lambda <= 0\.2 stands/.test(C.verdict) && /NO QED/.test(C.verdict) && /narrowed/.test(C.verdict),
+      && /refereed bound is changed/i.test(C.verdict) && /NO QED/.test(C.verdict) && /narrowed/.test(C.verdict),
     why: 'All refereed sections SOUND, no ERROR; old-band H1 open; G0 narrowed, not closed; no bound claimed.',
   },
 ]);

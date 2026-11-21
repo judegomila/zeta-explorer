@@ -67,7 +67,7 @@
  * force cannot force RH. Contrast with heat flow (de Bruijn-Newman), which has genuine
  * restoring dynamics but whose limit Lambda >= 0 is exactly the flow-blindness barrier.
  * Status: TESTED, NO-GO for a real-rootedness-preserving lever. Measurement only; no bound;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * NEXT TEST (the one nontrivial residual). A WEIGHTED freeze -- replace (1 - p^{-s}) by
  * (1 - w_p p^{-s}) with a positive weight w_p tuned so the frozen factor gains zeros
@@ -207,7 +207,7 @@ export const RH_ROUTE_G_BLOCK_SPIN_RG = Object.freeze({
     + 'movable zeros and zeros on 1/2 for the factor to preserve. This is the RG analogue of the '
     + 'flow-blindness no-go: a purely structural flow with no arithmetic restoring force cannot '
     + 'force RH; heat flow (de Bruijn-Newman) has restoring dynamics but its limit Lambda >= 0 is '
-    + 'exactly that barrier. Measurement only; no bound; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'exactly that barrier. Measurement only; no bound; no refereed bound is changed; RH open; NO QED.',
   nextTest:
     'A WEIGHTED freeze (1 - w_p p^{-s}) tuned to acquire strip zeros pinning an off-line zero as '
     + 'it is decimated. The probability constraint w_p <= 1 forces |1 - w_p p^{-s}| >= 1 - p^{-sigma} '
@@ -287,10 +287,10 @@ export const RH_ROUTE_G_BLOCK_SPIN_RG_ASSERTIONS = Object.freeze([
       const v = RH_ROUTE_G_BLOCK_SPIN_RG.verdict;
       return /NO-GO/.test(v) && /flow-blindness/.test(v) && /fixed point/.test(v)
         && /Turan\/Montgomery/.test(v) && /NO QED/.test(v) && /RH open/.test(v)
-        && /remains SOTA/.test(v) && !/prov(e|ed|es) RH/i.test(v)
+        && /refereed bound is changed/i.test(v) && !/prov(e|ed|es) RH/i.test(v)
         && typeof RH_ROUTE_G_BLOCK_SPIN_RG.nextTest === 'string';
     },
-    why: 'verdict states the block-spin RG freeze is a NO-GO for a real-rootedness-preserving lever (exact flow fixes zeros with no restoring force; truncation scatters them toward sigma=1), ties it to the flow-blindness no-go, and records NO QED, RH open, SOTA, and a next test.',
+    why: 'verdict states the block-spin RG freeze is a NO-GO for a real-rootedness-preserving lever (exact flow fixes zeros with no restoring force; truncation scatters them toward sigma=1), ties it to the flow-blindness no-go, and records NO QED, RH open, no refereed bound is changed, and a next test.',
   },
 ]);
 

@@ -85,7 +85,7 @@
  * on the highly-composite classes (all primorials from b=30, all omega>=6), where the triangle bound
  * over-charges by a factor growing to ~5.4 -- confirming the imp-97290 residual diagnosis quantitatively.
  * Measurement only; no violation found; no ceiling claim; no bound on Lambda moves; kappa_arith unchanged;
- * PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97290-route-m-arith-quarter-ceiling-semiprime-proof.js (the exact leader decomposition + the omega>=3 residual measured here)
  * @see imp-97291-route-m-e1-wide-composite-ratio-sweep.js (wide-range r(b)=|E1|/(b/4) sweep; vanishing semiprime margin)
@@ -206,11 +206,11 @@ export const IMP97393_VERDICT = Object.freeze({
     'cancellation is REQUIRED exactly on the highly-composite classes -- the triangle bound first exceeds b/2 ' +
     'at the primorial b=30 and does so for EVERY squarefree b once omega>=6, over-charging by a factor growing ' +
     'to ~5.4 -- confirming the imp-97290 residual diagnosis quantitatively. Measurement only; no violation; no ' +
-    'ceiling claim; no bound on Lambda moves; kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'ceiling claim; no bound on Lambda moves; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97393_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Wide-range measurement of the imp-97290 sign + magnitude ' +
+  'RH open; no refereed bound is changed; NO QED. Wide-range measurement of the imp-97290 sign + magnitude ' +
   'conditions on omega(b)>=3: no violation of either across 89851 squarefree composites in [2,300000]. Delta ' +
   'always points inward; the magnitude condition |Delta|<=b/2 is slack (worst 0.499 on primorials, ~2x ' +
   'headroom); the sign condition is delicate, its margin vanishing ~b^{-1/2} on close-prime triples but never ' +
@@ -277,7 +277,7 @@ const IMP97393_ASSERTIONS = [
       IMP97393_VERDICT.magnitudeViolationFound === false &&
       IMP97393_RESULTS.totalViolations === 0 &&
       /NO QED/.test(IMP97393_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97393_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97393_HONEST_BANNER) &&
       /RH open/.test(IMP97393_HONEST_BANNER),
     why: 'measurement only -- no sign or magnitude violation found on omega>=3; no rigorous ceiling posted, no bound moved, no QED.',
   },

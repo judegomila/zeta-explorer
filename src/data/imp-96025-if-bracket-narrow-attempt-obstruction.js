@@ -61,7 +61,7 @@
  * imp-95940 crossing range [~5.8e17, ~1.36e28] does not collapse. Assessment only; changes no bound;
  * NO QED; I_F = 1 conjectural (Montgomery pair correlation, bracket (2/3 - eps, 2)); Catalan G
  * irrationality OPEN; Sun arXiv:2609.04176 single-author unrefereed; the zero-side route stays
- * PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * PCC / GRH-gated; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. The head/tail split is integrated live from
  * 1/alpha^2; the three imp-1098 empirical R2 plateau values (alpha = 1, 2, 3) are baked literals.
@@ -217,7 +217,7 @@ export const IMP96025_IF_BRACKET_NARROW_ATTEMPT_OBSTRUCTION = {
     '[~5.8e17, ~1.36e28] does not collapse. Assessment only; changes no bound; NO QED; I_F = 1 ' +
     'conjectural (Montgomery pair correlation, bracket (2/3 - eps, 2)); Catalan G irrationality OPEN; ' +
     'Sun arXiv:2609.04176 single-author unrefereed; the zero-side route stays PCC / GRH-gated; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   citation:
     'imp-95984 (K = I_F; rigorous bracket (2/3-eps, 2); Chan arXiv:math/0305339 Thm 1.1); imp-96006 ' +
     '(I_F = 1 conditional anchor); imp-1098 (empirical R2(r) vs GUE 1 - sinc^2, KS ~ 0.094); ' +
@@ -255,13 +255,13 @@ export const IMP96025_IF_BRACKET_NARROW_ATTEMPT_OBSTRUCTION = {
   // the empirical R2 plateau sits near (but below) the GUE plateau value 1, with finite-N residual.
   if (!(EMP_R2_PLATEAU_MEAN > 0.9 && EMP_R2_PLATEAU_MEAN < 1))
     throw new Error('imp-96025: empirical R2 plateau mean must sit near (below) the GUE value 1');
-  // HONESTY gates: assessment only, conjectural, no false pin, PT stays SOTA.
+  // HONESTY gates: assessment only, conjectural, no false pin, no refereed bound is changed.
   if (IMP96025_IF_BRACKET_NARROW_ATTEMPT_OBSTRUCTION.isRigorous !== false)
     throw new Error('imp-96025: isRigorous must be false');
   if (!/NO QED/.test(IMP96025_IF_BRACKET_NARROW_ATTEMPT_OBSTRUCTION.verdict))
     throw new Error('imp-96025: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96025_IF_BRACKET_NARROW_ATTEMPT_OBSTRUCTION.verdict))
-    throw new Error('imp-96025: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96025_IF_BRACKET_NARROW_ATTEMPT_OBSTRUCTION.verdict))
+    throw new Error('imp-96025: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96025_IF_BRACKET_NARROW_ATTEMPT_OBSTRUCTION;

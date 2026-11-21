@@ -58,7 +58,7 @@
  * imp-3406 log-law surrogate. It discharges NOTHING: imp-35243a / imp-35111a / imp-35174a stay OPEN. The
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes
- * no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35243-reentry-band-surrogate-fidelity-assessment (parent: enumerates R1-R4; R3 is height-map fidelity)
  * @see imp-35263-... / imp-35335 (D1/D1b EPS_FP floor-sensitivity -- the R1 companion of this R3 measurement)
@@ -215,7 +215,7 @@ export const IMP35260_REENTRY_BAND_CC_PREFACTOR_SENSITIVITY = {
     'unreachable, so imp-35243a stays OPEN. MEASUREMENT / ASSESSMENT ONLY on the inherited imp-3220/imp-3406 ' +
     'surrogate; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 ' +
     'are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35243 (parent: enumerates R1-R4; R3 = height-map fidelity); imp-35111/imp-34997 (band edges 10^27.08 - ' +
     '10^37.17); imp-35332 (drift DRIFT_PER_DECADE ~ 0.0187); lambda-rh-height-mapping (effectiveHeightForN RvM ' +
@@ -269,15 +269,15 @@ export const IMP35260_REENTRY_BAND_CC_PREFACTOR_SENSITIVITY_ASSERTIONS = [
       Math.abs(SHIFT_MINUS_10PCT - 2.21) < 0.1,
   },
   {
-    // Honesty gate: measurement only, R3 non-vacuous but not binding, no QED, PT SOTA, sub-gap stays OPEN.
+    // Honesty gate: measurement only, R3 non-vacuous but not binding, no QED, no refereed bound is changed, sub-gap stays OPEN.
     id: 'imp35260-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, R3 non-vacuous but not binding, no QED, PT SOTA, imp-35243a OPEN',
+    description: 'Measurement only: isRigorous false, R3 non-vacuous but not binding, no QED, no refereed bound is changed, imp-35243a OPEN',
     holds: () =>
       IMP35260_REENTRY_BAND_CC_PREFACTOR_SENSITIVITY.isRigorous === false &&
       /NON-VACUOUS/.test(IMP35260_REENTRY_BAND_CC_PREFACTOR_SENSITIVITY.r3_status) &&
       /NOT the binding obstruction/.test(IMP35260_REENTRY_BAND_CC_PREFACTOR_SENSITIVITY.r3_status) &&
       /NO QED/.test(IMP35260_REENTRY_BAND_CC_PREFACTOR_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP35260_REENTRY_BAND_CC_PREFACTOR_SENSITIVITY.verdict) &&
+      /refereed bound is changed/i.test(IMP35260_REENTRY_BAND_CC_PREFACTOR_SENSITIVITY.verdict) &&
       /imp-35243a stays\s+OPEN/.test(IMP35260_REENTRY_BAND_CC_PREFACTOR_SENSITIVITY.finding),
   },
 ];

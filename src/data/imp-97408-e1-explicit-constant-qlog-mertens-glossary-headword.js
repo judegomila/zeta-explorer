@@ -24,7 +24,7 @@
  *   (e) WHAT REMAINS OPEN. The single Mertens-product bound on Qlog -- the SAME O(1) log-cancellation
  *   obstruction class as the E0 Stirling-tail residual (imp-97289).
  *   (f) STATUS: documentation only. No rigorous unconditional uniform constant; no bound on Lambda
- *   moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   moves; no refereed bound is changed; RH open; NO QED.
  *
  *   STATUS: documentation only -- a Concepts glossary headword recording an already-established
  *   closed form and honest partial reduction. Not a new proof, not a new bound. NO QED.
@@ -36,7 +36,7 @@
  * @see imp-97265-route-m-arith-first-moment-quarter-ceiling-proof.js (the separate sharp 1/4 close-factor sub-gap)
  *
  * Ticket: imp-97408 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The E1 explicit-constant headword, baked verbatim (no re-import).
@@ -68,8 +68,8 @@ const E1_EXPLICIT_CONSTANT_HEADWORD = Object.freeze({
     '(src/data/imp-97288-route-m-e1-explicit-uniform-constant.js). The closed form is an exact ' +
     'identity verified to machine precision to b=720720; the three pinned constituent bounds hold ' +
     'uniformly including at 2^omega(b)=64. The Qlog Mertens-product bound is NOT proved -- naming / ' +
-    'glossary headword only; supplies no new bound; RH open; Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA; NO QED.',
+    'glossary headword only; supplies no new bound; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP97408_E1_EXPLICIT_CONSTANT_GLOSSARY_HEADWORD = Object.freeze({
@@ -88,7 +88,7 @@ export const IMP97408_E1_EXPLICIT_CONSTANT_GLOSSARY_HEADWORD = Object.freeze({
     'closed form CK(b) = (b/12) Qlog(b) - (b/4) Q0(b) + b logA (Q0(b) - mu(b)) + C_sum(b): three of ' +
     'its four constituents explicitly bounded (K_C = 1.13088), the fourth (Qlog) reduced to a single ' +
     'Mertens-product estimate (measured sup 0.475 vs e^{-gamma} = 0.56146). No bound moved; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97288 (the exact closed form, the three pinned constituents, the Qlog Mertens obstruction); ' +
     'imp-97289 (the E0 Stirling-tail residual in the same obstruction class); imp-97224 (the E1 = ' +
@@ -115,11 +115,11 @@ export const IMP97408_E1_EXPLICIT_CONSTANT_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97408-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97288.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97288.',
     holds: () =>
       IMP97408_E1_EXPLICIT_CONSTANT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97408_E1_EXPLICIT_CONSTANT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97408_E1_EXPLICIT_CONSTANT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97408_E1_EXPLICIT_CONSTANT_GLOSSARY_HEADWORD.verdict) &&
       IMP97408_E1_EXPLICIT_CONSTANT_GLOSSARY_HEADWORD.glosses === 'imp-97288',
   },
 ];

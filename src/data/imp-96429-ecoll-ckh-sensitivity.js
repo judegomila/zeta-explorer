@@ -32,7 +32,7 @@
  *   MEASUREMENT / ACCURACY AUDIT ONLY. Closes no gap, changes no bound, proves
  *   no constant. C_H stays UNPROVEN (imp-2642 / imp-2701); the conditional
  *   C_H <= 0.127 is not reclassified; imp-2640 Gronwall discharge of C_Lip stays
- *   NEGATIVE. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH remains open. NO QED.
+ *   NEGATIVE. No refereed bound is changed. RH remains open. NO QED.
  *
  * Provenance of baked inputs (single sources of truth, cited not re-derived):
  *   - imp-96402-ecoll-anchor-from-tabulated-true-zero-height.js: the verdict
@@ -172,7 +172,7 @@ export const IMP96429_ECOLL_CKH_SENSITIVITY = {
     'height, not of the C_KH normalization. Accuracy audit only: no gap closed, ' +
     'no bound changed, conditional C_H <= 0.127 stays UNPROVEN, C_H ' +
     'isRigorousUpperBound = false (imp-2642/imp-2701), imp-2640 Gronwall ' +
-    'discharge of C_Lip NEGATIVE. Platt-Trudgian Lambda <= 0.2 SOTA. RH open. NO QED.',
+    'discharge of C_Lip NEGATIVE. No refereed bound is changed. RH open. NO QED.',
   provenance:
     'imp-96402-ecoll-anchor-from-tabulated-true-zero-height.js (verdict under ' +
     'test; Odlyzko 10^22-nd and first-zero true heights); ' +
@@ -183,7 +183,7 @@ export const IMP96429_ECOLL_CKH_SENSITIVITY = {
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for
 // any consumer surface (e.g. the imp-96455 viz page) that renders this finding.
 export const IMP96429_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Sensitivity sweep only: the '
+  'RH open; no refereed bound is changed; NO QED. Sensitivity sweep only: the '
   + 'imp-96402 count-model-independence verdict is shown C_KH-invariant across a '
   + '3-decade rescaling (C_KH cancels as a common sqrt-prefactor in the relative '
   + 'gap); no gap closed, no bound changed, conditional C_H <= 0.127 stays '
@@ -233,7 +233,7 @@ export const IMP96429_ECOLL_CKH_SENSITIVITY_ASSERTIONS = [
     id: 'imp96429-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96429_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96429_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96429_HONEST_BANNER) &&
       /NO QED/.test(IMP96429_HONEST_BANNER),
     why: 'the honest banner carries the RH-open / PT-Lambda / NO-QED markers for any consumer surface that renders this finding.',
   },

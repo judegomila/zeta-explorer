@@ -134,8 +134,7 @@
  * between the PHASE-AM sub-1/2 region and the CEIL-X exceedance points.
  * (b) Everything is on the imp-95222 packet model; the map to paper
  * per-window quantities (imp-95255, obligation (3) gammaSL) is UNCHANGED.
- * (c) Changes NO Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * (c) Changes NO Lambda bound; NO QED; no refereed bound is changed.
  *
  * ROUTING. Obligation ledger: (2) amplitude sign/modulus certificate
  * ADVANCED again -- the phase leg now carries the strictly sharper
@@ -249,7 +248,7 @@ export const IMP95254_ORTHANT_SPLIT_PHASE_CERTIFICATE = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. Obligation ledger: (1) per-window Q extraction UNCHANGED; (2) ADVANCED -- phase leg now carries PHASE-AM (strict sharpening of PHASE-CERT, loss halved as theta -> 0, certified theta-window widened by 2 - e^(-y_min)); the linear-sharpening route is CLOSED (LIN-NOGO), the uniform-sub-1/2 question CLOSED negatively (NO-UNIF), the co-centered 1/2 ceiling shown non-generic (CEIL-X); surviving residual = the exact sharp frontier sup R at fixed (theta, y_min), plausibly the imp-95226 pencil/NP object restricted to a theta-level set; (3) envelope-shape port and seam-to-chain-gate (gammaSL) map UNCHANGED (imp-95276); (4) paper constants UNCHANGED.",
   verdict:
-    "RIGOROUS step (one theorem, one corollary, two refutations): LEMMA ENT (entrywise L_mn <= (1/2) e^(-y_min) M_mn, exact three-strip inequality) + LEMMA ODROP (orthant cross-term drop) give THEOREM PHASE-AM, R(f) <= (e^(-y_min)/4)(1 + 1/theta), STRICTLY dominating the imp-95233 PHASE-CERT bound by the exact factor (1 + theta)/2, tight at theta = 1, with the vacuity frontier lowered from e^(-y_min) to e^(-y_min)/(2 - e^(-y_min)). COROLLARY NO-UNIF answers the ticket headline NO: SGN-SAT pins every valid F(theta, y) to limsup >= 1/2 as theta -> 0. PROP LIN-NOGO refutes the natural linear sharp form by an exact co-centered witness. PROP CEIL-X exhibits R = 0.6962 > 1/2 (exact non-co-centered witness), so the 1/2 ceiling is co-centered-only and sub-1/2 phase certification fails at an interior fixed-theta point. HONEST: the exact sharp frontier sup R at fixed (theta, y_min) stays OPEN between the PHASE-AM region and the CEIL-X exceedance; model-family only; changes NO Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step (one theorem, one corollary, two refutations): LEMMA ENT (entrywise L_mn <= (1/2) e^(-y_min) M_mn, exact three-strip inequality) + LEMMA ODROP (orthant cross-term drop) give THEOREM PHASE-AM, R(f) <= (e^(-y_min)/4)(1 + 1/theta), STRICTLY dominating the imp-95233 PHASE-CERT bound by the exact factor (1 + theta)/2, tight at theta = 1, with the vacuity frontier lowered from e^(-y_min) to e^(-y_min)/(2 - e^(-y_min)). COROLLARY NO-UNIF answers the ticket headline NO: SGN-SAT pins every valid F(theta, y) to limsup >= 1/2 as theta -> 0. PROP LIN-NOGO refutes the natural linear sharp form by an exact co-centered witness. PROP CEIL-X exhibits R = 0.6962 > 1/2 (exact non-co-centered witness), so the 1/2 ceiling is co-centered-only and sub-1/2 phase certification fails at an interior fixed-theta point. HONEST: the exact sharp frontier sup R at fixed (theta, y_min) stays OPEN between the PHASE-AM region and the CEIL-X exceedance; model-family only; changes NO Lambda bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "LEMMA ENT is an exact strip computation plus a sign identity. LEMMA ODROP is positivity of L. THEOREM PHASE-AM consumes imp-95222 FA-2 logic only through ENT (it re-proves the positive-cone case it needs). The two refutation witnesses are closed-form exponential/rational expressions. Float evaluation below is cross-check; randomized sweeps are cross-check; no claim rests on quadrature.",
 };
@@ -443,7 +442,7 @@ export const IMP95254_PHASE_AM_ASSERTIONS = [
         IMP95254_ORTHANT_SPLIT_PHASE_CERTIFICATE.verdict,
       ) &&
       /NO QED/.test(IMP95254_ORTHANT_SPLIT_PHASE_CERTIFICATE.verdict) &&
-      /remains SOTA/.test(IMP95254_ORTHANT_SPLIT_PHASE_CERTIFICATE.verdict),
+      /refereed bound is changed/i.test(IMP95254_ORTHANT_SPLIT_PHASE_CERTIFICATE.verdict),
   },
 ];
 

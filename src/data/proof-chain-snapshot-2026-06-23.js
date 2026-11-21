@@ -332,7 +332,7 @@ export const IMP_2834_ROUTEA_GATE_ASSERTIONS = [
 // E_trunc only grows with height. The only honest move is to record that
 // negative and lock the REFUTED status so a future drift cannot silently
 // revive the withdrawn Lambda in [0.099, 0.137] as a live claim below the
-// Platt-Trudgian 0.2 SOTA. No new mathematical claim is made.
+// no refereed bound is changed. No new mathematical claim is made.
 
 export const IMP_2835_THINSTRIP_REFUTED_ASSERTIONS = [
   {

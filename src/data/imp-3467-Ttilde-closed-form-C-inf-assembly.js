@@ -309,7 +309,7 @@ export const IMP3467_TTILDE_CLOSED_FORM_C_INF_ASSEMBLY = Object.freeze({
     'VALUE of the sup stays transcendental (truncated dBN transform, no elementary xi*), so C_inf remains a ' +
     'determined number, per imp-3400. CERTIFICATION only; RH-equivalent; measures the ratio not positivity; ' +
     'the imp-3066 off-diagonal endpoint-Hankel K_a >= 0 magnitude remains the lone obstruction, UNTOUCHED. ' +
-    'NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -394,7 +394,7 @@ export const IMP3467_TTILDE_CLOSED_FORM_C_INF_ASSEMBLY = Object.freeze({
       'The spectral-slope identity and its assembly are diagnostic; the imp-3066 off-diagonal endpoint-Hankel ' +
       'operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -448,7 +448,7 @@ export const IMP3467_TTILDE_CLOSED_FORM_C_INF_ASSEMBLY_ASSERTIONS = [
     id: 'imp3467-honest-assessment-no-qed',
     why: 'Mandatory honesty: CERTIFICATION only -- numerical cross-check of the numerator-norm closed form on ' +
       'the full grid plus its assembly into C_inf, value stays transcendental, positivity not attempted, ' +
-      'RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3467_TTILDE_CLOSED_FORM_C_INF_ASSEMBLY.honestCaveat;
       return (
@@ -458,7 +458,7 @@ export const IMP3467_TTILDE_CLOSED_FORM_C_INF_ASSEMBLY_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.certifiesAndAssembles === 'string' &&
         typeof c.agreementIsNumericalNotSymbolic === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -63,7 +63,7 @@ export const R3_BB = Object.freeze({
     'BB1 and BB2 are proved as written implications (Theorem BB, Lemma C, Lemma H2) for every band run in use, including Route P band 1 '
     + '(0.1448843462793) and U2 (0.144254643222956), and confirmed by one internal adversarial referee pass. (BB2) needs (RH-win) but not (RH-head). '
     + 'They are no longer open inputs of Lemma B; the band values stay conditional on the source floors (F) (G0, Track A, consumer; Route P also '
-    + 'WOL-C), the FLINT window, the walls and, for band 1, RH below the head wall. Nothing below 0.2 is proved. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'WOL-C), the FLINT window, the walls and, for band 1, RH below the head wall. Nothing below 0.2 is proved. No refereed bound is changed. RH open. NO QED.',
   nextStep: 'External referee for §6.1–§6.2; copy /tmp/b145-A-archive, /tmp/b145-B-archive, /tmp/raymond_pr into a persistent hashed store so the replays stay reproducible.',
 });
 
@@ -122,7 +122,7 @@ export const R3_BB_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r3-bb-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(B.verdict) && /NO QED/.test(B.verdict) && /no external referee/.test(B.status),
+    holds: () => /refereed bound is changed/i.test(B.verdict) && /NO QED/.test(B.verdict) && /no external referee/.test(B.status),
     why: 'Internal referee only; no bound below 0.2 proved.',
   },
 ]);

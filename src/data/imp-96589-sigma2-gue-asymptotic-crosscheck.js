@@ -29,7 +29,7 @@
  * imp-96567 6-digit-agreement claim behind the rho_k = Cov_k/Sigma^2 tail normalization is
  * CONFIRMED. Measurement/check only; conditional on the GUE sine kernel / Montgomery pair
  * correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96567-box-averaged-sine-kernel-lag-decay (the Sigma^2 and rho_k this cross-checks)
  * @see imp-96128-number-variance-two-interval-covariance-exact (the disjoint-interval covariance frame)
@@ -88,12 +88,12 @@ export const IMP96589_SIGMA2_GUE_ASYMPTOTIC_CROSSCHECK = {
   bakedMinusClosed: BAKED_MINUS_CLOSED, // +2.98e-7: the 7th-digit round-off of the baked literal
   agreementDigits: 9, // direct vs closed agree to ~9 significant digits (> the claimed 6)
   verdict:
-    'CONFIRMED. Sigma^2(495.779) computed two independent ways -- the direct Simpson integral of the sin^2 cluster function and the closed-form (1/pi^2)(ln(2 pi L)+gamma+1) -- both give 0.97483370, with signed residual direct-closed = -1.86e-9 (h-stable), agreement to ~9 digits, far tighter than the claimed six. The imp-96567 baked literal 0.974834 is the exact 6-sig-fig round of 0.9748337 (baked-closed = +2.98e-7). The 6-digit-agreement claim anchoring the rho_k = Cov_k/Sigma^2 tail normalization is confirmed, not corrected. Measurement/check only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'CONFIRMED. Sigma^2(495.779) computed two independent ways -- the direct Simpson integral of the sin^2 cluster function and the closed-form (1/pi^2)(ln(2 pi L)+gamma+1) -- both give 0.97483370, with signed residual direct-closed = -1.86e-9 (h-stable), agreement to ~9 digits, far tighter than the claimed six. The imp-96567 baked literal 0.974834 is the exact 6-sig-fig round of 0.9748337 (baked-closed = +2.98e-7). The 6-digit-agreement claim anchoring the rho_k = Cov_k/Sigma^2 tail normalization is confirmed, not corrected. Measurement/check only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96589_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/check only: Sigma^2(495.779) = 0.9748337 '
+  'RH open; no refereed bound is changed; NO QED. Measurement/check only: Sigma^2(495.779) = 0.9748337 '
   + 'from the direct Simpson integral of (sin pi u / pi u)^2 and from the closed-form '
   + '(1/pi^2)(ln(2 pi L)+gamma+1) agree to ~1.9e-9 (~9 digits), confirming the imp-96567 6-digit claim. '
   + 'Conditional on the GUE sine kernel / pair correlation for the zeta zeros (UNPROVEN); changes no '
@@ -119,11 +119,11 @@ export const IMP96589_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96589_SIGMA2_GUE_ASYMPTOTIC_CROSSCHECK.verdict))
     throw new Error('imp-96589: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96589_SIGMA2_GUE_ASYMPTOTIC_CROSSCHECK.verdict))
-    throw new Error('imp-96589: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96589_SIGMA2_GUE_ASYMPTOTIC_CROSSCHECK.verdict))
+    throw new Error('imp-96589: verdict dropped the no-refereed-bound-change banner');
   if (!/conditional/i.test(IMP96589_SIGMA2_GUE_ASYMPTOTIC_CROSSCHECK.verdict))
     throw new Error('imp-96589: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96589_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96589_HONEST_BANNER) && /NO QED/.test(IMP96589_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96589_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96589_HONEST_BANNER) && /NO QED/.test(IMP96589_HONEST_BANNER)))
     throw new Error('imp-96589: IMP96589_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

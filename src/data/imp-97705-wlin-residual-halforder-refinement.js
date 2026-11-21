@@ -43,7 +43,7 @@
  *
  *   Cross-check only. No coefficient pinned beyond w_lin (already forced by imp-97460); no bound moves;
  *   the rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first
- *   by >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   by >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97688-wlin-linerr-factorization-independence (the half=200 result re-tested here)
  * @see imp-97664-wlin-b1e6-halfwidth-artifact-test (the original factorization framing)
@@ -126,12 +126,12 @@ export const IMP97705_VERDICT = Object.freeze({
     'the wobble floor: tightening the linear coefficient still needs a wobble-model subtraction or a ' +
     'larger b / finer node grid, not a half or factorization choice. The imp-97597 RESULT 3 ' +
     'mixed-kernel sub-gap STANDS; no coefficient newly pinned; no bound moves; the rigorous anchor ' +
-    'stays T = 2.594e7; compute binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; ' +
+    'stays T = 2.594e7; compute binds first by >2600x; no operator positivity; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
 export const IMP97705_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Numerical cross-check only: re-measuring the ' +
+  'RH open; no refereed bound is changed; NO QED. Numerical cross-check only: re-measuring the ' +
   'imp-97688 node-by-node residual w(x)-w_lin(x) at three phase-window half-orders (100, 200, 400) ' +
   'shows the denominator-INDEPENDENCE (prime / 2^20 / HCN / smooth agreeing per x node) is a genuine ' +
   'discretization fixed point, not a half=200 artifact -- but the residual VALUE itself drifts with ' +
@@ -232,7 +232,7 @@ const IMP97705_ASSERTIONS = [
       IMP97705_VERDICT.anyBoundMoved === false &&
       IMP97705_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97705_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97705_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97705_HONEST_BANNER) &&
       /RH open/.test(IMP97705_HONEST_BANNER),
   },
 ];

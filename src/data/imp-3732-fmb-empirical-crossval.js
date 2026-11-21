@@ -63,8 +63,8 @@
  *    integrator estimate the imp-3725 cross-check (2) already validated as
  *    inside the enclosure; we reuse that same value, adding only the F_mb view.
  *  - Cross-validation / measurement ONLY. No new Lambda bound. imp-3066
- *    off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- *    Lambda <= 0.2 remains the rigorous SOTA. NO QED.
+ *    off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed
+ *    . NO QED.
  *
  * @see imp-3725 (the certified enclosure being cross-validated)
  * @see imp-3728 (thetaBar sensitivity of the same enclosure)
@@ -165,7 +165,7 @@ export const IMP_3732_FMB_EMPIRICAL_CROSSVAL = Object.freeze({
       'true flow. The imp-3725 8.31e4x headline is slack vs the RETIRED ' +
       'carryforward K=0.2014, a different (heuristic-bound) comparison, not vs ' +
       'the measured value. No rung approaches or violates a band edge. ' +
-      'imp-3066 UNTOUCHED; Platt-Trudgian Lambda<=0.2 stays SOTA; NO QED.',
+      'imp-3066 UNTOUCHED; no refereed bound is changed; NO QED.',
   },
 
   scope: {
@@ -251,7 +251,7 @@ export const IMP_3732_FMB_EMPIRICAL_CROSSVAL_ASSERTIONS = [
     why:
       'This module is a measurement-only cross-validation: it must report all ' +
       'resolved rungs inside the band and all brackets consistent, and it ' +
-      'claims no new bound (NO QED; imp-3066 untouched; PT Lambda<=0.2 SOTA).',
+      'claims no new bound (NO QED; imp-3066 untouched; no refereed bound is changed).',
   },
 ];
 

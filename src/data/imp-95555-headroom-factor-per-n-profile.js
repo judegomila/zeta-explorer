@@ -8,7 +8,7 @@
  * "CONFIRMED N-INDEPENDENT, spread 0" over 690988 <= N <= 54799999.
  * This module MEASURES what that scan actually holds fixed and separates the
  * part that is genuinely N-flat from the part that is anchor-capped.
- * Report only: no bound changes, PT Lambda <= 0.2 stands, RH open, NO QED.
+ * Report only: no bound changes, no refereed bound is changed, RH open, NO QED.
  *
  * WHAT VARIES WITH N. The contract closes iff Q_sup < Q_target where
  *     Q_target = R_ex / sqrt(Sbar),   Q(N) = |E97|(N) / sqrt(Sbar).
@@ -47,7 +47,7 @@
  *   imp-95555-sub-per-n-e97-cell-scan -- compute |E97|(N) on a grid spanning
  *   690988..54799999 (both imp-95519 charts) via the RS seam evaluator, then
  *   read headroom(N) = R_ex/|E97|(N) and locate max_N |E97|(N).
- * No bound changes; PT Lambda <= 0.2 stands; NO QED.
+ * No bound changes; no refereed bound is changed; NO QED.
  */
 
 const N_LO = 690988;
@@ -118,7 +118,7 @@ export const IMP95555_HEADROOM_PER_N_PROFILE = Object.freeze({
   netVerdict:
     'Assessment only: the 1.306 headroom factor is anchor-conditional, not a ' +
     'measured-uniform factor; window-uniformity reduces to the per-N |E97|(N) ' +
-    'scan sub-gap. No bound change, PT Lambda <= 0.2 remains SOTA, RH open, NO QED.',
+    'scan sub-gap. No bound change, no refereed bound is changed, RH open, NO QED.',
 });
 
 export const IMP95555_HEADROOM_PER_N_PROFILE_ASSERTIONS = Object.freeze([
@@ -151,11 +151,11 @@ export const IMP95555_HEADROOM_PER_N_PROFILE_ASSERTIONS = Object.freeze([
   },
   {
     id: 'imp95555-honesty-gate-no-qed',
-    description: 'assessment only: promotes no bound, NO QED, PT stays SOTA',
+    description: 'assessment only: promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95555_HEADROOM_PER_N_PROFILE.promotesBound === false &&
       /NO QED/.test(IMP95555_HEADROOM_PER_N_PROFILE.netVerdict) &&
-      /remains SOTA/.test(IMP95555_HEADROOM_PER_N_PROFILE.netVerdict),
+      /refereed bound is changed/i.test(IMP95555_HEADROOM_PER_N_PROFILE.netVerdict),
   },
 ]);
 

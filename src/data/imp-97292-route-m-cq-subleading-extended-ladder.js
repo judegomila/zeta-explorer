@@ -61,7 +61,7 @@
  *
  *   Measurement only; certifies no Bettin-Conrey asymptotic; pins no coefficient; the rigorous
  *   anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by
- *   >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (unchanged, inherited): imp-97261-cq-subleading-power-coefficient -- the exact form and
  *   coefficient of g(b) need the Bettin-Conrey small-a asymptotic; NOT numerically decidable (shown
@@ -205,11 +205,11 @@ export const IMP97292_VERDICT = Object.freeze({
     '2 Sum g(b)/b^2) needs the analytic Bettin-Conrey small-a asymptotic I(a,b) = kappa_a log b + ' +
     'd_a + o(1) with Sum kappa_a^2/a^2 evaluated, not a longer ladder. Measurement only; no ' +
     'coefficient pinned; the rigorous anchor stays T = 2.594e7; compute N ~ 9916 binds first by ' +
-    '>2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    '>2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97292_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extended-ladder measurement only: extending the ' +
+  'RH open; no refereed bound is changed; NO QED. Extended-ladder measurement only: extending the ' +
   'exact Q(b) window-mean ladder to b = 16000 does NOT break the imp-97261 b^(1/2) vs log^2 b ' +
   'sub-leading collinearity. The two fit regressors h(b)/b stay >99% correlated to b = 32000 (97.8% ' +
   'at b = 100000) and the discriminating signal g(b)/b shrinks below the O(1) arithmetic-fluctuation ' +
@@ -295,7 +295,7 @@ const IMP97292_ASSERTIONS = [
       IMP97292_VERDICT.numericalRouteClosed === true &&
       IMP97292_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97292_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97292_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97292_HONEST_BANNER) &&
       /RH open/.test(IMP97292_HONEST_BANNER),
   },
 ];

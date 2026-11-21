@@ -65,8 +65,7 @@
  * operator positivity and asserts no new bound. The Trudgian (2014) bound and
  * the Selberg-CLT RMS law are quoted from the literature, not derived here. NO
  * QED on Conjecture 22.1; imp-3932 partial-falsification stands; imp-3066
- * K_a >= 0 UNTOUCHED; the imp-1210 novelty verdict is unchanged; Polymath15
- * Lambda <= 0.2 remains the SOTA de Bruijn-Newman upper bound.
+ * K_a >= 0 UNTOUCHED; the imp-1210 novelty verdict is unchanged; no refereed bound is changed.
  *
  * NO imports. Self-contained and light (no zeros bundle). JSDoc avoids the
  * close-comment sequence; JS strings use double quotes where an apostrophe is
@@ -227,7 +226,7 @@ export const IMP_33294_MODULATION_NYQUIST_ST_CORRECTION = Object.freeze({
       'residual sub-gap (algebraic-complexity per-evaluation lower bound + ' +
       'small-height regime) is untouched and still open.',
     'imp-3932 partial-falsification stands; imp-3066 K_a >= 0 UNTOUCHED; the ' +
-      'imp-1210 novelty verdict is unchanged; Polymath15 Lambda <= 0.2 remains ' +
+      'imp-1210 novelty verdict is unchanged; no refereed bound is changed ' +
       'the SOTA de Bruijn-Newman upper bound and is untouched.',
   ]),
   auditCrossRefs: Object.freeze(['imp-33278', 'imp-33251', 'imp-33233', 'imp-3932', 'imp-1210']),
@@ -311,7 +310,7 @@ export const IMP_33294_MODULATION_NYQUIST_ST_CORRECTION_ASSERTIONS = [
         /-1\/2 offset and the \(1\/2\)log/.test(r.verdict) &&
         r.honestScope.some((s) => /MEASUREMENT ONLY/.test(s)) &&
         r.honestScope.some((s) => /NO QED/.test(s)) &&
-        r.honestScope.some((s) => /Lambda <= 0.2/.test(s)) &&
+        r.honestScope.some((s) => /Lambda <= 0.2|refereed bound is changed/.test(s)) &&
         r.honestScope.some((s) => /imp-3066/.test(s))
       );
     },

@@ -55,7 +55,7 @@
  *   stays -3065.435. Confirms and quantifies the imp-97416 item (b) obstruction: the loss is a genuine spectral
  *   quantity (the coupling of the far-field cost to band-limited tail decay), not a scalar budget. Measurement
  *   only; no operator positivity; no coercivity constant; no bound moves; interval-rigorous reach stays
- *   2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *   SUB-GAP IMP97458_POSITIVE_FAR_FIELD_UNBOUNDED_COST_IS_SPECTRAL_NOT_SCALAR.
  *
  * @see imp-97416-krein-csharp-bathtub-joint-floor.js (VERDICT item (b): named the discarded t^4 far field; floor -3065.435)
@@ -64,7 +64,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (w_1, sigma_2; pole-free Weil positivity; reach 2a <= 0.96)
  *
  * Ticket: imp-97458 (numerical, medium, opus-4-8). Measurement only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

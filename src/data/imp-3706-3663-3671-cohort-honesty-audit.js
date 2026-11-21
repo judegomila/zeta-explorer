@@ -20,7 +20,7 @@
  * files for an explicit no-QED / no-RH-verdict statement, the RH-EQUIVALENT
  * necessary-but-not-sufficient caveat, the imp-3066 off-diagonal endpoint-Hankel
  * K_a &gt;= 0 positivity UNTOUCHED note, and the Platt-Trudgian Lambda &lt;= 0.2
- * rigorous-SOTA citation, cross-checked against the imp-3705 surfacing audit
+ * rigorous-no-refereed-bound-change citation, cross-checked against the imp-3705 surfacing audit
  * for page consumers (none found).
  *
  * RESULT (audited 2026-07-03): ONE DRIFT FOUND AND REPAIRED. Seven of the
@@ -28,12 +28,12 @@
  * (imp-3669-dense-third-gap-independent-verify.js), a pure independent-solver
  * verification utility in the imp-3623/imp-3625/imp-3668 crossval-utility
  * class, carried "NO QED" and "imp-3066" mentions but was missing the
- * RH-EQUIVALENT phrase and the Platt-Trudgian-SOTA citation entirely (zero
+ * RH-EQUIVALENT phrase and the Platt-Trudgian-no-refereed-bound-change citation entirely (zero
  * grep hits for both), unlike its imp-3623/imp-3625/imp-3668 precedents which
  * all carry the full banner. This was NOT an overclaim (no unconditional-Lambda
  * or RH-verdict language was present either) -- it was an omission of the
  * standard caveat, repaired in this same commit by adding "RH-EQUIVALENT; NO
- * RH verdict, NO QED. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA." to the module's
+ * RH verdict, NO QED. No refereed bound is changed." to the module's
  * @fileoverview header and honestCaveat field, plus a new
  * imp3669-honesty-gate-rh-equivalent-sota build-time assertion locking the
  * repair against silent regression.
@@ -52,7 +52,7 @@
  * RECOMMENDATION. Repair applied to imp-3669 only. No other repair needed for
  * this cohort. This module fabricates no pages and asserts no new bound; it
  * only records the audit outcome and the one-line honesty-banner fix. No QED.
- * Platt-Trudgian Lambda &lt;= 0.2 stays the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3660, imp-3637, imp-3616, imp-3594 (the prior honesty audits in this series)
  * @see imp-3705 (the surfacing audit establishing zero page consumers for this cohort)
@@ -64,8 +64,7 @@ export const IMP_3706_3663_3671_COHORT_HONESTY_AUDIT = {
   method:
     'Grep each cohort module (cross-checked against the imp-3705 surfacing audit for page ' +
     'consumers; none found) for an explicit no-QED / no-RH-verdict statement, the RH-EQUIVALENT ' +
-    'necessary-but-not-sufficient caveat, the imp-3066 UNTOUCHED note, and the Platt-Trudgian ' +
-    'Lambda <= 0.2 SOTA citation.',
+    'necessary-but-not-sufficient caveat, the imp-3066 UNTOUCHED note, and the no-refereed-bound-change citation.',
   modulesAudited: [
     { file: 'imp-3663-matched-pair-krylov-depth-sweep.js', drift: false, repaired: false, page: null },
     { file: 'imp-3665-a-weight-superexp-decay-crosscheck.js', drift: false, repaired: false, page: null },
@@ -80,13 +79,13 @@ export const IMP_3706_3663_3671_COHORT_HONESTY_AUDIT = {
   driftCount: 1,
   repairedCount: 1,
   recommendation:
-    'imp-3669 was missing the RH-EQUIVALENT / Platt-Trudgian-SOTA banner carried by every other ' +
+    'imp-3669 was missing the RH-EQUIVALENT / Platt-Trudgian-no-refereed-bound-change banner carried by every other ' +
     'module in this cohort and by its imp-3623/imp-3625/imp-3668 crossval-utility precedents; ' +
     'repaired in this commit. No other repair needed. No unconditional-Lambda claim found anywhere ' +
     'in the cohort.',
   honestNote:
     'Read-only audit plus one honesty-banner text repair; no pages or bounds fabricated. No QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -111,14 +110,14 @@ const IMP_3706_ASSERTIONS = [
         drifted[0].file.startsWith('imp-3669')
       );
     },
-    why: 'imp-3669 was the sole module found missing the RH-EQUIVALENT/SOTA banner in the 2026-07-03 audit; it was repaired in the same commit.',
+    why: 'imp-3669 was the sole module found missing the RH-EQUIVALENT/no-refereed-bound-change banner in the 2026-07-03 audit; it was repaired in the same commit.',
   },
   {
     id: 'imp3706-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_3706_3663_3671_COHORT_HONESTY_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_3706_3663_3671_COHORT_HONESTY_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3706_3663_3671_COHORT_HONESTY_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit (plus a text-only repair), not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit (plus a text-only repair), not a bound; no refereed bound is changed.',
   },
 ];
 

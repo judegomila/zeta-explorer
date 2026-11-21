@@ -60,7 +60,7 @@
  *   Ticket: imp-3595 (numerical, medium). Measurement only: extends the converged
  *   gap ladder two rungs and measures the local slope. Does NOT construct the missing
  *   magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT.
- *   NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO RH verdict, NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -229,7 +229,7 @@ export const IMP3595_SKEW_TOEPLITZ_GAP_N2400_3200_KRYLOV_LADDER = Object.freeze(
     '(rho=0.99993931, m=400..600 agree < 3e-14). The skew top pair stays near-degenerate (|lambda_1-lambda_2|/' +
     'lambda_1 < 2e-5 at N=2400, < 7e-5 at N=3200) so rho measures a genuine second-pair gap. Measurement only; does ' +
     'NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity; RH-EQUIVALENT; NO ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     gapQuantity: 'rho(N) = lambda_3/lambda_1 of the Gram S = T^T T of the skew-Toeplitz section Ttilde(u,v)=a(v-u)R(|v-u|)',
@@ -308,7 +308,7 @@ export const IMP3595_SKEW_TOEPLITZ_GAP_N2400_3200_KRYLOV_LADDER = Object.freeze(
       'The skew top-pair split is small but NOT machine-zero (1.9e-6 at N=2400, 6.1e-5 at N=3200) at finite section ' +
       'and finite Krylov; rho is treated as lambda_3/lambda_1 with lambda_1=lambda_2 approximate, matching imp-3575.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -354,7 +354,7 @@ export const IMP3595_SKEW_TOEPLITZ_GAP_N2400_3200_KRYLOV_LADDER_ASSERTIONS = [
   {
     id: 'imp3595-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- extends a converged gap ladder two rungs, positivity not attempted, ' +
-      'RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3595_SKEW_TOEPLITZ_GAP_N2400_3200_KRYLOV_LADDER.honestCaveat;
       return (
@@ -364,7 +364,7 @@ export const IMP3595_SKEW_TOEPLITZ_GAP_N2400_3200_KRYLOV_LADDER_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.measuresNotConstructs === 'string' &&
         typeof c.krylovDepthMustGrowWithN === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

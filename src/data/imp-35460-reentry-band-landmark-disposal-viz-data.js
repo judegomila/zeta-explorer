@@ -22,7 +22,7 @@
  *
  *   Ticket: imp-35460 (ux, medium). Presentation only of an already-established scoping; adds
  *   no new Lambda bound. Discharges nothing; imp-35243a stays OPEN. C_mb GUE-conditional per
- *   imp-486 UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   imp-486 UNTOUCHED. NO QED. No refereed bound is changed.
  */
 
 // -- five inherited reentry-band landmarks, classified under the imp-35356 route (ii) disposal --

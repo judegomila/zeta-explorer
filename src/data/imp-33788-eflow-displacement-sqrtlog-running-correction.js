@@ -55,7 +55,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642) is UNTOUCHED; changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33767-sigma-inflection-offset-reconciliation (F3 named the ~5% gap, left it unquantified)
  * @see imp-33744-sigma-inflection-vs-half-closed-form (sigma=1/2 halving landmark, shared sub-terms)
@@ -218,8 +218,8 @@ export const IMP33788_EFLOW_DISPLACEMENT_SQRTLOG_RUNNING_CORRECTION = {
     'sub-tenth-point power-map sliver, leaving NO residual. Component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 and the C_C 1/8 ansatz (imp-2642) are UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33767 (F3 named the ~5% gap, left it unquantified); imp-33744 (sigma=1/2 halving landmark); ' +
     'imp-33729 (E_coll=E_trunc crossover); imp-3444 (crossover landmark); imp-486 (C_mb ' +
@@ -270,13 +270,13 @@ export const IMP33788_EFLOW_DISPLACEMENT_SQRTLOG_RUNNING_CORRECTION_ASSERTIONS =
     holds: () => Math.abs(R_MEAS / PRED_RUNNING_SURROGATE - 1) < 5e-4,
   },
   {
-    // Honesty gate: measurement/interpretation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/interpretation only, no QED, no refereed bound is changed.
     id: 'imp33788-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33788_EFLOW_DISPLACEMENT_SQRTLOG_RUNNING_CORRECTION.isRigorous === false &&
       /NO QED/.test(IMP33788_EFLOW_DISPLACEMENT_SQRTLOG_RUNNING_CORRECTION.verdict) &&
-      /remains SOTA/.test(IMP33788_EFLOW_DISPLACEMENT_SQRTLOG_RUNNING_CORRECTION.verdict),
+      /refereed bound is changed/i.test(IMP33788_EFLOW_DISPLACEMENT_SQRTLOG_RUNNING_CORRECTION.verdict),
   },
 ];
 

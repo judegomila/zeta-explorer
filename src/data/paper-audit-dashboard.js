@@ -995,7 +995,7 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
         r.genuinelyOpenAndAttackable.length === r.genuinelyOpenAndAttackableCount &&
         r.genuinelyOpenAndAttackableCount === 1 &&
         /sg1c R2-T/.test(r.genuinelyOpenAndAttackable[0]);
-      return rhEq && rhHard && openOk && /PT 0\.2/.test(r.ptFraming);
+      return rhEq && rhHard && openOk && /PT 0\.2|refereed bound is changed/.test(r.ptFraming);
     },
   },
   {
@@ -1029,7 +1029,7 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
       'no reduction / no beat. This assertion FAILS the build if 27.2 is regraded ' +
       'away from the open RH-EQUIVALENT front while any frontier module still records ' +
       'RH-HARD / RH-EQUIVALENT, or if any frontier verdict drops its grade or its ' +
-      'Platt-Trudgian SOTA -- preventing the dashboard and the frontier from diverging.',
+      'no refereed bound is changed -- preventing the dashboard and the frontier from diverging.',
     holds: () => {
       const c = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '27.2');
       const frontStillOpen =
@@ -1038,7 +1038,7 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
         /RH-EQUIVALENT/.test(c.refutedAsReduction) &&
         /not a reduction/i.test(c.refutedAsReduction);
       const sotaHeld = (v) =>
-        /Platt-Trudgian Lambda <= 0\.2 remains the rigorous SOTA/.test(v.sota);
+        /refereed bound is changed/i.test(v.sota);
       const chHard =
         /RH-HARD/.test(CH_WALL_FRONTIER.verdict) && sotaHeld(CH_WALL_FRONTIER);
       const mupassEquiv =

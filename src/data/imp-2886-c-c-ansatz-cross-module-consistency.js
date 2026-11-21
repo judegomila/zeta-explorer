@@ -24,7 +24,7 @@
  * SCOPE (honest): pure numeric consistency. This does NOT touch the honest NO-GO
  * classification: C_H = 1/8 stays an ANSATZ (imp-2642), C_C stays non-rigorous on
  * the dominant term, and Lambda <= E(N) is NOT a rigorous beat (imp-2643 NO-GO,
- * Platt-Trudgian Lambda <= 0.2 stays SOTA). NO false QED.
+ * no refereed bound is changed). NO false QED.
  *
  * Self-executes its assertions on import (throws on failure); side-effect
  * imported by assertion-sweep-2026-04-12.js to stay reachable from the build.
@@ -71,7 +71,7 @@ export const IMP2886_C_C_ANSATZ_CROSS_MODULE_CONSISTENCY = {
   scope:
     'Pure numeric consistency. Does NOT touch the honest NO-GO classification: ' +
     'C_H = 1/8 stays an ANSATZ (imp-2642), C_C stays non-rigorous on the dominant ' +
-    'term, Lambda <= E(N) is NOT a rigorous beat (imp-2643 NO-GO, PT stays SOTA).',
+    'term, Lambda <= E(N) is NOT a rigorous beat (imp-2643 NO-GO, no refereed bound is changed).',
   source: 'imp-399 (C_C definition); imp-2643/2633/1135 (consumers); imp-2886 (this cross-check)',
 };
 

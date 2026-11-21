@@ -62,7 +62,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade knee estimator, log10 N* ~ 9.529)
  * @see imp-3444-sigma-nshape-landmark-ladder (bisected E_coll=E_trunc crossover + halving landmark)
@@ -267,7 +267,7 @@ export const IMP97781_KNEE_CROSSOVER_EFLOW_SENSITIVITY = {
     'itself is E_flow-displaced. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     'is UNTOUCHED (imp-2642); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33721 (sub-decade knee, log10 N* ~ 9.529); imp-3444 (bisected E_coll=E_trunc crossover ' +
     '~3.280e9 + halving landmark ~3.267e9); imp-33767 (halving-vs-crossover separation = E_flow ' +
@@ -328,13 +328,13 @@ export const IMP97781_KNEE_CROSSOVER_EFLOW_SENSITIVITY_ASSERTIONS = [
     holds: () => BASE.EflowOverEtruncAtKnee > 1e-3 && BASE.EflowOverEtruncAtKnee < 3e-3,
   },
   {
-    // Honesty gate: measurement/sensitivity only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/sensitivity only, no QED, no refereed bound is changed.
     id: 'imp97781-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97781_KNEE_CROSSOVER_EFLOW_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP97781_KNEE_CROSSOVER_EFLOW_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP97781_KNEE_CROSSOVER_EFLOW_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP97781_KNEE_CROSSOVER_EFLOW_SENSITIVITY.verdict),
   },
 ];
 

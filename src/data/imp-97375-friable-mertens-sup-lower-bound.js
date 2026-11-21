@@ -65,7 +65,7 @@
  * (the slope only sees an O(1/log p_k) boundary layer). What remains is a genuine oscillatory /
  * large-values input on the friable Mertens partial sums (RESULT 1 exhibits the exact difference-operator
  * structure to attack it). The super-linear lower bound therefore stays MEASURED, not proved; the residual
- * is now sharply named. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * is now sharply named. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * RESIDUAL (refined sub-gap).
@@ -207,11 +207,11 @@ export const IMP97375_VERDICT = Object.freeze({
     '(argmax_t . b_k -> infinity), so the slope route to >> p_k is DEAD. RESULT 3 reduces sup >> p_k, up ' +
     'to a bounded smoothing factor c_k in [0.14, 0.5], to an Omega / large-values bound for the P_k-friable ' +
     'Mertens function max_x |M_friable(x; P_k)| >> p_k. Obstruction sharply named as ' +
-    'IMP97375_FRIABLE_MERTENS_OMEGA_SUBGAP. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'IMP97375_FRIABLE_MERTENS_OMEGA_SUBGAP. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97375_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial: the imp-97353 alsoOpen super-linear ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial: the imp-97353 alsoOpen super-linear ' +
   'lower bound sup_t |M_k(t)| >> p_k is NOT proved (stays measured). NEW rigorous log-scale ' +
   'finite-difference representation F_k = prod (I - S_{log p_j}) sigma of the Gompertz step; the slope ' +
   'identity is rigorously localized to the t ~ 1/b_k layer where |M_k| = O(1/log p_k) (slope route DEAD); ' +
@@ -309,7 +309,7 @@ const IMP97375_ASSERTIONS = [
       IMP97375_VERDICT.residualSubgap === 'IMP97375_FRIABLE_MERTENS_OMEGA_SUBGAP' &&
       /IMP97353_SIGNED_BOUNDARY_LAYER_SUBGAP/.test(IMP97375_FRIABLE_MERTENS_OMEGA_SUBGAP.refinesSubgap) &&
       /NO QED/.test(IMP97375_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97375_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97375_HONEST_BANNER) &&
       /RH open/.test(IMP97375_HONEST_BANNER),
     why: 'honest partial: the super-linear lower bound stays measured; the obstruction is reduced to a friable-Mertens Omega bound -- no bound moved, no QED.',
   },

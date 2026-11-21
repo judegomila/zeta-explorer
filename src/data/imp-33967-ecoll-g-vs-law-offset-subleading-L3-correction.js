@@ -63,8 +63,8 @@
  * extrapolation, NOT a rigorous asymptotic; the analytic -log(2 pi)/2 coefficient uses the leading
  * Riemann-von Mangoldt inverse and is a MATCH to the measured decay, not a proven bound; the C_mb
  * GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA. SUB-GAP: the ladder tops out at 1e280 (Math.pow(10, e) overflows IEEE double
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed
+ * . SUB-GAP: the ladder tops out at 1e280 (Math.pow(10, e) overflows IEEE double
  * past e~308), so r * L^3 is still ~0.3% above its -log(2 pi)/2 asymptote at the endpoint; the
  * coefficient is pinned by the two-parameter 1/L extrapolation, not a direct large-L readout.
  *
@@ -214,7 +214,7 @@ export const IMP33967_ECOLL_G_VS_LAW_OFFSET_SUBLEADING_L3_CORRECTION = {
     'uses the leading RvM inverse and is a MATCH, not a proven bound. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'share per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33918 (leading -1/(2 L^2) term; off/(-1/(2 L (L+1))) -> 1 on 1e12..1e280); imp-33887 ' +
     '(three-way split; I3 reference offset); imp-33944 (companion gap-law -1/log T0 sub-leading ' +
@@ -254,13 +254,13 @@ export const IMP33967_ECOLL_G_VS_LAW_OFFSET_SUBLEADING_L3_CORRECTION_ASSERTIONS 
     holds: () => MAX_TRUEMODEL_DEV < 1e-8,
   },
   {
-    // Honesty gate: measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp33967-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33967_ECOLL_G_VS_LAW_OFFSET_SUBLEADING_L3_CORRECTION.isRigorous === false &&
       /NO QED/.test(IMP33967_ECOLL_G_VS_LAW_OFFSET_SUBLEADING_L3_CORRECTION.verdict) &&
-      /remains SOTA/.test(IMP33967_ECOLL_G_VS_LAW_OFFSET_SUBLEADING_L3_CORRECTION.verdict),
+      /refereed bound is changed/i.test(IMP33967_ECOLL_G_VS_LAW_OFFSET_SUBLEADING_L3_CORRECTION.verdict),
   },
 ];
 

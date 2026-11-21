@@ -274,7 +274,7 @@ export const IMP3399_CAPTURE_RATIO_SINH_ODD_FACTORIZATION_IDENTITY = Object.free
     'sinh-nonlinearity does NOT cancel in the ratio: r(a) = r_lin + c2 a^2 + O(a^4) with c2 = dr/d(a^2)|_0 ' +
     'NONZERO (~1.58e-5 at U = 6, reproducing the imp-3350 ~4e-6 drift). Leading a cancels exactly; the ' +
     'identity is about the a -> 0 LIMIT, not about r being constant in a. Assessment only; RH-equivalent; ' +
-    'does NOT touch the imp-3066 K_a >= 0 obstruction; NO RH verdict and NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'does NOT touch the imp-3066 K_a >= 0 obstruction; NO RH verdict and NO QED. No refereed bound is changed.',
 
   symbolicArgument: Object.freeze({
     oddFactorization:
@@ -336,7 +336,7 @@ export const IMP3399_CAPTURE_RATIO_SINH_ODD_FACTORIZATION_IDENTITY = Object.free
       'This concerns only the shear-weight structure of the capture RATIO; it does NOT construct the ' +
       'missing magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity -- the lone obstruction.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -387,7 +387,7 @@ export const IMP3399_CAPTURE_RATIO_SINH_ODD_FACTORIZATION_IDENTITY_ASSERTIONS = 
   {
     id: 'imp3399-honest-assessment-no-qed',
     why: 'Mandatory honesty: proves the a -> 0 LIMIT identity only (not constancy in a), fixed N, ' +
-      'RH-equivalent, positivity not attempted, no reduction below RH, PT 0.2 stays SOTA. Any flip is ' +
+      'RH-equivalent, positivity not attempted, no reduction below RH, no refereed bound is changed. Any flip is ' +
       'over-claiming.',
     holds: () => {
       const c = IMP3399_CAPTURE_RATIO_SINH_ODD_FACTORIZATION_IDENTITY.honestCaveat;
@@ -397,7 +397,7 @@ export const IMP3399_CAPTURE_RATIO_SINH_ODD_FACTORIZATION_IDENTITY_ASSERTIONS = 
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.provesLimitNotConstancy === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

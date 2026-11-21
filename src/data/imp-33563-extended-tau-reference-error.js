@@ -58,7 +58,7 @@
  *   real platform libms. It establishes NO operator positivity and NO new bound; it changes no
  *   bound. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0
  *   sign-positivity (imp-3066) is UNTOUCHED. The NPHI=10 Phi-series truncation is inherited upstream.
- *   No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33534-min-node-reference-precision-libm.js (the ~106-bit dd reference libm this reuses)
  *   @see imp-33561-panel-budget-vs-reference-error.js (the panel-budget jitter this extends in tau)
@@ -152,7 +152,7 @@ export const IMP33563_EXTENDED_TAU_REFERENCE_ERROR = {
     imp3066Untouched: true,
     nphiTruncationInherited: true,
     noQED: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    sota: 'No refereed bound is changed.',
   },
 };
 
@@ -202,7 +202,7 @@ export const IMP33563_EXTENDED_TAU_REFERENCE_ERROR_ASSERTIONS = [
   {
     id: 'imp33563-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy measurement only, changes no bound, reference-precision ' +
-         'surrogate not a platform survey, operator positivity (imp-3066) untouched, PT 0.2 SOTA.',
+         'surrogate not a platform survey, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33563_EXTENDED_TAU_REFERENCE_ERROR.honestCaveat;
       return (
@@ -211,7 +211,7 @@ export const IMP33563_EXTENDED_TAU_REFERENCE_ERROR_ASSERTIONS = [
         c.changesNoBound === true &&
         c.didNotAttemptPositivity === true &&
         c.noQED === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -49,8 +49,7 @@
  *   the finite-section positivity certificate (lambda_min(G_n) >= A_opt for every section size), and
  *   imp-95823 reproduces this same rho=1 sequence via a direct double-double eigensolve with no sub-1
  *   undershoot at any section, so the 0.909 reading recorded here is settled as roundoff, not a new
- *   phenomenon. Catalan constant G irrationality remains OPEN; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   phenomenon. Catalan constant G irrationality remains OPEN; NO QED. No refereed bound is changed.
  *
  * @see imp-95677-rho1-szego-finite-size-convergence (source: the measurement and float64-floor obstruction this glosses)
  * @see imp-95659-twin-pair-block-floor-rho-tabulation (the rho=1 endpoint this refines)
@@ -58,8 +57,7 @@
  * @see imp-95825-finite-section-positivity-certificate (lambda_min(G_n) >= ess-inf f = A_opt for every section size -- confirms the sub-1 reading here is impossible as an exact value)
  * @see imp-95823-rho1-szego-direct-dd-eigensolve (direct double-double eigensolve confirming the roundoff diagnosis: no sub-1 undershoot away from the float64 floor)
  *
- * Ticket: imp-95700 (content, low). Documentation only; establishes nothing; NO QED; Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * Ticket: imp-95700 (content, low). Documentation only; establishes nothing; NO QED; no refereed bound is changed.
  */
 
 // The cancellation-floor headword, baked verbatim (no re-import).
@@ -102,7 +100,7 @@ export const IMP95700_CANCELLATION_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
     '1 exactly -- so the measured 0.909 undershoot at nPairs=320 is cancellation noise, not a genuine ' +
     'sub-floor value. Only the qualitative monotone decay toward 1 is established; the exact limit ' +
     'and rate need extended precision -- OPEN. Establishes nothing; instantiates no interval; moves ' +
-    'no bound; G irrationality OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no bound; G irrationality OPEN; NO QED. No refereed bound is changed.',
   citation:
     'imp-95677 (the measurement and float64-floor obstruction this headword glosses); imp-95659 ' +
     '(the rho=1 endpoint this refines); imp-95419 (A_opt scalar class floor / symbol infimum); ' +
@@ -130,11 +128,11 @@ export const IMP95700_CANCELLATION_FLOOR_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95700-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, G irrationality OPEN, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, G irrationality OPEN, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95700_CANCELLATION_FLOOR_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95700_CANCELLATION_FLOOR_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95700_CANCELLATION_FLOOR_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95700_CANCELLATION_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       /G irrationality OPEN/.test(IMP95700_CANCELLATION_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       IMP95700_CANCELLATION_FLOOR_GLOSSARY_HEADWORD.glosses === 'imp-95677' &&
       IMP95700_CANCELLATION_FLOOR_GLOSSARY_HEADWORD.scopes === 'imp-95659',

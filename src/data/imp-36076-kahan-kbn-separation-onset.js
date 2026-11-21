@@ -51,7 +51,7 @@
  *
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no interval;
  * verifies no inequality; changes no bound; establishes no positivity; the C_mb GUE-conditional
- * constant (imp-486) is untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * constant (imp-486) is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36023-kbn-combined-worst-ladder (coarse four-rung KBN N-flat floor; classic-Kahan endpoint ~2.31e-19)
  * @see imp-35973-w1-summation-order-shape-cross-term (single-endpoint combined stress ~2.31e-19 at N~488602)
@@ -63,7 +63,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36023) ---------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI)));
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT
 
@@ -280,7 +280,7 @@ export const IMP36076_KAHAN_KBN_SEPARATION_ONSET = {
     'interval sum (MECHANICAL, imp-35725). Certifies no W1 bound; evaluates no true H_0; instantiates no ' +
     'interval; verifies no inequality; changes no bound; establishes no positivity; the W1 A + B - C ' +
     'certificate at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36023 (coarse four-rung KBN N-flat floor; classic-Kahan endpoint ~2.31e-19 at N~488602); imp-35973 ' +
     '(single-endpoint combined stress ~2.31e-19); imp-35852 (clustered worst ORDER); imp-35812 (fixed term ' +
@@ -331,7 +331,7 @@ export const IMP36076_KAHAN_KBN_SEPARATION_ONSET_ASSERTIONS = [
   },
   {
     id: 'imp36076-honesty-gate',
-    description: 'Measurement only; no clean crossover; precision non-binding; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; no clean crossover; precision non-binding; no QED; no refereed bound is changed',
     holds: () =>
       IMP36076_KAHAN_KBN_SEPARATION_ONSET.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -341,7 +341,7 @@ export const IMP36076_KAHAN_KBN_SEPARATION_ONSET_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP36076_KAHAN_KBN_SEPARATION_ONSET.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36076_KAHAN_KBN_SEPARATION_ONSET.verdict) &&
-      /remains SOTA/.test(IMP36076_KAHAN_KBN_SEPARATION_ONSET.verdict),
+      /refereed bound is changed/i.test(IMP36076_KAHAN_KBN_SEPARATION_ONSET.verdict),
   },
 ];
 

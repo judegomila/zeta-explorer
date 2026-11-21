@@ -57,7 +57,7 @@
  *   - The reported 0.9039 lies below the prior random-scan brackets (0.927/0.943);
  *     those scans under-sampled the asymmetric semi-lattice tail. The value here
  *     is anchored by exact reproduction of BOTH closed forms, not asserted.
- *   - Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA; nothing here is a beat.
+ *   - no refereed bound is changed; nothing here is a beat.
  *
  * @see sg1c-theta-trap-theorems (Lemma R2-T onset 1; R2-T2 c*; SHELL_K2 quintic)
  * @see ch-lip-basin-conditional-2026-06-30 (the 0.72 basin separation this preserves)
@@ -157,7 +157,7 @@ export const SG1C_ISOLATION_INFIMUM_ASYM_SCAN = {
   basinDrho: BASIN_DRHO,                               // strongly negative => self-improving
   preservedBasinMargin: ASYM_INF - BASIN_RHO,          // ~0.184 > 0
   status: 'NUMERICAL bracket-tightening of the open global isolation constant; worst case is asymmetric, not symmetric; 0.72 basin separation preserved',
-  honest: 'NUMERICAL only on an independently-anchored flow, NOT a closed-form closure. Only single-neighbour c=1 and symmetric single-shell c* are closed in form. PT Lambda <= 0.2 stays the rigorous SOTA. NO false QED.',
+  honest: 'NUMERICAL only on an independently-anchored flow, NOT a closed-form closure. Only single-neighbour c=1 and symmetric single-shell c* are closed in form. No refereed bound is changed. NO false QED.',
 };
 
 export const SG1C_ISOLATION_INFIMUM_ASYM_SCAN_ASSERTIONS = [
@@ -184,9 +184,9 @@ export const SG1C_ISOLATION_INFIMUM_ASYM_SCAN_ASSERTIONS = [
   },
   {
     id: 'sg1c-iso-scan-honest-not-closed-form',
-    description: 'explicitly NUMERICAL bracketing, NOT a closed-form closure, and PT 0.2 stays SOTA',
+    description: 'explicitly NUMERICAL bracketing, NOT a closed-form closure, and no refereed bound is changed',
     holds: () => /NUMERICAL only/.test(SG1C_ISOLATION_INFIMUM_ASYM_SCAN.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(SG1C_ISOLATION_INFIMUM_ASYM_SCAN.honest),
+      && /refereed bound is changed/i.test(SG1C_ISOLATION_INFIMUM_ASYM_SCAN.honest),
   },
 ];
 

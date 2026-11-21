@@ -55,7 +55,7 @@
  * the convex-flux certification H2 of the imp-3642 hydrodynamic limit". K4 stays WHOLLY NEW (consistent with
  * imp-3714 / imp-3727) and G6a_shock_lipschitz stays OPEN. Literature-anchored scoping / derivation only; no
  * estimate shipped, no positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal
- * endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3727-g6a-k4-entropy-solution-regularity-scoping (parent: the H1..H6 hypothesis-availability map this refines)
  * @see imp-3714-g6a-modulus-object-requirements (K4 enumerated as the entropy-solution route, marked NEW)
@@ -189,7 +189,7 @@ export const IMP3846_G6A_K4_CAUSTIC_REGULARITY_TOOLKIT_ASSESSMENT = {
     'defined to BYPASS (imp-3708). K4 therefore stays WHOLLY NEW (consistent with imp-3714 / imp-3727) and ' +
     'G6a_shock_lipschitz stays OPEN. Literature-anchored scoping / derivation only; no estimate shipped, no ' +
     'positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 ' +
-    'positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'positivity UNTOUCHED. No refereed bound is changed.',
   citation:
     'imp-3727 (parent: the H1..H6 hypothesis-availability map refined here); imp-3714 (K4 enumerated, marked NEW); ' +
     'imp-3671 (S1 type / S2 scale obstructions K4 dodges); imp-3708 (the Gronwall floor T5 cannot be upgraded with); ' +
@@ -237,15 +237,15 @@ export const IMP3846_G6A_K4_CAUSTIC_REGULARITY_TOOLKIT_ASSESSMENT_ASSERTIONS = [
       IMP3846_G6A_K4_CAUSTIC_REGULARITY_TOOLKIT_ASSESSMENT.absentToolsAllRequireH2 === true,
   },
   {
-    // Honesty gate: scoping only, K4 wholly new, G6a open, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: scoping only, K4 wholly new, G6a open, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3846-honesty-gate-no-qed',
-    description: 'scoping/derivation only: K4 wholly new, G6a open, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'scoping/derivation only: K4 wholly new, G6a open, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3846_G6A_K4_CAUSTIC_REGULARITY_TOOLKIT_ASSESSMENT.isRigorous === false &&
       IMP3846_G6A_K4_CAUSTIC_REGULARITY_TOOLKIT_ASSESSMENT.k4ConfirmedWhollyNew === true &&
       IMP3846_G6A_K4_CAUSTIC_REGULARITY_TOOLKIT_ASSESSMENT.g6aStillOpen === true &&
       /NO QED/.test(IMP3846_G6A_K4_CAUSTIC_REGULARITY_TOOLKIT_ASSESSMENT.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3846_G6A_K4_CAUSTIC_REGULARITY_TOOLKIT_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP3846_G6A_K4_CAUSTIC_REGULARITY_TOOLKIT_ASSESSMENT.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3846_G6A_K4_CAUSTIC_REGULARITY_TOOLKIT_ASSESSMENT.verdict),
   },
 ];

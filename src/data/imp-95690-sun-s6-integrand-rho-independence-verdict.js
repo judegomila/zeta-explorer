@@ -63,7 +63,7 @@
  * VARIES (a hidden identity making J constant is logically possible but is itself unproven and
  * is not what the paper asserts). Assessment + primary-source inspection, not a Prop-6.3
  * re-derivation. Catalan G irrationality OPEN; Sun preprint single-author, unrefereed;
- * changes no bound; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.
+ * changes no bound; NO Lambda movement; no refereed bound is changed; NO QED.
  *
  * NO heavy imports. All figures baked as literals / recomputed from the eqs above.
  */
@@ -102,7 +102,7 @@ export const SUN_S6_INTEGRAND_RHO_INDEPENDENCE_VERDICT = Object.freeze({
     + 'REFUTED as written: the v-integrand carries rho through Q_0(v), whose fractional-part moduli '
     + '(20=1/rho, 40=2/rho, 41=2/rho+1) and leading -79/2=-(4/rho-1)/2 all rescale off rho=1/20. '
     + 'Hence kappa*rho^2 is NOT structurally forced; a genuine second anchor needs a FULL Prop-6.3 '
-    + 're-run at rho2. G irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 're-run at rho2. G irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'tmp/sun-catalan/paper.txt Section 6, Proposition 6.3, eqs (6.1)-(6.25)',
 
@@ -157,7 +157,7 @@ export const SUN_S6_INTEGRAND_RHO_INDEPENDENCE_VERDICT = Object.freeze({
   caveats:
     'Primary-source inspection of the manifest form of Prop 6.3, not a Prop-6.3 re-derivation or a '
     + 'second-anchor computation. Catalan G irrationality OPEN; Sun single-author, unrefereed; NO '
-    + 'Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const SUN_S6_INTEGRAND_RHO_INDEPENDENCE_ASSERTIONS = Object.freeze([
@@ -179,12 +179,12 @@ export const SUN_S6_INTEGRAND_RHO_INDEPENDENCE_ASSERTIONS = Object.freeze([
     holds: () => SUN_S6_INTEGRAND_RHO_INDEPENDENCE_VERDICT.shapeVerdict.structurallyForced === false,
   },
   {
-    name: 'honest: REFUTED annotation, prefactor CERTIFIED, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: REFUTED annotation, prefactor CERTIFIED, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       /REFUTED as written/.test(SUN_S6_INTEGRAND_RHO_INDEPENDENCE_VERDICT.status)
       && /CERTIFIED/.test(SUN_S6_INTEGRAND_RHO_INDEPENDENCE_VERDICT.status)
       && /G irrationality OPEN/.test(SUN_S6_INTEGRAND_RHO_INDEPENDENCE_VERDICT.status)
-      && /PT Lambda<=0.2 SOTA/.test(SUN_S6_INTEGRAND_RHO_INDEPENDENCE_VERDICT.status)
+      && /refereed bound is changed/i.test(SUN_S6_INTEGRAND_RHO_INDEPENDENCE_VERDICT.status)
       && /NO QED/.test(SUN_S6_INTEGRAND_RHO_INDEPENDENCE_VERDICT.status),
   },
 ]);

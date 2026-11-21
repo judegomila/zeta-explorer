@@ -111,7 +111,7 @@ export const conceptExpositions = {
       { level: 'advanced', title: 'Same bridge, off-line zero', body: `The Davenport–Heilbronn function shares the conductor-5 bridge of L(s, χ) but has a zero at 0.8085 + 85.699i (repo: tlb-dh-blind-2026-09-28.js).` },
     ],
     whyItMatters:
-      `The twin ladder is the organising frame of the project's twin-ladder paper and of the pages on closure routes, shift-bridge positivity and the no-go theorems. Its main use so far has been diagnostic: it made it possible to identify which ladder statements are RH-equivalent restatements (T3, closure routes A–D) and which hypotheses are "soft" and therefore cannot prove RH (flow-blindness, NS-RIGID). No bound on the de Bruijn–Newman constant Λ follows from the ladder alone; Platt–Trudgian Λ ≤ 0.2 remains the accepted benchmark and RH is open.`,
+      `The twin ladder is the organising frame of the project's twin-ladder paper and of the pages on closure routes, shift-bridge positivity and the no-go theorems. Its main use so far has been diagnostic: it made it possible to identify which ladder statements are RH-equivalent restatements (T3, closure routes A–D) and which hypotheses are "soft" and therefore cannot prove RH (flow-blindness, NS-RIGID). No bound on the de Bruijn–Newman constant Λ follows from the ladder alone; no refereed bound is changed and RH is open.`,
     example:
       `Repo number: the dictionary identity E_a(z) = Ξ(z + ia) behind T3 was machine-checked to 1.0e-30 on its trigonometric core over 2000 random complex (a, z, u), and to 1.1e-15 for the full identity with the test profile e^(−u²) (flow-blindness-no-go.js).`,
     pitfalls: [
@@ -203,7 +203,7 @@ export const conceptExpositions = {
       { level: 'advanced', title: 'Conductor-5 bridge', body: `(5/π)^(s/2)Γ((s+1)/2), archimedean symbol Ω(t) = log(5/π) + Re ψ(3/4 + it/2), Ω(0) = −0.62115 (tlb-dh-blind-2026-09-28.js).` },
     ],
     whyItMatters:
-      `The bridge is the shared archimedean ingredient of every route in this area: the twin ladder, the shift-bridge threshold, the closure routes and Route I's Weil form all contain it. Knowing exactly what it contributes — and that it is shared by functions with off-line zeros — tells the project where arithmetic (prime) input has to enter. It moves no bound: Platt–Trudgian Λ ≤ 0.2 stands and RH is open.`,
+      `The bridge is the shared archimedean ingredient of every route in this area: the twin ladder, the shift-bridge threshold, the closure routes and Route I's Weil form all contain it. Knowing exactly what it contributes — and that it is shared by functions with off-line zeros — tells the project where arithmetic (prime) input has to enter. It moves no bound: no refereed bound is changed and RH is open.`,
     example:
       `Repo number: the conductor-5 archimedean symbol Ω(t) = log(5/π) + Re ψ(3/4 + it/2) takes the value Ω(0) = −0.621152853202 (tlb-dh-blind-2026-09-28.js); it is identical for the Euler product L(s, χ) and for the Davenport–Heilbronn twin.`,
     pitfalls: [
@@ -643,7 +643,7 @@ export const conceptExpositions = {
       { level: 'advanced', title: 'Certified negative witness', body: `W_DH(g₀)/‖g₀‖² = −8.0474645199628e-30 at a = 1.72 (Arb), reproduced independently twice.` },
     ],
     whyItMatters:
-      `Any proposed proof of RH must use something that the Davenport–Heilbronn function lacks; otherwise it would also "prove" that F_DH has all zeros on the line, which is false. Since the twin-ladder bridge, the functional equation and the Dirichlet-series form are all shared, the missing ingredient must be the Euler product (arithmetic input). The project uses this twin to test whether a given positivity check can detect the Euler product at all (Euler-blindness). PT Λ ≤ 0.2 stands; RH is open.`,
+      `Any proposed proof of RH must use something that the Davenport–Heilbronn function lacks; otherwise it would also "prove" that F_DH has all zeros on the line, which is false. Since the twin-ladder bridge, the functional equation and the Dirichlet-series form are all shared, the missing ingredient must be the Euler product (arithmetic input). The project uses this twin to test whether a given positivity check can detect the Euler product at all (Euler-blindness). No refereed bound is changed; RH is open.`,
     example:
       `Repo number: the first off-line zero of F_DH is 0.808517182456637 + 85.6993484853776i, and it carries the certified negative Weil-form witness at half-width a = 1.72 (tlb-dh-blind-2026-09-28.js).`,
     pitfalls: [
@@ -726,7 +726,7 @@ export const conceptExpositions = {
       { level: 'advanced', title: 'First failure', body: `Certified negative at a = 1.72 via the off-line zero 0.8085 + 85.699i; measured onset in (1.70, 1.72].` },
     ],
     whyItMatters:
-      `Route I certifies Weil positivity for ζ on growing supports. Euler-blindness says that, at least at conductor 5 and supports up to ln 11, such a certificate would also hold for a function violating RH, so the certificate by itself carries no Euler-product information. The arithmetic input that a proof of RH needs must enter through wider supports or another mechanism. No Λ bound moves; PT Λ ≤ 0.2 stands; the project candidate Λ ≤ 0.1758354 remains computer-assisted and unreviewed; RH is open.`,
+      `Route I certifies Weil positivity for ζ on growing supports. Euler-blindness says that, at least at conductor 5 and supports up to ln 11, such a certificate would also hold for a function violating RH, so the certificate by itself carries no Euler-product information. The arithmetic input that a proof of RH needs must enter through wider supports or another mechanism. No Λ bound moves; no refereed bound is changed; the project candidate Λ ≤ 0.1758354 remains computer-assisted and unreviewed; RH is open.`,
     example:
       `Repo number: at 2a ≤ ln 11 the Arb certificate gives W_DH ≥ 6.9271e-9 ‖h‖² and W_χ ≥ 9.8742e-4 ‖h‖² (dag3-dhblindln3-2026-09-28.js).`,
     pitfalls: [
@@ -812,7 +812,7 @@ export const conceptExpositions = {
       { level: 'advanced', title: 'NS-RIGID witness', body: `Finite Pick tests stay PSD at ε = 1, 10, 100 — ten orders past ε = 1.15e-11 — while Ξ_ε has non-real zeros (imp-95530).` },
     ],
     whyItMatters:
-      `Flow-blindness retired the project's sub-threshold "residual-grinding" program on the twin ladder: estimates on soft properties cannot close the T3 strip or the closure routes. It points the project at arithmetic mechanisms (Weil positivity with prime terms, Route I) and at verified height, which is the only lever that has moved the Λ bound. It does not move Λ itself: PT Λ ≤ 0.2 stands and RH is open.`,
+      `Flow-blindness retired the project's sub-threshold "residual-grinding" program on the twin ladder: estimates on soft properties cannot close the T3 strip or the closure routes. It points the project at arithmetic mechanisms (Weil positivity with prime terms, Route I) and at verified height, which is the only lever that has moved the Λ bound. It does not move Λ itself: no refereed bound is changed and RH is open.`,
     example:
       `Repo number: flow-blindness-no-go.js records the dictionary behind T3 as machine-checked (1.0e-30 / 1.1e-15) and rests the theorem on Rodgers–Tao Λ ≥ 0; the NS-RIGID module measures flowed Pick matrices staying positive at ε = 1, 10 and 100, i.e. at least ten orders of magnitude past ε = 1.15e-11.`,
     pitfalls: [
@@ -875,7 +875,7 @@ export const conceptExpositions = {
         details: [
           `Theorem RES-T (same module): a fixed-support Weil test of half-width T excludes an off-line quadruple at height H with displacement δ iff, up to the local configuration, δ²S⁴T³ > log(H/2π), S = sinh(Tδ/2)/(Tδ/2). Hence T_X = 3.88 at X = 3·10^12 (3.17 at 10^6, 4.36 at 10^20).`,
           `Candidate reductions: (a) twin-ladder weld sums A_{k,h} collapse to (b) zero-density estimates (bounds on how many zeros can lie off the line, which give "few", never "none") + a second device, which collapses to (a); (c) non-positive-type explicit formulas collapse by T; (d) Hadamard product, evenness, order 1 and the functional equation are class properties (soft); Davenport–Heilbronn shows functional equation + Dirichlet series do not imply RH.`,
-          `Changes no bound; PT Λ ≤ 0.2 remains the benchmark; RH open.`,
+          `Changes no bound; no refereed bound is changed; RH open.`,
         ],
       },
     ],
@@ -958,7 +958,7 @@ export const conceptExpositions = {
         details: [
           `An alias e(an/P) has energy fraction 1/φ(q) inside 𝒮, q = P/gcd(a, P) (verified 1.736e-4 = 1/φ(30030)).`,
           `The §5(i) closure and the imp-95519 prime-side no-go (A_{k,h} square-root-cancellation exponent 0 vs 1/2 needed) are complementary, not nested.`,
-          `Together with NS-RIGID and the A_{k,h} no-go, Theorem U forms the sub-0.14 last-lever closure. Not a bound; the Λ ≤ 0.14 contract is conditional; PT Λ ≤ 0.2 stands; RH open.`,
+          `Together with NS-RIGID and the A_{k,h} no-go, Theorem U forms the sub-0.14 last-lever closure. Not a bound; the Λ ≤ 0.14 contract is conditional; no refereed bound is changed; RH open.`,
         ],
       },
     ],
@@ -1045,7 +1045,7 @@ export const conceptExpositions = {
           `t = 0 rate at the seam (ln N = 13.446): −6.909 at y = 0.165 vs de Bruijn −6.061; it is not a flow theorem.`,
           `H_desc ⇒ H_desc-mirror; the height-blind count C_t and H_desc are incomparable (real/mirror kernel ratio in (1, 4]).`,
           `Unrefereed empirics on zeta zeros (no data inside the lane 3e12–7.5e16): descent time 0.114 with location-free 1e12 minima, 0.140 with the pair-replacement profile, vs the target 0.1314.`,
-          `Status: no new Λ bound; PT Λ ≤ 0.2 stands; NO QED.`,
+          `Status: no new Λ bound; no refereed bound is changed; NO QED.`,
         ],
       },
     ],
@@ -1067,7 +1067,7 @@ export const conceptExpositions = {
       { level: 'advanced', title: 'Palm surplus', body: `Neutral Palm count 2.530 (0.376 of mean) at the seam ⇒ required surplus ≈ 1.73×.` },
     ],
     whyItMatters:
-      `Mirror descent tested whether the hypothesis that would let the barrier method go below the Route VII floor could be weakened to a natural statement about zero counts. The lemmas are proved, but the hypothesis did not become easier: it is a pointwise surplus of zeros of the flowed function, which no known arithmetic input supplies. It records the model value 0.145 as a conditional target, not a bound. PT Λ ≤ 0.2 stands; RH is open.`,
+      `Mirror descent tested whether the hypothesis that would let the barrier method go below the Route VII floor could be weakened to a natural statement about zero counts. The lemmas are proved, but the hypothesis did not become easier: it is a pointwise surplus of zeros of the flowed function, which no known arithmetic input supplies. It records the model value 0.145 as a conditional target, not a bound. No refereed bound is changed; RH is open.`,
     example:
       `Repo number: for the U = 0.145 row, t₀ = 0.1314, y₀ = 0.165, p_req = 4.3743, θ_req = 0.650 of the mirror mean at the seam and 0.473 at N1*, Palm surplus factor 1.73 (rh-bridge-mirror-descent-2026-09-25.js).`,
     pitfalls: [
@@ -1251,7 +1251,7 @@ export const conceptExpositions = {
       { level: 'advanced', title: 'Distance to the ceiling', body: `Support 2a = ln 3 = 1.099 vs T_X = 3.88: Route I is at ≈ 28% of the support where Weil positivity starts to see beyond verified height.` },
     ],
     whyItMatters:
-      `Weil positivity is the classical device that converts prime information into zero-location information, and flow-blindness shows that some such arithmetic input is unavoidable for a proof of RH. Route I is the project's direct attack on it. Its results extend the interval-rigorous range of pole-free one-prime positivity from ln 2 to ln 3 and identify exactly why the next prime is harder (dense S-unit resonances). Its limits are equally clear: Euler-blindness at these supports, and the RES-T ceiling T_X = 3.88 below which the positivity adds nothing to verified height. It moves no Λ bound; PT Λ ≤ 0.2 stands; RH is open.`,
+      `Weil positivity is the classical device that converts prime information into zero-location information, and flow-blindness shows that some such arithmetic input is unavoidable for a proof of RH. Route I is the project's direct attack on it. Its results extend the interval-rigorous range of pole-free one-prime positivity from ln 2 to ln 3 and identify exactly why the next prime is harder (dense S-unit resonances). Its limits are equally clear: Euler-blindness at these supports, and the RES-T ceiling T_X = 3.88 below which the positivity adds nothing to verified height. It moves no Λ bound; no refereed bound is changed; RH is open.`,
     example:
       `Repo numbers: ARB-LEGE certifies W(h) ≥ 8.2045368e-4 ‖h‖² for every real pole-free h with 2a ≤ ln 3 (tlb-arb-lege-2026-09-28.js); the Toeplitz–Krein certificate covers 2a ≤ 0.96 (rh-route-i-toeplitz-krein-certificate-2026-09-24.js); T_X = 3.88 at X = 3·10^12 (imp-95530).`,
     pitfalls: [
@@ -1340,7 +1340,7 @@ export const conceptExpositions = {
       { level: 'advanced', title: 'Certificate sizes', body: `154 atoms at X₀ = 0.96; 150 atoms (ℓ¹ = 53.8) at X₀ = 0.90; verified worst midpoint values F ≈ 20.0 / 8.3 / > 0 at X₀ = 0.90 / 0.94 / 0.96.` },
     ],
     whyItMatters:
-      `This was the project's first interval-rigorous statement of Weil positivity past the published ln 2: one pointwise inequality, checked with outward rounding, proves positivity for every support up to 0.96. It also settled the right target (σ₂, not the half-pole-free σ₁) and showed why naive "positive part minus dip" bounds fail. Together with ARB-LEGE it covers Route I's rung to ln 3. It moves no Λ bound; PT Λ ≤ 0.2 stands; RH is open.`,
+      `This was the project's first interval-rigorous statement of Weil positivity past the published ln 2: one pointwise inequality, checked with outward rounding, proves positivity for every support up to 0.96. It also settled the right target (σ₂, not the half-pole-free σ₁) and showed why naive "positive part minus dip" bounds fail. Together with ARB-LEGE it covers Route I's rung to ln 3. It moves no Λ bound; no refereed bound is changed; RH is open.`,
     example:
       `Repo numbers: X₀ = 0.96 > ln 2 = 0.6931 by 0.267; λ_min(T_a[σ₂]) = 56.1 / 7.74 / 0.552 at a = 0.45 / 0.50 / (ln 3)/2, crossing near 2a = 1.13 (rh-route-i-toeplitz-krein-certificate-2026-09-24.js).`,
     pitfalls: [

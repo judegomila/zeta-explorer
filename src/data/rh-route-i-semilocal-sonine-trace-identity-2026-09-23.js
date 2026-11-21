@@ -7,8 +7,8 @@
  * identity EXISTS and is exact, its trace side is unconditionally positive, but it carries an
  * irreducible explicit remainder D_S; Weil positivity on g-support < ln 3 is the INEQUALITY
  * D_S <= L_S on pole-free test functions, not an identity. On the pole-free Weil minimizer the
- * remainder is 96.7% (a = 0.5) and 99.71% (a = (ln 3)/2) of the Sonine trace. RH OPEN; PT
- * Lambda <= 0.2 stands; NO QED.
+ * remainder is 96.7% (a = 0.5) and 99.71% (a = (ln 3)/2) of the Sonine trace. RH OPEN; no refereed bound is changed
+ * ; NO QED.
  *
  * SETUP (all on the archimedean Hilbert space; the second direction is quotiented out).
  *  X_S = (R x Q_2)/(+-2^Z). Its Z_2^*-invariant L^2 sector is L^2(R)_ev via the shell-0
@@ -287,7 +287,7 @@ export const ROUTE_I_LITERALS = Object.freeze({
       resMinima: [0.3673, 0.3720, 0.4000, 0.4812], resK: [1, 2, 3, 5], resDefectK1: 1.299e-3,
       driftLSHat0_30to128: 6.72e-8, tailDrift_96to128: 0.0,
       coarseCrosscheck: { UMAX: 16, J: 18, NMAX30: 0.063060, NMAX64: 0.063060, drift: '< 1e-6' },
-      verdict: 'imp-96152: the trace-side positivity multiplier (min 0.0650 at t=0) and the p=2 resonance local minima are N-STABLE in the dyadic truncation NMAX -- drift 30->128 is 6.7e-8 (below 1e-6), converged by NMAX=30, NOT a discretization artifact. Global minimum stays at t=0 and > 0 for every NMAX. Verification of a stated positivity claim; RH open; PT Lambda <= 0.2 stands; NO QED',
+      verdict: 'imp-96152: the trace-side positivity multiplier (min 0.0650 at t=0) and the p=2 resonance local minima are N-STABLE in the dyadic truncation NMAX -- drift 30->128 is 6.7e-8 (below 1e-6), converged by NMAX=30, NOT a discretization artifact. Global minimum stays at t=0 and > 0 for every NMAX. Verification of a stated positivity claim; RH open; no refereed bound is changed; NO QED',
     } },
   galerkinN32: [ // [a, lamW, lamW|polefree, lamW|polefree+h0, lam Arch|polefree, lamLS, lamDSmin, lamDSmax, LS(h0), DS(h0), W(h0), Arch(h0), P2(h0)]
     [0.40, 1.81727e-4, 0.2255, 0.779516, 0.402832, 0.11892, -0.0270024, 1.7312, 0.567059, 0.341558, 0.2255, 0.443675, 0.218175],
@@ -312,7 +312,7 @@ export const ROUTE_I_LITERALS = Object.freeze({
       seq: [[24, 0.6072973], [32, 0.6068884], [48, 0.6068042], [64, 0.6067160], [96, 0.6066688], [128, 0.6066514]],
       aStarLimit: 0.606624, aStarLimitErr: 2e-5, DeltaALimit: 0.057317, gSupportLimit: 0.114635, driftN32ToLimit: -2.65e-4,
       method: 'monotone-decreasing a*(N); N^-2 Richardson on the three largest-N pairs agrees (0.6066309 / 0.6066291 / 0.6066299), least-squares a(N) = ainf + c/N^2 over N >= 48 gives ainf = 0.6066236, c = 0.408 with residuals ~3e-6 and effective exponent ~2 (classic Galerkin truncation)',
-      verdict: 'imp-96144: the a*(N) sequence CONVERGES monotonically (N = 24..128); extrapolated a* -> 0.60662 +- 2e-5. The N = 32 value 0.60689 is already accurate to ~4e-4, and the ~4e-4 N-drift is genuine convergence, NOT a divergent finite-truncation artifact. The discrete-P_3 rescue reach Delta a = a* - (ln3)/2 is therefore a REAL converged feature: it shrinks only ~2.6e-4 (~0.5%), from 0.0576 (N = 32) to 0.0573 (limit) as N -> oo (g-support 2a* - ln3 -> 0.1146). Measurement only; RH open; PT Lambda <= 0.2 stands; NO QED',
+      verdict: 'imp-96144: the a*(N) sequence CONVERGES monotonically (N = 24..128); extrapolated a* -> 0.60662 +- 2e-5. The N = 32 value 0.60689 is already accurate to ~4e-4, and the ~4e-4 N-drift is genuine convergence, NOT a divergent finite-truncation artifact. The discrete-P_3 rescue reach Delta a = a* - (ln3)/2 is therefore a REAL converged feature: it shrinks only ~2.6e-4 (~0.5%), from 0.0576 (N = 32) to 0.0573 (limit) as N -> oo (g-support 2a* - ln3 -> 0.1146). Measurement only; RH open; no refereed bound is changed; NO QED',
     },
     note: 'lamMin(L_S - P_3) = 0 at a* = 0.60689 (N = 32; N = 24 gives 0.60730, N-drift ~4e-4 CONVERGES to a* = 0.60662 +- 2e-5 by N = 128, see convergence). The discrete-P_3 rescue extends only Delta a = a* - (ln3)/2 = 0.0576 past the p = 3 onset (2a* - ln3 = 0.1152 in g-support), a converged real feature (limit 0.0573, not a finite-N artifact); beyond a* the form L_S - P_3 is indefinite (lamMin < 0) and the semilocal trace no longer dominates the adjoined p = 3 shift. Measurement only; RH open; NO QED',
   },
@@ -322,7 +322,7 @@ export const RH_ROUTE_I_SEMILOCAL_SONINE_TRACE = Object.freeze({
   id: 'rh-route-i-semilocal-sonine-trace-identity-2026-09-23',
   route: 'I — the exact semilocal S = {oo, 2} Sonine/prolate trace identity on g-support < ln 3 (the object named by Routes A–H)',
   parents: ['src/data/rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js', 'src/data/rh-route-h-semilocal-sonine-identity-attempt-2026-09-23.js (imp-96044; framing corrected here)', 'src/data/rh-novel-routes-sweep-synthesis-2026-09-23.js'],
-  status: 'IDENTITY WRITTEN AND TESTED — exact for all f: Tr(vartheta(f) P Phat_S P) = W_oo(f) + W_2(f) + D_S(f); trace side unconditionally positive (multiplier min 0.0650 at t = 0, local minima at the p = 2 resonances); remainder D_S explicit and NONZERO (log spikes at rho = 2^k); Weil positivity on g-support < ln 3 = the inequality D_S <= L_S on pole-free h, saturated to 96.7% (a = 0.5) / 99.71% ((ln 3)/2); no gap-free identity, no unconditional extension past ln 2. RH open; PT Lambda <= 0.2 stands; NO QED',
+  status: 'IDENTITY WRITTEN AND TESTED — exact for all f: Tr(vartheta(f) P Phat_S P) = W_oo(f) + W_2(f) + D_S(f); trace side unconditionally positive (multiplier min 0.0650 at t = 0, local minima at the p = 2 resonances); remainder D_S explicit and NONZERO (log spikes at rho = 2^k); Weil positivity on g-support < ln 3 = the inequality D_S <= L_S on pole-free h, saturated to 96.7% (a = 0.5) / 99.71% ((ln 3)/2); no gap-free identity, no unconditional extension past ln 2. RH open; no refereed bound is changed; NO QED',
   lhs: 'W_oo(f) + W_2(f) (CC sign convention = Arch - P_2 of Route H): multipliers 2 theta\'(t) = Re psi(1/4 + it/2) - ln pi and -m_2(t), m_2(t) = ln2 (sqrt2 cos(t ln2) - 1)/(3/2 - sqrt2 cos(t ln2)) = (1/i)(log rho_2)\'; only p = 2 enters for g-support < ln 3',
   rhs: 'Tr(vartheta(f) P Phat_S P) on L^2(R)_ev = Z_2^*-invariant sector of L^2((R x Q_2)/(+-2^Z)); P = 1 - P_1, P_1 = module cutoff |x||y|_2 <= 1; Phat_S = F_S P_1 F_S with the semilocal Fourier F_S eta = (1/2) Sum_{n>=0} etahat(2^n .) - (1/2) etahat(./2) = I o (u_oo u_2)^g, u_2 = Tate factor (1 - 2^{s-1})/(1 - 2^{-s}); Sonine-type positivity: L_S(g*g^*) = ||Phat_S^{1/2} P vartheta(g)||_HS^2 >= 0',
   gapTerm: 'D_S(f) = int f(rho^{-1}) delta_S(rho) d^*rho, delta_S(rho) = rho^{1/2} int_Delta K_S(rho x y) K_S(x y), K_S(t) = Sum_{n>=0} cos(2 pi 2^n t) - cos(pi t); closed form = si double sum; log singularities at every rho = 2^k with coefficient (2^{k/2}/2) log_2(1/eps); Tr(P_1 Phat_S P_1) = delta_S(1) = +oo (log); sign-indefinite as a form (lambda -0.071 .. +2.15 at a = 0.5); POSITIVE on the pole-free Weil minimizer: D_S(h_0)/L_S(h_0) = 0.967 (a = 0.5), 0.9971 ((ln 3)/2)',

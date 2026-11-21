@@ -45,8 +45,7 @@
  *
  * SCOPE. Assessment/audit only. No source file was modified as a result of this check (none needed
  * correction). Changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * C_mb GUE-conditional per imp-486 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * C_mb GUE-conditional per imp-486 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35186-cross-reference-integrity-audit (audit method template)
  * @see imp-36110-imp3603x46x61x62x64x65x-cross-reference-integrity-audit.js (predecessor audit, prior cohort)
@@ -95,7 +94,7 @@ export const IMP36170_CROSS_REFERENCE_INTEGRITY_AUDIT = {
     'files against the actual src/data file listing, export lists, and improvement-queue.js. ' +
     'Zero dangling references found. Changes no bound; establishes no operator positivity; ' +
     'imp-3066 K_a >= 0 untouched; C_mb GUE-conditional per imp-486 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35186 (cross-reference integrity audit method); imp-36110 (predecessor audit, same ' +
     'method, prior cohort); imp-36066/36067/36082/36095/36096/36097 (the audited cohort).',
@@ -122,11 +121,11 @@ export const IMP36170_CROSS_REFERENCE_INTEGRITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp36170-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36170_CROSS_REFERENCE_INTEGRITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP36170_CROSS_REFERENCE_INTEGRITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP36170_CROSS_REFERENCE_INTEGRITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP36170_CROSS_REFERENCE_INTEGRITY_AUDIT.verdict),
   },
 ];
 

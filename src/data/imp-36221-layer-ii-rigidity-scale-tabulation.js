@@ -16,7 +16,7 @@
  *   NUMERICAL CHARACTERIZATION ONLY. Establishes no local law, discharges no
  *   conditional, claims NO input is available, changes no bound, respects the
  *   imp-2519 no-overclaim guard, NO QED. C_mb stays irreducible and GUE-
- *   conditional (imp-486). Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   conditional (imp-486). No refereed bound is changed.
  *
  *   WHAT "RIGIDITY SCALE" MEANS HERE (the quantity the coupling consumes)
  *   --------------------------------------------------------------------
@@ -56,7 +56,7 @@
  *   Ticket: imp-36221 (numerical, medium). Characterization only; imports the
  *   parent layer verbatim; measures a modeled scale WITHOUT claiming rigidity is
  *   established; discharges no conditional; changes no bound; imp-2519 preserved;
- *   NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED; no refereed bound is changed.
  */
 
 import { IMP36180_ESY_CMB_LOCAL_LAW_INPUT_SCOPE } from './imp-36180-esy-cmb-local-law-input-scope.js';
@@ -187,7 +187,7 @@ export const IMP36221_LAYER_II_RIGIDITY_SCALE_TABULATION = Object.freeze({
       'quantity from the standard density and number-variance laws; establishes ' +
       'no local law and no rigidity; the C_mb conditional stays irreducible and ' +
       'GUE-conditional (imp-486); respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; the assembled Route-A claim stays RH-modulo-GUE-universality',
+    sota: 'No refereed bound is changed; the assembled Route-A claim stays RH-modulo-GUE-universality',
   }),
 });
 
@@ -252,7 +252,7 @@ export const IMP36221_LAYER_II_RIGIDITY_SCALE_TABULATION_ASSERTIONS = [
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
         IMP36221_LAYER_II_RIGIDITY_SCALE_TABULATION.rigidityEstablished === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

@@ -3,8 +3,8 @@
  *
  * imp-34812 (meta): AUDIT of whether the shared honest-status caveat
  * (inherited imp-3220/imp-3406 surrogate crossover map, C_mb GUE-conditional
- * per imp-486, no operator positivity / no RH verdict / NO QED, Platt-Trudgian
- * Lambda<=0.2 remains SOTA) is carried by every newly shipped viz page in the
+ * per imp-486, no operator positivity / no RH verdict / NO QED, no refereed bound is changed
+ * ) is carried by every newly shipped viz page in the
  * imp-34774/imp-34776 Krawczyk and imp-34769/imp-34770 sigma-knee and
  * imp-34772 dp-star cohort, extending the imp-34725/imp-34834 audit lineage.
  *
@@ -23,7 +23,7 @@
  * METHOD. Each of the 3 actual pages was read directly (not just its data
  * module): every one renders an inline "Honest status:" block repeating the
  * full caveat (imp-3220/imp-3406, C_C=(1/8)sqrt(3pi) imp-2642/imp-2643,
- * C_mb GUE-conditional imp-486, imp-3066 K_a>=0, NO QED, Platt-Trudgian SOTA),
+ * C_mb GUE-conditional imp-486, imp-3066 K_a>=0, NO QED, no refereed bound is changed),
  * plus the module-specific sub-gap (imp-34687a/imp-34714a for the two
  * Krawczyk pages; far-tail exponent 1/2 imp-3463 for the sigma-knee page).
  * Each page's improvements.js log `detail` field independently repeats the
@@ -62,7 +62,7 @@ export const CAVEAT_SURFACING_AUDIT_KRAWCZYK_SIGMA_KNEE_DPSTAR = {
     + 'viz pages (not just via the improvements.js log); no surfacing added because none was missing. '
     + 'imp-34769/imp-34772 were excluded as data-module-only tickets with no viz page, not unaudited pages. '
     + 'No bound change; imp-3066 K_a>=0 untouched; C_mb remains GUE-conditional per imp-486; NO QED; '
-    + 'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'no refereed bound is changed.',
 };
 
 export const CAVEAT_SURFACING_AUDIT_KRAWCZYK_SIGMA_KNEE_DPSTAR_ASSERTIONS = [
@@ -93,10 +93,10 @@ export const CAVEAT_SURFACING_AUDIT_KRAWCZYK_SIGMA_KNEE_DPSTAR_ASSERTIONS = [
   },
   {
     id: 'imp-34812-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(CAVEAT_SURFACING_AUDIT_KRAWCZYK_SIGMA_KNEE_DPSTAR.honest)
       && /no surfacing added because none was missing/.test(CAVEAT_SURFACING_AUDIT_KRAWCZYK_SIGMA_KNEE_DPSTAR.honest)
-      && /Lambda<=0.2 remains SOTA/.test(CAVEAT_SURFACING_AUDIT_KRAWCZYK_SIGMA_KNEE_DPSTAR.honest),
+      && /refereed bound is changed/i.test(CAVEAT_SURFACING_AUDIT_KRAWCZYK_SIGMA_KNEE_DPSTAR.honest),
   },
 ];
 

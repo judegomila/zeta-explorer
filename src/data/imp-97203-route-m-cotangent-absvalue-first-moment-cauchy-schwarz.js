@@ -7,8 +7,8 @@
  * ABSOLUTE first moment over the inverse line. The attempt does NOT produce a rigorous c_1;
  * instead it SHARPENS the imp-97180 obstruction with an exact Cauchy-Schwarz REDUCTION of the
  * absolute (non-reciprocal) first moment to a mean-SQUARE, and pins the remaining input to an
- * inverse-map equidistribution transfer. No bound is proved rigorous; PT Lambda <= 0.2 remains
- * SOTA; RH open; NO QED.
+ * inverse-map equidistribution transfer. No bound is proved rigorous; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * Notation as imp-97180/imp-97116/imp-97097. c_0(h/k) = Sum_{n=1}^{k-1} (n/k) cot(pi n h/k) is the
  * Vasyunin/Bettin-Conrey cotangent sum; imp-97116 R1 gives V(b,a) = c_0(h_a/a) exactly with
@@ -85,8 +85,8 @@
  * (iii) sharpens the imp-97180 obstruction: the remaining input is an inverse-map equidistribution
  * transfer of a full-residue second-moment bound (Bettin-Conrey even moments apply to c_0^2), NOT the
  * absolute first moment itself. The measured c_1 ~ 0.29 and M2w ~ 0.17 stay MEASURED, not proved. No
- * bound on Lambda moves; T ~ 2.594e7 trace anchor; compute (N ~ 9916) binds first. PT Lambda <= 0.2
- * SOTA; RH open; NO QED.
+ * bound on Lambda moves; T ~ 2.594e7 trace anchor; compute (N ~ 9916) binds first. No refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97180-route-m-cotangent-absvalue-bulk-firstmoment-obstruction.js (parent: names this sub-gap)
  * @see imp-97116-route-m-cotangent-varying-modulus-abs-value-reduction.js (R1: V(b,a) = c_0(h_a/a))
@@ -201,7 +201,7 @@ export const IMP97203_VERDICT = Object.freeze({
     'full-residue second-moment bound (the full-residue mean-square E_h[(c_0/a)^2] ~ 0.13 is bounded and ' +
     'Bettin-Conrey even moments apply to c_0^2; the inverse line oversamples large-|c_0| residues ~30%). ' +
     'The measured c_1 ~ 0.29 and M2w ~ 0.17 stay MEASURED, not proved. No bound on Lambda moves; ' +
-    'T ~ 2.594e7 anchor; compute N ~ 9916 binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'T ~ 2.594e7 anchor; compute N ~ 9916 binds first. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97203_SUBGAP = Object.freeze({
@@ -218,7 +218,7 @@ export const IMP97203_SUBGAP = Object.freeze({
 });
 
 export const IMP97203_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment + partial only: the attempt to certify ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment + partial only: the attempt to certify ' +
   'Sum|c_0| <= c_1 Sum a with c_1 < 0.5705 does NOT succeed. It proves a rigorous Cauchy-Schwarz ' +
   'reduction c_1 <= sqrt(M2w) trading the ABSOLUTE first moment for a mean-SQUARE, measures the ceiling ' +
   'sqrt(M2w) ~ 0.415 below 0.5705 by ~1.38x (no overshoot), and sharpens the imp-97180 obstruction to an ' +
@@ -294,7 +294,7 @@ const IMP97203_ASSERTIONS = [
       /second-moment-inverse-equidistribution/.test(IMP97203_SUBGAP.id) &&
       /Cauchy-Schwarz/.test(IMP97203_SUBGAP.statement) &&
       /NO QED/.test(IMP97203_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97203_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97203_HONEST_BANNER) &&
       /RH open/.test(IMP97203_HONEST_BANNER),
     why: 'assessment + partial: the certified c_1 is not obtained; the Cauchy-Schwarz reduction is rigorous and the obstruction is refined to an inverse-map equidistribution transfer of a bounded second moment -- no bound moved, no rigorous ceiling, honesty markers and the named residual sub-gap present.',
   },

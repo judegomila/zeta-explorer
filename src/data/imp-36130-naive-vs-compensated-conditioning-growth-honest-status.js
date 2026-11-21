@@ -14,8 +14,8 @@
  *   compensation (either variant) removes it entirely on this fixed representative family.
  *
  *   Ticket: imp-36130 (content, medium). Note only; re-reads nothing new; changes no
- *   bound; C_mb GUE-conditional (imp-486) untouched; Platt-Trudgian Lambda <= 0.2 remains
- *   SOTA; NO QED.
+ *   bound; C_mb GUE-conditional (imp-486) untouched; no refereed bound is changed
+ *   ; NO QED.
  *
  *   @see imp-36094-kbn-kahan-naive-error-ladder-viz-data.js (source module this note restates)
  *   @see imp-36023-kbn-combined-worst-ladder.js (underlying measurement)
@@ -74,7 +74,7 @@ export const IMP36130_NAIVE_VS_COMPENSATED_CONDITIONING_GROWTH_HONEST_STATUS = O
     isNewMeasurement: false,
     changesAnyBound: false,
     reDerivesAnything: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -83,7 +83,7 @@ export const IMP36130_NAIVE_VS_COMPENSATED_CONDITIONING_GROWTH_HONEST_STATUS = O
     '~4.86e-15 at N~488602, tracking kappa ~62 -> ~1391) while both classic Kahan and KBN ' +
     'compensation stay N-flat, ~3-4 orders below unit roundoff u = 2^-53, at every rung. ' +
     'Restatement only; changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
 });
 
 export const IMP36130_NAIVE_VS_COMPENSATED_CONDITIONING_GROWTH_HONEST_STATUS_ASSERTIONS = [
@@ -120,11 +120,11 @@ export const IMP36130_NAIVE_VS_COMPENSATED_CONDITIONING_GROWTH_HONEST_STATUS_ASS
     holds: () =>
       IMP36130_NAIVE_VS_COMPENSATED_CONDITIONING_GROWTH_HONEST_STATUS.honestCaveat.isNewMeasurement === false &&
       IMP36130_NAIVE_VS_COMPENSATED_CONDITIONING_GROWTH_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36130_NAIVE_VS_COMPENSATED_CONDITIONING_GROWTH_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36130_NAIVE_VS_COMPENSATED_CONDITIONING_GROWTH_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36130-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP36130_NAIVE_VS_COMPENSATED_CONDITIONING_GROWTH_HONEST_STATUS.verdict),
   },
 ];

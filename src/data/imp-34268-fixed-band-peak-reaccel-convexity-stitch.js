@@ -70,7 +70,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS increment fit, the linear extrapolation,
  * and the convexity read are descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (the 0.25-grid re-accel slope this stitches)
  * @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero (the kEnd 20..21 increments this stitches; pole)
@@ -366,7 +366,7 @@ export const IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH = {
     'increment fit, the linear extrapolation, and the convexity read are descriptive, not derived; the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34196 (the 0.25-grid re-acceleration slope this stitches; b ~ +0.002567, R2 ~ 0.972); imp-34169 ' +
     '(the kEnd 20..21 increments this stitches; resid_exp pole at k* ~ 21.28); imp-34109 (the kEnd = 14..20 ' +
@@ -430,9 +430,9 @@ export const IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement only, branch convex AND linear under-predicts, isRigorous false, both source
-    // modules untouched, open sub-gap flagged, no QED, PT SOTA, imp-3066 K_a>=0 & imp-486 C_mb untouched.
+    // modules untouched, open sub-gap flagged, no QED, no refereed bound is changed, imp-3066 K_a>=0 & imp-486 C_mb untouched.
     id: 'imp34268-honesty-gate-no-qed',
-    description: 'Measurement only: branchIsConvex & allUnderPredicted, isRigorous false, imp-34196/imp-34169 untouched, sub-gap flagged, no QED, PT SOTA, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched',
+    description: 'Measurement only: branchIsConvex & allUnderPredicted, isRigorous false, imp-34196/imp-34169 untouched, sub-gap flagged, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched',
     holds: () =>
       IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH.branchIsConvex === true &&
       IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH.allUnderPredicted === true &&
@@ -441,7 +441,7 @@ export const IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH_ASSERTIONS = [
       /SUB-GAP-imp-34268-convex-branch-form/.test(IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH.verdict) &&
       /is not overturned|is untouched|CORRECT within/.test(IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH.verdict) &&
       /NO QED/.test(IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH.verdict) &&
-      /remains SOTA/.test(IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH.verdict) &&
+      /refereed bound is changed/i.test(IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH.verdict),
   },

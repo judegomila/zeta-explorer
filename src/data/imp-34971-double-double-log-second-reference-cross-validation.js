@@ -49,7 +49,7 @@
  * imp-34885/34867), does NOT supply an a-priori forward-error bound, does NOT discharge the conditional.
  * imp-34714a REMAINS OPEN; imp-34687a REMAINS OPEN; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643)
  * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34952-double-double-log-ulp-band-wide (the single-reference band-wide measurement this cross-validates)
  * @see imp-34927-double-double-log-ulp-measurement (the atanh-series reference, PATH A, re-instantiated verbatim)
@@ -318,7 +318,7 @@ export const IMP34971_DOUBLE_DOUBLE_LOG_SECOND_REFERENCE_CROSS_VALIDATION = {
     'discharge the conditional. SUB-GAPs imp-34714a and imp-34687a REMAIN OPEN. Measurement only on the ' +
     'inherited imp-3220/imp-3406 surrogate crossover map; the C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34952 (single-reference band-wide double-double log measurement, this cross-validates); imp-34927 ' +
     '(the atanh-series reference, PATH A, re-instantiated verbatim); imp-34885 (directed-rounding checklist; ' +
@@ -377,16 +377,16 @@ export const IMP34971_DOUBLE_DOUBLE_LOG_SECOND_REFERENCE_CROSS_VALIDATION_ASSERT
       SELF_CHECK.cross_ref_log10_ulp < 1e-6,
   },
   {
-    // Honesty gate: measurement only, both sub-gaps open, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, both sub-gaps open, no QED, no refereed bound is changed.
     id: 'imp34971-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, imp-34714a and imp-34687a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, imp-34714a and imp-34687a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34971_DOUBLE_DOUBLE_LOG_SECOND_REFERENCE_CROSS_VALIDATION.isRigorous === false &&
       /imp-34714a/.test(IMP34971_DOUBLE_DOUBLE_LOG_SECOND_REFERENCE_CROSS_VALIDATION.subGap) &&
       /imp-34687a/.test(IMP34971_DOUBLE_DOUBLE_LOG_SECOND_REFERENCE_CROSS_VALIDATION.subGap) &&
       /REMAINS? OPEN/.test(IMP34971_DOUBLE_DOUBLE_LOG_SECOND_REFERENCE_CROSS_VALIDATION.subGap) &&
       /NO QED/.test(IMP34971_DOUBLE_DOUBLE_LOG_SECOND_REFERENCE_CROSS_VALIDATION.verdict) &&
-      /remains SOTA/.test(IMP34971_DOUBLE_DOUBLE_LOG_SECOND_REFERENCE_CROSS_VALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP34971_DOUBLE_DOUBLE_LOG_SECOND_REFERENCE_CROSS_VALIDATION.verdict),
   },
 ];
 

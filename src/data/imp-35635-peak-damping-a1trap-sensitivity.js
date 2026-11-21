@@ -54,8 +54,7 @@
  * baseline TC_A1_TRAP = 2.37e-4 UNTOUCHED (the 1.5e-4/3.0e-4/g=1 values are
  * sensitivity probes, not re-anchorings); imp-35337a stays OPEN; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
- * no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35609-peak-damping-input-sensitivity (the two-input study extended here)
  * @see imp-35574-peak-location-height-map-damping (the ~0.55 damping factor probed)
@@ -228,8 +227,8 @@ export const IMP35635_PEAK_DAMPING_A1TRAP_SENSITIVITY = {
     'asymptotic; surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; C_C ansatz (imp-2642/imp-2643), ' +
     'the baseline E_trunc = 3.06e-5 (imp-2631/imp-447) and the baseline TC_A1_TRAP = 2.37e-4 ' +
     'UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; ' +
-    'changes no bound; no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'changes no bound; no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35609 (two-input peak-damping sensitivity extended here); imp-35574 (peak-location damping ' +
     'factor ~0.553, probed); imp-35594 (E_flow ~ O(1) E_trunc at the peak); imp-35337 (interior-peak ' +
@@ -266,13 +265,13 @@ export const IMP35635_PEAK_DAMPING_A1TRAP_SENSITIVITY_ASSERTIONS = [
       DAMPING_SPREAD_ABS < 1e-3,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35635-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35635_PEAK_DAMPING_A1TRAP_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP35635_PEAK_DAMPING_A1TRAP_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP35635_PEAK_DAMPING_A1TRAP_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP35635_PEAK_DAMPING_A1TRAP_SENSITIVITY.verdict),
   },
 ];
 

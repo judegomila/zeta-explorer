@@ -48,7 +48,7 @@
  *   untouched)
  *
  * Ticket: imp-97726 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The gexp/TC/C_F collapse headword, baked verbatim (no re-import).
@@ -81,8 +81,8 @@ const GEXP_TC_CF_IMPLICIT_DIFF_HEADWORD = Object.freeze({
     'crossing.js), with the baked per-landmark table showing the bisection-budget sweep frozen at ' +
     'L2/L3/L4 and the analytic implicit-differentiation ratio equal to 1 to ~1e-12 at every ' +
     'landmark. Naming / glossary headword only; supplies no new bound; the imp-97668 A2 ' +
-    'classification and imp-97644 DIAG3 == 0 homogeneity are untouched; RH open; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA; NO QED.',
+    'classification and imp-97644 DIAG3 == 0 homogeneity are untouched; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP97726_GEXP_TC_CF_IMPLICIT_DIFF_GLOSSARY_HEADWORD = Object.freeze({
@@ -101,7 +101,7 @@ export const IMP97726_GEXP_TC_CF_IMPLICIT_DIFF_GLOSSARY_HEADWORD = Object.freeze
     'channel), confirmed to ~1 ULP at L2/L3/L4 by analytic implicit differentiation after the ' +
     'imp-97686 R2 deep-landmark residual was shown to be finite-difference-of-quantized-root noise, ' +
     'not truncation. No bound moved; imp-97668 A2 and imp-97644 DIAG3 == 0 untouched; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97700 (the analytic-crossing derivation this glosses); imp-97686 (the deep-landmark ' +
     'residual diagnosed here); imp-97668 (the A2 nonlinear-amplitude classification, confirmed ' +
@@ -128,11 +128,11 @@ export const IMP97726_GEXP_TC_CF_IMPLICIT_DIFF_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97726-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97700.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97700.',
     holds: () =>
       IMP97726_GEXP_TC_CF_IMPLICIT_DIFF_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97726_GEXP_TC_CF_IMPLICIT_DIFF_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97726_GEXP_TC_CF_IMPLICIT_DIFF_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97726_GEXP_TC_CF_IMPLICIT_DIFF_GLOSSARY_HEADWORD.verdict) &&
       IMP97726_GEXP_TC_CF_IMPLICIT_DIFF_GLOSSARY_HEADWORD.glosses === 'imp-97700',
   },
 ];

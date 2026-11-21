@@ -54,7 +54,7 @@
  * stays CO-LEADING (OFFDIAG/DIAG ~ 1.0, band 0.86..1.05, no drift; M2w ~ 2 DIAG). The imp-97267 refined
  * obstruction -- the transfer is an EVALUATION of a co-leading twisted second moment, not a Weil bound --
  * holds on the tripled range. M2w ~ 0.16 and sqrt(M2w) ~ 0.40 stay MEASURED, below target. No bound on
- * Lambda moves; T ~ 2.594e7 trace anchor; compute (N ~ 9916) binds first. PT Lambda <= 0.2 SOTA; RH open;
+ * Lambda moves; T ~ 2.594e7 trace anchor; compute (N ~ 9916) binds first. No refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-97267-route-m-inverse-map-kloosterman-transfer.js (parent: the exact detection identity + b=101..401 ladder)
@@ -172,7 +172,7 @@ export const IMP97284_VERDICT = Object.freeze({
     'obstruction -- the transfer is an EVALUATION of a co-leading twisted second moment, not a Weil ' +
     'bound that discards it -- holds on the tripled range. M2w ~ 0.16 and sqrt(M2w) ~ 0.40 stay MEASURED, ' +
     'below the squared target 0.32546. No bound on Lambda moves; T ~ 2.594e7 anchor; compute N ~ 9916 ' +
-    'binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'binds first. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97284_SUBGAP = Object.freeze({
@@ -187,7 +187,7 @@ export const IMP97284_SUBGAP = Object.freeze({
 });
 
 export const IMP97284_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the exact OFFDIAG/DIAG ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the exact OFFDIAG/DIAG ' +
   'character-detection ladder is extended to b=1201 (3x the imp-97267 reach). MEASURED, the inverse-line ' +
   'off-diagonal OFFDIAG stays CO-LEADING with DIAG (OFFDIAG/DIAG ~ 0.86..1.05, no drift; M2w ~ 2 DIAG, ' +
   'net positive), so a Weil/Kloosterman BOUND still cannot certify M2w -- the transfer must EVALUATE the ' +
@@ -253,7 +253,7 @@ const IMP97284_ASSERTIONS = [
       /offdiag-coleading-persists/.test(IMP97284_SUBGAP.id) &&
       /MEASURED/.test(IMP97284_SUBGAP.statement) &&
       /NO QED/.test(IMP97284_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97284_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97284_HONEST_BANNER) &&
       /RH open/.test(IMP97284_HONEST_BANNER),
     why: 'measurement only: the off-diagonal stays co-leading out to b=1201 with no drift, M2w stays measured and below target, no bound moved, honesty markers and the named residual sub-gap present.',
   },

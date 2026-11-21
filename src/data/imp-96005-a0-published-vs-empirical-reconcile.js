@@ -59,7 +59,7 @@
  * only route to a_0 remains the analytic pair-correlation integral I_F, still Montgomery-conjectural
  * (rigorous bracket 2/3-eps < I_F < 2). Measurement/assessment only; changes no bound; NO QED;
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author unrefereed; the zero-side route
- * stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays PCC / GRH-gated; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. The six measured literals (imp-95710 /
  * imp-95562) and the conjectural a_0 = -0.176248 are baked; the mean, SE, gap, z and p are derived
@@ -213,7 +213,7 @@ export const IMP96005_A0_PUBLISHED_VS_EMPIRICAL_RECONCILE = {
     'analytic pair-correlation integral I_F, still Montgomery-conjectural (rigorous bracket 2/3-eps < ' +
     'I_F < 2). Measurement/assessment only; changes no bound; NO QED; Catalan G irrationality OPEN; ' +
     'Sun arXiv:2609.04176 single-author unrefereed; the zero-side route stays PCC / GRH-gated; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   citation:
     'imp-95984 (Chan Thm 1.1, b = I_F + M + P2, a_0 = -P_Chan = -0.176248); imp-95964 (b = M + P2 + ' +
     'K, K = I_F); imp-95940 (six-height back-out, T_x(a_0) double-exponential sensitivity); Chan, On ' +
@@ -240,13 +240,13 @@ export const IMP96005_A0_PUBLISHED_VS_EMPIRICAL_RECONCILE = {
   // more-heights projection: pinning needs far more than the six available heights.
   if (!(heightsForPoint > 1000 && heightsForOneDecade > 100))
     throw new Error('imp-96005: pinning must require ~10^3 (point) / ~10^2 (decade) more heights');
-  // HONESTY gates: assessment only, noise-consistent claim, no false pin, PT stays SOTA.
+  // HONESTY gates: assessment only, noise-consistent claim, no false pin, no refereed bound is changed.
   if (IMP96005_A0_PUBLISHED_VS_EMPIRICAL_RECONCILE.isRigorous !== false)
     throw new Error('imp-96005: isRigorous must be false');
   if (!/NO QED/.test(IMP96005_A0_PUBLISHED_VS_EMPIRICAL_RECONCILE.verdict))
     throw new Error('imp-96005: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96005_A0_PUBLISHED_VS_EMPIRICAL_RECONCILE.verdict))
-    throw new Error('imp-96005: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96005_A0_PUBLISHED_VS_EMPIRICAL_RECONCILE.verdict))
+    throw new Error('imp-96005: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96005_A0_PUBLISHED_VS_EMPIRICAL_RECONCILE;

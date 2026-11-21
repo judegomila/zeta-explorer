@@ -63,8 +63,8 @@
  *   -------------------------
  *   SCOPING / STRUCTURAL only, on the imp-3066 REPRESENTATIVE truncation, NOT the
  *   section-26 Gram. No positivity is attempted, no bound is changed, imp-3066 is
- *   untouched, G7 / K_a >= 0 stays OPEN. Platt-Trudgian Lambda <= 0.2 remains the
- *   rigorous SOTA. No RH verdict, no QED.
+ *   untouched, G7 / K_a >= 0 stays OPEN. No refereed bound is changed
+ *   . No RH verdict, no QED.
  *
  *   @see imp-3066-offdiagonal-hankel-obstruction.js (the truncation + obstruction it scopes)
  *   @see imp-3007-mupass-overflow-cover.js (the scalar cover, residual deficit 0)
@@ -248,7 +248,7 @@ export const IMP33685_SCALAR_COVER_OFFDIAGONAL_REACHABILITY = Object.freeze({
     didNotAttemptPositivity: true,
     changesNoBound: true,
     g7StaysOpen: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     noRHVerdict: true,
   }),
 });
@@ -326,7 +326,7 @@ export const IMP33685_SCALAR_COVER_OFFDIAGONAL_REACHABILITY_ASSERTIONS = [
   {
     id: 'imp33685-honest-scoping-not-a-verdict',
     why: 'Mandatory honesty: SCOPING only, representative truncation, no positivity attempted, no ' +
-         'bound changed, G7 stays OPEN, PT 0.2 stays SOTA, no RH verdict. Any flip is over-claiming.',
+         'bound changed, G7 stays OPEN, no refereed bound is changed, no RH verdict. Any flip is over-claiming.',
     holds: () => {
       const c = IMP33685_SCALAR_COVER_OFFDIAGONAL_REACHABILITY.honestCaveat;
       return (
@@ -338,7 +338,7 @@ export const IMP33685_SCALAR_COVER_OFFDIAGONAL_REACHABILITY_ASSERTIONS = [
         c.changesNoBound === true &&
         c.g7StaysOpen === true &&
         c.noRHVerdict === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

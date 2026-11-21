@@ -9,7 +9,7 @@
  * METHOD. For each of the 7 modules: (1) confirm the honest-status banner
  * carries the required elements (measurement-only framing, inherited
  * imp-3220/imp-3406 surrogate NOT rigorous, C_mb GUE-conditional per imp-486
- * untouched, imp-3066 K_a>=0 untouched, Platt-Trudgian Lambda<=0.2 SOTA,
+ * untouched, imp-3066 K_a>=0 untouched, no refereed bound is changed,
  * NO QED); (2) walk the module's static import graph and confirm
  * zeros-to-1e6.js never appears anywhere in the closure (no-heavy-imports
  * invariant); (3) confirm the module is registered in
@@ -57,7 +57,7 @@ export const MEASUREMENT_CLUSTER_INVARIANT_AUDIT = {
   bannerGapsFound: CLUSTER.filter((m) => !m.bannerComplete).map((m) => m.ticket),
   registrationGapsFoundBeforeFix: REGISTRATION_GAPS_FOUND,
   registrationGapsFixed: REGISTRATION_GAPS_FOUND,
-  honest: 'AUDIT: confirms all 7 imp-34606..imp-34613 cluster modules carry the complete six-element honest-status banner and are import-light (no heavy zeros bundle, direct or transitive). While auditing, found 5 of 7 (imp-34606, imp-34609, imp-34611, imp-34612, imp-34613) were missing from run-assertions.mjs DATA_MODULES (self-executing assertions never ran in the build-time sweep) and wired all 5 in. No bound change; imp-3066 K_a>=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+  honest: 'AUDIT: confirms all 7 imp-34606..imp-34613 cluster modules carry the complete six-element honest-status banner and are import-light (no heavy zeros bundle, direct or transitive). While auditing, found 5 of 7 (imp-34606, imp-34609, imp-34611, imp-34612, imp-34613) were missing from run-assertions.mjs DATA_MODULES (self-executing assertions never ran in the build-time sweep) and wired all 5 in. No bound change; imp-3066 K_a>=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const MEASUREMENT_CLUSTER_INVARIANT_AUDIT_ASSERTIONS = [
@@ -96,9 +96,9 @@ export const MEASUREMENT_CLUSTER_INVARIANT_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34643-audit-honest',
-    description: 'no bound change and PT Lambda <= 0.2 stays SOTA',
+    description: 'no bound change and no refereed bound is changed',
     holds: () => /No bound change/.test(MEASUREMENT_CLUSTER_INVARIANT_AUDIT.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(MEASUREMENT_CLUSTER_INVARIANT_AUDIT.honest),
+      && /refereed bound is changed/i.test(MEASUREMENT_CLUSTER_INVARIANT_AUDIT.honest),
   },
 ];
 

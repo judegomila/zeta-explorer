@@ -70,7 +70,7 @@
  * stable, edging up), and the imp-96667 sqrt(s log N) form's higher ceiling ~3.98e7 survives,
  * closing 91 percent of the trace->measured gap. The two candidate rigorous forms bracket the
  * achievable ceiling at ~3.79e7-3.98e7. No rigorous ceiling is posted (that needs the imp-96750
- * one-sided s* bound); no bound moved; no operator positivity; PT Lambda <= 0.2 remains SOTA;
+ * one-sided s* bound); no bound moved; no operator positivity; no refereed bound is changed;
  * RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): s is measured, not proven -- the ~5.80-5.83 bracket and the ~3.98e7
@@ -202,7 +202,7 @@ export const IMP96751_VERDICT = Object.freeze({
     'percent of the trace-lower 2.5937e7 -> measured-composed 4.1089e7 gap. The two candidate ' +
     'rigorous forms bracket the achievable ceiling at ~3.79e7-3.98e7 (~1.46x-1.53x over the ' +
     'trace lower ceiling). No rigorous ceiling is posted (that needs the imp-96750 one-sided s* ' +
-    'bound); no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'bound); no bound moved; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96751_SUBGAP = Object.freeze({
@@ -218,7 +218,7 @@ export const IMP96751_SUBGAP = Object.freeze({
 });
 
 export const IMP96751_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: trace, ||G||_F, ||G||_F^2 ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: trace, ||G||_F, ||G||_F^2 ' +
   'and the Wolkowicz-Styan bound at N=13000,14000,15000,16000 are exact matrix quantities / ' +
   'rigorous unconditional matrix inequalities on the same exact Vasyunin Gram (rebuilt to ' +
   'NMAX=16000) as imp-96105 / imp-96443 / imp-96684 / imp-96694 ' +
@@ -275,7 +275,7 @@ const IMP96751_ASSERTIONS = [
       IMP96751_VERDICT.sHolds === true &&
       IMP96751_VERDICT.sqrtCeilingSurvives === true &&
       /NO QED/.test(IMP96751_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96751_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96751_HONEST_BANNER) &&
       /RH open/.test(IMP96751_HONEST_BANNER) &&
       /measured-not-proven/.test(IMP96751_SUBGAP.id),
     why: 'measurement only: no rigorous ceiling posted, no bound moved, the s-holds / sqrt-ceiling-survives result is recorded, and the honesty markers plus the s-measured-not-proven sub-gap are present.',

@@ -76,7 +76,7 @@
  *   a=0.5, U=6). RH-EQUIVALENT; necessary-but-NOT-sufficient at operator order;
  *   the off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone
  *   obstruction, UNTOUCHED. No positivity attempted, no reduction, no RH verdict,
- *   no false QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   no false QED. No refereed bound is changed.
  *
  *   @see imp-3253-overflow-degree-reconcile.js (the two-faces reconciliation this bridges)
  *   @see imp-3175-overflow-fraction-resolution-reconcile.js (the ~0.209 degree-2 anchor)
@@ -208,7 +208,7 @@ export const IMP3366_DEGREE1_OVERFLOW_BRIDGE = Object.freeze({
     'Gpass^{-1/2}), which is ORTHOGONAL to the completion degree. SUB-GAP: the ' +
     'genuinely-interpolating spectral degree-1 needs the fractional (s=1/2) ' +
     'normalized-spectral construction, the same obstruction as the imp-3253 sub-gap. ' +
-    'DIAGNOSTIC; RH-equivalent; imp-3066 untouched; no positivity; no QED; PT 0.2 SOTA.',
+    'DIAGNOSTIC; RH-equivalent; imp-3066 untouched; no positivity; no QED; no refereed bound is changed.',
 
   measured: Object.freeze({
     cell: Object.freeze({ a: A, U, NPHI, N: N_GRID }),
@@ -277,7 +277,7 @@ export const IMP3366_DEGREE1_OVERFLOW_BRIDGE = Object.freeze({
       'A nonzero overflow fraction at any degree is necessary-but-NOT-sufficient at operator ' +
       'order; the off-diagonal endpoint-Hankel step (imp-3066) is the lone obstruction, untouched.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -320,7 +320,7 @@ export const IMP3366_DEGREE1_OVERFLOW_BRIDGE_ASSERTIONS = [
     id: 'imp3366-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measure-only diagnostic, interpolation hypothesis refuted (not a ' +
          'spectral re-derivation), necessary-but-not-sufficient at operator order, positivity not ' +
-         'attempted, PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'attempted, no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3366_DEGREE1_OVERFLOW_BRIDGE.honestCaveat;
       return (
@@ -329,7 +329,7 @@ export const IMP3366_DEGREE1_OVERFLOW_BRIDGE_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
         IMP3366_DEGREE1_OVERFLOW_BRIDGE.measured.interpolationHypothesisRefuted === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

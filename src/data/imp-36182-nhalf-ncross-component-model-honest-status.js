@@ -21,7 +21,7 @@
  *   strict-as-an-unconditional-fact.
  *
  *   Ticket: imp-36182 (content, low). Note only; re-derives nothing; changes no bound;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  * @see imp-35102-nhalf-ncross-strictness-multirung-verify.js (source module this note restates)
  * @see imp-36028-etrunc-sole-survivor-honest-status.js (the banner pattern this note follows)
@@ -74,7 +74,7 @@ export const IMP36182_NHALF_NCROSS_COMPONENT_MODEL_HONEST_STATUS = Object.freeze
     changesAnyBound: false,
     cMbGueConditionalUntouched: true,
     impThreeZeroSixSixUntouched: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -85,7 +85,7 @@ export const IMP36182_NHALF_NCROSS_COMPONENT_MODEL_HONEST_STATUS = Object.freeze
     'prefactor (imp-486), imp-3066 K_a >= 0, and the C_C ansatz (imp-2642/imp-2643) remain ' +
     'UNTOUCHED. The ~0.4% proximity of N_half and N_cross is a model-internal fact, not a proven ' +
     'property of the true error terms. Note only; changes no bound; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 });
 
 export const IMP36182_NHALF_NCROSS_COMPONENT_MODEL_HONEST_STATUS_ASSERTIONS = [
@@ -123,11 +123,11 @@ export const IMP36182_NHALF_NCROSS_COMPONENT_MODEL_HONEST_STATUS_ASSERTIONS = [
       IMP36182_NHALF_NCROSS_COMPONENT_MODEL_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
       IMP36182_NHALF_NCROSS_COMPONENT_MODEL_HONEST_STATUS.honestCaveat.cMbGueConditionalUntouched === true &&
       IMP36182_NHALF_NCROSS_COMPONENT_MODEL_HONEST_STATUS.honestCaveat.impThreeZeroSixSixUntouched === true &&
-      /Platt-Trudgian/.test(IMP36182_NHALF_NCROSS_COMPONENT_MODEL_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36182_NHALF_NCROSS_COMPONENT_MODEL_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36182-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP36182_NHALF_NCROSS_COMPONENT_MODEL_HONEST_STATUS.verdict),
   },
 ];

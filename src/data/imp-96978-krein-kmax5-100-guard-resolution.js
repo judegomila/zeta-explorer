@@ -50,7 +50,7 @@
  * (imp-96970). SUB-GAP IMP96978_FULLDOMAIN_HC1EM3_RERUN_NOT_RUN -- this measures only the worst band
  * cell m=16.697 in isolation; a full [0,40] re-verification at hc<=1e-3 (2x the coarse cell count) to
  * actually CERTIFY 2a=1.00 was not run here, so the certified reach stays 2a<=0.96 pending that run.
- * RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96956-krein-kmax5-100-interval-verify.js (the 226-negative-cell collapse this leaf diagnoses)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (interval-rigorous reach 2a <= 0.96)

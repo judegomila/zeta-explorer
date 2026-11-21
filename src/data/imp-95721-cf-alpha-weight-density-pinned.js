@@ -73,7 +73,7 @@
  * MEASUREMENT / DERIVATION ONLY. Closed-form reach + density-weighted population average + box-min
  * re-evaluation on the inherited imp-3220/imp-3406 model, NOT a rigorous asymptotic. The C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @reproduce tmp/imp-95721-scratch.mjs evaluates the closed-form reach(alpha), the near-anchor K_NEAR,
  *   the density-weighted r_eff(alpha_max) via a 2e6-point log-spaced-in-(1-alpha) rule, and re-runs the
@@ -192,7 +192,7 @@ export const IMP95721_CF_ALPHA_WEIGHT_DENSITY_PINNED = {
     'the wedge, so the residual is the exact multiplier, not its sign. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95705 (measured reach profile; named CF-alpha-weight-unpinned); imp-95691 (pinned CF_BAND_HI to ' +
     'the geometric mean of the asserted 1.2-1.4x reach); imp-95660 (exact box-min gap model; cf* ~ 0.839; ' +
@@ -257,13 +257,13 @@ export const IMP95721_CF_ALPHA_WEIGHT_DENSITY_PINNED_ASSERTIONS = [
       WEDGE_CORNER.cC_mult === 0.5 && WEDGE_CORNER.eTrunc_mult === 1.5,
   },
   {
-    // Honesty gate: derivation/measurement only, no bound moved, no QED, PT SOTA.
+    // Honesty gate: derivation/measurement only, no bound moved, no QED, no refereed bound is changed.
     id: 'imp95721-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Derivation/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP95721_CF_ALPHA_WEIGHT_DENSITY_PINNED.isRigorous === false &&
       /NO QED/.test(IMP95721_CF_ALPHA_WEIGHT_DENSITY_PINNED.verdict) &&
-      /remains SOTA/.test(IMP95721_CF_ALPHA_WEIGHT_DENSITY_PINNED.verdict),
+      /refereed bound is changed/i.test(IMP95721_CF_ALPHA_WEIGHT_DENSITY_PINNED.verdict),
   },
 ];
 

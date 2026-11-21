@@ -52,7 +52,7 @@
  *   NOT an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  *   rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  *   establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34570-eflow-attr-power-law-fit-eflow-slope-check.js (the pure power-law fit this refines)
  *   @see imp-34406-eflow-attr-smooth-nonzero-across-pole.js (the 8 baked rungs)
@@ -214,8 +214,8 @@ export const IMP34585_EFLOW_ATTR_LOG_CORRECTED_FIT = {
     '~0.35 of 3, the excess the mild |g| = 1 - 3/ln N attractor curvature). Descriptive surrogate ' +
     'fit, NOT a rigorous asymptotic; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed' +
+    '.',
 };
 
 export const IMP34585_ASSERTIONS = [
@@ -258,13 +258,13 @@ export const IMP34585_ASSERTIONS = [
       IMP34585_Q_OFFSET_PCT < 15,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34585-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34585_EFLOW_ATTR_LOG_CORRECTED_FIT.isRigorous === false &&
       /NO QED/.test(IMP34585_EFLOW_ATTR_LOG_CORRECTED_FIT.honest) &&
-      /remains SOTA/.test(IMP34585_EFLOW_ATTR_LOG_CORRECTED_FIT.honest),
+      /refereed bound is changed/i.test(IMP34585_EFLOW_ATTR_LOG_CORRECTED_FIT.honest),
   },
 ];
 

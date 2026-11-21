@@ -67,7 +67,7 @@
  * G6a_shock_lipschitz::y2-adapted-flow-depth plus a two-point pair-separation extension (K1, K2), or an
  * entirely new entropy-regularity route (K4). Scoping / derivation only; no construction shipped, no
  * positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0
- * positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3671-mesoscopic-v0-vs-g6a-shock-lipschitz-assessment (parent: names both S1 type and S2 scale)
  * @see imp-3693-microscopic-xdiff-route-scoping (drills S1: per-gap field g_k is the right-TYPE object)
@@ -211,7 +211,7 @@ export const IMP3714_G6A_MODULUS_OBJECT_REQUIREMENTS = {
     'entirely new entropy-regularity route (K4). So the joint requirement-set is derived and the missing ' +
     'ingredients are named, but no construction is shipped and G6a_shock_lipschitz stays OPEN. Scoping / ' +
     'derivation only; no positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal ' +
-    'endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.',
   citation:
     'imp-3671 (parent: obstruction S1 type/dimension mismatch and S2 Gronwall-vacuous nearest-pair scale); ' +
     'imp-3693 (drills S1: per-gap field g_k = gamma_{k+1} - gamma_k is the minimal right-type object); ' +
@@ -261,14 +261,14 @@ export const IMP3714_G6A_MODULUS_OBJECT_REQUIREMENTS_ASSERTIONS = [
       /y2-adapted-flow-depth/.test(IMP3714_G6A_MODULUS_OBJECT_REQUIREMENTS.minimalMissingObject),
   },
   {
-    // Honesty gate: derivation/scoping only, no QED, PT stays SOTA, imp-3066 untouched, G6a still open.
+    // Honesty gate: derivation/scoping only, no QED, no refereed bound is changed, imp-3066 untouched, G6a still open.
     id: 'imp3714-honesty-gate-no-qed',
-    description: 'Derivation/scoping only: no QED, PT stays SOTA, imp-3066 untouched, G6a open',
+    description: 'Derivation/scoping only: no QED, no refereed bound is changed, imp-3066 untouched, G6a open',
     holds: () =>
       IMP3714_G6A_MODULUS_OBJECT_REQUIREMENTS.isRigorous === false &&
       IMP3714_G6A_MODULUS_OBJECT_REQUIREMENTS.g6aStillOpen === true &&
       /NO QED/.test(IMP3714_G6A_MODULUS_OBJECT_REQUIREMENTS.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3714_G6A_MODULUS_OBJECT_REQUIREMENTS.verdict) &&
+      /refereed bound is changed/i.test(IMP3714_G6A_MODULUS_OBJECT_REQUIREMENTS.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3714_G6A_MODULUS_OBJECT_REQUIREMENTS.verdict),
   },
 ];

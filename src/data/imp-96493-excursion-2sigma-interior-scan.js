@@ -52,8 +52,8 @@
  * data set does NOT already contain a comparably-deep-or-deeper excursion at a higher
  * unclipped height: imp-96452 lever (b) has no realization in the existing ordinates -- a
  * clean 2-sigma still awaits a genuinely deeper interior excursion from data the fixed set
- * does not supply. Measurement only; changes no bound; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * does not supply. Measurement only; changes no bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96452-excursion-confidence-2sigma-reach (names lever b: a deeper dip at a higher unclipped height)
  * @see imp-96089-mean-anchor-window-count-significance-verdict (the z = relErr/sqrt(2/n_w) dip score)
@@ -174,7 +174,7 @@ export const IMP96493_EXCURSION_2SIGMA_INTERIOR_SCAN = {
   },
   anyInteriorHeightReachesTwoSigma: anyReachesTwoSigma, // false
   verdict:
-    'Scanning the existing 10^6 Odlyzko ordinates at every unclipped interior height T > 1.5e5 (ten candidates to T = 4.577e5, via the imp-96129 band() measurements), NONE reaches z >= 2. The deepest clean below-envelope dip is z = 1.0358 at T = 3.879e5 (~1.03 sigma, only ~54% of the reference), and the T = 1.5e5 excursion (z = 1.9234) remains the global deepest below-envelope dip in the ordinate set; the two heights above the clip threshold (5.401e5, 6.373e5) are span-clipped AND above-envelope, so they supply no clean excursion either. To turn the deepest higher interior dip into a 2-sigma the depth would need to run ~1.93x deeper than it does. imp-96452 lever (b) -- a comparably-deep-or-deeper excursion at a higher unclipped height -- therefore has NO realization in the existing fixed data; a clean 2-sigma still awaits a genuinely deeper interior excursion the fixed set does not supply. Measurement only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Scanning the existing 10^6 Odlyzko ordinates at every unclipped interior height T > 1.5e5 (ten candidates to T = 4.577e5, via the imp-96129 band() measurements), NONE reaches z >= 2. The deepest clean below-envelope dip is z = 1.0358 at T = 3.879e5 (~1.03 sigma, only ~54% of the reference), and the T = 1.5e5 excursion (z = 1.9234) remains the global deepest below-envelope dip in the ordinate set; the two heights above the clip threshold (5.401e5, 6.373e5) are span-clipped AND above-envelope, so they supply no clean excursion either. To turn the deepest higher interior dip into a 2-sigma the depth would need to run ~1.93x deeper than it does. imp-96452 lever (b) -- a comparably-deep-or-deeper excursion at a higher unclipped height -- therefore has NO realization in the existing fixed data; a clean 2-sigma still awaits a genuinely deeper interior excursion the fixed set does not supply. Measurement only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -202,8 +202,8 @@ export const IMP96493_EXCURSION_2SIGMA_INTERIOR_SCAN = {
   // honesty gates
   if (!/NO QED/.test(IMP96493_EXCURSION_2SIGMA_INTERIOR_SCAN.verdict))
     throw new Error('imp-96493: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96493_EXCURSION_2SIGMA_INTERIOR_SCAN.verdict))
-    throw new Error('imp-96493: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96493_EXCURSION_2SIGMA_INTERIOR_SCAN.verdict))
+    throw new Error('imp-96493: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96493_EXCURSION_2SIGMA_INTERIOR_SCAN;

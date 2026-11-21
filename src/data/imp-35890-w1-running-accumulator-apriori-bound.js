@@ -24,8 +24,7 @@
  * ASSESSMENT / MEASUREMENT ONLY. Instantiates no directed-rounding interval; evaluates no
  * true H_0; verifies no inequality; changes no bound; establishes no positivity; the
  * certified length-N interval sum stays MECHANICAL / GREENFIELD (imp-35725 / imp-35681
- * Part A); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Part A); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * TWO A-PRIORI SCALES FOR THE SAME gamma_{N-1}
  * -----------------------------------------------------------------------------
@@ -76,7 +75,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35761 / imp-35812) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this assessment
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this assessment
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -238,7 +237,7 @@ export const IMP35890_W1_RUNNING_ACCUMULATOR_APRIORI_BOUND = {
     'of the certified length-N interval sum, exactly the MECHANICAL classification of imp-35725. Instantiates ' +
     'no directed-rounding interval; evaluates no true H_0; verifies no inequality; changes no bound; ' +
     'establishes no positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb GUE-conditional ' +
-    '(imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35761 (pessimistic N * eps ceiling this refines); imp-35812 (exact-BigInt achieved naive error); ' +
     'imp-35852 / imp-35854 (achieved error under worst-case ordering / kappa sweep); imp-35760 ' +
@@ -311,15 +310,15 @@ export const IMP35890_W1_RUNNING_ACCUMULATOR_APRIORI_BOUND_ASSERTIONS = [
       Math.abs(ORDERS_RECOVERED + ORDERS_RESIDUAL - ORDERS_CEIL_TO_ACHIEVED) < 1e-9,
   },
   {
-    // Honesty gate: assessment only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: assessment only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp35890-honesty-gate',
-    description: 'Assessment only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Assessment only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35890_W1_RUNNING_ACCUMULATOR_APRIORI_BOUND.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /GREENFIELD/.test(IMP35890_W1_RUNNING_ACCUMULATOR_APRIORI_BOUND.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35890_W1_RUNNING_ACCUMULATOR_APRIORI_BOUND.verdict) &&
-      /remains SOTA/.test(IMP35890_W1_RUNNING_ACCUMULATOR_APRIORI_BOUND.verdict),
+      /refereed bound is changed/i.test(IMP35890_W1_RUNNING_ACCUMULATOR_APRIORI_BOUND.verdict),
   },
 ];
 

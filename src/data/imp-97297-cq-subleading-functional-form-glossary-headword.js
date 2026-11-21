@@ -44,7 +44,7 @@
  *   I(1,b) = (1/2) log b + O(1) driving the log^2 b mechanism)
  *
  * Ticket: imp-97297 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The Q(b) sub-leading-form headword, baked verbatim (no re-import).
@@ -75,7 +75,7 @@ const CQ_SUBLEADING_FUNCTIONAL_FORM_HEADWORD = Object.freeze({
     'the implied-coefficient bands in-module from the imp-97241 baked slopes. Naming / glossary ' +
     'headword only; pins no coefficient value; the imp-97207 constituent (B) is shown ill-posed and ' +
     'replaced by the convergent (B*) = 2 Sum g(b)/b^2, itself unvalued; no bound moved; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP97297_CQ_SUBLEADING_FUNCTIONAL_FORM_GLOSSARY_HEADWORD = Object.freeze({
@@ -95,8 +95,8 @@ export const IMP97297_CQ_SUBLEADING_FUNCTIONAL_FORM_GLOSSARY_HEADWORD = Object.f
     'collinear log^2 b with c ~ -0.7), not a range-independent constant -- the constant ansatz is ' +
     'the worst-drifting basis (65.5%), exactly reproducing the imp-97241 drift. The imp-97207 ' +
     'intercept constituent (B) = 2 cQ (zeta(2)-5/4) is ill-posed and replaced by the convergent ' +
-    '(B*) = 2 Sum g(b)/b^2. No coefficient value pinned; no bound moved; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(B*) = 2 Sum g(b)/b^2. No coefficient value pinned; no bound moved; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97261 (the form-decision this glosses: rho_h diagnostic, implied-coefficient bands, the ' +
     'log^2 b mechanism, the (B*) replacement); imp-97241 (the measured pointwise drift being ' +
@@ -124,12 +124,12 @@ export const IMP97297_CQ_SUBLEADING_FUNCTIONAL_FORM_GLOSSARY_HEADWORD_ASSERTIONS
   },
   {
     id: 'imp97297-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no coefficient value pinned, PT SOTA line ' +
+    why: 'Documentation only: no bound claimed moved, no coefficient value pinned, no-refereed-bound-change line ' +
       'present, correctly glosses imp-97261.',
     holds: () =>
       IMP97297_CQ_SUBLEADING_FUNCTIONAL_FORM_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97297_CQ_SUBLEADING_FUNCTIONAL_FORM_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97297_CQ_SUBLEADING_FUNCTIONAL_FORM_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97297_CQ_SUBLEADING_FUNCTIONAL_FORM_GLOSSARY_HEADWORD.verdict) &&
       IMP97297_CQ_SUBLEADING_FUNCTIONAL_FORM_GLOSSARY_HEADWORD.glosses === 'imp-97261',
   },
 ];

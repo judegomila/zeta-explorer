@@ -68,7 +68,7 @@
  *   Descriptive surrogate fit, NOT a rigorous asymptotic; the component model is the inherited
  *   imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no
  *   bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34589-eflow-attr-far-side-power-law-slope-continuity.js (the PURE-fit -0.001356/5.1-sigma baseline)
  *   @see imp-34585-eflow-attr-log-corrected-fit.js (near-side log-corrected fit, (p,q)=(-1.0028,3.348))
@@ -298,7 +298,7 @@ export const IMP34609_EFLOW_ATTR_NEAR_FAR_SLOPE_DIFF_LOG_CORRECTED = {
     'attractor curvature. Descriptive surrogate fit, NOT a rigorous asymptotic; the component model ' +
     'is the inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED; no refereed bound is changed.',
 };
 
 export const IMP34609_ASSERTIONS = [
@@ -341,13 +341,13 @@ export const IMP34609_ASSERTIONS = [
       IMP34609_FAR_RMS_LOG_RESID < 1e-6,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34609-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34609_EFLOW_ATTR_NEAR_FAR_SLOPE_DIFF_LOG_CORRECTED.isRigorous === false &&
       /NO QED/.test(IMP34609_EFLOW_ATTR_NEAR_FAR_SLOPE_DIFF_LOG_CORRECTED.honest) &&
-      /remains SOTA/.test(IMP34609_EFLOW_ATTR_NEAR_FAR_SLOPE_DIFF_LOG_CORRECTED.honest),
+      /refereed bound is changed/i.test(IMP34609_EFLOW_ATTR_NEAR_FAR_SLOPE_DIFF_LOG_CORRECTED.honest),
   },
 ];
 

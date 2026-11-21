@@ -11,7 +11,7 @@
  * committed IMP97500_KERNEL.CROSSINGS; nothing is re-derived. The b/4-ceiling
  * lower edge was already REFUTED (imp-97481) and is a dead route; this only
  * charts the already-measured smallest-witness curve. No bound moves;
- * kappa_arith unchanged; PT Lambda<=0.2 remains SOTA; RH open; NO QED.
+ * kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97500-route-m-window-surrogate-descent-rate-min-b-crossing.js (the CROSSINGS table, reused verbatim)
  * @see imp-97540-route-m-b4-ceiling-minb-p0-optimum-refined.js (fine-grid refinement: true optimum P0=1429, ~0.004% smaller)

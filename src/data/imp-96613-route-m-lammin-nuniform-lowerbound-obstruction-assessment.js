@@ -100,7 +100,7 @@
  * multiplicative lower-frame inequality is proved, the imp-96591 double-precision crossover
  * N ~ 1.08e5 and the imp-96584 double-double reach N ~ 2.67e10 remain the only certified
  * routes and the conditioning-ceiling FIGURE stays fit-extrapolated. Changes no bound; no
- * operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96563-route-m-lammin-rigorous-lower-bound-assessment.js (names IMP96563_SUBGAP)
  * @see imp-96582-route-m-lammin-bottom-edge-szego-assessment.js (bottom edge value 0)
@@ -216,7 +216,7 @@ export const IMP96613_VERDICT = Object.freeze({
     'Bondarenko-Seip / large sieve) bounds the TOP edge, not the lower frame. So the imp-96591 ' +
     'double-precision crossover N ~ 1.08e5 and the imp-96584 double-double reach N ~ 2.67e10 stay ' +
     'the only certified routes and the conditioning-ceiling FIGURE stays fit-extrapolated. Changes ' +
-    'no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no bound; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96613_SUBGAP = Object.freeze({
@@ -232,7 +232,7 @@ export const IMP96613_SUBGAP = Object.freeze({
 });
 
 export const IMP96613_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: this is a structural ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment only: this is a structural ' +
   'consolidation of imp-96562 (top edge), imp-96582 (bottom edge), imp-96586 (mean-field) and ' +
   'imp-96591 / imp-96584 (precision crossovers) against the imp-96428 measured lam_min ladder. No ' +
   'Gram was rebuilt, no bound is claimed moved and no operator positivity is established.';
@@ -282,7 +282,7 @@ const IMP96613_ASSERTIONS = [
       IMP96613_VERDICT.anyBoundMoved === false &&
       IMP96613_VERDICT.uniformAnalyticLowerBoundExists === false &&
       /NO QED/.test(IMP96613_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96613_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96613_HONEST_BANNER) &&
       /RH open/.test(IMP96613_HONEST_BANNER) &&
       /lower-frame/.test(IMP96613_SUBGAP.id),
     why: 'assessment only: no bound moved, no uniform analytic lower bound claimed, the honesty markers and the lower-frame sub-gap slug are present.',

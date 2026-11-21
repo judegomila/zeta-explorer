@@ -53,7 +53,7 @@ export const IMP124824_SUMMARY = Object.freeze({
   verdict:
     'Presentation only: every ladder value is reused verbatim from imp-124769; no new computation. '
     + 'Measurement/cross-validation on the inherited imp-3220/imp-3406 extrapolation, not a rigorous '
-    + 'asymptotic; changes no bound; imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA; '
+    + 'asymptotic; changes no bound; imp-3066 K_a >= 0 untouched; no refereed bound is changed; '
     + 'RH open; NO QED.',
 });
 

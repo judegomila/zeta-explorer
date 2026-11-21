@@ -24,8 +24,7 @@
  * MEASUREMENT ONLY. Instantiates no directed-rounding interval; evaluates no true H_0;
  * verifies no inequality; changes no bound; establishes no positivity; the certified
  * length-N interval sum stays MECHANICAL / GREENFIELD (imp-35725 / imp-35681 Part A);
- * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * FINDING -- the JOINT recovery-basin lobed SHAPE is N-STABLE (extends imp-36103 to the
  * coupled interior)
@@ -62,7 +61,7 @@
  */
 
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 (the imp-36096 fixed rung)
 
@@ -232,7 +231,7 @@ export const IMP36133_W1_JOINT_RECOVERY_CONTOUR_NSTABILITY = {
     'margin transfers across N unchanged. Instantiates no directed-rounding interval; evaluates no true ' +
     'H_0; verifies no inequality; changes no bound; establishes no positivity; the W1 A + B - C ' +
     'certificate at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-36096 (the single-N ~ 488602 joint contour tested here for N-stability); imp-36103 (N-stability ' +
     'of the single-axis edges this extends to the coupled interior); imp-36061 (the two single-axis ' +
@@ -305,15 +304,15 @@ export const IMP36133_W1_JOINT_RECOVERY_CONTOUR_NSTABILITY_ASSERTIONS = [
       JOINT_CONTOUR_NSTABLE && maxInteriorUSpread < 1e-3 && maxInteriorUSpread > 1e-5,
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp36133-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36133_W1_JOINT_RECOVERY_CONTOUR_NSTABILITY.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /GREENFIELD/.test(IMP36133_W1_JOINT_RECOVERY_CONTOUR_NSTABILITY.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36133_W1_JOINT_RECOVERY_CONTOUR_NSTABILITY.verdict) &&
-      /remains SOTA/.test(IMP36133_W1_JOINT_RECOVERY_CONTOUR_NSTABILITY.verdict),
+      /refereed bound is changed/i.test(IMP36133_W1_JOINT_RECOVERY_CONTOUR_NSTABILITY.verdict),
   },
 ];
 

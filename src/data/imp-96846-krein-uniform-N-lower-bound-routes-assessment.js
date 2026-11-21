@@ -84,7 +84,7 @@
  * beta <= lambda_2(a) (a solvable base problem or rough eigenvalue enclosure) on 0.96 < 2a < ln 3, then
  * feed the measured trial data through Kato-Temple / Lehmann-Goerisch to emit a rigorous positive floor.
  * Assessment only; no operator positivity proved; interval-rigorous certificate reach stays 2a <= 0.96;
- * RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ * RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96769-krein-de-branges-uniform-gap-assessment.js (de Branges route ruled out; uniform-N gap = strict positivity of lambda_1 of a compact-resolvent operator)
  * @see imp-96749-krein-lammin-N-trend-measurement.js (Legendre ladder; SUB-GAP IMP96749_UNIFORM_N_GAP_UNSETTLED; N=20/28/36 floors 0.6174/0.5786/0.5521 at 2a=ln3)

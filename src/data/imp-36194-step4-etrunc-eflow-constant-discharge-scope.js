@@ -21,8 +21,7 @@
  * SCOPING / ASSESSMENT ONLY. Discharges no constant; pins no prefactor; ports no
  * barrier; proves no Lipschitz rate; verifies no inequality; changes no bound;
  * establishes no positivity; respects the imp-2519 no-overclaim guard; C_mb
- * GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE TWO CONSTANT FAMILIES TO DISCHARGE
  * -----------------------------------------------------------------------------
@@ -104,7 +103,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36192 / imp-36193) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scope
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scope
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 ordinate count anchor at T_PT
 
@@ -231,7 +230,7 @@ export const IMP36194_STEP4_ETRUNC_EFLOW_CONSTANT_DISCHARGE_SCOPE = {
     'Lipschitz rate; verifies no inequality; establishes no positivity; even fully discharged moves ' +
     'NO Lambda bound (E(N) floors at E_trunc on the current surrogate, imp-35164 / G-EN-ladder-verify); ' +
     'imp-2519 no-overclaim guard preserved; C_mb GUE-conditional (imp-486) untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'lambda-roadmap.js Step-4 rigorousUpgradeGap G-Etrunc-Eflow-constants (closed:false); imp-345 ' +
     '(partial bridge, E_flow rigorous modulo constants, E_trunc Guth-Maynard tail); imp-354, imp-366; ' +
@@ -294,16 +293,16 @@ export const IMP36194_STEP4_ETRUNC_EFLOW_CONSTANT_DISCHARGE_SCOPE_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: scoping only; distinct in kind from G6a; no bound moved; no QED; PT SOTA.
+    // Honesty gate: scoping only; distinct in kind from G6a; no bound moved; no QED; no refereed bound is changed.
     id: 'imp36194-honesty-gate',
-    description: 'Scoping only; deterministic/RH-free, distinct from RH-hard G6a; changes no bound; no QED; PT SOTA',
+    description: 'Scoping only; deterministic/RH-free, distinct from RH-hard G6a; changes no bound; no QED; no refereed bound is changed',
     holds: () =>
       IMP36194_STEP4_ETRUNC_EFLOW_CONSTANT_DISCHARGE_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /DETERMINISTIC, RH-FREE/.test(IMP36194_STEP4_ETRUNC_EFLOW_CONSTANT_DISCHARGE_SCOPE.conclusion.deterministicNotRHHard) &&
       /moves NO Lambda bound/.test(IMP36194_STEP4_ETRUNC_EFLOW_CONSTANT_DISCHARGE_SCOPE.conclusion.noBoundMovesOnItsOwn) &&
       /NO QED/.test(IMP36194_STEP4_ETRUNC_EFLOW_CONSTANT_DISCHARGE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP36194_STEP4_ETRUNC_EFLOW_CONSTANT_DISCHARGE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP36194_STEP4_ETRUNC_EFLOW_CONSTANT_DISCHARGE_SCOPE.verdict),
   },
 ];
 

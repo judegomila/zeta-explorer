@@ -71,7 +71,7 @@
  * closed-form transcendental boundary e^((r-1)x) = 1 + (x/2)(r^2 - 1) with the
  * rigorous bracket 1 + ln(1/x)/x <= r_star(x) <= 1 + (-2 + sqrt(12/x - 8))/x,
  * turning the imp-95271 grid table into an analytic delimiter for the interior
- * bump. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bump. Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -175,7 +175,7 @@ export const IMP95377_RSTAR_BOUNDARY = {
   verdict:
     "DERIVATION / MEASUREMENT ONLY. Gives THEOREM RATE-MONO an analytic " +
     "delimiter of the interior bump instead of a grid table. Changes no " +
-    "bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -270,12 +270,12 @@ export const IMP95377_RSTAR_BOUNDARY_ASSERTIONS = [
     id: "imp95377-record-honesty",
     description:
       "the record is derivation/measurement-only, states the closed form and " +
-      "bracket, carries NO QED and the SOTA line",
+      "bracket, carries NO QED and the no-refereed-bound-change line",
     holds: () =>
       /RSTAR-EQ/.test(IMP95377_RSTAR_BOUNDARY.closedForm) &&
       /r_star\(x\) >=/.test(IMP95377_RSTAR_BOUNDARY.lowerBound) &&
       /NO QED/.test(IMP95377_RSTAR_BOUNDARY.verdict) &&
-      /SOTA/.test(IMP95377_RSTAR_BOUNDARY.verdict) &&
+      /refereed bound is changed/i.test(IMP95377_RSTAR_BOUNDARY.verdict) &&
       /MEASUREMENT ONLY/.test(IMP95377_RSTAR_BOUNDARY.verdict),
   },
 ];

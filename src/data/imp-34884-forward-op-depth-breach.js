@@ -53,7 +53,7 @@
  * division have no directed-rounding mode; the outward-rounding here is a first-order surrogate) and does NOT
  * discharge the conditional. imp-34714a REMAINS OPEN. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643)
  * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34865-forward-vs-contraction-width-inflation (the step-level width ratio this LOCALISES to op-depth)
  * @see imp-34840-krawczyk-directed-rounding-op-dag-feasibility (the ~30-deep op-DAG this walks)
@@ -288,7 +288,7 @@ export const IMP34884_FORWARD_OP_DEPTH_BREACH = {
     'imp-3220/imp-3406 surrogate crossover map; does NOT instantiate the imp-34687a directed-rounding layer; ' +
     'SUB-GAP imp-34714a REMAINS OPEN. The C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per ' +
     'imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34865 (forward-vs-contraction width ratio at Newton-step granularity this LOCALISES to op-depth); ' +
     'imp-34840 (op-DAG depth ~30 + the structural requirement); imp-34799 (a-priori gamma(n_op) width bound ' +
@@ -338,15 +338,15 @@ export const IMP34884_FORWARD_OP_DEPTH_BREACH_ASSERTIONS = [
       IMP34884_FORWARD_OP_DEPTH_BREACH.measured.contraction_breach_depth === -1,
   },
   {
-    // Honesty gate: measurement/surrogate, not rigorous, sub-gap open, no QED, PT SOTA.
+    // Honesty gate: measurement/surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34884-honesty-gate-no-qed',
-    description: 'op-depth crossing measurement: isRigorous false, imp-34714a open, no QED, PT stays SOTA',
+    description: 'op-depth crossing measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34884_FORWARD_OP_DEPTH_BREACH.isRigorous === false &&
       /imp-34714a/.test(IMP34884_FORWARD_OP_DEPTH_BREACH.subGap) &&
       /REMAINS OPEN/.test(IMP34884_FORWARD_OP_DEPTH_BREACH.subGap) &&
       /NO QED/.test(IMP34884_FORWARD_OP_DEPTH_BREACH.verdict) &&
-      /remains SOTA/.test(IMP34884_FORWARD_OP_DEPTH_BREACH.verdict),
+      /refereed bound is changed/i.test(IMP34884_FORWARD_OP_DEPTH_BREACH.verdict),
   },
 ];
 

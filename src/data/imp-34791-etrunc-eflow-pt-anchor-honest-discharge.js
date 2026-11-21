@@ -5,7 +5,7 @@
  * VERIFIED status (4/4 independent referees, imp-34791 verification 2026-07) is
  * CONDITIONAL, NOT a discharge: E_trunc is reclassified ansatz -> conditional on
  * honestCeiling C1-C5 (currently 16.7x short; C1 is an RH-flavored deep-zero
- * realness barrier lemma). PT Lambda <= 0.2 remains SOTA; no beat.
+ * realness barrier lemma). No refereed bound is changed; no beat.
  *
  * imp-34791 (proof, S-frontier): RECONCILE the E_trunc / E_flow rigor ledger at
  * the post-imp-33226 field-channel bracket, LOCK kappa_T at the N* = 1e4
@@ -16,7 +16,7 @@
  * lock lands (kappa_T = 2/5 exact at the PT anchor), the explicit-constant
  * frontier is quantified (16.7x short at sigma = 3/4), and a STRUCTURAL finding
  * shows the residual is not an effective constant at all. NO Lambda value
- * changes. Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA. NO false QED.
+ * changes. No refereed bound is changed. NO false QED.
  *
  * PART 1 -- RECONCILIATION: imp-33226 "C_T = C_F = 1 ansatz" vs the
  * imp-2625 / imp-2644 "pinned / certified" claims
@@ -156,7 +156,7 @@
  * (C4) the eps'-certificate for E_field (imp-3933-sub-eps-certificate OPEN);
  * (C5) the Lemma 3.3 port soundness (the 2/gamma kernel itself, subsumed by
  * C1). This is a FINITE-N* conditional statement; it does NOT dethrone
- * Platt-Trudgian. Lambda <= 0.2 (PT 2021) REMAINS the rigorous SOTA.
+ * Platt-Trudgian. No refereed bound is changed.
  *
  * @see imp-33226-bracket-field-channel-rearchitecture (the bracket this reconciles)
  * @see imp-2625-etrunc-constant-pinning / overclaim-ledger n.1, n.2 (withdrawn 1e13 pin)
@@ -263,7 +263,7 @@ export const ETRUNC_EFLOW_PT_ANCHOR_HONEST_DISCHARGE = {
     + 'bracket at ledger scale is irreducibly conditional on barrier-type realness control above T_PT -- '
     + 'the residual is NOT an effective constant. E_flow: certification is arithmetic-sound but leans on the '
     + 'A1 input (R1/R2\' open) once imp-398\'s own C_G = 8.57 reading breaks the OLS fallback (6.78). '
-    + 'NO Lambda value changes. Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA. NO false QED.',
+    + 'NO Lambda value changes. No refereed bound is changed. NO false QED.',
 
   reconciliation: {
     eTrunc:
@@ -384,7 +384,7 @@ export const ETRUNC_EFLOW_PT_ANCHOR_HONEST_DISCHARGE = {
     'Two genuine rigorous steps (kappa_T lock, prefactor 5/3 correction), one verified literature mapping '
     + '(refuting the imp-1324 Ramare line by ~9.5e7x), and one structural reclassification. E_trunc < 0.2 at '
     + 'N* = 1e4 is NOT discharged: 16.7x short on explicit constants at sigma = 3/4, and the deeper residual '
-    + 'is the unported barrier lemma, not a constant. Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA. '
+    + 'is the unported barrier lemma, not a constant. No refereed bound is changed. '
     + 'NO false QED.',
 };
 
@@ -509,7 +509,7 @@ export const ETRUNC_EFLOW_PT_ANCHOR_ASSERTIONS = [
         && m.rigorousBeat === false
         && m.deterministic === true
         && m.honestCeiling.dethronesPT === false
-        && /Lambda <= 0.2 REMAINS the rigorous SOTA/.test(m.honest)
+        && /refereed bound is changed/i.test(m.honest)
         && /NO false QED/.test(m.honest)
         && /C1/.test(m.honestCeiling.statement) && /C5/.test(m.honestCeiling.statement)
         && m.reconciliation.stillAnsatzOrOpen.length === 3;

@@ -16,8 +16,7 @@
  * deterministic-barrier-conditional toward unconditional.
  *
  * ASSESSMENT / SCOPING ONLY. Discharges nothing; ports nothing; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * PART A -- WHAT E_trunc ACTUALLY ENCODES ABOVE T_PT (the statement to port)
  * -----------------------------------------------------------------------------
@@ -138,7 +137,7 @@ const KERNEL_PRICE = 2 / WITNESS_GAMMA; // 3.333e-13 (imp-397 per-zero price)
 const MISPRICING_RATIO = CAP_AT_34 / KERNEL_PRICE; // 3.75e11 (imp-34791 Part 3)
 const E_TRUNC_CLEAN = 3.06e-5; // recorded clean-count value (a count artifact)
 const E_TRUNC_CORRECTED = 5.106e-5; // imp-34791 R2 parts-corrected clean count
-const L_PT = 0.2; // Platt-Trudgian SOTA (the value the port would MATCH, not beat)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (the value the port would MATCH, not beat)
 const CT_BARRIER_SHARE_LIMIT = 1.0; // E_trunc/E(N) -> 1 as sigma -> 0 (imp-35334 M3)
 
 export const IMP35419_ETRUNC_BARRIER_LEMMA_PORTING_SCOPE = {
@@ -229,7 +228,7 @@ export const IMP35419_ETRUNC_BARRIER_LEMMA_PORTING_SCOPE = {
     '(Part D) Scope = a full Polymath15-scale rigorous port (P1 formalize S_barrier, P2 port the ' +
     'barrier/closure proof engine, P3 reconnect), a MAJOR breakthrough-tier item, not engine-closable. ' +
     'Discharges nothing; ports nothing; changes no bound; establishes no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35334 (E_trunc dominates the far-tail bridge as sigma -> 0); imp-34791 (E_trunc = unported ' +
     'barrier lemma; the 2/gamma mispricing; the honest ceiling MATCH-not-beat); imp-3933 (gap law ' +
@@ -259,16 +258,16 @@ export const IMP35419_ETRUNC_BARRIER_LEMMA_PORTING_SCOPE_ASSERTIONS = [
       Math.abs(KAPPA_LOCKED - 0.4) < 1e-15, // the imp-34791 locked exponent is unchanged (nothing re-derived)
   },
   {
-    // Honesty gate: scoping only, no discharge, no QED, PT stays SOTA.
+    // Honesty gate: scoping only, no discharge, no QED, no refereed bound is changed.
     id: 'imp35419-honesty-gate-no-qed',
-    description: 'Scoping only: discharges nothing, matches-not-beats PT, no QED, PT SOTA',
+    description: 'Scoping only: discharges nothing, matches-not-beats PT, no QED, no refereed bound is changed',
     holds: () =>
       IMP35419_ETRUNC_BARRIER_LEMMA_PORTING_SCOPE.isRigorous === false &&
       /barrier-type/i.test(IMP35419_ETRUNC_BARRIER_LEMMA_PORTING_SCOPE.verdict) &&
       /PARITY-WITH-PT/.test(IMP35419_ETRUNC_BARRIER_LEMMA_PORTING_SCOPE.verdict) &&
       /does NOT beat it/.test(IMP35419_ETRUNC_BARRIER_LEMMA_PORTING_SCOPE.verdict) &&
       /NO QED/.test(IMP35419_ETRUNC_BARRIER_LEMMA_PORTING_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35419_ETRUNC_BARRIER_LEMMA_PORTING_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35419_ETRUNC_BARRIER_LEMMA_PORTING_SCOPE.verdict),
   },
 ];
 

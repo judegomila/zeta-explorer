@@ -306,7 +306,7 @@ export const RESULTS = [
 
   // ── candidates (computer-assisted, unrefereed; none is a bound) ────────────
   {
-    statement: 'Λ ≤ 0.1787854 candidate: sealed computer-assisted package (v3) with a 3.15M-row Arb certificate and a three-piece final-time half-strip closure; private review only — not peer-reviewed, not a bound.',
+    statement: 'Λ ≤ 0.1787854 candidate: sealed computer-assisted package (v3) with a 3.15M-row Arb certificate and a three-piece final-time half-strip closure; reviewed by Dan Romik and publicly posted — not refereed, not a bound.',
     grade: 'candidate-unrefereed',
     verification: ['sealed v3 package (review-01787854-v3)', 'independent-audit summary', '3.15M-row Arb certificate'],
     thread: 'candidate-01787854',
@@ -322,7 +322,7 @@ export const RESULTS = [
     date: '2026-08',
   },
   {
-    statement: '0.17759432 y-thaw package value (129/800 + 0.1808²/2): O3 and O5 close under our toolchain, O1/O2/O4/O6 remain open — a package value, not a candidate and not a bound, until the obligation ledger closes.',
+    statement: '0.17759432 y-thaw package value (129/800 + 0.1808²/2): 2 of 6 obligations closed (O3 and O5, under our toolchain), O1/O2/O4/O6 open (record of 2026-09-22) — a package value, not a candidate and not a bound, until the obligation ledger closes.',
     grade: 'candidate-unrefereed',
     verification: ['obligation ledger O1–O6 (module imp-95140)', 'stages 1+2 frozen (module imp-95208)'],
     thread: 'y-thaw',
@@ -374,7 +374,7 @@ export const RESULTS = [
     date: '2026-09',
   },
   {
-    statement: 'Localized-barrier sum no-go on both sides: the last quantitative lever of the sub-0.14 program closes — prime side, the Fresnel packet width sits below the unconditional zero-free-region barrier at the paper heights (even GRH for L(s,χ mod p≤97) gives zero cancellation); zero side, 59.26% of the p=97 majorant mass sits at α_{k,h} > 1, outside Montgomery’s proven pair-correlation range, gating on the conjecture proper. Assessment only — changes no bound; PT Λ ≤ 0.2 stands; RH open.',
+    statement: 'Localized-barrier sum no-go on both sides: the last quantitative lever of the sub-0.14 program closes — prime side, the Fresnel packet width sits below the unconditional zero-free-region barrier at the paper heights (even GRH for L(s,χ mod p≤97) gives zero cancellation); zero side, 59.26% of the p=97 majorant mass sits at α_{k,h} > 1, outside Montgomery’s proven pair-correlation range, gating on the conjecture proper. Assessment only — changes no bound; no refereed bound is changed; RH open.',
     grade: 'no-go',
     verification: ['module imp-95519-localized-barrier-sum-prime-zero-nogo', 'Gauss–Plancherel alias lemma verified to 1e-12 at p = 7, 13, 97'],
     thread: 'gate-2',

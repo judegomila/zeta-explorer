@@ -8,7 +8,7 @@
  * (mu_S(0) -> 0 while M1 stays O(1e-2)): inf_S W(S) = 0" — the A5 all-S
  * flow-criticality — but leaves the DECAY LAW open. This module MEASURES how W(S)
  * decays with node count n for structured families and fits the leading exponent.
- * Report only; changes no bound; NO QED; PT Lambda <= 0.2 stands; RH open.
+ * Report only; changes no bound; NO QED; no refereed bound is changed; RH open.
  *
  * METHOD. Reuse the imp-95531 machinery verbatim (imported eps0Window: K = 12000
  * Simpson on [0, 2.2], normalized Cauchy-Gram pencil via Cholesky + Jacobi). Node
@@ -74,7 +74,7 @@
  * Import-light (only eps0Window from imp-95531; import-free itself). Assertions
  * recompute selected W(S) rows against eps0Window, verify the dyadic monotone
  * decay and its deceleration, and check the honesty record. Changes no bound;
- * NO QED; RH open; PT Lambda <= 0.2 stands.
+ * NO QED; RH open; no refereed bound is changed.
  */
 import { eps0Window } from './imp-95531-eps0-pd-persistence-window.js';
 
@@ -142,7 +142,7 @@ export const IMP95557_W_DECAY_SCALING = Object.freeze({
   finding: 'The decay exponent is NOT universal — it is set by node SPREAD, not count. Densely spaced families (arithmetic, geometric r=1.5) collapse near-exponentially W ~ exp(-c n), c = 4.19 and 4.52, R^2 = 0.999 and 0.997. Exponentially spread families (dyadic r=2, geometric r=3) DECELERATE (per-step contraction 21 -> 1.4; log-linear slope only -1.74, R^2 = 0.87 = curving): a far-out node at nu = 2^(n-1) barely perturbs the pencil, so they are far more persistent.',
   scope: 'mu_S(0) sinks below the ~1e-10 float64 noise floor (Cauchy-Gram condition number grows super-exponentially in n) by n ~ 5 (dense) to n = 8 (dyadic); past that mu_S(0) spuriously goes negative or Cholesky fails, so W CANNOT be resolved to 1.15e-11 in double precision for any family. At its last resolvable count the tightest dyadic family is still W = 2.79e-6 = 2.4e5 x the collision threshold. Extrapolated crossings n ~ 7 (dense) and n ~ 14-45 (dyadic, uncertain because decelerating) lie beyond float64 verification. inf_S W(S) = 0 (imp-95531 A5) is confirmed to proceed via near-exp collapse for dense nodes and decelerating sub-exp decay for spread nodes.',
   subgap: 'W-DECAY-PRECISION: certifying the window below W ~ 1e-6 (mu_S(0) below ~1e-10) needs extended precision (double-double / Arb) for the ill-conditioned Cauchy-Gram pencil; the measured exponents (c ~ 4 dense, decelerating for spread) are the leading law on the resolvable range only.',
-  verdict: 'W(S) decays near-exponentially (c ~ 4) for densely spaced nodes and sub-exponentially (decelerating) for exponentially spread nodes; the exponent tracks node spread, not count. The window stays >> 1.15e-11 across the whole range where double precision resolves mu_S(0) > 0 — the collision threshold is reached only beyond float64 verification. Residual sub-gap W-DECAY-PRECISION. Changes no bound; RH OPEN; PT Lambda <= 0.2 stands; NO QED.',
+  verdict: 'W(S) decays near-exponentially (c ~ 4) for densely spaced nodes and sub-exponentially (decelerating) for exponentially spread nodes; the exponent tracks node spread, not count. The window stays >> 1.15e-11 across the whole range where double precision resolves mu_S(0) > 0 — the collision threshold is reached only beyond float64 verification. Residual sub-gap W-DECAY-PRECISION. Changes no bound; RH OPEN; no refereed bound is changed; NO QED.',
 });
 
 const relEq = (x, lit, tol) => Math.abs(x - lit) <= tol * Math.max(Math.abs(lit), 1e-300);
@@ -198,7 +198,7 @@ export const IMP95557_ASSERTIONS = [
       && /W-DECAY-PRECISION/.test(IMP95557_W_DECAY_SCALING.subgap)
       && /inf_S W\(S\) = 0/.test(IMP95557_W_DECAY_SCALING.scope)
       && /RH OPEN/.test(IMP95557_W_DECAY_SCALING.verdict)
-      && /PT Lambda <= 0.2 stands/.test(IMP95557_W_DECAY_SCALING.verdict)
+      && /refereed bound is changed/i.test(IMP95557_W_DECAY_SCALING.verdict)
       && /NO QED/.test(IMP95557_W_DECAY_SCALING.verdict),
   },
 ];

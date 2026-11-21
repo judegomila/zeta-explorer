@@ -340,7 +340,7 @@ export const IMP3913_MOMENT_TILT_SADDLE_CROSSING_REGIME = Object.freeze({
     'converged eps_n^true sign-change at n = 149 and the tilt threads it featurelessly because T_n - 1 = ' +
     'eps^true - eps^model stays positive (eps^model is more negative at large n); (4) grid-converged, ' +
     'max|T_n(4800)-T_n(7200)| = 2.4e-8. MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; operator ' +
-    'positivity (imp-3066) untouched; no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA. imp-3893/imp-3849 intact.',
+    'positivity (imp-3066) untouched; no QED; no refereed bound is changed. imp-3893/imp-3849 intact.',
 
   method: Object.freeze({
     tiltDef: 'T_n = Q_n^true/Q_n^model, Q_n = M_(n+2)/M_n, tau* root of n = 4 pi tau* e^{4 tau*}',
@@ -437,7 +437,7 @@ export const IMP3913_MOMENT_TILT_SADDLE_CROSSING_REGIME = Object.freeze({
       'NPHI = 10 kernel truncation and Simpson order remain the residual floor, so the shrinking-tilt / ' +
       'decaying-offset picture is a stable located property of this truncated-kernel model, not a certified bound.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -490,7 +490,7 @@ export const IMP3913_MOMENT_TILT_SADDLE_CROSSING_REGIME_ASSERTIONS = [
   {
     id: 'imp3913-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement/characterization only, grid-stability not a certified bound, ' +
-         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3913_MOMENT_TILT_SADDLE_CROSSING_REGIME.honestCaveat;
       return (
@@ -499,7 +499,7 @@ export const IMP3913_MOMENT_TILT_SADDLE_CROSSING_REGIME_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

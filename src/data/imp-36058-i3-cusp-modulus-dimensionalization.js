@@ -11,8 +11,7 @@
  *
  * DERIVATION / MEASUREMENT ONLY. Certifies no delta > 0; instantiates no
  * interval enclosure; evaluates no |H_t| on any edge; counts no zeros; fixes no
- * Delta or h; changes no bound; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Delta or h; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE PROBLEM imp-36011 LEFT OPEN
  * -----------------------------------------------------------------------------
@@ -93,7 +92,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36011 / imp-35993 / imp-36008) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this derivation
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this derivation
 
 // Winding / derivative log-scale w(T) = (1/2) log(T / 2 pi) (imp-35757 / imp-35777 / imp-35778).
 const windingRate = (T) => 0.5 * Math.log(T / (2 * Math.PI));
@@ -194,7 +193,7 @@ export const IMP36058_I3_CUSP_MODULUS_DIMENSIONALIZATION = {
     'certified I3 floor delta = 0 -- an INFINITE, categorical shortfall. Remains a PROXY on the model cusp ' +
     'rho = |x|^{-1/2}, NOT the true H_t = A + B - C on dR at T_PT = 3e12; instantiates no interval enclosure; ' +
     'certifies no delta > 0; counts no zeros; fixes no Delta or h; changes no bound; I3 stays GREENFIELD; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36011 (Route S C_PS = pi/sqrt(2) vs Route G O(1) geometric floor, OOM only); imp-35778 (Route G ' +
     'delta = min(delta_short, delta_long), delta_long ~ |H_t|.w.h); imp-35993 (mean-gap map L_theta = pi/2 <-> ' +
@@ -246,9 +245,9 @@ export const IMP36058_I3_CUSP_MODULUS_DIMENSIONALIZATION_ASSERTIONS = [
       /uniform-infimum/.test(IMP36058_I3_CUSP_MODULUS_DIMENSIONALIZATION.shortfall.verdictLine),
   },
   {
-    // Honesty gate: derivation only, model-cusp proxy, no certification, greenfield, no QED, PT SOTA.
+    // Honesty gate: derivation only, model-cusp proxy, no certification, greenfield, no QED, no refereed bound is changed.
     id: 'imp36058-honesty-gate-no-qed',
-    description: 'Derivation only; model-cusp PROXY; certifies no delta>0; I3 GREENFIELD; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Derivation only; model-cusp PROXY; certifies no delta>0; I3 GREENFIELD; NO QED; no refereed bound is changed',
     holds: () =>
       IMP36058_I3_CUSP_MODULUS_DIMENSIONALIZATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -257,7 +256,7 @@ export const IMP36058_I3_CUSP_MODULUS_DIMENSIONALIZATION_ASSERTIONS = [
       /certifies no delta > 0/.test(IMP36058_I3_CUSP_MODULUS_DIMENSIONALIZATION.verdict) &&
       /I3 stays GREENFIELD/.test(IMP36058_I3_CUSP_MODULUS_DIMENSIONALIZATION.verdict) &&
       /NO QED/.test(IMP36058_I3_CUSP_MODULUS_DIMENSIONALIZATION.verdict) &&
-      /remains SOTA/.test(IMP36058_I3_CUSP_MODULUS_DIMENSIONALIZATION.verdict),
+      /refereed bound is changed/i.test(IMP36058_I3_CUSP_MODULUS_DIMENSIONALIZATION.verdict),
   },
 ];
 

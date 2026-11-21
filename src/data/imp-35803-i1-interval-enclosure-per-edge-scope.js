@@ -12,7 +12,7 @@
  *
  * ASSESSMENT / SCOPING ONLY. Ports nothing; certifies nothing; instantiates no interval
  * enclosure; evaluates no A, B, or C; changes no bound; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * NODE SAMPLING vs INTERVAL ENCLOSURE (what I1 needs that the held code lacks)
  * -----------------------------------------------------------------------------
@@ -86,7 +86,7 @@
  * base engine that I2 / I3 project from, and splits I1 into base (I1a) and differentiated
  * (I1b = imp-35799 SG-1) enclosures. It BUILDS no extension, evaluates no A / B / C, pads
  * no C_t, computes no delta_panel or argwidth, verifies no inclusion, fixes no Delta or h,
- * certifies nothing, changes no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * certifies nothing, changes no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-35727-w2-certified-winding-count-ingredients-scope (I1 named GREENFIELD, un-scoped)
  * @see imp-35777-i2-logderivative-panel-cap-scope (I2 = argument-range readout; sup|f prime/f|)
@@ -101,7 +101,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35777 / imp-35778) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 const TWO_PI = 2 * Math.PI;
 const HALF_TURN = Math.PI; // I2 half-plane threshold: argwidth F(Z) < pi per panel
 
@@ -195,7 +195,7 @@ export const IMP35803_I1_INTERVAL_ENCLOSURE_PER_EDGE_SCOPE = {
     'by the sharper log-derivative I2 and the long-edge derivative floor). It is W1 (imp-35681 Part A / imp-35725) LIFTED ' +
     'to 2D complex boxes: strictly downstream of W1, same ~4.886e5-term retained sum, no new mechanism. Builds no ' +
     'extension; evaluates no A / B / C; pads no C_t; computes no delta_panel or argwidth; verifies no inclusion; fixes ' +
-    'no Delta or h; certifies nothing; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no Delta or h; certifies nothing; changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35727 (I1 named GREENFIELD, un-scoped); imp-35777 (I2 argument-range readout, log-derivative cap); imp-35758 / ' +
     'imp-35778 (I3 modulus-floor readout, short/long edge split); imp-35799 (SG-1 = the differentiated enclosure I1b); ' +
@@ -251,15 +251,15 @@ export const IMP35803_I1_INTERVAL_ENCLOSURE_PER_EDGE_SCOPE_ASSERTIONS = [
       Math.abs(RETAINED_TERMS_OOM - 4.886e5) < 1,
   },
   {
-    // Honesty gate: scoping only, no enclosure built, certifies nothing, NO QED, PT Lambda <= 0.2 SOTA.
+    // Honesty gate: scoping only, no enclosure built, certifies nothing, NO QED, no refereed bound is changed.
     id: 'imp35803-honesty-gate-no-qed',
-    description: 'Scoping only; builds no extension; certifies nothing; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Scoping only; builds no extension; certifies nothing; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35803_I1_INTERVAL_ENCLOSURE_PER_EDGE_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /certifies nothing/.test(IMP35803_I1_INTERVAL_ENCLOSURE_PER_EDGE_SCOPE.verdict) &&
       /NO QED/.test(IMP35803_I1_INTERVAL_ENCLOSURE_PER_EDGE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35803_I1_INTERVAL_ENCLOSURE_PER_EDGE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35803_I1_INTERVAL_ENCLOSURE_PER_EDGE_SCOPE.verdict),
   },
 ];
 

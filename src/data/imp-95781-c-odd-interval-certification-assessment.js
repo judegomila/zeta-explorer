@@ -44,7 +44,7 @@
  * displayed digits are residual-limited precisely because the offset, not the quadrature, is
  * the uncertified factor. Assessment only; no new quadrature; conditional on the imp-95720
  * offset; changes no bound; Sun arXiv:2609.04176 single-author, unrefereed; Catalan G
- * irrationality OPEN; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * irrationality OPEN; no refereed bound is changed; NO QED. NO heavy imports.
  */
 
 // carried literals (imp-95720 / imp-95768)
@@ -88,7 +88,7 @@ export const C_ODD_INTERVAL_CERTIFICATION_ASSESSMENT = Object.freeze({
     + 'conditional, not achievable. VERDICT: NO interval-certified c_odd(1/19) with current inputs; '
     + 'the binding obstruction is the offset m-independence (a derivation), NOT the quadrature (a '
     + 'finite target). Assessment only; no new quadrature; changes no bound; Sun unrefereed; G '
-    + 'irrationality OPEN; PT Lambda<=0.2 SOTA; NO QED',
+    + 'irrationality OPEN; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'imp-95720 faithful (6.21) machinery + measured m=20 offset; imp-95768 finding (C) trailing-digit sensitivity',
   builtOn:
@@ -158,7 +158,7 @@ export const C_ODD_INTERVAL_CERTIFICATION_ASSESSMENT = Object.freeze({
     + 'constant. The quadrature half-width is an achievable target inferred from the imp-95720 grid == '
     + 'exact-B agreement, not a run interval bound. The whole analysis is CONDITIONAL on the offset '
     + 'hypothesis (verified only at m=20; imp-95720 sub-gap). Changes no bound; Catalan G irrationality '
-    + 'OPEN; Sun single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'OPEN; Sun single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const C_ODD_INTERVAL_CERTIFICATION_ASSESSMENT_ASSERTIONS = Object.freeze([
@@ -195,11 +195,11 @@ export const C_ODD_INTERVAL_CERTIFICATION_ASSESSMENT_ASSERTIONS = Object.freeze(
       && /offset/.test(C_ODD_INTERVAL_CERTIFICATION_ASSESSMENT.verdict.bindingLeg),
   },
   {
-    name: 'honest: assessment only, conditional on the offset, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: assessment only, conditional on the offset, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       /Assessment only/.test(C_ODD_INTERVAL_CERTIFICATION_ASSESSMENT.status)
       && /G irrationality OPEN/.test(C_ODD_INTERVAL_CERTIFICATION_ASSESSMENT.status)
-      && /PT Lambda<=0.2 SOTA/.test(C_ODD_INTERVAL_CERTIFICATION_ASSESSMENT.status)
+      && /refereed bound is changed/i.test(C_ODD_INTERVAL_CERTIFICATION_ASSESSMENT.status)
       && /NO QED/.test(C_ODD_INTERVAL_CERTIFICATION_ASSESSMENT.status),
   },
 ]);

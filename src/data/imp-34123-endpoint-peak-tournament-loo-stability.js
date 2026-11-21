@@ -58,7 +58,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the imp-33843 log-linear-vs-power-law FORM
  * verdict is UNTOUCHED; the imp-33917 non-saturating reading is UNTOUCHED; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34043-endpoint-peak-saturating-model-tournament (the four-way winner whose stability is tested)
  * @see imp-33982-endpoint-peak-power-law-model-selection (the three-form tournament imp-34043 extended)
@@ -248,7 +248,7 @@ export const IMP34123_ENDPOINT_PEAK_TOURNAMENT_LOO_STABILITY = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the imp-33843 log-linear-vs-power-law ' +
     'FORM verdict is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34043 (the four-way saturating-form winner whose stability is tested); imp-33982 (the three-form ' +
     'tournament imp-34043 extended); imp-33917 (the 9 endpoint peaks scored here; the non-saturating ' +
@@ -301,14 +301,14 @@ export const IMP34123_ENDPOINT_PEAK_TOURNAMENT_LOO_STABILITY_ASSERTIONS = [
   {
     // (R3) Honesty gate: stability score = full margin = n ln(RSS ratio) sign; caveats survive; NO QED.
     id: 'imp34123-stability-score-honesty-gate',
-    description: 'stabilityScore == full margin; positive-not-decisive (0 < score < 10); isRigorous false; NO QED; PT SOTA; imp-3066 K_a>=0 untouched; imp-34043 R3 untouched',
+    description: 'stabilityScore == full margin; positive-not-decisive (0 < score < 10); isRigorous false; NO QED; no refereed bound is changed; imp-3066 K_a>=0 untouched; imp-34043 R3 untouched',
     holds: () =>
       Math.abs(STABILITY_SCORE - FULL.margin) < 5e-4 &&
       STABILITY_SCORE > 0 &&
       STABILITY_SCORE < 10 &&
       IMP34123_ENDPOINT_PEAK_TOURNAMENT_LOO_STABILITY.isRigorous === false &&
       /NO QED/.test(IMP34123_ENDPOINT_PEAK_TOURNAMENT_LOO_STABILITY.verdict) &&
-      /remains SOTA/.test(IMP34123_ENDPOINT_PEAK_TOURNAMENT_LOO_STABILITY.verdict) &&
+      /refereed bound is changed/i.test(IMP34123_ENDPOINT_PEAK_TOURNAMENT_LOO_STABILITY.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34123_ENDPOINT_PEAK_TOURNAMENT_LOO_STABILITY.verdict) &&
       /concavity-matching/.test(IMP34123_ENDPOINT_PEAK_TOURNAMENT_LOO_STABILITY.verdict),
   },

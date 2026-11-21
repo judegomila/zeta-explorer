@@ -50,8 +50,8 @@
  *   a CERTIFIED (not Rayleigh) lower bound -- neither is attempted here.
  *
  *   Measurement only. Rayleigh floors are UPPER bounds; no operator positivity theorem; no coercivity
- *   constant; no bound moves; interval-rigorous certificate reach stays 2a <= 0.96; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   constant; no bound moves; interval-rigorous certificate reach stays 2a <= 0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * @see imp-97537-confined-well-vs-projected-positivity-assessment.js (crossingTwoAStar 1.1316, margin ~0.033)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (sigma_2, lambdaMinSigma2 table)
@@ -59,7 +59,7 @@
  *
  * Ticket: imp-97560 (numerical, opus-4-8, api-pool). Crossing drift measured; monotone erosion of the
  * ln 3 margin quantified; floor AT ln 3 decelerates to a positive limit; asymptote of 2a* is the named
- * open sub-gap; no bound moves; reach stays 2a <= 0.96; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * open sub-gap; no bound moves; reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  */
 
 export const IMP97560_LN3 = 1.0986122886681098;

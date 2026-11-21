@@ -180,8 +180,7 @@ export default function Imp97508McmBasetermExtprecViz() {
         point below is the imp-97478 baked extended-precision (40 dps)
         ladder evaluated verbatim. Measurement only &mdash; no operator
         positivity, no bound moves; MCM stays VERIFIED not proved (and
-        FALSE from omega=11 per imp-97432); kappa_arith unchanged;
-        Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        FALSE from omega=11 per imp-97432); kappa_arith unchanged; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -228,7 +227,7 @@ export default function Imp97508McmBasetermExtprecViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97478 baked extended-precision ladder
         verbatim. Establishes no operator positivity; changes no bound;
-        kappa_arith unchanged; Platt-Trudgian Lambda&le;0.2 remains SOTA;
+        kappa_arith unchanged;
         RH open; NO QED.
       </div>
     </div>

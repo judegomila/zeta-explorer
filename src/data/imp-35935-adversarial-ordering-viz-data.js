@@ -71,7 +71,7 @@ export const IMP35935_ADVERSARIAL_ORDERING_VIZ_DATA = {
     'adversarial-ordering measurement; adds no new derivation and changes no bound. Measurement ' +
     'only; certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no ' +
     'inequality; establishes no positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD ' +
-    '(imp-35681 Part A). NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    '(imp-35681 Part A). NO QED. No refereed bound is changed.',
 };
 
 export const IMP35935_VIZ_ASSERTIONS = [
@@ -116,12 +116,12 @@ export const IMP35935_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp35935-honesty-gate-no-qed',
-    description: 'honest status references measurement-only, greenfield, no bound change, NO QED, SOTA',
+    description: 'honest status references measurement-only, greenfield, no bound change, NO QED, no refereed bound is changed',
     holds: () =>
       /VIZ-DATA ONLY/.test(IMP35935_ADVERSARIAL_ORDERING_VIZ_DATA.honest) &&
       /GREENFIELD/.test(IMP35935_ADVERSARIAL_ORDERING_VIZ_DATA.honest) &&
       /NO QED/.test(IMP35935_ADVERSARIAL_ORDERING_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP35935_ADVERSARIAL_ORDERING_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP35935_ADVERSARIAL_ORDERING_VIZ_DATA.honest),
   },
 ];
 

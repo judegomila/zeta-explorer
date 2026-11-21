@@ -42,8 +42,7 @@
  *
  * The numerics below CROSS-CHECK the endpoints and the arithmetic ledger
  * relation; they are not the claim. Import-light (no heavy bundle). Changes no
- * bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── parameterized ceiling machinery (identical to imp-95026; free theta) ──────
@@ -164,7 +163,7 @@ export const IMP95077_FAR_LEDGER_DEGRADE_TABLE = {
     "MEASUREMENT: the nine-row table is computed by the same quadrature machinery as imp-95026 and its endpoints reproduce that module's baked anchors to machine precision. No paper constant is instantiated, so no transferred ceiling is CLAIMED - only the row-by-row degradation of the ledger factor across theta at sigma = 1 is tabulated. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT tabulation of the imp-95026 Finding 3 far-ledger degradation. Across theta in {2..10} at sigma = 1 the far coefficient cFar falls monotonically 0.8925 -> 0.2717 and the ledger factor 4/cFar rises monotonically 4.482 -> 14.720 (span 3.284x), quantifying the ~3x low-theta margin shrink row by row. The far coefficient stays strictly below the pre-seventeenth 4 at every scanned theta (worst row theta = 2 still clears 4 by 4.48x). Endpoints reproduce the imp-95026 anchors bit-for-bit. SUB-GAP: the paper theta is not pinned in this repo, so this is a row-scan not a single instantiated number. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT tabulation of the imp-95026 Finding 3 far-ledger degradation. Across theta in {2..10} at sigma = 1 the far coefficient cFar falls monotonically 0.8925 -> 0.2717 and the ledger factor 4/cFar rises monotonically 4.482 -> 14.720 (span 3.284x), quantifying the ~3x low-theta margin shrink row by row. The far coefficient stays strictly below the pre-seventeenth 4 at every scanned theta (worst row theta = 2 still clears 4 by 4.48x). Endpoints reproduce the imp-95026 anchors bit-for-bit. SUB-GAP: the paper theta is not pinned in this repo, so this is a row-scan not a single instantiated number. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -214,12 +213,12 @@ export const IMP95077_DEGRADE_ASSERTIONS = [
   {
     id: "imp95077-honesty-gate",
     description:
-      "the verdict names the sub-gap (paper theta not pinned; row-scan not a single number), promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (paper theta not pinned; row-scan not a single number), promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95077_FAR_LEDGER_DEGRADE_TABLE.promotesBound === false &&
       IMP95077_FAR_LEDGER_DEGRADE_TABLE.openResiduals.length === 2 &&
       /NO QED/.test(IMP95077_FAR_LEDGER_DEGRADE_TABLE.verdict) &&
-      /remains SOTA/.test(IMP95077_FAR_LEDGER_DEGRADE_TABLE.verdict) &&
+      /refereed bound is changed/i.test(IMP95077_FAR_LEDGER_DEGRADE_TABLE.verdict) &&
       /MEASUREMENT/.test(IMP95077_FAR_LEDGER_DEGRADE_TABLE.verdict),
   },
 ];

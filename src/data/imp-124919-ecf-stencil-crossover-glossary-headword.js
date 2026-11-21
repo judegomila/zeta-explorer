@@ -36,7 +36,7 @@
  * @see imp-97710-diag3-fourth-landmark-crossvalidation (the L5 clean O(eps^2) quartering)
  *
  * Ticket: imp-124919 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The E_CF stencil round-off crossover headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -67,7 +67,7 @@ const ECF_STENCIL_CROSSOVER_HEADWORD = Object.freeze({
     '(src/data/imp-124769-ecf-stencil-noise-floor-crossover.js): |E_CF|_crit ~ 1.4e-6, ' +
     'sigma_crit ~ 0.013, strictly between the L5 (0.02) and L6 (0.005) landmarks. Naming / ' +
     'glossary headword only; supplies no new bound; DIAG3 and the C_C 1/8 ansatz are untouched; ' +
-    'RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD = Object.freeze({
@@ -85,7 +85,7 @@ export const IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD = Object.freeze({
     'E_CF stencil error crosses from O(eps^2) truncation (relTrunc ~ 3.3e-7) to a round-off floor ' +
     '(R ~ 4.5e-13) at |E_CF|_crit ~ 1.4e-6 (sigma_crit ~ 0.013), strictly between L5 (sigma 0.02) ' +
     'and L6 (sigma 0.005). No bound moved; imp-3066 K_a >= 0 untouched; DIAG3 and all pinned ' +
-    'surrogate constants untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'surrogate constants untouched; NO QED. No refereed bound is changed.',
   citation:
     'imp-124769 (the stencil round-off crossover this glosses); imp-97821 (the qualitative L6 ' +
     'non-monotone ladder); imp-97710 (the L5 clean O(eps^2) quartering).',
@@ -112,11 +112,11 @@ export const IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp124919-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124769.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124769.',
     holds: () =>
       IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD.verdict) &&
       IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD.glosses === 'imp-124769',
   },
   {

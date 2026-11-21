@@ -56,7 +56,7 @@
  * from L = 120 to 7680. The direct integral therefore gives a genuine THIRD independent basis good to
  * ~7-8 figures, reproducing rho = -0.4817670, but cannot reach the imp-96350 2.52e-10 out-of-family
  * discrepancy without extended precision. Cross-validation feasibility only; theoretical GUE quantity,
- * not real zeros; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side
+ * not real zeros; changes no bound; NO QED; no refereed bound is changed; the zero-side
  * route stays PCC/GRH-gated.
  *
  * @see imp-96350-covariance-outoffamily-crossvalidation (the direct integral this assesses at scale)
@@ -187,7 +187,7 @@ export const IMP96369_DIRECT_DOUBLE_INTEGRAL_PT_ANCHOR_FEASIBILITY = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L(T); at T = 3e12 there are no computed Riemann zeros, so this is a numerical-feasibility assessment of an alternative evaluation path for a known GUE envelope, not a measurement of actual zeros. It changes no bound and does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'Pushing the imp-96350 direct pair-correlation double integral to the PT anchor L = 5.9148e6 is FEASIBLE (order 1e8-1e9 sine evaluations; Simpson truncation error is 4th-order with an L-independent constant ~1.12e-2 * ppp^{-4}, so ppp ~ 11 already clears 1e-6), but achievable accuracy is capped at ~1e-8 in rho by catastrophic cancellation in Var = L - 2 Int (subtracting two ~5.9e6 quantities to recover Sigma2 ~ 1.926), a floor measured to grow ~linearly with L from L = 120 to 7680. The direct integral gives a genuine THIRD independent basis good to ~7-8 figures, reproducing rho = -0.4817670, but cannot reach the imp-96350 2.52e-10 out-of-family discrepancy without extended precision. Cross-validation feasibility only; theoretical GUE quantity, not real zeros; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Pushing the imp-96350 direct pair-correlation double integral to the PT anchor L = 5.9148e6 is FEASIBLE (order 1e8-1e9 sine evaluations; Simpson truncation error is 4th-order with an L-independent constant ~1.12e-2 * ppp^{-4}, so ppp ~ 11 already clears 1e-6), but achievable accuracy is capped at ~1e-8 in rho by catastrophic cancellation in Var = L - 2 Int (subtracting two ~5.9e6 quantities to recover Sigma2 ~ 1.926), a floor measured to grow ~linearly with L from L = 120 to 7680. The direct integral gives a genuine THIRD independent basis good to ~7-8 figures, reproducing rho = -0.4817670, but cannot reach the imp-96350 2.52e-10 out-of-family discrepancy without extended precision. Cross-validation feasibility only; theoretical GUE quantity, not real zeros; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (accessible-L re-measurement only) ---
@@ -220,8 +220,8 @@ export const IMP96369_DIRECT_DOUBLE_INTEGRAL_PT_ANCHOR_FEASIBILITY = {
   // honesty gates
   if (!/NO QED/.test(IMP96369_DIRECT_DOUBLE_INTEGRAL_PT_ANCHOR_FEASIBILITY.verdict))
     throw new Error('imp-96369: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96369_DIRECT_DOUBLE_INTEGRAL_PT_ANCHOR_FEASIBILITY.verdict))
-    throw new Error('imp-96369: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96369_DIRECT_DOUBLE_INTEGRAL_PT_ANCHOR_FEASIBILITY.verdict))
+    throw new Error('imp-96369: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96369_DIRECT_DOUBLE_INTEGRAL_PT_ANCHOR_FEASIBILITY;

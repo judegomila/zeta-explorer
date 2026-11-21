@@ -42,7 +42,7 @@ export const IMP95993_CAVEAT_BANNER =
   'margin (dSeam - dMin) is positive and growing across the four witness windows, but that ' +
   'only shows the seam-depth stand-in clears the threshold -- it does not establish that the ' +
   'true Section 4.5 turning point sits at or above dSeam. Introduces no new cited input and ' +
-  'changes no bound; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. No QED.';
+  'changes no bound; no refereed bound is changed. No QED.';
 
 export const IMP95993_WORST_ALIAS_MARGIN_VIZ_DATA_ASSERTIONS = [
   {

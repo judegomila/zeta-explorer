@@ -45,8 +45,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic on the inherited surrogate, NOT an RH bound.
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34886-eflow-strength-knee-inflection-crossing (the bisected s* ~ 0.78 and the deferred root-free closed form this answers)
  * @see imp-34858-sigma-knee-d3-eflow-reinstatement (the D3 knee slope -7.34e-3 dex/unit reused as dKnee/ds)
@@ -257,7 +256,7 @@ export const IMP34898_EFLOW_CROSSING_STRENGTH_CLOSED_FORM = {
     '0.7792 (+1.5e-3) does better but is not a pure slope-plus-curvature closed form. The component model is ' +
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS imp-34898: the imp-34886 crossing strength s* admits a ROOT-FREE closed form s*_quad = ' +
     '(-G1 - sqrt(G1^2 - 2 G2 G0))/G2 ~ 0.7729 from the two landmark slopes (G1 ~ -1.649e-2) and curvatures ' +
@@ -321,15 +320,15 @@ export const IMP34898_EFLOW_CROSSING_STRENGTH_CLOSED_FORM_ASSERTIONS = [
       Math.abs(QUAD_MINUS_BISECTED) < 1e-2,
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34898-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34898_EFLOW_CROSSING_STRENGTH_CLOSED_FORM.isRigorous === false &&
       IMP34898_EFLOW_CROSSING_STRENGTH_CLOSED_FORM.farTailExponent === 0.5 &&
       typeof IMP34898_EFLOW_CROSSING_STRENGTH_CLOSED_FORM.subGap === 'string' &&
       /NO QED/.test(IMP34898_EFLOW_CROSSING_STRENGTH_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP34898_EFLOW_CROSSING_STRENGTH_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP34898_EFLOW_CROSSING_STRENGTH_CLOSED_FORM.verdict),
   },
 ];
 

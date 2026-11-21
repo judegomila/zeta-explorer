@@ -71,7 +71,7 @@ export const IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE_VIZ_DATA = {
   honest:
     'VIZ-DATA ONLY -- baked literals reproducing the imp-34269 measurement; adds no new derivation and ' +
     'changes no bound. Verification/cross-recompute only, NOT a rigorous asymptotic; C_mb GUE-conditional ' +
-    'per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const IMP34269_VIZ_ASSERTIONS = [
@@ -104,11 +104,11 @@ export const IMP34269_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp34358-honesty-gate-no-qed',
-    description: 'honest status references verification-only, NOT rigorous, NO QED, SOTA',
+    description: 'honest status references verification-only, NOT rigorous, NO QED, no refereed bound is changed',
     holds: () =>
       /NOT a rigorous asymptotic/.test(IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE_VIZ_DATA.honest) &&
       /NO QED/.test(IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE_VIZ_DATA.honest),
   },
 ];
 

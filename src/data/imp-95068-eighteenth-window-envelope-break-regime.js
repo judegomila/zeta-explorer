@@ -72,7 +72,7 @@
  *
  * The numerics below CROSS-CHECK the statements; they are not the claim.
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 const SIGMA = 1;
@@ -280,7 +280,7 @@ export const IMP95068_EIGHTEENTH_WINDOW_ENVELOPE_BREAK_REGIME = {
     "The eighteenth window-envelope ceiling cFar18(s) is the genuine fallback bound (the independent psiEnv/threeWindowMin path, reproduced bit-for-bit at s = 11); it is finite and below 4 across the break regime by direct evaluation. Findings A-C are MEASUREMENTS: the break-regime scan, the peak, and the fallback/exact sharpness ratio are computed directly, the ratio cross-checking the baked LEDGER_F19 to 2.8e-6 at the model point. cFarExact is a quadrature REFERENCE, not a certified bound below s* (the exact proof is exactly what breaks there). No paper constant is instantiated, so no transferred ceiling is CLAIMED - only the fallback behavior (finite/below-4 everywhere, ~1.26x sharpness loss, dominated by ~3.3x physical low-theta decay) is asserted. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT/ASSESSMENT of the EIGHTEENTH window / Cauchy-Schwarz envelope far-ceiling FALLBACK across s = sigma+theta in (1, 2.9484), where the nineteenth EXACT-substitution proof breaks (Lemma RM corner guard V(0,2) = 2^(1/3) > Ystar(s) fails below s* = 2.948383274238082). The free-s eighteenth machinery reproduces the baked CFAR_18 = 0.7741509917026236 at s = 11 bit-for-bit. FINDING A: the fallback ceiling STAYS FINITE and strictly below the pre-seventeenth 4 across the whole break regime (peak ~1.186 at s ~ 2.12, below 4 by >= 3.37x) - the improvement SURVIVES the break, only sharpness is lost. FINDING B: the sharpness LOSS from the fallback (cFar18/cFarExact) is only ~1.256 at the break boundary and ~1.25-1.28 through the regime, versus 2.849 at the model - the window/Cauchy-Schwarz half-exponent slack is asymptotic, so the eighteenth envelope is nearly sharp at low decay. FINDING C: of the total ~4.35x degradation vs the sharp model 0.2717, ~3.3x is PHYSICAL low-theta decay (imp-95026 Finding 3) and only ~1.26x is the exact-proof break - the break is the SMALLER cost. SUB-GAP: the Section 4.5 paper constants are not pinned in this repo, so this is a low-s measurement MAP, not a paper number; cFarExact is a quadrature reference, not a bound below s*. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT/ASSESSMENT of the EIGHTEENTH window / Cauchy-Schwarz envelope far-ceiling FALLBACK across s = sigma+theta in (1, 2.9484), where the nineteenth EXACT-substitution proof breaks (Lemma RM corner guard V(0,2) = 2^(1/3) > Ystar(s) fails below s* = 2.948383274238082). The free-s eighteenth machinery reproduces the baked CFAR_18 = 0.7741509917026236 at s = 11 bit-for-bit. FINDING A: the fallback ceiling STAYS FINITE and strictly below the pre-seventeenth 4 across the whole break regime (peak ~1.186 at s ~ 2.12, below 4 by >= 3.37x) - the improvement SURVIVES the break, only sharpness is lost. FINDING B: the sharpness LOSS from the fallback (cFar18/cFarExact) is only ~1.256 at the break boundary and ~1.25-1.28 through the regime, versus 2.849 at the model - the window/Cauchy-Schwarz half-exponent slack is asymptotic, so the eighteenth envelope is nearly sharp at low decay. FINDING C: of the total ~4.35x degradation vs the sharp model 0.2717, ~3.3x is PHYSICAL low-theta decay (imp-95026 Finding 3) and only ~1.26x is the exact-proof break - the break is the SMALLER cost. SUB-GAP: the Section 4.5 paper constants are not pinned in this repo, so this is a low-s measurement MAP, not a paper number; cFarExact is a quadrature reference, not a bound below s*. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -359,12 +359,12 @@ export const IMP95068_BREAK_REGIME_ASSERTIONS = [
   {
     id: "imp95068-honesty-gate",
     description:
-      "the verdict names the sub-gap (paper constants not pinned; cFarExact a reference not a bound below s*), records fallback-finite-below-4, small-sharpness-loss, physical-dominates, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (paper constants not pinned; cFarExact a reference not a bound below s*), records fallback-finite-below-4, small-sharpness-loss, physical-dominates, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95068_EIGHTEENTH_WINDOW_ENVELOPE_BREAK_REGIME.promotesBound === false &&
       IMP95068_EIGHTEENTH_WINDOW_ENVELOPE_BREAK_REGIME.openResiduals.length === 2 &&
       /NO QED/.test(IMP95068_EIGHTEENTH_WINDOW_ENVELOPE_BREAK_REGIME.verdict) &&
-      /remains SOTA/.test(IMP95068_EIGHTEENTH_WINDOW_ENVELOPE_BREAK_REGIME.verdict) &&
+      /refereed bound is changed/i.test(IMP95068_EIGHTEENTH_WINDOW_ENVELOPE_BREAK_REGIME.verdict) &&
       /SURVIVES/.test(IMP95068_EIGHTEENTH_WINDOW_ENVELOPE_BREAK_REGIME.verdict) &&
       /PHYSICAL/.test(IMP95068_EIGHTEENTH_WINDOW_ENVELOPE_BREAK_REGIME.verdict),
   },

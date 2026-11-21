@@ -161,7 +161,7 @@ const NODES = [
     'Polymath15 method with verified height 3·10^12 gives Λ ≤ 0.2; the current accepted peer-reviewed upper bound.',
     'D.J. Platt, T.S. Trudgian, Bull. LMS 53 (2021) 792–797', '/lambda-bounds'),
   n('project-lambda-candidate', 'This project: Λ ≤ 0.1758354 (candidate)', 'project-link', 'project', 'computer-assisted candidate, unreviewed, unpublished', '2026',
-    'Interface node to the project DAG: four barrier gates certified in Arb interval arithmetic, y-transfer reduction and Lemma B3 Lean-checked; marked unreviewed and unpublished in src/data/lambda-roadmap.js. Platt–Trudgian Λ ≤ 0.2 remains the accepted benchmark.',
+    'Interface node to the project DAG: four barrier gates certified in Arb interval arithmetic, y-transfer reduction and Lemma B3 Lean-checked; marked unreviewed and unpublished in src/data/lambda-roadmap.js. No refereed bound is changed.',
     'src/data/lambda-roadmap.js (local-sharper-candidate-01758354)', '/lambda-01758354-candidate'),
 
   // ── Weil positivity partial results ──

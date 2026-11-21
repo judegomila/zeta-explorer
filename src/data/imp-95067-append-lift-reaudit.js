@@ -57,7 +57,7 @@
  * (the appends are optimizer outputs; optimality is NOT claimed anywhere).
  *
  * Import-light (no heavy bundle). Changes no bound; re-audit only; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // -- independent conventions (re-declared, not imported) ----------------------
@@ -303,7 +303,7 @@ export const IMP95067_APPEND_LIFT_REAUDIT = {
     "Each floor in the lift trajectory is an exact evaluation of a legal multi-rate witness (componentwise positive amplitudes, positive rates, grid-point centers, 0 < h <= 1 legality) through an independent floor evaluator whose cross-rate kernel uses the three-piece antiderivative decomposition rather than the sibling closed form, cross-checked against an independent full-line Gram quadrature of the terminal excess. This re-audits the append-chain LIFT to the terminal carried literals; it does not re-derive the append calculus (Theorem Z / Theorem P), which is the narrowed residual. Re-audit changes no bound.",
   promotesBound: false,
   verdict:
-    "INDEPENDENT RE-AUDIT of the residual sub-gap imp-95017-subgap-append-lift: the two baked occupied-block append chains are re-evaluated step by step through a floor evaluator that shares no helper with the sibling append module (three-piece antiderivative kernel, independent Gram quadrature of the terminal excess), and the full LIFT trajectory reproduces - headline 0.092873990839396667 -> 0.096745062937484763 (+4.1681 percent, terminal rel 3.5e-10) over eight appends and fixed-97 0.0012051330632176880 -> 0.0012054673720820889 (+0.0277 percent, terminal rel 2.9e-13) over five, both trajectories strictly increasing - with the LIFTED 13-packet headline excess matching an independent full-line Gram quadrature to rel 4.9e-7, so the append-lifted witnesses carry no coding bug in E, M, K, or h. NARROWED residual imp-95067-subgap-append-calculus: the append CALCULUS that produced the chains (Theorem Z closed-form epsStar, Theorem P ladder certificates) is re-run by the sibling assertions but not re-derived here through a second path; the appends are optimizer outputs and optimality is NOT claimed. Re-audit only; changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "INDEPENDENT RE-AUDIT of the residual sub-gap imp-95017-subgap-append-lift: the two baked occupied-block append chains are re-evaluated step by step through a floor evaluator that shares no helper with the sibling append module (three-piece antiderivative kernel, independent Gram quadrature of the terminal excess), and the full LIFT trajectory reproduces - headline 0.092873990839396667 -> 0.096745062937484763 (+4.1681 percent, terminal rel 3.5e-10) over eight appends and fixed-97 0.0012051330632176880 -> 0.0012054673720820889 (+0.0277 percent, terminal rel 2.9e-13) over five, both trajectories strictly increasing - with the LIFTED 13-packet headline excess matching an independent full-line Gram quadrature to rel 4.9e-7, so the append-lifted witnesses carry no coding bug in E, M, K, or h. NARROWED residual imp-95067-subgap-append-calculus: the append CALCULUS that produced the chains (Theorem Z closed-form epsStar, Theorem P ladder certificates) is re-run by the sibling assertions but not re-derived here through a second path; the appends are optimizer outputs and optimality is NOT claimed. Re-audit only; changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) --------------------------
@@ -396,14 +396,14 @@ export const IMP95067_APPEND_LIFT_ASSERTIONS = [
   {
     id: "imp95067-honesty-gate",
     description:
-      "the verdict records the re-audit scope, the narrowed append-calculus residual, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict records the re-audit scope, the narrowed append-calculus residual, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95067_APPEND_LIFT_REAUDIT.promotesBound === false &&
       /imp-95067-subgap-append-calculus/.test(IMP95067_APPEND_LIFT_REAUDIT.remainingScope) &&
       /imp-95017-subgap-append-lift/.test(IMP95067_APPEND_LIFT_REAUDIT.verdict) &&
       /optimality is NOT claimed/.test(IMP95067_APPEND_LIFT_REAUDIT.remainingScope) &&
       /NO QED/.test(IMP95067_APPEND_LIFT_REAUDIT.verdict) &&
-      /remains SOTA/.test(IMP95067_APPEND_LIFT_REAUDIT.verdict) &&
+      /refereed bound is changed/i.test(IMP95067_APPEND_LIFT_REAUDIT.verdict) &&
       /INDEPENDENT RE-AUDIT/.test(IMP95067_APPEND_LIFT_REAUDIT.verdict),
   },
 ];

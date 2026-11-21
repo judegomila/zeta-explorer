@@ -38,7 +38,7 @@
  * graded-results.js/program-dag.js carry only the separate y-thaw ledger.
  *
  * DOCUMENTATION/AUDIT ONLY. Changes no bound; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  */
 
 import { LAMBDA_ROADMAP } from './lambda-roadmap.js';
@@ -84,7 +84,7 @@ export const IMP124938_AUDIT = {
     'imp-95394 introduced a one-line TLDR pointer that was never checked ' +
     'against the files it named; two of its claims were drifted from day ' +
     'one. Repaired in place. Changes no bound; imp-3066 K_a >= 0 untouched; ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (import-light; exact-literal consistency only) ───────────────

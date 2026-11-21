@@ -61,7 +61,7 @@
  *   cross-check / measurement only: it does NOT establish the fifth-pair amplitude
  *   LAW (that is the pending distinct Lanczos ticket), does NOT construct the missing
  *   magnitude, and does NOT attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT.
- *   NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-3643-skew-toeplitz-third-gap-dense-crossval.js (the FOURTH-pair dense cross-val this extends by one pair)
  *   @see imp-3623-skew-toeplitz-second-gap-dense-crossval.js (the second-gap deep dense cross-val, top-6)
@@ -71,7 +71,7 @@
  *   Ticket: imp-3668 (numerical, medium). Dense pairing-structure cross-check only:
  *   certifies the FIFTH pair lambda_9=lambda_10 against an independent dense
  *   full-spectrum solver at the deep rungs, one pair beyond imp-3643. imp-3066
- *   UNTOUCHED. RH-EQUIVALENT. NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *   UNTOUCHED. RH-EQUIVALENT. NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -213,7 +213,7 @@ export const IMP3668_SKEW_TOEPLITZ_FIFTH_PAIR_DENSE_CROSSVAL = Object.freeze({
     'dense top-10 measured offline (scripts/imp-3668-dense-fifth-pair-offline.mjs) and BAKED; pairing/amplitude ' +
     'self-check at import. Pairing-structure cross-check only; does NOT establish the fifth-pair amplitude LAW ' +
     '(pending distinct ticket), does NOT construct the missing magnitude, and does NOT attempt the imp-3066 ' +
-    'K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     pairQuantity: 'pair910(N) = |lambda_9 - lambda_10| / lambda_9 of the Gram S = T^T T of Ttilde(u,v)=a(v-u)R(|v-u|) (Gram-eigenvalue convention, same as imp-3643)',
@@ -289,7 +289,7 @@ export const IMP3668_SKEW_TOEPLITZ_FIFTH_PAIR_DENSE_CROSSVAL = Object.freeze({
       'The fifth-pair degeneracy is a finite-N numerical measurement at the deep rungs, not a proven symbolic ' +
       'degeneracy; the (v-u) antisymmetry is the heuristic mechanism, corroborated numerically here.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -332,8 +332,8 @@ export const IMP3668_SKEW_TOEPLITZ_FIFTH_PAIR_DENSE_CROSSVAL_ASSERTIONS = [
   {
     id: 'imp3668-honest-assessment-no-qed',
     why: 'Mandatory honesty: DENSE PAIRING-STRUCTURE cross-check only -- certifies the fifth-pair pairing against an ' +
-      'independent solver, does NOT establish the amplitude law, positivity not attempted, RH-equivalent, PT 0.2 ' +
-      'stays SOTA. Any flip over-claims.',
+      'independent solver, does NOT establish the amplitude law, positivity not attempted, RH-equivalent, no refereed bound is changed' +
+      '. Any flip over-claims.',
     holds: () => {
       const c = IMP3668_SKEW_TOEPLITZ_FIFTH_PAIR_DENSE_CROSSVAL.honestCaveat;
       return (
@@ -344,7 +344,7 @@ export const IMP3668_SKEW_TOEPLITZ_FIFTH_PAIR_DENSE_CROSSVAL_ASSERTIONS = [
         typeof c.crossValidatesNotConstructs === 'string' &&
         typeof c.pairingNotAmplitudeLaw === 'string' &&
         typeof c.denseRouteIsHouseholderNotLanczos === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

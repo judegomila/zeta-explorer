@@ -145,7 +145,7 @@
  * The numerics below CROSS-CHECK the theorem statements; they are not the
  * claim. Import-light (no zeros bundle, no sibling imports; all constants
  * self-contained). Changes no bound; does NOT promote Lambda <= 0.14;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // ── baked literals (recomputed by the assertions) ────────────────────────────
@@ -206,7 +206,7 @@ export const IMP95223_SIGNED_AMPLITUDE_RANKONE_RESOLUTION = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN, further narrowed. Obligation ledger: (1) per-window Q extraction UNCHANGED (margin-sizing per imp-95222); (2) amplitude sign/modulus certificate SHARPENED IN SCOPE, not discharged: the equal-rate rank-one sector is fully resolved (signed amplitudes cost exactly a factor 2 over FA-2, sharp minority threshold ln(2)/2 both ways), so the obligation now reads control the SIGNED MULTI-RATE interference of the width-law packets -- and THEOREM MZ proves the pre-peak segment route dead for that (no count-uniform constant), so any future signed certificate must price cross-rate cancellation directly; (3) envelope-shape port and the seam-convention to chain-gate (gammaSL-form) map UNCHANGED; (4) paper constants per window UNCHANGED. Leg (alpha) unchanged.",
   verdict:
-    "RIGOROUS step: the signed-amplitude question left load-bearing and untouched by imp-95221/95222 is answered exactly where it is answerable. THEOREM SGN-EQ (rank-one segment argument: below every center the equal-rate family is ONE exponential, so no sign pattern can hide pre-peak mass) gives the sharp signed certificate R <= e^(-y_min), exactly double the positive-cone bound. THEOREM SGN-PAIR pins the entire signed excess in closed form, f(w) in (1, 2) with mixed-sign optimizer, making SGN-EQ sharp and yielding COROLLARY NEC: the FA-2 constant genuinely NEEDS positivity (signed violation factor up to 2 at every depth), and signed wrong-side majority has the sharp threshold x_min = ln(2)/2. THEOREM MZ (explicit product construction, elementary fences) proves the segment mechanism has no count-uniform multi-rate constant at fixed x_min -- the remaining phase obligation is now located: it is a multi-rate interference problem, not a depth or sign-structure problem. HONEST: obligation (2) is NOT discharged (width-law rates are distinct, exactly the MZ-blocked sector); the multi-rate signed bound is open on both sides; equal-rate families do not occur on the alias grid; nothing here touches any Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step: the signed-amplitude question left load-bearing and untouched by imp-95221/95222 is answered exactly where it is answerable. THEOREM SGN-EQ (rank-one segment argument: below every center the equal-rate family is ONE exponential, so no sign pattern can hide pre-peak mass) gives the sharp signed certificate R <= e^(-y_min), exactly double the positive-cone bound. THEOREM SGN-PAIR pins the entire signed excess in closed form, f(w) in (1, 2) with mixed-sign optimizer, making SGN-EQ sharp and yielding COROLLARY NEC: the FA-2 constant genuinely NEEDS positivity (signed violation factor up to 2 at every depth), and signed wrong-side majority has the sharp threshold x_min = ln(2)/2. THEOREM MZ (explicit product construction, elementary fences) proves the segment mechanism has no count-uniform multi-rate constant at fixed x_min -- the remaining phase obligation is now located: it is a multi-rate interference problem, not a depth or sign-structure problem. HONEST: obligation (2) is NOT discharged (width-law rates are distinct, exactly the MZ-blocked sector); the multi-rate signed bound is open on both sides; equal-rate families do not occur on the alias grid; nothing here touches any Lambda bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "THEOREM SGN-EQ is exact: a pointwise identity on the ray s < u_min, one integral, and a two-line independence induction for strictness. THEOREM SGN-PAIR is exact linear algebra (rank-one generalized Rayleigh quotient, explicit 2x2 inverse) plus three elementary scalar inequalities (e^w > 1 + w, (1+w)^2 > 1 + 2w, e^(2w) > 2w^2 + 2w + 1). COROLLARY NEC combines the two. THEOREM MZ is an explicit construction with closed-form fences (per-factor bounds e^delta - 1 above on the segment, 1 - 1/e below past t = 1). All numerics below CROSS-CHECK these statements; the theorems consume no numerics.",
 };
@@ -444,7 +444,7 @@ export const IMP95223_SIGNED_ASSERTIONS = [
         IMP95223_SIGNED_AMPLITUDE_RANKONE_RESOLUTION.verdict,
       ) &&
       /NO QED/.test(IMP95223_SIGNED_AMPLITUDE_RANKONE_RESOLUTION.verdict) &&
-      /remains SOTA/.test(IMP95223_SIGNED_AMPLITUDE_RANKONE_RESOLUTION.verdict),
+      /refereed bound is changed/i.test(IMP95223_SIGNED_AMPLITUDE_RANKONE_RESOLUTION.verdict),
   },
 ];
 

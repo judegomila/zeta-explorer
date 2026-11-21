@@ -136,7 +136,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are not
  * the claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── closed-form pieces (same conventions as the sibling modules) ─────────────
@@ -409,7 +409,7 @@ export const IMP95008_NEAR_CONSTANT_FLOOR = {
     'Corollary P is the sibling Theorem S-prime specialized to J = 2 (conditional only on MAJ(sigma, theta)). Theorem F is unconditional given the model-family conventions: the witness family is exhibited explicitly and every constant is closed-form; the floor quantifies over the two-currency bound class with tail functionals T* <= T(2), which contains every sibling bound - bounds in other currencies are outside its scope, as recorded. The numerics cross-check the statements; they are not the claim.',
   promotesBound: false,
   verdict:
-    'RIGOROUS terminal step for the near-band constant: split-gap optimization of the sibling Theorem S-prime attains near constant 2 at J = 2 (parity split - mod 2 uniquely annihilates the floorless gap-1 pairs), strictly below the Theorem N support-limit constant j0 = 3, and the NEW Theorem F matching floor (explicit two-packet witness at the minimal grid spacing, W12 shift bound, all constants closed-form) shows no two-currency aggregation bound can go below 2 - epsilon(p, theta), with epsilon -> 0 in the joint limit: the near constant is EXACTLY 2 and the sixth-continuation residual is resolved in both directions. The deliverable becomes min over J of { S(J), S-prime(J) }, measured minimizers S-prime(2) (norm-dominated) and S-prime(9) (mass-dominated). Remaining open: paper-packet envelope constants, window ceiling, phase normalization, the l2-to-pointwise step, and far-coefficient reduction at near constant 2. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RIGOROUS terminal step for the near-band constant: split-gap optimization of the sibling Theorem S-prime attains near constant 2 at J = 2 (parity split - mod 2 uniquely annihilates the floorless gap-1 pairs), strictly below the Theorem N support-limit constant j0 = 3, and the NEW Theorem F matching floor (explicit two-packet witness at the minimal grid spacing, W12 shift bound, all constants closed-form) shows no two-currency aggregation bound can go below 2 - epsilon(p, theta), with epsilon -> 0 in the joint limit: the near constant is EXACTLY 2 and the sixth-continuation residual is resolved in both directions. The deliverable becomes min over J of { S(J), S-prime(J) }, measured minimizers S-prime(2) (norm-dominated) and S-prime(9) (mass-dominated). Remaining open: paper-packet envelope constants, window ceiling, phase normalization, the l2-to-pointwise step, and far-coefficient reduction at near constant 2. Changes no bound; NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -521,13 +521,13 @@ export const IMP95008_NCF_ASSERTIONS = [
   {
     id: 'imp95008-ncf-honesty-gate',
     description:
-      'the verdict keeps the floor bracket and the min-over-J framing, records the far-coefficient residual and the currency-scope limitation, promotes no bound, NO QED, PT stays SOTA',
+      'the verdict keeps the floor bracket and the min-over-J framing, records the far-coefficient residual and the currency-scope limitation, promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95008_NEAR_CONSTANT_FLOOR.promotesBound === false &&
       IMP95008_NEAR_CONSTANT_FLOOR.openResiduals.length === 5 &&
       /min over J/.test(IMP95008_NEAR_CONSTANT_FLOOR.verdict) &&
       /NO QED/.test(IMP95008_NEAR_CONSTANT_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP95008_NEAR_CONSTANT_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_NEAR_CONSTANT_FLOOR.verdict) &&
       /different currency/.test(IMP95008_NEAR_CONSTANT_FLOOR.openResiduals[4]) &&
       /MAJ/.test(IMP95008_NEAR_CONSTANT_FLOOR.corollaryP),
   },

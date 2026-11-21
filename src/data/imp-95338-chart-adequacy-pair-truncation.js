@@ -7,7 +7,7 @@
  * pair-truncation-sharpened pencil floor (the imp-95333 direction)
  * would re-open chart sensitivity and force finer charts before the
  * pair leg. MEASUREMENT ONLY: changes no bound, moves no onset, NO
- * QED, Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED, no refereed bound is changed.
  *
  * OBJECT (imp-95332 normalization, verbatim). a = ln rho in (0, 6],
  * b = ln r in (0, a), tau = b / a, s = sech(b / 2), A = 1 - s^2,
@@ -151,7 +151,7 @@ export const IMP95338_CHART_ADEQUACY_PAIR_TRUNCATION = {
     "a PROXY for the pair leg, not a proven A_pen improvement; rho = e^6 " +
     "only; distance-2 pairs only; dyadic skeleton / model family; NO " +
     "A_pen / A_unif literal changes, NO onset moves, NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "no refereed bound is changed",
   verdict:
     "RIGOROUS MEASUREMENT: the truncated K = 4096/256 ratio reproduces " +
     "the imp-95332 k4096OverK256RhoE6 = 1.0085260227061528 to ~15 " +
@@ -160,7 +160,7 @@ export const IMP95338_CHART_ADEQUACY_PAIR_TRUNCATION = {
     "~1.27 - 1.30x. Conclusion: chart currency stays EXHAUSTED under a " +
     "relaxed pair truncation -- K = 256 is adequate and finer charts " +
     "are not needed before the pair leg. Changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -449,11 +449,11 @@ export const IMP95338_ASSERTIONS = [
     id: "imp95338-honesty-gate",
     description:
       "the verdict records the measurement-only scope, the convention " +
-      "lock, the adequacy conclusion, promotes no bound, NO QED, PT " +
-      "stays SOTA",
+      "lock, the adequacy conclusion, promotes no bound, NO QED, no refereed bound is changed" +
+      "",
     holds: () =>
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /convention lock/.test(REC.verdict) &&
       /K = 256 is adequate/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&

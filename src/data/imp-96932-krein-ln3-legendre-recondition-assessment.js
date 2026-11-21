@@ -65,7 +65,7 @@
  * (IMP96749_UNIFORM_N_GAP_UNSETTLED) stays open; the matched-Legendre wall moves from N=76 to the
  * N=112..124 interval; full N=124 parity needs the Gegenbauer partner (imp-96768) or extended precision.
  * Measurement / cross-validation only; the floor stays a Rayleigh UPPER bound; no operator positivity;
- * interval-rigorous certificate reach stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * interval-rigorous certificate reach stays 2a <= 0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96894-krein-ln3-legendre-gegenbauer-crossbasis.js (matched-N cross-check capped at N=76)
  * @see imp-96749-krein-lammin-N-trend-measurement.js (Legendre ladder, condB ~ 1e13 wall)

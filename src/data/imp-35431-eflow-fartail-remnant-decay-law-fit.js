@@ -56,8 +56,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate extrapolation, NOT a
  * rigorous asymptotic; changes no bound. Far-tail exponent stays 1/2 per imp-3463; imp-3066
  * K_a >= 0 untouched; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per
- * imp-486 UNTOUCHED; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-486 UNTOUCHED; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35371-eflow-fartail-remnant-deep-extension (the deep ladder this fits, endpoint 1e24)
  * @see imp-35413-eflow-fartail-remnant-sub1e3-crossing (the bisected true crossing log10 N ~ 25.6205)
@@ -246,7 +245,7 @@ export const IMP35431_EFLOW_FARTAIL_REMNANT_DECAY_LAW_FIT = {
     'decades (model-sensitive). Measurement only on the inherited imp-3220/imp-3406 surrogate, NOT a ' +
     'rigorous asymptotic; far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; E_flow > 0 ' +
     'strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35371 (deep remnant ladder, endpoint 1e24, fit here); imp-35413 (bisected sub-1e-3 crossing ' +
     'log10 N ~ 25.6205); imp-35280 (four-rung remnant origin); imp-35198 (analytic -1 + 3/log N); ' +
@@ -307,13 +306,13 @@ export const IMP35431_EFLOW_FARTAIL_REMNANT_DECAY_LAW_FIT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35431-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35431_EFLOW_FARTAIL_REMNANT_DECAY_LAW_FIT.isRigorous === false &&
       /NO QED/.test(IMP35431_EFLOW_FARTAIL_REMNANT_DECAY_LAW_FIT.verdict) &&
-      /remains SOTA/.test(IMP35431_EFLOW_FARTAIL_REMNANT_DECAY_LAW_FIT.verdict),
+      /refereed bound is changed/i.test(IMP35431_EFLOW_FARTAIL_REMNANT_DECAY_LAW_FIT.verdict),
   },
 ];
 

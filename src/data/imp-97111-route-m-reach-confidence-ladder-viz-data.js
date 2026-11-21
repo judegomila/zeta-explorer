@@ -52,8 +52,8 @@ export const IMP97111_VERDICT = Object.freeze({
     'confidence ladder spans ~3.3 decades (N_top ~4.07e3 at 10 percent to ~2.01e7 at 1 percent); ' +
     'anchor back-check residuals stay <= 0.042 pp everywhere (+0.009/-0.037 pp at the two imp-96912 ' +
     'anchors), confirming the near-field fit is faithful and the extrapolation risk is dominated by ' +
-    'the far reach, not anchor misfit. Presentation only; no new Lambda bound; PT Lambda <= 0.2 ' +
-    'remains SOTA; RH open; NO QED.',
+    'the far reach, not anchor misfit. Presentation only; no new Lambda bound; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export default IMP97111_VERDICT;
@@ -87,7 +87,7 @@ const IMP97111_ASSERTIONS = [
       IMP97111_VERDICT.anyBoundMoved === false &&
       IMP97060_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP97111_VERDICT.note) &&
-      /PT Lambda <= 0.2/.test(IMP97111_VERDICT.note) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97111_VERDICT.note) &&
       /RH open/.test(IMP97111_VERDICT.note),
     why: 'presentation-only leaf: no bound moved, and the honesty markers are present.',
   },

@@ -54,7 +54,7 @@
  *
  * ASSESSMENT ONLY. Model continuation of the imp-3406 analytic curve, no fresh
  * spectral measurement, no positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (interior MAX N_max ~ 9.22e5, decay-to-0 prediction)
  * @see imp-3220-en-bridge-fidelity-frontier (U-shaped sigma(N) decade ladder, widest at 10^6)
@@ -203,7 +203,7 @@ export const IMP3711_SIGMA_POSTPEAK_CONTINUATION = {
     '(sigma_max/2) lands near N ~ 4.04e9, ~3.64 decades above the peak. This is a ' +
     'MODEL-ONLY continuation: the empirical E_coll is O(N^2)-infeasible past ~10^5 ' +
     '(imp-1082), so no fresh spectral rung is claimed. No positivity, no bridge ' +
-    'closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'closure, no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-3406 (interior MAX N_max ~ 9.22e5, decay-to-0 prediction); imp-3220 (U-shaped ' +
     'sigma(N) decade ladder); imp-3323 (interior min N ~ 97.80); imp-1082 (empirical ' +
@@ -260,14 +260,14 @@ export const IMP3711_SIGMA_POSTPEAK_CONTINUATION_ASSERTIONS = [
       HALF_LIFE_DECADES > 3 && HALF_LIFE_DECADES < 4,
   },
   {
-    // Honesty gate: model-only continuation, infeasibility flagged, no QED, PT SOTA.
+    // Honesty gate: model-only continuation, infeasibility flagged, no QED, no refereed bound is changed.
     id: 'imp3711-honesty-gate-no-qed',
-    description: 'Model-only continuation: O(N^2) infeasibility flagged, no QED, PT stays SOTA',
+    description: 'Model-only continuation: O(N^2) infeasibility flagged, no QED, no refereed bound is changed',
     holds: () =>
       IMP3711_SIGMA_POSTPEAK_CONTINUATION.isRigorous === false &&
       /INFEASIBLE/.test(IMP3711_SIGMA_POSTPEAK_CONTINUATION.feasibility) &&
       /NO QED/.test(IMP3711_SIGMA_POSTPEAK_CONTINUATION.verdict) &&
-      /remains SOTA/.test(IMP3711_SIGMA_POSTPEAK_CONTINUATION.verdict),
+      /refereed bound is changed/i.test(IMP3711_SIGMA_POSTPEAK_CONTINUATION.verdict),
   },
 ];
 

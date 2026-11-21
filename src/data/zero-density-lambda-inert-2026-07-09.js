@@ -16,7 +16,7 @@
  * needed for a given Λ. Even the full Density Hypothesis (A(σ)≤2) or density-1-
  * on-line moves the rigorous Λ floor by exactly zero.
  *
- * HONEST SCOPE: no bound, no beat, no QED. Platt–Trudgian Λ ≤ 0.2 stays SOTA.
+ * HONEST SCOPE: no bound, no beat, no QED. No refereed bound is changed.
  * This CORRECTS a natural intuition (and a prior in-project recommendation) that
  * zero-density work could tighten Λ.
  */

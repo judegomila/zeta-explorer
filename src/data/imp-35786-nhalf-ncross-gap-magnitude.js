@@ -60,7 +60,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33848 (roadmap: strict ordering N_half < N_cross, closed form within component model)
  * @see imp-33796-nhalf-below-ncross-independent-recompute (relative separation N_cross/N_half - 1 ~ 0.400%)
@@ -194,7 +194,7 @@ export const IMP35786_NHALF_NCROSS_GAP_MAGNITUDE = {
     'tail. Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642) are ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33848 (strict ordering N_half < N_cross, closed form); imp-33796 (relative separation ' +
     '~0.400%); imp-33723 (closed-form crossover fixed point); imp-33601 (identity sigma=1/2 <=> ' +
@@ -237,13 +237,13 @@ export const IMP35786_NHALF_NCROSS_GAP_MAGNITUDE_ASSERTIONS = [
     holds: () => GAP_ABS > 0 && GAP_ABS_CF > 0 && GAP_CF_VS_BIS < 1e-4,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35786-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35786_NHALF_NCROSS_GAP_MAGNITUDE.isRigorous === false &&
       /NO QED/.test(IMP35786_NHALF_NCROSS_GAP_MAGNITUDE.verdict) &&
-      /remains SOTA/.test(IMP35786_NHALF_NCROSS_GAP_MAGNITUDE.verdict),
+      /refereed bound is changed/i.test(IMP35786_NHALF_NCROSS_GAP_MAGNITUDE.verdict),
   },
 ];
 

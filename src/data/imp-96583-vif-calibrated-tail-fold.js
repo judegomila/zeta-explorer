@@ -62,8 +62,8 @@
  * gain. The z >= 26 / 34 band is therefore a fragile refinement (sub-1% VIF sits in the 1/sqrt(VIF)
  * blow-up zone); the robust headline stays z_eff >= z_cons = 1.9234 (sign) and z_eff >= 7.01 (rho_1).
  * Measurement only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta
- * zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96543-sine-kernel-vif-conditional-lower-bound (the VIF_291 <= 0.0752 refinement folded here)
  * @see imp-96567-box-averaged-sine-kernel-lag-decay (the calibrated tail closed form + budget -0.036022)
@@ -146,12 +146,12 @@ export const IMP96583_VIF_CALIBRATED_TAIL_FOLD = {
   conditionality:
     'All of the above is conditional on the GUE sine kernel / Montgomery pair correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored). It changes NO unconditional bound.',
   verdict:
-    'Folding the imp-96567 calibrated k>=2 tail (sum rho_k = -0.036022) into the imp-96543 VIF_291 refinement moves the bound in the SAFE (variance-reducing) direction and is genuinely co-calibrated (no scale mix): VIF_291 tightens from <= 0.075232 (z >= 7.012, rho_1-only) to <= 0.005463 (z >= 26.02) with the exact Bartlett weights, or <= 0.003189 (z >= 34.06) with the weightless telescoping budget. The tail is NEGLIGIBLE in the covariance budget (7.54% of rho_1 pull, confirming imp-96567) yet NOT negligible in z_eff (+19.0), because the rho_1-only VIF is already ~0.075 and z ~ 1/sqrt(VIF) amplifies the small increment -- an optical, not statistical, gain. The z >= 26 / 34 band is a fragile refinement (sub-1% VIF sits in the 1/sqrt(VIF) blow-up zone); the robust headline stays z_eff >= z_cons = 1.9234 (sign) and z_eff >= 7.01 (rho_1). Measurement only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Folding the imp-96567 calibrated k>=2 tail (sum rho_k = -0.036022) into the imp-96543 VIF_291 refinement moves the bound in the SAFE (variance-reducing) direction and is genuinely co-calibrated (no scale mix): VIF_291 tightens from <= 0.075232 (z >= 7.012, rho_1-only) to <= 0.005463 (z >= 26.02) with the exact Bartlett weights, or <= 0.003189 (z >= 34.06) with the weightless telescoping budget. The tail is NEGLIGIBLE in the covariance budget (7.54% of rho_1 pull, confirming imp-96567) yet NOT negligible in z_eff (+19.0), because the rho_1-only VIF is already ~0.075 and z ~ 1/sqrt(VIF) amplifies the small increment -- an optical, not statistical, gain. The z >= 26 / 34 band is a fragile refinement (sub-1% VIF sits in the 1/sqrt(VIF) blow-up zone); the robust headline stays z_eff >= z_cons = 1.9234 (sign) and z_eff >= 7.01 (rho_1). Measurement only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96583_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: folding the imp-96567 calibrated '
+  'RH open; no refereed bound is changed; NO QED. Measurement only: folding the imp-96567 calibrated '
   + 'k>=2 tail (sum rho_k = -0.036022) into the imp-96543 VIF_291 refinement tightens VIF from <= 0.0752 '
   + '(z >= 7.01, rho_1-only) to <= 0.00546 (z >= 26.02, exact Bartlett weights). The tail is negligible '
   + 'in the covariance budget (7.5% of rho_1 pull) but NOT in z_eff (+19.0) via 1/sqrt(VIF) amplification; '
@@ -186,11 +186,11 @@ export const IMP96583_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96583_VIF_CALIBRATED_TAIL_FOLD.verdict))
     throw new Error('imp-96583: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96583_VIF_CALIBRATED_TAIL_FOLD.verdict))
-    throw new Error('imp-96583: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96583_VIF_CALIBRATED_TAIL_FOLD.verdict))
+    throw new Error('imp-96583: verdict dropped the no-refereed-bound-change banner');
   if (!/conditional/i.test(IMP96583_VIF_CALIBRATED_TAIL_FOLD.verdict))
     throw new Error('imp-96583: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96583_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96583_HONEST_BANNER) && /NO QED/.test(IMP96583_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96583_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96583_HONEST_BANNER) && /NO QED/.test(IMP96583_HONEST_BANNER)))
     throw new Error('imp-96583: IMP96583_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

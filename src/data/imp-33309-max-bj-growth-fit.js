@@ -60,7 +60,7 @@
  *  - MEASUREMENT + curve-fit on the 10 plateaus of [1e4,1e6]. maxBj/endN baked
  *    from the imp-33290 sweep; the four fits and their R^2 are re-derived LIVE.
  *  - No new Lambda bound. imp-3910 C <= 54.56 stands; imp-3066 K_a >= 0
- *    UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *    UNTOUCHED; no refereed bound is changed; NO QED.
  *
  * @see imp-33290-far-term-tighter-majorant-assessment.js (source of maxBj; proved the swap valid + relocated the obstruction to sup B_j)
  * @see imp-33250-tail-weight-ratio-n-uniformity-assessment.js (residual dg2 that sup_{N,j} B_j equals)

@@ -50,7 +50,7 @@
  * MEASUREMENT / TABULATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (the source: residual CLOSES, ~1/(2 log T0), no floor)
  * @see imp-33620-etrunc-ecoll-ladder-1e15-extension (the ORIGIN cohort ticket: first posed the close-vs-floor
@@ -192,7 +192,7 @@ export const IMP34187_ECOLL_RESIDUAL_MILESTONE_LADDER = {
     'above (1.02129 -> 1.00002) as the finite-N (u-1)/u factor relaxes. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34130 (separated E_coll residual CLOSES as ~1/(2 log T0), no floor); imp-34198 (the four ' +
     'decade crossings, refined here to seven rungs); imp-33816 (sigma-share exponent gap ~ 1/(2 log T0), ' +
@@ -260,14 +260,14 @@ export const IMP34187_ECOLL_RESIDUAL_MILESTONE_LADDER_ASSERTIONS = [
     holds: () => MODEL_GATE_FD_VS_ANALYTIC_AT_1e3 < 1e-9,
   },
   {
-    // honesty gate: tabulation only, far-tail exponent = -1/2 (imp-3463), no QED, PT SOTA.
+    // honesty gate: tabulation only, far-tail exponent = -1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34187-honesty-gate-no-qed',
-    description: 'Tabulation only: far-tail exponent = -1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Tabulation only: far-tail exponent = -1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP34187_ECOLL_RESIDUAL_MILESTONE_LADDER.isRigorous === false &&
       IMP34187_ECOLL_RESIDUAL_MILESTONE_LADDER.farTailExponent === -0.5 &&
       /NO QED/.test(IMP34187_ECOLL_RESIDUAL_MILESTONE_LADDER.verdict) &&
-      /remains SOTA/.test(IMP34187_ECOLL_RESIDUAL_MILESTONE_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP34187_ECOLL_RESIDUAL_MILESTONE_LADDER.verdict),
   },
 ];
 

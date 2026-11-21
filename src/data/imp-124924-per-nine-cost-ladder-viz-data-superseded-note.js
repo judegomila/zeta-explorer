@@ -9,8 +9,8 @@
  * (IMP124856_SPACING_ROWS, ratioToPrev climbing 9.7655 -> 9.9769 toward the limit 10).
  *
  * NO NEW WORK PERFORMED HERE: this note only records the ticket-level supersession so imp-124924
- * is not re-attempted as a duplicate leaf. Nothing in the verified ledger moves; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * is not re-attempted as a duplicate leaf. Nothing in the verified ledger moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-124856-fartail-per-nine-spacing-ladder-viz-data.js (the viz-data leaf this defers to)
  * @see imp-124793-fartail-diagnostic-per-nine-spacing-ladder.js (the underlying ladder/spacing source)

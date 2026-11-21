@@ -50,7 +50,7 @@
  * PROOF SCOPE / HONESTY. VERIFICATION ONLY on the inherited imp-3220/imp-3406 / imp-33723 SURROGATE
  * crossover-map derivative signs. Establishes NO operator positivity, NO spectral consequence, and
  * changes NO bound. The C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and
- * imp-3066 K_a >= 0 are UNTOUCHED. No RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 are UNTOUCHED. No RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34880-crossover-deriv-all-orders-sign-induction (the all-orders positivity induction, in double)
  * @see imp-34975-crossover-deriv-p13-p14-2p53-ceiling (locates the 2^53 exact-integer ceiling at n=16)
@@ -238,7 +238,7 @@ export const IMP35107_CROSSOVER_DERIV_EXACT_BIGINT_POSITIVITY_TO_N20 = {
     'requires, several orders past where the induction had actually been exercised. VERIFICATION ONLY ' +
     'on the INHERITED surrogate map: the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED; establishes no operator positivity; ' +
-    'changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34880 (all-orders coefficient-positivity induction, in double); imp-34975 (2^53 exact-integer ' +
     'ceiling at n=16, baked P_13/P_14); imp-35012 (Bernstein-function classification leaning on all-n ' +
@@ -305,12 +305,12 @@ export const IMP35107_CROSSOVER_DERIV_EXACT_BIGINT_POSITIVITY_TO_N20_ASSERTIONS 
     id: 'imp35107-honesty-gate-no-qed',
     description:
       'verification scope is the surrogate-map derivative signs only: establishes no operator ' +
-      'positivity, changes no bound, no QED, Platt-Trudgian stays SOTA',
+      'positivity, changes no bound, no QED, no refereed bound is changed',
     holds: () =>
       IMP35107_CROSSOVER_DERIV_EXACT_BIGINT_POSITIVITY_TO_N20.changesBound === false &&
       /NO QED/.test(IMP35107_CROSSOVER_DERIV_EXACT_BIGINT_POSITIVITY_TO_N20.verdict) &&
       /no operator positivity/.test(IMP35107_CROSSOVER_DERIV_EXACT_BIGINT_POSITIVITY_TO_N20.verdict) &&
-      /remains SOTA/.test(IMP35107_CROSSOVER_DERIV_EXACT_BIGINT_POSITIVITY_TO_N20.verdict) &&
+      /refereed bound is changed/i.test(IMP35107_CROSSOVER_DERIV_EXACT_BIGINT_POSITIVITY_TO_N20.verdict) &&
       /surrogate/i.test(IMP35107_CROSSOVER_DERIV_EXACT_BIGINT_POSITIVITY_TO_N20.rigorousScope),
   },
 ];

@@ -38,7 +38,7 @@
  * machinery (identical K, N_cross, band). The imp-34714a machine certificate REMAINS OPEN; F(m) = 0 stays a
  * double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED;
  * imp-3066 K_a >= 0 untouched; far-tail exponent 1/2 per imp-3463 untouched; establishes no operator positivity;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35241-krawczyk-headroom-band-profile (band-top S ~ 2555.18 at delta = 2e-4; did not sweep delta)
  * @see imp-35266-krawczyk-headroom-surplus-decomposition (S = S_inf . M_G . M_FP; ratio ~ 1.0221)
@@ -204,7 +204,7 @@ export const IMP35300_KRAWCZYK_HEADROOM_DELTA_STAR_TO_100 = {
     'the imp-35241/imp-35176/imp-34996 machinery (identical K, N_cross, band); the C_C 1/8 ansatz (imp-2642/2643) ' +
     'and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent 1/2 per ' +
     'imp-3463 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35241 (band-top S ~ 2555.18 at delta = 2e-4, 25.55x the 100x factor; did not sweep delta); imp-35266 ' +
     '(S = S_inf . M_G . M_FP; ratio ~ 1.0221); imp-34996 (S_inf = 1/(2 delta) large-N floor); imp-34929 ' +
@@ -247,15 +247,15 @@ export const IMP35300_KRAWCZYK_HEADROOM_DELTA_STAR_TO_100_ASSERTIONS = [
       RATIO_MAX < 1.026,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35300-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35300_KRAWCZYK_HEADROOM_DELTA_STAR_TO_100.isRigorous === false &&
       /imp-34714a/.test(IMP35300_KRAWCZYK_HEADROOM_DELTA_STAR_TO_100.subGap) &&
       /REMAINS OPEN/.test(IMP35300_KRAWCZYK_HEADROOM_DELTA_STAR_TO_100.subGap) &&
       /NO QED/.test(IMP35300_KRAWCZYK_HEADROOM_DELTA_STAR_TO_100.verdict) &&
-      /remains SOTA/.test(IMP35300_KRAWCZYK_HEADROOM_DELTA_STAR_TO_100.verdict),
+      /refereed bound is changed/i.test(IMP35300_KRAWCZYK_HEADROOM_DELTA_STAR_TO_100.verdict),
   },
 ];
 

@@ -12,8 +12,7 @@
  * monotonicity this PROVES the observed twin-lattice saturation
  * mu_max(twin, m) ~= 5.09 is a genuine convergent limit with the bracket
  *   5.09361535799 = mu_max(m=16, exact-inertia)  <  mu_inf  <=  84/11.
- * Model family only; changes no Lambda bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Model family only; changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95501/95503/95506/95507 normalization). Distinct positive
  * rates P, E_P = span{ e^(-p t) : p in P } in L2(0, inf), mean-time
@@ -322,7 +321,7 @@ export const IMP95508_MUSAT_LATTICE_CAP = {
     "model family only (exponential spans, mean-time compression); " +
     "MU-SAT is m-uniform but NOT sharp (twin gap factor 1.4992); the " +
     "convergence rate is measured-only; changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "no refereed bound is changed",
   promotesBound: false,
   isRigorous: true,
   rigorScope:
@@ -349,7 +348,7 @@ export const IMP95508_MUSAT_LATTICE_CAP = {
     "x_max(L_2m)/2 from m = 3 onward. MODEL FAMILY ONLY: no " +
     "paper-packet constant is touched and the finite-N Lambda beat did " +
     "NOT become rigorous. Changes no bound; NO QED on any RH statement; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -505,7 +504,7 @@ export const IMP95508_ASSERTIONS = [
     description:
       "the record scopes to the model family, names the executed " +
       "(mu-sat) residual and the new (mu-exact)/(mu-rate) residuals, " +
-      "promotes no bound, NO QED, PT stays SOTA",
+      "promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95508_MUSAT_LATTICE_CAP.promotesBound === false &&
       /\(mu-sat\)/.test(IMP95508_MUSAT_LATTICE_CAP.residualExecuted) &&
@@ -515,7 +514,7 @@ export const IMP95508_ASSERTIONS = [
       /RZ-PEN/.test(IMP95508_MUSAT_LATTICE_CAP.rescopedResidual) &&
       /MODEL FAMILY/.test(IMP95508_MUSAT_LATTICE_CAP.verdict) &&
       /NO QED/.test(IMP95508_MUSAT_LATTICE_CAP.verdict) &&
-      /remains SOTA/.test(IMP95508_MUSAT_LATTICE_CAP.verdict) &&
+      /refereed bound is changed/i.test(IMP95508_MUSAT_LATTICE_CAP.verdict) &&
       /did NOT become rigorous/.test(IMP95508_MUSAT_LATTICE_CAP.verdict),
   },
 ];

@@ -6,8 +6,8 @@
  * verifier (verify_tail_arb.c, sealed audit copy a74738de) to the 0.1399 row
  * coordinates and binary-searching the minimal cutoff N1*. It prices the
  * campaign's dominant cost and tests failure criteria K1/K2. It derives no
- * bound, certifies no lane, and closes no gap. NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA (PT-floor audit: verified height binds).
+ * bound, certifies no lane, and closes no gap. NO QED. No refereed bound is changed
+ *  (PT-floor audit: verified height binds).
  *
  * VERDICT IN ONE LINE: K1 does NOT fire (a minimal cutoff exists:
  * N1* = 220,495,706, boundary exact at 320 and 512 bits) but K2 FIRES
@@ -160,8 +160,8 @@ export const IMP95206_TAIL_REPRICING = Object.freeze({
     '219,804,718 rows, 69.8x the v3 replay and 4.06x the Gate-2 family scale. The ' +
     '0.1399 tail lane parks in the verbatim endpoint-cap architecture; residual outs ' +
     '(mollifier re-optimization at t*, new tail estimate) are unpriced. This probe ' +
-    'changes no bound and certifies no lane; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'changes no bound and certifies no lane; NO QED; no refereed bound is changed' +
+    '.',
 });
 
 // ── assertions (self-executing; import-light; throw on violation) ────────────
@@ -255,7 +255,7 @@ export const IMP95206_TAIL_REPRICING_ASSERTIONS = [
   },
   {
     id: 'imp95206-probe-hygiene',
-    description: 'grade is probe (not certificate), no bound claimed, verdict carries NO QED + PT-SOTA, conditional frontier unchanged',
+    description: 'grade is probe (not certificate), no bound claimed, verdict carries NO QED + no-refereed-bound-change, conditional frontier unchanged',
     holds: () =>
       IMP95206_TAIL_REPRICING.grade === 'measured/arb-certified-probe' &&
       IMP95206_TAIL_REPRICING.provesBound === false &&
@@ -263,7 +263,7 @@ export const IMP95206_TAIL_REPRICING_ASSERTIONS = [
       IMP95206_TAIL_REPRICING.movesRigorousBound === false &&
       IMP95206_TAIL_REPRICING.changesConditionalFrontier === false &&
       /NO QED/.test(IMP95206_TAIL_REPRICING.verdict) &&
-      /remains SOTA/.test(IMP95206_TAIL_REPRICING.verdict),
+      /refereed bound is changed/i.test(IMP95206_TAIL_REPRICING.verdict),
   },
 ];
 

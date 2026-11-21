@@ -59,7 +59,7 @@
  * MEASUREMENT ONLY. Same inherited imp-3220/imp-3406/imp-33582/imp-33602 component model as
  * imp-33854/imp-33925/imp-33960/imp-34007; same sub-terms; changes no bound; the C_mb GUE-conditional
  * share per imp-486 is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * C_C = 1/8 ansatz untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * C_C = 1/8 ansatz untouched; no RH verdict, NO QED. No refereed bound is changed.
  * Realized round-off magnitudes are platform-dependent, so the per-estimator cross-rung slopes are
  * asserted only to order (all positive, all sub-linear, none reaching the clean +1).
  *
@@ -208,7 +208,7 @@ export const IMP34067_I1_ROUNDOFF_ESTIMATOR_SENSITIVITY = {
     'per-rung round-off is stochastic and only fractionally same-sign. Same inherited imp-3220/imp-3406 ' +
     'component model; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34007 (geomean cross-rung slope ~+0.71, flagged round-off-stochastic); imp-33960 (fit at ' +
     'max rung N = 1e200); imp-33925 (r grows ~1/DL); imp-33854 (I1 identity); imp-486 (C_mb ' +
@@ -236,14 +236,14 @@ export const IMP34067_I1_ROUNDOFF_ESTIMATOR_SENSITIVITY_ASSERTIONS = [
     holds: () => SUBLINEARITY_NOT_A_GEOMEAN_ARTIFACT,
   },
   {
-    // Honesty gate: measurement only, no QED, imp-3066 untouched, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, imp-3066 untouched, no refereed bound is changed.
     id: 'imp34067-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, imp-3066 untouched, Platt-Trudgian SOTA',
+    description: 'Measurement only: isRigorous false, no QED, imp-3066 untouched, no refereed bound is changed',
     holds: () =>
       IMP34067_I1_ROUNDOFF_ESTIMATOR_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP34067_I1_ROUNDOFF_ESTIMATOR_SENSITIVITY.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34067_I1_ROUNDOFF_ESTIMATOR_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP34067_I1_ROUNDOFF_ESTIMATOR_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP34067_I1_ROUNDOFF_ESTIMATOR_SENSITIVITY.verdict),
   },
 ];
 

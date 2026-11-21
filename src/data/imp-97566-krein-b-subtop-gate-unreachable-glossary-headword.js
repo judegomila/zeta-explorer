@@ -48,7 +48,7 @@
  *   measurement of the Weyl bracket, drifts adversely with N, gate still unreached)
  *
  * Ticket: imp-97566 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The B-subtop-gate-unreachable headword, baked verbatim (no re-import).
@@ -84,7 +84,7 @@ const KREIN_B_SUBTOP_GATE_UNREACHABLE_HEADWORD = Object.freeze({
     'IMP97536_LAMBDA3_LOWER_REDUCES_TO_CERTIFIED_B_SUBTOP_SPECTRUM was itself pursued by imp-97556 ' +
     '(crude bound only) and imp-97557 (adverse drift), neither closing it. Naming / glossary ' +
     'headword only; supplies no new bound; interval-rigorous reach stays 2a<=0.96; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP97566_KREIN_B_SUBTOP_GATE_UNREACHABLE_GLOSSARY_HEADWORD = Object.freeze({
@@ -104,7 +104,7 @@ export const IMP97566_KREIN_B_SUBTOP_GATE_UNREACHABLE_GLOSSARY_HEADWORD = Object
     'alternatives to Route-2 -- min-max and PD-compression give Ritz upper brackets (wrong ' +
     'direction), and Weyl/Lidskii, the one distinct handle, reduces to a certified sub-top ' +
     '(third-largest) spectral bound on B that is not currently reachable. No bound moved; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97536 (the alt-routes assessment this glosses); imp-97514 (the m=2 window sub-gap ' +
     'source); imp-97415 (the lambda_2 concentration-wall circularity); imp-97556 (crude sub-top ' +
@@ -133,11 +133,11 @@ export const IMP97566_KREIN_B_SUBTOP_GATE_UNREACHABLE_GLOSSARY_HEADWORD_ASSERTIO
   },
   {
     id: 'imp97566-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97536.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97536.',
     holds: () =>
       IMP97566_KREIN_B_SUBTOP_GATE_UNREACHABLE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97566_KREIN_B_SUBTOP_GATE_UNREACHABLE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97566_KREIN_B_SUBTOP_GATE_UNREACHABLE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97566_KREIN_B_SUBTOP_GATE_UNREACHABLE_GLOSSARY_HEADWORD.verdict) &&
       IMP97566_KREIN_B_SUBTOP_GATE_UNREACHABLE_GLOSSARY_HEADWORD.glosses === 'imp-97536',
   },
 ];

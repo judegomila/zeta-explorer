@@ -60,8 +60,7 @@
  *
  * SCOPE. MEASUREMENT ONLY. Confirms the tightness of an existing lower
  * bound; introduces no new bound and no new theorem. Import-light (no
- * imports). Changes no bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imports). Changes no bound of the Lambda program; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -97,7 +96,7 @@ export const IMP95259_PHIUNIF_CRUDE_TAIL_TIGHTNESS = {
     "does NOT raise the uniform fence and does NOT lower the " +
     "unbounded-count firing threshold XSTAR_UNIF = 27.035582. " +
     "MEASUREMENT ONLY; introduces no bound and no theorem; changes no " +
-    "bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -215,7 +214,7 @@ export const IMP95259_TIGHTNESS_ASSERTIONS = [
       /does NOT lower the/.test(REF.verdict) &&
       /introduces no bound and no theorem/.test(REF.verdict) &&
       /NO QED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
 ];
 

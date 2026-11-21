@@ -11,8 +11,8 @@
  *   measured numbers and a sharper obstruction.
  *
  *   EXECUTION / MEASUREMENT only. No unconditional positive lower bound is produced; no operator
- *   positivity is established; no bound moves; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian
- *   Lambda<=0.2 SOTA; RH open; NO QED. Runner: tmp/imp-97414-fullprojector-secondmoment.py
+ *   positivity is established; no bound moves; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed
+ *   ; RH open; NO QED. Runner: tmp/imp-97414-fullprojector-secondmoment.py
  *   (mpmath dps=50; pole-free basis phi_n(x)=(a^2-x^2)^3 P_n(x/a); N=28, T=200, panel=1.0; the run below).
  *
  * THE REPRODUCING-KERNEL REALIZATION. Because the basis phi_n lives in the Paley-Wiener space PW_a,

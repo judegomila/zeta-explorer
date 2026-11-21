@@ -54,7 +54,7 @@
  * precision on a doubled ladder. The average exponent ~10.56 still outruns every fixed power <= 3. The
  * imp-97640 sub-gap IMP97640_RESIDUAL_DECAY_EXPONENT_PRECISION_LIMITED_PAST_2E6 stays RESOLVED. MCM stays
  * refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves;
- * PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97640-route-m-gap-law-residual-decay-exponent.js (shallow ladder; sub-gap PRECISION_LIMITED_PAST_2E6)
  * @see imp-97659-route-m-gap-law-decay-extprec.js (dps=30 ladder; exponent oscillates, single sign-change)
@@ -144,11 +144,11 @@ export const IMP97780_VERDICT = Object.freeze({
     'the oscillating-PNT/Mertens-error fingerprint. The named sub-gap ' +
     'IMP97640_RESIDUAL_DECAY_EXPONENT_PRECISION_LIMITED_PAST_2E6 stays RESOLVED (imp-97659, re-confirmed by ' +
     'imp-97706). MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on ' +
-    'Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97780_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reconciling the imp-97640 climbing-exponent reading ' +
+  'RH open; no refereed bound is changed; NO QED. Reconciling the imp-97640 climbing-exponent reading ' +
   '(q 6.839 -> 8.713) against the imp-97706 dps=35 ladder: the local decay exponent NEITHER keeps climbing ' +
   'NOR saturates -- it OSCILLATES from ~-28.79 to ~+56.89 over the 23-rung combined ladder (eight negative ' +
   'rungs, non-monotone), doubly-confirming the imp-97659 dps=30 finding. The imp-97640 climb was a two-rung ' +
@@ -210,7 +210,7 @@ const IMP97780_ASSERTIONS = [
       IMP97780_VERDICT.anyBoundMoved === false &&
       IMP97780_VERDICT.qed === false &&
       /NO QED/.test(IMP97780_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97780_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97780_HONEST_BANNER) &&
       /RH open/.test(IMP97780_HONEST_BANNER),
     why: 'cross-validation only -- the exponent oscillates (neither climb nor saturate), doubly confirmed, sub-gap resolved; MCM refuted from omega=11; no bound moved, no QED.',
   },

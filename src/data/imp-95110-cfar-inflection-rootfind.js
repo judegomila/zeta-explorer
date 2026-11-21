@@ -53,7 +53,7 @@
  * MODEL Q scan (Q = c 2^(-2/3)).
  *
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // -- parameterized ceiling machinery (identical shape to imp-95093) -----------
@@ -199,7 +199,7 @@ export const IMP95110_CFAR_INFLECTION_ROOTFIND = {
     "MEASUREMENT. The inflection of d2 cFar/dQ2 is located by a converged secant rootfind on the imp-95093 sign-straddling bracket, giving c* = 0.6131751 / Q* = 0.3862761 (headline dc=0.10,N=8e5), and its residual sensitivity is measured (stencil-dominated, ~6:1 over quadrature; six-config envelope c* in [0.611,0.615]). No closed-form/interval root certificate and no paper Q are produced. NO QED.",
   promotesBound: false,
   verdict:
-    "CERTIFY the inflection of d2 cFar/dQ2 by a secant rootfind on the imp-95093 sign-flip bracket [0.60,0.65]. The rootfind converges (|d2| < 1e-9, argmax b = 2) in every stencil x quadrature configuration, so the inflection is real, not a finite-difference artifact; the certified value is c* = 0.6131751 -> Q* = c* 2^(-2/3) = 0.3862761 (headline dc=0.10, N=8e5), confirming and tightening the imp-95093 estimate c* ~ 0.613 / Q* ~ 0.386. The residual is STENCIL-dominated (~6:1 over quadrature): six-config envelope c* in [0.611185, 0.615096], central estimate c* = 0.613 +/- 0.002, Q* = 0.3863 +/- 0.0012. SUB-GAP: numerical certification only (no closed-form/interval root certificate; stencil-truncation-limited to ~2e-3); paper Q not pinned in-repo. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "CERTIFY the inflection of d2 cFar/dQ2 by a secant rootfind on the imp-95093 sign-flip bracket [0.60,0.65]. The rootfind converges (|d2| < 1e-9, argmax b = 2) in every stencil x quadrature configuration, so the inflection is real, not a finite-difference artifact; the certified value is c* = 0.6131751 -> Q* = c* 2^(-2/3) = 0.3862761 (headline dc=0.10, N=8e5), confirming and tightening the imp-95093 estimate c* ~ 0.613 / Q* ~ 0.386. The residual is STENCIL-dominated (~6:1 over quadrature): six-config envelope c* in [0.611185, 0.615096], central estimate c* = 0.613 +/- 0.002, Q* = 0.3863 +/- 0.0012. SUB-GAP: numerical certification only (no closed-form/interval root certificate; stencil-truncation-limited to ~2e-3); paper Q not pinned in-repo. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) --------------------------
@@ -247,12 +247,12 @@ export const IMP95110_CFAR_INFLECTION_ROOTFIND_ASSERTIONS = [
   {
     id: "imp95110-honesty-gate",
     description:
-      "the verdict names the sub-gap (numerical certification only; no closed-form/interval root certificate; stencil-truncation-limited; paper Q not pinned), promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (numerical certification only; no closed-form/interval root certificate; stencil-truncation-limited; paper Q not pinned), promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95110_CFAR_INFLECTION_ROOTFIND.promotesBound === false &&
       IMP95110_CFAR_INFLECTION_ROOTFIND.openResiduals.length === 2 &&
       /NO QED/.test(IMP95110_CFAR_INFLECTION_ROOTFIND.verdict) &&
-      /remains SOTA/.test(IMP95110_CFAR_INFLECTION_ROOTFIND.verdict) &&
+      /refereed bound is changed/i.test(IMP95110_CFAR_INFLECTION_ROOTFIND.verdict) &&
       /SUB-GAP/.test(IMP95110_CFAR_INFLECTION_ROOTFIND.verdict),
   },
 ];

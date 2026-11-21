@@ -56,7 +56,7 @@
  *
  * ASSESSMENT ONLY. Cross-check on the inherited imp-3220/imp-3406 extrapolation; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; no positivity, no bridge closure, no
- * RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-3444-sigma-nshape-landmark-ladder (Newton-height crossover / half-point)
  * @see imp-95638-deficit-invariant-fartail-limit (closed-form far-tail inversion)
@@ -210,7 +210,7 @@ export const IMP95662_CROSSOVER_LOCATOR_CROSSCHECK = {
     'the ~3.28e9 crossover and the 0.398%-below half-point are solver-independent facts of the ' +
     'shared RvM component model, not artifacts of one root-finder. Cross-check on the inherited ' +
     'imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no ' +
-    'positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-3444 (Newton-height crossover / half-point landmarks); imp-95638 (closed-form far-tail ' +
     'inversion); imp-3406 (N-shape component model); imp-398 (E_flow Gronwall); imp-2631 (E_trunc ' +
@@ -267,13 +267,13 @@ export const IMP95662_CROSSOVER_LOCATOR_CROSSCHECK_ASSERTIONS = [
       DIRECT_VS_3444_CROSS_REL < 1e-7,
   },
   {
-    // Honesty gate: measurement cross-check only, no QED, PT stays SOTA.
+    // Honesty gate: measurement cross-check only, no QED, no refereed bound is changed.
     id: 'imp95662-honesty-gate-no-qed',
-    description: 'Measurement cross-check only: no QED, PT stays SOTA',
+    description: 'Measurement cross-check only: no QED, no refereed bound is changed',
     holds: () =>
       IMP95662_CROSSOVER_LOCATOR_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP95662_CROSSOVER_LOCATOR_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP95662_CROSSOVER_LOCATOR_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP95662_CROSSOVER_LOCATOR_CROSSCHECK.verdict),
   },
 ];
 

@@ -58,7 +58,7 @@
  *   Reuses the imp-34948 locators. Changes NO bound; recomputes no landmark used in
  *   any bound; C_mb GUE-conditional per imp-486 is UNTOUCHED; establishes no
  *   operator positivity; imp-3066 K_a >= 0 untouched; imp-34687a/imp-34714a stay
- *   OPEN; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   OPEN; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-34948-inflection-offset-far-tail-ladder-extension (the exponents this certifies; locators reused)
  * @see imp-35028-running-g-ramp-vs-sigmoid-split (deferred this FD/bisection-floor artifact check here)
@@ -264,7 +264,7 @@ export const IMP35029_FAR_TAIL_EXPONENT_TOLERANCE_ROBUSTNESS = {
     'step-conditioned reading, honest sub-gap, not a genuine sub-(-2) asymptote. Component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'imp-34687a/imp-34714a stay OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-34687a/imp-34714a stay OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34948 (the far-tail exponents this certifies; locators reused); imp-35028 (deferred this artifact ' +
     'check here); imp-34903 (far-tail iters-to-floor seed-grid artifact concern); imp-33744 (offset ~ ' +
@@ -309,13 +309,13 @@ export const IMP35029_FAR_TAIL_EXPONENT_TOLERANCE_ROBUSTNESS_ASSERTIONS = [
     holds: () => rampOutOfWindowShift > 0.15,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35029-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35029_FAR_TAIL_EXPONENT_TOLERANCE_ROBUSTNESS.isRigorous === false &&
       /NO QED/.test(IMP35029_FAR_TAIL_EXPONENT_TOLERANCE_ROBUSTNESS.verdict) &&
-      /Lambda <= 0\.2 remains SOTA/.test(IMP35029_FAR_TAIL_EXPONENT_TOLERANCE_ROBUSTNESS.verdict),
+      /refereed bound is changed/i.test(IMP35029_FAR_TAIL_EXPONENT_TOLERANCE_ROBUSTNESS.verdict),
   },
 ];
 

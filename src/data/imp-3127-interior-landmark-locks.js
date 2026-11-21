@@ -29,8 +29,7 @@
  *   DEGREE-0 SCALAR MEASURE ONLY, RH-EQUIVALENT, NOT THE OPERATOR STEP. This locks
  *   three interior scalar landmark scales; it neither proves nor weakens RH. The
  *   off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone
- *   obstruction and is untouched. Lock only, no QED. Platt-Trudgian Lambda &lt;= 0.2
- *   REMAINS the rigorous SOTA.
+ *   obstruction and is untouched. Lock only, no QED. No refereed bound is changed.
  *
  *   @see imp-3105-excess-fraction-crossover-landmarks-2026-06-30.js (the landmarks)
  *   @see imp-3112-onset-decay-constant-locks.js (the companion C, K constant lock)
@@ -143,7 +142,7 @@ export const IMP3127_INTERIOR_LANDMARK_LOCKS = Object.freeze({
       'Locks three interior landmark scales of the imp-3064 degree-0 ratio; the ' +
       'off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone ' +
       'obstruction and is NOT addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -206,7 +205,7 @@ export const IMP3127_INTERIOR_LANDMARK_LOCKS_ASSERTIONS = [
     id: 'imp3127-honest-rh-equivalent-not-a-reduction',
     why: 'Mandatory honesty: this is a landmark LOCK, RH-EQUIVALENT, structural/diagnostic, ' +
          'leaves the operator step untouched, is not a proof, not a reduction below RH, and ' +
-         'PT 0.2 stays SOTA. If any of these flip the module is over-claiming.',
+         'no refereed bound is changed. If any of these flip the module is over-claiming.',
     holds: () => {
       const c = IMP3127_INTERIOR_LANDMARK_LOCKS.honestCaveat;
       return (
@@ -215,7 +214,7 @@ export const IMP3127_INTERIOR_LANDMARK_LOCKS_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.isStructuralDiagnostic === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

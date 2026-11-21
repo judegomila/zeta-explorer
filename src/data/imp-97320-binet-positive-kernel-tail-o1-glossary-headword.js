@@ -39,7 +39,7 @@
  *   left open.
  *
  *   STATUS: a mechanism-level glossary headword over an already-committed honest-partial finding,
- *   not a new computation or a positivity theorem. No bound moved; PT Lambda <= 0.2 remains SOTA;
+ *   not a new computation or a positivity theorem. No bound moved; no refereed bound is changed;
  *   RH open; NO QED.
  *
  * @see imp-97289-route-m-arith-tail-o1-proof.js (source: the Binet positive-kernel mechanism and
@@ -49,7 +49,7 @@
  *   the naive triangle bound reproduces exactly)
  *
  * Ticket: imp-97320 (content, medium, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The Binet positive-kernel tail-representation headword, baked verbatim (no re-import).
@@ -80,7 +80,7 @@ const BINET_POSITIVE_KERNEL_TAIL_O1_HEADWORD = Object.freeze({
     'kernel integral reproduces rho_n to < 1e-4 for n = 1..20, g > 0 on a wide t-grid, g(0+) = ' +
     '1/12); the uniform bounds |R(p)| < 1/12 and |R(p^a)| < 1/12 are proved on the prime and ' +
     'prime-power ladders. The uniform-in-omega bound on the primorial class (IMP97289_TAIL_O1_' +
-    'SUBGAP, measured L ~ 0.127) remains OPEN. No bound moved; PT Lambda <= 0.2 remains SOTA; ' +
+    'SUBGAP, measured L ~ 0.127) remains OPEN. No bound moved; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
@@ -102,8 +102,8 @@ export const IMP97320_BINET_POSITIVE_KERNEL_TAIL_O1_HEADWORD = Object.freeze({
     '|R(b)| < 1/12 on every prime and prime power. The naive triangle bound reproduces exactly ' +
     'the imp-97202 O(log log b) envelope, isolating the whole gap to the measured O(1) as the ' +
     'alternating Moebius cancellation on the binding primorial class, which remains OPEN as ' +
-    'IMP97289_TAIL_O1_SUBGAP. No bound is claimed moved; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'IMP97289_TAIL_O1_SUBGAP. No bound is claimed moved; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97289 (the Binet positive-kernel mechanism and the two proved prime/prime-power tail ' +
     'bounds this headword glosses); imp-97266 (the O(1) measurement the mechanism explains); ' +
@@ -130,11 +130,11 @@ export const IMP97320_BINET_POSITIVE_KERNEL_TAIL_O1_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97320-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97320_BINET_POSITIVE_KERNEL_TAIL_O1_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97320_BINET_POSITIVE_KERNEL_TAIL_O1_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97320_BINET_POSITIVE_KERNEL_TAIL_O1_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97320_BINET_POSITIVE_KERNEL_TAIL_O1_HEADWORD.verdict) &&
       IMP97320_BINET_POSITIVE_KERNEL_TAIL_O1_HEADWORD.glosses === 'imp-97289',
   },
 ];

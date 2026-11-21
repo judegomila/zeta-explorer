@@ -60,7 +60,7 @@
  * SURVIVING GAP unchanged from imp-96850: a closed form (or rigorous asymptotic) for the scalar
  * beta_inf remains open (the 1/a^2-weighted coprime-averaged Vasyunin second moment, ~73% of it
  * cotangent-fluctuation variance not supplied by L1-L2). Measurement only; conditional on the exact
- * kernel; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * kernel; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96850-coupled-weighted-vasyunin-double-sum-decoupling.js (the reciprocity reduction + beta ladder)
  * @see imp-96849-coprime-core-vasyunin-second-moment-ladder-extension.js (local exponent < 1.05)
@@ -203,7 +203,7 @@ export const IMP96873_HONEST_BANNER =
   + 'unbounded beta_k ~ log k) and linear-in-log is corroborated (agrees with imp-96849 exponent < 1.05). '
   + 'The finite-ladder-effective beta_eff ~ 2.913 that fixes the imp-96828 slope c ~ 3.542 is a '
   + 'small-k-weighted average and is UNCHANGED; no bound moved. Surviving gap: a closed form for '
-  + 'beta_inf. Conditional on the exact kernel; PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  + 'beta_inf. Conditional on the exact kernel; no refereed bound is changed; RH open; NO QED.';
 
 export const IMP96873_SUBGAP = Object.freeze({
   id: 'imp-96873-vasyunin-beta-inf-loglog-limit-above-2p917',
@@ -285,7 +285,7 @@ const IMP96873_ASSERTIONS = [
       IMP96873_VERDICT.linearInLogCorroborated === true &&
       IMP96873_VERDICT.betaBoundedAndConverging === true &&
       /NO QED/.test(IMP96873_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96873_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96873_HONEST_BANNER) &&
       /RH open/.test(IMP96873_HONEST_BANNER) &&
       /beta-inf-loglog-limit/.test(IMP96873_SUBGAP.id),
     why: 'measurement only: bounded/converging beta refutes (log N)^2 and corroborates linear-in-log, with all honesty markers present and the sub-gap recorded.',

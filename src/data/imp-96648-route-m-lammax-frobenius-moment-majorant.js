@@ -60,7 +60,7 @@
  * family is strictly worse than trace (ceiling ~1.5e7) and is ruled out. Every ceiling
  * still sits >= 1500x above the imp-96352 compute ceiling N ~ 9916, so the "compute binds
  * first" verdict is UNCHANGED and hardened. Changes no bound; no operator positivity;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): the improved ceiling extrapolates the Frobenius majorant by
  * a log-fit, not a rigorous asymptotic. A rigorous asymptotic for ||G||_F^2 =
@@ -171,7 +171,7 @@ export const IMP96648_VERDICT = Object.freeze({
     'WORSE than trace (ceiling ~1.5e7) because it counts the sign-cancelling first-row ' +
     'off-diagonal mass by magnitude, and is ruled out. All ceilings sit >= 1500x above the ' +
     'imp-96352 compute ceiling N ~ 9916, so compute binds first (unchanged, hardened). ' +
-    'No bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'No bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 // Residual open piece: the improved ceiling still extrapolates a log-FIT, not an asymptotic.
@@ -190,7 +190,7 @@ export const IMP96648_SUBGAP = Object.freeze({
 });
 
 export const IMP96648_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: every majorant is a ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment only: every majorant is a ' +
   'rigorous matrix inequality measured on the same exact Vasyunin Gram as imp-96105 / ' +
   'imp-96443 (tmp/imp-96648-rowsum-majorant.py); lam_max is the reproducible imp-96443 ' +
   'power-iteration value; the fits and ceiling re-solves are pure re-analysis; no bound is ' +
@@ -252,7 +252,7 @@ const IMP96648_ASSERTIONS = [
       IMP96648_VERDICT.momentFamilyHelps === true &&
       IMP96648_VERDICT.rowsumFamilyHelps === false &&
       /NO QED/.test(IMP96648_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96648_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96648_HONEST_BANNER) &&
       /RH open/.test(IMP96648_HONEST_BANNER) &&
       /second-moment-asymptotic/.test(IMP96648_SUBGAP.id),
     why: 'assessment only: no bound moved, the moment-helps / row-sum-fails split is recorded, and the honesty markers plus the residual second-moment-asymptotic sub-gap are present.',

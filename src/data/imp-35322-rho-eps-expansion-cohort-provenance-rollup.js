@@ -23,7 +23,7 @@
  * grepped against glossary.js and visualizations-index.js for existing coverage.
  *
  * RESULT (audited 2026-07-09). All three resolved modules carry isRigorous:false and the full honest
- * banner (no QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 SOTA) and share the identical
+ * banner (no QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed) and share the identical
  * model-cusp rho(eps) = C_ren/C_curv expansion surrogate inherited from imp-3220/imp-3406/imp-33646. All
  * three have existing glossary.js coverage (25, 14, 19 hits respectively) and existing routed viz pages
  * (imp-35240 via imp-35272, imp-35244 via imp-35273, imp-35216 via 2 page references). The two pending ids
@@ -97,8 +97,8 @@ export const IMP_35322_RHO_EPS_EXPANSION_COHORT_PROVENANCE_ROLLUP = {
     'entries and should not be catalogued as resolved until their assigned engine completes them.',
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module itself. ' +
-    'imp-3066 K_a >= 0 positivity untouched across all catalogued modules. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA. No QED.',
+    'imp-3066 K_a >= 0 positivity untouched across all catalogued modules. No refereed bound is changed' +
+    '. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -142,11 +142,11 @@ const IMP_35322_ASSERTIONS = [
         r.modules.every((m) => m.isRigorous === false) &&
         /no QED/i.test(r.honestNote) &&
         /imp-3066/.test(r.honestNote) &&
-        /SOTA/.test(r.honestNote)
+        /refereed bound is changed/i.test(r.honestNote)
       );
     },
     why: 'Every catalogued resolved module must be isRigorous:false, and the roll-up itself must state ' +
-      'no-QED, imp-3066 untouched, and Platt-Trudgian Lambda <= 0.2 SOTA.',
+      'no-QED, imp-3066 untouched, and no refereed bound is changed.',
   },
   {
     id: 'imp35322-glossary-and-viz-coverage-counts-match',

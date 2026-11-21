@@ -54,7 +54,7 @@
  * bound. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the factor
  * identity is exact WITHIN that model only; changes no bound; establishes no operator positivity;
  * imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33962-attenuation-rung-by-rung-decomposition (the 0.9225 aggregate share this stress-tests)
  * @see imp-33922-eflow-analytic-decay-vs-widening-crosscheck (the endpoint F1..F4 slice)
@@ -237,7 +237,7 @@ export const IMP34009_AGGREGATE_SHARE_WINDOW_ENDPOINT_SENSITIVITY = {
     'constant. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the factor ' +
     'identity is exact WITHIN the model only; changes no bound; establishes no operator positivity; ' +
     'imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-33962 (the 0.9225 aggregate F2 share this stress-tests); imp-33922 (the endpoint F1..F4 ' +
     'slice); imp-33810 (the 21 quarter-decade rungs); imp-33884/imp-33885 (the exact 903.538 widening ' +
@@ -285,13 +285,13 @@ export const IMP34009_AGGREGATE_SHARE_WINDOW_ENDPOINT_SENSITIVITY_ASSERTIONS = [
     holds: () => SHARE_SPREAD > 0.18 && SHARE_SPREAD < 0.22 && Math.abs(SHARE_MIN - SHARE_INNER) < 1e-9,
   },
   {
-    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34009-honesty-gate-no-qed',
-    description: 'Endpoint-sensitivity only: isRigorous false, no QED, PT SOTA',
+    description: 'Endpoint-sensitivity only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34009_AGGREGATE_SHARE_WINDOW_ENDPOINT_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP34009_AGGREGATE_SHARE_WINDOW_ENDPOINT_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP34009_AGGREGATE_SHARE_WINDOW_ENDPOINT_SENSITIVITY.verdict) &&
+      /refereed bound is changed/i.test(IMP34009_AGGREGATE_SHARE_WINDOW_ENDPOINT_SENSITIVITY.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34009_AGGREGATE_SHARE_WINDOW_ENDPOINT_SENSITIVITY.verdict),
   },
 ];

@@ -66,7 +66,7 @@
  * removing the smallest exponent leaves the governing weight -- and the load-bearing H4
  * strip-height-uniformity residual -- untouched. Bookkeeping / assessment only; G6a_shock_lipschitz
  * stays OPEN; no positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb share
- * untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * untouched; NO QED. No refereed bound is changed.
  *
  * @see imp-33668-part-b-selection-residual-scoping (the SUBSUMED-BY-H3/H4 verdict being formalized)
  * @see imp-33603-lemma52-port-scoping (the H1..H5 + H0 obligation catalogue, H4 the residual)
@@ -171,7 +171,7 @@ export const IMP33706_SELECTION_CATALOGUE_COUNT_SCOPING = {
     'load-bearing H4 strip-height-uniformity residual untouched, and the value term is separately ' +
     'discharged pointwise by imp-394. Bookkeeping / assessment only; G6a_shock_lipschitz stays OPEN; no ' +
     'positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb share untouched; NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-33668-part-b-selection-residual-scoping (the SUBSUMED-BY-H3/H4 verdict, isDistinctFourthObligation = false); ' +
     'imp-33603-lemma52-port-scoping (the H0..H5 catalogue, H4 the strip-height-uniformity residual); ' +
@@ -236,14 +236,14 @@ export const IMP33706_SELECTION_CATALOGUE_COUNT_SCOPING_ASSERTIONS = [
       IMP33706_SELECTION_CATALOGUE_COUNT_SCOPING.mildestMemberDroppable === true,
   },
   {
-    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33706-honesty-gate-no-qed',
-    description: 'Bookkeeping only: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Bookkeeping only: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33706_SELECTION_CATALOGUE_COUNT_SCOPING.isRigorous === false &&
       /NO QED/.test(IMP33706_SELECTION_CATALOGUE_COUNT_SCOPING.verdict) &&
       /stays OPEN/.test(IMP33706_SELECTION_CATALOGUE_COUNT_SCOPING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33706_SELECTION_CATALOGUE_COUNT_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP33706_SELECTION_CATALOGUE_COUNT_SCOPING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33706_SELECTION_CATALOGUE_COUNT_SCOPING.verdict),
   },
 ];

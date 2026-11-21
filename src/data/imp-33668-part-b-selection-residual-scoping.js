@@ -97,7 +97,7 @@
  * weights are carried through the fold-modulus back-conversion). So the selection introduces NO
  * N-dependent obstruction distinct from H3/H4. Scoping / measurement only; G6a_shock_lipschitz stays
  * OPEN; no positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb share
- * untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * untouched; NO QED. No refereed bound is changed.
  *
  * @see imp-33619-h5-rh-transcription-scoping (part (b): the inf -> complex-critical-value selection flagged)
  * @see imp-33646-h4-privalov-sokhotski-constant-scoping (the fold-reading derivative m_prime, exponent 3/2)
@@ -262,7 +262,7 @@ export const IMP33668_PART_B_SELECTION_RESIDUAL_SCOPING = {
     'the H3/H4 residual as the lowest-order term of the fold-modulus back-conversion (rides along once ' +
     'the derivative weights are carried through). Assessment only; G6a_shock_lipschitz stays OPEN; no ' +
     'positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb share untouched; NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-33619-h5-rh-transcription-scoping (part (b): the inf -> complex-critical-value selection flagged); ' +
     'imp-33646-h4-privalov-sokhotski-constant-scoping (fold-reading derivative m_prime, exponent 3/2); ' +
@@ -359,14 +359,14 @@ export const IMP33668_PART_B_SELECTION_RESIDUAL_ASSERTIONS = [
       /strip-height-uniformity/.test(IMP33668_PART_B_SELECTION_RESIDUAL_SCOPING.residualObstruction),
   },
   {
-    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33668-honesty-gate-no-qed',
-    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33668_PART_B_SELECTION_RESIDUAL_SCOPING.isRigorous === false &&
       /NO QED/.test(IMP33668_PART_B_SELECTION_RESIDUAL_SCOPING.verdict) &&
       /stays OPEN/.test(IMP33668_PART_B_SELECTION_RESIDUAL_SCOPING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33668_PART_B_SELECTION_RESIDUAL_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP33668_PART_B_SELECTION_RESIDUAL_SCOPING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33668_PART_B_SELECTION_RESIDUAL_SCOPING.verdict),
   },
 ];

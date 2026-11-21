@@ -4,7 +4,7 @@
  * IMP95341_BINDING_CHART_MIGRATION (no re-derivation, no re-execution
  * of the underlying 256-chart numerics beyond what imp-95341 already
  * computes at import). Presentation only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP95341_BINDING_CHART_MIGRATION } from './imp-95341-binding-chart-migration.js';

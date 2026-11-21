@@ -52,7 +52,7 @@ export const IMP97629_SUMMARY = Object.freeze({
     'MEASUREMENT ONLY. R is a finite-section IEEE-double/Lanczos eigenvalue on a truncated window and '
     + 'R_inf is a 1/T extrapolation, not a certified limit; the realizable psi still captures only ~half '
     + 'the bathtub envelope, so the realizability gap persists; no bound moved; interval-rigorous reach '
-    + 'stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

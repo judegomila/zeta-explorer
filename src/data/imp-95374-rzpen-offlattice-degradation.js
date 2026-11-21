@@ -6,8 +6,7 @@
  * imp-95330 honestScope (c) and the imp-95331 verdict, distinct from the
  * SPLIT-LOO off-lattice measurement imp-95253 (which perturbs the
  * Blaschke-priced leave-one-out certificate, not the symbol-pencil floor).
- * MEASUREMENT ONLY; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * MEASUREMENT ONLY; changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT. The imp-95330 THEOREM RZ-PEN4 / COROLLARY PEN-UNIF4 floor
  *   inf lam_min(F, G0) >= A_pen4(rho, r) >= A_unif4(rho) = (16/a^2) W4(rho)
@@ -86,7 +85,7 @@
  * degradation, onset shift > 5); the +-1.56%..+-6.25% floors are >1e-9 and
  * reproduce to 12 digits. (e) gammaSL obligation (3), signed WEIGHT and
  * modulus/phase legs and the imp-95212 envelope port all remain OPEN.
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -155,8 +154,8 @@ export const IMP95374_RZPEN_OFFLATTICE_DEGRADATION = {
     "proven floor, +-25% blows the onset out by ~9 depth units); typical " +
     "(mean) placement is far more robust (onset shift < 0.5 through +-12.5%). " +
     "Quantifies the imp-95330/imp-95331 off-lattice residual as a bounded, " +
-    "separation-priced cost. Changes no bound; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "separation-priced cost. Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
   // imp-95455 asked for a viz page plotting onset shift and worst-vs-mean
   // floor degradation across jitter magnitude for this exact record; the
   // imp-95435 page (/viz-imp95435-rzpen-offlattice-degradation-ladder)
@@ -450,12 +449,12 @@ export const IMP95374_ASSERTIONS = [
     description:
       "the verdict and scope carry the honest labels: MEASUREMENT, no " +
       "off-lattice floor theorem, changes no bound, open legs named, no " +
-      "QED, PT SOTA",
+      "QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /measurement only/i.test(REC.honestScope) &&
       /remain OPEN/.test(REC.honestScope) &&
       /NO off-lattice floor theorem/i.test(REC.honestScope),

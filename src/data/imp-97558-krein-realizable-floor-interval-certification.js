@@ -45,7 +45,7 @@
  *   eigenvalue to a certified matrix-level enclosure. The realizable floor c_sharp >= -R stays UN-certified at the
  *   OPERATOR level: the entry-enclosure, singular sinc quadrature, and truncation/non-monotonicity legs are open, so
  *   no rigorous bound is promoted. Scalar bound stays a negative floor; no operator positivity; no bound moves;
- *   interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *   SUB-GAP IMP97558_MATRIX_BRACKET_CERTIFIED_OPERATOR_BRACKET_NEEDS_QUADRATURE_TRUNCATION_ENTRY_ENCLOSURE.
  *
  * @see imp-97457-krein-bathtub-realizability-gap.js (the measured R = 1343.796 and -1343.796 floor this certifies)
@@ -56,7 +56,7 @@
  * Runner: tmp/imp-97558-interval-certify.py (numpy sinc-projector matrix at h = 0.005 on [-12,12]; numerical eigh
  *   top eigenpair; rounding-controlled Rayleigh lower bound; symmetric residual + Kato-Temple upper bound; loose
  *   Gershgorin/congruence uppers for comparison). Certification of the matrix eigenvalue only; NO QED.
- * Ticket: imp-97558 (numerical, medium, opus-4-8). Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Ticket: imp-97558 (numerical, medium, opus-4-8). Changes no bound; no refereed bound is changed.
  */
 
 const LN3 = Math.log(3);      // 1.0986122886681098 -- the binding 2a for the Krein floor

@@ -33,8 +33,7 @@
  * page in this ticket"). This module records the gap so a future content/ux ticket can add
  * a short asymmetry note to Imp35561PeakHeightMapSensitivityViz.jsx (or build a dedicated
  * imp-35451/imp-35557 page) rather than the gap going unrecorded. Changes no bound;
- * establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35561-peak-height-map-sensitivity-viz-data.js (the audited page's data module)
  * @see src/pages/Imp35561PeakHeightMapSensitivityViz.jsx (the audited page)
@@ -80,7 +79,7 @@ export const IMP35569_SIGMA_PEAK_PAGE_HONEST_STATUS_AUDIT = {
     'height-map-robustness verdict correctly but omits the imp-35451/imp-35557 cubic-skew ' +
     'arm-asymmetry entirely -- a real honest-status gap, now recorded for a follow-up fix. No page ' +
     'edited in this ticket; changes no bound; establishes no operator positivity; no RH verdict; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35536 (height-map robustness verdict, surfaced); imp-35451 (cubic-skew arm-asymmetry, not ' +
     'surfaced); imp-35557 (skew inherits robustness, not surfaced); imp-35561 (the audited page and ' +
@@ -104,11 +103,11 @@ export const IMP35569_SIGMA_PEAK_PAGE_HONEST_STATUS_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35569-honesty-gate-no-qed',
-    description: 'Audit only, no QED, PT stays SOTA, no page edited claim present',
+    description: 'Audit only, no QED, no refereed bound is changed, no page edited claim present',
     holds: () =>
       IMP35569_SIGMA_PEAK_PAGE_HONEST_STATUS_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35569_SIGMA_PEAK_PAGE_HONEST_STATUS_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35569_SIGMA_PEAK_PAGE_HONEST_STATUS_AUDIT.verdict) &&
+      /refereed bound is changed/i.test(IMP35569_SIGMA_PEAK_PAGE_HONEST_STATUS_AUDIT.verdict) &&
       /No page edited/.test(IMP35569_SIGMA_PEAK_PAGE_HONEST_STATUS_AUDIT.verdict),
   },
 ];

@@ -56,7 +56,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34066-centred-window-collapses-exponent-lead (C2: residual named 1/(2 log T0) curvature, never fit)
  * @see imp-34006-pointwise-vs-window-exponent-cross-tabulation (F3: START-window lead ~half span)
@@ -259,7 +259,7 @@ export const IMP34125_CENTRE_VS_POINTWISE_RESIDUAL_DECAY_FIT = {
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34066 (C2 residual named 1/(2 log T0) curvature, never fit); imp-34006 (F3 START-window ' +
     'lead ~half span); imp-33816 (POINTWISE gap law ~1/(2 log T0)); imp-33859 (log-N-space direct ' +
@@ -316,14 +316,14 @@ export const IMP34125_CENTRE_VS_POINTWISE_RESIDUAL_DECAY_FIT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34125-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP34125_CENTRE_VS_POINTWISE_RESIDUAL_DECAY_FIT.isRigorous === false &&
       IMP34125_CENTRE_VS_POINTWISE_RESIDUAL_DECAY_FIT.farTailExponent === 0.5 &&
       /NO QED/.test(IMP34125_CENTRE_VS_POINTWISE_RESIDUAL_DECAY_FIT.verdict) &&
-      /remains SOTA/.test(IMP34125_CENTRE_VS_POINTWISE_RESIDUAL_DECAY_FIT.verdict),
+      /refereed bound is changed/i.test(IMP34125_CENTRE_VS_POINTWISE_RESIDUAL_DECAY_FIT.verdict),
   },
 ];
 

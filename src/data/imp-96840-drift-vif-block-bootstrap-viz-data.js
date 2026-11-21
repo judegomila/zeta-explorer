@@ -62,7 +62,7 @@ export const IMP96840_LANDMARKS = Object.freeze({
 });
 
 export const IMP96840_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every block-length/VIF ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every block-length/VIF ' +
   'point and every model-based estimate plotted here is copied verbatim from imp-96709 ' +
   '(which itself copies the imp-96692 estimates unchanged); the only new arithmetic is the ' +
   'plot-ready reshaping and the per-point gap-to-lowest-estimate delta. Measurement/' +

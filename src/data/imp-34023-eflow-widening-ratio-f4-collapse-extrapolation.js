@@ -51,8 +51,7 @@
  * NUMERICAL / MEASUREMENT ONLY. Curve fit + direct extrapolation of an inherited surrogate ratio, NOT
  * an RH bound. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the decay
  * fit and the extended ladder are descriptive within that model only; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33969-eflow-decay-widening-ratio-kend-sweep (the 9-window kEnd=11..13 drift measured/anchored)
  * @see imp-33922-eflow-analytic-decay-vs-widening-crosscheck (the fixed-kEnd=11 ~19.9x over-prediction)
@@ -301,7 +300,7 @@ export const IMP34023_EFLOW_WIDENING_RATIO_F4_COLLAPSE_EXTRAPOLATION = {
     'asymptote) within kEnd <~ 21.3, capped by the residual sign change. The inherited imp-3220/imp-3406 ' +
     'component model is NOT a rigorous asymptotic; the decay fit and extended ladder are descriptive ' +
     'within the model only; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33969 (the 9-window kEnd=11..13 F1/widening drift and F4 x0.130 collapse extended here); ' +
     'imp-33922 (the fixed-kEnd=11 ~19.9x over-prediction); imp-33917 (the receding-boundary feature); ' +
@@ -353,13 +352,13 @@ export const IMP34023_EFLOW_WIDENING_RATIO_F4_COLLAPSE_EXTRAPOLATION_ASSERTIONS 
       rung(21.6).resid < 0,
   },
   {
-    // Honesty gate: numerical/measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: numerical/measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34023-honesty-gate-no-qed',
-    description: 'Curve-fit/extrapolation only: isRigorous false, no QED, PT SOTA',
+    description: 'Curve-fit/extrapolation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34023_EFLOW_WIDENING_RATIO_F4_COLLAPSE_EXTRAPOLATION.isRigorous === false &&
       /NO QED/.test(IMP34023_EFLOW_WIDENING_RATIO_F4_COLLAPSE_EXTRAPOLATION.verdict) &&
-      /remains SOTA/.test(IMP34023_EFLOW_WIDENING_RATIO_F4_COLLAPSE_EXTRAPOLATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34023_EFLOW_WIDENING_RATIO_F4_COLLAPSE_EXTRAPOLATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34023_EFLOW_WIDENING_RATIO_F4_COLLAPSE_EXTRAPOLATION.verdict),
   },
 ];

@@ -21,7 +21,7 @@
  *
  *   STATUS: documentation only. Explains already-published measurements (imp-97823, imp-97842,
  *   imp-124776, imp-124922) in plain terms with a physics analogy and a worked numeric example;
- *   establishes nothing new; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   establishes nothing new; moves no bound; NO QED. No refereed bound is changed.
  *
  * @see imp-97823-kernel-decade-growth-sqrt10.js (the deep-limit sqrt(10) fit this exposition explains)
  * @see imp-97842-kernel-decade-growth-sqrt10-glossary-headword.js (the glossary headword naming the
@@ -33,7 +33,7 @@
  * @see imp-97520-sigma-conditional-share-landmark-ladder (the L1 interior peak this fold straddles)
  *
  * Ticket: imp-124962 (content, low, sonnet-4-6). Documentation only; no bound change; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 const KERNEL_SQRT10_FOLD_EXPOSITION = Object.freeze({
@@ -231,7 +231,7 @@ export const IMP124962_KERNEL_SQRT10_FOLD_LAW_EXPOSITION = Object.freeze({
     '(p = -0.4994 upslope / -0.5006 downslope, growth 3.158 / 3.167) against the imp-124776/imp-124922 ' +
     'gap-keyed bracketing presentation as the advanced example, attributing the far-from-peak ' +
     'departure (naive growth 2.90 / 3.36) to an O(sqrt(g)) cubic running correction, not a distinct ' +
-    'exponent. Establishes nothing new; no bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'exponent. Establishes nothing new; no bound moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97823 (deep-limit sqrt(10) fit this exposition explains); imp-97842 (glossary headword for ' +
     'the same result); imp-124776 (gap-keyed ratio viz data); imp-124922 (gap-keyed glossary ' +
@@ -296,11 +296,11 @@ export const IMP124962_KERNEL_SQRT10_FOLD_LAW_EXPOSITION_ASSERTIONS = [
   },
   {
     id: 'imp124962-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97823.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97823.',
     holds: () =>
       IMP124962_KERNEL_SQRT10_FOLD_LAW_EXPOSITION.anyBoundMoved === false &&
       /NO QED/.test(IMP124962_KERNEL_SQRT10_FOLD_LAW_EXPOSITION.verdict) &&
-      /remains SOTA/.test(IMP124962_KERNEL_SQRT10_FOLD_LAW_EXPOSITION.verdict) &&
+      /refereed bound is changed/i.test(IMP124962_KERNEL_SQRT10_FOLD_LAW_EXPOSITION.verdict) &&
       IMP124962_KERNEL_SQRT10_FOLD_LAW_EXPOSITION.glosses === 'imp-97823',
   },
 ];

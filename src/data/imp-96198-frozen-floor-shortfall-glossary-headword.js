@@ -38,14 +38,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96166 conclusion for quick reference. It
  *   establishes nothing new, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96166-en-decay-exponent-vs-step4-bridge-threshold (source: the N-ladder measurement and the crossover)
  * @see imp-3220-en-bridge-fidelity-frontier (E(N) sub-term formulas, conditional share)
  * @see imp-35164 (qualitative "E(N) FLOORS" obstruction this quantifies)
  *
  * Ticket: imp-96198 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The frozen-floor-shortfall headword, baked verbatim (no re-import of imp-96166).
@@ -77,8 +77,8 @@ const FROZEN_FLOOR_SHORTFALL_HEADWORD = Object.freeze({
     'The Step-4 bridge needs MORE VERIFIED HEIGHT, not a faster N-decay law. Any future ' +
     'attempt to close conditionalBookkeeping B1-B3 by re-fitting or accelerating the ' +
     'E_coll / E_flow decay is aimed at the wrong term: the frozen E_trunc floor sets the ' +
-    'limit regardless of how fast the decaying terms fall. Changes no bound; PT ' +
-    'Lambda <= 0.2 remains SOTA; RH open.',
+    'limit regardless of how fast the decaying terms fall. Changes no bound; no refereed bound is changed' +
+    '; RH open.',
 });
 
 export const IMP96198_FROZEN_FLOOR_SHORTFALL_GLOSSARY_HEADWORD = Object.freeze({
@@ -98,7 +98,7 @@ export const IMP96198_FROZEN_FLOOR_SHORTFALL_GLOSSARY_HEADWORD = Object.freeze({
     'lim_N E(N) = E_trunc > 0, not 0. The sole decaying term (E_coll) is also the sole ' +
     'GUE-conditional term, so closing the Step-4 bridge needs E_trunc -> 0 (more verified ' +
     'height), not a faster N-decay. Establishes nothing; instantiates no interval; moves ' +
-    'no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96166 (the N-ladder decay-exponent measurement and crossover this glosses); ' +
     'imp-3220 (E(N) sub-term formulas); imp-35164 (qualitative "E(N) FLOORS" ' +
@@ -127,12 +127,12 @@ export const IMP96198_FROZEN_FLOOR_SHORTFALL_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96198-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, ' +
       'source ticket id recorded.',
     holds: () =>
       IMP96198_FROZEN_FLOOR_SHORTFALL_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96198_FROZEN_FLOOR_SHORTFALL_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96198_FROZEN_FLOOR_SHORTFALL_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96198_FROZEN_FLOOR_SHORTFALL_GLOSSARY_HEADWORD.verdict) &&
       /imp-96166/.test(IMP96198_FROZEN_FLOOR_SHORTFALL_GLOSSARY_HEADWORD.glosses),
   },
 ];

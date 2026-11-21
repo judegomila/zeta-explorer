@@ -47,7 +47,7 @@
  * MEASUREMENT / CROSS-VALIDATION ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124814-knee-floor-elasticity-fresh-locator-repro (R3: the -2.1064 vs -2.0729 locator gap, unresolved there)
  * @see imp-124772-knee-floor-elasticity-multifloor-fit (the OLS certification over the reused imp-97822 sweep)
@@ -246,7 +246,7 @@ export const IMP124826_KNEE_LOCATOR_GAP_GRID_REFINEMENT = {
     'interior-peak ~ -1.375. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-124814 (R3: the -2.1064 vs -2.0729 locator gap, unresolved there); imp-124772 (OLS ' +
     'certification over the reused imp-97822 sweep); imp-97822 (two-floor knee chord p_knee ~ -2.099); ' +
@@ -286,13 +286,13 @@ export const IMP124826_KNEE_LOCATOR_GAP_GRID_REFINEMENT_ASSERTIONS = [
       L3.pKneeRampInflection < -1.375,
   },
   {
-    // Honesty gate: cross-validation only, no QED, PT SOTA.
+    // Honesty gate: cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124826-honesty-gate-no-qed',
-    description: 'Measurement only: the gap is refinement-stable definition-dependence, no QED, PT stays SOTA',
+    description: 'Measurement only: the gap is refinement-stable definition-dependence, no QED, no refereed bound is changed',
     holds: () =>
       IMP124826_KNEE_LOCATOR_GAP_GRID_REFINEMENT.isRigorous === false &&
       /NO QED/.test(IMP124826_KNEE_LOCATOR_GAP_GRID_REFINEMENT.verdict) &&
-      /remains SOTA/.test(IMP124826_KNEE_LOCATOR_GAP_GRID_REFINEMENT.verdict),
+      /refereed bound is changed/i.test(IMP124826_KNEE_LOCATOR_GAP_GRID_REFINEMENT.verdict),
   },
 ];
 

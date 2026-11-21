@@ -40,5 +40,5 @@ export const IMP95809_CAVEAT_BANNER =
   'Presentation only: re-plots the frozen imp-95788 N=80..200 bias ladder ' +
   'verbatim (no re-derivation, no fresh DD solve); biasPct is an interior ' +
   'model-seam finite-size diagnostic at the deepest twin-pair cell, not an RH ' +
-  'bound. Changes no bound of the Lambda program; NO QED; Platt-Trudgian ' +
-  'Lambda <= 0.2 remains SOTA.';
+  'bound. Changes no bound of the Lambda program; NO QED; no refereed bound is changed' +
+  '.';

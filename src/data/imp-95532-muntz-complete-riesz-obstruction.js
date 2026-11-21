@@ -2,7 +2,7 @@
  * imp-95532 — Do any Muntz-complete native-span node sets (sum 1/s_k = inf)
  * admit the Riesz / trace-class structure the pencil chain needs? Assess whether
  * imp-95530 (A6)'s "unavailability" is a HARD OBSTRUCTION or an OPEN CONSTRUCTION
- * gap. VERDICT: HARD OBSTRUCTION. RH OPEN; PT Lambda <= 0.2 stands; NO QED.
+ * gap. VERDICT: HARD OBSTRUCTION. RH OPEN; no refereed bound is changed; NO QED.
  *
  * SETUP (taken as given).
  *  - imp-95530 (A5) Div: within the native span E_V = span of the Cauchy kernels
@@ -84,8 +84,8 @@
  * confirms the "unavailability" is a hard dichotomy, not a construction gap. It
  * changes NO bound, closes NO obligation, and is not itself a Lambda lever: the
  * Muntz-complete side reaches RH only in the identity-theorem sense already
- * catalogued (soft under the flow per NS-RIGID A5). RH OPEN; PT Lambda <= 0.2
- * stands; NO QED. Import-free; assertions recompute the dichotomy.
+ * catalogued (soft under the flow per NS-RIGID A5). RH OPEN; no refereed bound is changed
+ * ; NO QED. Import-free; assertions recompute the dichotomy.
  */
 
 // Compact symmetric Jacobi eigensolver (imp-95530 / imp-95520 style).
@@ -128,7 +128,7 @@ export const IMP95532_LITERALS = Object.freeze({
 export const IMP95532_MUNTZ_COMPLETE_RIESZ_OBSTRUCTION = Object.freeze({
   id: 'imp-95532-muntz-complete-riesz-obstruction',
   question: 'Do any Muntz-complete (sum 1/s_k = inf) native-span node sets admit the Riesz / trace-class structure the pencil chain needs (imp-95530 A6)? Hard obstruction or open construction gap?',
-  verdict: 'HARD OBSTRUCTION. No native-span node set is simultaneously Muntz-complete and a Riesz sequence of Cauchy kernels; completeness and the Riesz-basis property are the SAME sequence property read on the two sides of the single Blaschke sum sum 1/s_k. RH OPEN; PT Lambda <= 0.2 stands; NO QED.',
+  verdict: 'HARD OBSTRUCTION. No native-span node set is simultaneously Muntz-complete and a Riesz sequence of Cauchy kernels; completeness and the Riesz-basis property are the SAME sequence property read on the two sides of the single Blaschke sum sum 1/s_k. RH OPEN; no refereed bound is changed; NO QED.',
   obstruction: {
     d1_completenessIsNonBlaschke: 'Cauchy kernels at real s_k > 1 are complete in H^2 of the right half-plane iff sum 1/s_k = inf (Blaschke product diverges; Muntz-Szasz). This is what the imp-95530 (A5) identity step needs.',
     d2_rieszIsSeparatedBlaschke: 'They form a Riesz sequence (uniformly boundedly-invertible Gram => trace-class pencil) iff separated Carleson, which for real s_k -> inf REQUIRES sum 1/s_k < inf.',
@@ -136,7 +136,7 @@ export const IMP95532_MUNTZ_COMPLETE_RIESZ_OBSTRUCTION = Object.freeze({
   },
   notAConstructionGap: 'There is no free parameter to exploit: sum 1/s_k is finite (Riesz, incomplete) or infinite (complete, degenerate Gram). Choosing the nodes more cleverly cannot deliver both; the escape (a whole-space Riesz basis of Cauchy kernels on the real axis) is ruled out by the interpolation theorem. Hence hard, not open.',
   numericalWitness: 'lam_min of the normalized Cauchy Gram = Riesz constant. Geometric (Blaschke) sets plateau at a positive floor rising with log-spacing (rho=8: 0.136 -> 0.106 over n=6..32; rho=4: 0.0150; rho=3: 0.00299). Harmonic (Muntz-complete = Hilbert matrix) collapses exponentially (1.88e-7 at n=6, 2.94e-13 at n=10, below float floor for n>=16): Gram not boundedly invertible, trace-class structure unavailable.',
-  scope: 'Structural / spectral assessment of imp-95530 (A6); no bound change, no obligation closed; not a Lambda lever (the Muntz-complete side is soft under the flow per NS-RIGID A5). RH OPEN; PT Lambda <= 0.2 stands; NO QED.',
+  scope: 'Structural / spectral assessment of imp-95530 (A6); no bound change, no obligation closed; not a Lambda lever (the Muntz-complete side is soft under the flow per NS-RIGID A5). RH OPEN; no refereed bound is changed; NO QED.',
 });
 
 const relEq = (x, lit, tol) => Math.abs(x - lit) <= tol * Math.max(Math.abs(lit), 1e-300);
@@ -182,7 +182,7 @@ export const IMP95532_ASSERTIONS = [
     holds: () => /HARD OBSTRUCTION/.test(IMP95532_MUNTZ_COMPLETE_RIESZ_OBSTRUCTION.verdict)
       && /no free parameter/i.test(IMP95532_MUNTZ_COMPLETE_RIESZ_OBSTRUCTION.notAConstructionGap)
       && /RH OPEN/.test(IMP95532_MUNTZ_COMPLETE_RIESZ_OBSTRUCTION.verdict)
-      && /PT Lambda <= 0.2 stands/.test(IMP95532_MUNTZ_COMPLETE_RIESZ_OBSTRUCTION.verdict)
+      && /refereed bound is changed/i.test(IMP95532_MUNTZ_COMPLETE_RIESZ_OBSTRUCTION.verdict)
       && /NO QED/.test(IMP95532_MUNTZ_COMPLETE_RIESZ_OBSTRUCTION.verdict),
   },
 ];

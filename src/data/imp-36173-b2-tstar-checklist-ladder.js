@@ -29,7 +29,7 @@
  *   introduces no new numerics, moves NO Lambda bound, and asserts NO closure. The
  *   finite-height RH-up-to-T_star statement stays BLOCKED on the OPEN Step-4 / per-N
  *   / C_mb links (rigorousUpgradeGap); imp-2519 no-overclaim guard preserved;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  * @see lambda-rh-height-mapping (effectiveHeightForN / zeroCountAtHeight / FINITE_HEIGHT_RH_STATEMENT; imp-327 RvM inverse + self-inverse guard)
  * @see lambda-roadmap (conditionalBookkeeping B2-effective-height-Tstar, the clerical residue this makes concrete; caveat B1-B3 all BLOCKED)
@@ -137,7 +137,7 @@ export const IMP36173_B2_TSTAR_CHECKLIST_LADDER = Object.freeze({
     upgradesAnyStatusString: false,
     b2Executed: false,
     blockedOn: 'G5-step4-bridge + G5-perN-translation + G5-cmb-gue (all OPEN; rigorousUpgradeGap)',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -150,7 +150,7 @@ export const IMP36173_B2_TSTAR_CHECKLIST_LADDER = Object.freeze({
     '3e12. Each row is a FINITE-height statement bounded by N, never unconditional RH. B2 is NOT ' +
     'executed (achieved-N undefined while Steps 3-4 OPEN); no status string is upgraded; the ' +
     'imp-2519 no-overclaim guard is preserved. Tabulation / bookkeeping only; changes no bound; ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 });
 
 export const IMP36173_B2_TSTAR_CHECKLIST_LADDER_ASSERTIONS = [
@@ -206,7 +206,7 @@ export const IMP36173_B2_TSTAR_CHECKLIST_LADDER_ASSERTIONS = [
         c.assertsUnconditionalRH === false &&
         c.upgradesAnyStatusString === false &&
         c.b2Executed === false &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

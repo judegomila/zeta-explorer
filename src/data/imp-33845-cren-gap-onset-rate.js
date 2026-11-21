@@ -45,7 +45,7 @@
  * not a fitted onset rate at finite N, and it says nothing about the coupled H3 curvature rung
  * (N-exponent 5/4, imp-33786) that dominates and jointly governs the discharge. G6a_shock_lipschitz
  * STAYS OPEN. No positivity. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33794-cren-window-measurement (measured the C_ren finite window and the d log C_ren/d log N trend)
  * @see imp-33646-h4-privalov-sokhotski-constant-scoping (defines C_ren, PS constant pi/sqrt(2), N-exponent 3/4)
@@ -192,7 +192,7 @@ export const IMP33845_CREN_GAP_ONSET_RATE = {
     'ANALYTIC tracking of C_ren through the fold-modulus back-conversion, not a fitted onset rate at finite N, ' +
     'and it says nothing about the coupled H3 curvature rung (N-exponent 5/4, imp-33786) that dominates and ' +
     'jointly governs the discharge. No positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; ' +
-    'imp-3066 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'imp-3066 UNTOUCHED; NO QED. No refereed bound is changed.',
 };
 
 export const IMP33845_CREN_GAP_ONSET_ASSERTIONS = [
@@ -229,15 +229,15 @@ export const IMP33845_CREN_GAP_ONSET_ASSERTIONS = [
       IMP33845_CREN_GAP_ONSET_RATE.confirmsOnsetNotDrift === true,
   },
   {
-    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33845-honesty-gate-no-qed',
-    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33845_CREN_GAP_ONSET_RATE.isRigorous === false &&
       IMP33845_CREN_GAP_ONSET_RATE.dischargesH4 === false &&
       /NO QED/.test(IMP33845_CREN_GAP_ONSET_RATE.verdict) &&
       /STAYS OPEN/.test(IMP33845_CREN_GAP_ONSET_RATE.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33845_CREN_GAP_ONSET_RATE.verdict) &&
+      /refereed bound is changed/i.test(IMP33845_CREN_GAP_ONSET_RATE.verdict) &&
       /imp-3066 UNTOUCHED/.test(IMP33845_CREN_GAP_ONSET_RATE.verdict),
   },
 ];

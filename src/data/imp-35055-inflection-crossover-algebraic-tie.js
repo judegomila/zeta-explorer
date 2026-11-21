@@ -74,8 +74,7 @@
  * DERIVATION / MEASUREMENT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); no
- * bound; no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bound; no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33729-sigma-knee-vs-crossover-offset (MEASURED the knee-crossover offset in decades; this module asks whether a closed-form tie exists)
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade knee refined to N* ~ 3.38e9)
@@ -247,7 +246,7 @@ export const IMP35055_INFLECTION_CROSSOVER_ALGEBRAIC_TIE = {
     'Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642) are UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33729 (measured knee-crossover offset in decades); imp-33721 (sub-decade knee N* ~ 3.38e9); ' +
     'imp-33723 (closed-form E_coll=E_trunc crossover ~3.280e9); imp-33601 (sigma=1/2 <=> ' +
@@ -299,13 +298,13 @@ export const IMP35055_INFLECTION_CROSSOVER_ALGEBRAIC_TIE_ASSERTIONS = [
       /NOT structural independence/.test(IMP35055_INFLECTION_CROSSOVER_ALGEBRAIC_TIE.verdict),
   },
   {
-    // Honesty gate: derivation only, no QED, PT stays SOTA.
+    // Honesty gate: derivation only, no QED, no refereed bound is changed.
     id: 'imp35055-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35055_INFLECTION_CROSSOVER_ALGEBRAIC_TIE.isRigorous === false &&
       /NO QED/.test(IMP35055_INFLECTION_CROSSOVER_ALGEBRAIC_TIE.verdict) &&
-      /remains SOTA/.test(IMP35055_INFLECTION_CROSSOVER_ALGEBRAIC_TIE.verdict),
+      /refereed bound is changed/i.test(IMP35055_INFLECTION_CROSSOVER_ALGEBRAIC_TIE.verdict),
   },
 ];
 

@@ -46,7 +46,7 @@
  * omega = 4 / b <= 2e5 sweep and the imp-97432 omega = 11 counterexample is now filled: MCM holds solidly at
  * omega = 5, 6, with the smallest tower difference ~1.4e-6 (a level-1 base term at large x) and the induction
  * top term T(b) bounded well inside (0, 1/4). MCM stays VERIFIED not proved (and is FALSE from omega = 11 per
- * imp-97432); no bound on Lambda moves; kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * imp-97432); no bound on Lambda moves; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97422-route-m-quarter-ceiling-omega4-multiplicative-difference-reduction.js (MCM hypothesis; omega=4 to 2e5)
  * @see imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (MCM refuted at omega=11; ceiling survives)
@@ -136,11 +136,11 @@ export const IMP97442_VERDICT = Object.freeze({
     'induction term T(b) (level=omega, x=1) stays >= 1.34e-2, four orders of magnitude from the 0 boundary. ' +
     'So no level approaches zero at omega <= 6, filling the empirical gap between imp-97422 (omega=4, b<=2e5) ' +
     'and imp-97432 (MCM refuted at omega=11). MCM stays VERIFIED not proved; no bound on Lambda moves; ' +
-    'kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97442_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Numerical extension of the imp-97422 MCM verification to ' +
+  'RH open; no refereed bound is changed; NO QED. Numerical extension of the imp-97422 MCM verification to ' +
   'omega=5,6 and b>2e5: the full iterated multiplicative-difference tower at every subgrid point is ' +
   'non-negative throughout (2e5, 1e6] (0 exceptions in 570343 evaluations); smallest difference ~1.43e-6 ' +
   '(a level-1 base term at large x), top induction term T(b) >= 1.34e-2. MCM stays VERIFIED not proved and ' +
@@ -193,7 +193,7 @@ const IMP97442_ASSERTIONS = [
       IMP97442_VERDICT.mcmVerifiedOmega6 === true &&
       IMP97442_VERDICT.approachesZero === false &&
       /NO QED/.test(IMP97442_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97442_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97442_HONEST_BANNER) &&
       /RH open/.test(IMP97442_HONEST_BANNER),
     why: 'numerical measurement only -- MCM verified at omega=5,6 to 1e6, not proved (and false from omega=11); no bound moved, no QED.',
   },

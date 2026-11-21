@@ -9,7 +9,7 @@
  * (RESIDUAL SUB-GAP imp-97096-arith-first-moment-explicit-remainder), reaffirmed load-bearing in
  * imp-97516 STEP-1..4. imp-97516 also established that this residual CANNOT borrow the refuted b/4
  * ceiling: it only needs |E1(b)| = o(phi(b) b) with an explicit constant, which is what is derived here.
- * No bound on Lambda is claimed; PT Lambda <= 0.2 remains SOTA; RH open; NO QED. The cotangent first
+ * No bound on Lambda is claimed; no refereed bound is changed; RH open; NO QED. The cotangent first
  * moment (Bettin-Conrey mean value) stays a SEPARATE open leaf (imp-97097 / imp-97534).
  *
  * Notation as imp-97096. C = (log 2pi - gamma)/2 = 0.6303307...; kappa_arith = (3/2)C - 3/8 =
@@ -67,7 +67,7 @@
  * (this ticket). No refuted b/4 ceiling is used (imp-97516). The FIRST-moment lower companion still
  * needs the cotangent first moment kappa_cot ~ +0.121 (imp-97097 measured, NOT evaluated in closed form)
  * -- that is the separate open leaf (imp-97534). No Lambda bound moves: the trace ceiling T ~ 2.594e7
- * stays the anchor and compute (N ~ 9916) binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * stays the anchor and compute (N ~ 9916) binds first. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (the exact leading constant + the sub-gap)
  * @see imp-97516-route-m-quarter-edge-breach-vs-first-moment-companion.js (b/4 ceiling not borrowable)
@@ -176,7 +176,7 @@ export const IMP97533_VERDICT = Object.freeze({
     'phi lower bound, an EXPLICIT eps(b) = O((log b)(log log b)^2 / b) -> 0, hence F_arith(b) >= ' +
     '(kappa_arith - eps(b)) phi(b) b for all b. No refuted b/4 ceiling is used (imp-97516). The cotangent ' +
     'first moment (imp-97097 / imp-97534) stays the separate open leaf. No bound moved; T ~ 2.594e7 anchor; ' +
-    'compute N ~ 9916 binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'compute N ~ 9916 binds first. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97533_SUBGAP_RESOLUTION = Object.freeze({
@@ -192,7 +192,7 @@ export const IMP97533_SUBGAP_RESOLUTION = Object.freeze({
 });
 
 export const IMP97533_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation only: the explicit remainder bound on the ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation only: the explicit remainder bound on the ' +
   'arithmetic first moment is derived -- E1(b) = -(1/2) DeltaG(b) exactly (verified to machine precision) ' +
   'and |E1(b)| <= B(b) with an explicit eps(b) = O((log b)(log log b)^2 / b) -> 0, giving F_arith(b) >= ' +
   '(kappa_arith - eps) phi(b) b for all b. This closes the arithmetic-leaf residual sub-gap; the cotangent ' +
@@ -244,7 +244,7 @@ const IMP97533_ASSERTIONS = [
       IMP97533_VERDICT.cotangentLeafStillOpen === true &&
       IMP97533_SUBGAP_RESOLUTION.resolves === 'imp-97096-arith-first-moment-explicit-remainder' &&
       /NO QED/.test(IMP97533_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97533_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97533_HONEST_BANNER) &&
       /RH open/.test(IMP97533_HONEST_BANNER),
     why: 'derivation: the explicit remainder bound and eps(b) decay are derived and the arithmetic-leaf residual is closed, but the cotangent leaf stays open and no Lambda bound moved -- honesty markers, named resolved sub-gap, and no-QED banner all present.',
   },

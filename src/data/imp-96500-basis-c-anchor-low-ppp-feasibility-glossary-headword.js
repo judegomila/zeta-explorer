@@ -43,15 +43,14 @@
  *   A glossary-style lookup restating the imp-96448 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
  *   rho is the theoretical GUE (sine-kernel) two-interval correlation, not a
- *   computation over real Riemann zeros. NO QED. Platt-Trudgian Lambda <= 0.2 remains
- *   SOTA.
+ *   computation over real Riemann zeros. NO QED. No refereed bound is changed.
  *
  * @see imp-96448-direct-basis-c-anchor-floor (source: the low-ppp feasibility + floor measurement this glosses)
  * @see imp-96430-basis-c-corroboration-reach-crossover (source: the L-linear model floor this compares against)
  * @see imp-96369-direct-double-integral-pt-anchor-feasibility (source: the high-ppp panel count flagged astronomical)
  *
  * Ticket: imp-96500 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The basis-C anchor low-ppp-feasibility headword, baked verbatim
@@ -89,7 +88,7 @@ const BASIS_C_ANCHOR_LOW_PPP_FEASIBILITY_HEADWORD = Object.freeze({
   verificationStatus:
     'Feasibility / cross-validation numerics (accuracy audit), not a rigorous ' +
     'derivation. rho is the theoretical GUE two-interval correlation, not a real-zero ' +
-    'computation. Changes no bound; RH open; PT Lambda <= 0.2 SOTA; NO QED.',
+    'computation. Changes no bound; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP96500_BASIS_C_ANCHOR_LOW_PPP_FEASIBILITY_GLOSSARY_HEADWORD = Object.freeze({
@@ -113,7 +112,7 @@ export const IMP96500_BASIS_C_ANCHOR_LOW_PPP_FEASIBILITY_GLOSSARY_HEADWORD = Obj
     'cancellation roundoff. Records the measured floor ~2.84e-5 (~573x above the imp-' +
     '96430 model floor ~4.96e-8) and the surviving corroboration headroom ~640x (not ' +
     'the model-quoted ~3.7e5x). Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96448 (the low-ppp feasibility + floor measurement this glosses, ppp = 3, ' +
     'floor ~2.84e-5, headroom ~642x); imp-96430 (the L-linear model floor ~4.96e-8 this ' +
@@ -144,11 +143,11 @@ export const IMP96500_BASIS_C_ANCHOR_LOW_PPP_FEASIBILITY_GLOSSARY_HEADWORD_ASSER
   },
   {
     id: 'imp96500-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96500_BASIS_C_ANCHOR_LOW_PPP_FEASIBILITY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96500_BASIS_C_ANCHOR_LOW_PPP_FEASIBILITY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96500_BASIS_C_ANCHOR_LOW_PPP_FEASIBILITY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96500_BASIS_C_ANCHOR_LOW_PPP_FEASIBILITY_GLOSSARY_HEADWORD.verdict) &&
       IMP96500_BASIS_C_ANCHOR_LOW_PPP_FEASIBILITY_GLOSSARY_HEADWORD.glosses === 'imp-96448',
   },
 ];

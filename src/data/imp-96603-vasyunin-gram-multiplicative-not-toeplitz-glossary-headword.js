@@ -41,14 +41,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96562 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96562-route-m-lammax-offdiagonal-szego-assessment.js (source: the assessment this glosses)
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (names the sub-gap imp-96562 assesses)
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (the measured lam_max ladder, slope 0.3526)
  *
  * Ticket: imp-96603 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The structural Szego-obstruction headword, baked verbatim (no re-import).
@@ -84,7 +84,7 @@ const VASYUNIN_GRAM_MULTIPLICATIVE_HEADWORD = Object.freeze({
   verificationStatus:
     'Structural assessment (rules out a proof route), not a numerical measurement and ' +
     'not a derivation of the 0.3526 coefficient. Changes no bound; establishes no ' +
-    'operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96603_VASYUNIN_GRAM_MULTIPLICATIVE_GLOSSARY_HEADWORD = Object.freeze({
@@ -105,7 +105,7 @@ export const IMP96603_VASYUNIN_GRAM_MULTIPLICATIVE_GLOSSARY_HEADWORD = Object.fr
     'logarithmically without bound, so no bounded-symbol Szego edge constant could ' +
     'match 0.3526 even in principle. 0.3526 is a growth RATE, not an edge value. ' +
     'Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96562 (the structural assessment and finding this glosses); imp-96548 ' +
     '(names the sub-gap this assessment answers); imp-96443 (the measured lam_max ' +
@@ -134,11 +134,11 @@ export const IMP96603_VASYUNIN_GRAM_MULTIPLICATIVE_GLOSSARY_HEADWORD_ASSERTIONS 
   },
   {
     id: 'imp96603-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96603_VASYUNIN_GRAM_MULTIPLICATIVE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96603_VASYUNIN_GRAM_MULTIPLICATIVE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96603_VASYUNIN_GRAM_MULTIPLICATIVE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96603_VASYUNIN_GRAM_MULTIPLICATIVE_GLOSSARY_HEADWORD.verdict) &&
       IMP96603_VASYUNIN_GRAM_MULTIPLICATIVE_GLOSSARY_HEADWORD.glosses === 'imp-96562',
   },
 ];

@@ -57,7 +57,7 @@
  * MEASUREMENT / CROSS-VALIDATION ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124826-knee-locator-gap-grid-refinement (the resolution ladder: gap ~0.0335 refinement-stable, same 3-point stencil family)
  * @see imp-124814-knee-floor-elasticity-fresh-locator-repro (R3: the -2.1064 vs -2.0729 locator gap, unresolved there)
@@ -279,7 +279,7 @@ export const IMP124847_KNEE_LOCATOR_GAP_THIRDGRID_STENCIL_FORM = {
     'the imp-33684 interior-peak ~ -1.375. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-124826 (resolution ladder: gap ~0.0335 refinement-stable, same 3-point stencil family); ' +
     'imp-124814 (R3: the -2.1064 vs -2.0729 locator gap, unresolved there); imp-124772 (OLS ' +
@@ -334,13 +334,13 @@ export const IMP124847_KNEE_LOCATOR_GAP_THIRDGRID_STENCIL_FORM_ASSERTIONS = [
       FIT_A.slope < -1.9 && FIT_A.slope > -2.2 && FIT_B.slope < -1.9 && FIT_B.slope > -2.2 && FIT_A.slope < -1.375,
   },
   {
-    // Honesty gate: cross-validation only, no QED, PT SOTA.
+    // Honesty gate: cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124847-honesty-gate-no-qed',
-    description: 'Cross-validation only: stencil-form-stable ~0.0335 gap, no QED, PT stays SOTA',
+    description: 'Cross-validation only: stencil-form-stable ~0.0335 gap, no QED, no refereed bound is changed',
     holds: () =>
       IMP124847_KNEE_LOCATOR_GAP_THIRDGRID_STENCIL_FORM.isRigorous === false &&
       /NO QED/.test(IMP124847_KNEE_LOCATOR_GAP_THIRDGRID_STENCIL_FORM.verdict) &&
-      /remains SOTA/.test(IMP124847_KNEE_LOCATOR_GAP_THIRDGRID_STENCIL_FORM.verdict),
+      /refereed bound is changed/i.test(IMP124847_KNEE_LOCATOR_GAP_THIRDGRID_STENCIL_FORM.verdict),
   },
 ];
 

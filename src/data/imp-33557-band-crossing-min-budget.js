@@ -68,7 +68,7 @@
  *   200 in band and UNBOUNDED where the band fails -- not the exact per-budget ULP. The NPHI = 10
  *   Phi-series truncation is inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the
  *   operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED.
- *   No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33539-graded-plateau-deeper-tail-min-budget.js (the flat ~200-node minimum this bounds)
  *   @see imp-33537-deep-tail-plateau-spike-recurrence.js (the dense scan that bounds the &lt; 64 band validity)
@@ -273,7 +273,7 @@ const verdict =
       'WHERE-NO-BUDGET-UP-TO-4000-NODES-REACHES-THE-BAND.-ADDING-NODES-DOES-NOT-RESCUE-THE-DEEP-RUNG-ONCE-THE-ENVELOPE-' +
       'RISES-ABOVE-THE-BAND.-CONFIRMS-imp-33537-<64-BAND-IS-A-COARSE-GRID-ARTIFACT-AND-BOUNDS-THE-imp-33539-FLAT-MINIMUM-' +
       'TO-THE-IN-BAND-RUNGS.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-' +
-      'BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33557_BAND_CROSSING_MIN_BUDGET = Object.freeze({
@@ -303,7 +303,7 @@ export const IMP33557_BAND_CROSSING_MIN_BUDGET = Object.freeze({
     'adding nodes cannot rescue a floor already set by the jitter envelope. VERDICT: FLAT-MINIMUM-IS-BAND-CONDITIONAL. ' +
     'CONFIRMS the imp-33537 &lt; 64 band coarse-grid-artifact reading and BOUNDS the imp-33539 flat minimum to the ' +
     'in-band rungs. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice ' +
-    'floor; operator positivity (imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'floor; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -391,7 +391,7 @@ export const IMP33557_BAND_CROSSING_MIN_BUDGET = Object.freeze({
       'QUALITATIVE band-conditional structure -- the peak resolves at ~200 nodes flat, the floor climbs with depth, ' +
       'and the minimum budget reaching the band is 200 in band but UNBOUNDED where the band fails -- not the exact ' +
       'per-budget ULP. imp-33537/imp-33556 establish the &lt; 64 band crossing at n &gt;= 510 as solver-invariant.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -447,7 +447,7 @@ export const IMP33557_BAND_CROSSING_MIN_BUDGET_ASSERTIONS = [
   {
     id: 'imp33557-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33557_BAND_CROSSING_MIN_BUDGET.honestCaveat;
       return (
@@ -456,7 +456,7 @@ export const IMP33557_BAND_CROSSING_MIN_BUDGET_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

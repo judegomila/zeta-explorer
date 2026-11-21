@@ -48,7 +48,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34863-sigma-knee-cauchy-hadamard-radius (root sequence + plain-max limsup read this sharpens)
  * @see imp-34836-sigma-knee-sixth-seventh-order-v-expansion (delta_6/delta_7 rungs feeding the root sequence)
@@ -215,7 +215,7 @@ export const IMP34882_SIGMA_KNEE_DOMB_SYKES_RADIUS = {
     'which changes no bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
     'positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   subGap:
     'SHARPENS the imp-34863 plain-max radius read into a Domb-Sykes-extrapolated R ~ 91 (range ~[79, 106], 1/R ~ ' +
     '1.10e-2 +/- 1.61e-3) from the two deepest resolvable root-sequence pairs -- ~1.5x below the imp-34863 R ~ 138.7 ' +
@@ -285,15 +285,15 @@ export const IMP34882_SIGMA_KNEE_DOMB_SYKES_RADIUS_ASSERTIONS = [
       IMP34882_SIGMA_KNEE_DOMB_SYKES_RADIUS.ratioCrossCheck.usable === false && RATIO_INV_R < 0,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34882-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34882_SIGMA_KNEE_DOMB_SYKES_RADIUS.isRigorous === false &&
       IMP34882_SIGMA_KNEE_DOMB_SYKES_RADIUS.farTailExponent === 0.5 &&
       typeof IMP34882_SIGMA_KNEE_DOMB_SYKES_RADIUS.subGap === 'string' &&
       /NO QED/.test(IMP34882_SIGMA_KNEE_DOMB_SYKES_RADIUS.verdict) &&
-      /remains SOTA/.test(IMP34882_SIGMA_KNEE_DOMB_SYKES_RADIUS.verdict),
+      /refereed bound is changed/i.test(IMP34882_SIGMA_KNEE_DOMB_SYKES_RADIUS.verdict),
   },
 ];
 

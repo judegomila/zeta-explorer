@@ -38,7 +38,7 @@
  * truth value for the Euler product L(s,χ) and the RH-false same-gamma-factor F_DH, so no positivity certificate at these
  * supports can by itself encode the Euler product. This certifies and quantifies a known qualitative point (DH-BLIND proved
  * to 0.783; NS-RIGID (d); Route C; Yoshida / Connes–Consani small-support folklore). It is not a sharp radius and does not
- * obstruct extending the Route I ladder for ζ; the ζ transfer is an analogy. PT Lambda <= 0.2 stands. NO QED.
+ * obstruct extending the Route I ladder for ζ; the ζ transfer is an analogy. No refereed bound is changed. NO QED.
  *
  * Scripts: tmp/dag3-dhblindln3-arb-cert.py (+ -arb-*-K*-T*-N*.json/.log), tmp/dag3-dhblindln3-beta-scan.py,
  * tmp/dag3-dhblindln3-normcheck.py, tmp/dag3-dhblindln3-ritz-upper.py, tmp/dag3-dhblindln3-bessel-probe.py; referee:
@@ -74,7 +74,7 @@ export const DAG3_DHBLINDLN3 = Object.freeze({
   verdict:
     'SUCCESS (tier upgrade): the ARB-LEGE Galerkin machinery ports to the conductor-5 symbol; Euler-blindness of Weil positivity is '
     + 'certified on 2a ≤ ln 11 for real test functions. Not sharp (true DH onset a* ∈ (1.70, 1.72]); does not obstruct the Route I '
-    + 'ladder for ζ; ζ transfer is an analogy. PT Lambda <= 0.2 stands; 0.1758354 remains a computer-assisted candidate. NO QED.',
+    + 'ladder for ζ; ζ transfer is an analogy. No refereed bound is changed; 0.1758354 remains a computer-assisted candidate. NO QED.',
   character: { modulus: 5, chiOfN: '(χ(1..4)) = (1, i, −i, −1)', parity: 'odd', reChi: [0, 1, 0, 0, -1], imChi: [0, 0, 1, -1, 0],
     rootNumber: [0.850650808, 0.525731112], rootNumberClosedForm: '√((5+√5)/10) + i√((5−√5)/10)' },
   setup: {
@@ -221,7 +221,7 @@ export const DAG3_DHBLINDLN3_ASSERTIONS = Object.freeze([
   },
   {
     id: 'dhblindln3-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(M.verdict) && /NO QED/.test(M.verdict) && /NO QED/.test(M.status)
+    holds: () => /refereed bound is changed/i.test(M.verdict) && /NO QED/.test(M.verdict) && /NO QED/.test(M.status)
       && /not a new or sharp no-go/.test(M.status) && /analogy/.test(M.verdict) && /explicit formula/.test(M.status)
       && !/sharp no-go for the Route I/.test(M.verdict),
     why: 'Referee corrections: tier upgrade, not sharp, ζ transfer analogy, explicit formula conditional.',

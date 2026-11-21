@@ -68,7 +68,7 @@
  *   STATUS: a grouping/index note over three already-completed tickets, not a new derivation. No
  *   bound changes: route (A) (Temple/Kato-Temple/Lehmann-Maehly) is confirmed INTRINSICALLY DEAD for
  *   lambda_min(T_a[sigma_2]) within the committed polynomial/Gegenbauer trial family; the
- *   interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 remains SOTA; RH
+ *   interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH
  *   open; NO QED.
  *
  * @see imp-97121-krein-uniform-n-floor-certificate-scope.js (Finding 2 route A; the missing lower-bound object)
@@ -79,7 +79,7 @@
  * @see project_toeplitz_krein_certificate (Route I Toeplitz/Krein certificate program, memory)
  *
  * Ticket: imp-97283 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- the binding 2a for the Krein floor
@@ -146,7 +146,7 @@ export const IMP97283_KREIN_TEMPLE_DOUBLE_OBSTRUCTION_COHORT_INDEX = Object.free
     'family: route (A) is not a single missing ingredient away from working, it fails on two ' +
     'independent axes and the one tried remedy for the quantitative axis cannot close the gap within ' +
     'the polynomial/Gegenbauer trial family. Establishes nothing new; moves no bound; RH open; NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-97136 (structural obstruction: beta <= lambda_2 unobtainable); imp-97162 (quantitative ' +
     'obstruction: eta2 ~2.42e9, ~10 orders above mu); imp-97228 (remedy test: tapering fixes at most ' +
@@ -197,10 +197,10 @@ export const IMP97283_KREIN_TEMPLE_DOUBLE_OBSTRUCTION_COHORT_INDEX_ASSERTIONS = 
   },
   {
     id: 'imp97283-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       /NO QED/.test(IMP97283_KREIN_TEMPLE_DOUBLE_OBSTRUCTION_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97283_KREIN_TEMPLE_DOUBLE_OBSTRUCTION_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97283_KREIN_TEMPLE_DOUBLE_OBSTRUCTION_COHORT_INDEX.verdict) &&
       /RH open/.test(IMP97283_KREIN_TEMPLE_DOUBLE_OBSTRUCTION_COHORT_INDEX.verdict),
   },
 ];

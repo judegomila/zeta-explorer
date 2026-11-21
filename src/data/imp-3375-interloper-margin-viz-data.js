@@ -21,7 +21,7 @@
  * @see src/data/sg1c-theta-trap-theorems.js (source: SG1C_A1_INTERLOPER_MARGIN, imp-3277)
  *
  * Ticket: imp-3375 (ux, low). Presentation only, measure-only, RH-equivalent; no theorem/QED;
- * Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * no refereed bound is changed.
  */
 
 function force(x) {

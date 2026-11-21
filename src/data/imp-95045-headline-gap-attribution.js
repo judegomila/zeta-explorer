@@ -93,7 +93,7 @@
  * No single-lever factor-2 improvement is available: the dominant half is a
  * ceiling-side AM-GM the eleventh already fixed as unrecoverable, and the
  * remainder is below sqrt(2). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  *
  * The numerics below CROSS-CHECK the attribution arithmetic; they are not the
  * claim. Import-light (no heavy bundle).
@@ -155,7 +155,7 @@ export const IMP95045_HEADLINE_GAP_ATTRIBUTION = {
     "Finding 1 is an exact algebraic identity (Tx(2) cancels in the ceiling/floor ratio because Theorem Y-EXACT and Theorem R share it). Finding 2 is the exact factorization gap = 2 x residual with the parity factor identified structurally as the roll-up outer AM-GM (a proved ceiling-side step). Finding 3 is CONDITIONAL on the model family (where MAJ = true decay by construction so option (i) vanishes) and uses the nineteenth's measured 0.4 percent substitution-point tightness to bound the MAJ-internal slack; the paper-packet split of (i) vs (ii) is explicitly deferred as an open sub-gap. This is an ATTRIBUTION audit: no bound, floor, or ceiling literal is derived or changed; optimality is not claimed; the parity factor's unrecoverability is carried from the eleventh continuation, not re-proved here.",
   promotesBound: false,
   verdict:
-    "ASSESSMENT: the residual 2.81x headline gap is NOT primarily floor-side and NOT MAJ-class-relaxation - the ticket binary is incomplete. (1) The tail-truncation Tx(2) cancels in cFar/F and contributes 1.000x (ruled out). (2) The DOMINANT contributor, ~67% of the log-gap, is the achieved-side parity AM-GM factor 2 (a THIRD category outside the binary), declared uniformly unrecoverable by the eleventh continuation. (3) The residual sub-sqrt(2) factor 1.4044x is, in the MODEL family, witness-floor-side (option ii): the exhibited witness realizes only 71.2% of the parity-halved ceiling, with MAJ-internal substitution slack <= 0.4 percent. SUB-GAP: the paper-packet split of option (i) vs (ii) needs the open packet-envelope constants (sibling openResiduals[0]). No single-lever factor-2 improvement exists: the dominant half is a fixed ceiling-side AM-GM and the remainder is below sqrt(2). Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT: the residual 2.81x headline gap is NOT primarily floor-side and NOT MAJ-class-relaxation - the ticket binary is incomplete. (1) The tail-truncation Tx(2) cancels in cFar/F and contributes 1.000x (ruled out). (2) The DOMINANT contributor, ~67% of the log-gap, is the achieved-side parity AM-GM factor 2 (a THIRD category outside the binary), declared uniformly unrecoverable by the eleventh continuation. (3) The residual sub-sqrt(2) factor 1.4044x is, in the MODEL family, witness-floor-side (option ii): the exhibited witness realizes only 71.2% of the parity-halved ceiling, with MAJ-internal substitution slack <= 0.4 percent. SUB-GAP: the paper-packet split of option (i) vs (ii) needs the open packet-envelope constants (sibling openResiduals[0]). No single-lever factor-2 improvement exists: the dominant half is a fixed ceiling-side AM-GM and the remainder is below sqrt(2). Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -214,12 +214,12 @@ export const IMP95045_HGA_ASSERTIONS = [
   {
     id: "imp95045-hga-honesty-gate",
     description:
-      "the verdict flags the ticket binary as incomplete, names the parity factor 2 as the dominant third-category contributor, records the Tx(2) cancellation and the open paper-packet sub-gap, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict flags the ticket binary as incomplete, names the parity factor 2 as the dominant third-category contributor, records the Tx(2) cancellation and the open paper-packet sub-gap, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95045_HEADLINE_GAP_ATTRIBUTION.promotesBound === false &&
       IMP95045_HEADLINE_GAP_ATTRIBUTION.openResiduals.length === 3 &&
       /NO QED/.test(IMP95045_HEADLINE_GAP_ATTRIBUTION.verdict) &&
-      /remains SOTA/.test(IMP95045_HEADLINE_GAP_ATTRIBUTION.verdict) &&
+      /refereed bound is changed/i.test(IMP95045_HEADLINE_GAP_ATTRIBUTION.verdict) &&
       /parity AM-GM factor 2/.test(IMP95045_HEADLINE_GAP_ATTRIBUTION.verdict) &&
       /THIRD category/.test(IMP95045_HEADLINE_GAP_ATTRIBUTION.verdict) &&
       /cancels/.test(IMP95045_HEADLINE_GAP_ATTRIBUTION.verdict) &&

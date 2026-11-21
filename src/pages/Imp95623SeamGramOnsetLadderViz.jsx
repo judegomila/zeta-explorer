@@ -137,8 +137,7 @@ export default function Imp95623SeamGramOnsetLadderViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a reader-facing consolidation
         of five already-established firing-onset certificates (imp-95335 / imp-95419 / imp-95475),
-        not a new theorem. It changes no Lambda bound and establishes no operator positivity.
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not follow from
+        not a new theorem. It changes no Lambda bound and establishes no operator positivity. RH does not follow from
         anything on this page. NO QED.
       </div>
 
@@ -191,8 +190,7 @@ export default function Imp95623SeamGramOnsetLadderViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-95609
         reader-facing table (itself consolidating imp-95457 / imp-95335 / imp-95419 / imp-95475).
-        Changes no bound, establishes no operator positivity, no RH claim; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA. NO QED.
+        Changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

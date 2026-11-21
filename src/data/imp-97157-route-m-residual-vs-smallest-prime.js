@@ -69,7 +69,7 @@
  * This sharpens the imp-97096 sub-gap: an explicit uniform remainder bound must control a
  * smallest-prime (smoothness) dependence, not merely a 2^omega factor. Measurement only: no uniform
  * remainder bound is supplied (imp-97096 sub-gap stays open); no bound moved; T ~ 2.594e7 trace
- * anchor unchanged; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * anchor unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97140-route-m-fixed-omega-residual-cohorts.js (RESULT 3: the smoothness reading, untabulated)
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (exact kappa_arith + explicit-remainder sub-gap)
@@ -198,11 +198,11 @@ export const IMP97157_VERDICT = Object.freeze({
     'still rises with P-(b). So 2^omega is a divisor-COUNT proxy capturing only the omega-correlated ' +
     'part of the smoothness signal; P-(b) is the better single descriptor. Measurement only: no ' +
     'uniform remainder bound is supplied (imp-97096 sub-gap stays open); no bound moved; T ~ 2.594e7 ' +
-    'anchor; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'anchor; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97157_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: binning the Route M residual by ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: binning the Route M residual by ' +
   'smallest prime factor P-(b) confirms the imp-97140 smoothness-depth reading -- GM|r| rises ~3x with ' +
   'P-(b) (small P- => deep cancellation => small |r|), log(P-) explains R2=0.836 of log|r| versus 0.566 ' +
   'for omega, and P- keeps driving |r| within fixed omega. Supplies NO uniform remainder bound -- the ' +
@@ -282,7 +282,7 @@ const IMP97157_ASSERTIONS = [
       IMP97157_VERDICT.suppliesUniformRemainderBound === false &&
       IMP97157_VERDICT.qed === false &&
       /NO QED/.test(IMP97157_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97157_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97157_HONEST_BANNER) &&
       /RH open/.test(IMP97157_HONEST_BANNER),
     why: 'measurement only: the smoothness reading is confirmed but no uniform remainder bound is supplied and no bound moved -- honesty markers present, no QED.',
   },

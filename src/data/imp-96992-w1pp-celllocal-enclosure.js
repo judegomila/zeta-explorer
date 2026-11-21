@@ -41,7 +41,7 @@
  * tail); near t=0 the constant 32.80 is genuinely needed, and the full [0,40] re-verification with the
  * swapped bound to actually CERTIFY 2a=1.00 was not run here, so the certified reach stays 2a<=0.96.
  * Interval-rigorous reach unchanged; operator positivity not proved; RH open;
- * Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96978-krein-kmax5-100-guard-resolution.js (Finding 3 -- names q^2 W1PP as the binding term)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (interval-rigorous reach 2a <= 0.96)

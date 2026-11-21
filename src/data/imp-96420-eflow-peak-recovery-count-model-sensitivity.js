@@ -50,8 +50,7 @@
  * inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED (the share stays GUE-conditional); the
  * C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96266-eflow-peak-recovery-residual (main-term baseline: 9.1% location error)
  * @see imp-96387-ecoll-anchor-count-model-sensitivity-n1e4 (+7/8 count shift, ~1/N scaling)
@@ -240,7 +239,7 @@ export const IMP96420_EFLOW_PEAK_RECOVERY_COUNT_MODEL_SENSITIVITY = {
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays GUE-conditional and ' +
     'UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96266 (main-term baseline, 9.1% location error); imp-96387 (+7/8 count shift, ~1/N ' +
     'scaling); imp-96363 (+7/8 count path, -3.00e-8 at N = 1e6); imp-3220 (interior peak ' +
@@ -282,13 +281,13 @@ export const IMP96420_EFLOW_PEAK_RECOVERY_COUNT_MODEL_SENSITIVITY_ASSERTIONS = [
       Math.abs(HEIGHT_ERR_78 - HEIGHT_ERR_MAIN) < 1e-6,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp96420-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96420_EFLOW_PEAK_RECOVERY_COUNT_MODEL_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP96420_EFLOW_PEAK_RECOVERY_COUNT_MODEL_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP96420_EFLOW_PEAK_RECOVERY_COUNT_MODEL_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP96420_EFLOW_PEAK_RECOVERY_COUNT_MODEL_SENSITIVITY.verdict),
   },
 ];
 

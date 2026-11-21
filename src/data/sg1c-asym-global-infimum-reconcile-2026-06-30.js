@@ -46,7 +46,7 @@
  *     ~(0.9016, 0.9028) (the imp-3021 lower end is below the imp-3170 closed form).
  *   - Load-bearing consequence unchanged: BOTH onsets sit far above the Theorem-C
  *     basin constant 0.72 (margin > 0.18), so the basin-conditional C_Lip is
- *     unaffected. Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA.
+ *     unaffected. No refereed bound is changed.
  *
  * @see sg1c-asym-isolation-closed-form-2026-06-30 (imp-3170 c_asym digamma root)
  * @see sg1c-theta-trap-theorems (imp-3021 SG1C_R2T2_ASYM_RESIDUAL structured family)
@@ -189,8 +189,8 @@ export const SG1C_ASYM_GLOBAL_INFIMUM_RECONCILE = {
     'Cross-validation of two SPECIFIC asymmetric families, NOT a closed form for the global constant. CONFIRMS the '
     + 'imp-3170 openSubGap: the digamma root is the unit-lattice-class onset only; the minimal-spacing family is '
     + 'lower. Global asymmetric multi-body constant stays OPEN, bracketed in ~(0.9016, 0.9028). Both onsets sit far '
-    + 'above the Theorem-C basin 0.72 (margin > 0.18) so the basin-conditional C_Lip is unaffected; PT Lambda <= 0.2 '
-    + 'stays the rigorous SOTA. NO false QED.',
+    + 'above the Theorem-C basin 0.72 (margin > 0.18) so the basin-conditional C_Lip is unaffected; no refereed bound is changed'
+    + '. NO false QED.',
 };
 
 export const SG1C_ASYM_GLOBAL_INFIMUM_RECONCILE_ASSERTIONS = [
@@ -237,10 +237,10 @@ export const SG1C_ASYM_GLOBAL_INFIMUM_RECONCILE_ASSERTIONS = [
   },
   {
     id: 'sg1c-reconcile-basin-and-sota-honest',
-    description: 'both onsets stay far above the Theorem-C basin 0.72 (margin > 0.15), the global constant is reported OPEN, and PT 0.2 remains SOTA',
+    description: 'both onsets stay far above the Theorem-C basin 0.72 (margin > 0.15), the global constant is reported OPEN, and no refereed bound is changed',
     holds: () => B_ONSET - 0.72 > 0.15 && C_ASYM - 0.72 > 0.15
       && /NOT the global asymmetric infimum/.test(SG1C_ASYM_GLOBAL_INFIMUM_RECONCILE.verdict)
-      && /Lambda <= 0.2/.test(SG1C_ASYM_GLOBAL_INFIMUM_RECONCILE.honest),
+      && /Lambda <= 0.2|refereed bound is changed/.test(SG1C_ASYM_GLOBAL_INFIMUM_RECONCILE.honest),
   },
 ];
 

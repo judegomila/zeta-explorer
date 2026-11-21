@@ -51,7 +51,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96444 verdict for quick reference. It
  *   establishes nothing, instantiates no interval beyond what imp-96444 already bisected,
- *   closes no sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   closes no sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96444-basis-c-floor-slope-dejitter (source: the median-over-resolved-ppp de-jittering this glosses)
  * @see imp-96430-basis-c-corroboration-reach-crossover (the coarse min-sweep band this narrows)
@@ -59,7 +59,7 @@
  * @see imp-96369-direct-double-integral-pt-anchor-feasibility (basis C feasibility and its floor model)
  *
  * Ticket: imp-96479 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The basis-C floor-de-jittering glossary headword, baked verbatim
@@ -95,7 +95,7 @@ const BASIS_C_FLOOR_DEJITTER_HEADWORD = Object.freeze({
     'derivation of the crossover. The crossover L* remains an EXTRAPOLATION -- the robust ' +
     'slope is calibrated only on accessible L (<= 960) and the direct integral is never ' +
     'evaluated at L ~ 1e12. Changes no bound; establishes no operator positivity; does ' +
-    'not touch the ~1.9-sigma excursion confidence; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'not touch the ~1.9-sigma excursion confidence; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96479_BASIS_C_FLOOR_DEJITTER_GLOSSARY_HEADWORD = Object.freeze({
@@ -115,7 +115,7 @@ export const IMP96479_BASIS_C_FLOOR_DEJITTER_GLOSSARY_HEADWORD = Object.freeze({
     'band from [~1.3e12, ~2.5e12] (width ratio ~1.92) to a proper subset ' +
     '[~1.38e12, ~1.76e12] (width ratio ~1.27) at its lower end, still five-to-six decades ' +
     'past the PT anchor L = 5.9e6. Establishes nothing; instantiates no interval beyond ' +
-    'imp-96444s bisection; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-96444s bisection; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96444 (the median-over-resolved-ppp de-jittering this glosses, narrowed band ' +
     '[1.38e12, 1.76e12]); imp-96430 (the coarse min-sweep band this narrows, ' +
@@ -145,11 +145,11 @@ export const IMP96479_BASIS_C_FLOOR_DEJITTER_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96479-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96479_BASIS_C_FLOOR_DEJITTER_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96479_BASIS_C_FLOOR_DEJITTER_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96479_BASIS_C_FLOOR_DEJITTER_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96479_BASIS_C_FLOOR_DEJITTER_GLOSSARY_HEADWORD.verdict) &&
       IMP96479_BASIS_C_FLOOR_DEJITTER_GLOSSARY_HEADWORD.glosses === 'imp-96444',
   },
 ];

@@ -53,7 +53,7 @@
  * (1.587e-2) at 1e8, so re-bisecting the crossover with the measured steeper law sharpens the projected
  * corroboration reach from L* ~ 1.90e8 down to ~8.0e7 (ppp = 3) / ~9.5e7 (best) -- ~1.1-1.2 decades
  * past the PT anchor, roughly half the imp-96568 projection. Measurement only; theoretical GUE quantity,
- * not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the
+ * not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the
  * zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96568-basis-c-intermediate-rung-floor-ladder (the two-rung p ~ 1.81 law and L* ~ 1.9e8 this bends)
@@ -196,12 +196,12 @@ export const IMP96588_BASIS_C_FLOOR_1E8_RUNG_POWERLAW_BEND = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values, and each floor is a double-precision quadrature/cancellation artifact of this direct integral. At 1e8 the Var = L - 2*Int catastrophic-cancellation roundoff co-dominates the Simpson truncation, so part of the upward bend is that roundoff floor overtaking; the ppp = 2, 2.5, 3 floors are non-monotone (noisy transition regime), so the exponent 2.426 and L* ~ 8e7 are a SHARPENED projection, not a proof of a converged floor. Changes no bound, establishes no operator positivity, does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'Measuring a further basis-C rung at L = 1e8 shows the imp-96568 single power law p ~ 1.81 does NOT persist past 1e7: the measured clean ppp = 3 floor (2.7235e-2) is ~5.7x above the p = 1.81 prediction (4.82e-3), the local exponent steepens to ~2.57, and the optimum ppp collapses further (3 -> 2, best floor 1.784e-2). The floor already EXCEEDS the shrinking sine-kernel signal (1.587e-2) at 1e8, so re-bisecting with the measured steeper law sharpens the projected corroboration reach from L* ~ 1.90e8 down to ~8.0e7 (ppp = 3) / ~9.5e7 (best), ~1.1-1.2 decades past the PT anchor. Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Measuring a further basis-C rung at L = 1e8 shows the imp-96568 single power law p ~ 1.81 does NOT persist past 1e7: the measured clean ppp = 3 floor (2.7235e-2) is ~5.7x above the p = 1.81 prediction (4.82e-3), the local exponent steepens to ~2.57, and the optimum ppp collapses further (3 -> 2, best floor 1.784e-2). The floor already EXCEEDS the shrinking sine-kernel signal (1.587e-2) at 1e8, so re-bisecting with the measured steeper law sharpens the projected corroboration reach from L* ~ 1.90e8 down to ~8.0e7 (ppp = 3) / ~9.5e7 (best), ~1.1-1.2 decades past the PT anchor. Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for any consumer surface.
 export const IMP96588_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: rho is the '
+  'RH open; no refereed bound is changed; NO QED. Measurement only: rho is the '
   + 'theoretical GUE two-interval correlation, not computed from real zeros; each floor is a '
   + 'double-precision quadrature/cancellation artifact of the direct integral. The measured '
   + 'L = 1e8 rung shows the imp-96568 p ~ 1.81 law BENDS upward (clean ppp = 3 floor 2.72e-2 '
@@ -252,11 +252,11 @@ export const IMP96588_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96588_BASIS_C_FLOOR_1E8_RUNG_POWERLAW_BEND.verdict))
     throw new Error('imp-96588: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96588_BASIS_C_FLOOR_1E8_RUNG_POWERLAW_BEND.verdict))
-    throw new Error('imp-96588: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96588_BASIS_C_FLOOR_1E8_RUNG_POWERLAW_BEND.verdict))
+    throw new Error('imp-96588: verdict dropped the no-refereed-bound-change banner');
   if (!/imp-96568/.test(IMP96588_BASIS_C_FLOOR_1E8_RUNG_POWERLAW_BEND.source))
     throw new Error('imp-96588: source dropped the imp-96568 reference');
-  if (!(/RH open/.test(IMP96588_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96588_HONEST_BANNER) && /NO QED/.test(IMP96588_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96588_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96588_HONEST_BANNER) && /NO QED/.test(IMP96588_HONEST_BANNER)))
     throw new Error('imp-96588: IMP96588_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

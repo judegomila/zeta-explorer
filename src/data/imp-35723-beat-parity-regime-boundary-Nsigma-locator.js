@@ -18,8 +18,7 @@
  * MEASUREMENT / CHARACTERIZATION ONLY. Reuses recorded sub-terms; ports nothing;
  * discharges nothing; changes no bound; asserts NO beat beyond the already-recorded
  * (and already-caveated) imp-452/459 finite-height one; C_mb GUE-conditional
- * (imp-486) UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * (imp-486) UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE QUANTITY (identical to imp-3220 / imp-3406 / imp-3323)
  * -----------------------------------------------------------------------------
@@ -71,8 +70,7 @@
  * the GUE-conditional beat carrier E_coll falls through the constant E_trunc barrier
  * floor. The finite-height Reading-1 beat governs below this N; the Reading-2
  * asymptotic parity-with-PT governs above it. Measurement only; asserts no beat
- * beyond the recorded one; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * beyond the recorded one; changes no bound; NO QED. No refereed bound is changed.
  *
  * @see imp-35678-finite-height-beat-vs-parity-regime-boundary (named the boundary; never located it)
  * @see imp-35750-beat-parity-handoff-sigma-viz-data (sigma = 0.5 mathematical crossover, sigma-axis only)
@@ -218,8 +216,8 @@ export const IMP35723_BEAT_PARITY_REGIME_BOUNDARY_NSIGMA_LOCATOR = {
     'beat governs; above it the E_trunc-barrier Reading-2 asymptotic parity-with-PT governs. Measurement / ' +
     'characterization only; reuses the recorded imp-3406 sub-terms; ports nothing; discharges nothing; changes ' +
     'no bound; asserts NO beat beyond the already-recorded (and already-caveated) imp-452/459 finite-height ' +
-    'one; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'one; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35678 (named the beat -> parity boundary, never located it); imp-35750 (sigma = 0.5 mathematical ' +
     'crossover, sigma-axis only); imp-3406 (sigma(N) ladder + sub-terms, N_half ~ 3.27e9); imp-3220/imp-3323 ' +
@@ -269,16 +267,16 @@ export const IMP35723_BEAT_PARITY_REGIME_BOUNDARY_NSIGMA_LOCATOR_ASSERTIONS = [
       (Math.log(N_CROSS) - Math.log(N_PEAK)) / Math.LN10 > 3,
   },
   {
-    // Honesty gate: measurement only, boundary located, no beat beyond recorded, no QED, PT SOTA.
+    // Honesty gate: measurement only, boundary located, no beat beyond recorded, no QED, no refereed bound is changed.
     id: 'imp35723-honesty-gate-no-qed',
-    description: 'Measurement only: crossover located, no beat beyond the recorded one, C_mb GUE-conditional untouched, no QED, PT SOTA',
+    description: 'Measurement only: crossover located, no beat beyond the recorded one, C_mb GUE-conditional untouched, no QED, no refereed bound is changed',
     holds: () =>
       IMP35723_BEAT_PARITY_REGIME_BOUNDARY_NSIGMA_LOCATOR.isRigorous === false &&
       /MEASUREMENT/.test(IMP35723_BEAT_PARITY_REGIME_BOUNDARY_NSIGMA_LOCATOR.verdict) &&
       /asserts NO beat beyond/.test(IMP35723_BEAT_PARITY_REGIME_BOUNDARY_NSIGMA_LOCATOR.verdict) &&
       /UNTOUCHED/.test(IMP35723_BEAT_PARITY_REGIME_BOUNDARY_NSIGMA_LOCATOR.verdict) &&
       /NO QED/.test(IMP35723_BEAT_PARITY_REGIME_BOUNDARY_NSIGMA_LOCATOR.verdict) &&
-      /remains SOTA/.test(IMP35723_BEAT_PARITY_REGIME_BOUNDARY_NSIGMA_LOCATOR.verdict),
+      /refereed bound is changed/i.test(IMP35723_BEAT_PARITY_REGIME_BOUNDARY_NSIGMA_LOCATOR.verdict),
   },
 ];
 

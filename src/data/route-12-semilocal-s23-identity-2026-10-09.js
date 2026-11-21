@@ -35,7 +35,7 @@
  * HEURISTIC: enlarging S at Λ = 1 is not a lever toward Connes' program with this metric; the remaining S-independent content is the
  *  inequality D_S ≤ L_S itself (or a different cutoff/architecture).
  *
- * PT Λ ≤ 0.2 stands; RH open; NO QED. Import-free. ROUTE_12_ASSERTIONS recompute |ρ_p| = 1, the Tate series Σ c_p(k)p^{−ks} = ρ_p, the share ↔ λ_W/L_S
+ * No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_12_ASSERTIONS recompute |ρ_p| = 1, the Tate series Σ c_p(k)p^{−ks} = ρ_p, the share ↔ λ_W/L_S
  * consistency, the S23/S2 ratios, the δ̂_S23(0) piece sums and the D_S23 sign drift live.
  */
 
@@ -91,7 +91,7 @@ export const ROUTE_12 = Object.freeze({
   verdict: 'No: adding p = 3 (and p = 5) does not shrink the remainder share on the pole-free Weil minimiser (99.71% at ln 3, 99.99997% at ln 4 for every S tested). '
     + 'The share equals 1 − λ_W/L_S(h0) by definition and L_S(h0) ≈ 0.3 is bounded below by the positive trace multiplier, so this metric is near 1 for every S and '
     + 'says nothing about Connes\' Λ → ∞ limit. The S = {∞,2,3} identity is derived (conditional on the CC framework) and its trace side is positive in measurement only; '
-    + 'nothing is certified. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'nothing is certified. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_12;
@@ -145,7 +145,7 @@ export const ROUTE_12_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r12-honest-scope',
-    holds: () => R.status === 'done' && /by definition/.test(R.verdict) && /nothing is certified/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict)
+    holds: () => R.status === 'done' && /by definition/.test(R.verdict) && /nothing is certified/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict)
       && /NO QED/.test(R.verdict) && /artefact/.test(R.refereeKilled[1]),
     why: 'Negative answer stated as a property of this metric at Λ = 1; nothing certified; no QED.',
   },

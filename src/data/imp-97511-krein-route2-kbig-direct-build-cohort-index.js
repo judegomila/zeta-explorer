@@ -58,8 +58,7 @@
  *     later continuation.
  *
  *   STATUS: a grouping/index note over four already-completed tickets, not a new derivation. No bound
- *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 SOTA.
+ *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-97414-krein-full-projector-second-moment-execution.js (builds A2; closes m=1 Lehmann)
  * @see imp-97440-krein-route2-lambda2-lower-bound-execution.js (Route-2 Lehmann execution on A2)
@@ -68,7 +67,7 @@
  * @see imp-97492-krein-csharp-lower-bound-obstruction-cohort-index.js (sibling meta index: broader eight-ticket obstruction cohort spanning m=1, Route-2, bathtub, far-field)
  *
  * Ticket: imp-97511 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- the binding 2a for the Krein floor
@@ -145,8 +144,8 @@ export const IMP97511_KREIN_ROUTE2_KBIG_DIRECT_BUILD_COHORT_INDEX = Object.freez
     'broader sibling imp-97492 eight-ticket obstruction cohort, which also covers the m=1-only tickets, ' +
     'the bathtub estimate, and the far-field residual. Later tickets continue this same Route-2 build ' +
     'past Kbig=260 (not covered by this index). Interval-rigorous certified reach stays EXACTLY 2a<=0.96, ' +
-    'unchanged. Establishes nothing new; moves no bound; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'unchanged. Establishes nothing new; moves no bound; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97414 (full-projector A2 build; closes m=1 Lehmann); imp-97440 (Route-2 Lehmann execution; ' +
     'apparent regress); imp-97455 (Kbig->inf; saturates [-322.065,-305.866]); imp-97482 (direct build ' +
@@ -195,11 +194,11 @@ export const IMP97511_KREIN_ROUTE2_KBIG_DIRECT_BUILD_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97511-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97511_KREIN_ROUTE2_KBIG_DIRECT_BUILD_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97511_KREIN_ROUTE2_KBIG_DIRECT_BUILD_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97511_KREIN_ROUTE2_KBIG_DIRECT_BUILD_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97511_KREIN_ROUTE2_KBIG_DIRECT_BUILD_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP97511_KREIN_ROUTE2_KBIG_DIRECT_BUILD_COHORT_INDEX.verdict),
   },
 ];

@@ -6,8 +6,8 @@
  * stays a free knob, not a discharge of that conditional; C_C 1/8 ansatz
  * imp-2642/imp-2643 UNTOUCHED; for the Krawczyk-family module imp-34949 the
  * imp-34714a directed-rounding certificate REMAINS OPEN; changes-no-bound;
- * establishes no operator positivity; NO QED; Platt-Trudgian Lambda<=0.2
- * remains SOTA) is carried by the imp-34947/imp-34949/imp-34950/imp-34951
+ * establishes no operator positivity; NO QED; no refereed bound is changed
+ * ) is carried by the imp-34947/imp-34949/imp-34950/imp-34951
  * sub-cohort -- the four tickets the imp-34988 banner audit (which spans only
  * imp-34952..imp-34957) did NOT cover -- and every viz/glossary surface built
  * from them, extending the imp-34725/imp-34812/imp-34834/imp-34857/imp-34879/
@@ -85,7 +85,7 @@ export const CAVEAT_SURFACING_AUDIT_34947_34951 = {
     + 'Unlike the prior imp-34921/34946/34968 audits, no completeness-coverage gap was found in this cohort -- '
     + 'every module already has both a viz surface and a glossary surface. No bound change; sub-gap imp-34714a '
     + 'stays OPEN; C_mb GUE-conditional share (imp-486) untouched; C_C 1/8 ansatz (imp-2642/imp-2643) untouched; '
-    + 'no operator positivity; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'no operator positivity; NO QED; no refereed bound is changed.',
 };
 
 export const CAVEAT_SURFACING_AUDIT_34947_34951_ASSERTIONS = [
@@ -132,10 +132,10 @@ export const CAVEAT_SURFACING_AUDIT_34947_34951_ASSERTIONS = [
   },
   {
     id: 'imp-35007-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(CAVEAT_SURFACING_AUDIT_34947_34951.honest)
       && /no completeness-coverage gap was found/.test(CAVEAT_SURFACING_AUDIT_34947_34951.honest)
-      && /Lambda<=0.2 remains SOTA/.test(CAVEAT_SURFACING_AUDIT_34947_34951.honest),
+      && /refereed bound is changed/i.test(CAVEAT_SURFACING_AUDIT_34947_34951.honest),
   },
 ];
 

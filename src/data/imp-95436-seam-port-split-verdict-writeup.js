@@ -69,7 +69,7 @@
  * of the imp-95376 numerics and adds no new claim. LEG B (the envelope-
  * domination inequality) remains open and is tracked separately at
  * imp-95212-subgap-fresnel-airy-envelope-port. Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ * no refereed bound is changed; RH open.
  *
  * Import-light: no zeros bundle, no sibling data-module imports (all facts
  * restated as literals so this module stays independently checkable).
@@ -115,8 +115,8 @@ export const IMP95436_SEAM_PORT_SPLIT_VERDICT_WRITEUP = {
     + 'inequality as the correct remaining target.',
   honest:
     'RESTATEMENT ONLY -- no new derivation, no numerics re-run, no port re-attempted; LEG B remains open '
-    + 'at imp-95212-subgap-fresnel-airy-envelope-port. Changes no bound; NO QED; Platt-Trudgian Lambda <= '
-    + '0.2 remains SOTA; RH open.',
+    + 'at imp-95212-subgap-fresnel-airy-envelope-port. Changes no bound; NO QED; no refereed bound is changed'
+    + '; RH open.',
 };
 
 export const IMP95436_SEAM_PORT_SPLIT_VERDICT_WRITEUP_ASSERTIONS = [
@@ -143,11 +143,11 @@ export const IMP95436_SEAM_PORT_SPLIT_VERDICT_WRITEUP_ASSERTIONS = [
   },
   {
     id: 'imp-95436-honesty-gate-no-qed',
-    description: 'restatement-only, no bound promoted, NO QED, PT stays SOTA, RH open',
+    description: 'restatement-only, no bound promoted, NO QED, no refereed bound is changed, RH open',
     holds: () =>
       /RESTATEMENT ONLY/.test(IMP95436_SEAM_PORT_SPLIT_VERDICT_WRITEUP.honest)
       && /NO QED/.test(IMP95436_SEAM_PORT_SPLIT_VERDICT_WRITEUP.honest)
-      && /remains SOTA/.test(IMP95436_SEAM_PORT_SPLIT_VERDICT_WRITEUP.honest)
+      && /refereed bound is changed/i.test(IMP95436_SEAM_PORT_SPLIT_VERDICT_WRITEUP.honest)
       && /RH open/.test(IMP95436_SEAM_PORT_SPLIT_VERDICT_WRITEUP.honest),
   },
 ];

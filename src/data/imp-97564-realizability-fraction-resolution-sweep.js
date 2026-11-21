@@ -37,7 +37,7 @@
  *   a MEASUREMENT: R is a finite-section IEEE-double / Lanczos eigenvalue on a truncated window, not an interval
  *   enclosure, and R_inf is a 1/T extrapolation, not a certified limit; no rigorous bound is promoted; the scalar
  *   bound stays a negative floor; no operator positivity; no bound moves; interval-rigorous reach stays 2a <= 0.96;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *   SUB-GAP IMP97564_REALIZABLE_FRACTION_WINDOW_LIMIT_NEEDS_CERTIFIED_INFINITE_LINE_EIGENVALUE.
  *
  * @see imp-97457-krein-bathtub-realizability-gap.js (the 43.84% T=12 measurement this extends and corrects)
@@ -48,7 +48,7 @@
  * Runners: tmp/imp-97564-resolution-sweep.py (grid axis + first window rungs), tmp/imp-97564-window-tail.py
  *   (window tail T up to 64). numpy sinc-projector matrix, scipy eigsh (k=1, largest algebraic) for N>3000,
  *   mpmath dps=30 symbol; venv /tmp/rhvenv. Measurement only; NO QED.
- * Ticket: imp-97564 (numerical, medium, opus-4-8). Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Ticket: imp-97564 (numerical, medium, opus-4-8). Changes no bound; no refereed bound is changed.
  */
 
 import { IMP97457_REALIZABILITY } from './imp-97457-krein-bathtub-realizability-gap.js';

@@ -56,8 +56,7 @@
  * asymptotic; changes no bound. Surrogate-vs-true fidelity (imp-35337a) UNTOUCHED;
  * C_C ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) UNTOUCHED;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per
- * imp-3463; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-3463; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35458-crossover-height-map-sensitivity (the ~18x crossover damping factor mirrored here)
  * @see imp-35536-peak-height-map-sensitivity (peak sigma_max robustness + N_max drift; no damping factor)
@@ -232,7 +231,7 @@ export const IMP35574_PEAK_LOCATION_HEIGHT_MAP_DAMPING = {
     '(imp-35337a) UNTOUCHED; C_C ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 ' +
     '(imp-2631/imp-447) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail ' +
     'exponent 1/2 per imp-3463; changes no bound; no operator positivity; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35458 (crossover height-map damping ~18x, mirrored here); imp-35536 (peak sigma_max ' +
     'robustness + N_max drift, without the damping factor); imp-35337 (interior-peak locator); ' +
@@ -271,13 +270,13 @@ export const IMP35574_PEAK_LOCATION_HEIGHT_MAP_DAMPING_ASSERTIONS = [
       CROSS_VS_PEAK_DAMPING_RATIO > 10,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35574-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35574_PEAK_LOCATION_HEIGHT_MAP_DAMPING.isRigorous === false &&
       /NO QED/.test(IMP35574_PEAK_LOCATION_HEIGHT_MAP_DAMPING.verdict) &&
-      /remains SOTA/.test(IMP35574_PEAK_LOCATION_HEIGHT_MAP_DAMPING.verdict),
+      /refereed bound is changed/i.test(IMP35574_PEAK_LOCATION_HEIGHT_MAP_DAMPING.verdict),
   },
 ];
 

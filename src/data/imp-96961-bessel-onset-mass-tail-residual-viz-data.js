@@ -17,7 +17,7 @@
  * PRESENTATION ONLY. Changes no bound; establishes no operator positivity;
  * the beyond-T=3200 residual is a Rayleigh UPPER-bound measurement, not a
  * certificate; interval-rigorous certificate reach stays 2a<=0.96;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96934-bessel-onset-tail-residual-viz-data.js (source table, reused verbatim)
  * @see imp-96957-bessel-onset-tail-finer-ladder-viz-data.js (finer N-ladder extension, out of scope here)
@@ -82,7 +82,7 @@ export const IMP96961_HONEST_BANNER =
   'comparison is numerically reliable -- extended past N~148 the first-order tail decomposition ' +
   'degrades and its apparent over-to-under crossover is an artifact, not physics; do not extrapolate ' +
   'this chart. No operator positivity established; interval-rigorous certificate reach stays ' +
-  '2a<=0.96; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  '2a<=0.96; no refereed bound is changed; RH open; NO QED.';
 
 // plain validation object (no self-executing throw; imp-96294/imp-96819 convention -- a viz-data
 // leaf must stay inert in the browser so a stale reading cannot blank a lazy-loaded page). Checked
@@ -111,7 +111,7 @@ export const IMP96961_VALIDATION = Object.freeze({
     IMP96934_VERDICT.qed === false,
   honestBannerPresent:
     /RH open/.test(IMP96961_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP96961_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96961_HONEST_BANNER) &&
     /NO QED/.test(IMP96961_HONEST_BANNER) &&
     /Rayleigh UPPER-bound measurement, not a certified tail bound/.test(IMP96961_HONEST_BANNER) &&
     /imp-97038/.test(IMP96961_HONEST_BANNER) &&

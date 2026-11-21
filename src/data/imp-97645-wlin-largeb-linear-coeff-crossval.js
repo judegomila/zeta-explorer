@@ -40,8 +40,8 @@
  *
  *   Cross-check only. The RESULT 3 mixed-kernel sub-gap STANDS; no coefficient is pinned beyond
  *   w_lin (already forced by imp-97460); no bound moves; the rigorous anchor stays the trace ceiling
- *   T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; PT
- *   Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * @see imp-97618-wlin-leading-laurent-crossval (b=400000 baseline cross-validated here)
  * @see imp-97597-route-m-psi-s-integral-rep-double-expansion (RESULT 1 / RESULT 3 sub-gap)
@@ -121,12 +121,12 @@ export const IMP97645_VERDICT = Object.freeze({
     'the imp-97618 diagnosis and localises the gap to the fit grid / wobble; isolating the linear ' +
     'coefficient below 6e-3 needs a wobble-model subtraction or a finer/smaller-x node grid, not more ' +
     'b. No coefficient newly pinned; the RESULT 3 sub-gap STANDS; no bound moves; the rigorous anchor ' +
-    'stays T = 2.594e7; compute binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; ' +
+    'stays T = 2.594e7; compute binds first by >2600x; no operator positivity; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
 export const IMP97645_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Numerical cross-check only: re-running the direct ' +
+  'RH open; no refereed bound is changed; NO QED. Numerical cross-check only: re-running the direct ' +
   'Vasyunin cotangent-sum limit at b = 1e6 and 2e6 does NOT tighten the linear coefficient toward ' +
   '-1/pi (err 6.4e-3 -> 1.28e-2 -> 6.5e-3, non-monotone, plateau ~6e-3); w(x) is already b-converged ' +
   'at b = 400000, so the gap is the O(x^2) wobble tail on the fixed small-x fit grid (imp-97597 ' +
@@ -197,7 +197,7 @@ const IMP97645_ASSERTIONS = [
       IMP97645_VERDICT.anyBoundMoved === false &&
       IMP97645_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97645_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97645_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97645_HONEST_BANNER) &&
       /RH open/.test(IMP97645_HONEST_BANNER),
   },
 ];

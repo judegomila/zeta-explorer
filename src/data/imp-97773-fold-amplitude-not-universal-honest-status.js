@@ -18,7 +18,7 @@
  * @see imp-97735-fold-amplitude-height-ladder-drift.js (height-dependence measurement)
  *
  * Ticket: imp-97773 (ux, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda
- * moves; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97725_FOLD_AMPLITUDE_ANALYTIC_PIN } from './imp-97725-fold-amplitude-analytic-pin.js';

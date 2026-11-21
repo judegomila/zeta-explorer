@@ -46,7 +46,7 @@
  *   no constant. C_H stays UNPROVEN (imp-2642 / imp-2701); the conditional
  *   C_H <= 0.127 is not reclassified; imp-2640 Gronwall discharge of C_Lip stays
  *   NEGATIVE; the Erdos-Turan bridge constant (imp-2641 residual) stays open.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA. RH remains open. NO QED.
+ *   No refereed bound is changed. RH remains open. NO QED.
  *
  * Provenance of baked inputs (single sources of truth, cited not re-derived):
  *   - imp-2641-c-selberg-trudgian-discharge.js: the three Trudgian readings
@@ -164,8 +164,8 @@ export const IMP96447_ECOLL_CSELBERG_ADMISSIBLE_BAND = {
     'sits inside the band. Accuracy audit only: no gap closed, no bound changed, ' +
     'conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false ' +
     '(imp-2642/imp-2701), imp-2640 Gronwall discharge of C_Lip NEGATIVE, the ' +
-    'Erdos-Turan bridge constant (imp-2641 residual) stays open. Platt-Trudgian ' +
-    'Lambda <= 0.2 SOTA. RH open. NO QED.',
+    'Erdos-Turan bridge constant (imp-2641 residual) stays open. No refereed bound is changed' +
+    '. RH open. NO QED.',
   provenance:
     'imp-2641-c-selberg-trudgian-discharge.js (Trudgian readings 0.4519/1.1619/' +
     '2.622 and placeholder 3.0); imp-96429-ecoll-ckh-sensitivity.js (sqrt(C_KH) ' +

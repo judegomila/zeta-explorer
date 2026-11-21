@@ -36,7 +36,7 @@
  *   A glossary-style lookup restating the imp-36153 a-dependence finding and the imp-34714 box
  *   parameterization for quick reference. It establishes nothing, instantiates no interval, derives
  *   no remainder, changes no bound, closes no sub-gap. imp-34714a and imp-34687a REMAIN OPEN; NO
- *   QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   QED. No refereed bound is changed.
  *
  * @see imp-36153-krawczyk-residual-surrogate-layer-ratio-a-dependence.js (source: the a-sweep this glosses)
  * @see imp-34714-krawczyk-existence-uniqueness-lemma.js (source: the Krawczyk existence/uniqueness test the box a instruments)
@@ -44,7 +44,7 @@
  * @see imp-36230-krawczyk-residual-node-glossary-headword.js (sibling headword: the residual node F(m) itself)
  *
  * Ticket: imp-36284 (content, low). Documentation only; establishes no enclosure;
- * imp-34714a/imp-34687a stay OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * imp-34714a/imp-34687a stay OPEN; NO QED; no refereed bound is changed.
  */
 
 // The Krawczyk certificate half-width a definition and its a -> 0 vs macroscopic behavior, baked verbatim (no re-import).
@@ -93,8 +93,8 @@ export const IMP36284_KRAWCZYK_CERTIFICATE_HALF_WIDTH_A_GLOSSARY_HEADWORD = Obje
     'and restates the imp-36153 finding that the surrogate/layer width ratio pins to ~1.8418-2x at ' +
     'the a -> 0 ULP floor (per-op rounding-slack dominates) but decays to exactly 1x at macroscopic a ' +
     '(shared propagated-input width dominates). Establishes nothing; instantiates no interval; ' +
-    'closes no sub-gap; imp-34714a and imp-34687a stay OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'closes no sub-gap; imp-34714a and imp-34687a stay OPEN; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36153 (source a-dependence sweep); imp-34714 (Krawczyk existence/uniqueness lemma; box ' +
     'parameter a); imp-36017 (point-input "a-independent 2x" claim); imp-35969 (nextafter surrogate ' +
@@ -120,11 +120,11 @@ export const IMP36284_KRAWCZYK_CERTIFICATE_HALF_WIDTH_A_GLOSSARY_HEADWORD_ASSERT
   },
   {
     id: 'imp36284-honesty-gate-no-qed',
-    why: 'Documentation only: no enclosure claimed established, imp-34714a stays OPEN, no QED, PT SOTA line present.',
+    why: 'Documentation only: no enclosure claimed established, imp-34714a stays OPEN, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP36284_KRAWCZYK_CERTIFICATE_HALF_WIDTH_A_GLOSSARY_HEADWORD.anyEnclosureEstablished === false &&
       /NO QED/.test(IMP36284_KRAWCZYK_CERTIFICATE_HALF_WIDTH_A_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP36284_KRAWCZYK_CERTIFICATE_HALF_WIDTH_A_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP36284_KRAWCZYK_CERTIFICATE_HALF_WIDTH_A_GLOSSARY_HEADWORD.verdict) &&
       /imp-34714a and imp-34687a stay OPEN/.test(IMP36284_KRAWCZYK_CERTIFICATE_HALF_WIDTH_A_GLOSSARY_HEADWORD.verdict) &&
       IMP36284_KRAWCZYK_CERTIFICATE_HALF_WIDTH_A_GLOSSARY_HEADWORD.glosses === 'imp-36153' &&
       IMP36284_KRAWCZYK_CERTIFICATE_HALF_WIDTH_A_GLOSSARY_HEADWORD.scopes === 'imp-34714a',

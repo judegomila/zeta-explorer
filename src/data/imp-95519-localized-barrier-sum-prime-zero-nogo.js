@@ -143,7 +143,7 @@
  *    for zeta and L(s, chi mod p <= 97) at heights 3e12-1.9e16 (out of reach).
  *    The channel bridge (seam channel -> t down to 0 tail channel) flagged by the
  *    ticket is moot until (i)-(ii) move. Changes no bound; NO QED;
- *    Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ *    no refereed bound is changed; RH open.
  *
  * Import-light: no zeros bundle, no sibling imports. All literals re-derived.
  */
@@ -822,7 +822,7 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
       perZeroFactor: [ZF_LO.perZeroFactor, ZF_HI.perZeroFactor], // 0.8450 / 0.8428 (unconditional classical saving, near-flat)
       classicalStrongerThroughout: true,
       verdict:
-        'CONFIRMED: the classical Mossinghoff-Trudgian-Yang region 1/(5.558691 log t) is the operative (wider = stronger) unconditional zero-free region across the ENTIRE window. The window heights carry log t in [28.73, 37.48], while the Ford (Vinogradov-Korobov) width 1/(57.54 (log t)^{2/3}(loglog t)^{1/3}) overtakes it only at log t ~ 1.0242e4 (t ~ exp(1.02e4), ~273x above the window top) -- utterly beyond reach. Classical is 5.06x/4.75x wider than VK at N_lo/N_hi. The unconditional per-zero saving exp(-cl log u) is ~0.845 (near-flat across the window), so an RH-strength half-strip would buy a per-zero factor already ~0.845 unconditionally; RH remains inert at the operative Fresnel width (rhBarrierRatio > 1, prime side). Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 stands.',
+        'CONFIRMED: the classical Mossinghoff-Trudgian-Yang region 1/(5.558691 log t) is the operative (wider = stronger) unconditional zero-free region across the ENTIRE window. The window heights carry log t in [28.73, 37.48], while the Ford (Vinogradov-Korobov) width 1/(57.54 (log t)^{2/3}(loglog t)^{1/3}) overtakes it only at log t ~ 1.0242e4 (t ~ exp(1.02e4), ~273x above the window top) -- utterly beyond reach. Classical is 5.06x/4.75x wider than VK at N_lo/N_hi. The unconditional per-zero saving exp(-cl log u) is ~0.845 (near-flat across the window), so an RH-strength half-strip would buy a per-zero factor already ~0.845 unconditionally; RH remains inert at the operative Fresnel width (rhBarrierRatio > 1, prime side). Measurement only; changes no bound; NO QED; no refereed bound is changed.',
     },
     heightDeficitQ97: HEIGHT_DEFICIT_Q97,
     grhHeightGapPerPrime: {
@@ -831,7 +831,7 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
         'Platt (Math. Comp. 85 (2016) 3009-3027) verified GRH for L(s, chi mod q) up to height ~ 10^8/q; required height = window bottom T = heightT(N_lo) ~ 3.0e12 (zeta verified edge, x0 = X + 1).',
       ...GRH_HEIGHT_GAP_PER_PRIME,
       verdict:
-        'CONFIRMED per-prime and NON-UNIFORM: the GRH-verification height gap is gap(p) = T / (10^8/p) = T p / 10^8, LINEAR in the conductor. It runs from 6.0e4 at p = 2 (verified height 5.0e7) to 2.91e6 at p = 97 (verified height 1.03e6, matching heightDeficitQ97), a factor 48.5 = 97/2 spread, so the deficit is NOT uniform across the 25 sieving primes -- it is worse for larger conductor, and p = 97 is the binding modulus. Every sieving prime is height-bound (gap >= 6.0e4); verified GRH would in any case be inert at the operative Fresnel width (rho > 1, prime side). Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 stands.',
+        'CONFIRMED per-prime and NON-UNIFORM: the GRH-verification height gap is gap(p) = T / (10^8/p) = T p / 10^8, LINEAR in the conductor. It runs from 6.0e4 at p = 2 (verified height 5.0e7) to 2.91e6 at p = 97 (verified height 1.03e6, matching heightDeficitQ97), a factor 48.5 = 97/2 spread, so the deficit is NOT uniform across the 25 sieving primes -- it is worse for larger conductor, and p = 97 is the binding modulus. Every sieving prime is height-bound (gap >= 6.0e4); verified GRH would in any case be inert at the operative Fresnel width (rho > 1, prime side). Measurement only; changes no bound; NO QED; no refereed bound is changed.',
     },
     gaussPlancherelResiduals: [GP_RESID_P7, GP_RESID_P13, GP_RESID_P97],
     gaussPlancherelResidualsAllPrimes: {
@@ -844,7 +844,7 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
       worstPrime: GP_RESID_ALL_PRIMES.reduce((a, b) => (b.residual > a.residual ? b : a)).p,
       countUnder1e12: GP_RESID_ALL_UNDER_1E12, // 24 of 25
       verdict:
-        'CONFIRMED across all 25 sieving primes: sum_h |A_h|^2 = (1/(p-1))[|S_0|^2 + p sum_{chi != chi_0}|S_chi|^2] holds to float64 roundoff at every prime p <= 97 (worst relative residual 2.612e-12, at p = 2). 24 of 25 primes verify to < 1e-12; the p = 2 outlier is a degenerate trivial-group floor -- (Z/2)^x has no nontrivial character, so the alias DFT reduces to cos(pi n) whose large-argument roundoff (vs the exact rhs at j = 0) sets a 2.6e-12 trig floor that no window or compensated sum removes. The identity is an exact DFT isometry; this measurement adds coverage only, no bound change. NO QED; PT Lambda <= 0.2 stands.',
+        'CONFIRMED across all 25 sieving primes: sum_h |A_h|^2 = (1/(p-1))[|S_0|^2 + p sum_{chi != chi_0}|S_chi|^2] holds to float64 roundoff at every prime p <= 97 (worst relative residual 2.612e-12, at p = 2). 24 of 25 primes verify to < 1e-12; the p = 2 outlier is a degenerate trivial-group floor -- (Z/2)^x has no nontrivial character, so the alias DFT reduces to cos(pi n) whose large-argument roundoff (vs the exact rhs at j = 0) sets a 2.6e-12 trig floor that no window or compensated sum removes. The identity is an exact DFT isometry; this measurement adds coverage only, no bound change. NO QED; no refereed bound is changed.',
     },
     toyKernelGaussPlancherel: {
       ticket: 'imp-95680',
@@ -855,7 +855,7 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
       worstSummed: TOY_GP_WORST_SUMMED, // summed Plancherel residual (line 54)
       worstTauMag: TOY_GP_WORST_TAU, // ||tau(chi-bar)|^2 - p| / p over non-principal chi
       verdict:
-        'CONFIRMED at a fresh non-arithmetic kernel: on the toy weight K the PER-h alias formula A_h = (1/(p-1))[-S_0 + sum_{chi != chi0} chi(h) tau(chi-bar) S_chi] holds to float64 roundoff (worst relative residual ~3.5e-10 at p = 11, driven by the small-|A_h| cells; ~1e-13 at p = 5, 7), the SUMMED identity sum_h |A_h|^2 = (1/(p-1))[|S_0|^2 + p sum |S_chi|^2] holds to < 1.1e-12, and the Gauss sums satisfy |tau(chi-bar)|^2 = p to < 5e-15 with tau(chi0-bar) = -1. This exercises the harder per-h line (the imp-95554 sweep checked only the summed line, and only for von Mangoldt) and pins the exact p/(p-1) non-principal coefficient on a weight with no arithmetic structure -- the identity is a pure DFT/character isometry. Verifies an existing lemma at a new kernel; adds coverage only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 stands.',
+        'CONFIRMED at a fresh non-arithmetic kernel: on the toy weight K the PER-h alias formula A_h = (1/(p-1))[-S_0 + sum_{chi != chi0} chi(h) tau(chi-bar) S_chi] holds to float64 roundoff (worst relative residual ~3.5e-10 at p = 11, driven by the small-|A_h| cells; ~1e-13 at p = 5, 7), the SUMMED identity sum_h |A_h|^2 = (1/(p-1))[|S_0|^2 + p sum |S_chi|^2] holds to < 1.1e-12, and the Gauss sums satisfy |tau(chi-bar)|^2 = p to < 5e-15 with tau(chi0-bar) = -1. This exercises the harder per-h line (the imp-95554 sweep checked only the summed line, and only for von Mangoldt) and pins the exact p/(p-1) non-principal coefficient on a weight with no arithmetic structure -- the identity is a pure DFT/character isometry. Verifies an existing lemma at a new kernel; adds coverage only; changes no bound; NO QED; no refereed bound is changed.',
     },
     windowHeadroomScan: {
       ticket: 'imp-95538',
@@ -875,7 +875,7 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
       alias: { k: 1, h: 96, p: 97 }, // floor alias reproducing the sec-3 value
       ...BARRIER_RATIO_GRID_P97,
       verdict:
-        'CONFIRMED rho > 1 EVERYWHERE on the (k, h, N) grid: no alias at any window height reaches the RH short-interval barrier. The global minimum is rho = 100.5 at the floor alias (k = 1, h = 96, N = 690988) -- exactly the imp-95519 sec-3 value -- so the Fresnel width H = u/sqrt(v) sits a factor >= 100.5 BELOW the barrier sqrt(u) log^2 u throughout. rho is monotone increasing in xi = k - h/p (f-prime > 0 since log u >= 27 > 4) and in the height v(N): over the k = 1 aliases it rises from 100.5 at h = 96 (xi = 1/97) to ~720 at h = 1 (xi = 96/97), and k >= 2 aliases (xi > 1) are larger still; raising N only increases log^2 u, so the corner (smallest xi, smallest N) is the unique grid minimum. To bring rho down to 1 at N = 690988 the alias denominator k - h/p would have to shrink to ~3.2e-7 (an effective sieving prime ~3.1e6, vs p = 97), i.e. the Fresnel width reaches the barrier only ~3.2e4x below the smallest architecture-available xi = 1/97. GRH therefore gives no cancellation at Fresnel width anywhere in the program window. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 stands.',
+        'CONFIRMED rho > 1 EVERYWHERE on the (k, h, N) grid: no alias at any window height reaches the RH short-interval barrier. The global minimum is rho = 100.5 at the floor alias (k = 1, h = 96, N = 690988) -- exactly the imp-95519 sec-3 value -- so the Fresnel width H = u/sqrt(v) sits a factor >= 100.5 BELOW the barrier sqrt(u) log^2 u throughout. rho is monotone increasing in xi = k - h/p (f-prime > 0 since log u >= 27 > 4) and in the height v(N): over the k = 1 aliases it rises from 100.5 at h = 96 (xi = 1/97) to ~720 at h = 1 (xi = 96/97), and k >= 2 aliases (xi > 1) are larger still; raising N only increases log^2 u, so the corner (smallest xi, smallest N) is the unique grid minimum. To bring rho down to 1 at N = 690988 the alias denominator k - h/p would have to shrink to ~3.2e-7 (an effective sieving prime ~3.1e6, vs p = 97), i.e. the Fresnel width reaches the barrier only ~3.2e4x below the smallest architecture-available xi = 1/97. GRH therefore gives no cancellation at Fresnel width anywhere in the program window. Measurement only; changes no bound; NO QED; no refereed bound is changed.',
     },
     // imp-95596: derive the continuous GRH saving-exponent curve s(beta) vs the packet-width
     // exponent beta = log H / log u across [1/2, 2/3]. imp-95519 sec 3(a) records only the two
@@ -895,7 +895,7 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
       sHAtAiry: 0.25, // s_H(2/3), the Airy point recorded in sec 3(a)
       minimalHeadroomReachableAtAnyAdmissibleBeta: false,
       verdict:
-        'DERIVED: the leading-order GRH saving exponent at packet width u^beta is s_H(beta) = (2 beta - 1)/(2 beta) (saving factor H^{-s_H}), so s_H(1/2) = 0 (no saving), s_H(2/3) = 1/4 (the Airy point), and the square-root target s_H = 1/2 is reached only at beta = 1 -- OUTSIDE the admissible [1/2, 2/3]. In the log-free regime the minimal 1.306 headroom would be met already at beta ~ 0.5085 (= 1/2 + log 1.306 / log u), comfortably inside the range. BUT the operative RH short-interval barrier sqrt(u) log^2 u shifts the true break-even (rho = 1) to beta_barrier = 1/2 + 2 loglog(u)/log(u) ~ 0.719 at the anchor and ~0.684 at the window top -- ABOVE the Airy width 2/3 across the ENTIRE program window (rho ~ 5.2 / 2.0 even at 2/3). Hence NO admissible beta in [1/2, 2/3] delivers any GRH saving at the accessible heights, and the minimal 1.306 headroom is NOT reachable at any admissible Fresnel/Airy width: the width would have to exceed the barrier (beta > ~0.72), which the stationary-phase packet geometry does not provide. Consistent with the sec-3 exponent-0 verdict. Derivation/measurement only; changes no bound; C_mb GUE-conditional (imp-486); NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+        'DERIVED: the leading-order GRH saving exponent at packet width u^beta is s_H(beta) = (2 beta - 1)/(2 beta) (saving factor H^{-s_H}), so s_H(1/2) = 0 (no saving), s_H(2/3) = 1/4 (the Airy point), and the square-root target s_H = 1/2 is reached only at beta = 1 -- OUTSIDE the admissible [1/2, 2/3]. In the log-free regime the minimal 1.306 headroom would be met already at beta ~ 0.5085 (= 1/2 + log 1.306 / log u), comfortably inside the range. BUT the operative RH short-interval barrier sqrt(u) log^2 u shifts the true break-even (rho = 1) to beta_barrier = 1/2 + 2 loglog(u)/log(u) ~ 0.719 at the anchor and ~0.684 at the window top -- ABOVE the Airy width 2/3 across the ENTIRE program window (rho ~ 5.2 / 2.0 even at 2/3). Hence NO admissible beta in [1/2, 2/3] delivers any GRH saving at the accessible heights, and the minimal 1.306 headroom is NOT reachable at any admissible Fresnel/Airy width: the width would have to exceed the barrier (beta > ~0.72), which the stationary-phase packet geometry does not provide. Consistent with the sec-3 exponent-0 verdict. Derivation/measurement only; changes no bound; C_mb GUE-conditional (imp-486); NO QED; no refereed bound is changed.',
     },
     // imp-95675: characterize the intermediate regime between full square-root cancellation
     // (H^{-1/2}, over-closes by ~3 orders) and the minimal 1.306 headroom factor, as an exponent budget.
@@ -914,7 +914,7 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
       achievableExponent: 0,
       anySubSqrtSavingClears1306: false, // achievable exponent 0 < theta_min ~ 0.0148 => none does
       verdict:
-        'CHARACTERIZED, both sides stay closed. The minimal reduction the p = 97 contract needs is minuscule: a partial saving H^{-theta} clears the 1.306 headroom already at theta_min = log(1.306)/log H ~ 0.01482 at the floor alias (N_lo, H ~ 6.70e7) -- ~3% of a square-root -- and a single-log-power saving clears it at c_min = log(1.306)/log(log u) ~ 0.0774, under a tenth of one log. theta_min is LARGEST at the smallest H (N_lo) and shrinks to ~0.01193 at N_hi (H ~ 5.32e9), so the uniform worst-cell requirement over the whole RS window is theta_min ~ 0.01482. The exponent budget between over-close and minimal is 1/2 - theta_min ~ 0.485 (square-root buys ~33.7x more exponent than needed; H^{-1/2} = 1.22e-4 over-closes the required factor 1/1.306 = 0.766 by ~3.80 orders of magnitude). BUT the achievable saving exponent (sec 3, unconditionally AND under GRH at the Fresnel width) is exactly 0 < theta_min, so NO available sub-square-root saving -- not even this ~1.5% one, nor a fractional log-power -- clears 1.306: the honest residual gap is theta_min - 0 = theta_min itself. Both sides remain closed: the over-close route (square-root) is unreachable, and the minimal route (theta ~ 0.0148) sits strictly above the exponent-0 wall. Assessment only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+        'CHARACTERIZED, both sides stay closed. The minimal reduction the p = 97 contract needs is minuscule: a partial saving H^{-theta} clears the 1.306 headroom already at theta_min = log(1.306)/log H ~ 0.01482 at the floor alias (N_lo, H ~ 6.70e7) -- ~3% of a square-root -- and a single-log-power saving clears it at c_min = log(1.306)/log(log u) ~ 0.0774, under a tenth of one log. theta_min is LARGEST at the smallest H (N_lo) and shrinks to ~0.01193 at N_hi (H ~ 5.32e9), so the uniform worst-cell requirement over the whole RS window is theta_min ~ 0.01482. The exponent budget between over-close and minimal is 1/2 - theta_min ~ 0.485 (square-root buys ~33.7x more exponent than needed; H^{-1/2} = 1.22e-4 over-closes the required factor 1/1.306 = 0.766 by ~3.80 orders of magnitude). BUT the achievable saving exponent (sec 3, unconditionally AND under GRH at the Fresnel width) is exactly 0 < theta_min, so NO available sub-square-root saving -- not even this ~1.5% one, nor a fractional log-power -- clears 1.306: the honest residual gap is theta_min - 0 = theta_min itself. Both sides remain closed: the over-close route (square-root) is unreachable, and the minimal route (theta ~ 0.0148) sits strictly above the exponent-0 wall. Assessment only; changes no bound; NO QED; no refereed bound is changed.',
     },
   },
   secondMomentLever: {
@@ -950,14 +950,14 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
     impliedRexFor139930: 0.27317419, // 1.39930 * sqrtSbar, a different target R_ex
     nearestTruncationRatio: 1.39743, // sum extended to j<=54 (still != 1.39930): not a truncation-length convention either
     verdict:
-      'AUTHORITATIVE = 1.4327. R_ex/sqrt(Sbar) = 1.43267 to machine precision at the stated inputs (R_ex = 0.27968819555261474, Sbar = 2*97^(-4/3)*sum_{j<=48} j^(-2/3) = 0.038112, sqrt = 0.19522203), rounding to the page figure 1.4327. The ticket-text 1.39930 is NOT reproducible from these inputs: it would require Sbar = 0.039951 (sqrt 0.19988) or a different target R_ex = 0.27317, and the nearest clean sum-truncation (j<=54) gives 1.39743, so 1.39930 is not a Sbar-convention or truncation-length variant but a stale/erroneous figure. Downstream consumers should cite Q_target = 1.4327 (headroom factor 1.306 unchanged). Accuracy audit only; no bound change; NO QED; PT Lambda <= 0.2 stands.',
+      'AUTHORITATIVE = 1.4327. R_ex/sqrt(Sbar) = 1.43267 to machine precision at the stated inputs (R_ex = 0.27968819555261474, Sbar = 2*97^(-4/3)*sum_{j<=48} j^(-2/3) = 0.038112, sqrt = 0.19522203), rounding to the page figure 1.4327. The ticket-text 1.39930 is NOT reproducible from these inputs: it would require Sbar = 0.039951 (sqrt 0.19988) or a different target R_ex = 0.27317, and the nearest clean sum-truncation (j<=54) gives 1.39743, so 1.39930 is not a Sbar-convention or truncation-length variant but a stale/erroneous figure. Downstream consumers should cite Q_target = 1.4327 (headroom factor 1.306 unchanged). Accuracy audit only; no bound change; NO QED; no refereed bound is changed.',
   },
   isRigorous: true,
   rigorScope:
     'Lemma Gauss-Plancherel is an exact identity (verified 1e-12). The explicit-formula accounting, alpha-range, zero-free-region and RH-barrier statements are standard theorems applied at the window parameters; the verdict is a no-go on the two named routes, not a theorem that no bound exists.',
   promotesBound: false,
   verdict:
-    'PRECISE NO-GO on both sides: the localized barrier sum A_{k,h} is height-bound AND width-bound over primes (exponent 0 achievable vs 1/2 needed; GRH-inert at Fresnel width) and PCC-gated with alpha > 1 for the majority of its majorant mass over zeros; alias-wise bounds import the Dirichlet L-functions of the 25 sieving primes. The sub-0.14 quantitative program\'s last lever is closed as stated; only new arithmetic input against the pointwise Hilbert transform, or verified zero-location at 3e12-1.9e16, would reopen it. Changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'PRECISE NO-GO on both sides: the localized barrier sum A_{k,h} is height-bound AND width-bound over primes (exponent 0 achievable vs 1/2 needed; GRH-inert at Fresnel width) and PCC-gated with alpha > 1 for the majority of its majorant mass over zeros; alias-wise bounds import the Dirichlet L-functions of the 25 sieving primes. The sub-0.14 quantitative program\'s last lever is closed as stated; only new arithmetic input against the pointwise Hilbert transform, or verified zero-location at 3e12-1.9e16, would reopen it. Changes no bound; NO QED. No refereed bound is changed.',
 };
 
 // ── assertions (self-executing; throw on violation) ──────────────────────────
@@ -1187,12 +1187,12 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO_ASSERTIONS = [
   },
   {
     id: 'imp95519-honesty-gate-no-qed',
-    description: 'no-go only: promotes no bound, exponent achievable 0 < target 1/2, NO QED, PT stays SOTA',
+    description: 'no-go only: promotes no bound, exponent achievable 0 < target 1/2, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95519_LOCALIZED_BARRIER_SUM_NOGO.promotesBound === false &&
       IMP95519_LOCALIZED_BARRIER_SUM_NOGO.primeSide.exponentAchievable < IMP95519_LOCALIZED_BARRIER_SUM_NOGO.primeSide.exponentTarget &&
       /NO QED/.test(IMP95519_LOCALIZED_BARRIER_SUM_NOGO.verdict) &&
-      /remains SOTA/.test(IMP95519_LOCALIZED_BARRIER_SUM_NOGO.verdict),
+      /refereed bound is changed/i.test(IMP95519_LOCALIZED_BARRIER_SUM_NOGO.verdict),
   },
 ];
 

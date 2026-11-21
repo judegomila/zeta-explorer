@@ -48,8 +48,8 @@
  * +3.0% headline is the tight end of that family and is estimator-implementation specific
  * (the imp-96090 fixed-step slight-overlap tiling), but the SIGN of the margin -- the fact
  * that the max anchor is a genuine cap at 5e4 -- does NOT depend on the window choice.
- * Measurement only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; the zero-side route stays PCC/GRH-gated. Heights stay ~6.8 decades below the
+ * Measurement only; changes no bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated. Heights stay ~6.8 decades below the
  * imp-95519 window bottom T = 3.0e12 (imp-95710 window-reach sub-gap unchanged).
  *
  * @see imp-96090-number-variance-mean-anchor-heldout-out-of-sample (the +3.0% headline this stress-tests)
@@ -164,7 +164,7 @@ export const IMP96112_MAX_ANCHOR_MARGIN_WINDOW_ROBUSTNESS = {
   caveat:
     'The 12-config sweep spans a single held-out height (T=5e4) inside the 10^6-ordinate table, ~6.8 decades below the imp-95519 window bottom T=3.0e12: robustness of the +3.0% is assessed inside the accessible window, not extrapolated to the bottom (the imp-95710 window-reach sub-gap). The +3.0% headline is estimator-implementation specific (the imp-96090 fixed-step slight-overlap tiling); it is the tight end of a uniformly-positive family, not a representative central margin. Changes NO Lambda bound.',
   verdict:
-    'The imp-96090 max-anchor cap at T=5e4 is ROBUST to the sd(C-E) window estimator: across a 12-config sweep of half-width, span and overlap the max anchor caps 5e4 every time with a strictly positive margin +3.6% .. +51.4%. The specific +3.0% headline is the tight end of that family and is estimator-implementation specific, but the SIGN of the margin does not depend on the window choice. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The imp-96090 max-anchor cap at T=5e4 is ROBUST to the sd(C-E) window estimator: across a 12-config sweep of half-width, span and overlap the max anchor caps 5e4 every time with a strictly positive margin +3.6% .. +51.4%. The specific +3.0% headline is the tight end of that family and is estimator-implementation specific, but the SIGN of the margin does not depend on the window choice. Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -194,8 +194,8 @@ export const IMP96112_MAX_ANCHOR_MARGIN_WINDOW_ROBUSTNESS = {
   // honesty gates
   if (!/NO QED/.test(IMP96112_MAX_ANCHOR_MARGIN_WINDOW_ROBUSTNESS.verdict))
     throw new Error('imp-96112: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96112_MAX_ANCHOR_MARGIN_WINDOW_ROBUSTNESS.verdict))
-    throw new Error('imp-96112: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96112_MAX_ANCHOR_MARGIN_WINDOW_ROBUSTNESS.verdict))
+    throw new Error('imp-96112: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96112_MAX_ANCHOR_MARGIN_WINDOW_ROBUSTNESS;

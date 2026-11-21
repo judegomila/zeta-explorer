@@ -62,8 +62,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share curvature-robustness diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (the 4-pts/decade curvature this stress-tests)
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-DECADE resolution: knee relocates to N* ~ 3.38e9)
@@ -234,8 +233,8 @@ export const IMP33726_SIGMA_RAMP_INFLECTION_WINDOW_DENSITY_ROBUSTNESS = {
     'grid-resolution effect orthogonal to the window-density robustness settled here.) The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33701 (4-pts/decade curvature this stress-tests); imp-33721 (sub-decade inflection N* ~ 3.38e9); ' +
     'imp-33582 (six-decade local-exponent ladder); imp-3406 (interior MAX N ~ 9.22e5); imp-3463 ' +
@@ -282,14 +281,14 @@ export const IMP33726_SIGMA_RAMP_INFLECTION_WINDOW_DENSITY_ROBUSTNESS_ASSERTIONS
     holds: () => ALL_LADDER_MONOTONE && ALL_SAME_STEEPEST && BY_M[4].steepestStepK === 9,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp33726-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP33726_SIGMA_RAMP_INFLECTION_WINDOW_DENSITY_ROBUSTNESS.isRigorous === false &&
       IMP33726_SIGMA_RAMP_INFLECTION_WINDOW_DENSITY_ROBUSTNESS.farTailExponent === 0.5 &&
       /NO QED/.test(IMP33726_SIGMA_RAMP_INFLECTION_WINDOW_DENSITY_ROBUSTNESS.verdict) &&
-      /remains SOTA/.test(IMP33726_SIGMA_RAMP_INFLECTION_WINDOW_DENSITY_ROBUSTNESS.verdict),
+      /refereed bound is changed/i.test(IMP33726_SIGMA_RAMP_INFLECTION_WINDOW_DENSITY_ROBUSTNESS.verdict),
   },
 ];
 

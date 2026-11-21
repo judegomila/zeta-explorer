@@ -54,7 +54,7 @@
  * MEASUREMENT / EXTRAPOLATION ONLY on the inherited imp-325 t_c fit and the imp-2762 g_min anchor. It
  * certifies NOTHING, discharges NOTHING, changes NO bound. C_mb GUE-conditional per imp-486 UNTOUCHED;
  * the imp-2563 sandwich remains a valid CONDITIONAL bracket; I2/M5 stay OPEN; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35219-horizon-front-ratio-measured-beta (parent; onset g_cross = sqrt(8*0.0066) = 0.2298, beta-independent)
  * @see imp-35195-horizon-front-mismatch-ratio (M5 horizon-front ratio T_minus/t_c on real inputs)
@@ -166,7 +166,7 @@ export const IMP35326_HORIZON_FRONT_ONSET_GAP_VERIFIED_HEIGHT = {
     'beta-independent but also height-independent to leading order. MEASUREMENT / extrapolation ONLY on ' +
     'the inherited imp-325 t_c fit and imp-2762 g_min anchor; certifies nothing; changes NO bound; C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED; the imp-2563 sandwich remains a valid CONDITIONAL bracket; ' +
-    'I2/M5 stay OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'I2/M5 stay OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35219 (parent, beta-independent onset g_cross = sqrt(8*0.0066) = 0.2298); imp-35195 (M5 ' +
     'horizon-front ratio); imp-2563 (T_minus -> g^2/8, AS-IS); imp-325 / dyson-collision-lower-bound ' +
@@ -209,15 +209,15 @@ export const IMP35326_HORIZON_FRONT_ONSET_GAP_VERIFIED_HEIGHT_ASSERTIONS = [
     holds: () => ONSET_ABOVE_ACCESSIBLE_BAND && G_CROSS_FLOOR > G_MIN_1E4,
   },
   {
-    // Honesty gate: measurement only, no QED, I2/M5 stay OPEN, sandwich untouched, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, I2/M5 stay OPEN, sandwich untouched, no refereed bound is changed.
     id: 'imp35326-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, NO QED, changes NO bound, I2/M5 stay OPEN, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, NO QED, changes NO bound, I2/M5 stay OPEN, no refereed bound is changed',
     holds: () =>
       IMP35326_HORIZON_FRONT_ONSET_GAP_VERIFIED_HEIGHT.isRigorous === false &&
       /NO QED/.test(IMP35326_HORIZON_FRONT_ONSET_GAP_VERIFIED_HEIGHT.verdict) &&
       /changes NO bound/.test(IMP35326_HORIZON_FRONT_ONSET_GAP_VERIFIED_HEIGHT.verdict) &&
       /I2\/M5 stay OPEN/.test(IMP35326_HORIZON_FRONT_ONSET_GAP_VERIFIED_HEIGHT.verdict) &&
-      /remains SOTA/.test(IMP35326_HORIZON_FRONT_ONSET_GAP_VERIFIED_HEIGHT.verdict),
+      /refereed bound is changed/i.test(IMP35326_HORIZON_FRONT_ONSET_GAP_VERIFIED_HEIGHT.verdict),
   },
 ];
 

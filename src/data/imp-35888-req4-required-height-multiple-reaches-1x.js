@@ -32,8 +32,7 @@
  * model and the imp-35538 binding log-height on the same imp-3220 / imp-3406 surrogate;
  * derives no remainder; discharges nothing; changes no bound; establishes no operator
  * positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and
- * C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35853-req4-required-height-continuous-sigma-knee (source sweep continued here)
  * @see imp-35813-req4-required-height-sigma-landmark-extend (discrete rungs)
@@ -48,7 +47,7 @@ import { C_C_PINNED } from './polymath15-constant-C-C.js';
 import { IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS } from './imp-35538-route-i-remainder-derivation-requirements.js';
 import { IMP35853_REQ4_REQUIRED_HEIGHT_CONTINUOUS_SIGMA_KNEE } from './imp-35853-req4-required-height-continuous-sigma-knee.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // REQ-4 binding log-height: 1/log T0 <= 0.005 => log T0 >= 200 (imp-35538).
 const HR = IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS.heightRegime;
@@ -158,7 +157,7 @@ export const IMP35888_REQ4_REQUIRED_HEIGHT_MULTIPLE_REACHES_1X = {
     'surrogate; re-reads the imp-33582 model and the imp-35538 binding log-height; derives no remainder; ' +
     'discharges nothing; changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) ' +
     '(imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are ' +
-    'UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35853 (continuous sigma sweep continued here); imp-35813 / imp-35763 / imp-35722 (rungs / ladders); ' +
     'imp-35538 (REQ 4; binding log-height 200, T0 = e^200); imp-33582 (sigma-decay model; peak ' +
@@ -226,7 +225,7 @@ export const IMP35888_REQ4_REQUIRED_HEIGHT_MULTIPLE_REACHES_1X_ASSERTIONS = [
       Math.abs(MULT_PT - 6.9614) < 5e-3,
   },
   {
-    // (8) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, imp-486 kept, NO QED.
+    // (8) honesty gate: measurement only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, imp-486 kept, NO QED.
     id: 'imp35888-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -238,7 +237,7 @@ export const IMP35888_REQ4_REQUIRED_HEIGHT_MULTIPLE_REACHES_1X_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

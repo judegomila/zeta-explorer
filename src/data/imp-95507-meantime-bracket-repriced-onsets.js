@@ -9,7 +9,7 @@
  * both ends sharp, so the TILT-SORT firing onset (= mu_max, imp-95501
  * LEMMA ONSET) is priced to relative width max P / min P -- an exact
  * two-sided pricing for clustered rate sets. Model family only; changes no
- * Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95501 / imp-95506 normalization). Distinct positive rates
  * P = (p_1 < ... < p_K), E_P = span{ e^(-p_k t) } in L2(0, inf), mean-time
@@ -386,7 +386,7 @@ export const IMP95507_MT_BRACKET_REPRICED_ONSETS = {
     "bracket width is the spread ratio, vacuous for geometric lattices " +
     "(SLOW-PREFIX is the lattice floor); CLUSTER8 mu_max carried from " +
     "imp-95501, not recomputed (float Cholesky fails there); changes no " +
-    "bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "bound; NO QED; no refereed bound is changed",
   promotesBound: false,
   isRigorous: true,
   rigorScope:
@@ -410,7 +410,7 @@ export const IMP95507_MT_BRACKET_REPRICED_ONSETS = {
     "2.13524 where the K-bracket end collapses to 0.184). MODEL FAMILY " +
     "ONLY: no paper-packet constant is touched and the finite-N Lambda " +
     "beat did NOT become rigorous. Changes no bound; NO QED on any RH " +
-    "statement; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "statement; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -598,7 +598,7 @@ export const IMP95507_ASSERTIONS = [
     description:
       "the record scopes to the model family, names the executed " +
       "successor and the surviving plus new (mu-sat) residuals, promotes " +
-      "no bound, NO QED, PT stays SOTA",
+      "no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95507_MT_BRACKET_REPRICED_ONSETS.promotesBound === false &&
       /imp-95506 named successor/.test(
@@ -611,7 +611,7 @@ export const IMP95507_ASSERTIONS = [
       /RZ-PEN/.test(IMP95507_MT_BRACKET_REPRICED_ONSETS.rescopedResidual) &&
       /MODEL FAMILY/.test(IMP95507_MT_BRACKET_REPRICED_ONSETS.verdict) &&
       /NO QED/.test(IMP95507_MT_BRACKET_REPRICED_ONSETS.verdict) &&
-      /remains SOTA/.test(IMP95507_MT_BRACKET_REPRICED_ONSETS.verdict) &&
+      /refereed bound is changed/i.test(IMP95507_MT_BRACKET_REPRICED_ONSETS.verdict) &&
       /did NOT become rigorous/.test(
         IMP95507_MT_BRACKET_REPRICED_ONSETS.verdict
       ),

@@ -38,7 +38,7 @@
  * REGRESSION-GUARD ONLY; recomputes established measurement figures; changes no
  * bound; far-tail E_coll exponent 1/2 per imp-3463; E_flow > 0 strictness
  * (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-35553-eflow-fartail-remnant-decade-span-growth-fit (the ladder pinned here)
  * @see imp-35534-eflow-fartail-remnant-sub1e5-crossing (the log-space channel origin)
@@ -131,7 +131,7 @@ export const IMP35619_EFLOW_FARTAIL_REMNANT_SPAN_LADDER_ASSERTION = {
     '1057.6875, ratios 3.6001 / 3.5156, plus the imp-35413 remnant(1e26) = 0.000979 and ' +
     'imp-35473 sub-1e-4 = 109.1892 anchors. Recomputes established measurement figures; ' +
     'changes no bound; E_coll far-tail exponent 1/2 per imp-3463; C_mb GUE-conditional per ' +
-    'imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-486 UNTOUCHED; NO QED; no refereed bound is changed.',
   citation:
     'imp-35553 (the span-growth ladder pinned here); imp-35534 (log-space channel origin, ' +
     'sub-1e-5 410.0475); imp-35473 (sub-1e-4 anchor 109.1892); imp-35413 (remnant(1e26) = ' +
@@ -185,13 +185,13 @@ export const IMP35619_EFLOW_FARTAIL_REMNANT_SPAN_LADDER_ASSERTION_ASSERTIONS = [
       Math.abs(R_RATIO_5645 - LADDER[3].ratio) < 1e-3,
   },
   {
-    // Honesty gate: regression-guard only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: regression-guard only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35619-honesty-gate-no-qed',
-    description: 'Regression-guard only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Regression-guard only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35619_EFLOW_FARTAIL_REMNANT_SPAN_LADDER_ASSERTION.isRigorous === false &&
       /NO QED/.test(IMP35619_EFLOW_FARTAIL_REMNANT_SPAN_LADDER_ASSERTION.verdict) &&
-      /remains SOTA/.test(IMP35619_EFLOW_FARTAIL_REMNANT_SPAN_LADDER_ASSERTION.verdict),
+      /refereed bound is changed/i.test(IMP35619_EFLOW_FARTAIL_REMNANT_SPAN_LADDER_ASSERTION.verdict),
   },
 ];
 

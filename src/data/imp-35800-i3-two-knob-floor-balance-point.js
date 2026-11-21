@@ -13,8 +13,7 @@
  *
  * MEASUREMENT ON THE SHARED OOM MODEL ONLY. Evaluates no true |H_t| or |H_t'| on any
  * edge; fixes no Delta or h for any rectangle; certifies no delta > 0; establishes no
- * positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE SHARED OOM MODEL (normalised, |H_t| main-term envelope == 1)
  * -----------------------------------------------------------------------------
@@ -87,7 +86,7 @@
  * |H_t'|; lower-bounds no inf|H_t'|; fixes no Delta or h for any rectangle; positions no
  * rectangle; verifies no strict inequality; certifies no delta > 0. Establishes no
  * positivity; certifies no non-vanishing; changes no bound; C_mb GUE-conditional
- * (imp-486) untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) untouched; NO QED. No refereed bound is changed.
  *
  * @see imp-35778-i3-edge-type-floor-decomposition-scope (delta = min(delta_short, delta_long); two-knob prescription, not tabulated)
  * @see imp-35777-i2-logderivative-panel-cap-scope (B = sup|H_t prime| ~ |H_t| . w; the off-axis derivative scale)
@@ -100,7 +99,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35725 / imp-35757 / imp-35777 / imp-35778) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 
 // Winding / derivative log-scale w(T) = (1/2) log(T / 2 pi) (imp-35757 / imp-35777 / imp-35778).
 const windingRate = (T) => 0.5 * Math.log(T / (2 * Math.PI));
@@ -228,7 +227,7 @@ export const IMP35800_I3_TWO_KNOB_FLOOR_BALANCE_POINT = {
     'LOCATES what imp-35778 prescribed qualitatively, ADDING NO greenfield mechanism -- both floors are the SAME I1/W1 ' +
     'enclosure quantities (imp-35681 Part A). Evaluates no true |H_t| or |H_t prime|; lower-bounds no inf|H_t prime|; ' +
     'fixes no Delta or h for any rectangle; certifies no delta > 0; establishes no positivity; changes no bound; ' +
-    'C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35778 (delta = min(delta_short, delta_long); two-knob prescription); imp-35777 (B = sup|H_t prime| ~ |H_t| . w); ' +
     'imp-35758 (I3 floor = margin - cap; grazing caveat); imp-35757 (mean zero gap ~ 0.2336); imp-35727 (I3 GREENFIELD); ' +
@@ -301,16 +300,16 @@ export const IMP35800_I3_TWO_KNOB_FLOOR_BALANCE_POINT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement on OOM model only, no positivity, no delta>0 certificate, no QED, PT SOTA.
+    // Honesty gate: measurement on OOM model only, no positivity, no delta>0 certificate, no QED, no refereed bound is changed.
     id: 'imp35800-honesty-gate-no-qed',
-    description: 'OOM measurement only; establishes no positivity; certifies no delta>0; changes no bound; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'OOM measurement only; establishes no positivity; certifies no delta>0; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35800_I3_TWO_KNOB_FLOOR_BALANCE_POINT.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /establishes no positivity/.test(IMP35800_I3_TWO_KNOB_FLOOR_BALANCE_POINT.verdict) &&
       /certifies no delta > 0/.test(IMP35800_I3_TWO_KNOB_FLOOR_BALANCE_POINT.verdict) &&
       /NO QED/.test(IMP35800_I3_TWO_KNOB_FLOOR_BALANCE_POINT.verdict) &&
-      /remains SOTA/.test(IMP35800_I3_TWO_KNOB_FLOOR_BALANCE_POINT.verdict),
+      /refereed bound is changed/i.test(IMP35800_I3_TWO_KNOB_FLOOR_BALANCE_POINT.verdict),
   },
 ];
 

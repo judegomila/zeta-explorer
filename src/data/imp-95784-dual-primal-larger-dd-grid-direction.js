@@ -69,7 +69,7 @@
  * two routes are consistent with exact agreement and the evidence points to exact
  * agreement, not separation. Model seam family only; the imp-95212 envelope port,
  * signed WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the Lambda
- * program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. Sun arXiv:2609.04176
+ * program; NO QED; no refereed bound is changed. Sun arXiv:2609.04176
  * unrefereed.
  *
  * @see imp-95767-dual-primal-agreement-interval (the certified interval this assesses)
@@ -139,7 +139,7 @@ export const IMP95784_DUAL_PRIMAL_LARGER_DD_GRID_DIRECTION = {
     "routes are not merely consistent with exact agreement but are EXPECTED to tighten onto it, not " +
     "separate. Numerical direction assessment; model seam family only; the imp-95212 envelope port, " +
     "signed WEIGHT, and modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   closesTickets: ["imp-95784"],
 };
 
@@ -296,7 +296,7 @@ export const IMP95784_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /tighten/i.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95784-closes-self",

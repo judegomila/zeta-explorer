@@ -40,8 +40,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95604 transfer-cancellation argument and the
  *   FORECLOSED/UNDECIDED split for quick reference. It establishes nothing, instantiates no interval,
- *   closes no sub-gap, moves no bound. imp-2519 no-overclaim guard preserved; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   closes no sub-gap, moves no bound. imp-2519 no-overclaim guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-95604-meansquare-pointwise-upgrade-foreclosure (source: the transfer-constant argument and FORECLOSED/UNDECIDED verdict this glosses)
  * @see imp-95526-kronecker-continuum-sup-t2 (source: the Kronecker continuum-sup saturation, T2)
@@ -49,7 +48,7 @@
  * @see imp-95581 (the demand-side dual: the for-most-T contract relaxation, also FORECLOSED)
  *
  * Ticket: imp-95652 (content, medium). Documentation only; establishes nothing; transfer route stays
- * FORECLOSED / anchor stays UNDECIDED per imp-95604; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * FORECLOSED / anchor stays UNDECIDED per imp-95604; NO QED; no refereed bound is changed.
  */
 
 // The mean-square -> pointwise transfer-foreclosure glossary headword, baked verbatim (no re-import).
@@ -97,7 +96,7 @@ export const IMP95652_MEANSQUARE_POINTWISE_FORECLOSURE_GLOSSARY_HEADWORD = Objec
     'argument: the Kronecker-sharp sqrt(H) L^2 -> L^infinity transfer constant exactly cancels the ' +
     'H^{-1/2} mean-square saving, so the transfer mechanism is FORECLOSED, while the contract value ' +
     'at the anchor remains UNDECIDED (not refuted) and PCC-gated. Establishes nothing; instantiates ' +
-    'no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95604 (transfer-constant argument and FORECLOSED/UNDECIDED verdict); imp-95526 T2 ' +
     '(Kronecker continuum-sup saturation); imp-95519 sec 4 (the sub-0.14 contract and sigma_B ' +
@@ -123,11 +122,11 @@ export const IMP95652_MEANSQUARE_POINTWISE_FORECLOSURE_GLOSSARY_HEADWORD_ASSERTI
   },
   {
     id: 'imp95652-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, transfer route stays FORECLOSED, anchor stays UNDECIDED, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, transfer route stays FORECLOSED, anchor stays UNDECIDED, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95652_MEANSQUARE_POINTWISE_FORECLOSURE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95652_MEANSQUARE_POINTWISE_FORECLOSURE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95652_MEANSQUARE_POINTWISE_FORECLOSURE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95652_MEANSQUARE_POINTWISE_FORECLOSURE_GLOSSARY_HEADWORD.verdict) &&
       /FORECLOSED/.test(IMP95652_MEANSQUARE_POINTWISE_FORECLOSURE_GLOSSARY_HEADWORD.verdict) &&
       /UNDECIDED/.test(IMP95652_MEANSQUARE_POINTWISE_FORECLOSURE_GLOSSARY_HEADWORD.verdict) &&
       IMP95652_MEANSQUARE_POINTWISE_FORECLOSURE_GLOSSARY_HEADWORD.glosses === 'imp-95604' &&

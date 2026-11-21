@@ -110,7 +110,7 @@ export const IMP35093_CAVEAT_DISCOVERABILITY_AUDIT_35019_35066 = {
     + 'tickets rather than fixed here: imp-35026 owns a self-executing assertion array not wired '
     + 'into scripts/run-assertions.mjs, and none of the six pages has a glossary.js headword. '
     + 'Changes no bound; establishes no operator positivity; no RH verdict; NO QED. '
-    + 'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'No refereed bound is changed.',
 };
 
 export const IMP35093_CAVEAT_DISCOVERABILITY_AUDIT_ASSERTIONS = [
@@ -153,10 +153,10 @@ export const IMP35093_CAVEAT_DISCOVERABILITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-35093-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () =>
       /AUDIT-ONLY/.test(IMP35093_CAVEAT_DISCOVERABILITY_AUDIT_35019_35066.honest)
-      && /Lambda<=0.2 remains SOTA/.test(IMP35093_CAVEAT_DISCOVERABILITY_AUDIT_35019_35066.honest),
+      && /refereed bound is changed/i.test(IMP35093_CAVEAT_DISCOVERABILITY_AUDIT_35019_35066.honest),
   },
 ];
 

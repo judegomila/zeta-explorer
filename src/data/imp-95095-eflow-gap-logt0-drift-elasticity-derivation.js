@@ -56,8 +56,7 @@
  * DERIVATION / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes
- * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-95056-crossover-halving-eflow-three-landmark-table (the ~4.4% remainder left asserted)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (second-order ~1.8e-4 the remainder matches)
@@ -210,7 +209,7 @@ export const IMP95095_EFLOW_GAP_LOGT0_DRIFT_ELASTICITY_DERIVATION = {
     'T0 drift is now beta/(1 - beta), derived. Component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95056 (crossover-to-halving E_flow gap, ~4.4% remainder left asserted); imp-33723 ' +
     '(second-order ~1.8e-4 the remainder matches); imp-33601 (identity sigma=1/2 <=> ' +
@@ -257,13 +256,13 @@ export const IMP95095_EFLOW_GAP_LOGT0_DRIFT_ELASTICITY_DERIVATION_ASSERTIONS = [
       REMAINDER_MEASURED < 0.1,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp95095-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP95095_EFLOW_GAP_LOGT0_DRIFT_ELASTICITY_DERIVATION.isRigorous === false &&
       /NO QED/.test(IMP95095_EFLOW_GAP_LOGT0_DRIFT_ELASTICITY_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP95095_EFLOW_GAP_LOGT0_DRIFT_ELASTICITY_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP95095_EFLOW_GAP_LOGT0_DRIFT_ELASTICITY_DERIVATION.verdict),
   },
 ];
 

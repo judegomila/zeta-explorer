@@ -45,7 +45,7 @@
  * therefore neither sufficient (large-gamma end floors the max-row gap at 1.430% > 1%) nor even
  * resolvable (below the node-counting floor). The two laws remain consistent to the 2.44% imp-96269
  * already reported; nothing reconciles them to <1% without changing the fitted exponent. Measurement
- * on baked literals only; changes NO bound; RH open; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * on baked literals only; changes NO bound; RH open; no refereed bound is changed; NO QED.
  *
  * Reproduce: tmp/imp-96291-scratch.mjs (pure-JS residual + impossibility-floor recomputation).
  *
@@ -94,6 +94,6 @@ export const IMP96291_VERDICT =
   + '(N_det = N_C = 12), and one integer node is 8.33% of the order at gamma_1, so a sub-1% '
   + 'reconciliation sits below the node-counting granularity floor and is not measurable at the '
   + 'low-index end. The two laws stay consistent to the 2.44% imp-96269 reported; measurement on '
-  + 'baked literals only; changes no bound; RH open; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.';
+  + 'baked literals only; changes no bound; RH open; no refereed bound is changed; NO QED.';
 
 export const IMP96291_SCRIPTS = Object.freeze(['tmp/imp-96291-scratch.mjs']);

@@ -47,7 +47,7 @@
  * in closed form by imp-33924; it does NOT re-derive the mapping from m_prime back to C_ren, and a
  * winding-rate curve is not the uniform ANALYTIC tracking of C_ren that H4 needs (imp-33766). H4 is NOT
  * discharged. G6a_shock_lipschitz STAYS OPEN. No positivity; imp-3066 off-diagonal endpoint-Hankel
- * K_a >= 0 UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * K_a >= 0 UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-33924-joint-cusp-angle-onset-robustness-map (DERIVED the -(1+alpha) winding rate; cross-check (a))
  * @see imp-33883-off-axis-onset-angle-robustness (winding rate -3/2 at the anchor alpha = 1/2)
@@ -234,7 +234,7 @@ export const IMP33968_WINDING_RATE_VS_ALPHA_CURVE = {
     'slope already derived in closed form by imp-33924; it does NOT re-derive the m_prime -> C_ren map and ' +
     'does NOT DISCHARGE H4: a winding-rate curve is not the uniform ANALYTIC tracking of C_ren the H4 ' +
     'minimal-input condition requires (imp-33766). No positivity; imp-3066 off-diagonal endpoint-Hankel ' +
-    'K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed.',
 };
 
 export const IMP33968_WINDING_RATE_VS_ALPHA_ASSERTIONS = [
@@ -273,15 +273,15 @@ export const IMP33968_WINDING_RATE_VS_ALPHA_ASSERTIONS = [
       Math.abs(IMP33968_WINDING_RATE_VS_ALPHA_CURVE.anchorWindingRate - -1.5) < 1e-6,
   },
   {
-    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33968-honesty-gate-no-qed',
-    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33968_WINDING_RATE_VS_ALPHA_CURVE.isRigorous === false &&
       IMP33968_WINDING_RATE_VS_ALPHA_CURVE.dischargesH4 === false &&
       /NO QED/.test(IMP33968_WINDING_RATE_VS_ALPHA_CURVE.verdict) &&
       /STAYS OPEN/.test(IMP33968_WINDING_RATE_VS_ALPHA_CURVE.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33968_WINDING_RATE_VS_ALPHA_CURVE.verdict) &&
+      /refereed bound is changed/i.test(IMP33968_WINDING_RATE_VS_ALPHA_CURVE.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP33968_WINDING_RATE_VS_ALPHA_CURVE.verdict,
       ),

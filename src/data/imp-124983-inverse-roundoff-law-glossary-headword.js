@@ -50,7 +50,7 @@
  *   single-rung L2 cap into D = -8.05e-12 +/- 1.27e-11)
  *
  * Ticket: imp-124983 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The inverse round-off law headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -84,7 +84,7 @@ const INVERSE_ROUNDOFF_LAW_HEADWORD = Object.freeze({
     'pair-ratio machinery verbatim and cross-checked against the imp-124850 six-rung drift-slope ' +
     'fit and the imp-124808 extended-precision D = 0 result. Naming / glossary headword only; ' +
     'supplies no new bound; the C_C 1/8 ansatz and E_trunc/E_flow component model are untouched; ' +
-    'RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP124983_INVERSE_ROUNDOFF_LAW_GLOSSARY_HEADWORD = Object.freeze({
@@ -103,8 +103,8 @@ export const IMP124983_INVERSE_ROUNDOFF_LAW_GLOSSARY_HEADWORD = Object.freeze({
     '~ -1.085, predicted -1), and the invariant product P = |reldiff|*|E_CF| stays flat ' +
     '(max/min ~ 8.5) rather than decreasing, discriminating pure round-off precision loss from a ' +
     'genuine identity drift. No bound moved; the component model and all pinned surrogate ' +
-    'constants are untouched; imp-3066 K_a >= 0 untouched; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'constants are untouched; imp-3066 K_a >= 0 untouched; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124811 (|reldiff| ~ R/|E_CF| log-log fit, flat invariant product, L2 drift cap); ' +
     'imp-124769 (E_CF round-off-vs-truncation crossover); imp-124770 (double-precision |reldiff| ' +
@@ -132,11 +132,11 @@ export const IMP124983_INVERSE_ROUNDOFF_LAW_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp124983-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124811.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124811.',
     holds: () =>
       IMP124983_INVERSE_ROUNDOFF_LAW_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124983_INVERSE_ROUNDOFF_LAW_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124983_INVERSE_ROUNDOFF_LAW_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124983_INVERSE_ROUNDOFF_LAW_GLOSSARY_HEADWORD.verdict) &&
       IMP124983_INVERSE_ROUNDOFF_LAW_GLOSSARY_HEADWORD.glosses === 'imp-124811',
   },
   {

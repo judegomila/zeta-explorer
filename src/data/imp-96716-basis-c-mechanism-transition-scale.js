@@ -47,8 +47,8 @@
  * 5.6e6] (geometric-mid ~5.55e6), just below the PT anchor L = 5.9e6; the floor jumps ~49x across it
  * (6.03e-7 -> 2.97e-5) as the Var cancellation roundoff overtakes the finer panel count. The anchor is
  * therefore the first ppp = 3 truncation rung, not deep in the truncation regime. Measurement only;
- * theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96690-basis-c-above-anchor-rung-ladder (FINDING 1: 3e6 crossover-set vs anchor truncation-set, transition never pinned)
  * @see imp-96568-basis-c-intermediate-rung-floor-ladder (the ppp collapse 256 -> 3 ladder this refines between 3e6 and the anchor)
@@ -186,12 +186,12 @@ export const IMP96716_BASIS_C_MECHANISM_TRANSITION_SCALE = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values, and every floor is a double-precision quadrature/cancellation artifact of this direct integral. The transition scale is a property of the numerical scheme (where the Var cancellation roundoff overtakes the crossover panel count), not of the analytic rho. Changes no bound, establishes no operator positivity, does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'The basis-C floor mechanism transition -- where the best-floor optimum ppp drops out of the crossover regime (ppp >= 4) into the truncation-set (ppp = 3) -- is pinned to L in (5.5e6, 5.6e6] (geometric-mid ~5.55e6), just below the PT anchor L = 5.9e6; the floor jumps ~49x across it (6.03e-7 -> 2.97e-5) as the Var cancellation roundoff overtakes the finer panel count. The anchor is the first ppp = 3 truncation rung, not deep in the truncation regime. Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The basis-C floor mechanism transition -- where the best-floor optimum ppp drops out of the crossover regime (ppp >= 4) into the truncation-set (ppp = 3) -- is pinned to L in (5.5e6, 5.6e6] (geometric-mid ~5.55e6), just below the PT anchor L = 5.9e6; the floor jumps ~49x across it (6.03e-7 -> 2.97e-5) as the Var cancellation roundoff overtakes the finer panel count. The anchor is the first ppp = 3 truncation rung, not deep in the truncation regime. Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for any consumer surface.
 export const IMP96716_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: rho is the '
+  'RH open; no refereed bound is changed; NO QED. Measurement only: rho is the '
   + 'theoretical GUE two-interval correlation, not computed from real zeros; each floor '
   + 'is a double-precision quadrature/cancellation artifact of the direct integral. The basis-C '
   + 'floor mechanism transition (best-floor optimum ppp dropping from crossover-set >= 4 to '
@@ -238,11 +238,11 @@ export const IMP96716_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96716_BASIS_C_MECHANISM_TRANSITION_SCALE.verdict))
     throw new Error('imp-96716: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96716_BASIS_C_MECHANISM_TRANSITION_SCALE.verdict))
-    throw new Error('imp-96716: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96716_BASIS_C_MECHANISM_TRANSITION_SCALE.verdict))
+    throw new Error('imp-96716: verdict dropped the no-refereed-bound-change banner');
   if (!/imp-96690/.test(IMP96716_BASIS_C_MECHANISM_TRANSITION_SCALE.source))
     throw new Error('imp-96716: source dropped the imp-96690 reference');
-  if (!(/RH open/.test(IMP96716_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96716_HONEST_BANNER) && /NO QED/.test(IMP96716_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96716_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96716_HONEST_BANNER) && /NO QED/.test(IMP96716_HONEST_BANNER)))
     throw new Error('imp-96716: IMP96716_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

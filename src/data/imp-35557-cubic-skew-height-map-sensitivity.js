@@ -54,7 +54,7 @@
  * asymptotic; changes no bound. Surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; the C_C = (1/8)
  * sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; E_trunc = 3.06e-5 (imp-2631) UNTOUCHED; the
  * imp-398 C_F prefactor UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35451-sigma-peak-arm-asymmetry (base-map c3 = -2.623677e-4 and A_skew ~ 11.01, recomputed here)
  * @see imp-35536-peak-height-map-sensitivity (the multiplicative-perturbation method, applied to sigma_max/N_max)
@@ -269,7 +269,7 @@ export const IMP35557_CUBIC_SKEW_HEIGHT_MAP_SENSITIVITY = {
     'rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and the ' +
     'imp-398 C_F prefactor are UNTOUCHED; surrogate-vs-true fidelity (imp-35337a) stays OPEN; C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   residual_sub_gap:
     'Inherits imp-35337a: this cross-checks the CUBIC skew of the peak on the imp-3220/imp-3406 double ' +
     'surrogate under a +/- 2 percent height-map bracket. It does NOT establish that the surrogate MAP ' +
@@ -328,13 +328,13 @@ export const IMP35557_CUBIC_SKEW_HEIGHT_MAP_SENSITIVITY_ASSERTIONS = [
     holds: () => SKEW_VS_HEIGHT_SENSITIVITY > 3 && SIGMA_MAX_SPREAD < 2e-3,
   },
   {
-    // Honesty gate: measurement only, not rigorous, no QED, PT SOTA, sub-gap imp-35337a named.
+    // Honesty gate: measurement only, not rigorous, no QED, no refereed bound is changed, sub-gap imp-35337a named.
     id: 'imp35557-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA, imp-35337a stays OPEN',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, imp-35337a stays OPEN',
     holds: () =>
       IMP35557_CUBIC_SKEW_HEIGHT_MAP_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP35557_CUBIC_SKEW_HEIGHT_MAP_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP35557_CUBIC_SKEW_HEIGHT_MAP_SENSITIVITY.verdict) &&
+      /refereed bound is changed/i.test(IMP35557_CUBIC_SKEW_HEIGHT_MAP_SENSITIVITY.verdict) &&
       /imp-35337a/.test(IMP35557_CUBIC_SKEW_HEIGHT_MAP_SENSITIVITY.residual_sub_gap),
   },
 ];

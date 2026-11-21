@@ -64,7 +64,7 @@ export const IMP35367_FIREWALL_NAV_AUDIT = {
     'Platt-Trudgian Lambda<=0.2 bound. The /guth-maynard-scoping route is registered ' +
     'in App.jsx and listed in nav-groups.js, so the page is reachable from the main ' +
     'nav. No orphan found; no fix needed. Changes no bound; NO QED; ' +
-    'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'no refereed bound is changed.',
   citation:
     'src/pages/GuthMaynardScopingPage.jsx, src/App.jsx, src/data/nav-groups.js ' +
     '(audited files); imp-35447/imp-35468/imp-35715 (registration-check method precedent).',
@@ -89,12 +89,12 @@ export const IMP35367_FIREWALL_NAV_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35367-audit-clean-no-qed',
-    description: 'audit found no orphan (allClean true); audit only, no bound changed, no QED, PT stays SOTA',
+    description: 'audit found no orphan (allClean true); audit only, no bound changed, no QED, no refereed bound is changed',
     holds: () =>
       IMP35367_FIREWALL_NAV_AUDIT.allClean === true &&
       IMP35367_FIREWALL_NAV_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35367_FIREWALL_NAV_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35367_FIREWALL_NAV_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35367_FIREWALL_NAV_AUDIT.verdict),
   },
 ];
 

@@ -52,8 +52,8 @@
  *
  * Derivation/measurement within the inherited imp-3406/imp-33810 component model only; the component
  * model is NOT a rigorous asymptotic; no bound changes; establishes no operator positivity; C_mb
- * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2
- * remains SOTA. NO QED.
+ * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no refereed bound is changed
+ * . NO QED.
  *
  * @see imp-34267-m2-ceiling-exactfit-coeff-endpoint-decomposition (the M>=4-locked c_eff ~ +89.94)
  * @see imp-34189-m2-ceiling-next-order-window-width-correction (the prose "+90" exact-fit descriptor)
@@ -271,7 +271,7 @@ export const IMP34345_M2_CEILING_EXACTFIT_90_VS_8994_RESIDUAL_CHANNEL_DECOMPOSIT
     'ceiling from the bisection) stands. The inherited imp-3220/imp-3406 component model is NOT a ' +
     'rigorous asymptotic; descriptive within the model only; changes no bound; establishes no operator ' +
     'positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34267 (the M>=4-locked c_eff ~ +89.94 decomposed here); imp-34189 (the prose "+90" exact-fit ' +
     'descriptor); imp-34127 (the leading OLS-cubic-bias coeff +17); imp-34211 (the O((eD)^2) log-T0-' +
@@ -314,13 +314,13 @@ export const IMP34345_M2_CEILING_EXACTFIT_90_VS_8994_RESIDUAL_CHANNEL_DECOMPOSIT
       DRIFT_BUMP > 4 * OLS_BASELINE - OLS_BASELINE, // drift bump > 3x the OLS baseline
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34345-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34345_M2_CEILING_EXACTFIT_90_VS_8994_RESIDUAL_CHANNEL_DECOMPOSITION.isRigorous === false &&
       /NO QED/.test(IMP34345_M2_CEILING_EXACTFIT_90_VS_8994_RESIDUAL_CHANNEL_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP34345_M2_CEILING_EXACTFIT_90_VS_8994_RESIDUAL_CHANNEL_DECOMPOSITION.verdict) &&
+      /refereed bound is changed/i.test(IMP34345_M2_CEILING_EXACTFIT_90_VS_8994_RESIDUAL_CHANNEL_DECOMPOSITION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34345_M2_CEILING_EXACTFIT_90_VS_8994_RESIDUAL_CHANNEL_DECOMPOSITION.verdict),
   },
 ];

@@ -26,8 +26,7 @@
  * nothing, discharges nothing, changes no bound, establishes no operator positivity.
  * C_mb stays GUE-conditional per imp-486; the imp-34791 E_trunc barrier-lemma
  * reclassification is UNCHANGED; the post-port bridge remains only PARITY-WITH-PT
- * (matches Lambda <= 0.2, no beat). No RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * (matches Lambda <= 0.2, no beat). No RH verdict, NO QED. No refereed bound is changed.
  *
  * LADDER MODEL (import-light; anchored on the imp-35654 baked landmark literals)
  * -----------------------------------------------------------------------------
@@ -65,7 +64,7 @@ const M = IMP35654_PORTED_BARRIER_FAR_TAIL_MIXED_CONDITIONALITY;
 
 // E_flow share held at the imp-35654 baked sigma<1e-3 literal (fully unconditional, imp-398).
 const E_FLOW_SHARE = M.bakedLandmark.fully_unconditional_E_flow; // ~5.655e-9
-const L_PT = 0.2; // Platt-Trudgian SOTA -- the value the ported bridge MATCHES, not beats.
+const L_PT = 0.2; // Platt-Trudgian 2021 bound -- the value the ported bridge MATCHES, not beats.
 
 // Far-tail landmark ladder: sigma from the imp-35334 baked landmark (1e-3) three decades deeper.
 const SIGMA_LADDER = [1.0e-3, 1.0e-4, 1.0e-5, 1.0e-6];
@@ -154,7 +153,7 @@ export const IMP35677_POSTPORT_RESIDUAL_SHARE_SIGMA_LADDER = {
     'unconditional bucket, NOT the residual GUE share nor the sigma-TRACKING conclusion. Measurement only; ' +
     'ports nothing; discharges nothing; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
     'imp-34791 E_trunc reclassification UNCHANGED; the ported bridge stays PARITY-WITH-PT, no beat; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35654 (single-landmark post-port mixed conditionality); imp-35334 (pre-port three provenance ' +
     'shares); imp-34791 (E_trunc = unported barrier lemma); imp-486 (C_mb GUE-conditional, residual = sigma); ' +
@@ -224,16 +223,16 @@ const IMP35677_ASSERTIONS = [
       ) < 1e-6,
   },
   {
-    // Honesty gate: measurement only, GUE-conditional per imp-486, parity-not-beat, no QED, PT SOTA.
+    // Honesty gate: measurement only, GUE-conditional per imp-486, parity-not-beat, no QED, no refereed bound is changed.
     id: 'imp35677-honesty-gate-no-qed',
-    description: 'Measurement only: sigma-TRACKING confirmed, E_flow-fixed sub-gap named, parity-not-beat, no QED, PT SOTA',
+    description: 'Measurement only: sigma-TRACKING confirmed, E_flow-fixed sub-gap named, parity-not-beat, no QED, no refereed bound is changed',
     holds: () =>
       IMP35677_POSTPORT_RESIDUAL_SHARE_SIGMA_LADDER.isRigorous === false &&
       /sigma-TRACKING/.test(IMP35677_POSTPORT_RESIDUAL_SHARE_SIGMA_LADDER.verdict) &&
       /SUB-GAP/.test(IMP35677_POSTPORT_RESIDUAL_SHARE_SIGMA_LADDER.verdict) &&
       /PARITY-WITH-PT/.test(IMP35677_POSTPORT_RESIDUAL_SHARE_SIGMA_LADDER.verdict) &&
       /NO QED/.test(IMP35677_POSTPORT_RESIDUAL_SHARE_SIGMA_LADDER.verdict) &&
-      /remains SOTA/.test(IMP35677_POSTPORT_RESIDUAL_SHARE_SIGMA_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP35677_POSTPORT_RESIDUAL_SHARE_SIGMA_LADDER.verdict),
   },
 ];
 

@@ -37,14 +37,14 @@
  *   a new proof. Neither half of the two-sided law is established (imp-96750's upper half is only
  *   reduced; imp-97054's lower half is unestablished; imp-97071 further reduces the lower half to a
  *   first-moment bound with kappa ~ 0.696 MEASURED, not proved). No bound moved; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA; RH open.
+ *   No refereed bound is changed; RH open.
  *
  * @see imp-97054-route-m-two-sided-norm-rejection-assessment.js (source: the direction analysis this glosses)
  * @see imp-97071-route-m-lower-companion-first-moment-reduction.js (the lower companion's further reduction to a first-moment bound)
  * @see imp-96750-route-m-interior-second-moment-upper-bound-reduction.js (the upper companion this headword warns is the WRONG half for a turnover)
  *
  * Ticket: imp-97088 (content, medium, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The lower-half-rejects-turnover direction headword, baked verbatim (no re-import).
@@ -78,7 +78,7 @@ const ROUTE_M_LOWER_HALF_TURNOVER_REJECTION_HEADWORD = Object.freeze({
     'positive just past the turnover peak x ~ 22.1). No new numerical computation. Neither half of ' +
     'the two-sided law is established (upper: imp-96750 reduction only; lower: imp-97054 ' +
     'unestablished, imp-97071 reduces it further to a measured-not-proved first-moment kappa ~ ' +
-    '0.696). Establishes no positivity theorem; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    '0.696). Establishes no positivity theorem; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97088_ROUTE_M_LOWER_HALF_TURNOVER_REJECTION_HEADWORD = Object.freeze({
@@ -99,7 +99,7 @@ export const IMP97088_ROUTE_M_LOWER_HALF_TURNOVER_REJECTION_HEADWORD = Object.fr
     '"the one-sided upper asymptotic suffices" as correct once the object in question is a turnover ' +
     'rather than unbounded growth. Neither half is established (upper: reduced only; lower: ' +
     'unestablished, later reduced to a measured-not-proved first-moment bound by imp-97071); no bound ' +
-    'moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97054 (the direction analysis this glosses); imp-97033/imp-97016 (the "proven one-sided ' +
     'upper asymptotic suffices" framing this headword corrects); imp-97071 (the lower companion\'s ' +
@@ -128,11 +128,11 @@ export const IMP97088_ROUTE_M_LOWER_HALF_TURNOVER_REJECTION_HEADWORD_ASSERTIONS 
   },
   {
     id: 'imp97088-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97054.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97054.',
     holds: () =>
       IMP97088_ROUTE_M_LOWER_HALF_TURNOVER_REJECTION_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97088_ROUTE_M_LOWER_HALF_TURNOVER_REJECTION_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97088_ROUTE_M_LOWER_HALF_TURNOVER_REJECTION_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97088_ROUTE_M_LOWER_HALF_TURNOVER_REJECTION_HEADWORD.verdict) &&
       IMP97088_ROUTE_M_LOWER_HALF_TURNOVER_REJECTION_HEADWORD.glosses === 'imp-97054',
   },
 ];

@@ -61,7 +61,7 @@
  * ln(C_mb) log-odds shift, NOT a rigorous derivation. The component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34907-eflow-crossing-strength-cmb-sweep (the coarse 11-point sweep + the ~1.0..1.2 secant slope this refines)
  * @see imp-34886-eflow-strength-knee-inflection-crossing (the s* ~ 0.78 crossing at C_mb=1, D2/D3 kernels reused verbatim)
@@ -349,7 +349,7 @@ export const IMP34925_EFLOW_CROSSING_STRENGTH_CMB_FUNCTIONAL_FORM = {
     'derivation. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no ' +
     'operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS imp-34925: the imp-34907 s*(C_mb) drift is NOT genuinely linear -- it is a POWER LAW s*(C_mb) = ' +
     's*(1) C_mb^p with p ~ 1.549 (RMS 6.7e-4, ~12x tighter than the reported linear fit), i.e. ln s* linear ' +
@@ -412,16 +412,16 @@ export const IMP34925_EFLOW_CROSSING_STRENGTH_CMB_FUNCTIONAL_FORM_ASSERTIONS = [
       Math.abs(SLOPE_AT_075 - 1.03) < 0.15,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed.
     id: 'imp34925-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed',
     holds: () =>
       IMP34925_EFLOW_CROSSING_STRENGTH_CMB_FUNCTIONAL_FORM.isRigorous === false &&
       IMP34925_EFLOW_CROSSING_STRENGTH_CMB_FUNCTIONAL_FORM.farTailExponent === 0.5 &&
       typeof IMP34925_EFLOW_CROSSING_STRENGTH_CMB_FUNCTIONAL_FORM.subGap === 'string' &&
       /imp-486/.test(IMP34925_EFLOW_CROSSING_STRENGTH_CMB_FUNCTIONAL_FORM.subGap) &&
       /NO QED/.test(IMP34925_EFLOW_CROSSING_STRENGTH_CMB_FUNCTIONAL_FORM.verdict) &&
-      /remains SOTA/.test(IMP34925_EFLOW_CROSSING_STRENGTH_CMB_FUNCTIONAL_FORM.verdict),
+      /refereed bound is changed/i.test(IMP34925_EFLOW_CROSSING_STRENGTH_CMB_FUNCTIONAL_FORM.verdict),
   },
 ];
 

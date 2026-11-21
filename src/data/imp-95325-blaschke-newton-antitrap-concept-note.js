@@ -70,7 +70,7 @@
  *   assembled THEOREM COAL-N closed form and its majorant-only status)
  *
  * Ticket: imp-95325 (content, low). Documentation only; establishes no new
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95251/95226).
@@ -129,7 +129,7 @@ export const IMP95325_BLASCHKE_NEWTON_ANTITRAP_CONCEPT_NOTE = Object.freeze({
     'coefficients c_k finite at coalescing rates where the Lagrange form ' +
     'PROP BL blows up, and notes it is only one of three lemmas ' +
     '(BN + DD + LAG) THEOREM COAL-N assembles. Establishes nothing new; ' +
-    'fires no certificate; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'fires no certificate; no refereed bound is changed.',
   citation:
     'imp-95251-nfold-coalescence-law.js (LEMMA BN, LEMMA DD, LEMMA LAG); ' +
     'imp-95226-np-exact-signed-shift-constant.js (THEOREM NP-CERT, PROP ' +
@@ -229,12 +229,11 @@ export const IMP95325_BLASCHKE_NEWTON_ANTITRAP_CONCEPT_NOTE_ASSERTIONS = [
   {
     id: 'imp95325-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present.',
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95325_BLASCHKE_NEWTON_ANTITRAP_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95325_BLASCHKE_NEWTON_ANTITRAP_CONCEPT_NOTE.verdict
       ) &&
       IMP95325_BLASCHKE_NEWTON_ANTITRAP_CONCEPT_NOTE.glosses === 'imp-95251' &&

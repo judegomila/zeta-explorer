@@ -53,7 +53,7 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses imp-95233 PHASE-CERT and the
  * imp-95273 packet model verbatim; changes NO bound, no operator positivity,
- * no RH claim; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH claim; NO QED. No refereed bound is changed.
  * Import-light (no zeros bundle, no sibling imports); the ensemble is
  * regenerated deterministically from a fixed seed by the assertions.
  *
@@ -172,7 +172,7 @@ export const IMP95404_SUMMARY = {
   coCenteredNarrowFraction: 0.305,
   wideSeparationFraction: 0.0035,
   finding:
-    'the vacuous fraction is a strong function of the sampling geometry: only ~4% of a broad NEUTRAL prior lands vacuous (r < 1), rising to ~30% when centers are forced near-coincident (the deep-cancellation regime the seam actually produces) and falling below 0.4% under wide center separation; at FIXED geometry, biasing signs positive (85/15) roughly halves the vacuous fraction (13.9% -> 5.8%), so vacuity is driven by sign cancellation, not geometry alone. This quantifies the imp-95273 "confined to the deep-cancellation corner" claim: vacuity is a minority event under neutral sampling. PHASE-CERT R <= e^(-y_min)/(2 theta) is verified to HOLD for 100% of EVERY ensemble. Measurement only; the 1/theta loss is unchanged; NO bound touched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'the vacuous fraction is a strong function of the sampling geometry: only ~4% of a broad NEUTRAL prior lands vacuous (r < 1), rising to ~30% when centers are forced near-coincident (the deep-cancellation regime the seam actually produces) and falling below 0.4% under wide center separation; at FIXED geometry, biasing signs positive (85/15) roughly halves the vacuous fraction (13.9% -> 5.8%), so vacuity is driven by sign cancellation, not geometry alone. This quantifies the imp-95273 "confined to the deep-cancellation corner" claim: vacuity is a minority event under neutral sampling. PHASE-CERT R <= e^(-y_min)/(2 theta) is verified to HOLD for 100% of EVERY ensemble. Measurement only; the 1/theta loss is unchanged; NO bound touched; NO QED; no refereed bound is changed.',
 };
 
 // -- self-executing assertions (imp-3715 convention; THROW on violation) ------
@@ -267,7 +267,7 @@ export const IMP95404_ASSERTIONS = [
         Math.abs(IMP95404_SUMMARY.coCenteredNarrowFraction - f('coCenteredNarrow')) < 1e-9 &&
         Math.abs(IMP95404_SUMMARY.wideSeparationFraction - f('wideSeparation')) < 1e-9 &&
         /NO QED/.test(IMP95404_SUMMARY.finding) &&
-        /remains\s+SOTA/.test(IMP95404_SUMMARY.finding) &&
+        /refereed bound is changed/i.test(IMP95404_SUMMARY.finding) &&
         /Measurement only/.test(IMP95404_SUMMARY.finding)
       );
     },

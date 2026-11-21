@@ -54,7 +54,7 @@
  * SCOPE. Search / measurement only over the degree-level relaxed family (rigorous upper bound for any fixed
  * trial by imp-96888, but this minimizer is a real-coefficient stand-in, not a committed near-optimal v0).
  * Produces no committed v0, no interval majorant, no operator positivity; Rayleigh floors stay UPPER bounds;
- * interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97354-krein-routeb-relaxed-v0-tail-looseness.js (representative relaxed member; C_far ~5.18e6, the residual this leaf minimizes)
  * @see imp-97337-krein-routeb-certified-bessel-enclosure.js (the enclosure scheme; 8-sparse baseline C_far ~48524.3)

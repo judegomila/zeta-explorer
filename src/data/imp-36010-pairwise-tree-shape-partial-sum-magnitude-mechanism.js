@@ -73,7 +73,7 @@
  * interval; verifies no inequality; changes no bound; establishes no positivity; the W1
  * A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL
  * (imp-35725); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35893-w1-summation-pairwise-tree-shape (source seven-shape measurement)
  * @see imp-35956-pairwise-tree-shape-ladder-viz-data (baked ladder this explains)
@@ -84,7 +84,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35893) ---------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -367,7 +367,7 @@ export const IMP36010_PAIRWISE_TREE_SHAPE_PARTIAL_SUM_MAGNITUDE_MECHANISM = {
     'magnitude budget only an outer envelope (explaining caterpillarR). Certifies no W1 bound; evaluates no ' +
     'true H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; ' +
     'the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35893 (source seven-shape measurement, exact BigInt reference); imp-35956 (baked ladder this ' +
     'explains); imp-35890 (deterministic running-accumulator magnitude bound); imp-35970 (a-priori depth*eps ' +
@@ -435,9 +435,9 @@ export const IMP36010_PAIRWISE_TREE_SHAPE_PARTIAL_SUM_MAGNITUDE_MECHANISM_ASSERT
       CORR.spearmanErrBudget < 0.99,
   },
   {
-    // Honesty gate: measurement only; primarily-cancellation conclusion; greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; primarily-cancellation conclusion; greenfield; no QED; no refereed bound is changed.
     id: 'imp36010-honesty-gate',
-    description: 'Measurement only; primarily-cancellation conclusion; obstruction greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; primarily-cancellation conclusion; obstruction greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36010_PAIRWISE_TREE_SHAPE_PARTIAL_SUM_MAGNITUDE_MECHANISM.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -446,7 +446,7 @@ export const IMP36010_PAIRWISE_TREE_SHAPE_PARTIAL_SUM_MAGNITUDE_MECHANISM_ASSERT
       ) &&
       /GREENFIELD/.test(IMP36010_PAIRWISE_TREE_SHAPE_PARTIAL_SUM_MAGNITUDE_MECHANISM.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36010_PAIRWISE_TREE_SHAPE_PARTIAL_SUM_MAGNITUDE_MECHANISM.verdict) &&
-      /remains SOTA/.test(IMP36010_PAIRWISE_TREE_SHAPE_PARTIAL_SUM_MAGNITUDE_MECHANISM.verdict),
+      /refereed bound is changed/i.test(IMP36010_PAIRWISE_TREE_SHAPE_PARTIAL_SUM_MAGNITUDE_MECHANISM.verdict),
   },
 ];
 

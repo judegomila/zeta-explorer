@@ -56,7 +56,7 @@
  * counterfactual log-T0 curvature, but does NOT instantiate the imp-34687a directed-rounding transcendental layer
  * and does NOT discharge the conditional. imp-34714a REMAINS OPEN. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/
  * imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34953-r-margin-dyadic-wall-across-N (the R_margin(N)=N*FP_LO/K sweep this stress-tests for K curvature)
  * @see imp-34969-fp-lo-drift-band-wide (the DISTINCT FP_LO(N)-drift departure-from-linearity ticket)
@@ -213,7 +213,7 @@ export const IMP35059_R_MARGIN_K_LOGT0_CURVATURE = {
     'effectiveHeightForN verbatim; distinct from imp-34969 (FP_LO drift); does NOT instantiate the imp-34687a ' +
     'directed-rounding layer; SUB-GAP imp-34714a REMAINS OPEN. The C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34953 (R_margin(N)=N*FP_LO/K dyadic-wall sweep; K asserted N-independent); imp-34969 (the DISTINCT ' +
     'FP_LO(N)-drift departure ticket); imp-34889 (shared Banach map g(N)=K log T0(N); K_AMPL=(C_C/E_trunc)^2); ' +
@@ -269,16 +269,16 @@ export const IMP35059_R_MARGIN_K_LOGT0_CURVATURE_ASSERTIONS = [
       SEED_BAND_HI <= N_PIN_HI_EFF,
   },
   {
-    // Honesty gate: measurement/surrogate, not rigorous, distinct from imp-34969, sub-gap open, no QED, PT SOTA.
+    // Honesty gate: measurement/surrogate, not rigorous, distinct from imp-34969, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35059-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, distinct from imp-34969, no QED, PT stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, distinct from imp-34969, no QED, no refereed bound is changed',
     holds: () =>
       IMP35059_R_MARGIN_K_LOGT0_CURVATURE.isRigorous === false &&
       /imp-34714a/.test(IMP35059_R_MARGIN_K_LOGT0_CURVATURE.subGap) &&
       /REMAINS OPEN/.test(IMP35059_R_MARGIN_K_LOGT0_CURVATURE.subGap) &&
       /imp-34969/.test(IMP35059_R_MARGIN_K_LOGT0_CURVATURE.verdict) &&
       /NO QED/.test(IMP35059_R_MARGIN_K_LOGT0_CURVATURE.verdict) &&
-      /remains SOTA/.test(IMP35059_R_MARGIN_K_LOGT0_CURVATURE.verdict),
+      /refereed bound is changed/i.test(IMP35059_R_MARGIN_K_LOGT0_CURVATURE.verdict),
   },
 ];
 

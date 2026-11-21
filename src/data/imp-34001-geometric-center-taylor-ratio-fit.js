@@ -59,8 +59,7 @@
  * MEASUREMENT/FIT ONLY. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; L1..L4 are finite-difference measurements; S1..S4 reproduce imp-34000; the
  * C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34000-geometric-center-fourth-order-taylor-tail (S1..S4 terms, "~25x-per-order" asserted)
  * @see imp-33947-geometric-center-third-order-taylor-tail (third-order term S3, "~25x" first asserted)
@@ -245,7 +244,7 @@ export const IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT = {
     'extrapolation, NOT a rigorous asymptotic; L1..L4 are finite-difference measurements; S1..S4 ' +
     'reproduce imp-34000; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34000 (S1..S4 terms, "~25x-per-order" asserted); imp-33947 (third-order S3, "~25x" first ' +
     'asserted); imp-33900 (second-order S2); imp-33879 (leading factor S1); imp-33816 (1/(2 log T0) ' +
@@ -284,13 +283,13 @@ export const IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT_ASSERTIONS = [
       SLOPE_R < 1.3,
   },
   {
-    // Honesty gate: measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp34001-honesty-gate-no-qed',
-    description: 'Measurement/fit only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/fit only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT.isRigorous === false &&
       /NO QED/.test(IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT.verdict) &&
-      /remains SOTA/.test(IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT.verdict) &&
+      /refereed bound is changed/i.test(IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT.verdict) &&
       /C_mb[^.]*imp-486[^.]*UNTOUCHED/i.test(IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT.verdict),
   },

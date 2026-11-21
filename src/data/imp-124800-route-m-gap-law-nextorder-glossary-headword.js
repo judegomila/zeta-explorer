@@ -44,7 +44,7 @@
  *   whose non-monotone wiggle corroborates the non-power decay)
  *
  * Ticket: imp-124800 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The Route M gap-law next-order headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -79,7 +79,7 @@ const ROUTE_M_NEXTORDER_HEADWORD = Object.freeze({
     '(residual ratio 1.25) is precision-limited by 7-sig-fig storage (imp-2546), a sub-gap ' +
     'resolved downstream by the imp-97659 (dps=30) / imp-97706 (dps=35) extended-precision chain. ' +
     'Naming / glossary headword only; supplies no new bound; MCM stays refuted from omega=11; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP124800_ROUTE_M_NEXTORDER_GLOSSARY_HEADWORD = Object.freeze({
@@ -99,7 +99,7 @@ export const IMP124800_ROUTE_M_NEXTORDER_GLOSSARY_HEADWORD = Object.freeze({
     'log p (both |res|*log^2 p and |res|*log^3 p strictly decrease) -- corroborated by the ' +
     'imp-97639 deep Mertens deficit ladder wiggling rather than decaying monotonically. The ' +
     'correction is the PNT/Mertens error, sharpening imp-97619 RESULT 3. No bound moved; MCM ' +
-    'stays refuted from omega=11; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'stays refuted from omega=11; NO QED. No refereed bound is changed.',
   citation:
     'imp-97640 (the local-exponent measurement and deep-delta-wiggle this glosses); imp-97619 ' +
     '(RESULT 3: next order = PNT/Mertens error); imp-97639 (deep Mertens deficit ladder to ' +
@@ -127,11 +127,11 @@ export const IMP124800_ROUTE_M_NEXTORDER_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp124800-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97640.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97640.',
     holds: () =>
       IMP124800_ROUTE_M_NEXTORDER_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124800_ROUTE_M_NEXTORDER_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124800_ROUTE_M_NEXTORDER_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124800_ROUTE_M_NEXTORDER_GLOSSARY_HEADWORD.verdict) &&
       IMP124800_ROUTE_M_NEXTORDER_GLOSSARY_HEADWORD.glosses === 'imp-97640',
   },
 ];

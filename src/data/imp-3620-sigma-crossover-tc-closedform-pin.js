@@ -58,8 +58,7 @@
  *        22 %..44 % subset of the imp-3604 bracket, confirming imp-3604 was pessimistic at the endpoints.
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3604-sigma-crossover-flow-factor-invariance (flat flow-factor bracket this module pins)
  * @see imp-3580-sigma-crossover-floor-invariance (frozen-Gronwall floor grid; ratio 0.996019)
@@ -244,8 +243,8 @@ export const IMP3620_SIGMA_CROSSOVER_TC_CLOSEDFORM_PIN = {
     'full admissible pinned factor band [1.0001045, 1.0002091] is a narrow 22%..44% subset of the ' +
     'imp-3604 bracket, so imp-3604 was pessimistic at its endpoints. N_x and x(N_x)=1 are unchanged ' +
     '(flow-free by construction). Measurement/derivation only; no positivity, no bridge closure, no RH ' +
-    'claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a>=0 positivity UNTOUCHED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a>=0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3604 (flat flow-factor bracket [1,1.000474], band 0.996); imp-3580 (frozen-Gronwall ' +
     'floor-invariance, ratio 0.996019, N_x 3.280294e9); imp-2644 (A1 trap |t_c| <= g_min^2/6 = ' +
@@ -297,13 +296,13 @@ export const IMP3620_SIGMA_CROSSOVER_TC_CLOSEDFORM_PIN_ASSERTIONS = [
     holds: () => GRID.every((r) => r.residual_half < 1e-9),
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement/derivation only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3620-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement/derivation only: no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3620_SIGMA_CROSSOVER_TC_CLOSEDFORM_PIN.isRigorous === false &&
       /NO QED/.test(IMP3620_SIGMA_CROSSOVER_TC_CLOSEDFORM_PIN.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3620_SIGMA_CROSSOVER_TC_CLOSEDFORM_PIN.verdict) &&
+      /refereed bound is changed/i.test(IMP3620_SIGMA_CROSSOVER_TC_CLOSEDFORM_PIN.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3620_SIGMA_CROSSOVER_TC_CLOSEDFORM_PIN.verdict),
   },
 ];

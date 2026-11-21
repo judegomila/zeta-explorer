@@ -68,7 +68,7 @@
  *   and the ~6% CONDITIONAL fraction, not the exact per-rung 513/1025 counts. The NPHI = 10 Phi-series
  *   truncation is inherited. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level
  *   K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict,
- *   no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   no QED. No refereed bound is changed.
  *
  *   @see imp-33623-band-crossing-cc-vs-graded-ratio-4x-crossing.js (the n in {500,510,525} 4x crossing this densifies)
  *   @see imp-33584-deeper-tail-cc-vs-graded-ratio-4x-crossing.js (the n in {425,450,475} ratio measurement)
@@ -378,7 +378,7 @@ export const IMP33642_DENSE_BAND_CROSSING_CC_VS_GRADED_4X_PER_RUNG = Object.free
     nphiTruncationInherited:
       'The NPHI = 10 Phi-series truncation is inherited from imp-33623/imp-33584/imp-33539/imp-33316/imp-33213; this ' +
       'audits the inner quadrature node budget under a cross-solver at dense band-crossing rungs, not that truncation.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -431,7 +431,7 @@ export const IMP33642_DENSE_BAND_CROSSING_CC_VS_GRADED_4X_PER_RUNG_ASSERTIONS = 
   {
     id: 'imp33642-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design cross-solver measurement only, not a certified bound, no literal ' +
-         'patched, source modules intact, mass-feasibility necessary-but-not-sufficient, imp-3066 untouched, PT 0.2 SOTA.',
+         'patched, source modules intact, mass-feasibility necessary-but-not-sufficient, imp-3066 untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33642_DENSE_BAND_CROSSING_CC_VS_GRADED_4X_PER_RUNG.honestCaveat;
       return (
@@ -443,7 +443,7 @@ export const IMP33642_DENSE_BAND_CROSSING_CC_VS_GRADED_4X_PER_RUNG_ASSERTIONS = 
         c.patchedALiteral === false &&
         c.leavesSourceModulesIntact === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

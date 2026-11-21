@@ -45,7 +45,7 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses the imp-95254 / imp-95233 closed
  * forms and exact witness literals verbatim; changes no bound, no operator
- * positivity, no RH claim; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity, no RH claim; NO QED. No refereed bound is changed.
  *
  * @see imp-95254-orthant-split-phase-certificate.js (source: THEOREM PHASE-AM closed form, PROP CEIL-X exact witness literals)
  * @see imp-95233-modulus-phase-currency-feasibility.js (source: COROLLARY PHASE-CERT closed form)

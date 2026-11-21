@@ -34,7 +34,7 @@
  * SCOPE. Verification only. This confirms an already-proven lemma by an
  * independent numerical route; it introduces no new theorem, fires no
  * certificate, and changes no bound of the Lambda program. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-95286-confluent-laguerre-floor.js (LEMMA LT source)
  */
@@ -65,8 +65,8 @@ export const IMP95296_LEMMA_LT_CROSSCHECK = {
     "CONFIRMED at the stated scope by two methods disjoint from imp-95286 " +
     "(explicit-sum Laguerre + exact Gauss-Laguerre quadrature). " +
     "Verification only: no new theorem, no certificate fires, changes no " +
-    "bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA.",
+    "bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -233,13 +233,13 @@ export const IMP95296_LEMMA_LT_CROSSCHECK_ASSERTIONS = [
   {
     id: "imp95296-honest-scope",
     description:
-      "honest-scope strings present: verification only, NO QED, PT SOTA, " +
+      "honest-scope strings present: verification only, NO QED, no refereed bound is changed, " +
       "no failing cells",
     holds: () => {
       const o = IMP95296_LEMMA_LT_CROSSCHECK;
       return (
         /NO QED/.test(o.verdict) &&
-        /remains SOTA/.test(o.verdict) &&
+        /refereed bound is changed/i.test(o.verdict) &&
         /Verification only/.test(o.verdict) &&
         /none:/.test(o.failingCells)
       );

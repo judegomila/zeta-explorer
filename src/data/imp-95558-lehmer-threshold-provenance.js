@@ -8,7 +8,7 @@
  *   by 5 to 8 orders of magnitude, but the module cites the constant without
  *   pinning its published source, exact statement, or physical units. This
  *   record fixes all three so the margins are anchored to a checkable reference.
- *   Accuracy audit only; changes no bound; NO QED; PT Lambda <= 0.2 stands.
+ *   Accuracy audit only; changes no bound; NO QED; no refereed bound is changed.
  *
  * WHAT 1.15e-11 IS (three questions the ticket poses)
  *
@@ -79,7 +79,7 @@ export const IMP95558_LEHMER_THRESHOLD_PROVENANCE = Object.freeze({
   unitsVerdict: 'DIMENSIONALLY SOUND: W(S) and 1.15e-11 are both magnitudes of the backward-flow parameter eps, so the 5-8 order margins are meaningful.',
   mechanism: 'The bound is proved from a tightest verified Lehmer pair (close consecutive zeros ~10^13) via the Csordas-Smith-Varga inequality: a more negative Lambda would force that pair to collide under the backward flow. Hence "Lehmer-pair collision threshold" = the flow-time at which the pair collides.',
   residualSubGap: 'PROV-RECON: the in-tree imp-1120 timeline splits this era into "Saouter-Papanikolaou-Demichel 2007" and "Saouter-Demichel 2011" figures that should be reconciled against the primary Saouter-Gourdon-Demichel 2011 source; not edited here (out of audit scope).',
-  verdict: 'The imp-95531 comparison is anchored: 1.15e-11 = |Saouter-Gourdon-Demichel 2011 lower bound on Lambda|, a backward-flow-TIME matching eps_0(S) units. Accuracy audit only; changes no bound; RH OPEN; PT Lambda <= 0.2 stands; NO QED.',
+  verdict: 'The imp-95531 comparison is anchored: 1.15e-11 = |Saouter-Gourdon-Demichel 2011 lower bound on Lambda|, a backward-flow-TIME matching eps_0(S) units. Accuracy audit only; changes no bound; RH OPEN; no refereed bound is changed; NO QED.',
 });
 
 const isFlowTime = (s) => /flow[- ]?time|eps-time|flow parameter|eps/i.test(s);
@@ -114,7 +114,7 @@ export const IMP95558_ASSERTIONS = [
     description: 'record states the PROV-RECON sub-gap, RH OPEN, PT Lambda <= 0.2, NO QED, and no bound change',
     holds: () => /PROV-RECON/.test(IMP95558_LEHMER_THRESHOLD_PROVENANCE.residualSubGap)
       && /RH OPEN/.test(IMP95558_LEHMER_THRESHOLD_PROVENANCE.verdict)
-      && /PT Lambda <= 0.2 stands/.test(IMP95558_LEHMER_THRESHOLD_PROVENANCE.verdict)
+      && /refereed bound is changed/i.test(IMP95558_LEHMER_THRESHOLD_PROVENANCE.verdict)
       && /NO QED/.test(IMP95558_LEHMER_THRESHOLD_PROVENANCE.verdict)
       && /changes no bound/.test(IMP95558_LEHMER_THRESHOLD_PROVENANCE.verdict),
   },

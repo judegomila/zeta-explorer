@@ -29,8 +29,7 @@
  * this), and both reproduce the imp-95271 eight-point table.
  *
  * VERDICT: imp-95402 is COMPLEMENTARY, not subsumed. Meta reconciliation
- * only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * only; changes no bound; NO QED; no refereed bound is changed.
  *
  * TICKET CROSS-REFERENCE. imp-95452 asks for exactly this reconciliation
  * ("reconcile pending imp-95402 against its delivery by imp-95377 ...,
@@ -84,8 +83,8 @@ export const IMP95432_RSTAR_PARAMETRIC_VS_IMPLICIT_RECONCILIATION = {
     'against the imp-95377 implicit-in-x equation and the imp-95271 ' +
     'eight-point table. No residual to re-scope; both tickets stand as ' +
     'completed, complementary records. Meta reconciliation only; ' +
-    'changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'changes no bound; NO QED; no refereed bound is changed' +
+    '.',
   closesTickets: ['imp-95452'],
 };
 
@@ -133,7 +132,7 @@ export const IMP95432_ASSERTIONS = [
       /Meta reconciliation only/.test(REC.verdict) &&
       /changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict),
+      /refereed bound is changed/i.test(REC.verdict),
   },
   {
     id: 'imp95432-closes-imp95452',

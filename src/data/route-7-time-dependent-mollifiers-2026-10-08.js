@@ -77,7 +77,7 @@ export const ROUTE_7 = Object.freeze({
   verdict: 'Route 7 does not move Lambda: the generalised floor inequality for per-cell Euler weights λ_p ∈ [0, 1] (Lemma CG^λ proved; Theorem 4\'^λ a '
     + 'written sketch, unrefereed) gives no gain on the exact consumer, because λ = 1 is best for every path mode in the float model (uniform and '
     + 'per-rectangle λ), λ > 1 and a seventh prime lower the floors, and the only positive gains (≤ 2.1e-4) sit in modes the path does not use. U = '
-    + '0.145694083872924 exactly; nothing new certified. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + '0.145694083872924 exactly; nothing new certified. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_7;
@@ -143,7 +143,7 @@ export const ROUTE_7_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r7-honest-scope',
-    holds: () => R.status === 'done' && /does not move Lambda/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict)
+    holds: () => R.status === 'done' && /does not move Lambda/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict)
       && /sketch/.test(R.refereeKilled[4]) && /per-rectangle/.test(R.refereeKilled[0]),
     why: 'No Λ change; Theorem 4\'^λ graded as a sketch; the per-rectangle gap the referee closed is recorded; no QED.',
   },

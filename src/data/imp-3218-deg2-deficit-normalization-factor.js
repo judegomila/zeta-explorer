@@ -58,7 +58,7 @@
  *
  *   DIAGNOSTIC, RH-EQUIVALENT, necessary-but-NOT-sufficient. No positivity, no reduction,
  *   no RH verdict. The imp-3066 off-diagonal endpoint-Hankel operator step remains the
- *   lone obstruction, untouched. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   lone obstruction, untouched. No refereed bound is changed.
  *   No false QED.
  *
  *   @see imp-3154-genuine-deg2-deficit-degree-sweep.js (the self-computing ~1.19e-7 deficit)
@@ -250,7 +250,7 @@ export const IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR = Object.freeze({
       'operator order; the off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction. ' +
       'No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -298,7 +298,7 @@ export const IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR_ASSERTIONS = [
   {
     id: 'imp3218-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: leading-order convention match (NOT bit-exact), residual is the offline recording, ' +
-         'necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR.honestCaveat;
       return (
@@ -308,7 +308,7 @@ export const IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR_ASSERTIONS = [
         c.factorIsLeadingOrderNotBitExact === true &&
         c.residualReflectsOfflineRecording === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

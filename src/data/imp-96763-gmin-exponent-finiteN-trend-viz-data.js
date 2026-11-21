@@ -79,7 +79,7 @@ export const IMP96763_HONEST_BANNER =
   'exponent b(N) does not trend toward the GUE cube-root -1/3 as N grows over the measured ' +
   'range (N up to ~1.48e6) -- it stays flat-to-steeper. This rules out a finite-N/plateau-bias ' +
   'explanation for the imp-96616 -0.3953 reading; it does not by itself settle the asymptotic ' +
-  'value. RH open; PT Lambda <= 0.2 remains SOTA; NO QED.';
+  'value. RH open; no refereed bound is changed; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -122,7 +122,7 @@ const IMP96763_ASSERTIONS = [
     id: 'imp96763-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96763_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96763_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96763_HONEST_BANNER) &&
       /NO QED/.test(IMP96763_HONEST_BANNER),
     why: 'every Route I / small-gap-exponent viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

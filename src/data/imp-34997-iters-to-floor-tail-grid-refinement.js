@@ -54,8 +54,7 @@
  * tail 0. MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate map, IEEE-754 double precision, no
  * interval enclosure. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no
- * operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-3463 (far-tail E_flow decay exponent 1/2)
  * @see imp-34903-iters-to-floor-residual-sign-wide-band (parent: 0 off-by-one above 1e12 on the 10^0.05 grid)
@@ -273,7 +272,7 @@ export const IMP34997_ITERS_TO_FLOOR_TAIL_GRID_REFINEMENT = {
     'recomputation; inherits imp-34951a / imp-34926a). IEEE-754 double precision; the component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/ ' +
     'imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no ' +
-    'bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34903 (parent: 0 off-by-one above 1e12 on the 10^0.05 grid); imp-34951 (uniform quantized penult ' +
     'margin; sub-gap imp-34951a); imp-34926 (terminal ceil-boundary geometry; +1 impossibility); imp-34775 ' +
@@ -317,13 +316,13 @@ export const IMP34997_ITERS_TO_FLOOR_TAIL_GRID_REFINEMENT_ASSERTIONS = [
       REENTRY_BAND.plusOne === 0,
   },
   {
-    // Honesty gate: measurement of a surrogate census, not rigorous, no QED, PT stays SOTA, sub-gap named.
+    // Honesty gate: measurement of a surrogate census, not rigorous, no QED, no refereed bound is changed, sub-gap named.
     id: 'imp34997-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA, sub-gap named',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, sub-gap named',
     holds: () =>
       IMP34997_ITERS_TO_FLOOR_TAIL_GRID_REFINEMENT.isRigorous === false &&
       /NO QED/.test(IMP34997_ITERS_TO_FLOOR_TAIL_GRID_REFINEMENT.verdict) &&
-      /remains SOTA/.test(IMP34997_ITERS_TO_FLOOR_TAIL_GRID_REFINEMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP34997_ITERS_TO_FLOOR_TAIL_GRID_REFINEMENT.verdict) &&
       /imp-34997a/.test(IMP34997_ITERS_TO_FLOOR_TAIL_GRID_REFINEMENT.summary.residual_sub_gap_imp_34997a),
   },
 ];

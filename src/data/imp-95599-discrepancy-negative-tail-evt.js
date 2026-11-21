@@ -43,8 +43,8 @@
  * negative side and holds: across six heights the most-negative window excess
  * min(D) matches the Gumbel-predicted minimum -E[max] of N iid draws to within
  * ~1.2 Gumbel sd, mirroring the positive side, with |min|/max centered on ~1.
- * Report only; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; the zero-side route stays PCC/GRH-gated regardless.
+ * Report only; changes no bound; NO QED. No refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated regardless.
  *
  * Import-light: no zeros bundle, no sibling imports. The EVT formulas are
  * re-derived here; only the (N, sd, maxPos, minNeg) quadruples are baked literals
@@ -124,7 +124,7 @@ export const IMP95599_DISCREPANCY_NEGATIVE_TAIL_EVT = {
     },
   },
   verdict:
-    'ASSESSED: the imp-95562 discrepancy tail is two-sided-symmetric, confirming the assertion imp-95583 made but only checked on the positive side. Recomputing the most-negative window excess min(D) at each of six heights and comparing it to the Gumbel-predicted minimum -E[max] of N = nWindows iid N(0, sd(D)) draws, every point lies within |gumbelZmin| < 1.5 of the EVT mean (range -0.75 .. +1.21, mean ~ +0.25), so there is no height-persistent negative deficit and no negative arithmetic outlier. The ratio |min(D)|/max(D) runs 0.837 .. 1.062 (mean ~0.97), and the positive- and negative-side Gumbel-Z means are both small and opposite in sign (max ~ -0.07, min ~ +0.25): the tail is genuinely two-sided, not merely positive-bias-free. The recomputed min(D) reproduces imp-95562 exactly where the sign is resolved (min = -maxAbsExcess at T = 7e4, 1.5e5, 5e5). Report only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'ASSESSED: the imp-95562 discrepancy tail is two-sided-symmetric, confirming the assertion imp-95583 made but only checked on the positive side. Recomputing the most-negative window excess min(D) at each of six heights and comparing it to the Gumbel-predicted minimum -E[max] of N = nWindows iid N(0, sd(D)) draws, every point lies within |gumbelZmin| < 1.5 of the EVT mean (range -0.75 .. +1.21, mean ~ +0.25), so there is no height-persistent negative deficit and no negative arithmetic outlier. The ratio |min(D)|/max(D) runs 0.837 .. 1.062 (mean ~0.97), and the positive- and negative-side Gumbel-Z means are both small and opposite in sign (max ~ -0.07, min ~ +0.25): the tail is genuinely two-sided, not merely positive-bias-free. The recomputed min(D) reproduces imp-95562 exactly where the sign is resolved (min = -maxAbsExcess at T = 7e4, 1.5e5, 5e5). Report only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (EVT re-derivation + baked-data checks) ---

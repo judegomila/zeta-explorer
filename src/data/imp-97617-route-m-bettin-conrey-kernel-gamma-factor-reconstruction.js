@@ -66,7 +66,7 @@
  *   and smallness of kappa_smooth. NO numeric kappaK, kappaK_period, kappaK_pole, or kappa_smooth is
  *   asserted: the reflection index is not pinned, so pinning any of them would be fabrication. The
  *   rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by
- *   >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (carried forward, sharpened one notch): imp-97617-bc-kernel-functional-equation-reflection-
  *   index -- pinning kappaK reduces to the EXACT Pochhammer index (2pi-power / argument-shift
@@ -138,7 +138,7 @@ export const IMP97617_VERDICT = Object.freeze({
     'and small rather than divergent (RESULT C). The EXACT reflection index (2pi-power / argument-shift ' +
     'convention) is the single remaining uncomputed datum; no value is pinned for kappaK or kappa_smooth. ' +
     'The rigorous anchor stays T = 2.594e7; compute binds first by >2600x; no operator positivity; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97617_SUBGAP = Object.freeze({
@@ -155,7 +155,7 @@ export const IMP97617_SUBGAP = Object.freeze({
 });
 
 export const IMP97617_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation attempt only: the gamma-factor half of ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation attempt only: the gamma-factor half of ' +
   'the Bettin-Conrey kernel is reconstructed as (2pi)^{-s} Gamma(s) and cross-confirms the w_lin ' +
   'constant, the Eichler map places z^2 at the convergent s = 3 value, and the gamma_1 coupling is ' +
   'localised to the functional-equation reflection whose exact index is the one remaining primitive. ' +
@@ -211,7 +211,7 @@ const IMP97617_ASSERTIONS = [
       IMP97617_VERDICT.anyBoundMoved === false &&
       IMP97617_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97617_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97617_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97617_HONEST_BANNER) &&
       /RH open/.test(IMP97617_HONEST_BANNER) &&
       /reflection-index/.test(IMP97617_SUBGAP.id),
   },

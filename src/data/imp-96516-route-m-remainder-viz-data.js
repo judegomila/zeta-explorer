@@ -17,7 +17,7 @@
  * already-fitted MB curve at a dense grid of L values for a smooth plot line
  * and (2) computing logN = log(N) for each ladder rung (elementary, not a
  * re-fit). Changes no bound; establishes no operator positivity; RH open;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * @see imp-96487-route-m-burnol-ratio-asymptotic-remainder-model.js (the source data this reshapes)
  *

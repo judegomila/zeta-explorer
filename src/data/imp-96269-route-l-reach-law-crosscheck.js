@@ -35,8 +35,8 @@
  * underlying reach column and land on the same N ~ (1.5..3.3)e15 order at the Platt-Trudgian
  * height, ~15 orders of magnitude beyond feasibility. Route L stays a fixed-cost, verified-height-
  * dominated detector, NOT a lever; the verified-zero route remains incomparably cheaper.
- * Cross-check of baked literals only; changes NO bound; RH open; Platt-Trudgian Lambda <= 0.2
- * stays SOTA; NO QED.
+ * Cross-check of baked literals only; changes NO bound; RH open; no refereed bound is changed
+ * ; NO QED.
  *
  * Reproduce: tmp/imp-96269-crosscheck.mjs (pure JS log-log power fit on the literals above).
  *
@@ -82,8 +82,8 @@ export const IMP96269_VERDICT =
   + 'Christoffel 1.51e15, within a factor two of the baked 3.29e15), ~15 orders beyond feasibility. '
   + 'The empirical fit and the analytic Christoffel-saturation reach are consistent; Route L stays a '
   + 'fixed-cost detector, NOT a lever, and the verified-height route stays incomparably cheaper. '
-  + 'Cross-check of baked literals only; changes no bound; RH open; Platt-Trudgian Lambda <= 0.2 '
-  + 'stays SOTA; NO QED.';
+  + 'Cross-check of baked literals only; changes no bound; RH open; no refereed bound is changed'
+  + '; NO QED.';
 
 // imp-96421 (numerical): robustness of the imp-96269 Christoffel eps1e4 re-fit to
 // DROPPING the k=3 one-order-off outlier row (imp-96182 flagged k=3 as the raw
@@ -119,7 +119,7 @@ export const IMP96421_VERDICT =
   + 'the full fit. The PT-height order is unchanged (1.81e15 vs 1.51e15, still 1e15, ratio 1.20), the '
   + 'detector/Christoffel factor-of-two agreement survives (ratio 0.68 in [0.5,2]), and the exponent-'
   + 'vs-detector agreement even tightens (1.80% -> 1.32%). Every imp-96269 conclusion holds; Route L '
-  + 'stays a fixed-cost detector, NOT a lever; changes no bound; RH open; Platt-Trudgian Lambda <= 0.2 '
-  + 'stays SOTA; NO QED.';
+  + 'stays a fixed-cost detector, NOT a lever; changes no bound; RH open; no refereed bound is changed'
+  + '; NO QED.';
 
 export const IMP96269_SCRIPTS = Object.freeze(['tmp/imp-96269-crosscheck.mjs', 'tmp/imp-96421-scratch.mjs']);

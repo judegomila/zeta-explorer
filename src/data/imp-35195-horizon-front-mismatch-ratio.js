@@ -49,7 +49,7 @@
  * Uses the imp-2563 T_minus closed form AS-IS; derives nothing new; the sandwich stays a valid
  * CONDITIONAL bracket; beta(N) is the RvM density MODEL, not a certified sup over the true backward
  * flow, and t_c(N) is an empirical OLS fit, so this changes NO bound and certifies nothing. I2/M5
- * stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED. No refereed bound is changed.
  *
  * @see imp-35167-g-min-non-collision-certificate-scope (named M5 the binding obstruction; parent)
  * @see imp-2563-min-gap-sandwich-theorem (T_minus closed form, used AS-IS)
@@ -210,7 +210,7 @@ export const IMP35195_HORIZON_FRONT_MISMATCH_RATIO = {
     'MEASUREMENT ONLY: uses the imp-2563 T_minus closed form AS-IS; beta(N) is the RvM density MODEL ' +
     '(not a certified sup) and t_c(N) is an empirical OLS fit, so this changes NO bound and certifies ' +
     'nothing; I2/M5 stay OPEN; the sandwich remains a valid CONDITIONAL bracket; C_mb GUE-conditional ' +
-    'per imp-486 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'per imp-486 UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35167 (M5 binding obstruction; parent); imp-2563 (T_minus closed form, AS-IS); imp-2849 / ' +
     'imp-mingap-beta-bound (RvM density beta); imp-325 / dyson-collision-lower-bound (OLS front ' +
@@ -251,15 +251,15 @@ export const IMP35195_HORIZON_FRONT_MISMATCH_RATIO_ASSERTIONS = [
     holds: () => RATIO_1E4 > 0.02 && RATIO_1E4 < 0.03 && RATIO_MAX / RATIO_1E4 > 15,
   },
   {
-    // Honesty gate: measurement only, no QED, sandwich untouched, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, sandwich untouched, no refereed bound is changed.
     id: 'imp35195-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, NO QED, changes no bound, M5 stays OPEN, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, NO QED, changes no bound, M5 stays OPEN, no refereed bound is changed',
     holds: () =>
       IMP35195_HORIZON_FRONT_MISMATCH_RATIO.isRigorous === false &&
       /NO QED/.test(IMP35195_HORIZON_FRONT_MISMATCH_RATIO.verdict) &&
       /changes NO bound/.test(IMP35195_HORIZON_FRONT_MISMATCH_RATIO.verdict) &&
       /M5 stay OPEN/.test(IMP35195_HORIZON_FRONT_MISMATCH_RATIO.verdict) &&
-      /remains SOTA/.test(IMP35195_HORIZON_FRONT_MISMATCH_RATIO.verdict),
+      /refereed bound is changed/i.test(IMP35195_HORIZON_FRONT_MISMATCH_RATIO.verdict),
   },
 ];
 

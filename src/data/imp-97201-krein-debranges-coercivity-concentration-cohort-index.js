@@ -61,8 +61,7 @@
  *     2a<=0.96.
  *
  *   STATUS: a grouping/index note over three already-completed tickets, not a new derivation. No bound
- *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 SOTA.
+ *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-97121-krein-uniform-n-floor-certificate-scope.js (scopes the missing uniform-N lower-bound object)
  * @see imp-97137-krein-debranges-coercivity-scope.js (reformulates route (B) as an N-free concentration inequality)
@@ -70,7 +69,7 @@
  * @see imp-97154-krein-uniform-n-ritz-insufficiency-cohort-index.js (sibling cohort index sharing member imp-97121)
  *
  * Ticket: imp-97201 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- the binding 2a for the Krein floor
@@ -140,7 +139,7 @@ export const IMP97201_KREIN_DEBRANGES_COERCIVITY_CONCENTRATION_COHORT_INDEX = Ob
     'interval-rigorous certified reach stays EXACTLY 2a<=0.96, unchanged by this whole cohort. Future ' +
     'work on this thread should not re-attempt Beurling-Selberg or flat-prolate arguments expecting them ' +
     'to close the gap, and should treat all three named sub-gaps as still open. Establishes nothing new; ' +
-    'moves no bound; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'moves no bound; RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97121 (uniform-N floor certificate scoping); imp-97137 (de Branges coercivity scoping); ' +
     'imp-97161 (concentration lower-bound assessment).',
@@ -181,11 +180,11 @@ export const IMP97201_KREIN_DEBRANGES_COERCIVITY_CONCENTRATION_COHORT_INDEX_ASSE
   },
   {
     id: 'imp97201-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97201_KREIN_DEBRANGES_COERCIVITY_CONCENTRATION_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97201_KREIN_DEBRANGES_COERCIVITY_CONCENTRATION_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97201_KREIN_DEBRANGES_COERCIVITY_CONCENTRATION_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97201_KREIN_DEBRANGES_COERCIVITY_CONCENTRATION_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP97201_KREIN_DEBRANGES_COERCIVITY_CONCENTRATION_COHORT_INDEX.verdict),
   },
 ];

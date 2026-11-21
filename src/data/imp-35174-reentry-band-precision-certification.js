@@ -62,7 +62,7 @@
  * the compact hand-rolled double-double reproduced VERBATIM from imp-35109, self-checked below. The
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes
- * no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35111-off-by-one-reentry-band-width (parent: band width/exit measured on double; sub-gap imp-35111a)
  * @see imp-35109-ceil-phase-drift-precision-certification (dd-certified the reentry POINT/drift only, to 10^30)
@@ -375,7 +375,7 @@ export const IMP35174_REENTRY_BAND_PRECISION_CERTIFICATION = {
     'imp-3220/imp-3406 surrogate, which is NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) ' +
     'and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent ' +
     'stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35111 (parent: band width/exit on double; sub-gap imp-35111a); imp-35109 (dd-certified reentry point/' +
     'drift only, tail to 10^30; sub-gap imp-35109a); imp-34997 (locates the 10^27.08 reentry; sub-gap ' +
@@ -427,13 +427,13 @@ export const IMP35174_REENTRY_BAND_PRECISION_CERTIFICATION_ASSERTIONS = [
       ARTIFACT_FREE === true,
   },
   {
-    // Honesty gate: certification of a surrogate arithmetic, not rigorous, no QED, PT SOTA, sub-gaps named.
+    // Honesty gate: certification of a surrogate arithmetic, not rigorous, no QED, no refereed bound is changed, sub-gaps named.
     id: 'imp35174-honesty-gate-no-qed',
-    description: 'Certification only: isRigorous false, no QED, Platt-Trudgian stays SOTA, sub-gaps named',
+    description: 'Certification only: isRigorous false, no QED, no refereed bound is changed, sub-gaps named',
     holds: () =>
       IMP35174_REENTRY_BAND_PRECISION_CERTIFICATION.isRigorous === false &&
       /NO QED/.test(IMP35174_REENTRY_BAND_PRECISION_CERTIFICATION.verdict) &&
-      /remains SOTA/.test(IMP35174_REENTRY_BAND_PRECISION_CERTIFICATION.verdict) &&
+      /refereed bound is changed/i.test(IMP35174_REENTRY_BAND_PRECISION_CERTIFICATION.verdict) &&
       /imp-35111a/.test(IMP35174_REENTRY_BAND_PRECISION_CERTIFICATION.residual_sub_gap_imp_35174a) &&
       /imp-35174a/.test(IMP35174_REENTRY_BAND_PRECISION_CERTIFICATION.residual_sub_gap_imp_35174a),
   },

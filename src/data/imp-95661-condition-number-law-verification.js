@@ -33,7 +33,7 @@
  * (analytic 0.30716 with the 1/2 prefactor vs bisection 0.30068 on measured kappa).
  *
  * GRADE: numerical verification only. Imports no bundle. Changes NO bound and
- * asserts NO new theorem; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ * asserts NO new theorem; no refereed bound is changed. NO QED.
  *
  * @see imp-95647-condition-number-viz-data (the re-plot verified here)
  * @see imp-95621-alt-form-precision-threshold (source derivation)

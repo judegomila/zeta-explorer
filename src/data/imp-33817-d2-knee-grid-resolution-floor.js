@@ -62,7 +62,7 @@
  * MEASUREMENT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The component model is
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33771-inflection-closed-form-vs-d2-zero-crosscheck (the ~1.5% residual + gridRobustnessLog10 literal)
  * @see imp-33721-sigma-ramp-inflection-subdecade (the sub-decade D2-zero locator + F2 robustness sweep)
@@ -234,8 +234,8 @@ export const IMP33817_D2_KNEE_GRID_RESOLUTION_FLOOR = {
     'is a genuine sigmoid-inflection-vs-exponent-ramp-D2 two-notion separation, not a discretization ' +
     'artifact. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33771 (~1.5% closed-form-vs-D2 residual + gridRobustnessLog10 literal); imp-33721 ' +
     '(sub-decade D2-zero locator + F2 robustness sweep); imp-33744 (closed form sigma_infl); ' +
@@ -286,13 +286,13 @@ export const IMP33817_D2_KNEE_GRID_RESOLUTION_FLOOR_ASSERTIONS = [
       MARGIN_VS_STDDEV > MARGIN_VS_HALF_RANGE,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp33817-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33817_D2_KNEE_GRID_RESOLUTION_FLOOR.isRigorous === false &&
       /NO QED/.test(IMP33817_D2_KNEE_GRID_RESOLUTION_FLOOR.verdict) &&
-      /Lambda <= 0\.2 remains SOTA/.test(IMP33817_D2_KNEE_GRID_RESOLUTION_FLOOR.verdict),
+      /refereed bound is changed/i.test(IMP33817_D2_KNEE_GRID_RESOLUTION_FLOOR.verdict),
   },
 ];
 

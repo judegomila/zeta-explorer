@@ -69,7 +69,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate
  * is descriptive, not derived; the Q_m chi-square reference is a small-sample asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34026-quadratic-detrend-ljung-box (the quadratic-detrend remedy this takes one term further)
  * @see imp-33964-ljung-box-portmanteau-test (the linear-residual Ljung-Box null this cubic-detrends)
@@ -271,7 +271,7 @@ export const IMP34081_CUBIC_DETREND_LJUNG_BOX = {
     'the higher-lag r_k rest on few pairs (n-k); the Q_m chi-square reference is a small-sample asymptotic; ' +
     'the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34026 (the quadratic-detrend remedy this takes one term further); imp-33964 (the linear-residual ' +
     'Ljung-Box null this cubic-detrends); imp-34025 (the endpoint / curved-trend structure that survives); ' +
@@ -338,13 +338,13 @@ export const IMP34081_CUBIC_DETREND_LJUNG_BOX_ASSERTIONS = [
       NEGATIVE_LOBE_DEEPENS === true,
   },
   {
-    // Honesty gate: isRigorous false, no QED, PT SOTA, residual small, imp-3066 untouched.
+    // Honesty gate: isRigorous false, no QED, no refereed bound is changed, residual small, imp-3066 untouched.
     id: 'imp34081-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, 12% multiplicative, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, 12% multiplicative, imp-3066 untouched',
     holds: () =>
       IMP34081_CUBIC_DETREND_LJUNG_BOX.isRigorous === false &&
       /NO QED/.test(IMP34081_CUBIC_DETREND_LJUNG_BOX.verdict) &&
-      /remains SOTA/.test(IMP34081_CUBIC_DETREND_LJUNG_BOX.verdict) &&
+      /refereed bound is changed/i.test(IMP34081_CUBIC_DETREND_LJUNG_BOX.verdict) &&
       /12% multiplicative/.test(IMP34081_CUBIC_DETREND_LJUNG_BOX.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34081_CUBIC_DETREND_LJUNG_BOX.verdict),
   },

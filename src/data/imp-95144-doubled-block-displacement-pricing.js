@@ -137,7 +137,7 @@
  * doubled blocks} below 0.23208 plus the full-class interval
  * [0.23208, 0.24502] above it. (d) Model family, not the paper Section
  * 4.5 packets. (e) Changes no bound; does NOT promote Lambda <= 0.14;
- * NO QED on the parent; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED on the parent; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD (in-run refutations preserved).
  * (1) Per-corner numerator caps with a separately lower-bounded
@@ -744,7 +744,7 @@ export const IMP95144_DOUBLED_BLOCK_DISPLACEMENT_PRICING = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM DP is unconditional given the carried THEOREM FP machinery: Lemma EP is an algebraic identity (verified as an identity on 4000 seeded draws to < 1e-9 relative), Lemma AY is elementary 2x2 cone copositivity with explicit float slacks (every branch a sound upper cap; 200000-draw battery, zero violations), the covers are deterministic bisection over positions, the amplitude arc AND the common rate (positive caps at the mu-cell lower corner, the intra floor at the upper corner) with Collatz-Wielandt at arbitrary positive vectors, ZERO unresolved cells in every cover, Lemma RM closes the ray mu >= 3/5 with penalty-free frames that dominate by monotone decrease of g, Lemma OD2 folds odd parity into the same certificate at 2mu, and the tail constants are explicit (TR bumped to 9, TAILSLACK absorbs the sqrt(2) column bump). Every approximation inflates caps - the certificate can fail spuriously but cannot certify spuriously. Scope: parity-pure model family, ONE COMMON RATE, AT MOST ONE DOUBLED BLOCK (two packets); free rates, k >= 3 packets and multiple doubled blocks are named sub-gaps, not covered; the class sandwich [0.2320723, 0.24502] is carried unchanged; float landmarks (frame root 0.2320733768, DW family root 0.23207238781359468, one-per-block limit 0.23207203643507168) are measured only; the imp-95140-subgap-displacement-credit leg stays OPEN (narrowed, not closed); parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings of the Lambda program untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED on the parent; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM DP is unconditional given the carried THEOREM FP machinery: Lemma EP is an algebraic identity (verified as an identity on 4000 seeded draws to < 1e-9 relative), Lemma AY is elementary 2x2 cone copositivity with explicit float slacks (every branch a sound upper cap; 200000-draw battery, zero violations), the covers are deterministic bisection over positions, the amplitude arc AND the common rate (positive caps at the mu-cell lower corner, the intra floor at the upper corner) with Collatz-Wielandt at arbitrary positive vectors, ZERO unresolved cells in every cover, Lemma RM closes the ray mu >= 3/5 with penalty-free frames that dominate by monotone decrease of g, Lemma OD2 folds odd parity into the same certificate at 2mu, and the tail constants are explicit (TR bumped to 9, TAILSLACK absorbs the sqrt(2) column bump). Every approximation inflates caps - the certificate can fail spuriously but cannot certify spuriously. Scope: parity-pure model family, ONE COMMON RATE, AT MOST ONE DOUBLED BLOCK (two packets); free rates, k >= 3 packets and multiple doubled blocks are named sub-gaps, not covered; the class sandwich [0.2320723, 0.24502] is carried unchanged; float landmarks (frame root 0.2320733768, DW family root 0.23207238781359468, one-per-block limit 0.23207203643507168) are measured only; the imp-95140-subgap-displacement-credit leg stays OPEN (narrowed, not closed); parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings of the Lambda program untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED on the parent; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -847,11 +847,11 @@ export const IMP95144_DOUBLED_BLOCK_DISPLACEMENT_PRICING_ASSERTIONS = [
   {
     id: "imp95144-honesty-gate",
     description:
-      "the verdict is scoped: COMMON RATE only, at most one doubled block, class sandwich carried unchanged, displacement-credit leg OPEN (narrowed not closed), free-rate and k-packet sub-gaps named, the caught soundness bug recorded, parent sub-gap OPEN, float landmarks measured only; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: COMMON RATE only, at most one doubled block, class sandwich carried unchanged, displacement-credit leg OPEN (narrowed not closed), free-rate and k-packet sub-gaps named, the caught soundness bug recorded, parent sub-gap OPEN, float landmarks measured only; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95144_DOUBLED_BLOCK_DISPLACEMENT_PRICING.promotesBound === false &&
       /NO QED/.test(IMP95144_DOUBLED_BLOCK_DISPLACEMENT_PRICING.rigorScope) &&
-      /remains SOTA/.test(IMP95144_DOUBLED_BLOCK_DISPLACEMENT_PRICING.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95144_DOUBLED_BLOCK_DISPLACEMENT_PRICING.rigorScope) &&
       /ONE COMMON RATE/.test(IMP95144_DOUBLED_BLOCK_DISPLACEMENT_PRICING.rigorScope) &&
       /narrowed, not closed/.test(IMP95144_DOUBLED_BLOCK_DISPLACEMENT_PRICING.rigorScope) &&
       /measured only/.test(IMP95144_DOUBLED_BLOCK_DISPLACEMENT_PRICING.rigorScope) &&

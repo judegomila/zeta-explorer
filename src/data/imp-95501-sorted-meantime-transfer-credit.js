@@ -19,7 +19,7 @@
  * resolution" residual DISSOLVES: at the mean-time level the trace is
  * an exact identity (sum mu_j = tau), so no sum-vs-product two-root
  * disambiguation is needed. Derivation + measurement; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95226 / imp-95446 / imp-95498 / imp-95499 / imp-95500
  * normalization). Finite rate set P = {p_1, ..., p_K} of positive
@@ -341,7 +341,7 @@ export const IMP95501_SORTED_MEANTIME_TRANSFER_CREDIT = {
     "derivation + measurement; model family only; onset comparisons " +
     "are within the per-block majorant family (no claim on RZ-PEN or " +
     "SPLIT-chain every-octave onsets); changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "no refereed bound is changed",
   verdict:
     "RIGOROUS step: the sorted mean-time transfer lambda_j >= " +
     "e^(2 s mu_j) grades the sub-leading floor of the tilted Cauchy " +
@@ -356,7 +356,7 @@ export const IMP95501_SORTED_MEANTIME_TRANSFER_CREDIT = {
     "coalesced K = 8 credits reach 94x. The imp-95500 branch-residual " +
     "dissolves at the mean-time level; its uniformFloorGap literal is " +
     "corrected (top vs bottom eigenvalue product). Changes no bound; " +
-    "NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -879,7 +879,7 @@ export const IMP95501_ASSERTIONS = [
       "the record names the executed residual (both halves), keeps " +
       "the re-scoped residuals (elementary mu_max bound, deflation " +
       "zeros, RZ-PEN port), scopes the onset claims to the per-block " +
-      "family, promotes no bound, NO QED, PT stays SOTA",
+      "family, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /\(ii-next\), both halves/.test(
         IMP95501_SORTED_MEANTIME_TRANSFER_CREDIT.residualExecuted,
@@ -895,7 +895,7 @@ export const IMP95501_ASSERTIONS = [
         IMP95501_SORTED_MEANTIME_TRANSFER_CREDIT.honestScope,
       ) &&
       /NO QED/.test(IMP95501_SORTED_MEANTIME_TRANSFER_CREDIT.verdict) &&
-      /remains SOTA/.test(IMP95501_SORTED_MEANTIME_TRANSFER_CREDIT.verdict) &&
+      /refereed bound is changed/i.test(IMP95501_SORTED_MEANTIME_TRANSFER_CREDIT.verdict) &&
       /[Cc]hanges no bound/.test(IMP95501_SORTED_MEANTIME_TRANSFER_CREDIT.verdict),
   },
 ];

@@ -38,7 +38,7 @@
  * imp-35969-krawczyk-residual-directed-rounding-width.js (immediately below this audit module's
  * own new entry), so its five self-executing THROWing assertions now run under `npm run assert`.
  * Otherwise read-only. Changes no bound; establishes no operator positivity; no RH verdict; NO
- * QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * QED. No refereed bound is changed.
  *
  * @see imp-35982-imp3589x-registration-reachability-audit (registration/reachability method)
  * @see imp-35905-frontier-measurement-cohort-import-guard (import-light guard method)
@@ -121,8 +121,8 @@ export const IMP36034_IMP3596X97X_REGISTRATION_REACHABILITY_AUDIT = {
     'imp-35973. Result: five of six reachable pre-audit (four direct, one transitive), all six ' +
     'import-light; imp-35969 was an orphaned module never exercised by `npm run assert` -- ' +
     'closed by adding its direct DATA_MODULES entry in this commit. Changes no bound; ' +
-    'establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35982/imp-35905/imp-35986 (registration/reachability + import-light guard audit ' +
     'method); verify-zeros-importers.mjs (import-light guard method, imp-2880).',
@@ -167,11 +167,11 @@ export const IMP36034_IMP3596X97X_REGISTRATION_REACHABILITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp36034-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36034_IMP3596X97X_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP36034_IMP3596X97X_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP36034_IMP3596X97X_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP36034_IMP3596X97X_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

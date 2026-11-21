@@ -45,7 +45,7 @@
  * @see imp-97536-krein-lambda3-lower-bound-alt-routes-assessment.js (every alternative route to a certified lambda_3 lower bound assessed; m=2 gate structurally unreachable)
  *
  * Ticket: imp-97567 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- the binding 2a for the Krein floor
@@ -113,7 +113,7 @@ export const IMP97567_KREIN_LAMBDA3_M2_GATE_SUCCESSOR_COHORT_INDEX = Object.free
     'm=2 gate structurally unreachable by all of them, reducing to a certified sub-top spectral bound on B ' +
     'as the one remaining productive residual. No certified positive lower bound on lambda_3 exists anywhere ' +
     'in this cohort; interval-rigorous certified reach stays EXACTLY 2a<=0.96, unchanged. Establishes nothing ' +
-    'new; moves no bound; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'new; moves no bound; RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97495 (Route-2 lambda_2 floor tightened to -309.931066, geometric tail refuted); imp-97514 (m=2 ' +
     'window needs certified lower on lambda_3, wrong gap and finite floor both miss); imp-97536 (every ' +
@@ -162,11 +162,11 @@ export const IMP97567_KREIN_LAMBDA3_M2_GATE_SUCCESSOR_COHORT_INDEX_ASSERTIONS = 
   },
   {
     id: 'imp97567-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97567_KREIN_LAMBDA3_M2_GATE_SUCCESSOR_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97567_KREIN_LAMBDA3_M2_GATE_SUCCESSOR_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97567_KREIN_LAMBDA3_M2_GATE_SUCCESSOR_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97567_KREIN_LAMBDA3_M2_GATE_SUCCESSOR_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP97567_KREIN_LAMBDA3_M2_GATE_SUCCESSOR_COHORT_INDEX.verdict),
   },
 ];

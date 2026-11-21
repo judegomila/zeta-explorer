@@ -20,7 +20,7 @@
  *
  *   STATUS: documentation only. Explains an already-published measurement (imp-124769) in plain
  *   terms with a physics analogy and a worked numeric example; establishes nothing new; moves no
- *   bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   bound; NO QED. No refereed bound is changed.
  *
  * @see imp-124769-ecf-stencil-noise-floor-crossover.js (source measurement this exposition explains)
  * @see imp-124802-ecf-noise-floor-crossover-glossary-headword.js (the glossary headword this
@@ -30,7 +30,7 @@
  *   sigma_crit = 0.020385 -- same crossover, two different round-off floors R, not two phenomena)
  *
  * Ticket: imp-124939 (content, low, sonnet-4-6). Documentation only; no bound change; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 const ROUNDOFF_VS_TRUNCATION_EXPOSITION = Object.freeze({
@@ -240,7 +240,7 @@ export const IMP124939_ROUNDOFF_VS_TRUNCATION_CROSSOVER_EXPOSITION = Object.free
     'error from scratch, formalizes the textbook h* ~ eps_mach^(1/3) crossover, and works the ' +
     'imp-124769 crossover |E_CF|_crit = R / relTrunc ~ 1.4e-6 (sigma_crit ~ 0.013 at double ' +
     'precision, ~0.0204 precision-independent per imp-124867) as the advanced example. Establishes ' +
-    'nothing new; no bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'nothing new; no bound moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-124769 (the crossover measurement this exposition explains); imp-124802 (glossary ' +
     'headword); imp-124867/imp-124849 (precision reconciliation); imp-97710/imp-97821 (the clean-vs-' +
@@ -301,11 +301,11 @@ export const IMP124939_ROUNDOFF_VS_TRUNCATION_CROSSOVER_EXPOSITION_ASSERTIONS = 
   },
   {
     id: 'imp124939-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124769.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124769.',
     holds: () =>
       IMP124939_ROUNDOFF_VS_TRUNCATION_CROSSOVER_EXPOSITION.anyBoundMoved === false &&
       /NO QED/.test(IMP124939_ROUNDOFF_VS_TRUNCATION_CROSSOVER_EXPOSITION.verdict) &&
-      /remains SOTA/.test(IMP124939_ROUNDOFF_VS_TRUNCATION_CROSSOVER_EXPOSITION.verdict) &&
+      /refereed bound is changed/i.test(IMP124939_ROUNDOFF_VS_TRUNCATION_CROSSOVER_EXPOSITION.verdict) &&
       IMP124939_ROUNDOFF_VS_TRUNCATION_CROSSOVER_EXPOSITION.glosses === 'imp-124769',
   },
 ];

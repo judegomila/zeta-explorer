@@ -71,7 +71,7 @@
  * accelerations of a short sequence, NOT a rigorous limit; the underlying component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34188-widening-slope-limit-exactly-minus-one (the nested-window free b_inf sequence split here)
  * @see imp-34246-widening-slope-limit-analytic-derivation (derives the true leading value is below -1; -ln10/2)
@@ -248,8 +248,8 @@ export const IMP34271_NESTED_WINDOW_BINF_BIAS_VS_CONTAMINATION_FIT = {
     'imp-34246 (derive-why=-1) and imp-34247 (y-slope divergence). The geometric/Aitken accelerations are ' +
     'descriptive, not derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34188 (the nested-window free b_inf sequence split here); imp-34246 (analytic leading value ' +
     'below -1, -ln10/2); imp-34247 (y-slope divergence pole-residue fit); imp-34023 (the residExp ' +
@@ -315,14 +315,14 @@ export const IMP34271_NESTED_WINDOW_BINF_BIAS_VS_CONTAMINATION_FIT_ASSERTIONS = 
   },
   {
     // Honesty gate: measurement only; snap-back is contamination not convergence; isRigorous false; no QED;
-    // K_a >= 0 untouched; PT SOTA.
+    // K_a >= 0 untouched; no refereed bound is changed.
     id: 'imp34271-honesty-gate-no-qed',
-    description: 'snap-back not genuine convergence; isRigorous false; no QED; K_a>=0 untouched; PT SOTA',
+    description: 'snap-back not genuine convergence; isRigorous false; no QED; K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34271_NESTED_WINDOW_BINF_BIAS_VS_CONTAMINATION_FIT.bInfSnapBackIsGenuineConvergence === false &&
       IMP34271_NESTED_WINDOW_BINF_BIAS_VS_CONTAMINATION_FIT.isRigorous === false &&
       /NO QED/.test(IMP34271_NESTED_WINDOW_BINF_BIAS_VS_CONTAMINATION_FIT.verdict) &&
-      /remains SOTA/.test(IMP34271_NESTED_WINDOW_BINF_BIAS_VS_CONTAMINATION_FIT.verdict) &&
+      /refereed bound is changed/i.test(IMP34271_NESTED_WINDOW_BINF_BIAS_VS_CONTAMINATION_FIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34271_NESTED_WINDOW_BINF_BIAS_VS_CONTAMINATION_FIT.verdict),
   },
 ];

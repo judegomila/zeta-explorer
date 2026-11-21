@@ -136,8 +136,7 @@ export default function Imp96038RouteALammMinDescentViz() {
         ({ROUTE_A_SCALING_REFERENCE.measuredGlobalExponent}) sits below the predicted
         ({ROUTE_A_SCALING_REFERENCE.exponent}) and approaches it from below as p_N grows
         (tail fit {ROUTE_A_SCALING_REFERENCE.measuredTailExponent}). Supplies no new bound,
-        establishes no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains SOTA. NO QED.
+        establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

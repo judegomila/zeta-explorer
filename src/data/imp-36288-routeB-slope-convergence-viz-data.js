@@ -13,7 +13,7 @@
  *
  * NOT A BOUND. Presentation only; carries no RH verdict; changes no bound; the imp-36082
  * CONSUMABLE-MODULO-ANCHOR status and imp-36151 readiness-vs-exponent resolution are untouched.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-36082-routeB-perN-rate-form-and-bridge-consumability.js (source rate r_B(N))
  * @see imp-36151-routeC-vs-routeB-perN-exponent-comparison.js (slope-convergence witness this charts)

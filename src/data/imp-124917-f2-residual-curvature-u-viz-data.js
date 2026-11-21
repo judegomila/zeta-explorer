@@ -57,8 +57,8 @@ export const IMP124917_SUMMARY = Object.freeze({
     'Presentation only: every residual row and the gap/ratio fields are reused verbatim from ' +
     'imp-124772/imp-124823 (measurements, not derivations); no new computation. Conditional-share ' +
     'curvature diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; ' +
-    'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

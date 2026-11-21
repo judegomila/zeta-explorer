@@ -62,7 +62,7 @@
  * the residual imp-96617 flagged (a rigorous C, not a measured one). Derivation only; conditional on
  * the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); the k = 1 lag is
  * excluded (I_1 diverges logarithmically); changes NO unconditional bound; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96617-finite-L-correction-sign (the measured C ~ 2.07e-3 this certifies)
  * @see imp-96567-box-averaged-sine-kernel-lag-decay (the closed form Cov_k(inf))
@@ -116,12 +116,12 @@ export const IMP96628_BOXSINE_LAGCORR_IBP_ENVELOPE = {
   conditionality:
     'Conditional on the GUE sine kernel / Montgomery pair correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored). Changes NO unconditional bound.',
   verdict:
-    'The measured O(1/L^2) envelope C ~ 2.07e-3 of imp-96617 is upgraded to a CERTIFIED two-sided bound |DeltaCov_k(L)| <= C(k)/L^2 for all L > 0 and all lags k >= 2, with the explicit closed constant C(k) = (1/(8 pi^4)) [ 2/k^2 + 1/(k-1)^2 + 1/(k+1)^2 + V(k) ] obtained by two integrations by parts on the oscillatory correction integral: the first IBP kills the O(1/L) boundary term (the Bartlett weight (1-|v|) vanishes at v = +/-1), the second produces an explicit O(1/L^2) leading term B_k (three cosines, each |.| <= 1) plus a total-variation-bounded remainder R_k, both L-uniform. C(2) = 3/(8 pi^4) = 3.850e-3 rigorously dominates the measured 2.07e-3 (ratio 1.86, as expected from the triangle-inequality slack), and C(k) decays with the lag (C(3)=1.117e-3, ..., C(6)=1.977e-4). This certifies exactly the residual imp-96617 flagged -- a rigorous envelope constant, not a measured one. Derivation only; the k = 1 lag is excluded (I_1 diverges logarithmically); conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The measured O(1/L^2) envelope C ~ 2.07e-3 of imp-96617 is upgraded to a CERTIFIED two-sided bound |DeltaCov_k(L)| <= C(k)/L^2 for all L > 0 and all lags k >= 2, with the explicit closed constant C(k) = (1/(8 pi^4)) [ 2/k^2 + 1/(k-1)^2 + 1/(k+1)^2 + V(k) ] obtained by two integrations by parts on the oscillatory correction integral: the first IBP kills the O(1/L) boundary term (the Bartlett weight (1-|v|) vanishes at v = +/-1), the second produces an explicit O(1/L^2) leading term B_k (three cosines, each |.| <= 1) plus a total-variation-bounded remainder R_k, both L-uniform. C(2) = 3/(8 pi^4) = 3.850e-3 rigorously dominates the measured 2.07e-3 (ratio 1.86, as expected from the triangle-inequality slack), and C(k) decays with the lag (C(3)=1.117e-3, ..., C(6)=1.977e-4). This certifies exactly the residual imp-96617 flagged -- a rigorous envelope constant, not a measured one. Derivation only; the k = 1 lag is excluded (I_1 diverges logarithmically); conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 / imp-96567 / imp-96617 convention).
 export const IMP96628_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation only: two integrations by parts on the '
+  'RH open; no refereed bound is changed; NO QED. Derivation only: two integrations by parts on the '
   + 'box sine-kernel oscillatory correction integral upgrade the imp-96617 MEASURED envelope C ~ 2.07e-3 '
   + 'to a CERTIFIED two-sided bound |DeltaCov_k(L)| <= C(k)/L^2 for all L > 0, all lags k >= 2, with '
   + 'C(k) = (1/(8 pi^4))[2/k^2 + 1/(k-1)^2 + 1/(k+1)^2 + V(k)] and C(2) = 3/(8 pi^4) = 3.850e-3 dominating '
@@ -175,11 +175,11 @@ export const IMP96628_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96628_BOXSINE_LAGCORR_IBP_ENVELOPE.verdict))
     throw new Error('imp-96628: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96628_BOXSINE_LAGCORR_IBP_ENVELOPE.verdict))
-    throw new Error('imp-96628: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96628_BOXSINE_LAGCORR_IBP_ENVELOPE.verdict))
+    throw new Error('imp-96628: verdict dropped the no-refereed-bound-change banner');
   if (!/[Cc]onditional/.test(IMP96628_BOXSINE_LAGCORR_IBP_ENVELOPE.verdict))
     throw new Error('imp-96628: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96628_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96628_HONEST_BANNER) && /NO QED/.test(IMP96628_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96628_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96628_HONEST_BANNER) && /NO QED/.test(IMP96628_HONEST_BANNER)))
     throw new Error('imp-96628: IMP96628_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

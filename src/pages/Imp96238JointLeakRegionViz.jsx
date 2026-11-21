@@ -169,7 +169,7 @@ export default function Imp96238JointLeakRegionViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96206 baked boundary function and literals verbatim (only the plot-resolution
         sampling is computed here). Changes no bound, establishes no operator positivity, no RH
-        claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        claim. NO QED.
       </div>
     </div>
   );

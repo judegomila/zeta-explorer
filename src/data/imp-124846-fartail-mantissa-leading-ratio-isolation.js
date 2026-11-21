@@ -54,8 +54,7 @@
  * CLOSED-FORM DERIVATION / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. Reuses
  * the inherited imp-97723/imp-97744 bare-slope inversion and RvM relation, NOT a rigorous
  * asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124827-fartail-per-nine-mantissa-correction-decay (k=5 rung, m_k - 1 decay fit)
  * @see imp-124793-fartail-diagnostic-per-nine-spacing-ladder (F3: spacing ratio -> 10, +~1 term unfit)
@@ -135,8 +134,8 @@ export const IMP124846_FARTAIL_MANTISSA_LEADING_RATIO_ISOLATION = {
     'quantifying the sub-leading term relative to the leading one, not just to its own +1 asymptote. ' +
     'Conditional-share diagnostic, NOT an RH bound; reuses the inherited imp-97723/imp-97744 ' +
     'bare-slope inversion and RvM relation, NOT a rigorous asymptotic; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124827 (k=5 rung, m_k - 1 decay fit); imp-124793 F3 (per-nine spacing ratio -> 10, +~1 ' +
     'mantissa term declared sub-leading, never isolated against the leading term); imp-97723 ' +
@@ -205,14 +204,14 @@ export const IMP124846_FARTAIL_MANTISSA_LEADING_RATIO_ISOLATION_ASSERTIONS = [
       Math.abs(RATIO_TABLE[2].deltaLog10N - 3909.6507) < 1e-2,
   },
   {
-    // Honesty gate: closed-form derivation only, no QED, PT stays SOTA.
+    // Honesty gate: closed-form derivation only, no QED, no refereed bound is changed.
     id: 'imp124846-honesty-gate-no-qed',
-    description: 'Closed-form derivation/measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Closed-form derivation/measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP124846_FARTAIL_MANTISSA_LEADING_RATIO_ISOLATION.isRigorous === false &&
       IMP124846_FARTAIL_MANTISSA_LEADING_RATIO_ISOLATION.ratioDecayLimit === 10 &&
       /NO QED/.test(IMP124846_FARTAIL_MANTISSA_LEADING_RATIO_ISOLATION.verdict) &&
-      /remains SOTA/.test(IMP124846_FARTAIL_MANTISSA_LEADING_RATIO_ISOLATION.verdict),
+      /refereed bound is changed/i.test(IMP124846_FARTAIL_MANTISSA_LEADING_RATIO_ISOLATION.verdict),
   },
 ];
 

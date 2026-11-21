@@ -61,8 +61,7 @@
  *
  * ROUTING. Sub-gap imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN.
  * Import-light (no zeros bundle, no sibling imports; port constants re-declared
- * locally to match imp-95255). Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * locally to match imp-95255). Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // -- width-law port constants (match imp-95255; assessment is c,v-free) -------
@@ -142,7 +141,7 @@ export const IMP95383_YMIN_XMIN_COLLAPSE_EXTENSION = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. This extension touches only imp-95255 LEG 1 (y_min geometry); the LEG 2 theta obstruction and obligation (3) sign-data leg are UNCHANGED.",
   verdict:
-    "MEASUREMENT (exact-algebra): the imp-95255 LEG 1 y_min/x_min collapse is extended past pD = 224 to pD = 23552 and closed into the EXACT law y_min/x_min - 1 = (pD-1)^(-1/3). The decay is a d^(-1/3) slow-rate correction -- the scout d^(-2/3) hypothesis is REFUTED. y_min still rides the x_min map. Nothing derives or moves a bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT (exact-algebra): the imp-95255 LEG 1 y_min/x_min collapse is extended past pD = 224 to pD = 23552 and closed into the EXACT law y_min/x_min - 1 = (pD-1)^(-1/3). The decay is a d^(-1/3) slow-rate correction -- the scout d^(-2/3) hypothesis is REFUTED. y_min still rides the x_min map. Nothing derives or moves a bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "The closed form y_min = (mu(d_min)+mu(d_max)) u(d_max) is verified against the exhaustive O(N^2) pair scan on the four original grids (agreement < 1e-12); the resulting law y_min/x_min - 1 = (pD-1)^(-1/3) is EXACT arithmetic (no quadrature) and reproduces the four baked imp-95255 ratios to < 3e-16. It is a statement about the TRANSCRIBED port geometry, not a theorem about the paper seam.",
 };
@@ -236,7 +235,7 @@ export const IMP95383_COLLAPSE_EXTENSION_ASSERTIONS = [
       /REFUTED/.test(IMP95383_YMIN_XMIN_COLLAPSE_EXTENSION.verdict) &&
       /STILL OPEN/.test(IMP95383_YMIN_XMIN_COLLAPSE_EXTENSION.subGap) &&
       /NO QED/.test(IMP95383_YMIN_XMIN_COLLAPSE_EXTENSION.verdict) &&
-      /remains SOTA/.test(IMP95383_YMIN_XMIN_COLLAPSE_EXTENSION.verdict),
+      /refereed bound is changed/i.test(IMP95383_YMIN_XMIN_COLLAPSE_EXTENSION.verdict),
   },
 ];
 

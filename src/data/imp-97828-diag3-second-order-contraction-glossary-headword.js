@@ -42,7 +42,7 @@
  * @see imp-97644-three-axis-additivity-flow-prefactor.js (MEASURED first-order DIAG3 == 0)
  *
  * Ticket: imp-97828 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP97720_DIAG3_SECOND_ORDER_HESSIAN } from './imp-97720-diag3-second-order-hessian.js';
@@ -72,7 +72,7 @@ const DIAG3_SECOND_ORDER_CONTRACTION_HEADWORD = Object.freeze({
   verificationStatus:
     'Re-cited from imp-97720 (3x3 log-Hessian measurement, closed-form match < 3e-7 relative, ' +
     'h-ladder contraction floor). Naming / glossary headword only; supplies no new bound; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP97828_DIAG3_SECOND_ORDER_CONTRACTION_GLOSSARY_HEADWORD = Object.freeze({
@@ -90,7 +90,7 @@ export const IMP97828_DIAG3_SECOND_ORDER_CONTRACTION_GLOSSARY_HEADWORD = Object.
     'degree-0 homogeneity that forces DIAG3 == 0 at first order survives at second order only as ' +
     'the row/column CONTRACTION of the log-Hessian (sum_j H_ij == 0), while the individual ' +
     'off-diagonal mixed second elasticities H_ce/H_cf/H_ef remain nonzero order-1 couplings. No ' +
-    'bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97720-diag3-second-order-hessian.js (3x3 log-Hessian measurement, closed form, h-ladder); ' +
     'imp-97689-diag3-additivity-euler-derivation.js (analytic first-order DIAG3 == 0); imp-97644 ' +
@@ -134,11 +134,11 @@ const IMP97828_ASSERTIONS = [
   },
   {
     id: 'imp97828-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97828_DIAG3_SECOND_ORDER_CONTRACTION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97828_DIAG3_SECOND_ORDER_CONTRACTION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97828_DIAG3_SECOND_ORDER_CONTRACTION_GLOSSARY_HEADWORD.verdict),
+      /refereed bound is changed/i.test(IMP97828_DIAG3_SECOND_ORDER_CONTRACTION_GLOSSARY_HEADWORD.verdict),
   },
 ];
 

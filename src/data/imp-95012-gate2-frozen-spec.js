@@ -7,7 +7,7 @@
  * definitions of the Gate-2 lane so downstream evaluators (imp-95013 native scanner,
  * imp-95014 Arb audit, imp-95015 probe) share one auditable literal record and do not
  * re-transcribe constants from the PDF. This is spec transcription only: it derives no
- * bound and closes no gap (NO QED). Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound and closes no gap (NO QED). No refereed bound is changed.
  *
  * ── eq. (8): the frozen active 0.14 row (Section 4.1) ──────────────────────────
  * The exact row under the positive-height barrier framework:
@@ -159,7 +159,7 @@ export const IMP_95012_GATE2_FROZEN_SPEC = {
     'Spec transcription only: bakes the frozen Gate-2 definitions from the committed ' +
     'paper source and records the 0.1399-row decision (independent conditional target, ' +
     'not presupposing the open family). Derives no bound; closes no gap; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 // ── assertions (import-light; no heavy bundle) ─────────────────────────────────
@@ -231,7 +231,7 @@ export const IMP_95012_ASSERTIONS = [
         GATE2_TARGETS.RexExact - GATE2_TARGETS.correlatedCenterTargetEq20 < 1.0e-14;
       return rho17ClosedFormOk && shellOk && eq17NotEq18 && shellBelowRnum && targetBelowRex;
     },
-    why: 'imp-95050: re-derives eqs (17)-(20) from their closed forms. eq (17) rho_17 = 877/(2^18 * 18!) = 5.225389294223831e-19 is the carrier remainder, DISTINCT from eq (18) -- the ticket premise that rho_17 evaluates to 9.6709e-15 conflates the two quantities. eq (18) shell/evaluation charge 590221/61030685553249484800 = 9.67088923628475e-15 (BigInt-exact) is the quantity that sits below R_NUM_BOUND = 9.671e-15. eq (20) target 0.27968819555261474 sits below eq (19) Rex 0.2796881955526244 by ~9.66e-15 (about one r_num), a downward-rounded sufficient center. Measure only; changes no bound; PT Lambda <= 0.2 SOTA.',
+    why: 'imp-95050: re-derives eqs (17)-(20) from their closed forms. eq (17) rho_17 = 877/(2^18 * 18!) = 5.225389294223831e-19 is the carrier remainder, DISTINCT from eq (18) -- the ticket premise that rho_17 evaluates to 9.6709e-15 conflates the two quantities. eq (18) shell/evaluation charge 590221/61030685553249484800 = 9.67088923628475e-15 (BigInt-exact) is the quantity that sits below R_NUM_BOUND = 9.671e-15. eq (20) target 0.27968819555261474 sits below eq (19) Rex 0.2796881955526244 by ~9.66e-15 (about one r_num), a downward-rounded sufficient center. Measure only; changes no bound; no refereed bound is changed.',
   },
 ];
 

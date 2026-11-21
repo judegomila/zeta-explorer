@@ -44,7 +44,7 @@
  * their paired tiling counts, or of the derived relErr / rho / z_cons scalars they feed; every
  * downstream z-score therefore rests on the same source measurement, confirming the imp-96512
  * overlap agreement is structural rather than coincidental. Import-light audit only; changes no
- * bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-95562-meansquare-vs-pointwise-gap (the canonical sd(C - E) source)
  * @see imp-96512-excursion-significance-ledger-reconciliation (the observation this audit generalizes)
@@ -126,8 +126,8 @@ const IMP96527_EXCURSION_SD_LITERAL_BYTE_CONSISTENCY_AUDIT = {
     + '0.15945679221237827, rho_exact = -0.4639782, z_cons = 1.9234217) that reconcile to the source '
     + 'to full precision, every rounded citation being a truncation of the same value. Zero divergent '
     + 'or stale copies found, so every downstream z-score rests on one source measurement. '
-    + 'Import-light audit only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
-  honestBanner: 'RH open; PT Lambda <= 0.2 remains SOTA; NO QED; audit changes no bound.',
+    + 'Import-light audit only; changes no bound; RH open; NO QED; no refereed bound is changed.',
+  honestBanner: 'RH open; no refereed bound is changed; NO QED; audit changes no bound.',
 };
 
 // --- self-executing internal-consistency assertions (comparison only, no re-derivation) ---
@@ -147,8 +147,8 @@ const IMP96527_EXCURSION_SD_LITERAL_BYTE_CONSISTENCY_AUDIT = {
   // honesty gates
   if (!/NO QED/.test(IMP96527_EXCURSION_SD_LITERAL_BYTE_CONSISTENCY_AUDIT.verdict))
     throw new Error('imp-96527: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96527_EXCURSION_SD_LITERAL_BYTE_CONSISTENCY_AUDIT.verdict))
-    throw new Error('imp-96527: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96527_EXCURSION_SD_LITERAL_BYTE_CONSISTENCY_AUDIT.verdict))
+    throw new Error('imp-96527: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96527_EXCURSION_SD_LITERAL_BYTE_CONSISTENCY_AUDIT;

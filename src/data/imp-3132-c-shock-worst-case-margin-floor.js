@@ -40,8 +40,8 @@
  *
  * HONEST SCOPE. Cross-check of an ALREADY-PROVEN cap (imp-2786 pinned
  * C_shock < 1/3). This is NOT a new bound, does NOT close C_H, and the
- * squared-gap surrogate stays REFUTED. Platt-Trudgian Lambda <= 0.2 remains the
- * rigorous SOTA. No QED.
+ * squared-gap surrogate stays REFUTED. No refereed bound is changed
+ * . No QED.
  *
  * @see imp-3108-c-shock-margin-cross-validation (margin-vs-N curve, ~0.0447 at N=2458)
  * @see imp-3070-c-shock-n-dependence (monotone-decreasing C_shock(N))
@@ -102,7 +102,7 @@ export const C_SHOCK_WORST_CASE_MARGIN_FLOOR_IMP3132 = {
   honestNote:
     'No false QED. Closed-form FLOOR for the worst-case margin of an ALREADY-PROVEN cap (imp-2786 ' +
     'C_shock < 1/3); it is NOT a new bound and does NOT close C_H. The squared-gap surrogate stays ' +
-    'REFUTED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'REFUTED. No refereed bound is changed.',
 };
 
 // ── Build-time assertions ────────────────────────────────────────────────────
@@ -156,14 +156,14 @@ export const C_SHOCK_WORST_CASE_MARGIN_FLOOR_ASSERTIONS = [
       const r = C_SHOCK_WORST_CASE_MARGIN_FLOOR_IMP3132;
       return (
         r.isNewBound === false &&
-        /SOTA/.test(r.honestNote) &&
+        /refereed bound is changed/i.test(r.honestNote) &&
         /REFUTED/.test(r.honestNote) &&
         /FLOORED/.test(r.verdict)
       );
     },
     why:
       'VERDICT LOCK: a closed-form FLOOR on the worst-case margin of an already-proven cap, NOT a new ' +
-      'bound. The surrogate stays refuted and Platt-Trudgian Lambda <= 0.2 stays SOTA. Blocks any future ' +
+      'bound. The surrogate stays refuted and no refereed bound is changed. Blocks any future ' +
       'edit from inflating this margin floor into a claimed C_H closure or rigorous beat.',
   },
 ];

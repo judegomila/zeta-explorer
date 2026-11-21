@@ -74,8 +74,7 @@
  *   scalar core works at the operator level" from a strictly larger scalar family
  *   than imp-2686 tested. The residual is the SAME RH-equivalent operator
  *   positivity K_a &gt;= 0 (the imp-3066 endpoint-Hankel obstruction), untouched.
- *   No positivity, no reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the
- *   rigorous SOTA.
+ *   No positivity, no reduction. No refereed bound is changed.
  *
  *   @see imp-3310-mupass-passive-core-assembly-recipe.js (the rank-2 evaluator this specializes)
  *   @see imp-2686-mupass-construction.js (the single-cosh enrichment this generalizes)
@@ -218,7 +217,7 @@ export const IMP3386_MUPASS_MULTIHARMONIC_SCALAR_CORE_SATURATION = Object.freeze
     'Structural reason (measured): 100% of Phi^2 mass sits below lag ~0.435 where even cosh(2 a t)/cosh(a t) exceeds ' +
     '1 by only ~7%, so on Phi support every harmonic ~ constant 1 and the family collapses to one effective shape. ' +
     'Confirms the "no scalar core works at the operator level" verdict from a strictly larger scalar family than ' +
-    'imp-2686 tested. RH-equivalent, no positivity, no reduction, NO QED; PT Lambda <= 0.2 remains SOTA.',
+    'imp-2686 tested. RH-equivalent, no positivity, no reduction, NO QED; no refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -285,7 +284,7 @@ export const IMP3386_MUPASS_MULTIHARMONIC_SCALAR_CORE_SATURATION = Object.freeze
     necessaryNotSufficient:
       'Measuring that a wider scalar family saturates does NOT construct a valid passive core or attempt the ' +
       'K_a >= 0 positivity, which remains the RH-equivalent obstruction (imp-3066).',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -337,7 +336,7 @@ export const IMP3386_MUPASS_MULTIHARMONIC_SCALAR_CORE_SATURATION_ASSERTIONS = [
   {
     id: 'imp3386-honest-no-qed-scalar-saturates',
     why: 'Mandatory honesty: MEASUREMENT only, RH-equivalent, the scalar family SATURATES (does not beat the floor), ' +
-         'positivity not attempted, imp-3066 untouched, PT 0.2 SOTA.',
+         'positivity not attempted, imp-3066 untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3386_MUPASS_MULTIHARMONIC_SCALAR_CORE_SATURATION.honestCaveat;
       return (
@@ -349,7 +348,7 @@ export const IMP3386_MUPASS_MULTIHARMONIC_SCALAR_CORE_SATURATION_ASSERTIONS = [
         c.scalarCoreSaturates === true &&
         c.scalarCoreBeatsFloor === false &&
         c.touchesOperatorPositivityResidual === false &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

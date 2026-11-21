@@ -75,8 +75,7 @@
  * invariant (~5% drift over a 20x floor range vs a ~500x swing in absolute position),
  * so the decay SHAPE is nearly robust while the decay POSITION is not.
  * Measurement/sensitivity only; C_mb stays GUE-conditional (imp-486); no bound
- * changes, no positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * changes, no positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-3444-sigma-nshape-landmark-ladder (base landmarks N_half 3.267235e9 etc, pinned floor)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (currentStatus halving landmark quote)
@@ -195,7 +194,7 @@ export const IMP96813_SIGMA_DECAY_LANDMARK_ETRUNC_SENSITIVITY = {
     'bounded peak share, tiny adverse leverage): here the landmark LOCATIONS are unbounded and ' +
     'strongly floor-sensitive. Measurement/sensitivity only; C_mb stays GUE-conditional ' +
     '(imp-486); no bound changes, no positivity, no bridge closure, no RH claim, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-3444 (base landmarks N_half 3.267235e9, N_sub01 3.213181e11, pinned floor); imp-33582 ' +
@@ -250,14 +249,14 @@ export const IMP96813_SIGMA_DECAY_LANDMARK_ETRUNC_SENSITIVITY_ASSERTIONS = [
     holds: () => RATIO_SPREAD < 6.0 && BASE_ROW.ratio_sub01_over_half > 90 && BASE_ROW.ratio_sub01_over_half < 105,
   },
   {
-    // Honesty gate: measurement/assessment only, floor-sensitive verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement/assessment only, floor-sensitive verdict, no QED, no refereed bound is changed.
     id: 'imp96813-honesty-gate-no-qed',
-    description: 'Assessment only: floor-sensitive/not-firmly-pinned verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: floor-sensitive/not-firmly-pinned verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP96813_SIGMA_DECAY_LANDMARK_ETRUNC_SENSITIVITY.isRigorous === false &&
       /NOT FIRMLY PINNED/.test(IMP96813_SIGMA_DECAY_LANDMARK_ETRUNC_SENSITIVITY.verdict) &&
       /NO QED/.test(IMP96813_SIGMA_DECAY_LANDMARK_ETRUNC_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP96813_SIGMA_DECAY_LANDMARK_ETRUNC_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP96813_SIGMA_DECAY_LANDMARK_ETRUNC_SENSITIVITY.verdict),
   },
 ];
 

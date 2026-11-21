@@ -48,7 +48,7 @@
  *   conditioning/rounding-level event, not a derived law).
  *
  *   Ticket: imp-36112 (content, sonnet-4-6, low). Note only; changes no bound; C_mb
- *   GUE-conditional (imp-486) untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   GUE-conditional (imp-486) untouched; NO QED. No refereed bound is changed.
  *
  * @see imp-36023-kbn-combined-worst-ladder (KBN N-flat floor baseline)
  * @see imp-36062-kbn-kahan-separation-onset (persistent-separation onset N~34000; below-onset ties on its own ladder)
@@ -177,7 +177,7 @@ export const IMP36112_COMPENSATED_SUMMATION_STORYLINE_CROSSREF = Object.freeze({
     'so precision remains NON-binding regardless of this intermittency. Changes no bound; establishes no ' +
     'positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and the certified ' +
     'length-N interval sum stays MECHANICAL (imp-35725); C_mb GUE-conditional (imp-486) untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36023 (KBN N-flat floor baseline); imp-36062 (persistent-separation onset N~34000); imp-36076 (finer ' +
     'small-N ladder; earlier transient episode; no clean crossover); imp-36083 (KBN floor headroom to the ' +
@@ -214,12 +214,12 @@ export const IMP36112_COMPENSATED_SUMMATION_STORYLINE_CROSSREF_ASSERTIONS = [
   },
   {
     id: 'imp36112-honesty-gate',
-    description: 'Note only; no new bound; PT Lambda<=0.2 remains SOTA; NO QED',
+    description: 'Note only; no new bound; no refereed bound is changed; NO QED',
     holds: () =>
       IMP36112_COMPENSATED_SUMMATION_STORYLINE_CROSSREF.isRigorous === false &&
       /GREENFIELD/.test(IMP36112_COMPENSATED_SUMMATION_STORYLINE_CROSSREF.verdict) &&
       /NO QED/.test(IMP36112_COMPENSATED_SUMMATION_STORYLINE_CROSSREF.verdict) &&
-      /remains SOTA/.test(IMP36112_COMPENSATED_SUMMATION_STORYLINE_CROSSREF.verdict),
+      /refereed bound is changed/i.test(IMP36112_COMPENSATED_SUMMATION_STORYLINE_CROSSREF.verdict),
   },
 ];
 

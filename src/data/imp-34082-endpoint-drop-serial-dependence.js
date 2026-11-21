@@ -68,7 +68,7 @@
  * r_k rest on even fewer pairs (n-k) and the Q_m chi-square reference is a small-sample asymptotic. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate is
  * descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34025-ar2-breusch-godfrey-serial-correlation (the R2 endpoint-inflated-artifact reading tested here)
  * @see imp-34081-cubic-detrend-ljung-box (the cubic-detrend remedy that also failed to whiten the same residual)
@@ -231,7 +231,7 @@ export const IMP34082_ENDPOINT_DROP_SERIAL_DEPENDENCE = {
     'even fewer pairs (n-k) and the Q_m chi-square reference is a small-sample asymptotic; the component ' +
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34025 (the R2 endpoint-inflated-artifact reading tested here); imp-34081 (the cubic-detrend remedy ' +
     'that also failed to whiten the same residual); imp-33964 (the full-ladder Ljung-Box null); imp-33886 ' +
@@ -298,13 +298,13 @@ export const IMP34082_ENDPOINT_DROP_SERIAL_DEPENDENCE_ASSERTIONS = [
       FULL.firstNegativeLag === 4,
   },
   {
-    // Honesty gate: isRigorous false, no QED, PT SOTA, 12% multiplicative, imp-3066 untouched.
+    // Honesty gate: isRigorous false, no QED, no refereed bound is changed, 12% multiplicative, imp-3066 untouched.
     id: 'imp34082-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, 12% multiplicative, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, 12% multiplicative, imp-3066 untouched',
     holds: () =>
       IMP34082_ENDPOINT_DROP_SERIAL_DEPENDENCE.isRigorous === false &&
       /NO QED/.test(IMP34082_ENDPOINT_DROP_SERIAL_DEPENDENCE.verdict) &&
-      /remains SOTA/.test(IMP34082_ENDPOINT_DROP_SERIAL_DEPENDENCE.verdict) &&
+      /refereed bound is changed/i.test(IMP34082_ENDPOINT_DROP_SERIAL_DEPENDENCE.verdict) &&
       /12% multiplicative/.test(IMP34082_ENDPOINT_DROP_SERIAL_DEPENDENCE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34082_ENDPOINT_DROP_SERIAL_DEPENDENCE.verdict),
   },

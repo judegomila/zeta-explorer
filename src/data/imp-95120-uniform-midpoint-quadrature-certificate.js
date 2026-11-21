@@ -88,7 +88,7 @@
  *
  * Import-light (imports only the import-light imp-95026 module for the committed
  * baked values). Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP95026_PAPER_PACKET_CEILING_TRANSFER } from "./imp-95026-paper-packet-ceiling-transfer.js";
@@ -285,7 +285,7 @@ export const IMP95120_UNIFORM_MIDPOINT_QUADRATURE_CERTIFICATE = {
     "MEASUREMENT + SCALING DERIVATION: the committed midpoint far-coefficient evaluator is compared to the corner-aware adaptive-Simpson reference (validated at the model point to 7.5e-9 against the exact closed form) at eleven continuous theta spanning [2,20], including six non-integer interior rows the closed-form-baked slice never touches. The measured relative error is monotone increasing in theta and uniformly bounded by relErr(theta=20)=1.2326e-5, matching the h^2 . s-curvature envelope (monotone in s, h nearly constant). The power law relErr ~ 9.06e-9 s^2.39 (R^2=0.9956) is fit directly. The envelope gives the scaling; the constant is empirical. No closed-form ceiling is claimed off the anchored slice. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT + scaling certificate extending the imp-95073 integer-s midpoint-error bound (and the imp-95097 single edge) to the WHOLE continuous transfer scan theta in [2,20]. FINDING 0: the corner-aware adaptive-Simpson reference reproduces the exact closed form at the model point to 7.5e-9, validating it as the continuous yardstick. FINDING 1: across eleven continuous theta (incl. six non-integer interior) the committed midpoint relErr rises MONOTONICALLY from 1.0e-7 (s=3) to 1.23e-5 (s=21); the continuous maximum is relErr(theta=20)=1.2326e-5, so EVERY transfer row carries relErr <= 1.2326e-5 (the non-integer points interleave the imp-95073 integer anchors exactly). FINDING 2: relErr ~ 9.06e-9 s^2.39 (R^2=0.9956), super-quadratic - the corner-curvature s(s+1) plus the kink-straddling jump term - quantifying imp-95073 grows-with-s as a closed law. FINDING 3: 1.23e-5 is far below every margin the transfer findings turn on (the > 3 gap below 4, the corner-guard break separation ~0.0238), so no quadrature error on the scan can flip the below-4 or s > s* verdicts. SUB-GAP: the envelope gives the monotone-in-s scaling that makes theta=20 the maximum, the CONSTANT is pinned empirically; the exact anchor is only on the integer slice / model point; paper constants remain unpinned. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT + scaling certificate extending the imp-95073 integer-s midpoint-error bound (and the imp-95097 single edge) to the WHOLE continuous transfer scan theta in [2,20]. FINDING 0: the corner-aware adaptive-Simpson reference reproduces the exact closed form at the model point to 7.5e-9, validating it as the continuous yardstick. FINDING 1: across eleven continuous theta (incl. six non-integer interior) the committed midpoint relErr rises MONOTONICALLY from 1.0e-7 (s=3) to 1.23e-5 (s=21); the continuous maximum is relErr(theta=20)=1.2326e-5, so EVERY transfer row carries relErr <= 1.2326e-5 (the non-integer points interleave the imp-95073 integer anchors exactly). FINDING 2: relErr ~ 9.06e-9 s^2.39 (R^2=0.9956), super-quadratic - the corner-curvature s(s+1) plus the kink-straddling jump term - quantifying imp-95073 grows-with-s as a closed law. FINDING 3: 1.23e-5 is far below every margin the transfer findings turn on (the > 3 gap below 4, the corner-guard break separation ~0.0238), so no quadrature error on the scan can flip the below-4 or s > s* verdicts. SUB-GAP: the envelope gives the monotone-in-s scaling that makes theta=20 the maximum, the CONSTANT is pinned empirically; the exact anchor is only on the integer slice / model point; paper constants remain unpinned. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) ---------------------------
@@ -344,12 +344,12 @@ export const IMP95120_UNIFORM_CERTIFICATE_ASSERTIONS = [
   {
     id: "imp95120-honesty-gate",
     description:
-      "the verdict names the sub-gap (scaling envelope gives monotone-in-s, constant empirical; exact anchor only on the integer slice / model point; paper constants unpinned), reports the uniform bound and its s-law, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (scaling envelope gives monotone-in-s, constant empirical; exact anchor only on the integer slice / model point; paper constants unpinned), reports the uniform bound and its s-law, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95120_UNIFORM_MIDPOINT_QUADRATURE_CERTIFICATE.promotesBound === false &&
       IMP95120_UNIFORM_MIDPOINT_QUADRATURE_CERTIFICATE.openResiduals.length === 3 &&
       /NO QED/.test(IMP95120_UNIFORM_MIDPOINT_QUADRATURE_CERTIFICATE.verdict) &&
-      /remains SOTA/.test(IMP95120_UNIFORM_MIDPOINT_QUADRATURE_CERTIFICATE.verdict) &&
+      /refereed bound is changed/i.test(IMP95120_UNIFORM_MIDPOINT_QUADRATURE_CERTIFICATE.verdict) &&
       /MONOTONICALLY/.test(IMP95120_UNIFORM_MIDPOINT_QUADRATURE_CERTIFICATE.verdict),
   },
 ];

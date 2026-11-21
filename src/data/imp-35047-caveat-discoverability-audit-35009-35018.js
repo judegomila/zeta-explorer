@@ -10,7 +10,7 @@
  * METHOD. (1) Read src/data/imp-35018-four-landmark-cluster-log-n-viz-data.js and
  * src/pages/Imp35018FourLandmarkClusterLogNViz.jsx in full for the shared honest-status
  * banner (isRigorous: false, C_mb GUE-conditional per imp-486, changes-no-bound, NO QED,
- * Platt-Trudgian Lambda<=0.2 SOTA). (2) Grepped src/App.jsx for the route registration.
+ * no refereed bound is changed). (2) Grepped src/App.jsx for the route registration.
  * (3) Grepped src/data/visualizations-index.js for a matching entry. (4) Grepped
  * scripts/audit-nav-links.mjs for the route in its EXEMPT_FROM_INDEX drift-backlog set
  * (imp-2675). (5) Grepped src/ for any inbound <Link> to the route outside App.jsx's own
@@ -20,10 +20,10 @@
  *
  * FINDING (caveat banner): PRESENT on both artifacts. The data module exports
  * isRigorous: false and a citation string naming all four source tickets; its module
- * docstring states "NO QED" and "Platt-Trudgian Lambda<=0.2 SOTA". The viz page renders an
+ * docstring states "NO QED" and "No refereed bound is changed". The viz page renders an
  * explicit "Honest status" callout box repeating isRigorous-equivalent language (no
  * recomputation, C_mb GUE-conditional per imp-486, changes no bound, establishes no
- * operator positivity, no RH verdict, NO QED, Platt-Trudgian Lambda<=0.2 SOTA). Zero gap.
+ * operator positivity, no RH verdict, NO QED, no refereed bound is changed). Zero gap.
  *
  * FINDING (discoverability): ORPHANED, matching every prior cohort audited by imp-35008/
  * imp-35023. The route /viz-imp35018-four-landmark-cluster-log-n is registered in
@@ -96,15 +96,15 @@ export const IMP35047_CAVEAT_DISCOVERABILITY_AUDIT_35009_35018 = {
   honest:
     'AUDIT-ONLY -- the imp-35018 data module and viz page carry the shared honest-status '
     + 'banner in full (isRigorous: false, C_mb GUE-conditional per imp-486, changes no bound, '
-    + 'NO QED, Platt-Trudgian Lambda<=0.2 SOTA); zero gap there. But the page is orphaned from '
+    + 'NO QED, no refereed bound is changed); zero gap there. But the page is orphaned from '
     + 'the /visualizations master index (present only in the EXEMPT_FROM_INDEX drift backlog, '
     + 'no inbound Link), matching every prior cohort audited by imp-35008/imp-35023, and '
     + 'neither imp-35009 nor imp-35018 has any Concepts-page glossary headword. A bonus read '
     + 'also found the data module’s assertion array unwired from scripts/run-assertions.mjs '
     + 'MATH_MODULES (tracked separately by imp-35053). No routes, index entries, headwords, or '
     + 'MATH_MODULES entries added here -- each fix is a distinct already-queued ticket. Changes '
-    + 'no bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian '
-    + 'Lambda<=0.2 remains SOTA.',
+    + 'no bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed'
+    + '.',
 };
 
 export const IMP35047_CAVEAT_DISCOVERABILITY_AUDIT_ASSERTIONS = [
@@ -143,10 +143,10 @@ export const IMP35047_CAVEAT_DISCOVERABILITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-35047-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () =>
       /AUDIT-ONLY/.test(IMP35047_CAVEAT_DISCOVERABILITY_AUDIT_35009_35018.honest) &&
-      /Lambda<=0.2 remains SOTA/.test(IMP35047_CAVEAT_DISCOVERABILITY_AUDIT_35009_35018.honest),
+      /refereed bound is changed/i.test(IMP35047_CAVEAT_DISCOVERABILITY_AUDIT_35009_35018.honest),
   },
 ];
 

@@ -75,8 +75,8 @@
  * height, which the finite 11-height sample cannot exclude but has never shown. The r_cap < 1
  * dead-zone is far from binding (r_cap_max(3e12) = 0.26, margin 0.74; an offset of 5.27 x C0_max
  * would be required to reach 1), so the only live constraint is the max anchor, and the deepest
- * real excursion exactly saturates it. Measurement only; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * real excursion exactly saturates it. Measurement only; changes no bound; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96089-mean-anchor-window-count-significance-verdict (the significant-dip verdict this assesses)
  * @see imp-96090-number-variance-mean-anchor-heldout-out-of-sample (the +3.0 percent held-out max-anchor margin)
@@ -192,7 +192,7 @@ export const IMP96108_NUMBER_VARIANCE_EXCURSION_DEPTH_VS_MAX_ANCHOR = {
   caveat:
     'C0_max is a SAMPLE maximum over 11 finite heights (1e4 .. 5e5, ~1.5 decades); a genuinely deeper unmeasured excursion (offset > C0_max) at an unsampled interior height WOULD breach the max anchor -- this bounds the OBSERVED excursion depth, it does not prove none deeper exists. The imp-96089 z = 1.92 sigma significance is what makes C0_max trustworthy: it is pinned to a REAL maximal excursion, not a noise spike. But all 11 heights sit ~6.8 decades below the T = 3.0e12 window bottom (the imp-95710 window-reach sub-gap). Changes NO Lambda bound.',
   verdict:
-    'The -16 percent significant excursion at T = 1.5e5 is COMPATIBLE with the max offset anchor by construction: C0_max = 0.333721 IS the offset at that very height, so the excursion saturates the max cap (residual 0) rather than breaching it, and every other measured height sits below C0_max (nearest unmeasured approach T = 5e4, gap 0.012815 offset units = the imp-96090 +3.0 percent margin). A breach needs a STRICTLY deeper excursion (offset > C0_max) at an unsampled interior height, which the finite 11-height sample cannot exclude but has never shown. The r_cap < 1 dead-zone is far from binding (r_cap_max(3e12) = 0.26, margin 0.74; an offset of 5.27 x C0_max would be needed to reach 1), so the only live constraint is the max anchor and the deepest real excursion exactly saturates it. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The -16 percent significant excursion at T = 1.5e5 is COMPATIBLE with the max offset anchor by construction: C0_max = 0.333721 IS the offset at that very height, so the excursion saturates the max cap (residual 0) rather than breaching it, and every other measured height sits below C0_max (nearest unmeasured approach T = 5e4, gap 0.012815 offset units = the imp-96090 +3.0 percent margin). A breach needs a STRICTLY deeper excursion (offset > C0_max) at an unsampled interior height, which the finite 11-height sample cannot exclude but has never shown. The r_cap < 1 dead-zone is far from binding (r_cap_max(3e12) = 0.26, margin 0.74; an offset of 5.27 x C0_max would be needed to reach 1), so the only live constraint is the max anchor and the deepest real excursion exactly saturates it. Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -227,8 +227,8 @@ export const IMP96108_NUMBER_VARIANCE_EXCURSION_DEPTH_VS_MAX_ANCHOR = {
   // honesty gates
   if (!/NO QED/.test(IMP96108_NUMBER_VARIANCE_EXCURSION_DEPTH_VS_MAX_ANCHOR.verdict))
     throw new Error('imp-96108: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96108_NUMBER_VARIANCE_EXCURSION_DEPTH_VS_MAX_ANCHOR.verdict))
-    throw new Error('imp-96108: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96108_NUMBER_VARIANCE_EXCURSION_DEPTH_VS_MAX_ANCHOR.verdict))
+    throw new Error('imp-96108: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96108_NUMBER_VARIANCE_EXCURSION_DEPTH_VS_MAX_ANCHOR;

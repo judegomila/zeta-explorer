@@ -86,7 +86,7 @@
  *
  *   STATUS: a grouping/index note over six already-completed tickets, not a new derivation. No bound
  *   changes: kappa_smooth stays measured-not-pinned, no operator positivity or Lambda bound moves;
- *   RH open; NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-97597-route-m-psi-s-integral-rep-double-expansion.js (double expansion; localises the mixed-kernel scalar kappaK)
  * @see imp-97611-kappa-smooth-no-closed-form-honest-status.js (honest-status restatement of the imp-97578 verdict)
@@ -98,7 +98,7 @@
  * @see imp-97718-b1e6-wobble-subgap-retirement-assessment.js (assessment directing the correction above)
  *
  * Ticket: imp-97696 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const WLIN_KAPPA_SMOOTH_WOBBLE_FLOOR_COHORT = Object.freeze([
@@ -187,8 +187,8 @@ export const IMP97696_WLIN_KAPPA_SMOOTH_WOBBLE_FLOOR_COHORT_INDEX = Object.freez
     'constrained only in order of magnitude (imp-97663); and the analytic constant it caps stays ' +
     'measured-not-pinned at |kappa_smooth| <~ 1e-2 (imp-97611). So the cohort as a whole is a ' +
     'GENUINE-ARITHMETIC-WOBBLE-FLOOR family: nothing in it eliminates the wobble or pins the constant. ' +
-    'Establishes nothing new; moves no bound; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'Establishes nothing new; moves no bound; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97597 (double expansion; localises kappaK); imp-97611 (honest-status restatement); ' +
     'imp-97645 (larger-b cross-check); imp-97660 (failed-remedy measurement); imp-97663 ' +
@@ -231,11 +231,11 @@ export const IMP97696_WLIN_KAPPA_SMOOTH_WOBBLE_FLOOR_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97696-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97696_WLIN_KAPPA_SMOOTH_WOBBLE_FLOOR_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97696_WLIN_KAPPA_SMOOTH_WOBBLE_FLOOR_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97696_WLIN_KAPPA_SMOOTH_WOBBLE_FLOOR_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97696_WLIN_KAPPA_SMOOTH_WOBBLE_FLOOR_COHORT_INDEX.verdict),
   },
 ];
 

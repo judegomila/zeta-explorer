@@ -87,7 +87,7 @@
  * that limiting-spectrum lower bound (or extended-precision verified Cholesky at
  * N ~ 2.6e7) is available the imp-96548 ceiling FIGURE stays fit-extrapolated, as
  * imp-96563 concluded. Assessment only. Changes no bound; no operator positivity;
- * PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96563-route-m-lammin-rigorous-lower-bound-assessment.js (per-rung verified Cholesky; the sub-gap this route-checks)
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (rigorous lam_max trace domination; top-of-spectrum open piece)
@@ -195,11 +195,11 @@ export const IMP96697_VERDICT = Object.freeze({
     'lam_min is a spectral near-cancellation quantity below the diagonal, and any rigorous ' +
     'asymptotic lower bound must control the bottom of the limiting spectrum; the elementary ' +
     'localization theorems provably cannot. The imp-96548 ceiling FIGURE stays fit-extrapolated. ' +
-    'Changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Changes no bound; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96697_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: both elementary lower-bound ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment only: both elementary lower-bound ' +
   'routes are checked with standard eigenvalue-localization facts (Gershgorin; Rayleigh / operator- ' +
   'norm minorant) against the same measured lam_max / lam_min envelopes already in the record ' +
   '(imp-96443 / imp-96428). No Gram was rebuilt, no bound is claimed moved, and the residual is the ' +
@@ -252,7 +252,7 @@ const IMP96697_ASSERTIONS = [
     holds: () =>
       IMP96697_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96697_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96697_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96697_HONEST_BANNER) &&
       /RH open/.test(IMP96697_HONEST_BANNER),
     why: 'assessment only: no bound moved, honesty markers present, residual sub-gap recorded.',
   },

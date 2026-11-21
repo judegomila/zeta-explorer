@@ -38,13 +38,13 @@
  *   Route I moment-lever thread cold. Establishes nothing new, moves no bound, closes no sub-gap:
  *   imp-96063-corner (the k-dimensional corner positivity + cross-term bound) remains open and is
  *   named as the residual that any moment-based certificate must still close separately. RH open;
- *   NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED; no refereed bound is changed.
  *
  * @see rh-route-i-pencil-highres-map-2026-09-23 (source: measured margin ladder m(k), N = 64/96/128)
  * @see imp-96063-route-i-constraint-count-margin-certificate-assessment (subspace/corner/cross-term split, imp-96063-corner)
  *
  * Ticket: imp-96097 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The subspace-vs-corner reading path, baked verbatim (no re-import of imp-96063).
@@ -99,7 +99,7 @@ export const IMP96097_ROUTE_I_VANISHING_MOMENT_CORNER_READING_PATH = Object.free
     'unconstrained hardness m(0) = 2.8e-3 (-> 0 as 2a -> ln 3, imp-96063) and this residual is ' +
     'provably not improved by adding moments: extra constraints shrink V_k, they do not act on ' +
     'W_S restricted to C_k. The corner-plus-cross-term residual (imp-96063-corner) remains the open ' +
-    'sub-gap. Establishes nothing; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'sub-gap. Establishes nothing; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'rh-route-i-pencil-highres-map-2026-09-23 (margin ladder m(k), N = 64/96/128); imp-96063-route-' +
     'i-constraint-count-margin-certificate-assessment (subspace/corner/cross-term split, imp-96063-' +
@@ -129,12 +129,12 @@ export const IMP96097_ROUTE_I_VANISHING_MOMENT_CORNER_READING_PATH_ASSERTIONS = 
   },
   {
     id: 'imp96097-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, the ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, the ' +
       'imp-96063-corner sub-gap named as still open.',
     holds: () =>
       IMP96097_ROUTE_I_VANISHING_MOMENT_CORNER_READING_PATH.anyBoundMoved === false &&
       /NO QED/.test(IMP96097_ROUTE_I_VANISHING_MOMENT_CORNER_READING_PATH.verdict) &&
-      /remains SOTA/.test(IMP96097_ROUTE_I_VANISHING_MOMENT_CORNER_READING_PATH.verdict) &&
+      /refereed bound is changed/i.test(IMP96097_ROUTE_I_VANISHING_MOMENT_CORNER_READING_PATH.verdict) &&
       /imp-96063-corner/.test(IMP96097_ROUTE_I_VANISHING_MOMENT_CORNER_READING_PATH.verdict),
   },
 ];

@@ -74,7 +74,7 @@
  *
  *   Derivation + measurement only; pins NO coefficient value for g(b) or B*; no bound moves; the only
  *   rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by
- *   >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97329-uniform-crossover-mainterm-coupling -- the uniform profile I(x b,b) =
  *   b f(x) + o(b) is measured and the summand profile h(x) = [f(x)/x]^2 gives Q(b) = s0 b + g(b), but
@@ -225,7 +225,7 @@ export const IMP97329_VERDICT = Object.freeze({
     'obstruction (g(b) = the discrete-small-a-vs-continuum-bulk mismatch) but does NOT separate ' +
     'b^(1/2) from log^2 b nor pin B* = 2 Sum g(b)/b^2 (consistent with imp-97292). Derivation + ' +
     'measurement only; no coefficient pinned; the rigorous anchor stays T = 2.594e7; compute N ~ 9916 ' +
-    'binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'binds first by >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97329_SUBGAP = Object.freeze({
@@ -244,7 +244,7 @@ export const IMP97329_SUBGAP = Object.freeze({
 });
 
 export const IMP97329_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + measurement only: the UNIFORM (a ~ b) ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + measurement only: the UNIFORM (a ~ b) ' +
   'profile of the Vasyunin coefficient is I(x b, b) = b f(x) + o(b), a b-LINEAR scale (NOT the fixed-a ' +
   'log b scale of imp-97311), connecting smoothly to the fixed-a boundary layer (f(x)/x -> ' +
   '(1/2)(-log x) + d_1 as x -> 0, measured slope 0.49986 = 1/2, intercept 1.131 = d_1). The ' +
@@ -352,7 +352,7 @@ const IMP97329_ASSERTIONS = [
       IMP97329_VERDICT.qMainTermLinearInB === true &&
       IMP97329_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97329_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97329_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97329_HONEST_BANNER) &&
       /RH open/.test(IMP97329_HONEST_BANNER) &&
       /uniform-crossover-mainterm-coupling/.test(IMP97329_SUBGAP.id),
   },

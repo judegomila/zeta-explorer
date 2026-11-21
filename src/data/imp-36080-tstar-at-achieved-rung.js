@@ -28,7 +28,7 @@
  *   EXISTING, cross-checked inversion; introduces no new numerics and moves NO
  *   Lambda bound. The finite-height RH statement is BLOCKED on the OPEN
  *   Step-4 / per-N / C_mb links (rigorousUpgradeGap), so it asserts NO closure.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   No refereed bound is changed; NO QED.
  *
  * @see lambda-rh-height-mapping (effectiveHeightForN / zeroCountAtHeight; imp-327 RvM inverse + self-inverse guard)
  * @see lambda-roadmap (conditionalBookkeeping B2-effective-height-Tstar, the clerical residue this discharges)
@@ -127,7 +127,7 @@ export const IMP36080_TSTAR_AT_ACHIEVED_RUNG = Object.freeze({
     assertsUnconditionalRH: false,
     beatsPlattTrudgian: false,
     blockedOn: 'G5-step4-bridge + G5-perN-translation + G5-cmb-gue (all OPEN; rigorousUpgradeGap)',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -140,7 +140,7 @@ export const IMP36080_TSTAR_AT_ACHIEVED_RUNG = Object.freeze({
     ' decades below the imp-35972 overflow cliffs. The finite-height RH-up-to-T_star statement is a ' +
     'MEASUREMENT that stays BLOCKED on the OPEN Step-4 / per-N / C_mb links, so it asserts NO closure ' +
     'and NEVER unconditional RH. Measurement / bookkeeping only; changes no bound; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
 });
 
 export const IMP36080_TSTAR_AT_ACHIEVED_RUNG_ASSERTIONS = [
@@ -183,7 +183,7 @@ export const IMP36080_TSTAR_AT_ACHIEVED_RUNG_ASSERTIONS = [
       IMP36080_TSTAR_AT_ACHIEVED_RUNG.honestCaveat.isReductionBelowRH === false &&
       IMP36080_TSTAR_AT_ACHIEVED_RUNG.honestCaveat.changesAnyBound === false &&
       IMP36080_TSTAR_AT_ACHIEVED_RUNG.honestCaveat.assertsUnconditionalRH === false &&
-      /Platt-Trudgian/.test(IMP36080_TSTAR_AT_ACHIEVED_RUNG.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36080_TSTAR_AT_ACHIEVED_RUNG.honestCaveat.sota),
   },
   {
     id: 'imp36080-verdict-blocked-no-qed',

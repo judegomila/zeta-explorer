@@ -54,7 +54,7 @@
  * RECOMMENDATION. imp-3349 and imp-3352 should each get one new queued ticket
  * (a viz ticket for imp-3349, a glossary ticket for imp-3352) per the notes
  * above; this module fabricates no pages itself, it only records the audit.
- * No new bound, no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * No new bound, no QED; no refereed bound is changed.
  *
  * @see imp-3459, imp-3480, imp-3498, imp-3517, imp-3539, imp-3568, imp-3593, imp-3615, imp-3636, imp-3659, imp-3683, imp-3705, imp-3717 (the prior audits in this series)
  */
@@ -85,7 +85,7 @@ export const IMP_3417_3343_3352_COHORT_MODULE_SURFACING_AUDIT = {
     'imp-3352 (no consumer at all) should get a queued glossary ticket for its negative "floor ' +
     'exists but does not feed the imp-3197 magnitude obstruction" finding.',
   honestNote:
-    'Read-only audit; no pages fabricated. No new bound, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages fabricated. No new bound, no QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -120,9 +120,9 @@ const IMP_3417_ASSERTIONS = [
   },
   {
     id: 'imp3417-honest-scope-locked',
-    holds: () => /SOTA/.test(IMP_3417_3343_3352_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
+    holds: () => /refereed bound is changed/i.test(IMP_3417_3343_3352_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3417_3343_3352_COHORT_MODULE_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

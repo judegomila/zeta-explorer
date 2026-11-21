@@ -46,7 +46,7 @@
  * SCOPE: VERIFICATION ONLY. Reports a discrepancy check; finds none. Changes
  * NO bound; does not advance the R2 ladder (stays robustly certified at
  * N=1000 per imp-35221/imp-35324); does not touch the imp-486 GUE
- * conditional. Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ * conditional. No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; "dt/2" prose used throughout.
  *

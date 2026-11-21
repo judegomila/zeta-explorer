@@ -197,7 +197,7 @@ export const IMP3483_TTILDE_PEAK_SLOPE_XISTAR_GLOBAL_UNIQUENESS = Object.freeze(
     'interior and xi* is the certified unique global maximizer (no competing root exists). The peak slope 6.54639e-5 ' +
     'is confirmed the global sup behind C_inf ~ 0.1751, which stays a determined transcendental number. ' +
     'Certification/measurement only; RH-equivalent; the imp-3066 K_a >= 0 magnitude is the lone obstruction, ' +
-    'UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     objective: 'sup_xi |P1(xi)|, P1 = dP/dxi, P(xi) = |Phihat(xi)|^2 = C^2 + S^2 (the peak slope behind ||Ttilde||)',
@@ -262,7 +262,7 @@ export const IMP3483_TTILDE_PEAK_SLOPE_XISTAR_GLOBAL_UNIQUENESS = Object.freeze(
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -308,7 +308,7 @@ export const IMP3483_TTILDE_PEAK_SLOPE_XISTAR_GLOBAL_UNIQUENESS_ASSERTIONS = [
   {
     id: 'imp3483-honest-assessment-no-qed',
     why: 'Mandatory honesty: certifies GLOBALITY but NOT a closed form (equation transcendental), value stays a ' +
-      'number, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'number, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3483_TTILDE_PEAK_SLOPE_XISTAR_GLOBAL_UNIQUENESS.honestCaveat;
       return (
@@ -318,7 +318,7 @@ export const IMP3483_TTILDE_PEAK_SLOPE_XISTAR_GLOBAL_UNIQUENESS_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.certifiesGlobalityNotClosedForm === 'string' &&
         typeof c.valueStaysTranscendental === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

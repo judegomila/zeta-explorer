@@ -139,7 +139,7 @@ export const R4_SYNTHESIS = Object.freeze({
     + '(G0-c, AF expository gaps, Lemma B.1–B.3 as written, RH-win trust base, RH-head, producer layer) and on two unaudited certificate engines. '
     + 'Λ < 0.145 is NOT certified: Λ ≤ 0.14477683171425 needs WOL-C for 380 uncertified floors (372 of them P47), which is NOT PROVED. '
     + 'G0-d (AF Part I §§6–9) and G0-d′ at 2.6X are closed internally (one adversarial pass each); no external referee. '
-    + 'Nothing is proved unconditionally below 0.2. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'Nothing is proved unconditionally below 0.2. No refereed bound is changed. RH open. NO QED.',
 });
 
 const S = R4_SYNTHESIS;
@@ -223,7 +223,7 @@ export const R4_SYNTHESIS_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r4-syn-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(S.verdict) && /NO QED/.test(S.verdict) && /NOT certified/.test(S.verdict) && /NOT PROVED/.test(S.verdict)
+    holds: () => /refereed bound is changed/i.test(S.verdict) && /NO QED/.test(S.verdict) && /NOT certified/.test(S.verdict) && /NOT PROVED/.test(S.verdict)
       && /Nothing is proved unconditionally below 0\.2/.test(S.verdict) && /NO QED/.test(S.status),
     why: 'No bound below 0.2 is proved; Λ < 0.145 not certified; RH open.',
   },

@@ -16,7 +16,7 @@
  *   @see imp-35552-eflow-fartail-remnant-product-decay-limit.js (q's limiting value -1 past N=1e200)
  *
  *   Ticket: imp-35564 (ux, medium). Presentation only of an already-established measurement;
- *   adds no new Lambda bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   adds no new Lambda bound. NO QED. No refereed bound is changed.
  */
 
 import IMP35535_EFLOW_FARTAIL_REMNANT_PRODUCT_DECAY_LADDER from './imp-35535-eflow-fartail-remnant-product-decay-ladder.js';

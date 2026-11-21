@@ -40,7 +40,7 @@
  * are mutually consistent by being about disjoint quantities with no textual cross-reference; the
  * one shared ingredient (the sigma(N) formula) matches verbatim in substance. Nothing to repair.
  * Read-only audit; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124837-fartail-rvm-per-nine-conditional-share-note.js (the chain audited against)
  * @see imp-124793-fartail-diagnostic-per-nine-spacing-ladder.js (per-nine ladder, different quantity)
@@ -102,7 +102,7 @@ export const IMP124926_HONEST_BANNER =
   + 'disjoint quantity (sigma(N) aggregate share vs. the imp-124837/97723 RvM-slope diagnostic), '
   + 'so no drift is possible between them; the one shared ingredient, the sigma(N) formula, is '
   + 'stated consistently in both. Changes no bound; establishes no operator positivity; imp-3066 '
-  + 'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.';
+  + 'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.';
 
 export default IMP124926_FARTAIL_LANDMARK_VS_124837_CHAIN_AUDIT;
 
@@ -121,7 +121,7 @@ if (
     IMP124926_FARTAIL_LANDMARK_VS_124837_CHAIN_AUDIT.qed === false &&
     IMP124837_FARTAIL_RVM_PER_NINE_CONDITIONAL_SHARE_NOTE.rvmSlopeLimitIsExactlyOne === true &&
     /NO QED/.test(IMP124926_HONEST_BANNER) &&
-    /PT Lambda <= 0.2|Lambda <= 0.2/.test(IMP124926_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|Lambda <= 0.2|refereed bound is changed/.test(IMP124926_HONEST_BANNER) &&
     /imp-3066/.test(IMP124926_HONEST_BANNER)
   )
 ) {

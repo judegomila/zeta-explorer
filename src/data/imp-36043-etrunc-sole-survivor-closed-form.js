@@ -54,7 +54,7 @@
  * model is the inherited imp-3220 / imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642 / imp-2643) is UNTOUCHED;
  * E_trunc = 3.06e-5 (imp-2631) is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35971-etrunc-sole-survivor-height (the bisection sole-survivor height N* ~ 4.7214e13 this pins in closed form)
  * @see imp-33743-sigma-fartail-crossover-closed-form (the thr-generalized fixed-point template, thr = 0.1, residual ~7.4e-5)
@@ -67,7 +67,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any derivation here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any derivation here)
 
 const TWO_PI = 2 * Math.PI;
 const E_TRUNC_PT = 3.06e-5; // N-independent fixed-strip route (imp-2631 / imp-3406 / imp-33582)
@@ -202,7 +202,7 @@ export const IMP36043_ETRUNC_SOLE_SURVIVOR_CLOSED_FORM = {
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ' +
     'ansatz (imp-2642 / imp-2643) are UNTOUCHED; E_trunc = 3.06e-5 (imp-2631) is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-35337a stays OPEN; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35971 (sole-survivor height N* ~ 4.7214e13, bisected); imp-33743 (thr-generalized closed form, ' +
     'thr = 0.1, residual ~7.4e-5); imp-33723 (halving-landmark closed form, thr = 1/2); imp-2642 / ' +
@@ -243,9 +243,9 @@ export const IMP36043_ETRUNC_SOLE_SURVIVOR_CLOSED_FORM_ASSERTIONS = [
     holds: () => Math.abs(SIGMA_FORM_AMPLITUDE - 1 / RHO) < 1e-2 && R_FLOW_TRUNC > 0 && R_FLOW_TRUNC < 1e-5,
   },
   {
-    // Honesty gate: derivation/measurement only, conditional, no bound moves, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, conditional, no bound moves, no QED, no refereed bound is changed.
     id: 'imp36043-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous/isUnconditional false, keeps imp-486, imp-35337a OPEN, no QED, PT SOTA',
+    description: 'Derivation only: isRigorous/isUnconditional false, keeps imp-486, imp-35337a OPEN, no QED, no refereed bound is changed',
     holds: () => {
       const r = IMP36043_ETRUNC_SOLE_SURVIVOR_CLOSED_FORM;
       return (
@@ -255,7 +255,7 @@ export const IMP36043_ETRUNC_SOLE_SURVIVOR_CLOSED_FORM_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

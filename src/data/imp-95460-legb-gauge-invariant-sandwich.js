@@ -8,7 +8,7 @@
  * Pure finite-dimensional linear algebra; every statement proved below and
  * cross-checked by exact witnesses. Closes NOTHING analytic: the off-diagonal
  * correlation control stays OPEN as imp-95212-subgap-fresnel-airy-envelope-
- * port. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * port. Changes no bound; NO QED; no refereed bound is changed.
  *
  * SETTING (imp-95424). LEG B of the imp-95376 split verdict is
  *   LamBar_paper(d) <= Lambda(E_V, d),
@@ -123,8 +123,8 @@
  * removes the NORMALIZATION obstruction (G-STRICT), not the near-degeneracy
  * obstruction (imp-95443 caveat, unchanged). (d) W3 is a synthetic
  * configuration exhibiting the mechanics, not a paper-window computation.
- * (e) Nothing here moves any Lambda bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. Import-light: no zeros bundle, no sibling
+ * (e) Nothing here moves any Lambda bound; NO QED; no refereed bound is changed
+ * . Import-light: no zeros bundle, no sibling
  * imports.
  */
 
@@ -378,7 +378,7 @@ export const IMP95460_LEGB_GAUGE_INVARIANT_SANDWICH = {
     + 'correlation-deviation bound the gauged race needs is NOT proved here -- it is the surviving '
     + 'substance of imp-95212-subgap-fresnel-airy-envelope-port in sharper currency. G-SANDWICH is '
     + 'sufficient, not necessary, even over the gauge orbit. W3 is a synthetic mechanics configuration, '
-    + 'not a paper-window computation. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'not a paper-window computation. Changes no bound; NO QED; no refereed bound is changed.',
   fns: { lambdaMax2, scale2, minors3, isPSD3, buildPaperPencil, gaugedDeltas, lamMaxPencil3 },
 };
 
@@ -439,10 +439,10 @@ export const IMP95460_LEGB_GAUGE_INVARIANT_SANDWICH_ASSERTIONS = [
   {
     id: 'imp-95460-honest-no-qed',
     description: 'the verdict records that nothing analytic closes, the port deliverable stays open, '
-      + 'NO QED, PT Lambda <= 0.2 stays SOTA',
+      + 'NO QED, no refereed bound is changed',
     holds: () => /NOT proved here/.test(IMP95460_LEGB_GAUGE_INVARIANT_SANDWICH.honest)
       && /NO QED/.test(IMP95460_LEGB_GAUGE_INVARIANT_SANDWICH.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(IMP95460_LEGB_GAUGE_INVARIANT_SANDWICH.honest),
+      && /refereed bound is changed/i.test(IMP95460_LEGB_GAUGE_INVARIANT_SANDWICH.honest),
   },
 ];
 

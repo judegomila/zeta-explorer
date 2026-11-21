@@ -40,7 +40,7 @@
  *   Cross-check only. No coefficient is pinned beyond w_lin (already forced by imp-97460); the RESULT 3
  *   sub-gap (uncomputed epsilon*z^2 BC-kernel coefficient) STANDS; no bound moves; the rigorous anchor
  *   stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x; no
- *   operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97597-route-m-psi-s-integral-rep-double-expansion (RESULT 1 cross-validated here)
  * @see imp-97460-route-m-bulk-profile-curvature-analytic-route (w_lin forced; O(x^2) wobble tail localised)
@@ -121,11 +121,11 @@ export const IMP97618_VERDICT = Object.freeze({
     'tail, which is the standing imp-97597 RESULT 3 sub-gap, not an error in the leading block. The ' +
     'abstract BC kernel normalisation is NOT reconstructed here; no coefficient is newly pinned; no ' +
     'bound moves; the rigorous anchor stays T = 2.594e7; compute binds first by >2600x; no operator ' +
-    'positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97618_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Numerical cross-check only: the direct cotangent-sum ' +
+  'RH open; no refereed bound is changed; NO QED. Numerical cross-check only: the direct cotangent-sum ' +
   'limit w(x) (= the z->0 specialisation of the Bettin-Conrey transform) reproduces w_lin s three ' +
   'leading coefficients -- 2C/pi (const, err 5e-4), 1/pi (log, err 1e-4), -1/pi (linear, err 6e-3) -- ' +
   'with residual |w-w_lin| <= 2.4e-4 (x<=0.12) sign-swinging at O(x^2), confirming imp-97597 RESULT 1. ' +
@@ -204,7 +204,7 @@ const IMP97618_ASSERTIONS = [
       IMP97618_VERDICT.anyBoundMoved === false &&
       IMP97618_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97618_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97618_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97618_HONEST_BANNER) &&
       /RH open/.test(IMP97618_HONEST_BANNER),
   },
 ];

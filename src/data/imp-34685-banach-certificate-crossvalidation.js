@@ -36,7 +36,7 @@
  * crossover certificate in IEEE-754 double precision; it adds NO new RH bound, does not
  * touch the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), does not upgrade the
  * imp-34650a interval-arithmetic sub-gap, establishes no operator positivity, and issues
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34650-crossover-banach-contraction-certificate (the certificate being cross-validated)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (states N_cross as a fixed point)
@@ -162,7 +162,7 @@ export const IMP34685_BANACH_CERTIFICATE_CROSSVALIDATION = {
     'arithmetic of an inherited surrogate crossover certificate in double precision; it adds no bound, ' +
     'leaves the imp-34650a interval-arithmetic sub-gap OPEN, leaves the C_C (1/8) sqrt(3 pi) ansatz ' +
     '(imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 UNTOUCHED, establishes no operator ' +
-    'positivity, imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity, imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34650 (Banach contraction certificate being cross-validated); imp-33723 (closed-form crossover ' +
     'fixed point); imp-3444 (E_coll = E_trunc crossover); imp-2642 (C_C = (1/8) sqrt(3 pi) ansatz); ' +
@@ -219,14 +219,14 @@ export const IMP34685_BANACH_CERTIFICATE_CROSSVALIDATION_ASSERTIONS = [
       GP_1E8 > 1 && Math.abs(GP_1E8 / IMP34650_REF.g_prime_at_1e8 - 1) < 1e-5,
   },
   {
-    // Honesty gate: cross-validation only, no rigorous upgrade, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation only, no rigorous upgrade, no QED, no refereed bound is changed.
     id: 'imp34685-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no discrepancy, no QED, Platt-Trudgian stays SOTA',
+    description: 'Cross-validation only: isRigorous false, no discrepancy, no QED, no refereed bound is changed',
     holds: () =>
       IMP34685_BANACH_CERTIFICATE_CROSSVALIDATION.isRigorous === false &&
       /NONE/.test(IMP34685_BANACH_CERTIFICATE_CROSSVALIDATION.discrepancy) &&
       /NO QED/.test(IMP34685_BANACH_CERTIFICATE_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP34685_BANACH_CERTIFICATE_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP34685_BANACH_CERTIFICATE_CROSSVALIDATION.verdict),
   },
 ];
 

@@ -46,8 +46,7 @@
  *   is only apparent: a matter of AXIS (conditional FORM vs unconditional pinned
  *   EXPONENT), not of substance. This record is an assessment / reconciliation ONLY:
  *   closes NOTHING, discharges no gap, per-N translation and G3a_max_gap stay OPEN,
- *   respects the imp-2519 no-overclaim guard, NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA.
+ *   respects the imp-2519 no-overclaim guard, NO QED. No refereed bound is changed.
  *
  *   @see src/data/imp-36137-routeC-perN-rate-form-and-bridge-consumability.js (explicit conditional r(N) form, CONSUMABLE-MODULO-G3a)
  *   @see src/data/imp-36151-routeC-vs-routeB-perN-exponent-comparison.js (no unconditionally pinned Route-C exponent; rateForm null)
@@ -78,7 +77,7 @@ export const IMP36276_ROUTEC_PERN_RATE_FORM_CONDITIONAL_RECONCILIATION = Object.
     'the per-N translation and G3a_max_gap OPEN. The 1/log N shape is a conservative conditional UPPER form, not ' +
     'the pinned magnitude/N-scaling imp-36151 flags as unquantified. Neither module overclaims -- both carry the ' +
     'honest caveats. Assessment / reconciliation ONLY; closes NOTHING; per-N translation and G3a_max_gap stay ' +
-    'OPEN; respects the imp-2519 no-overclaim guard; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'OPEN; respects the imp-2519 no-overclaim guard; NO QED; no refereed bound is changed.',
 
   imp36137_view: Object.freeze({
     axis: 'conditional-form',
@@ -136,7 +135,7 @@ export const IMP36276_ROUTEC_PERN_RATE_FORM_CONDITIONAL_RECONCILIATION = Object.
       'unconditionally pinned Route-C exponent), resolving the apparent tension as an axis difference (conditional ' +
       'FORM vs unconditional pinned EXPONENT) with NO contradiction and NO overclaim in either module. Closes ' +
       'nothing; per-N translation and G3a_max_gap stay OPEN; respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -191,7 +190,7 @@ export const IMP36276_ROUTEC_PERN_RATE_FORM_CONDITIONAL_RECONCILIATION_ASSERTION
   {
     id: 'imp36276-honest-no-closure-no-qed',
     why: 'Mandatory honesty: a RECONCILIATION that closes NOTHING, discharges no gap, keeps the per-N translation ' +
-         'and G3a_max_gap OPEN, finds no contradiction, flags no overclaim, carries NO RH verdict, PT 0.2 SOTA.',
+         'and G3a_max_gap OPEN, finds no contradiction, flags no overclaim, carries NO RH verdict, no refereed bound is changed.',
     holds: () => {
       const h = IMP36276_ROUTEC_PERN_RATE_FORM_CONDITIONAL_RECONCILIATION.honestCaveat;
       return (
@@ -205,7 +204,7 @@ export const IMP36276_ROUTEC_PERN_RATE_FORM_CONDITIONAL_RECONCILIATION_ASSERTION
         h.perNTranslationStaysOpen === true &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

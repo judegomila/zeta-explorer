@@ -52,7 +52,7 @@
  * (that is Obstruction A, discharged analytically by imp-97263, not via C) and NO operator positivity.
  * The Gegenbauer L^2 normalisation is a separate diagonal (row j scaled by 1/||C_j^{(13/2)}|| = 1/sqrt of
  * a rational) that leaves the raw overlap matrix rational and is not applied here. Rayleigh floors stay
- * UPPER bounds; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * UPPER bounds; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97264-krein-cjk-exact-rational-overlap.js (FORM + rationality for monomial profiles; residual (a))
  * @see imp-97263-krein-analytic-bessel-z4-remainder-majorant.js (Obstruction A, analytic z^-4 tail majorant)

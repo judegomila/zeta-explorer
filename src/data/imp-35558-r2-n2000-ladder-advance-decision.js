@@ -70,8 +70,8 @@
  *
  * SCOPE: ASSESSMENT / DECISION-RECORD ONLY. Advances NO rung by fiat; changes NO
  * bound; extends NO C_mb certificate; removes NO imp-486 GUE conditional; claims
- * NO operator positivity and NO RH verdict. Platt-Trudgian Lambda <= 0.2 stays
- * SOTA. NO QED.
+ * NO operator positivity and NO RH verdict. No refereed bound is changed
+ * . NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2", "dt/4", "2/diff" prose.
  *
@@ -204,7 +204,7 @@ export const IMP_35558_R2_N2000_LADDER_ADVANCE_DECISION = {
   scope:
     'Assessment / decision-record ONLY. Advances no rung by fiat; changes no ' +
     'bound; extends no C_mb certificate; removes no imp-486 GUE conditional; no ' +
-    'operator positivity; no RH verdict. Platt-Trudgian Lambda <= 0.2 stays SOTA. ' +
+    'operator positivity; no RH verdict. No refereed bound is changed. ' +
     'NO QED.',
 };
 

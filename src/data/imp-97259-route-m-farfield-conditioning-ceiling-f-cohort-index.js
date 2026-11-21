@@ -78,7 +78,7 @@
  *   STATUS: a grouping/index note over four already-completed tickets, not a new derivation. No
  *   bound changes: T = 2.594e7 stays the rigorous trace-ceiling anchor; F = 3.775e7 stays a
  *   slope-derived placement, not a value; compute (N ~ 9916, imp-96352) binds first by >2600x
- *   regardless. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   regardless. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96750-route-m-interior-second-moment-upper-bound-reduction.js (slope lemma; also carries imp-96771)
  * @see imp-97160-route-m-farfield-additive-term-spread.js (sizes the additive-term residual)
@@ -89,7 +89,7 @@
  * @see project_route_m_lower_companion_first_moment (Route M first-moment program, memory)
  *
  * Ticket: imp-97259 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const GAMMA = 0.5772156649015329;
@@ -178,8 +178,8 @@ export const IMP97259_ROUTE_M_FARFIELD_CONDITIONING_CEILING_F_COHORT_INDEX = Obj
     'far-field-F residual, at every level (slope, cross-check, value-sensitivity, structure), ' +
     'telescopes onto ONE still-unevaluated constant. Establishes nothing new; moves no bound; F ' +
     'stays a slope-derived placement, not a certified value; the rigorous anchor remains T = ' +
-    '2.594e7; compute N ~ 9916 binds first by >2600x regardless; RH open; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '2.594e7; compute N ~ 9916 binds first by >2600x regardless; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96750 (slope lemma reduction + term-splitting obstruction); imp-96771 (H2 slope-factor ' +
     'reconciliation); imp-97160 (additive-term spread, dominates the slope band); imp-97207 ' +
@@ -253,10 +253,10 @@ export const IMP97259_ROUTE_M_FARFIELD_CONDITIONING_CEILING_F_COHORT_INDEX_ASSER
   },
   {
     id: 'imp97259-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       /NO QED/.test(IMP97259_ROUTE_M_FARFIELD_CONDITIONING_CEILING_F_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97259_ROUTE_M_FARFIELD_CONDITIONING_CEILING_F_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97259_ROUTE_M_FARFIELD_CONDITIONING_CEILING_F_COHORT_INDEX.verdict) &&
       /RH open/.test(IMP97259_ROUTE_M_FARFIELD_CONDITIONING_CEILING_F_COHORT_INDEX.verdict),
   },
 ];

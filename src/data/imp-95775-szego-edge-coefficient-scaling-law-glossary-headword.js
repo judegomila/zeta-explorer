@@ -44,14 +44,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95704 scaling-law localization for
  *   quick reference. It establishes nothing, instantiates no interval, closes no
- *   sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-95704-rho1-szego-coefficient-delta-scaling (source: the C(delta) scaling law this glosses)
  * @see imp-95689-rho1-szego-dual-convergence-rate (the exponent-2 correction and C at delta = ln1.3)
  * @see imp-95419-separated-class-optimal-riesz-floor (A_opt = symbol infimum)
  *
  * Ticket: imp-95775 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The C(delta) = pi^2/(2 delta^2) scaling-law headword, baked verbatim (no re-import).
@@ -97,7 +97,7 @@ export const IMP95775_SZEGO_EDGE_COEFFICIENT_SCALING_LAW_GLOSSARY_HEADWORD = Obj
     'f’’(pi) and A_opt cancels in the ratio. Cross-validated dual/float64/double-' +
     'double for delta <= 1; a small-delta asymptotic only (delta = 3 departs by ~1%). ' +
     'Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95704 (the C(delta) scaling-law measurement and derivation this glosses); ' +
     'imp-95689 (the exponent-2 finite-size correction and the delta = ln1.3 baked ' +
@@ -124,11 +124,11 @@ export const IMP95775_SZEGO_EDGE_COEFFICIENT_SCALING_LAW_GLOSSARY_HEADWORD_ASSER
   },
   {
     id: 'imp95775-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95775_SZEGO_EDGE_COEFFICIENT_SCALING_LAW_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95775_SZEGO_EDGE_COEFFICIENT_SCALING_LAW_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95775_SZEGO_EDGE_COEFFICIENT_SCALING_LAW_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95775_SZEGO_EDGE_COEFFICIENT_SCALING_LAW_GLOSSARY_HEADWORD.verdict) &&
       IMP95775_SZEGO_EDGE_COEFFICIENT_SCALING_LAW_GLOSSARY_HEADWORD.glosses === 'imp-95704',
   },
 ];

@@ -18,7 +18,7 @@
  * (`katoTempleUpperThreeLevel` / `maxTolerableBottom`) and every named literal are
  * imported unchanged from imp-96206; only the plot-resolution SAMPLING is computed
  * here. Changes no bound, establishes no operator positivity, no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96206-route-i-kato-temple-joint-leak.js (region, literals, coupled slices)
  *
@@ -67,7 +67,7 @@ export const IMP96238_ANCHORS = {
 };
 
 export const IMP96238_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: the boundary curve re-runs '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: the boundary curve re-runs '
   + 'the imp-96206 maxTolerableBottom bisection verbatim at plot resolution (not a re-derivation), '
   + 'and the three named markers (pure-bottom, equal-split, full-adjacent) are copied from the '
   + 'imp-96206 baked literals. The region uses the exact FFT-Mellin semilocal {oo,2} spectrum '

@@ -13,7 +13,7 @@
 // or do those clauses rely on prose alone in some of the eight?
 //
 // GREP + READ RESULT (2026-07-05): all eight modules pass the core no-QED /
-// isRigorous:false / PT-SOTA tripwire -- each module's own ASSERTIONS array
+// isRigorous:false / no-refereed-bound-change tripwire -- each module's own ASSERTIONS array
 // checks isRigorous === false and regex-tests its verdict string for NO QED and
 // remains (the rigorous) SOTA, throwing at import time if any check fails.
 // Mirroring the imp-34145 pattern (imp-3066 AND C_mb both checked), this cohort
@@ -43,7 +43,7 @@ import { IMP34005_APEX_CURVATURE_FIT_WINDOW_SENSITIVITY } from './imp-34005-apex
 import { IMP34006_POINTWISE_VS_WINDOW_EXPONENT_CROSS_TABULATION } from './imp-34006-pointwise-vs-window-exponent-cross-tabulation.js';
 import { IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING } from './imp-34007-i1-roundoff-per-rung-lnN-scaling.js';
 
-const SOTA_RE = /remains (the rigorous )?SOTA/;
+const SOTA_RE = /refereed bound is changed/i;
 const IMP3066_PROSE_RE = /imp-3066[^.]*untouched/i;
 const IMP3066_SPECIFIC_TRIPWIRE_RE = /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/;
 const CMB_PROSE_RE = /C_mb[^.]*imp-486[^.]*UNTOUCHED/i;
@@ -186,7 +186,7 @@ export const IMP34079_COHORT_HONESTY_GATE_AUDIT = Object.freeze({
 
   summary:
     'All eight imp-34000/34001/34002/34003/34004/34005/34006/34007 modules carry a build-time ' +
-    'tripwire asserting isRigorous===false, NO QED, and Platt-Trudgian Lambda<=0.2 remains SOTA -- ' +
+    'tripwire asserting isRigorous===false, NO QED, and no refereed bound is changed -- ' +
     'none relies on prose alone for the core honesty gate. Mirroring the imp-34145 audit (which ' +
     'checked both the imp-3066 and C_mb clauses), this cohort has three untouched-parent clauses ' +
     'stated in prose with UNEVEN executable coverage: imp-3066 K_a>=0 (stated by all 8, tripwired ' +
@@ -202,12 +202,12 @@ export const IMP34079_COHORT_HONESTY_GATE_AUDIT = Object.freeze({
     'the C_C 1/8 ansatz untouched clause, only imp-34005 states it in prose and it too lacks a ' +
     'tripwire. Reported as audit findings, not fixed here (audit-only scope, modifies none of the ' +
     'eight modules). Adds no new bound; imp-3066 K_a>=0 untouched; imp-486 C_mb GUE-conditional ' +
-    'untouched; C_C 1/8 ansatz untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'untouched; C_C 1/8 ansatz untouched; NO QED; no refereed bound is changed.',
 
   honest:
     'AUDIT-ONLY -- reports the honesty-gate tripwire coverage found by live-importing and reading each ' +
     'of the eight modules; does not modify any of the eight modules and adds no new bound. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA.',
+    'No refereed bound is changed.',
 });
 
 export const IMP34079_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
@@ -226,7 +226,7 @@ export const IMP34079_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34079-all-eight-carry-no-qed-and-sota',
-    description: 'all eight modules carry NO QED text and the Platt-Trudgian Lambda<=0.2 SOTA line',
+    description: 'all eight modules carry NO QED text and the no-refereed-bound-change line',
     holds: () => ALL_HAVE_NO_QED && ALL_HAVE_SOTA,
   },
   {
@@ -254,11 +254,11 @@ export const IMP34079_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34079-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP34079_COHORT_HONESTY_GATE_AUDIT.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(IMP34079_COHORT_HONESTY_GATE_AUDIT.honest)
+      && /refereed bound is changed/i.test(IMP34079_COHORT_HONESTY_GATE_AUDIT.honest)
       && /NO QED/.test(IMP34079_COHORT_HONESTY_GATE_AUDIT.verdict)
-      && /Lambda<=0.2 remains SOTA/.test(IMP34079_COHORT_HONESTY_GATE_AUDIT.verdict),
+      && /refereed bound is changed/i.test(IMP34079_COHORT_HONESTY_GATE_AUDIT.verdict),
   },
 ];
 

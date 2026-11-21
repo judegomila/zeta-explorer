@@ -21,7 +21,7 @@ export default function CrossoverMapClusterCaveatBanner() {
       cluster, all of which sit on the SAME inherited imp-33723 surrogate map g(N)&nbsp;=&nbsp;K&nbsp;log&nbsp;T0(N):
       its C_C&nbsp;=&nbsp;1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED and its E(N) share stays C_mb
       GUE-conditional (imp-486). The cluster produces derivations/measurements only, changes no bound,
-      and establishes no operator positivity; NO QED; Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+      and establishes no operator positivity; NO QED.
     </>
   );
 }

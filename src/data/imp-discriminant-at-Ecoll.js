@@ -72,8 +72,8 @@
  *       NEGATIVE); a two-sided pin on t_c does not touch C_Lip and cannot make the
  *       Lipschitz route live.
  *   (3) C_H = 1/8 remains an ANSATZ, not a proven upper bound (imp-2642
- *       isRigorousUpperBound = false). No bound is changed; Platt-Trudgian
- *       Lambda <= 0.2 stays SOTA. NO false QED.
+ *       isRigorousUpperBound = false). No bound is changed; no refereed bound is changed
+ *       . NO false QED.
  *
  * @see imp-2563-discriminant-tc-characterization (Theorem S4-3 heat semigroup; t_c = smallest Disc zero)
  * @see imp-2561-isolated-pair-pinch (one-sided pinch this two-sided bracket sharpens)
@@ -304,7 +304,7 @@ const E_COLL_AT_NSTAR = C_C * Math.sqrt(LOG_GAMMA / N_STAR);
 // Chain identity check: E_coll == C_H . W1^{1/2} exactly at the Selberg-upper W_1.
 const E_COLL_VIA_HOLDER = C_H * Math.sqrt(W1_UPPER);
 
-const PT_BOUND = 0.2; // Platt-Trudgian 2021 SOTA unconditional Lambda upper bound.
+const PT_BOUND = 0.2; // Platt-Trudgian 2021 bound upper bound.
 
 export const DISCRIMINANT_AT_ECOLL_IMP2848 = {
   id: 'imp-2848',
@@ -447,7 +447,7 @@ export const DISCRIMINANT_AT_ECOLL_IMP2848_ASSERTIONS = [
       'HONESTY tripwire (ticket-mandated): the module must keep stating that it ' +
       'SHARPENS CONSTANTS only -- it does NOT cross the C_Lip wall (C_Lip diverges at ' +
       'the Holder-1/2 modulus), C_H stays an ansatz, no bound changes, and ' +
-      'Platt-Trudgian Lambda <= 0.2 stays SOTA. Flipping any of these to claim a ' +
+      'no refereed bound is changed. Flipping any of these to claim a ' +
       'wall-cross requires actually discharging C_Lip in the same commit.',
   },
 ];

@@ -55,7 +55,7 @@
  * / imp-34997a / imp-35243a (R2) stay OPEN. MEASUREMENT / ASSESSMENT ONLY; the C_C = (1/8) sqrt(3 pi) ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0
  * untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no
- * RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35259-two-rate-band-edges-direct-rootfind (direct locator A; p=1-only linear comparison, generalized here)
  * @see imp-35331-reentry-band-two-rate-phase-drift (linear-drift locator B; reported p=1 only)
@@ -275,7 +275,7 @@ export const IMP95035_TWO_RATE_BAND_LOCATOR_TRICOMPARISON = {
     'surrogate, IEEE-754 double precision, point rate estimates; the C_C = (1/8) sqrt(3 pi) ansatz ' +
     '(imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
     'far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35259 (direct rootfind of the two-rate band edges; p=1-only linear comparison, generalized here); ' +
     'imp-35331 (linear-drift extrapolation, reported p=1 only); imp-35332 (drift decays like 1/(K log T0 - ' +
@@ -342,13 +342,13 @@ export const IMP95035_TWO_RATE_BAND_LOCATOR_TRICOMPARISON_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: assessment only, discharges nothing, no QED, PT SOTA, sub-gap stays OPEN.
+    // Honesty gate: assessment only, discharges nothing, no QED, no refereed bound is changed, sub-gap stays OPEN.
     id: 'imp95035-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, R2/imp-35243a OPEN, no QED, Platt-Trudgian stays SOTA',
+    description: 'Assessment only: isRigorous false, R2/imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP95035_TWO_RATE_BAND_LOCATOR_TRICOMPARISON.isRigorous === false &&
       /NO QED/.test(IMP95035_TWO_RATE_BAND_LOCATOR_TRICOMPARISON.verdict) &&
-      /remains SOTA/.test(IMP95035_TWO_RATE_BAND_LOCATOR_TRICOMPARISON.verdict) &&
+      /refereed bound is changed/i.test(IMP95035_TWO_RATE_BAND_LOCATOR_TRICOMPARISON.verdict) &&
       /imp-35243a/.test(IMP95035_TWO_RATE_BAND_LOCATOR_TRICOMPARISON.residual_sub_gap) &&
       /stay OPEN/.test(IMP95035_TWO_RATE_BAND_LOCATOR_TRICOMPARISON.residual_sub_gap),
   },

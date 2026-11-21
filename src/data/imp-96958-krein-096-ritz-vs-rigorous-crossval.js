@@ -51,8 +51,8 @@
  * IMP96958_RITZ_VS_RIGOROUS_NORMALIZATION_MISMATCH_NO_A048_RUNG -- a matched-normalisation solve at
  * a=0.48 in a single common basis would pin the exact Ritz-vs-rigorous gap. Ritz value is an UPPER
  * bound so the floor is an upper estimate NOT a certified LB; the interval-rigorous certificate reach
- * stays 2a<=0.96; operator positivity for 0.96 < 2a < ln3 stays OPEN; RH open; Platt-Trudgian
- * Lambda<=0.2 SOTA; NO QED.
+ * stays 2a<=0.96; operator positivity for 0.96 < 2a < ln3 stays OPEN; RH open; no refereed bound is changed
+ * ; NO QED.
  *
  * @see imp-96938-krein-drift-calibration-096.js (the Ritz floor at 2a=0.96 this leaf cross-validates)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (TOEPLITZ_KREIN_LITERALS.lambdaMinSigma2; interval reach 2a <= 0.96)

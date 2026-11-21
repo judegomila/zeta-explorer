@@ -53,7 +53,7 @@
  * not re-solved. So no fixed rational v0 with a certified interval g(t) = O(t^-4) enclosure is produced and the
  * Route B/C interval majorant does not close. Measurement / execution only: produces no interval majorant;
  * Rayleigh floors stay UPPER bounds on the true lambda_min; establishes no operator positivity; changes NO
- * bound; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * bound; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97113-krein-bessel-asymptotic-annihilation-scope.js (SCOPED the annihilation; IMP97113_FUNCTIONALS reused here)
  * @see imp-97114-krein-rayleigh-tail-enclosure-slack-budget.js (~1.23x achievable floor presupposing the cancellation)

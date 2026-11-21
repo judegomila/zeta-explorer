@@ -69,7 +69,7 @@
  * of the class sandwich stays open for the middle-chart inheritors. NO
  * new full-class rate constant; class sandwich [0.2320723, 0.24502] and
  * the k <= 4 ladder floor 47/200 carried UNCHANGED. Changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * Import-light; zero imports; all assertions deterministic, ~0.5 s.
  */
@@ -555,7 +555,7 @@ export const IMP95161_SURVIVING_FRAME_MIDDLE_COVER_CLOSURE = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // --------------------------------------------------------------------------

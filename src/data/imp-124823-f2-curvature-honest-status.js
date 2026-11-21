@@ -13,7 +13,7 @@
  * @see imp-33684-sigma-interior-peak-etrunc-model-sensitivity.js (the -1.375 interior-peak contrast)
  *
  * Ticket: imp-124823 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import {
@@ -52,9 +52,9 @@ export const IMP124823_F2_CURVATURE_HONEST_STATUS = Object.freeze({
 });
 
 export const IMP124823_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. This note restates, standalone, the imp-124772 F2 ' +
+  'RH open; no refereed bound is changed; NO QED. This note restates, standalone, the imp-124772 F2 ' +
   'residual-curvature finding so it is independently checkable: changes no bound; establishes no operator ' +
-  'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.';
+  'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.';
 
 // -- self-executing assertion (imp-3715 convention): any failure throws at import --
 if (
@@ -75,7 +75,7 @@ if (
     /NO QED/.test(IMP124823_HONEST_BANNER) &&
     /imp-3066 K_a >= 0 untouched/.test(IMP124823_HONEST_BANNER) &&
     /changes no bound/.test(IMP124823_HONEST_BANNER) &&
-    /remains SOTA/.test(IMP124823_HONEST_BANNER)
+    /refereed bound is changed/i.test(IMP124823_HONEST_BANNER)
   )
 ) {
   throw new Error(

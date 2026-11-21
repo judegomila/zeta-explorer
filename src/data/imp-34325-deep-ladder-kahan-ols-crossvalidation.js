@@ -54,8 +54,7 @@
  * NOT an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34250-deep-ladder-tie-margin-classification (the two-estimator classification cross-validated here)
  * @see imp-34172-deep-ladder-second-path-crossvalidation (Y2 measured the e=19 tie margin)
@@ -315,7 +314,7 @@ export const IMP34325_DEEP_LADDER_KAHAN_OLS_CROSSVALIDATION = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is ' +
     'descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34250 (the two-estimator tie-fragile classification cross-validated here); imp-34172 (Y2 measured ' +
     'the e=19 tie margin); imp-34106 (the deep e=15..20 ladder); imp-33878 (source of k* ~ 8.821092, ' +
@@ -359,16 +358,16 @@ export const IMP34325_DEEP_LADDER_KAHAN_OLS_CROSSVALIDATION_ASSERTIONS = [
     holds: () => KAHAN_PERT_BELOW_MARGIN && RUNGS.every((r) => r.kahanBelowMargin),
   },
   {
-    // Honesty gate: measurement only, isRigorous false, cross-validates imp-34250, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, cross-validates imp-34250, no QED, no refereed bound is changed.
     id: 'imp34325-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, CROSS-VALIDATES the imp-34250 tie-fragile classification with a Kahan OLS, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Measurement only: isRigorous false, CROSS-VALIDATES the imp-34250 tie-fragile classification with a Kahan OLS, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34325_DEEP_LADDER_KAHAN_OLS_CROSSVALIDATION.isRigorous === false &&
       /CROSS-VALIDATES the imp-34250 tie-fragile \{e=19, e=20\}/.test(
         IMP34325_DEEP_LADDER_KAHAN_OLS_CROSSVALIDATION.verdict,
       ) &&
       /NO QED/.test(IMP34325_DEEP_LADDER_KAHAN_OLS_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP34325_DEEP_LADDER_KAHAN_OLS_CROSSVALIDATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34325_DEEP_LADDER_KAHAN_OLS_CROSSVALIDATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34325_DEEP_LADDER_KAHAN_OLS_CROSSVALIDATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34325_DEEP_LADDER_KAHAN_OLS_CROSSVALIDATION.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34325_DEEP_LADDER_KAHAN_OLS_CROSSVALIDATION.verdict),

@@ -15,7 +15,7 @@
  * verbatim from IMP96409_EFLOW_DOMINATION_REQUIRED_FACTOR (imp-96409). The only new computation
  * here is parsing the ladder's "1eK" N-labels to numeric N and taking log10 of N and kappa for
  * plotting. Changes no bound; establishes no operator positivity; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-96409-eflow-domination-required-factor.js (requiredFactorLadder, landmarks, verdict)
  * @see imp-398 (C_F pinned from the RvM density integral, UNTOUCHED)
@@ -62,7 +62,7 @@ export const IMP96557_LANDMARKS = Object.freeze({
 });
 
 export const IMP96557_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every ladder row and ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every ladder row and ' +
   'landmark value plotted here is copied verbatim from the imp-96409 required-factor ' +
   'measurement; the only new step is parsing "1eK" N-labels to numeric N and taking log10 for ' +
   'the plotting grid. E_coll stays GUE-conditional (imp-486, UNTOUCHED); the imp-398 pinned ' +

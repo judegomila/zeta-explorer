@@ -58,7 +58,7 @@
  * the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; refines, does not overturn,
- * imp-34008; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-34008; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34008-apex-parabola-wing-fidelity (W2 inferred but never fit the cubic tilt; asymmetry reconstructed here)
  * @see imp-34064-apex-quartic-curvature-fit (the EVEN quartic companion; this is the ODD cubic term it omitted)
@@ -275,7 +275,7 @@ export const IMP34084_APEX_CUBIC_TILT_COEFFICIENT = {
     'rigorous asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34008 (W2 cubic-tilt inference + wing asymmetry reconstructed here); imp-34064 (the even ' +
     'quartic companion; this is the odd cubic it omitted); imp-33948 (apex quadratic whose even ' +
@@ -325,14 +325,14 @@ export const IMP34084_APEX_CUBIC_TILT_COEFFICIENT_ASSERTIONS = [
       ASYM_RECONSTRUCTED_PCT < 115,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, no refereed bound is changed.
     id: 'imp34084-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, refines imp-34008, no QED, imp-3066 untouched, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, refines imp-34008, no QED, imp-3066 untouched, no refereed bound is changed',
     holds: () =>
       IMP34084_APEX_CUBIC_TILT_COEFFICIENT.isRigorous === false &&
       /refines, does not overturn, imp-34008/.test(IMP34084_APEX_CUBIC_TILT_COEFFICIENT.verdict) &&
       /NO QED/.test(IMP34084_APEX_CUBIC_TILT_COEFFICIENT.verdict) &&
-      /remains SOTA/.test(IMP34084_APEX_CUBIC_TILT_COEFFICIENT.verdict) &&
+      /refereed bound is changed/i.test(IMP34084_APEX_CUBIC_TILT_COEFFICIENT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34084_APEX_CUBIC_TILT_COEFFICIENT.verdict),
   },
 ];

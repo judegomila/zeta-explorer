@@ -48,7 +48,7 @@
  * at N=1000 per imp-35221/imp-35324; stays N=1000 per imp-35412), changes NO bound,
  * adopts NO new slack denominator (imp-35412 KEEPS the endpoint DP45 dt/2 worst-case).
  * Does NOT extend the C_mb certificate; does NOT remove the imp-486 GUE conditional.
- * Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ * No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2" and "g_end" and "y1[i+1]-y1[i]".
  *
@@ -155,8 +155,8 @@ export const IMP_35452_N2000_ENDPOINT_POSITIVITY_KNIFE_EDGE_REFERENCE = {
       'MEASUREMENT / cross-check only. Does NOT advance the R2 ladder to N=2000 (stays ' +
       'N=1000 per imp-35221/imp-35324/imp-35412), does NOT change the imp-35412 slack ' +
       'denominator choice, does NOT extend the C_mb certificate, does NOT remove the ' +
-      'imp-486 GUE conditional, changes NO Lambda bound. Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA. Never a QED or a bound change.',
+      'imp-486 GUE conditional, changes NO Lambda bound. No refereed bound is changed' +
+      '. Never a QED or a bound change.',
   },
 };
 
@@ -242,6 +242,6 @@ export const IMP_35452_N2000_ENDPOINT_POSITIVITY_KNIFE_EDGE_REFERENCE_ASSERTIONS
       'Characterization / cross-check only: maps the endpoint-positivity knife-edge but ' +
       'does NOT advance the R2 ladder past N=1000, does NOT change the imp-35412 slack ' +
       'denominator, changes NO bound. C_mb stays GUE-conditional (imp-486); ' +
-      'Lambda <= 0.2 stays SOTA. Never a QED or a bound change.',
+      'no refereed bound is changed. Never a QED or a bound change.',
   },
 ];

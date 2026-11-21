@@ -53,7 +53,7 @@
  *   0.17558 (U=40) and obeys a clean one-over-U law C(U) = C_inf + b/U with
  *   b ~ 0.018; three independent Richardson extrapolations agree on
  *   C_inf ~ 0.1751 to 1e-4. So the capture ratio converges to r ~ 0.1751/U from
- *   ABOVE, not a drifting or diverging C. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   ABOVE, not a drifting or diverging C. No refereed bound is changed.
  *
  *   @see imp-3240-mupass-capture-ratio-aU-grid.js (the r ~ C/U law and the reported rise)
  *   @see imp-3221-mupass-position-concentration-measure.js (the fixed Phi position concentration)
@@ -299,7 +299,7 @@ export const IMP3346_CAPTURE_RATIO_C_CONSTANT_DERIVATION = Object.freeze({
     '(h = 0.025) the trend REVERSES: r*U DECREASES monotonically 0.1792 (U=4) -> ' +
     '0.1760 (U=20) and obeys C(U) = C_inf + b/U with b ~ 0.018, Richardson ' +
     'extrapolations agreeing on C_inf ~ 0.1751 to 1e-4. Assessment only; RH-equivalent; ' +
-    'NO RH verdict and NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'NO RH verdict and NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -384,7 +384,7 @@ export const IMP3346_CAPTURE_RATIO_C_CONSTANT_DERIVATION = Object.freeze({
       'The 1/U scaling of the position-concentration deficit is diagnostic; the imp-3066 off-diagonal ' +
       'endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -437,7 +437,7 @@ export const IMP3346_CAPTURE_RATIO_C_CONSTANT_DERIVATION_ASSERTIONS = [
   {
     id: 'imp3346-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, not a reduction below RH, RH-equivalent, positivity ' +
-      'not attempted, C_inf is a determined number not a symbolic identity, PT 0.2 stays SOTA. Any flip over-claims.',
+      'not attempted, C_inf is a determined number not a symbolic identity, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3346_CAPTURE_RATIO_C_CONSTANT_DERIVATION.honestCaveat;
       return (
@@ -446,7 +446,7 @@ export const IMP3346_CAPTURE_RATIO_C_CONSTANT_DERIVATION_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.derivationIsStructuralNotClosedForm === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

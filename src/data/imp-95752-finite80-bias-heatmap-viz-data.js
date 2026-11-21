@@ -54,8 +54,8 @@ export const IMP95752_CAVEAT_BANNER =
   'strictly overestimating the infinite-lattice infimum across all 31 resolved cells, collapsing ' +
   'toward zero as the absolute cross-pair gap D grows; the five flagged cells are ' +
   'float64-unresolvable for both the Jacobi eigensolver and the cancellation-free dual. Model seam ' +
-  'family only; introduces no new cited input and changes no bound; Platt-Trudgian Lambda <= 0.2 ' +
-  'remains the rigorous SOTA. No QED.';
+  'family only; introduces no new cited input and changes no bound; no refereed bound is changed' +
+  '. No QED.';
 
 export const IMP95752_FINITE80_BIAS_HEATMAP_VIZ_DATA_ASSERTIONS = [
   {

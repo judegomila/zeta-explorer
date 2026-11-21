@@ -54,7 +54,7 @@
  * no fixed rational v0 with a certified two-sided interval g(t) = O(t^-4) enclosure is produced, and the
  * Route B/C interval majorant does not close. Execution / measurement only: produces no interval majorant;
  * Rayleigh floors stay UPPER bounds on the true lambda_min; establishes no operator positivity; changes NO
- * bound; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * bound; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97134-krein-annihilating-rational-trial-execution.js (exact integer degree-level trials; v0 map left unexecuted)
  * @see imp-97113-krein-bessel-asymptotic-annihilation-scope.js (6 carrier functionals; 94-dim v0 family)

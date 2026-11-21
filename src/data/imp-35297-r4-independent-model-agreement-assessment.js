@@ -65,7 +65,7 @@
  * OPEN. ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate; the C_C = (1/8) sqrt(3 pi) ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0
  * untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator positivity;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35243-reentry-band-surrogate-fidelity-assessment (enumerates R1-R4; R4 had no dedicated ticket)
  * @see imp-35263 (R1 floor-independence) / imp-35259 (R2 single-rate) / imp-35260 (R3 height-map)
@@ -169,8 +169,8 @@ export const IMP35297_R4_INDEPENDENT_MODEL_AGREEMENT_ASSESSMENT = {
     'imp-35174 arithmetic result is unaffected, only its scope is bounded. ASSESSMENT ONLY on the inherited ' +
     'imp-3220/imp-3406 surrogate; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb GUE-' +
     'conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463);' +
-    ' changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    ' changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35243 (enumerates R1-R4; R4 had no dedicated ticket); imp-35263/35259/35260 (R1/R2/R3 dedicated ' +
     'tickets); imp-34862 (two-rate law does NOT remove the off-by-one; W3); imp-35174 (discharged the ' +
@@ -210,14 +210,14 @@ export const IMP35297_R4_INDEPENDENT_MODEL_AGREEMENT_ASSESSMENT_ASSERTIONS = [
       Math.abs(BAND_WIDTH_DECADES - 10.08) < 0.05,
   },
   {
-    // Honesty gate: assessment only, discharges nothing, no QED, PT SOTA, single-witness verdict stated.
+    // Honesty gate: assessment only, discharges nothing, no QED, no refereed bound is changed, single-witness verdict stated.
     id: 'imp35297-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, single-witness verdict, no QED, PT SOTA, sub-gap stays OPEN',
+    description: 'Assessment only: isRigorous false, single-witness verdict, no QED, no refereed bound is changed, sub-gap stays OPEN',
     holds: () =>
       IMP35297_R4_INDEPENDENT_MODEL_AGREEMENT_ASSESSMENT.isRigorous === false &&
       /^YES/.test(IMP35297_R4_INDEPENDENT_MODEL_AGREEMENT_ASSESSMENT.band_has_single_witness) &&
       /NO QED/.test(IMP35297_R4_INDEPENDENT_MODEL_AGREEMENT_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP35297_R4_INDEPENDENT_MODEL_AGREEMENT_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35297_R4_INDEPENDENT_MODEL_AGREEMENT_ASSESSMENT.verdict) &&
       /imp-35243a/.test(IMP35297_R4_INDEPENDENT_MODEL_AGREEMENT_ASSESSMENT.residual_sub_gap) &&
       /imp-35111a/.test(IMP35297_R4_INDEPENDENT_MODEL_AGREEMENT_ASSESSMENT.residual_sub_gap),
   },

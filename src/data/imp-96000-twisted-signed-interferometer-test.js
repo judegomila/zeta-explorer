@@ -46,7 +46,7 @@
  * @see rh-novel-routes-roadmap-2026-09-23.js (route C firstTest)
  * @see imp-95998-primon-reflection-gram-psd-test (route A NO-GO, same roadmap)
  *
- * Ticket: imp-96000 (numerical, medium). Measurement/optimization only; no bound moved; NO QED; PT Lambda <= 0.2 SOTA.
+ * Ticket: imp-96000 (numerical, medium). Measurement/optimization only; no bound moved; NO QED; no refereed bound is changed.
  */
 
 // Per-sign-pattern scan of the half-strip sigma in [0.52,0.95], t in [1,40] (measured).
@@ -95,7 +95,7 @@ export const IMP96000_TWISTED_SIGNED_INTERFEROMETER_TEST = Object.freeze({
     'at sigma=0.939518, t=29.571077 (|F|=1.85e-11) -- the classical Davenport-Heilbronn ' +
     'phenomenon. Character orthogonality does NOT confine the combined zeros to sigma=1/2 for a ' +
     'fixed finite superposition, so no sign/weight design yields a nonvanishing off-line lower ' +
-    'bound. Measurement/optimization only; no bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound. Measurement/optimization only; no bound moved; NO QED. No refereed bound is changed.',
   subGap:
     'imp-96000-uniform-family-averaging: only FIXED finite real sign patterns on one small ' +
     'modulus (q=5) were tested. Route C large-sieve intuition lives in a modulus-averaged / ' +
@@ -134,11 +134,11 @@ export const IMP96000_TWISTED_SIGNED_INTERFEROMETER_TEST_ASSERTIONS = [
   },
   {
     id: 'imp96000-honesty-gate-no-qed',
-    why: 'Measurement only: sub-gap named, NO QED, PT SOTA line present, route C recorded as tested.',
+    why: 'Measurement only: sub-gap named, NO QED, no-refereed-bound-change line present, route C recorded as tested.',
     holds: () =>
       /uniform-family-averaging/.test(IMP96000_TWISTED_SIGNED_INTERFEROMETER_TEST.subGap) &&
       /NO QED/.test(IMP96000_TWISTED_SIGNED_INTERFEROMETER_TEST.verdict) &&
-      /remains SOTA/.test(IMP96000_TWISTED_SIGNED_INTERFEROMETER_TEST.verdict) &&
+      /refereed bound is changed/i.test(IMP96000_TWISTED_SIGNED_INTERFEROMETER_TEST.verdict) &&
       /route C/.test(IMP96000_TWISTED_SIGNED_INTERFEROMETER_TEST.tests),
   },
 ];

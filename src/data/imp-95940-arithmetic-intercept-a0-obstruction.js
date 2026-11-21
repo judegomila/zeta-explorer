@@ -83,7 +83,7 @@
  * range [~5.8e17, ~1.36e28] rather than a point. Sharpened sub-gap
  * imp-95940-subgap-fujii-varS-constant (import b to O(0.01)). Assessment only; changes no
  * bound; NO QED; Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author unrefereed;
- * the zero-side route stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * the zero-side route stays PCC / GRH-gated; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. The six imp-95710 / imp-95562 measured
  * sd(C - E) literals and the imp-95722 / imp-95921 closed forms are recomputed here exactly;
@@ -230,7 +230,7 @@ export const IMP95940_ARITHMETIC_INTERCEPT_A0_OBSTRUCTION = {
     'to fix T_x within an order of magnitude, which is why the ceiling is the wide range [~5.8e17, ~1.36e28] ' +
     'rather than a point. Sharpened sub-gap imp-95940-subgap-fujii-varS-constant (import b to O(0.01)). ' +
     'Assessment only; changes no bound; NO QED; Catalan G irrationality OPEN; Sun arXiv:2609.04176 ' +
-    'single-author unrefereed; the zero-side route stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'single-author unrefereed; the zero-side route stays PCC / GRH-gated; no refereed bound is changed.',
   citation:
     'imp-95921 (named sub-gap; slope pinned, intercept unpinned); imp-95897 (noise-dominated data, ' +
     'R^2 = 0.0007); imp-95722 (r_cap envelope, C0 = max offset); Selberg / Goldston 1987 / Fujii ' +
@@ -258,15 +258,15 @@ export const IMP95940_ARITHMETIC_INTERCEPT_A0_OBSTRUCTION = {
   // the a_0 spread sweeps T_x across many orders of magnitude (the ~40-order range).
   if (!(crossingAtMin / crossingAtMax > 1e30))
     throw new Error('imp-95940: empirical a_0 spread must sweep T_x across many orders of magnitude');
-  // HONESTY gates: assessment only, sub-gap named, no false pin, PT stays SOTA.
+  // HONESTY gates: assessment only, sub-gap named, no false pin, no refereed bound is changed.
   if (IMP95940_ARITHMETIC_INTERCEPT_A0_OBSTRUCTION.isRigorous !== false)
     throw new Error('imp-95940: isRigorous must be false');
   if (!/NO QED/.test(IMP95940_ARITHMETIC_INTERCEPT_A0_OBSTRUCTION.verdict))
     throw new Error('imp-95940: verdict dropped the NO QED banner');
   if (!/imp-95940-subgap-fujii-varS-constant/.test(IMP95940_ARITHMETIC_INTERCEPT_A0_OBSTRUCTION.verdict))
     throw new Error('imp-95940: verdict dropped the named sub-gap');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95940_ARITHMETIC_INTERCEPT_A0_OBSTRUCTION.verdict))
-    throw new Error('imp-95940: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95940_ARITHMETIC_INTERCEPT_A0_OBSTRUCTION.verdict))
+    throw new Error('imp-95940: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95940_ARITHMETIC_INTERCEPT_A0_OBSTRUCTION;

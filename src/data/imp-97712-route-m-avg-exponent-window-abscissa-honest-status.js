@@ -25,7 +25,7 @@
  * grep for honest-status modules by filename, per imp-36209's finding that inline-only corrections
  * are not reliably discoverable). Read-only record; changes no bound; establishes no operator
  * positivity; no RH verdict; NO QED. MCM stays refuted from omega=11 (imp-97432); b/4 ceiling
- * untouched; kappa_arith unchanged; Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * untouched; kappa_arith unchanged; no refereed bound is changed.
  *
  * @see imp-97687-route-m-avg-exponent-robustness.js (the jackknife/bootstrap/window/abscissa finding this note records)
  * @see imp-97659-route-m-gap-law-decay-extprec.js (the deep dps=30 ladder; original ~10.18 exponent)
@@ -88,7 +88,7 @@ export const IMP97712_AVG_EXPONENT_WINDOW_ABSCISSA_HONEST_STATUS = {
     `95% band [${BOOTSTRAP_CI_LOW}, ${BOOTSTRAP_CI_HIGH}]. Read it as a coarse average trend confirming ` +
     '"faster than any fixed 1/log^q, q<=3", not as a determined exponent. MCM stays refuted from ' +
     `omega=${MCM_REFUTED_FROM_OMEGA} (imp-97432). Changes no bound; establishes no operator positivity; ` +
-    'no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-97687-route-m-avg-exponent-robustness.js (IMP97687_VERDICT, the source finding this note ' +
     'records); imp-97659-route-m-gap-law-decay-extprec.js (the deep dps=30 ladder; original ~10.18 ' +
@@ -117,14 +117,14 @@ export const IMP97712_AVG_EXPONENT_WINDOW_ABSCISSA_HONEST_STATUS_ASSERTIONS = [
   },
   {
     id: 'imp97712-mcm-status-and-no-fix-honesty-gate',
-    description: 'MCM stays refuted from omega=11, no bound moved, no fix, no QED, PT stays SOTA',
+    description: 'MCM stays refuted from omega=11, no bound moved, no fix, no QED, no refereed bound is changed',
     holds: () =>
       IMP97712_AVG_EXPONENT_WINDOW_ABSCISSA_HONEST_STATUS.mcmRefutedFromOmega === 11 &&
       IMP97712_AVG_EXPONENT_WINDOW_ABSCISSA_HONEST_STATUS.anyBoundMoved === false &&
       IMP97712_AVG_EXPONENT_WINDOW_ABSCISSA_HONEST_STATUS.fixApplied === false &&
       IMP97712_AVG_EXPONENT_WINDOW_ABSCISSA_HONEST_STATUS.isRigorous === false &&
       /NO QED/.test(IMP97712_AVG_EXPONENT_WINDOW_ABSCISSA_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(IMP97712_AVG_EXPONENT_WINDOW_ABSCISSA_HONEST_STATUS.verdict),
+      /refereed bound is changed/i.test(IMP97712_AVG_EXPONENT_WINDOW_ABSCISSA_HONEST_STATUS.verdict),
   },
 ];
 

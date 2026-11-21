@@ -51,7 +51,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (COARSE per-decade OLS ladder refined here)
  * @see imp-34694-sigma-exponent-knee-closed-form-location (ramp-acceleration knee p'' = 0, log10 ~ 9.529)
@@ -222,7 +222,7 @@ export const IMP95582_SIGMA_POSTPEAK_FINE_EXPONENT_RAMP = {
     'below the imp-34694 ramp-acceleration knee (log10 ~ 9.52903). The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33582 (COARSE per-decade OLS ladder refined here); imp-34694 (ramp-acceleration knee ' +
     'p double-prime = 0, log10 ~ 9.529); imp-3529 (pointwise local exponent p(N)); imp-3463 ' +
@@ -275,14 +275,14 @@ export const IMP95582_SIGMA_POSTPEAK_FINE_EXPONENT_RAMP_ASSERTIONS = [
       IMP34694_KNEE_LOG10 - Math.log10(N_TRANSITION) < 0.05,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp95582-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP95582_SIGMA_POSTPEAK_FINE_EXPONENT_RAMP.isRigorous === false &&
       IMP95582_SIGMA_POSTPEAK_FINE_EXPONENT_RAMP.farTailExponent === 0.5 &&
       /NO QED/.test(IMP95582_SIGMA_POSTPEAK_FINE_EXPONENT_RAMP.verdict) &&
-      /remains SOTA/.test(IMP95582_SIGMA_POSTPEAK_FINE_EXPONENT_RAMP.verdict),
+      /refereed bound is changed/i.test(IMP95582_SIGMA_POSTPEAK_FINE_EXPONENT_RAMP.verdict),
   },
 ];
 

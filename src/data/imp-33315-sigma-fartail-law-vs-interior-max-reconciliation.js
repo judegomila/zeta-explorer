@@ -71,7 +71,7 @@
  *
  * DERIVATION / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. C_C is
  * GUE-conditional per imp-486; changes no bound; imp-3066 untouched; no positivity, no bridge
- * closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-33291-sigma-fartail-two-parameter-lnN-lnlogT0-fit (the (-1/2, +1/2) joint power law)
  * @see imp-3406-sigma-highN-extrapolation (interior MAX N ~ 9.22e5, sigma_max ~ 0.9494)
@@ -235,8 +235,8 @@ export const IMP33315_SIGMA_FARTAIL_LAW_VS_INTERIOR_MAX_RECONCILIATION = {
     'BELOW the crossover N_cross ~ 3.28e9 where the (-1/2, +1/2) small-share tail first applies: the ' +
     'far-tail law and the interior max live in DISJOINT regimes and are complementary halves of the ' +
     'N-shape, not two views of one law. C_C is GUE-conditional per imp-486; changes no bound; ' +
-    'imp-3066 untouched; no positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'imp-3066 untouched; no positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33291 ((-1/2, +1/2) joint power law); imp-3406 (interior MAX N ~ 9.22e5, sigma_max ~ ' +
     '0.9494); imp-3444 (E_coll = E_trunc crossover N ~ 3.280e9); imp-486 (C_C GUE-conditional); ' +
@@ -291,13 +291,13 @@ export const IMP33315_SIGMA_FARTAIL_LAW_VS_INTERIOR_MAX_RECONCILIATION_ASSERTION
     holds: () => Math.abs(sigmaFarTail(1e12) - sigmaFull(1e12)) < 1e-3,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp33315-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: no QED, PT stays SOTA',
+    description: 'Derivation/measurement only: no QED, no refereed bound is changed',
     holds: () =>
       IMP33315_SIGMA_FARTAIL_LAW_VS_INTERIOR_MAX_RECONCILIATION.isRigorous === false &&
       /NO QED/.test(IMP33315_SIGMA_FARTAIL_LAW_VS_INTERIOR_MAX_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP33315_SIGMA_FARTAIL_LAW_VS_INTERIOR_MAX_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP33315_SIGMA_FARTAIL_LAW_VS_INTERIOR_MAX_RECONCILIATION.verdict),
   },
 ];
 

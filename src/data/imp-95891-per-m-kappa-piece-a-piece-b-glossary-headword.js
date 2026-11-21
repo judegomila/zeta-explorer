@@ -58,14 +58,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95861 assessment for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-95861-per-m-kappa-certification-requirement-assessment (source: the assessment this glosses)
  * @see imp-95842-q0-wide-modulus-reconstruction (the B24 lever that supplies PIECE B only)
  * @see imp-95822-... (grid-converged Q_0 quadrature to ~1e-11, the PIECE B empirical baseline)
  *
  * Ticket: imp-95891 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The PIECE A / PIECE B / transport-vs-independent headword, baked verbatim (no re-import).
@@ -135,7 +135,7 @@ export const IMP95891_PER_M_KAPPA_PIECES_GLOSSARY_HEADWORD = Object.freeze({
     + 'modulus (INDEPENDENT route, cost grows with the sweep) or once for all m '
     + '(TRANSPORT route, one symbolic Prop-6.3 identity, the leaner and only scalable '
     + 'route). Establishes nothing; instantiates no interval; moves no bound; NO QED. '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'No refereed bound is changed.',
   citation:
     'imp-95861 (the assessment this glosses); imp-95842 (the B24 lever supplying PIECE B '
     + 'only, and the named conditional anchoring at m=22,30,41); imp-95822 (grid-converged '
@@ -163,11 +163,11 @@ export const IMP95891_PER_M_KAPPA_PIECES_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95891-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95891_PER_M_KAPPA_PIECES_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95891_PER_M_KAPPA_PIECES_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95891_PER_M_KAPPA_PIECES_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95891_PER_M_KAPPA_PIECES_GLOSSARY_HEADWORD.verdict) &&
       IMP95891_PER_M_KAPPA_PIECES_GLOSSARY_HEADWORD.glosses === 'imp-95861',
   },
 ];

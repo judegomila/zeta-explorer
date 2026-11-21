@@ -8,8 +8,7 @@
  * reproducing the same qualitative picture: M(x, r) >= 0 everywhere and the
  * near-1 tightness ratio LHS/RHS pinned to the (x -> 0, r -> 1) corner).
  *
- * VERDICT. MEASUREMENT ONLY. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * VERDICT. MEASUREMENT ONLY. Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -104,8 +103,8 @@ export const IMP95390_SUMMARY = {
   bumpCellFraction: 0.107,
   counterexamples: 0,
   verdict:
-    'MEASUREMENT ONLY; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA. Re-plots the imp-95271 171600-cell sweep at coarse ' +
+    'MEASUREMENT ONLY; changes no bound; NO QED; no refereed bound is changed' +
+    '. Re-plots the imp-95271 171600-cell sweep at coarse ' +
     'render-friendly resolution.',
 };
 

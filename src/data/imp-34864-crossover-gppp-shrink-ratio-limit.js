@@ -57,8 +57,7 @@
  * ACCURACY ASSESSMENT ONLY. This derives + measures the third-order curvature-envelope shrink LIMIT of
  * the INHERITED imp-3220/imp-3406 surrogate crossover map; it introduces NO new bound and changes none.
  * The C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is
- * UNTOUCHED; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * UNTOUCHED; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34839-crossover-gpp-shrink-ratio-limit (SECOND-derivative 100x/decade + (100 log 10)/u^2 residual)
  * @see imp-34768-crossover-gppp-global-envelope (g_triple_prime = 8 pi^3 K (2u^2+4u+3)/(T^3 u^5) closed form)
@@ -253,7 +252,7 @@ export const IMP34864_CROSSOVER_GPPP_SHRINK_RATIO_LIMIT = {
     'matches a direct third-derivative recomputation to machine precision. Accuracy assessment only on the ' +
     'INHERITED imp-3220/imp-3406 surrogate map; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34839 (SECOND-derivative 100x/decade + (100 log 10)/u^2 residual, order-up prediction flagged); ' +
     'imp-34768 (g_triple_prime = 8 pi^3 K (2u^2+4u+3)/(T^3 u^5) closed form); imp-34757 (per-band envelope; ' +
@@ -292,13 +291,13 @@ export const IMP34864_CROSSOVER_GPPP_SHRINK_RATIO_LIMIT_ASSERTIONS = [
     holds: () => FACTORED_VS_DIRECT_RELERR < 1e-10,
   },
   {
-    // Honesty gate: accuracy assessment only, no QED, PT stays SOTA.
+    // Honesty gate: accuracy assessment only, no QED, no refereed bound is changed.
     id: 'imp34864-honesty-gate-no-qed',
-    description: 'Accuracy assessment only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Accuracy assessment only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34864_CROSSOVER_GPPP_SHRINK_RATIO_LIMIT.isRigorous === false &&
       /NO QED/.test(IMP34864_CROSSOVER_GPPP_SHRINK_RATIO_LIMIT.verdict) &&
-      /remains SOTA/.test(IMP34864_CROSSOVER_GPPP_SHRINK_RATIO_LIMIT.verdict),
+      /refereed bound is changed/i.test(IMP34864_CROSSOVER_GPPP_SHRINK_RATIO_LIMIT.verdict),
   },
 ];
 

@@ -61,7 +61,7 @@
  * certificate, and does NOT discharge the F(m) = 0 residual-at-root artifact -- it only measures which of
  * two surrogates is tighter and by how much. imp-34714a and imp-34687a REMAIN OPEN; C_C = 1/8
  * (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35969-krawczyk-residual-directed-rounding-width (the nextafter SURROGATE width this compares against the layer)
  * @see imp-34687-crossover-interval-arithmetic-scope (scopes the directed-rounding layer; sub-gap imp-34687a unimplemented)
@@ -269,7 +269,7 @@ export const IMP36017_KRAWCZYK_RESIDUAL_SURROGATE_VS_LAYER_DISCREPANCY = {
     'F(m) = 0 artifact is not discharged, over-estimation is NECESSARY but not SUFFICIENT. Reuses the ' +
     'imp-35969/imp-34774 machinery (identical K_AMPL, g, N_cross, axis, nextUp/nextDown); C_C = 1/8 ' +
     '(imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35969 (bit-level nextafter SURROGATE residual-node width; "NOT a machine certificate"); imp-34687 ' +
     '(directed-rounding layer scope; sub-gap imp-34687a unimplemented); imp-35885 (NODE B: residual F(m) a ' +
@@ -300,15 +300,15 @@ export const IMP36017_KRAWCZYK_RESIDUAL_SURROGATE_VS_LAYER_DISCREPANCY_ASSERTION
     holds: () => RATIO_FLAT === true && RATIO_MONOTONE_UP === true && MAX_RATIO <= 2 + 1e-9,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gaps open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gaps open, no interval, no QED, no refereed bound is changed.
     id: 'imp36017-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a/imp-34687a open, NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a/imp-34687a open, NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP36017_KRAWCZYK_RESIDUAL_SURROGATE_VS_LAYER_DISCREPANCY.isRigorous === false &&
       /imp-34714a AND imp-34687a REMAIN OPEN/.test(IMP36017_KRAWCZYK_RESIDUAL_SURROGATE_VS_LAYER_DISCREPANCY.subGap) &&
       /NECESSARY but not SUFFICIENT/.test(IMP36017_KRAWCZYK_RESIDUAL_SURROGATE_VS_LAYER_DISCREPANCY.subGap) &&
       /NO QED/.test(IMP36017_KRAWCZYK_RESIDUAL_SURROGATE_VS_LAYER_DISCREPANCY.verdict) &&
-      /remains SOTA/.test(IMP36017_KRAWCZYK_RESIDUAL_SURROGATE_VS_LAYER_DISCREPANCY.verdict),
+      /refereed bound is changed/i.test(IMP36017_KRAWCZYK_RESIDUAL_SURROGATE_VS_LAYER_DISCREPANCY.verdict),
   },
 ];
 

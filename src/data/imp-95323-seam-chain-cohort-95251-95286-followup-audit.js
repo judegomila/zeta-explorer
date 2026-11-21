@@ -34,8 +34,7 @@
  * self-executing assertions still run on every build regardless of the
  * page gap. AUDIT-ONLY; no viz page fabricated here (a dedicated
  * imp-95285 viz remains a separate, correctly-scoped follow-up ticket).
- * Changes no bound; no operator positivity; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Changes no bound; no operator positivity; NO QED; no refereed bound is changed.
  */
 
 const COHORT_CURRENT = [
@@ -106,7 +105,7 @@ export const SEAM_CHAIN_COHORT_95251_95286_FOLLOWUP_AUDIT = {
     + 'viz page and a visualizations-index.js entry; imp-95285 remains genuinely orphaned (no page, no glossary '
     + 'headword, no index entry) and is not targeted by any other open or completed ticket. No new surfacing added '
     + 'here -- AUDIT-ONLY, per the imp-95323 scope. Changes no bound; no operator positivity; NO QED; '
-    + 'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'no refereed bound is changed.',
 };
 
 const ASSERTIONS = [
@@ -145,10 +144,10 @@ const ASSERTIONS = [
   },
   {
     id: 'imp-95323-audit-only-honest',
-    description: 'explicitly a follow-up AUDIT-ONLY pass and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly a follow-up AUDIT-ONLY pass and no refereed bound is changed',
     holds: () => /FOLLOW-UP AUDIT/.test(SEAM_CHAIN_COHORT_95251_95286_FOLLOWUP_AUDIT.honest)
       && /AUDIT-ONLY/.test(SEAM_CHAIN_COHORT_95251_95286_FOLLOWUP_AUDIT.honest)
-      && /Lambda<=0.2 remains SOTA/.test(SEAM_CHAIN_COHORT_95251_95286_FOLLOWUP_AUDIT.honest),
+      && /refereed bound is changed/i.test(SEAM_CHAIN_COHORT_95251_95286_FOLLOWUP_AUDIT.honest),
   },
 ];
 

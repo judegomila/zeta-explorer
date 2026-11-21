@@ -46,16 +46,16 @@
  * cos/quadrature), extend the evaluator, or run at T_PT; it ignores the SEPARATE growing
  * costs a real high-x run carries (node count, Phi-series terms, argument reduction), all
  * of which only worsen the picture. Measurement only; extends no evaluator; certifies no
- * value at any height; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * value at any height; changes no bound; NO QED. No refereed bound is changed.
  *
  * @see imp-35811-exact-debruijn-arbitrary-precision-digit-table (the D*(x) table; quad reach was OOM only)
  * @see imp-35850-debruijn-digit-guard-offset-decomposition (the ~+2 guard offset, confirmed x-flat)
  * @see imp-35781-exact-debruijn-empirical-x-ceiling-scope (the double ceiling x in [94,106]; measured K)
- * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; Lambda <= 0.2 SOTA)
+ * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; no refereed bound is changed)
  */
 
 // -- Anchor + operative constants (import-light; matching imp-35811) --
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const PI = Math.PI;
 const DIGITS_PER_X = PI / (8 * Math.LN10); // ~0.170547 decimal digits per unit x (imp-35759)
 const K_ACC = 6.214e-2; // O(1) integrand accumulator scale sum|w_i| (imp-35781 measured)
@@ -239,10 +239,10 @@ export const IMP35851_QUAD_PRECISION_X_CEILING_MEASURED = {
     '~11-unit (~5.5%) gap is exactly the ~+2 guard offset the OOM dropped, since (33.9 - 2)/(pi/(8 ln10)) ~ 187.0 ' +
     'reproduces the measurement. Quad ~doubles the double ceiling (x ~ 104 -> ~189) but lands at gamma ~ 94, not ' +
     '~100. It extends no evaluator, evaluates no true H_0 at quad precision, certifies no value at any height, and ' +
-    'changes no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'changes no bound. NO QED. No refereed bound is changed.',
   citation:
     'imp-35811 (D*(x) table; quad reach was OOM = 33.9/slope only); imp-35850 (guard offset confirmed x-flat ~+2); ' +
-    'imp-35781 (double ceiling x in [94,106]; measured K); Platt-Trudgian 2021 (T_PT = 3e12; Lambda <= 0.2 SOTA).',
+    'imp-35781 (double ceiling x in [94,106]; measured K); Platt-Trudgian 2021 (T_PT = 3e12; no refereed bound is changed).',
 };
 
 export const IMP35851_QUAD_PRECISION_X_CEILING_MEASURED_ASSERTIONS = [
@@ -285,15 +285,15 @@ export const IMP35851_QUAD_PRECISION_X_CEILING_MEASURED_ASSERTIONS = [
       Math.abs(X_QUAD_GUARD_PRED - X_QUAD_MEASURED) < 3, // guard-corrected prediction reproduces measurement
   },
   {
-    // Honesty gate: measurement only; no evaluator extension; no high-precision H_0; NO QED; PT SOTA at Lambda <= 0.2.
+    // Honesty gate: measurement only; no evaluator extension; no high-precision H_0; NO QED; no refereed bound is changed.
     id: 'imp35851-honesty-gate-no-qed',
-    description: 'Measurement only; extends no evaluator; certifies no value; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Measurement only; extends no evaluator; certifies no value; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35851_QUAD_PRECISION_X_CEILING_MEASURED.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /extends no evaluator/.test(IMP35851_QUAD_PRECISION_X_CEILING_MEASURED.verdict) &&
       /NO QED/.test(IMP35851_QUAD_PRECISION_X_CEILING_MEASURED.verdict) &&
-      /remains SOTA/.test(IMP35851_QUAD_PRECISION_X_CEILING_MEASURED.verdict),
+      /refereed bound is changed/i.test(IMP35851_QUAD_PRECISION_X_CEILING_MEASURED.verdict),
   },
 ];
 

@@ -60,7 +60,7 @@
  * interval enclosure (imp-34845 showed the honest interval is too narrow to matter here). The C_C = (1/8)
  * sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34903-iters-to-floor-residual-sign-wide-band (parent: -1 sign band-wide on [1e6,1e15])
  * @see imp-34887-iters-to-floor-residual-sign (-1 sign on [1e9,1e12]; fixed-offset corollary refuted)
@@ -293,7 +293,7 @@ export const IMP34926_ITERS_TO_FLOOR_CEIL_BOUNDARY_GEOMETRY = {
     'certifying ceil(x) <= m_exact). IEEE-754 double precision; the component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and ' +
     'the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34903 (parent: -1 residual sign band-wide on [1e6,1e15]); imp-34887 (-1 sign on [1e9,1e12]; ' +
     'fixed-offset corollary refuted); imp-34862 (two-rate law fails; residual lives in the terminal ceil); ' +
@@ -349,13 +349,13 @@ export const IMP34926_ITERS_TO_FLOOR_CEIL_BOUNDARY_GEOMETRY_ASSERTIONS = [
       BAND_WIDE.maxFracMinus < 1,
   },
   {
-    // Honesty gate: assessment of a surrogate count, not rigorous, no QED, PT stays SOTA, sub-gap named.
+    // Honesty gate: assessment of a surrogate count, not rigorous, no QED, no refereed bound is changed, sub-gap named.
     id: 'imp34926-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, no QED, Platt-Trudgian stays SOTA, sub-gap named',
+    description: 'Assessment only: isRigorous false, no QED, no refereed bound is changed, sub-gap named',
     holds: () =>
       IMP34926_ITERS_TO_FLOOR_CEIL_BOUNDARY_GEOMETRY.isRigorous === false &&
       /NO QED/.test(IMP34926_ITERS_TO_FLOOR_CEIL_BOUNDARY_GEOMETRY.verdict) &&
-      /remains SOTA/.test(IMP34926_ITERS_TO_FLOOR_CEIL_BOUNDARY_GEOMETRY.verdict) &&
+      /refereed bound is changed/i.test(IMP34926_ITERS_TO_FLOOR_CEIL_BOUNDARY_GEOMETRY.verdict) &&
       /imp-34926a/.test(IMP34926_ITERS_TO_FLOOR_CEIL_BOUNDARY_GEOMETRY.summary.residual_sub_gap_imp_34926a),
   },
 ];

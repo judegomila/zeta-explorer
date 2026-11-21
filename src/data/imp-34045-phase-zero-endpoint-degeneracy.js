@@ -52,8 +52,7 @@
  * MEASUREMENT ONLY, pure phase-condition geometry on the inherited imp-33924 closed form for the model cusp
  * rho(x) = |x|^{-alpha}. It establishes NO operator positivity, does NOT re-derive the m_prime -> C_ren map
  * off-axis/off-exponent, and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz STAYS OPEN. C_mb
- * GUE-conditional untouched; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * GUE-conditional untouched; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed.
  *
  * @see imp-33970-joint-phase-zero-uniqueness (theta = pi/2 unique on (0,pi) for every alpha in (0,1))
  * @see imp-33924-joint-cusp-angle-onset-robustness-map (joint closed form A(alpha,theta), winding -(1+alpha))
@@ -211,8 +210,8 @@ export const IMP34045_PHASE_ZERO_ENDPOINT_DEGENERACY = {
     '(negative real axis) and Re > 0 at pi/2 - 2 pi/p (positive real axis). Pure phase-condition geometry on the ' +
     'inherited imp-33924 closed form; establishes NO operator positivity; does NOT re-derive the ' +
     'm_prime -> C_ren map off-axis/off-exponent and does NOT discharge H4 (imp-33766). C_mb GUE-conditional ' +
-    'untouched; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'untouched; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP34045_PHASE_ZERO_ENDPOINT_DEGENERACY_ASSERTIONS = [
@@ -247,15 +246,15 @@ export const IMP34045_PHASE_ZERO_ENDPOINT_DEGENERACY_ASSERTIONS = [
       Math.abs(IMP34045_PHASE_ZERO_ENDPOINT_DEGENERACY.endpointApproachSlope - -Math.PI / 4) < 1e-4,
   },
   {
-    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34045-honesty-gate-no-qed',
-    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34045_PHASE_ZERO_ENDPOINT_DEGENERACY.isRigorous === false &&
       IMP34045_PHASE_ZERO_ENDPOINT_DEGENERACY.dischargesH4 === false &&
       /NO QED/.test(IMP34045_PHASE_ZERO_ENDPOINT_DEGENERACY.verdict) &&
       /STAYS OPEN/.test(IMP34045_PHASE_ZERO_ENDPOINT_DEGENERACY.verdict) &&
-      /remains the rigorous SOTA/.test(IMP34045_PHASE_ZERO_ENDPOINT_DEGENERACY.verdict) &&
+      /refereed bound is changed/i.test(IMP34045_PHASE_ZERO_ENDPOINT_DEGENERACY.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP34045_PHASE_ZERO_ENDPOINT_DEGENERACY.verdict),
   },
 ];

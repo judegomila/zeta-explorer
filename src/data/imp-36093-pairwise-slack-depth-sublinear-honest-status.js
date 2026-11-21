@@ -16,7 +16,7 @@
  *   sub-linear and that imp-35970's "linearly in d" prose is refined accordingly.
  *
  *   Ticket: imp-36093 (content, medium). Note only; ports nothing; changes no
- *   bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   bound; no refereed bound is changed; NO QED.
  *
  * @see imp-36018-w1-pairwise-slack-depth-scaling-exponent.js (source: the depth-scaling OLS fit this note restates)
  * @see imp-35970-w1-pairwise-apriori-depth-bound-slack.js (the a-priori-vs-measured slack table; asserted "linearly in d")
@@ -84,7 +84,7 @@ export const IMP36093_PAIRWISE_SLACK_DEPTH_SUBLINEAR_HONEST_STATUS = Object.free
     changesAnyBound: false,
     portsAnyRoute: false,
     smallSampleCaveat: 'only seven data points (two sharing depth 3817); exponent sensitive to the single caterpillarR outlier',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -96,7 +96,7 @@ export const IMP36093_PAIRWISE_SLACK_DEPTH_SUBLINEAR_HONEST_STATUS = Object.free
     '), below the strict linear value 1 that imp-35970 assumed; the a-priori depth-proportional forward-error ' +
     'bound therefore over-predicts the imp-35893 measured error with a depth-DEPENDENT margin rather than a ' +
     'fixed-ratio one, though the bound stays loose by 4-7 orders on every shape regardless. Note only; changes ' +
-    'no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no bound; NO QED; no refereed bound is changed.',
 });
 
 export const IMP36093_PAIRWISE_SLACK_DEPTH_SUBLINEAR_HONEST_STATUS_ASSERTIONS = [
@@ -134,7 +134,7 @@ export const IMP36093_PAIRWISE_SLACK_DEPTH_SUBLINEAR_HONEST_STATUS_ASSERTIONS = 
       IMP36093_PAIRWISE_SLACK_DEPTH_SUBLINEAR_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP36093_PAIRWISE_SLACK_DEPTH_SUBLINEAR_HONEST_STATUS.honestCaveat.isReductionBelowRH === false &&
       IMP36093_PAIRWISE_SLACK_DEPTH_SUBLINEAR_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36093_PAIRWISE_SLACK_DEPTH_SUBLINEAR_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36093_PAIRWISE_SLACK_DEPTH_SUBLINEAR_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36093-verdict-sub-linear-no-qed',

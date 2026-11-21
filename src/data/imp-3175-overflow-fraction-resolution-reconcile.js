@@ -9,7 +9,7 @@
  *   or moves elsewhere).
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   WHAT IS RECOMPUTED
  *   ------------------
@@ -272,7 +272,7 @@ export const IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE = Object.freeze({
       'A nonzero overflow fraction is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -316,8 +316,8 @@ export const IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE_ASSERTIONS = [
   {
     id: 'imp3175-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC reconciliation, overflow-fraction-only (not the absolute deficit ' +
-         'magnitude), necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 stays ' +
-         'SOTA. If any flip the module is over-claiming.',
+         'magnitude), necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed' +
+         '. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE.honestCaveat;
       return (
@@ -325,7 +325,7 @@ export const IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

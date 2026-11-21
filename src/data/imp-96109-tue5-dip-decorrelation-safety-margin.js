@@ -65,8 +65,8 @@
  * f_crit = 0.2703 (n_eff < 78.66), equivalently a POSITIVE lag-1 correlation rho >= 0.5744 between
  * adjacent tiled boxes -- about 285x the O(1/L) = 0.0020 boundary-sharing estimate, and of the opposite
  * sign to the (anti-correlated) GUE adjacent-interval physics. The two noise heights have negative
- * rho_crit and can never be promoted. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; the zero-side route stays PCC/GRH-gated.
+ * rho_crit and can never be promoted. Changes no bound; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96089-mean-anchor-window-count-significance-verdict (the verdict whose robustness this bounds)
  * @see imp-96071-mean-anchor-below-envelope-correction-vs-noise-floor (the chi-square crossover model)
@@ -193,7 +193,7 @@ export const IMP96109_T15E5_DIP_DECORRELATION_SAFETY_MARGIN = {
   caveat:
     'rho_boundary ~ 1/L is an order-of-magnitude estimate of the boundary-sharing correlation, not a measured GUE two-interval covariance for the sd(C - E) statistic. The conclusion does not depend on the exact value: the ~285x gap to the +0.57 flip threshold, plus the wrong-sign observation (real adjacent GUE interval fluctuations ANTI-correlate, which raises n_eff), leaves the significant verdict robust to any plausible O(1) correction. This bounds the quasi-independence risk; it does not raise the ~1.9-sigma confidence. Measurement/assessment only.',
   verdict:
-    'The imp-96089 T = 1.5e5 significant-dip verdict is ROBUST to the quasi-independence assumption: flipping it to noise needs the de-correlation factor to fall below f_crit = 0.2703 (n_eff < 78.66), equivalently a POSITIVE lag-1 correlation rho >= 0.5744 between adjacent tiled boxes -- about 285x the O(1/L) = 0.0020 boundary-sharing estimate and of the opposite sign to the anti-correlated GUE adjacent-interval physics. The two noise heights (T = 1e4, T = 3e5) have NEGATIVE rho_crit and can never be promoted; de-correlation only ever pushes toward noise. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The imp-96089 T = 1.5e5 significant-dip verdict is ROBUST to the quasi-independence assumption: flipping it to noise needs the de-correlation factor to fall below f_crit = 0.2703 (n_eff < 78.66), equivalently a POSITIVE lag-1 correlation rho >= 0.5744 between adjacent tiled boxes -- about 285x the O(1/L) = 0.0020 boundary-sharing estimate and of the opposite sign to the anti-correlated GUE adjacent-interval physics. The two noise heights (T = 1e4, T = 3e5) have NEGATIVE rho_crit and can never be promoted; de-correlation only ever pushes toward noise. Changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -228,8 +228,8 @@ export const IMP96109_T15E5_DIP_DECORRELATION_SAFETY_MARGIN = {
   // honesty gates
   if (!/NO QED/.test(IMP96109_T15E5_DIP_DECORRELATION_SAFETY_MARGIN.verdict))
     throw new Error('imp-96109: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96109_T15E5_DIP_DECORRELATION_SAFETY_MARGIN.verdict))
-    throw new Error('imp-96109: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96109_T15E5_DIP_DECORRELATION_SAFETY_MARGIN.verdict))
+    throw new Error('imp-96109: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96109_T15E5_DIP_DECORRELATION_SAFETY_MARGIN;

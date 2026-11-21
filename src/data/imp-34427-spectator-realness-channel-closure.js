@@ -127,8 +127,8 @@
  *   - eps'_true as a NUMBER therefore remains PARTIAL overall — but its
  *     remaining open channels are finite-computation/real-variable residuals,
  *     none of them realness- or RH-shaped.
- *   NO new Lambda bound. Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous
- *   SOTA. NO QED.
+ *   NO new Lambda bound. No refereed bound is changed
+ *   . NO QED.
  *
  * Independently refereed (fresh-context referee over the 7-claim skeleton;
  * approach surfaces: t<0 entirety, paired-sum convergence/boundedness,
@@ -213,8 +213,8 @@ export const SPECTATOR_REALNESS_CLOSURE = {
   honest:
     'Channel closure only — closes the realness/spectator-conjugate-pair channel of imp-3933-sub-eps-certificate '
     + 'RH-free; the certificate overall STAYS OPEN via the displacement, discrete-sum, and edge-check residuals. '
-    + 'NOT a Lambda bound. W_1-channel C_Lip verdicts (RH-HARD-CONFIRMED) untouched. Platt-Trudgian Lambda <= 0.2 '
-    + 'REMAINS the rigorous SOTA. NO QED.',
+    + 'NOT a Lambda bound. W_1-channel C_Lip verdicts (RH-HARD-CONFIRMED) untouched. No refereed bound is changed'
+    + '. NO QED.',
 };
 
 // ── Build-time assertions ─────────────────────────────────────────────────────
@@ -360,7 +360,7 @@ export const SPECTATOR_REALNESS_ASSERTIONS = [
       && SPECTATOR_REALNESS_CLOSURE.openResiduals.length === 3
       && SPECTATOR_REALNESS_CLOSURE.openResiduals.every((r) => r.status === 'open')
       && SPECTATOR_REALNESS_CLOSURE.rigorousBeat === false
-      && /Lambda <= 0.2\s+REMAINS the rigorous SOTA/.test(SPECTATOR_REALNESS_CLOSURE.honest.replace(/\s+/g, ' '))
+      && /refereed bound is changed/i.test(SPECTATOR_REALNESS_CLOSURE.honest.replace(/\s+/g, ' '))
       && /NO QED/.test(SPECTATOR_REALNESS_CLOSURE.honest)
       && SPECTATOR_REALNESS_CLOSURE.classification.rhConditional === 'NOTHING in this channel'
       && SPECTATOR_REALNESS_CLOSURE.classification.montgomeryPccHard === 'NOTHING in this channel',

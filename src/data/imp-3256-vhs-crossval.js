@@ -64,7 +64,7 @@
  *   HONEST SCOPE (mandatory)
  *   ------------------------
  *   Numerical cross-validation only, RH-EQUIVALENT; imp-3066 untouched, no reduction,
- *   no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA. This resolves the tabulation
+ *   no QED. No refereed bound is changed. This resolves the tabulation
  *   sub-gap (the missing per-N table) and reclassifies the "independent match" as a
  *   same-object precision-rounding identity, NOT a second independent measurement.
  *
@@ -132,7 +132,7 @@ export const IMP3256_VHS_CROSSVAL = Object.freeze({
     isReductionBelowRH: false,
     scope: 'numerical cross-validation, RH-EQUIVALENT',
     residualOpen: 'operator-positivity K_a >= 0 (imp-3066, untouched)',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     resolvesSubGap: 'the missing per-N cross-validation table behind the verdict ~0.08% match claim',
   }),
 
@@ -216,7 +216,7 @@ export const IMP3256_VHS_CROSSVAL_ASSERTIONS = [
     why:
       'MANDATORY HONESTY GATE: this is numerical cross-validation only, RH-EQUIVALENT, not a ' +
       'proof or reduction; the operator-positivity residual (imp-3066) stays open and ' +
-      'Platt-Trudgian Lambda <= 0.2 stays SOTA. If these flags flip the module over-claims.',
+      'no refereed bound is changed. If these flags flip the module over-claims.',
     holds: () => {
       const h = IMP3256_VHS_CROSSVAL.honestScope;
       const c = IMP3256_VHS_CROSSVAL.verdict_conclusion;

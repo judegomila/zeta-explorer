@@ -59,7 +59,7 @@
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; far-tail exponent 1/2 per imp-3463; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (per-decade ladder to 0.4310, extended here)
  * @see imp-35041-sigma-deep-tail-threshold-extension (companion: sigma THRESHOLD crossings, sqrt(1/N) spacing)
@@ -202,8 +202,8 @@ export const IMP35036_SIGMA_DECAY_EXPONENT_LADDER_EXTENSION = {
     'the empirical-vs-analytic exponent gap never closes at any finite N. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; far-tail exponent 1/2 per imp-3463; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33582 (per-decade ladder to 0.4310 on [1e11,1e12], extended here); imp-35041 (companion ' +
     'threshold-crossing extension); imp-3463 (far-tail leading form, exponent -> 1/2 from below); ' +
@@ -255,14 +255,14 @@ export const IMP35036_SIGMA_DECAY_EXPONENT_LADDER_EXTENSION_ASSERTIONS = [
       olsExponentDecade(K_REACH_0_499) < 0.4991,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35036-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP35036_SIGMA_DECAY_EXPONENT_LADDER_EXTENSION.isRigorous === false &&
       IMP35036_SIGMA_DECAY_EXPONENT_LADDER_EXTENSION.farTailExponent === 0.5 &&
       /NO QED/.test(IMP35036_SIGMA_DECAY_EXPONENT_LADDER_EXTENSION.verdict) &&
-      /remains SOTA/.test(IMP35036_SIGMA_DECAY_EXPONENT_LADDER_EXTENSION.verdict),
+      /refereed bound is changed/i.test(IMP35036_SIGMA_DECAY_EXPONENT_LADDER_EXTENSION.verdict),
   },
 ];
 

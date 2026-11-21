@@ -40,8 +40,7 @@
  *
  *   MEASUREMENT / RECONCILIATION ONLY. No landmark is recomputed and no bound is
  *   changed. C_mb remains GUE-conditional (imp-486); C_C 1/8 ansatz and imp-3066
- *   K_a >= 0 UNTOUCHED. Establishes no operator positivity; NO QED; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 UNTOUCHED. Establishes no operator positivity; NO QED; no refereed bound is changed.
  *
  * @see imp-33723 (closed-form Banach crossover N_cross ~ 3.280294e9)
  * @see imp-3444 (bisection E_coll=E_trunc crossover ~3.280e9)
@@ -144,7 +143,7 @@ export const IMP34904_LANDMARK_3P3E9_RECONCILIATION_TABLE = {
     'cause families (root-finding residual, Gronwall E_flow term, definitional log-factor running) are ' +
     'inherited attributions from imp-33723/imp-33848/imp-33744, not new derivations. C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; C_C 1/8 ansatz and imp-3066 K_a >= 0 untouched; establishes no operator ' +
-    'positivity; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; changes no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-33723 (closed-form Banach crossover N_cross ~3.280294e9); imp-3444 (bisection E_coll=E_trunc ' +
     'crossover ~3.280e9); imp-33582/imp-33708 (sigma=1/2 halving landmark ~3.267e9); imp-33721 ' +
@@ -201,7 +200,7 @@ export const IMP34904_LANDMARK_3P3E9_RECONCILIATION_TABLE_ASSERTIONS = [
   {
     // Honesty gate: measurement/reconciliation only, no bound changed, C_mb GUE-conditional, no QED.
     id: 'imp34904-measurement-only-no-qed',
-    description: 'reconciliation only; changes no bound; C_mb GUE-conditional (imp-486); NO QED; PT SOTA',
+    description: 'reconciliation only; changes no bound; C_mb GUE-conditional (imp-486); NO QED; no refereed bound is changed',
     holds: () => true,
   },
 ];

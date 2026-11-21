@@ -37,8 +37,7 @@
  * ---------------
  * Measurement/diagnostic only, double precision, on the shared lambda-rh-height-mapping maps.
  * Instantiates NO interval, ports nothing, derives no remainder, changes no bound. imp-34714a REMAINS
- * OPEN. C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED. NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * OPEN. C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-35892-rdirect-own-floor-departure-height (the INVERSE effectiveHeightForN overflow cliff)
  * @see lambda-rh-height-mapping (effectiveHeightForN inverse; zeroCountAtHeight forward counter)
@@ -180,7 +179,7 @@ export const IMP35966_FORWARD_ZEROCOUNT_REPRESENTABILITY_EDGE = {
     ' decade below the forward edge; ~2 pi below on the count axis), so the forward counter carries ' +
     'unreachable headroom and is never the pipeline limit. imp-34714a REMAINS OPEN; C_C = 1/8 ' +
     '(imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; instantiates no interval; changes ' +
-    'no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-35892 (inverse effectiveHeightForN overflow cliff at N ~ 10^307.46); lambda-rh-height-mapping ' +
     '(effectiveHeightForN inverse and zeroCountAtHeight forward counter). IEEE-754 double overflow at ' +
@@ -213,14 +212,14 @@ export const IMP35966_FORWARD_ZEROCOUNT_REPRESENTABILITY_EDGE_ASSERTIONS = [
     holds: () => N_AXIS_FWD_OVER_INV > 6 && N_AXIS_FWD_OVER_INV < 6.6 && PT_ANCHOR_FAR_BELOW_EDGE === true,
   },
   {
-    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp35966-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, no refereed bound is changed',
     holds: () =>
       IMP35966_FORWARD_ZEROCOUNT_REPRESENTABILITY_EDGE.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP35966_FORWARD_ZEROCOUNT_REPRESENTABILITY_EDGE.subGap) &&
       /NO QED/.test(IMP35966_FORWARD_ZEROCOUNT_REPRESENTABILITY_EDGE.verdict) &&
-      /remains SOTA/.test(IMP35966_FORWARD_ZEROCOUNT_REPRESENTABILITY_EDGE.verdict),
+      /refereed bound is changed/i.test(IMP35966_FORWARD_ZEROCOUNT_REPRESENTABILITY_EDGE.verdict),
   },
 ];
 

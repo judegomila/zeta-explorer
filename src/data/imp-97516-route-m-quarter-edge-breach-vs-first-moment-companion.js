@@ -91,7 +91,7 @@
  * at the explicit witness b* does NOT damage the Route-M lower-companion program: the only cost is that
  * the false b/4 ceiling can no longer serve as a shortcut for the imp-97096 explicit-remainder residual,
  * which never needed it. kappa_arith unchanged; cotangent first moment (imp-97097) stays the open leaf;
- * no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED. Referee-worthy.
+ * no bound on Lambda moves; no refereed bound is changed; RH open; NO QED. Referee-worthy.
  *
  * @see imp-97496-route-m-quarter-ceiling-explicit-crossing-window.js (the explicit b/4-edge witness b*)
  * @see imp-97290-route-m-arith-quarter-ceiling-semiprime-proof.js (E1(b) = L1(b) - phi(b) b((1/2)log b-1/4))
@@ -161,7 +161,7 @@ export const IMP97516_VERDICT = Object.freeze({
     'explicit witness b* does NOT damage the Route-M lower-companion program; the only cost is that the ' +
     'now-false b/4 ceiling can no longer be borrowed as a shortcut for the imp-97096 explicit-remainder ' +
     'residual, which never required it. kappa_arith unchanged; cotangent first moment (imp-97097) open; ' +
-    'no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED. Referee-worthy.',
+    'no bound on Lambda moves; no refereed bound is changed; RH open; NO QED. Referee-worthy.',
 });
 
 export const IMP97516_SUBGAP = Object.freeze({
@@ -179,7 +179,7 @@ export const IMP97516_SUBGAP = Object.freeze({
 });
 
 export const IMP97516_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. The imp-97496 b/4 lower-edge breach T(b*) < -1/4 ' +
+  'RH open; no refereed bound is changed; NO QED. The imp-97496 b/4 lower-edge breach T(b*) < -1/4 ' +
   '(|E1(b*)| > b*/4) does NOT damage the Route-M first-moment lower-companion program: E1(b) is the ' +
   'sub-leading remainder of L1(b), entering F_arith at O(b log b) = o(phi(b) b), while F_arith = ' +
   'Theta(phi(b) b) is fixed by the E1-independent leading asymptotic of L1 and F enters the ' +
@@ -254,7 +254,7 @@ const IMP97516_ASSERTIONS = [
       IMP97516_VERDICT.qed === false &&
       /insulated/.test(IMP97516_SUBGAP.id) &&
       /NO QED/.test(IMP97516_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97516_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97516_HONEST_BANNER) &&
       /RH open/.test(IMP97516_HONEST_BANNER),
     why: 'derivation leaf: the b/4-edge breach is insulated from the first-moment companion; no bound moved, no QED.',
   },

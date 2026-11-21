@@ -58,8 +58,7 @@
  *     reach stays 2a<=0.96.
  *
  *   STATUS: a grouping/index note over four already-completed tickets, not a new derivation. No bound
- *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 SOTA.
+ *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-96749-krein-uniform-n-positivity-margin.js (raises the uniform-N positivity question)
  * @see imp-97100-krein-rayleigh-tail-interval-majorant-assessment.js (assesses majorant-conversion routes)
@@ -67,7 +66,7 @@
  * @see imp-97121-krein-uniform-n-certificate-scoping.js (scopes the missing uniform-N certificate)
  *
  * Ticket: imp-97154 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098
@@ -140,8 +139,8 @@ export const IMP97154_KREIN_UNIFORM_N_RITZ_INSUFFICIENCY_COHORT_INDEX = Object.f
     'established past the fixed-N reach; interval-rigorous certified reach stays EXACTLY 2a<=0.96, ' +
     'unchanged by this whole cohort. Future work on this thread should not re-cite a Ritz or Rayleigh ' +
     'estimate as a certified lower bound, and should treat IMP96749_UNIFORM_N_GAP_UNSETTLED as still ' +
-    'open. Establishes nothing new; moves no bound; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'open. Establishes nothing new; moves no bound; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96749 (uniform-N positivity question); imp-97100 (majorant-conversion route assessment); ' +
     'imp-97120 (T-only Ritz-eta convergence rate); imp-97121 (uniform-N certificate scoping).',
@@ -179,11 +178,11 @@ export const IMP97154_KREIN_UNIFORM_N_RITZ_INSUFFICIENCY_COHORT_INDEX_ASSERTIONS
   },
   {
     id: 'imp97154-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97154_KREIN_UNIFORM_N_RITZ_INSUFFICIENCY_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97154_KREIN_UNIFORM_N_RITZ_INSUFFICIENCY_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97154_KREIN_UNIFORM_N_RITZ_INSUFFICIENCY_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97154_KREIN_UNIFORM_N_RITZ_INSUFFICIENCY_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP97154_KREIN_UNIFORM_N_RITZ_INSUFFICIENCY_COHORT_INDEX.verdict),
   },
 ];

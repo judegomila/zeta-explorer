@@ -78,7 +78,7 @@
  * This upgrades the imp-35299 numerator-tail measurement to a derivation but does NOT certify a uniform
  * modulus, does NOT discharge O3 or G6a, establishes no operator positivity, changes no bound. imp-3066
  * off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35265-eps52-cancellation-exact-identity (the companion odd-p |F_3| branch, derived exactly)
  * @see imp-35299-k72-two-source-decomposition (measured the |F_2| numerator tail -6/7 on the grid; derived here)
@@ -265,8 +265,8 @@ export const IMP35394_F2_NUMERATOR_TAIL_EXACT_IDENTITY = {
     '-0.514466 -- matching the imp-35299 grid-measured numerator contribution exactly. This upgrades the ' +
     'imp-35299 numerator-tail measurement to a derivation but does NOT certify a uniform modulus, does NOT ' +
     'discharge O3 or G6a, establishes no operator positivity, changes no bound. imp-3066 off-diagonal ' +
-    'endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP35394_F2_NUMERATOR_TAIL_ASSERTIONS = [
@@ -310,16 +310,16 @@ export const IMP35394_F2_NUMERATOR_TAIL_ASSERTIONS = [
       Math.abs(BEST.contribNum - -0.5144664664) < 5e-4,
   },
   {
-    // Honesty gate: derivation only; does NOT discharge O3/G6a, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: derivation only; does NOT discharge O3/G6a, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35394-honesty-gate-no-qed',
     description:
-      'Derivation only: exact identity pinned but O3/G6a NOT discharged, no QED, PT SOTA, imp-3066 untouched',
+      'Derivation only: exact identity pinned but O3/G6a NOT discharged, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35394_F2_NUMERATOR_TAIL_EXACT_IDENTITY.isRigorous === false &&
       IMP35394_F2_NUMERATOR_TAIL_EXACT_IDENTITY.dischargesO3orG6a === false &&
       /NO QED/.test(IMP35394_F2_NUMERATOR_TAIL_EXACT_IDENTITY.verdict) &&
       /STAYS OPEN/.test(IMP35394_F2_NUMERATOR_TAIL_EXACT_IDENTITY.verdict) &&
-      /rigorous SOTA/.test(IMP35394_F2_NUMERATOR_TAIL_EXACT_IDENTITY.verdict) &&
+      /refereed bound is changed/i.test(IMP35394_F2_NUMERATOR_TAIL_EXACT_IDENTITY.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35394_F2_NUMERATOR_TAIL_EXACT_IDENTITY.verdict,
       ),

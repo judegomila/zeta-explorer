@@ -50,7 +50,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; changes no bound;
  * E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED;
  * E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; imp-486 UNTOUCHED;
- * no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35402-eflow-fartail-ladder-literal-reconstruction-check (checked additivity on the original four rungs)
  * @see imp-35378-eflow-fartail-inverse-swap-ladder-1e20-1e24 (the verbatim finite difference reproduced here)
@@ -185,7 +185,7 @@ export const IMP35434_EFLOW_FARTAIL_ADDITIVITY_DEEP_RUNGS = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; E_flow > 0 strictness ' +
     '(imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent ' +
     '1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35402 (additivity checked on the original four rungs); imp-35378 (verbatim finite ' +
     'difference reproduced here); imp-35370/imp-35390 (the crossover log10 N = 44.7593); ' +
@@ -227,13 +227,13 @@ export const IMP35434_EFLOW_FARTAIL_ADDITIVITY_DEEP_RUNGS_ASSERTIONS = [
     holds: () => ALL_RUNGS.every((r) => Math.abs(r.additivityDefectRounded) < 5e-4),
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35434-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35434_EFLOW_FARTAIL_ADDITIVITY_DEEP_RUNGS.isRigorous === false &&
       /NO QED/.test(IMP35434_EFLOW_FARTAIL_ADDITIVITY_DEEP_RUNGS.verdict) &&
-      /remains SOTA/.test(IMP35434_EFLOW_FARTAIL_ADDITIVITY_DEEP_RUNGS.verdict),
+      /refereed bound is changed/i.test(IMP35434_EFLOW_FARTAIL_ADDITIVITY_DEEP_RUNGS.verdict),
   },
 ];
 

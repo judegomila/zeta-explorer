@@ -74,7 +74,7 @@
  *
  *   STATUS: a grouping/index note over six already-completed tickets, not a new derivation. No
  *   bound changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-97723-sigma-fartail-diagnostic-asymptote-one.js (ROLE 1: closed-form asymptote to exactly 1)
  * @see imp-97745-fartail-diagnostic-asymptote-viz-data.js (ROLE 2: presentation of ROLE 1)
@@ -84,7 +84,7 @@
  * @see imp-97782-fartail-diagnostic-hump-peak-pin.js (ROLE 5: hump-peak pin + floor sensitivity)
  *
  * Ticket: imp-97814 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- reference constant carried by convention
@@ -217,7 +217,7 @@ export const IMP97814_FARTAIL_DIAGNOSTIC_LANDMARK_COHORT_INDEX = Object.freeze({
     'E_coll=E_trunc crossover reference stays exactly E_flow-independent. No bound moves in any ' +
     'role: interval-rigorous certified reach stays EXACTLY 2a<=0.96, the C_mb GUE-conditional ' +
     '(imp-486) and C_C 1/8 ansatz (imp-2642/imp-2643) stay untouched throughout, and no operator ' +
-    'positivity is established. RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity is established. RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97723 (closed-form asymptote to exactly 1); imp-97745 (presentation); imp-97759 ' +
     '(rising-branch floor-sensitivity crossover ~1e20.7); imp-97777 (local-minimum pin, ' +
@@ -323,7 +323,7 @@ export const IMP97814_FARTAIL_DIAGNOSTIC_LANDMARK_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97814-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () => {
       const idx = IMP97814_FARTAIL_DIAGNOSTIC_LANDMARK_COHORT_INDEX;
       return (
@@ -331,7 +331,7 @@ export const IMP97814_FARTAIL_DIAGNOSTIC_LANDMARK_COHORT_INDEX_ASSERTIONS = [
         idx.certifiedReach === 0.96 &&
         idx.certifiedReach < idx.ln3 &&
         /NO QED/.test(idx.verdict) &&
-        /remains SOTA/.test(idx.verdict) &&
+        /refereed bound is changed/i.test(idx.verdict) &&
         /2a<=0\.96/.test(idx.verdict)
       );
     },

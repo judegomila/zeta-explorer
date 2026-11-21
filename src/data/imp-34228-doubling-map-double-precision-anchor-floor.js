@@ -77,7 +77,7 @@
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34168-doubling-map-highprecision-kstar-floor (the 10-sig-fig floor test EXTENDED here)
  * @see imp-34106-sawtooth-phase-realignment-deep-ladder (the E3 stored-precision-floor diagnosis)
@@ -367,7 +367,7 @@ export const IMP34228_DOUBLING_MAP_DOUBLE_PRECISION_ANCHOR_FLOOR = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive, ' +
     'not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34168 (the 10-sig-fig floor test extended here); imp-34106 (the E3 stored-precision-floor ' +
     'diagnosis); imp-34044 (the closed-form doubling-map schedule); imp-33942 (P3 sawtooth-residue closed ' +
@@ -410,14 +410,14 @@ export const IMP34228_DOUBLING_MAP_DOUBLE_PRECISION_ANCHOR_FLOOR_ASSERTIONS = [
       MIN_RESOLVED_GAP < 1e-8,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, extends imp-34168, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, isRigorous false, extends imp-34168, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34228-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, EXTENDS the imp-34168 floor test, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Measurement only: isRigorous false, EXTENDS the imp-34168 floor test, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34228_DOUBLING_MAP_DOUBLE_PRECISION_ANCHOR_FLOOR.isRigorous === false &&
       /EXTENDS the imp-34168/.test(IMP34228_DOUBLING_MAP_DOUBLE_PRECISION_ANCHOR_FLOOR.verdict) &&
       /NO QED/.test(IMP34228_DOUBLING_MAP_DOUBLE_PRECISION_ANCHOR_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP34228_DOUBLING_MAP_DOUBLE_PRECISION_ANCHOR_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP34228_DOUBLING_MAP_DOUBLE_PRECISION_ANCHOR_FLOOR.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34228_DOUBLING_MAP_DOUBLE_PRECISION_ANCHOR_FLOOR.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34228_DOUBLING_MAP_DOUBLE_PRECISION_ANCHOR_FLOOR.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34228_DOUBLING_MAP_DOUBLE_PRECISION_ANCHOR_FLOOR.verdict),

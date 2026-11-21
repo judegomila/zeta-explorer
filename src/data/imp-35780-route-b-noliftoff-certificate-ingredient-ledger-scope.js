@@ -20,8 +20,7 @@
  * verdict is grounded in a line-item list rather than a single cost figure.
  *
  * ASSESSMENT / ENUMERATION ONLY. Continues nothing; discharges nothing; changes no
- * bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bound; establishes no positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * WHAT A "NO-LIFT-OFF CERTIFICATE" MEANS HERE
  * -----------------------------------------------------------------------------
@@ -98,18 +97,18 @@
  * Enumeration only. It builds no certificate, evolves no flow, evaluates no H_t,
  * establishes no zero-reality, and changes no bound. It re-affirms (does not re-derive)
  * the imp-35717 R2 well-posedness fork and the imp-35726 Part C cost verdict, now as a
- * ledger. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * ledger. NO QED. No refereed bound is changed.
  *
  * @see imp-35726-w1-sign-reconciliation-cost-scope (Part C: Route (b) ~ cost of direct barrier; Part D: proxy x ~< 104 cap)
  * @see imp-35717-w1-tsign-reconciliation-scope (R2 forward-evolution fork; R4 greenfield quantitative seed)
  * @see imp-35759-exact-debruijn-precision-digit-cost-scope (the exact evaluator caps at x ~< 104; T_PT-scale evaluation infeasible)
  * @see project_winding_thread_closed_corrected (Gaussian conv proxy = EXACT de Bruijn flow at negative time t = -4 tau_repo)
- * @see Polymath15 2019 (effective approximation H_t = A + B - C; de Bruijn Thm 13); Platt-Trudgian 2021 (T_PT = 3e12; Lambda <= 0.2 SOTA)
+ * @see Polymath15 2019 (effective approximation H_t = A + B - C; de Bruijn Thm 13); Platt-Trudgian 2021 (T_PT = 3e12; no refereed bound is changed)
  */
 
 // -- Anchor + operative constants (import-light; matching imp-35717 / imp-35726 / imp-35759) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified zero-ordinate height (barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this enumeration
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this enumeration
 const X_EXACT_CAP = 104; // proxy/exact-evaluator double-precision x-ceiling (imp-35726 Part D / imp-35759)
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms at T_PT (imp-35674 Part D / imp-35717 R4)
@@ -206,14 +205,14 @@ export const IMP35780_ROUTE_B_NOLIFTOFF_CERTIFICATE_INGREDIENT_LEDGER_SCOPE = {
     '5 greenfield. The ledger grounds the imp-35726 Part C "~ cost of the direct barrier" verdict in ' +
     'line items: the proxy supplies the initial-datum class and nothing else, so Route (b) is ' +
     'NET-NEUTRAL-to-NEGATIVE versus building A + B - C directly. Continues nothing; discharges nothing; ' +
-    'changes no bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'changes no bound; establishes no positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35726 Part C (Route (b) ~ cost of direct barrier; Part D: proxy x ~< 104 cap); imp-35717 R2 ' +
     '(forward-evolution well-posedness fork) / R4 (greenfield quantitative seed); imp-35759 (exact ' +
     'evaluator caps at x ~< 104); winding-thread (Gaussian conv proxy = de Bruijn flow at t = -4 ' +
     'tau_repo); Polymath15 2019 (A + B - C; de Bruijn Thm 13); Platt-Trudgian 2021 (T_PT = 3e12; ' +
-    'Lambda <= 0.2 SOTA).',
+    'no refereed bound is changed).',
 };
 
 export const IMP35780_ROUTE_B_NOLIFTOFF_CERTIFICATE_INGREDIENT_LEDGER_SCOPE_ASSERTIONS = [
@@ -256,9 +255,9 @@ export const IMP35780_ROUTE_B_NOLIFTOFF_CERTIFICATE_INGREDIENT_LEDGER_SCOPE_ASSE
       IMP35780_ROUTE_B_NOLIFTOFF_CERTIFICATE_INGREDIENT_LEDGER_SCOPE.tally.heldPartial === true,
   },
   {
-    // Honesty gate: enumeration only, builds no certificate, changes no bound, NO QED, PT SOTA at Lambda <= 0.2.
+    // Honesty gate: enumeration only, builds no certificate, changes no bound, NO QED, no refereed bound is changed.
     id: 'imp35780-honesty-gate-no-qed',
-    description: 'Enumeration only; builds no certificate; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA',
+    description: 'Enumeration only; builds no certificate; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35780_ROUTE_B_NOLIFTOFF_CERTIFICATE_INGREDIENT_LEDGER_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -266,7 +265,7 @@ export const IMP35780_ROUTE_B_NOLIFTOFF_CERTIFICATE_INGREDIENT_LEDGER_SCOPE_ASSE
       /NET-NEUTRAL-to-NEGATIVE/.test(IMP35780_ROUTE_B_NOLIFTOFF_CERTIFICATE_INGREDIENT_LEDGER_SCOPE.tally.statement) &&
       /changes no bound/.test(IMP35780_ROUTE_B_NOLIFTOFF_CERTIFICATE_INGREDIENT_LEDGER_SCOPE.verdict) &&
       /NO QED/.test(IMP35780_ROUTE_B_NOLIFTOFF_CERTIFICATE_INGREDIENT_LEDGER_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35780_ROUTE_B_NOLIFTOFF_CERTIFICATE_INGREDIENT_LEDGER_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35780_ROUTE_B_NOLIFTOFF_CERTIFICATE_INGREDIENT_LEDGER_SCOPE.verdict),
   },
 ];
 

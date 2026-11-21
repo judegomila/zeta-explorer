@@ -65,7 +65,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; the C_C 1/8 ansatz, the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are perturbed here
  * only as sensitivity probes, not re-pinned; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97700-gexp-identity-analytic-crossing (implicit-diff exact identity; L3/L4 root-quantization floor)
  * @see imp-97711-gexp-l2-7point-noise-floor (R1: L2 finite-difference residual noise-limited at 5-point ~3.9e-8)
@@ -200,7 +200,7 @@ export const IMP97719_GEXP_L2_ANALYTIC_CROSSING_NOISE_FLOOR = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; the C_C 1/8 ansatz, the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are perturbed ' +
     'here only as sensitivity probes, not re-pinned; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export default IMP97719_GEXP_L2_ANALYTIC_CROSSING_NOISE_FLOOR;

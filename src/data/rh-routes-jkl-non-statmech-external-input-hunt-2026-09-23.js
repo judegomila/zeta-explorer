@@ -5,8 +5,8 @@
  * positivity. Goal of the batch: find a route with GENUINE EXTERNAL ARITHMETIC INPUT that does not
  * reduce to Weil positivity / the pointwise-Hilbert wall. Import-light (imports only the
  * import-light imp-2426 Li module); holds() assertions; literals baked from the scripts in
- * tmp/rh-routes-jkl/ (mpmath + numpy, bounded compute, all runs < 1 min). NOT a bound; PT Λ≤0.2
- * SOTA; RH open; NO QED.
+ * tmp/rh-routes-jkl/ (mpmath + numpy, bounded compute, all runs < 1 min). NOT a bound; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * HEADLINE. The three paradigms hit THREE DIFFERENT WALLS, refining the sweep's "everything is Weil
  * positivity":
@@ -295,7 +295,7 @@ export const ROUTE_L = Object.freeze({
         ]),
         // the prior blocks report the interior peak at k=68; this run 1-indexes the same peak at k=69
         floorOrderNote: 'same fixed interior peak; imp-96045/96046/96067 label it k=68, this runs 1-indexed print labels it k=69 (max|alpha| value 0.9691151161 identical)',
-        verdict: 'DPS-INDEPENDENT: min-slack floor 0.0308848839 (= 0.0308849) and max|alpha| 0.9691151161 are bit-identical at dps 200, 250, 300 and no PD-fail occurs through NMAX=800; the intrinsic floor is confirmed separate from the resolution-limited (10^{-DPS} noise-floor) PD-fail wall, and the block-max recession persists -> no positivity obstruction emerges. NO QED; Route L stays NOT-A-LEVER; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+        verdict: 'DPS-INDEPENDENT: min-slack floor 0.0308848839 (= 0.0308849) and max|alpha| 0.9691151161 are bit-identical at dps 200, 250, 300 and no PD-fail occurs through NMAX=800; the intrinsic floor is confirmed separate from the resolution-limited (10^{-DPS} noise-floor) PD-fail wall, and the block-max recession persists -> no positivity obstruction emerges. NO QED; Route L stays NOT-A-LEVER; no refereed bound is changed.',
         subGap: 'SG-96068-recession: NMAX capped at 800, so recession only reached 0.1929 here; the full 0.13-by-k=1300 tail and the analytic reach law N_res(gamma) are still not re-derived at dps 250/300.',
         scripts: Object.freeze(['tmp/imp-96068-route-l-floor-dps250-300.py', 'tmp/imp-96068-dps250.log', 'tmp/imp-96068-dps300.log']),
       }),
@@ -344,7 +344,7 @@ export const ROUTE_M_PROPOSED = Object.freeze({
 export const RH_ROUTES_JKL = Object.freeze({
   id: 'rh-routes-jkl-non-statmech-external-input-hunt',
   date: '2026-09-23',
-  status: 'THREE ROUTES FIRST-TESTED (J, K, L) + ONE PROPOSED (M); none brings external arithmetic input escaping the Weil/PCC/verified-height convergence; walls differ (Landau pole / Jensen integration / Herglotz-Weil). PT Λ≤0.2 SOTA; RH open; NO QED',
+  status: 'THREE ROUTES FIRST-TESTED (J, K, L) + ONE PROPOSED (M); none brings external arithmetic input escaping the Weil/PCC/verified-height convergence; walls differ (Landau pole / Jensen integration / Herglotz-Weil). No refereed bound is changed; RH open; NO QED',
   routes: Object.freeze([ROUTE_J, ROUTE_K, ROUTE_L, ROUTE_M_PROPOSED]),
   wallMap: Object.freeze({
     J: 'Weil positivity (engine i, iii: missing self-product) + Landau-pole c/log t form (engine ii) + PCC (tensor square)',
@@ -357,7 +357,7 @@ export const RH_ROUTES_JKL = Object.freeze({
     { rank: 3, route: 'K', worthFullPush: 'NO — the paradigm’s only pointwise channel is RH-equivalent and already worked (mollifier record κ ≥ 0.4173).' },
     { rank: 4, route: 'J', worthFullPush: 'NO — every engine lands on a mapped wall; the missing objects (finite-rank H^1, ℤ-Frobenius, self-product) are structural, not computational; Route H already occupies the one live corner.' },
   ]),
-  honest: 'Nothing here is a bound or a proof. The batch’s deliverable is the wall map and Route L’s operator + reach law; the prize (a route not reducing to Weil positivity) was NOT found. PT Λ≤0.2 SOTA; RH open; NO QED.',
+  honest: 'Nothing here is a bound or a proof. The batch’s deliverable is the wall map and Route L’s operator + reach law; the prize (a route not reducing to Weil positivity) was NOT found. No refereed bound is changed; RH open; NO QED.',
   scripts: Object.freeze(['tmp/rh-routes-jkl/route-l-li-herglotz-cmv.py', 'tmp/rh-routes-jkl/route-l2-generalized-li-cmv.py', 'tmp/rh-routes-jkl/route-l3-detector-reach.py', 'tmp/rh-routes-jkl/route-k-littlewood-vs-moments.py']),
 });
 

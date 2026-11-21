@@ -124,8 +124,7 @@
  * either way; not edited here).
  *
  * Import-light (no heavy bundle, no imports). Changes no bound; does NOT
- * promote any Lambda row; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote any Lambda row; NO QED; no refereed bound is changed.
  */
 
 // ── frozen conventions ────────────────────────────────────────────────────────
@@ -257,7 +256,7 @@ export const IMP_95203_CUTOFF_TENSOR_SCAN = {
     'imp-95012-gate2-frozen-spec.js bCoefficient omits the t0 factor of paper eq. (10) (bakes exp(log^2 n / 4), paper has exp(t0 log^2 n / 4)); with t0 omitted q_97 ~ 12.6 >> 1 and the Euler mask is not a small perturbation — audit the frozen spec transcription (its own assertions only test b_1 = 1).',
   recommendation: 'KEEP-P97-FROZEN',
   verdict:
-    'MEASUREMENT-grade structural scan: no P in {79, 83, 89, 101, 107} beats 97 on reserve-per-open-family-difficulty. First-order reserve is invariant under recuts (exact telescope re-bracketing); the binding second-order channels degrade both ways (smaller P: worst-phase rough-core swing 0.26-0.39 vs anchor reserve 0.0656; larger P: +9.7-30% alias packets, Gram bonds stiffen toward 1 as tau ~ 3.186/p, exhibited witness floors rise, telescope lengthens, shells re-cut); the only P-monotone gain (carrier thinning) is ~17 orders below the ledger. P = 97 is a frozen convention whose value is the sunk certification at 97 (gamma atlas 356,468 cells, exact rational Rex, anchor cell, shell ledger); the local objective is flat, so the material-improvement bar for a new certification campaign is not met. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'MEASUREMENT-grade structural scan: no P in {79, 83, 89, 101, 107} beats 97 on reserve-per-open-family-difficulty. First-order reserve is invariant under recuts (exact telescope re-bracketing); the binding second-order channels degrade both ways (smaller P: worst-phase rough-core swing 0.26-0.39 vs anchor reserve 0.0656; larger P: +9.7-30% alias packets, Gram bonds stiffen toward 1 as tau ~ 3.186/p, exhibited witness floors rise, telescope lengthens, shells re-cut); the only P-monotone gain (carrier thinning) is ~17 orders below the ledger. P = 97 is a frozen convention whose value is the sunk certification at 97 (gamma atlas 356,468 cells, exact rational Rex, anchor cell, shell ledger); the local objective is flat, so the material-improvement bar for a new certification campaign is not met. Changes no bound; NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (self-executing; throw on violation) ──────────────────────────
@@ -415,7 +414,7 @@ export const IMP_95203_ASSERTIONS = [
       IMP_95203_CUTOFF_TENSOR_SCAN.grade === 'measurement' &&
       IMP_95203_CUTOFF_TENSOR_SCAN.recommendation === 'KEEP-P97-FROZEN' &&
       /NO QED/.test(IMP_95203_CUTOFF_TENSOR_SCAN.verdict) &&
-      /remains SOTA/.test(IMP_95203_CUTOFF_TENSOR_SCAN.verdict) &&
+      /refereed bound is changed/i.test(IMP_95203_CUTOFF_TENSOR_SCAN.verdict) &&
       /material-improvement bar/.test(IMP_95203_CUTOFF_TENSOR_SCAN.verdict) &&
       /sunk certification/.test(IMP_95203_CUTOFF_TENSOR_SCAN.verdict) &&
       /audit the frozen spec transcription/.test(IMP_95203_CUTOFF_TENSOR_SCAN.transcriptionFlag),

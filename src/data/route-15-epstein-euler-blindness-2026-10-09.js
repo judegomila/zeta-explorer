@@ -31,7 +31,7 @@
  *  model 1 + β(m1/amin)^{−s} gives Re ρ = log β/log(m1/amin) > 1 only for (2,2,3) (1.71) and (3,3,4) (2.41), not for (2,2,7) (0.553).
  *  Route I analogy: positivity at 2a ≤ ln 3 is blind for every principal-form twin but not for (2,2,3) (degree-2 twins of ζ_K, not ζ).
  *
- * No Λ bound moves. PT Λ ≤ 0.2 stands; RH open; NO QED. Import-free. ROUTE_15_ASSERTIONS enumerate the reduced forms of the 12
+ * No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_15_ASSERTIONS enumerate the reduced forms of the 12
  * discriminants (27 Epstein classes), recompute representation counts β and the two-term model, the δ law, measured ≤ certified, and the
  * D = −23 odd-before-even correction live.
  */
@@ -94,7 +94,7 @@ export const ROUTE_15 = Object.freeze({
   verdict: 'The Euler-detection radius is mapped for 27 Epstein twins of ζ_K: every form has an Arb-certified upper bound on a* (valid for the full Weil form); lower ends '
     + 'are measured and even-sector only (the odd sector fails first for D = −23, full-form a* ≈ 1.662; 8 forms have the odd sector open). Principal forms fail near '
     + 'log(|D|/4) − 0.13, DH\'s 1.72 sits in that band, and β = 2 forms fail early ((2,2,3) at ≤ 0.417, below the Route I support (ln 3)/2). Analogy only for Route I; '
-    + 'no Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'no Λ bound moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_15;
@@ -151,7 +151,7 @@ export const ROUTE_15_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r15-honest-scope',
-    holds: () => R.status === 'done' && /even-sector only/.test(R.verdict) && /no Λ bound moves/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict)
+    holds: () => R.status === 'done' && /even-sector only/.test(R.verdict) && /no Λ bound moves/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict)
       && /NO QED/.test(R.verdict) && /^MAJOR/.test(R.refereeKilled[0]),
     why: 'Lower ends graded even-sector measured; upper bounds certified; analogy only; no Λ change; no QED.',
   },

@@ -6,7 +6,7 @@
  * whether the sign-reversed reciprocal-log/log-linear R2 gap keeps favouring the no-floor
  * log-linear form.
  * Import-light (literals baked, no zeros bundle); holds() assertions; self-executing.
- * Measurement only. NOT a bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * Measurement only. NOT a bound; no refereed bound is changed; RH open; NO QED.
  *
  * ORIGIN. imp-96148 fit the worst-support (N=32) on-line margin rho(32,T) to rho=c+d/lnT
  * over a seven-point grid stopping at T=395.98 (gamma_200) and read a positive floor
@@ -64,7 +64,7 @@
  * worst-support surrogate remains strictly feasible at every extended height; what this depth now
  * settles is that the numeric floor is heading to zero (the no-floor log-linear law), NOT the sign.
  * The uniform-in-T obstruction still lives OFF the line (Weil-positivity strength), inaccessible to
- * this on-line construction -- unchanged. Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * this on-line construction -- unchanged. Changes no bound; no refereed bound is changed; RH open; NO QED.
  */
 
 export const ROUTE_BD_ONLINE_MARGIN_FLOOR_GAMMA4000 = Object.freeze({
@@ -78,7 +78,7 @@ export const ROUTE_BD_ONLINE_MARGIN_FLOOR_GAMMA4000 = Object.freeze({
     + 'plateau) and the reciprocal-log/log-linear R2 gap keeps WIDENING toward the no-floor law (-0.01042 -> -0.01828), '
     + 'so the log-linear (no-floor) law fits increasingly better (R2 0.99041 vs 0.97212). This confirms and extends the '
     + 'imp-96209 sign-reversal reading. The margin still stays strictly positive (0.3791 at T~4506, no crossing; '
-    + 'log-linear naive cross recedes to T~4.2e5). Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED',
+    + 'log-linear naive cross recedes to T~4.2e5). Changes no bound; no refereed bound is changed; RH open; NO QED',
 
   method: {
     pipeline: 'reproduces imp-96020/imp-96167/imp-96186/imp-96209: a_n(x)=n^-1/2 cos(theta(x)-x log n); near-collision '
@@ -185,7 +185,7 @@ export const ROUTE_BD_ONLINE_MARGIN_FLOOR_GAMMA4000 = Object.freeze({
     + 'on-line margin has NO surviving positive floor: the evidence at gamma_4000 favours the floor continuing to zero '
     + '(the no-floor log-linear form), settling the imp-96209 open question in that direction. What IS stable across all '
     + 'five depths is the sign: the margin stays strictly positive with no crossing (0.3791 at T~4506), and the '
-    + 'uniform-in-T obstruction stays off the line. Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED.',
+    + 'uniform-in-T obstruction stays off the line. Changes no bound; no refereed bound is changed; RH open; NO QED.',
 
   subGap: {
     name: 'the on-line margin floor still cannot be certified EXACTLY zero (rigorous asymptotics vs a five-depth empirical trend)',
@@ -273,7 +273,7 @@ export const ROUTE_BD_ONLINE_MARGIN_FLOOR_GAMMA4000_ASSERTIONS = Object.freeze([
     name: 'honest status: measurement only, no bound change, no QED',
     holds: () => /MEASURED/.test(D.status)
       && /Changes no bound/.test(D.status)
-      && /PT Lambda<=0.2 SOTA/.test(D.status)
+      && /refereed bound is changed/i.test(D.status)
       && /RH open/.test(D.status)
       && /NO QED/.test(D.status),
   },

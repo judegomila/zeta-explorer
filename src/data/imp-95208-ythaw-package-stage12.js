@@ -4,8 +4,7 @@
  * GRADE: stage 1 = prose-proof (pending referee); stage 2 = Arb-certified
  * rows under OUR compile (local clang/FLINT, prec 256), NOT the sealed
  * toolchain. The package is NOT a candidate until the obligations ledger
- * below closes. Changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * below closes. Changes no bound; NO QED. No refereed bound is changed.
  *
  * (Filename note: the imp-95208 id is also used by the unrelated
  * imp-95208-mb-uniform-ballast-cap module; this module's id string is the

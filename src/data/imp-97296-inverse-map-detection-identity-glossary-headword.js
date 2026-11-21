@@ -44,7 +44,7 @@
  *   modulus reference, a different comparison, unchanged)
  *
  * Ticket: imp-97296 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The inverse-map detection-identity headword, baked verbatim (no re-import).
@@ -77,7 +77,7 @@ const INVERSE_MAP_DETECTION_IDENTITY_HEADWORD = Object.freeze({
     '(src/data/imp-97267-route-m-inverse-map-kloosterman-transfer.js), exact O(b^3) kernels, ' +
     'b = 101..401, identity residual ~1e-8, OFFDIAG imaginary residual ~1e-13. Naming / glossary ' +
     'headword only; supplies no certification of M2w (M2w stays MEASURED ~0.16); no bound moved; ' +
-    'RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97296_INVERSE_MAP_DETECTION_IDENTITY_GLOSSARY_HEADWORD = Object.freeze({
@@ -96,8 +96,8 @@ export const IMP97296_INVERSE_MAP_DETECTION_IDENTITY_GLOSSARY_HEADWORD = Object.
     'full-residue aggregate, OFFDIAG the real m != 0 Kloosterman-type twisted-moment defect), ' +
     'plus the measurement that OFFDIAG carries ~half of M2w (net positive, co-leading, not a ' +
     'remainder) -- sharpening the open obligation from a Weil-bound absorption to an EVALUATION ' +
-    'of the net off-diagonal. No bound moved; M2w stays measured ~0.16; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'of the net off-diagonal. No bound moved; M2w stays measured ~0.16; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97267 (the identity, the DIAG/OFFDIAG ladder b=101..401, the sharpened obstruction this ' +
     'glosses); imp-97203 (the parent Cauchy-Schwarz ceiling c_1 <= sqrt(M2w)); imp-97210 (the ' +
@@ -126,11 +126,11 @@ export const IMP97296_INVERSE_MAP_DETECTION_IDENTITY_GLOSSARY_HEADWORD_ASSERTION
   {
     id: 'imp97296-honesty-gate-no-qed',
     why: 'Documentation only: no bound claimed moved, M2w left measured (not certified), no ' +
-      'QED, PT SOTA line present.',
+      'QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97296_INVERSE_MAP_DETECTION_IDENTITY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97296_INVERSE_MAP_DETECTION_IDENTITY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97296_INVERSE_MAP_DETECTION_IDENTITY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97296_INVERSE_MAP_DETECTION_IDENTITY_GLOSSARY_HEADWORD.verdict) &&
       IMP97296_INVERSE_MAP_DETECTION_IDENTITY_GLOSSARY_HEADWORD.glosses === 'imp-97267',
   },
 ];

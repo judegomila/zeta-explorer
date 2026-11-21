@@ -48,8 +48,8 @@
 // SCOPE: ACCURACY AUDIT ONLY, cross-checking two existing measurement modules.
 // No zero is verified, no new T_PT is claimed, the rigorous bound stays
 // E_trunc = 3.06e-5, and C_mb stays GUE-conditional per imp-486. Changes no
-// bound. No positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian
-// Lambda <= 0.2 remains SOTA; RH remains OPEN.
+// bound. No positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed
+// ; RH remains OPEN.
 //
 // SYNTAX SAFETY: line comments only; single-quoted strings; no apostrophes
 // inside single-quoted strings; no star-slash in any comment.
@@ -162,8 +162,8 @@ export const IMP96229_RECIPROCAL_ELASTICITY_CONSISTENCY_AUDIT = {
     '(reciprocity is on the exponents, as it must be for a function and its ' +
     'inverse). No zero is verified, no new T_PT is claimed, the rigorous bound ' +
     'stays E_trunc = 3.06e-5, C_mb stays GUE-conditional per imp-486. Changes ' +
-    'no bound; no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda ' +
-    '<= 0.2 remains SOTA; RH OPEN.',
+    'no bound; no bridge closure, no RH claim, NO QED. No refereed bound is changed' +
+    '; RH OPEN.',
   citation:
     'imp-2322 (forward E_trunc(T_PT) power law, elasticity -0.4); imp-96207 ' +
     '(inverse height-to-floor law, exponent -1/kappa_star=-2.5); imp-96185 ' +
@@ -224,15 +224,15 @@ export const IMP96229_RECIPROCAL_ELASTICITY_CONSISTENCY_AUDIT_ASSERTIONS = [
       Math.abs(DECADE_EXPONENT_PRODUCT - 1) < 1e-12,
   },
   {
-    // Honesty gate: accuracy audit only, no QED, PT stays SOTA, changes no bound.
+    // Honesty gate: accuracy audit only, no QED, no refereed bound is changed, changes no bound.
     id: 'imp96229-honesty-gate-no-qed',
-    description: 'Accuracy audit only: reciprocal-consistency confirmed, no QED, PT stays SOTA',
+    description: 'Accuracy audit only: reciprocal-consistency confirmed, no QED, no refereed bound is changed',
     holds: () =>
       IMP96229_RECIPROCAL_ELASTICITY_CONSISTENCY_AUDIT.isRigorous === false &&
       /reciprocal/.test(IMP96229_RECIPROCAL_ELASTICITY_CONSISTENCY_AUDIT.verdict) &&
       /No drift/.test(IMP96229_RECIPROCAL_ELASTICITY_CONSISTENCY_AUDIT.driftFindings) &&
       /NO QED/.test(IMP96229_RECIPROCAL_ELASTICITY_CONSISTENCY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP96229_RECIPROCAL_ELASTICITY_CONSISTENCY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP96229_RECIPROCAL_ELASTICITY_CONSISTENCY_AUDIT.verdict),
   },
 ];
 

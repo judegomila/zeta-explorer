@@ -10,8 +10,8 @@
  *   and RUNS the enclosure, turning that assessment into measured numbers and a sharper obstruction.
  *
  *   EXECUTION / MEASUREMENT only. No unconditional positive lower bound is produced; no operator
- *   positivity is established; no bound moves; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian
- *   Lambda<=0.2 SOTA; RH open; NO QED. Runner: tmp/imp-97400-lehmann-maehly-lowerbracket.py
+ *   positivity is established; no bound moves; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed
+ *   ; RH open; NO QED. Runner: tmp/imp-97400-lehmann-maehly-lowerbracket.py
  *   (mpmath dps=50; pole-free basis phi_n(x)=(a^2-x^2)^3 P_n(x/a); N=28, T=200, panel=1.0; the run below).
  *
  * THE MACHINERY. For the compressed self-adjoint operator A = P_a M_sigma2 P_a on the Paley-Wiener trial

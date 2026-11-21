@@ -43,7 +43,7 @@ export const IMP124797_SUMMARY = Object.freeze({
     + 'tracking the collapse of |E_CF| into the landmark-bisection round-off floor (imp-124769), NOT a '
     + 'deviation from the imp-97665 exact pair-ratio identity. No new computation. Measurement / sensitivity '
     + 'only on the inherited imp-3220/imp-3406 extrapolation surrogate, not a rigorous asymptotic. Changes no '
-    + 'bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'bound; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

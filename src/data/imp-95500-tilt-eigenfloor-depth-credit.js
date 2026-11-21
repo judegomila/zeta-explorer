@@ -12,8 +12,7 @@
  * The credit is closed-form, separation-free, coalescence-uniform, and
  * off-lattice, so every property imp-95499 proved is preserved while the
  * bound strictly improves for K >= 2 at every admissible tilt.
- * Derivation + measurement; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Derivation + measurement; changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95226 / imp-95446 / imp-95498 / imp-95499 normalization).
  * Finite rate set P = {p_1, ..., p_K} of positive reals, E_P =
@@ -237,7 +236,7 @@ export const IMP95500_TILT_EIGENFLOOR_DEPTH_CREDIT = {
   honestScope:
     "derivation + measurement; model family only; credit vanishes on " +
     "wide lattices (Sp top-octave dominated) and at K = 1; changes no " +
-    "bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "bound; NO QED; no refereed bound is changed",
   verdict:
     "RIGOROUS step: the first closed-form floor strictly above 1 on the " +
     "sub-leading generalized eigenvalues of the tilted Cauchy pencil -- " +
@@ -251,7 +250,7 @@ export const IMP95500_TILT_EIGENFLOOR_DEPTH_CREDIT = {
     "lattices. The uniform floor recovers a sliver of the crude " +
     "det-ratio slack (3.22e15 available vs 1.35 recovered at the K = 5 " +
     "sample) -- the graded-floor residual is named, not hidden. Changes " +
-    "no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -622,7 +621,7 @@ export const IMP95500_ASSERTIONS = [
       "the record names the executed residual, keeps the re-scoped " +
       "residuals (deflation zeros, sorted-eigenvalue floors, RZ-PEN " +
       "port), quantifies the uniform-floor gap, promotes no bound, " +
-      "NO QED, PT stays SOTA",
+      "NO QED, no refereed bound is changed",
     holds: () =>
       /HONEST LIMITS \(b\)/.test(
         IMP95500_TILT_EIGENFLOOR_DEPTH_CREDIT.residualExecuted,
@@ -637,7 +636,7 @@ export const IMP95500_ASSERTIONS = [
         .trueSubleadingProduct >
         1e15 &&
       /NO QED/.test(IMP95500_TILT_EIGENFLOOR_DEPTH_CREDIT.verdict) &&
-      /remains SOTA/.test(IMP95500_TILT_EIGENFLOOR_DEPTH_CREDIT.verdict) &&
+      /refereed bound is changed/i.test(IMP95500_TILT_EIGENFLOOR_DEPTH_CREDIT.verdict) &&
       /changes no bound/i.test(IMP95500_TILT_EIGENFLOOR_DEPTH_CREDIT.verdict),
   },
 ];

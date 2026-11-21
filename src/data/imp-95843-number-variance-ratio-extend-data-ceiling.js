@@ -50,7 +50,7 @@
  * (r ~ 0.37-0.48, mean 0.39, no rise toward GUE) is confirmed to the edge of the data,
  * but the ~6.8-decade gap to T = 3.0e12 remains a named sub-gap that only a larger
  * zero table (numeric) or the imp-95722 analytic envelope (r_cap ~ 0.26) can close.
- * Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side
+ * Changes no bound; NO QED; no refereed bound is changed; the zero-side
  * route stays PCC/GRH-gated.
  *
  * Import-light: no zeros bundle, no sibling imports. Only the per-height sd(C - E),
@@ -178,7 +178,7 @@ export const IMP95843_NUMBER_VARIANCE_RATIO_EXTEND_DATA_CEILING = {
       'DATA CEILING (sharpening the imp-95710 window-reach gap): the in-repo 10^6-ordinate table caps at gamma ~ 6.00e5, so tiling +/-30% windows above 5e5 truncates at the ceiling and the EFFECTIVE mean sampled height rises only ~0.025 decades (4.75e5 -> 5.03e5). Nominal centers above 5e5 add points but no lever arm; the gap to the imp-95519 bottom T = 3.0e12 stays ~6.8 decades. The log-linear extrapolation (r -> 0.06) is NOT warranted. Extending r(T) upward needs a larger verified-zero dataset OR the imp-95722 analytic envelope (r_cap(3e12) ~ 0.26).',
   },
   verdict:
-    'EXTENDING the imp-95710 number-variance ratio r(T) above 5e5 with the in-repo 10^6-ordinate table is DATA-CEILING-LIMITED: because the +/-30% tiled windows truncate at gamma ~ 6.00e5, the effective mean sampled height rises only ~0.025 decades (4.75e5 -> 5.03e5) despite the higher nominal centers, so the two new heights (r = 0.371, 0.374) add points but almost no lever arm. They sit inside the imp-95710 band [0.349, 0.480]; the eight-point refit (slope ~ -1.96e-2, R^2 ~ 0.34, mean ~ 0.39) is statistically indistinguishable from the six-point fit and shows NO trend toward the GUE asymptote 1 -- the mean-square/GUE envelope stays conservative to the edge of the data. HONEST SUB-GAP (data ceiling): the ~6.8-decade gap to the imp-95519 bottom T = 3.0e12 is unchanged and the log-linear extrapolation (r -> 0.06) is not warranted; closing it needs a larger verified-zero table (numeric) or the imp-95722 analytic envelope (r_cap(3e12) ~ 0.26, the route that actually reaches the bottom). Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'EXTENDING the imp-95710 number-variance ratio r(T) above 5e5 with the in-repo 10^6-ordinate table is DATA-CEILING-LIMITED: because the +/-30% tiled windows truncate at gamma ~ 6.00e5, the effective mean sampled height rises only ~0.025 decades (4.75e5 -> 5.03e5) despite the higher nominal centers, so the two new heights (r = 0.371, 0.374) add points but almost no lever arm. They sit inside the imp-95710 band [0.349, 0.480]; the eight-point refit (slope ~ -1.96e-2, R^2 ~ 0.34, mean ~ 0.39) is statistically indistinguishable from the six-point fit and shows NO trend toward the GUE asymptote 1 -- the mean-square/GUE envelope stays conservative to the edge of the data. HONEST SUB-GAP (data ceiling): the ~6.8-decade gap to the imp-95519 bottom T = 3.0e12 is unchanged and the log-linear extrapolation (r -> 0.06) is not warranted; closing it needs a larger verified-zero table (numeric) or the imp-95722 analytic envelope (r_cap(3e12) ~ 0.26, the route that actually reaches the bottom). Changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -210,8 +210,8 @@ export const IMP95843_NUMBER_VARIANCE_RATIO_EXTEND_DATA_CEILING = {
   // honesty gates
   if (!/NO QED/.test(IMP95843_NUMBER_VARIANCE_RATIO_EXTEND_DATA_CEILING.verdict))
     throw new Error('imp-95843: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95843_NUMBER_VARIANCE_RATIO_EXTEND_DATA_CEILING.verdict))
-    throw new Error('imp-95843: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95843_NUMBER_VARIANCE_RATIO_EXTEND_DATA_CEILING.verdict))
+    throw new Error('imp-95843: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95843_NUMBER_VARIANCE_RATIO_EXTEND_DATA_CEILING;

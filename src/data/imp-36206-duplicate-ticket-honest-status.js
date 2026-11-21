@@ -24,8 +24,7 @@
  * This module records the duplication so a reader landing on imp-36206 is pointed
  * straight at imp-36190 instead of a second, narrower re-run of the same audit.
  *
- * Meta finding only; no bound touched; no code path changed; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * Meta finding only; no bound touched; no code path changed; NO QED. No refereed bound is changed.
  *
  * @see imp-36190-imp36098-166-cross-reference-integrity-audit.js (the already-completed audit this ticket duplicates)
  * @see imp-36189-imp36098-166-registration-reachability-audit.js (sibling audit, same cohort, different property)
@@ -56,7 +55,7 @@ export const IMP36206_DUPLICATE_TICKET_HONEST_STATUS = {
     'AUDIT FINDING (not a measurement of a mathematical quantity). imp-36206 duplicates the ' +
     'already-completed imp-36190; no code change made here beyond recording the finding. ' +
     'Changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36190-imp36098-166-cross-reference-integrity-audit.js (the completed original); ' +
     'imp-36111/imp-36112/imp-36164/imp-36165/imp-36166 (the five tickets imp-36206 named, ' +
@@ -73,11 +72,11 @@ export const IMP36206_DUPLICATE_TICKET_HONEST_STATUS_ASSERTIONS = [
   },
   {
     id: 'imp36206-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36206_DUPLICATE_TICKET_HONEST_STATUS.isRigorous === false &&
       /NO QED/.test(IMP36206_DUPLICATE_TICKET_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(IMP36206_DUPLICATE_TICKET_HONEST_STATUS.verdict),
+      /refereed bound is changed/i.test(IMP36206_DUPLICATE_TICKET_HONEST_STATUS.verdict),
   },
 ];
 

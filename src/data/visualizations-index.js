@@ -1772,7 +1772,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95240',
       pedagogicalStep: 124,
       honestCeiling:
-        'Descriptive bracket chart baking the imp-95212 O5_SITE_COVERAGE leftMargin/rightMargin literals verbatim (no new computation, proportional not true-scale layout); closes obligation O5 of the six-obligation y-thaw package only; O1/O2/O4/O6 remain OPEN and 0.17759432 stays a package value, not a proven bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive bracket chart baking the imp-95212 O5_SITE_COVERAGE leftMargin/rightMargin literals verbatim (no new computation, proportional not true-scale layout); closes obligation O5 of the six-obligation y-thaw package only; O1/O2/O4/O6 remain OPEN and 0.17759432 stays a package value, not a proven bound; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95265-evoct-firing-curve',
@@ -1786,7 +1786,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95265',
       pedagogicalStep: 125,
       honestCeiling:
-        'Descriptive curve chart recomputing the imp-95250 certCoalM(6, x) closed form independently from its documented coalLaw/betaLat pieces (no new derivation, no heavy import); the certificate is a model-family bound sitting orders above the exact pencil (imp-95250 HONEST LIMITS); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive curve chart recomputing the imp-95250 certCoalM(6, x) closed form independently from its documented coalLaw/betaLat pieces (no new derivation, no heavy import); the certificate is a model-family bound sitting orders above the exact pencil (imp-95250 HONEST LIMITS); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95266-theta-vs-k-phase-collapse',
@@ -1800,7 +1800,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95266',
       pedagogicalStep: 126,
       honestCeiling:
-        'Descriptive two-panel chart recomputing theta_K (exact BigInt rational integration) and the L1/L2 modulus (exact binomial identities) independently from the imp-95233 documented closed forms (no new derivation, no heavy import); illustrates the escape mechanism numerically, proves nothing beyond what imp-95233 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive two-panel chart recomputing theta_K (exact BigInt rational integration) and the L1/L2 modulus (exact binomial identities) independently from the imp-95233 documented closed forms (no new derivation, no heavy import); illustrates the escape mechanism numerically, proves nothing beyond what imp-95233 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95267-offlattice-robustness',
@@ -1814,7 +1814,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95267',
       pedagogicalStep: 127,
       honestCeiling:
-        'Descriptive curve chart baking the imp-95232 FINDING 2 offLatticeTable / offLatticeWitness literals verbatim (no new computation, no heavy import); the off-lattice degradation measured here is a RAW-BL property, distinct from the count-uniform BL-LAT collar (imp-95232 FINDING 1, ~70x looser); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive curve chart baking the imp-95232 FINDING 2 offLatticeTable / offLatticeWitness literals verbatim (no new computation, no heavy import); the off-lattice degradation measured here is a RAW-BL property, distinct from the count-uniform BL-LAT collar (imp-95232 FINDING 1, ~70x looser); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95268-collar-overprice',
@@ -1828,7 +1828,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95268',
       pedagogicalStep: 133,
       honestCeiling:
-        'Descriptive log-scale bar chart baking the imp-95232 FINDING 1 onLatticeBaseline / collarOverpriceVsX literals verbatim (no new computation, no heavy import); the count-uniform BL-LAT collar over-pricing measured here is a finite-N artifact of the collar being an infinite two-sided Blaschke product, distinct from the near-sharp raw BL bound (imp-95232 FINDING 2); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive log-scale bar chart baking the imp-95232 FINDING 1 onLatticeBaseline / collarOverpriceVsX literals verbatim (no new computation, no heavy import); the count-uniform BL-LAT collar over-pricing measured here is a finite-N artifact of the collar being an infinite two-sided Blaschke product, distinct from the near-sharp raw BL bound (imp-95232 FINDING 2); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-twistor-dual-intertwiner',
@@ -1856,7 +1856,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95125',
       pedagogicalStep: 128,
       honestCeiling:
-        'Descriptive two-panel chart baking the imp-95090 continuousLimitLadder / gridRefinementLadder literals verbatim (no new computation, no heavy import); the shortfall names a conservative, unapplied fixed-97 grid-corner ceiling lever, not an applied bound change; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive two-panel chart baking the imp-95090 continuousLimitLadder / gridRefinementLadder literals verbatim (no new computation, no heavy import); the shortfall names a conservative, unapplied fixed-97 grid-corner ceiling lever, not an applied bound change; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95141-ythaw-obligation-meter',
@@ -1870,7 +1870,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95141',
       pedagogicalStep: 129,
       honestCeiling:
-        'Descriptive status-grid chart baking the imp-95140 YTHAW_OBLIGATION_LEDGER / YTHAW_OBLIGATION_SUMMARY literals verbatim (no new computation); closes no obligation of the six-obligation y-thaw package; O1/O2/O4/O6 remain OPEN and 0.17759432 stays a package value, not a proven bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive status-grid chart baking the imp-95140 YTHAW_OBLIGATION_LEDGER / YTHAW_OBLIGATION_SUMMARY literals verbatim (no new computation); closes no obligation of the six-obligation y-thaw package; O1/O2/O4/O6 remain OPEN and 0.17759432 stays a package value, not a proven bound; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95143-vacuity-saturation-corridor',
@@ -1884,7 +1884,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95143',
       pedagogicalStep: 130,
       honestCeiling:
-        'Descriptive two-frontier chart baking the imp-95225 constants.vacuitySlope / constants.satSlope literals verbatim (no new computation, no bound claim); the corridor between the two frontiers is recorded as OPEN on both sides, not resolved; the width-law paper packets are not certified by SGN-C; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive two-frontier chart baking the imp-95225 constants.vacuitySlope / constants.satSlope literals verbatim (no new computation, no bound claim); the corridor between the two frontiers is recorded as OPEN on both sides, not resolved; the width-law paper packets are not certified by SGN-C; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95144-tier-certifier-ballop-budget-gap',
@@ -1898,7 +1898,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95144',
       pedagogicalStep: 131,
       honestCeiling:
-        'Descriptive log-scale bar chart baking the imp-95213 / imp-95214 TIER_PRICE and TIER2_PRICE literals verbatim (no new computation); the full-window run was NOT launched at either level, both prices are sub-range extrapolations; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive log-scale bar chart baking the imp-95213 / imp-95214 TIER_PRICE and TIER2_PRICE literals verbatim (no new computation); the full-window run was NOT launched at either level, both prices are sub-range extrapolations; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95242-tier-certifier-baseline-vs-design-gap',
@@ -1912,7 +1912,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95242',
       pedagogicalStep: 132,
       honestCeiling:
-        'Descriptive log-scale bar panels baking the imp-95213 TIER_PRICE literals verbatim (no new computation); the full-window run was NOT launched; the second (design-budget-matching) level is the identified residual lever, not built here; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive log-scale bar panels baking the imp-95213 TIER_PRICE literals verbatim (no new computation); the full-window run was NOT launched; the second (design-budget-matching) level is the identified residual lever, not built here; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95278-window1-coverage-bar',
@@ -1926,7 +1926,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95278',
       pedagogicalStep: 134,
       honestCeiling:
-        'Descriptive coverage-bar chart baking the imp-95213 CERTIFIED_SLICE / WINDOW_WIDTH_U literals and the imp-95238 windowsBeyondWindow1Untouched literal verbatim (no new computation); the certified slice sets no G5 window-promotion flag; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive coverage-bar chart baking the imp-95213 CERTIFIED_SLICE / WINDOW_WIDTH_U literals and the imp-95238 windowsBeyondWindow1Untouched literal verbatim (no new computation); the certified slice sets no G5 window-promotion flag; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95279-phasecert-vs-nogo-ceiling',
@@ -1940,7 +1940,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95279',
       pedagogicalStep: 135,
       honestCeiling:
-        'Descriptive log-log curve recomputing bound(theta) = e^(-y_min)/(2 theta) independently from the imp-95233 documented closed form and exact witness literals (no new derivation, no heavy import); illustrates the escape mechanism numerically, proves nothing beyond what imp-95233 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive log-log curve recomputing bound(theta) = e^(-y_min)/(2 theta) independently from the imp-95233 documented closed form and exact witness literals (no new derivation, no heavy import); illustrates the escape mechanism numerically, proves nothing beyond what imp-95233 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95282-coallaw-vs-lambda2',
@@ -1954,7 +1954,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95282',
       pedagogicalStep: 136,
       honestCeiling:
-        'Descriptive curve recomputing coalLaw(x) and Lambda_2(x, r) independently from the imp-95231 / imp-95227 documented closed forms (no new derivation, no heavy import); illustrates the r -> 1 dominance numerically, proves nothing beyond what imp-95231 / imp-95227 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive curve recomputing coalLaw(x) and Lambda_2(x, r) independently from the imp-95231 / imp-95227 documented closed forms (no new derivation, no heavy import); illustrates the r -> 1 dominance numerically, proves nothing beyond what imp-95231 / imp-95227 already state; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95303-conflb-vs-coaln-window-pinch',
@@ -1968,7 +1968,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95303',
       pedagogicalStep: 137,
       honestCeiling:
-        'Descriptive curves recomputing sqrt(T(N,x)) and coalN(N,1.3,x) independently from the imp-95286 / imp-95251 documented closed forms (no new derivation, no heavy import); illustrates the WINDOW-PINCH bracket numerically, proves nothing beyond what imp-95286 / imp-95251 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive curves recomputing sqrt(T(N,x)) and coalN(N,1.3,x) independently from the imp-95286 / imp-95251 documented closed forms (no new derivation, no heavy import); illustrates the WINDOW-PINCH bracket numerically, proves nothing beyond what imp-95286 / imp-95251 already state; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95304-phaseam-vs-phasecert-ceilx',
@@ -1982,7 +1982,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95304',
       pedagogicalStep: 138,
       honestCeiling:
-        'Descriptive log-log curves recomputing both bounds independently from the imp-95254 / imp-95233 documented closed forms and exact witness literals (no new derivation, no heavy import); illustrates the strict PHASE-AM dominance and the CEIL-X exceedance numerically, proves nothing beyond what imp-95254 / imp-95233 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive log-log curves recomputing both bounds independently from the imp-95254 / imp-95233 documented closed forms and exact witness literals (no new derivation, no heavy import); illustrates the strict PHASE-AM dominance and the CEIL-X exceedance numerically, proves nothing beyond what imp-95254 / imp-95233 already state; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95305-splitrz-vs-evoctunif-onset',
@@ -1996,7 +1996,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95305',
       pedagogicalStep: 139,
       honestCeiling:
-        'Descriptive curves recomputing certSplitRz and certUnif independently from the imp-95252 / imp-95250 documented closed forms (no new derivation, no heavy import); illustrates the m-uniform onset drop numerically, proves nothing beyond what imp-95252 / imp-95250 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive curves recomputing certSplitRz and certUnif independently from the imp-95252 / imp-95250 documented closed forms (no new derivation, no heavy import); illustrates the m-uniform onset drop numerically, proves nothing beyond what imp-95252 / imp-95250 already state; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95623-seam-gram-onset-ladder',
@@ -2010,7 +2010,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95623',
       pedagogicalStep: 140,
       honestCeiling:
-        'Descriptive bar chart consuming the imp-95609 reader-facing table verbatim (no new derivation, no heavy import); illustrates the five named / four distinct onset values and the SEP-OPT supersession numerically, proves nothing beyond what imp-95609 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive bar chart consuming the imp-95609 reader-facing table verbatim (no new derivation, no heavy import); illustrates the five named / four distinct onset values and the SEP-OPT supersession numerically, proves nothing beyond what imp-95609 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95317-confluent-bracket-across-r',
@@ -2024,7 +2024,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95317',
       pedagogicalStep: 140,
       honestCeiling:
-        'Descriptive curves recomputing sqrt(T(3,x)) and coalN(3,R,x) independently from the imp-95286 / imp-95251 documented closed forms (no new derivation, no heavy import); illustrates the WINDOW-PINCH bracket across the R axis numerically, proves nothing beyond what imp-95286 / imp-95251 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive curves recomputing sqrt(T(3,x)) and coalN(3,R,x) independently from the imp-95286 / imp-95251 documented closed forms (no new derivation, no heavy import); illustrates the WINDOW-PINCH bracket across the R axis numerically, proves nothing beyond what imp-95286 / imp-95251 already state; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95319-splitrz-vs-splitloo-collar',
@@ -2038,7 +2038,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95319',
       pedagogicalStep: 141,
       honestCeiling:
-        'Descriptive curve evaluating A_LOO(m) directly from the imp-95249 LEMMA ANG-DET fence definition (no new derivation, no heavy import) against the already-baked imp-95252 A_blk constant; the observed 1/m asymptotic decay is a numeric illustration, proves nothing beyond what imp-95250 / imp-95252 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive curve evaluating A_LOO(m) directly from the imp-95249 LEMMA ANG-DET fence definition (no new derivation, no heavy import) against the already-baked imp-95252 A_blk constant; the observed 1/m asymptotic decay is a numeric illustration, proves nothing beyond what imp-95250 / imp-95252 already state; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95349-rzpen-gain-ladder',
@@ -2052,7 +2052,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95349',
       pedagogicalStep: 142,
       honestCeiling:
-        'Presentation only: every plotted value is copied verbatim from the imp-95329 / imp-95330 / imp-95331 / imp-95332 records (no re-derivation, no re-execution of the underlying 256-chart / pair-identity numerics beyond what those modules already compute at import); the cumulative gain is a plain product of already-baked per-leg gains; proves nothing beyond what those four modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every plotted value is copied verbatim from the imp-95329 / imp-95330 / imp-95331 / imp-95332 records (no re-derivation, no re-execution of the underlying 256-chart / pair-identity numerics beyond what those modules already compute at import); the cumulative gain is a plain product of already-baked per-leg gains; proves nothing beyond what those four modules already state; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95350-chart-tail-cap-vs-uniform-c3n',
@@ -2066,7 +2066,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95350',
       pedagogicalStep: 142,
       honestCeiling:
-        'Presentation only: the per-chart series is recomputed here with the same closed-form arithmetic imp-95332 already proved (LEMMA TAIL-CHART), cross-checked at the binding chart (k = 114) and the flat uniform constant against the imp-95332 baked record to rel 1e-12; proves nothing beyond what imp-95332 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: the per-chart series is recomputed here with the same closed-form arithmetic imp-95332 already proved (LEMMA TAIL-CHART), cross-checked at the binding chart (k = 114) and the flat uniform constant against the imp-95332 baked record to rel 1e-12; proves nothing beyond what imp-95332 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95351-unif6-vs-unif5-across-rho',
@@ -2080,7 +2080,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95351',
       pedagogicalStep: 142,
       honestCeiling:
-        'Presentation only: both curves are recomputed here with the same closed-form arithmetic imp-95332 / imp-95331 already proved (COROLLARY PEN-UNIF6 / PEN-UNIF5), cross-checked at both grid endpoints (rho = 2, rho = e^6) against the imp-95332 baked record to rel 1e-12/1e-9; proves nothing beyond what those modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: both curves are recomputed here with the same closed-form arithmetic imp-95332 / imp-95331 already proved (COROLLARY PEN-UNIF6 / PEN-UNIF5), cross-checked at both grid endpoints (rho = 2, rho = e^6) against the imp-95332 baked record to rel 1e-12/1e-9; proves nothing beyond what those modules already state; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95546-rzpen78-gain-ladder',
@@ -2094,7 +2094,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95546',
       pedagogicalStep: 142,
       honestCeiling:
-        'Presentation only: every plotted value is copied verbatim from the imp-95333 / imp-95334 records (no re-derivation, no re-execution of the underlying chart-scan numerics beyond what those modules already compute at import); the cumulative gain is a plain product of already-baked per-leg gains; proves nothing beyond what those two modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every plotted value is copied verbatim from the imp-95333 / imp-95334 records (no re-derivation, no re-execution of the underlying chart-scan numerics beyond what those modules already compute at import); the cumulative gain is a plain product of already-baked per-leg gains; proves nothing beyond what those two modules already state; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95547-alpha-kh-heat-scatter',
@@ -2108,7 +2108,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95547',
       pedagogicalStep: 142,
       honestCeiling:
-        'Presentation only: alpha_{k,h} and the gated-share figure are recomputed here with the same closed-form formula imp-95519 already states, cross-checked against its baked figures (alpha_max = 1.0953/1.0730, count = 15, share = 59.26%) to rel 5e-4; proves nothing beyond what imp-95519 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: alpha_{k,h} and the gated-share figure are recomputed here with the same closed-form formula imp-95519 already states, cross-checked against its baked figures (alpha_max = 1.0953/1.0730, count = 15, share = 59.26%) to rel 5e-4; proves nothing beyond what imp-95519 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95371-bcap-two-branch-cap-vs-exact-ratio',
@@ -2122,7 +2122,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95371',
       pedagogicalStep: 142,
       honestCeiling:
-        'Presentation only: all four curves are recomputed here with the same closed-form arithmetic imp-95329 already proved (LEMMA BCAP), cross-checked at the crossover point c* (both branches equal the flat cap there, rel 1e-9); the plotted a = 6 slice is not the near-sharp regime the imp-95329 record measures elsewhere (small a, small b); proves nothing beyond what imp-95329 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: all four curves are recomputed here with the same closed-form arithmetic imp-95329 already proved (LEMMA BCAP), cross-checked at the crossover point c* (both branches equal the flat cap there, rel 1e-9); the plotted a = 6 slice is not the near-sharp regime the imp-95329 record measures elsewhere (small a, small b); proves nothing beyond what imp-95329 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95366-rzpen-onset-drop-ladder',
@@ -2136,7 +2136,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95366',
       pedagogicalStep: 143,
       honestCeiling:
-        'Presentation only: every plotted onset is copied verbatim from the imp-95328 / imp-95329 / imp-95330 / imp-95331 / imp-95332 records (no re-derivation, no re-execution of the underlying 256-chart / pair-identity numerics beyond what those modules already compute at import); the per-leg drops are a plain subtraction of already-baked onsets; proves nothing beyond what those five modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every plotted onset is copied verbatim from the imp-95328 / imp-95329 / imp-95330 / imp-95331 / imp-95332 records (no re-derivation, no re-execution of the underlying 256-chart / pair-identity numerics beyond what those modules already compute at import); the per-leg drops are a plain subtraction of already-baked onsets; proves nothing beyond what those five modules already state; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95390-ri-margin-heatmap',
@@ -2150,7 +2150,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95390',
       pedagogicalStep: 143,
       honestCeiling:
-        'Presentation only: re-implements the same import-light kernel imp-95271 already used (no re-derivation) at a coarser grid chosen for SVG render size; the imp-95271 record itself reports the full 171,600-cell sweep with zero counterexamples; proves nothing beyond what imp-95271 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-implements the same import-light kernel imp-95271 already used (no re-derivation) at a coarser grid chosen for SVG render size; the imp-95271 record itself reports the full 171,600-cell sweep with zero counterexamples; proves nothing beyond what imp-95271 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
       queueReconciliation:
         'imp-95410 (queue: "add a viz page for the imp-95271 RI-margin wedge, M(x,r) >= 0 heatmap, h_r>0 bump wedge, r_star(x) boundary") requests exactly this page; reconciled as already-delivered by imp-95390, not a separate build.',
     }),
@@ -2166,7 +2166,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95391',
       pedagogicalStep: 144,
       honestCeiling:
-        'Presentation only: re-implements the same import-light kernel imp-95256 already used (no re-derivation) over a coarser configuration set chosen for a renderable scatter; proves nothing beyond what imp-95256 already states (the g-vs-sigma criterion is an algebraic identity of two already-proven bounds, not a new one); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-implements the same import-light kernel imp-95256 already used (no re-derivation) over a coarser configuration set chosen for a renderable scatter; proves nothing beyond what imp-95256 already states (the g-vs-sigma criterion is an algebraic identity of two already-proven bounds, not a new one); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95409-rhostar-depthflip',
@@ -2180,7 +2180,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95409',
       pedagogicalStep: 147,
       honestCeiling:
-        'Presentation only: re-implements the same import-light kernel imp-95256 already used (no re-derivation) to plot the equivalent rho-vs-rhoStar(sigma) form of the identity already rendered by imp-95391 in g-vs-sigma form; proves nothing beyond what imp-95256 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-implements the same import-light kernel imp-95256 already used (no re-derivation) to plot the equivalent rho-vs-rhoStar(sigma) form of the identity already rendered by imp-95391 in g-vs-sigma form; proves nothing beyond what imp-95256 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95392-precision-replay-cost-ladder',
@@ -2194,7 +2194,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95392',
       pedagogicalStep: 144,
       honestCeiling:
-        'Presentation only: renders the ladder rungs already computed by imp-95277 verbatim (no re-derivation, no native FLINT/Arb replay launched); the 3-limb rung reproduces the imp-95257 headline exactly; proves nothing beyond what imp-95277 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the ladder rungs already computed by imp-95277 verbatim (no re-derivation, no native FLINT/Arb replay launched); the 3-limb rung reproduces the imp-95257 headline exactly; proves nothing beyond what imp-95277 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95477-karatsuba-crossover-ladder',
@@ -2208,7 +2208,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95477',
       pedagogicalStep: 145,
       honestCeiling:
-        'Presentation only: renders the ladder rungs already computed by imp-95380 verbatim (no re-derivation, no native FLINT/Arb replay launched, no per-platform MUL_TOOM22_THRESHOLD probe); proves nothing beyond what imp-95380 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the ladder rungs already computed by imp-95380 verbatim (no re-derivation, no native FLINT/Arb replay launched, no per-platform MUL_TOOM22_THRESHOLD probe); proves nothing beyond what imp-95380 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95393-ymin-maps-theta-obstructed',
@@ -2222,7 +2222,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95393',
       pedagogicalStep: 144,
       honestCeiling:
-        'Presentation only: renders the imp-95255 split-verdict record verbatim (no re-derivation); the ratio table and theta trivial/signed rows reproduce imp-95255 baked literals and assertions exactly; proves nothing beyond what imp-95255 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95255 split-verdict record verbatim (no re-derivation); the ratio table and theta trivial/signed rows reproduce imp-95255 baked literals and assertions exactly; proves nothing beyond what imp-95255 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95434-theta-range-descent-overlap-growth',
@@ -2236,7 +2236,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95434',
       pedagogicalStep: 144,
       honestCeiling:
-        'Presentation only: renders the imp-95375 baked alternating-witness and B/A literals verbatim (exact closed-form Gram, no quadrature, no re-derivation); does not determine the actual seam sign pattern (imp-95397, still open); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95375 baked alternating-witness and B/A literals verbatim (exact closed-form Gram, no quadrature, no re-derivation); does not determine the actual seam sign pattern (imp-95397, still open); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95435-rzpen-offlattice-degradation-ladder',
@@ -2250,7 +2250,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95435',
       pedagogicalStep: 145,
       honestCeiling:
-        'Presentation only: renders the imp-95374 baked worst/mean floor, degrade, and onset-shift literals verbatim (finite-m Jacobi-eigenvalue pencil measurement, no re-derivation); supplies no off-lattice floor theorem (the separate, looser imp-95335 Ingham route does); onset shift isolates the floor degradation only, holding the numerator fixed; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95374 baked worst/mean floor, degrade, and onset-shift literals verbatim (finite-m Jacobi-eigenvalue pencil measurement, no re-derivation); supplies no off-lattice floor theorem (the separate, looser imp-95335 Ingham route does); onset shift isolates the floor degradation only, holding the numerator fixed; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95565-alpha-over-one-majorant-mass-fraction',
@@ -2264,7 +2264,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95565',
       pedagogicalStep: 146,
       honestCeiling:
-        'Presentation only: renders the imp-95540 baked over-one-share and alpha_max literals verbatim (import-light re-derivation of the imp-95519 section 4 construction, no new bound); the alpha > 1 fraction is N-independent combinatorics, not a measurement of the actual zero-side sign or an operator positivity result; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95540 baked over-one-share and alpha_max literals verbatim (import-light re-derivation of the imp-95519 section 4 construction, no new bound); the alpha > 1 fraction is N-independent combinatorics, not a measurement of the actual zero-side sign or an operator positivity result; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95566-alias-energy-in-algebra',
@@ -2278,7 +2278,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95566',
       pedagogicalStep: 149,
       honestCeiling:
-        'Presentation only: renders the imp-95539 baked in-algebra/leak-outside literals verbatim (genuine numeric Ramanujan-sum projection, matching 1/phi(q) to < 1e-9, no re-derivation on this page); confirms perm-arch Theorem U (line 44) numerically across gcd(a,P) from 1 to 15015; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95539 baked in-algebra/leak-outside literals verbatim (genuine numeric Ramanujan-sum projection, matching 1/phi(q) to < 1e-9, no re-derivation on this page); confirms perm-arch Theorem U (line 44) numerically across gcd(a,P) from 1 to 15015; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95273-theta-vacuity-distribution',
@@ -2292,7 +2292,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95273',
       pedagogicalStep: 144,
       honestCeiling:
-        'Presentation only: renders the imp-95273 baked distribution verbatim (Simpson quadrature recomputed and cross-checked against the imp-95233 exact closed forms to 2e-3 relative); proves nothing beyond what imp-95273 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95273 baked distribution verbatim (Simpson quadrature recomputed and cross-checked against the imp-95233 exact closed forms to 2e-3 relative); proves nothing beyond what imp-95273 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-cost-floor',
@@ -2306,7 +2306,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95470',
       pedagogicalStep: 144,
       honestCeiling:
-        'Derived ANALYSIS rendered exactly: every pixel is the imp-95218 two-point-calibrated law (Arb points A/B), every overlay an exact level set; the law is calibrated at y in [0.165, 0.19] and UNDERSTATES cost at small y (G ~ N^{-y} wall omitted). Derives no bound, certifies nothing, changes no frontier; no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Derived ANALYSIS rendered exactly: every pixel is the imp-95218 two-point-calibrated law (Arb points A/B), every overlay an exact level set; the law is calibrated at y in [0.165, 0.19] and UNDERSTATES cost at small y (G ~ N^{-y} wall omitted). Derives no bound, certifies nothing, changes no frontier; no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-window-landscape',
@@ -2320,7 +2320,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95471',
       pedagogicalStep: 145,
       honestCeiling:
-        'Sampled dd MEASUREMENT (grade: measured), not a certificate: the curves are a max-preserving downsample of the deterministic 300001-point pilotg3 grid, sups verified against the recorded pilot literals; only the shaded u in [73222.5, 74022.5] slice is interval-certified (0.058% of window 1); the window-1 full continuum run is in progress and 54,109,011 windows lie beyond it. Proves no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Sampled dd MEASUREMENT (grade: measured), not a certificate: the curves are a max-preserving downsample of the deterministic 300001-point pilotg3 grid, sups verified against the recorded pilot literals; only the shaded u in [73222.5, 74022.5] slice is interval-certified (0.058% of window 1); the window-1 full continuum run is in progress and 54,109,011 windows lie beyond it. Proves no bound, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-freeze-flow',
@@ -2334,7 +2334,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95472',
       pedagogicalStep: 146,
       honestCeiling:
-        'Renders one ordering lemma (|Σz| ≤ Σ|z|, modulus-last) with one real dd evaluation (telescope identity 2.6e-14); the two bars and the 1.3430187 ratio are computed, the pipeline layout is the only schematic element. Proves no bound, does not certify the window, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Renders one ordering lemma (|Σz| ≤ Σ|z|, modulus-last) with one real dd evaluation (telescope identity 2.6e-14); the two bars and the 1.3430187 ratio are computed, the pipeline layout is the only schematic element. Proves no bound, does not certify the window, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95413-evoct-onset-sensitivity',
@@ -2348,7 +2348,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95413',
       pedagogicalStep: 148,
       honestCeiling:
-        'Measures the closed-form COROLLARY EV-OCT certificate only (the same object imp-95250 bisected), not the exact pencil Lambda; the cert-vs-exact collar is unchanged and not re-measured; twin-pair blocks only. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Measures the closed-form COROLLARY EV-OCT certificate only (the same object imp-95250 bisected), not the exact pencil Lambda; the cert-vs-exact collar is unchanged and not re-measured; twin-pair blocks only. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95469-binding-chart-migration',
@@ -2362,7 +2362,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95469',
       pedagogicalStep: 150,
       honestCeiling:
-        'Presentation only: every plotted point is copied verbatim from the imp-95341 record (no re-derivation, no re-execution of the underlying 256-chart numerics beyond what imp-95341 already computes at import); proves nothing beyond what imp-95341 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every plotted point is copied verbatim from the imp-95341 record (no re-derivation, no re-execution of the underlying 256-chart numerics beyond what imp-95341 already computes at import); proves nothing beyond what imp-95341 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95449-ppos-enclosure-tightness',
@@ -2376,7 +2376,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95470',
       pedagogicalStep: 151,
       honestCeiling:
-        'Presentation only: the width curves are plotted from the exact closed-form formulas documented in the imp-95449 record (no re-derivation) and the margin/asymmetry bars are the baked scalars verbatim; proves nothing beyond what imp-95449 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: the width curves are plotted from the exact closed-form formulas documented in the imp-95449 record (no re-derivation) and the margin/asymmetry bars are the baked scalars verbatim; proves nothing beyond what imp-95449 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95607-gumbelz-band',
@@ -2390,7 +2390,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95629',
       pedagogicalStep: 152,
       honestCeiling:
-        'Presentation only: renders the imp-95583 and imp-95599 baked (T_c, nWindows, gumbelZ, gumbelZmin) tuples verbatim (no re-derivation of the Gumbel EVT formulas); proves nothing beyond what those tickets already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95583 and imp-95599 baked (T_c, nWindows, gumbelZ, gumbelZmin) tuples verbatim (no re-derivation of the Gumbel EVT formulas); proves nothing beyond what those tickets already state; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95448-ra-ladder-input-provenance',
@@ -2404,7 +2404,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95478',
       pedagogicalStep: 153,
       honestCeiling:
-        'Presentation only: renders the imp-95448 baked rung set, corruption boundary, and neighbour-factor range verbatim (no re-derivation); proves nothing beyond what imp-95448 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95448 baked rung set, corruption boundary, and neighbour-factor range verbatim (no re-derivation); proves nothing beyond what imp-95448 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95491-combined-offlattice-onset-ladder',
@@ -2418,7 +2418,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95491',
       pedagogicalStep: 154,
       honestCeiling:
-        'Presentation only: renders the imp-95445 baked SPLIT-LOO/RZ-PEN/combined onset columns verbatim (SPLIT-LOO recomputed pure arithmetic, RZ-PEN column baked; no re-derivation); the two legs use different model Gram conventions so the combined min is a firing-depth comparison of two independent valid upper bounds, not a unified single certificate; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95445 baked SPLIT-LOO/RZ-PEN/combined onset columns verbatim (SPLIT-LOO recomputed pure arithmetic, RZ-PEN column baked; no re-derivation); the two legs use different model Gram conventions so the combined min is a firing-depth comparison of two independent valid upper bounds, not a unified single certificate; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95492-breach-threshold-surface',
@@ -2432,7 +2432,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95492',
       pedagogicalStep: 155,
       honestCeiling:
-        'Presentation only: renders the imp-95430 baked mDependence/rhoDependence/bindingGapM8 columns verbatim (no re-derivation); the crossing threshold is a worst-of-400 estimate, not an infimum; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95430 baked mDependence/rhoDependence/bindingGapM8 columns verbatim (no re-derivation); the crossing threshold is a worst-of-400 estimate, not an infimum; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95493-rstar-two-end-accuracy',
@@ -2446,7 +2446,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95493',
       pedagogicalStep: 158,
       honestCeiling:
-        'Derivation/measurement only: both accuracy curves are computed fresh from the imp-95377/imp-95447 closed forms against a bisection root of THEOREM RSTAR-EQ (no re-derivation of either asymptotic); the shaded gap is wider than the imp-95447 informal ~[0.3, 0.6] window but contains it; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Derivation/measurement only: both accuracy curves are computed fresh from the imp-95377/imp-95447 closed forms against a bisection root of THEOREM RSTAR-EQ (no re-derivation of either asymptotic); the shaded gap is wider than the imp-95447 informal ~[0.3, 0.6] window but contains it; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95622-sigma-exponent-ramp',
@@ -2460,7 +2460,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95622',
       pedagogicalStep: 156,
       honestCeiling:
-        'Presentation only: renders the frozen imp-95582/imp-95606 baked pointwise ramp record verbatim (no re-derivation); a measurement/fit of an existing decay quantity, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the frozen imp-95582/imp-95606 baked pointwise ramp record verbatim (no re-derivation); a measurement/fit of an existing decay quantity, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95624-mty-vs-vk-crossover',
@@ -2474,7 +2474,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95624',
       pedagogicalStep: 157,
       honestCeiling:
-        'Descriptive curves recomputing classicalWidth/vkWidth independently from the imp-95605 documented closed forms (no new derivation, no heavy import); illustrates the window-wide classical dominance and the far-outside-window crossover numerically, proves nothing beyond what imp-95605 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Descriptive curves recomputing classicalWidth/vkWidth independently from the imp-95605 documented closed forms (no new derivation, no heavy import); illustrates the window-wide classical dominance and the far-outside-window crossover numerically, proves nothing beyond what imp-95605 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95645-kronecker-transfer-constant',
@@ -2488,7 +2488,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95645',
       pedagogicalStep: 159,
       honestCeiling:
-        'Presentation only: renders the frozen imp-95616 independent-grid reproduction of the imp-95604 witness verbatim (no re-derivation); a measurement of an existing transfer-constant quantity, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the frozen imp-95616 independent-grid reproduction of the imp-95604 witness verbatim (no re-derivation); a measurement of an existing transfer-constant quantity, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95646-transition-knee-2d-heatmap',
@@ -2502,7 +2502,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95646',
       pedagogicalStep: 160,
       honestCeiling:
-        'Presentation/measurement only: re-implements the imp-95617 kernel standalone at a denser render-friendly grid resolution (no re-derivation, no fresh term); a sensitivity diagnostic on the imp-95582 F3 transition-before-knee ordering, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: re-implements the imp-95617 kernel standalone at a denser render-friendly grid resolution (no re-derivation, no fresh term); a sensitivity diagnostic on the imp-95582 F3 transition-before-knee ordering, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95647-condition-number',
@@ -2516,7 +2516,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95647',
       pedagogicalStep: 161,
       honestCeiling:
-        'Presentation/measurement only: re-implements the imp-95621 condition-number kernel standalone at a denser render-friendly delta grid (no re-derivation, no fresh term); a numerical precision diagnostic for the theta-dual mandate, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: re-implements the imp-95621 condition-number kernel standalone at a denser render-friendly delta grid (no re-derivation, no fresh term); a numerical precision diagnostic for the theta-dual mandate, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95731-number-variance-ratio',
@@ -2530,7 +2530,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95731',
       pedagogicalStep: 168,
       honestCeiling:
-        'Presentation/measurement only: re-plots the frozen imp-95710 tabulation verbatim (no re-derivation, no fresh term); the conservatism r<1 is established only across the measured window, and the extrapolation to the imp-95519 window bottom is a named, unmeasured sub-gap; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: re-plots the frozen imp-95710 tabulation verbatim (no re-derivation, no fresh term); the conservatism r<1 is established only across the measured window, and the extrapolation to the imp-95519 window bottom is a named, unmeasured sub-gap; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95752-finite80-bias-heatmap',
@@ -2544,7 +2544,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95752',
       pedagogicalStep: 169,
       honestCeiling:
-        'Presentation/measurement only: reshapes the frozen imp-95723 grid verbatim (no re-derivation, no fresh term); derivation + numerical witness of an already-established interior mechanism; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: reshapes the frozen imp-95723 grid verbatim (no re-derivation, no fresh term); derivation + numerical witness of an already-established interior mechanism; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95753-crossover-height-window',
@@ -2558,7 +2558,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95753',
       pedagogicalStep: 170,
       honestCeiling:
-        'Presentation/measurement only: reshapes the frozen imp-95729 placement verbatim (no re-derivation, no fresh term); the crossover-vs-conservatism overlap AT the crossover height remains unmeasured (frontier dead zone); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: reshapes the frozen imp-95729 placement verbatim (no re-derivation, no fresh term); the crossover-vs-conservatism overlap AT the crossover height remains unmeasured (frontier dead zone); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95754-cf-wedge-depth-vs-multiplier',
@@ -2573,7 +2573,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       alsoFulfills: ['imp-95719'],
       pedagogicalStep: 171,
       honestCeiling:
-        'Presentation/measurement only: reshapes the frozen imp-95617/imp-95691/imp-95721 box-min gap values verbatim (no re-derivation, no fresh term); does not tame or bound the wedge, only visualizes its monotone deepening; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: reshapes the frozen imp-95617/imp-95691/imp-95721 box-min gap values verbatim (no re-derivation, no fresh term); does not tame or bound the wedge, only visualizes its monotone deepening; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95759-msq-pointwise-wall',
@@ -2587,7 +2587,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95759',
       pedagogicalStep: 172,
       honestCeiling:
-        'Presentation/measurement only: reshapes the frozen imp-95728 rows verbatim (no re-derivation, no fresh term); does not close the mean-square-vs-pointwise gap, only visualizes its two measured faces; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: reshapes the frozen imp-95728 rows verbatim (no re-derivation, no fresh term); does not close the mean-square-vs-pointwise gap, only visualizes its two measured faces; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95548-per-prime-sbar-budget',
@@ -2601,7 +2601,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95548',
       pedagogicalStep: 162,
       honestCeiling:
-        'Presentation/measurement only: re-plots the perm-arch smallPrimeClosure/perPrimeMeasurement literals verbatim (no re-derivation, no fresh term); illustrates the section 5(i) l2-collapse over-budget picture, proves nothing beyond what perm-arch-sieve-universality-no-go-2026-09-22 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: re-plots the perm-arch smallPrimeClosure/perPrimeMeasurement literals verbatim (no re-derivation, no fresh term); illustrates the section 5(i) l2-collapse over-budget picture, proves nothing beyond what perm-arch-sieve-universality-no-go-2026-09-22 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95549-ns-rigid-pencil-eigenvalue',
@@ -2615,7 +2615,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95549',
       pedagogicalStep: 163,
       honestCeiling:
-        'Presentation/measurement only: recomputes flowedPickPencilMin from imp-95530 on a log-spaced eps grid and bakes the result as literals (no re-derivation, no fresh term); illustrates the A4(i) flow-stable-witness dichotomy, proves nothing beyond what imp-95530 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: recomputes flowedPickPencilMin from imp-95530 on a log-spaced eps grid and bakes the result as literals (no re-derivation, no fresh term); illustrates the A4(i) flow-stable-witness dichotomy, proves nothing beyond what imp-95530 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95567-doubly-exponential-height-ceiling',
@@ -2629,7 +2629,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95567',
       pedagogicalStep: 164,
       honestCeiling:
-        'Presentation/measurement only: re-implements the imp-95533/imp-95559 ceiling kernel standalone at a denser render-friendly (T, delta) grid (no re-derivation, no fresh term); illustrates the (L4) doubly-exponential detectable-height law, proves nothing beyond what imp-95533/imp-95559 already state; supplies no T > T_X existence proof; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: re-implements the imp-95533/imp-95559 ceiling kernel standalone at a denser render-friendly (T, delta) grid (no re-derivation, no fresh term); illustrates the (L4) doubly-exponential detectable-height law, proves nothing beyond what imp-95533/imp-95559 already state; supplies no T > T_X existence proof; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95770-barrier-mollifier-length-ceiling',
@@ -2643,7 +2643,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95770',
       pedagogicalStep: 184,
       honestCeiling:
-        'Presentation/measurement only: reuses the baked CEILING_HEIGHT_Y0 literals from barrier-mollifier-length-ceiling-2026-09.js and re-runs its own bracket-crossing interpolation across four height rungs (no re-derivation, no fresh term); illustrates that a longer mollifier cannot beat the fixed-height Wiener-algebra ceiling, proves nothing beyond what that module already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; the 0.1758354 candidate remains unrefereed; NO QED.',
+        'Presentation/measurement only: reuses the baked CEILING_HEIGHT_Y0 literals from barrier-mollifier-length-ceiling-2026-09.js and re-runs its own bracket-crossing interpolation across four height rungs (no re-derivation, no fresh term); illustrates that a longer mollifier cannot beat the fixed-height Wiener-algebra ceiling, proves nothing beyond what that module already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; the 0.1758354 candidate remains unrefereed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95771-q0-signal-vs-const-sector',
@@ -2657,7 +2657,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95771',
       pedagogicalStep: 185,
       honestCeiling:
-        'Presentation/measurement only: reuses the baked PER_MODULUS / mFreeSector literals from imp-95746 and reshapes them into two plottable per-modulus series (no re-derivation, no fresh term); illustrates the sector split visually, proves nothing beyond what imp-95746/imp-95745 already state; changes no bound, establishes no operator positivity, no RH claim; Catalan G irrationality OPEN; Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176 remains single-author, unrefereed; NO QED.',
+        'Presentation/measurement only: reuses the baked PER_MODULUS / mFreeSector literals from imp-95746 and reshapes them into two plottable per-modulus series (no re-derivation, no fresh term); illustrates the sector split visually, proves nothing beyond what imp-95746/imp-95745 already state; changes no bound, establishes no operator positivity, no RH claim; Catalan G irrationality OPEN; no refereed bound is changed; Sun arXiv:2609.04176 remains single-author, unrefereed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95587-legb-straddle-vs-ratio',
@@ -2671,7 +2671,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95587',
       pedagogicalStep: 165,
       honestCeiling:
-        'Presentation only: renders the imp-95561 baked port-window (3,1) DELTA_A eigenpair and direct-pencil eigenvalues verbatim (no re-derivation); illustrates imp-95537 D2 witness-completeness at a single fixed window, proves nothing beyond what imp-95561 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95561 baked port-window (3,1) DELTA_A eigenpair and direct-pencil eigenvalues verbatim (no re-derivation); illustrates imp-95537 D2 witness-completeness at a single fixed window, proves nothing beyond what imp-95561 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95588-msq-gue-envelope',
@@ -2685,7 +2685,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95588',
       pedagogicalStep: 166,
       honestCeiling:
-        'Presentation only: renders the imp-95562 baked discrepancy/GUE statistics measured over the actual Odlyzko zeros verbatim (no re-derivation); illustrates imp-95534 wall (i) at six sample heights, proves nothing beyond what imp-95562 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95562 baked discrepancy/GUE statistics measured over the actual Odlyzko zeros verbatim (no re-derivation); illustrates imp-95534 wall (i) at six sample heights, proves nothing beyond what imp-95562 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95589-w-decay-curves',
@@ -2699,7 +2699,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95589',
       pedagogicalStep: 167,
       honestCeiling:
-        'Presentation only: renders the imp-95557 baked mu_S(0)/M1/W(S) tables verbatim (no re-derivation); illustrates the imp-95531 A5 all-S flow-criticality decay-law measurement, proves nothing beyond what imp-95557 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95557 baked mu_S(0)/M1/W(S) tables verbatim (no re-derivation); illustrates the imp-95531 A5 all-S flow-criticality decay-law measurement, proves nothing beyond what imp-95557 already states; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95668-deficit-fartail-limit',
@@ -2713,7 +2713,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95668',
       pedagogicalStep: 173,
       honestCeiling:
-        'Presentation/measurement only: reshapes the frozen imp-95638 closed-form excess and imp-95614 measured samples verbatim (no re-derivation, no fresh term); does not establish rigour for the inherited imp-3220/imp-3406 component model, only visualizes its far-tail limit; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: reshapes the frozen imp-95638 closed-form excess and imp-95614 measured samples verbatim (no re-derivation, no fresh term); does not establish rigour for the inherited imp-3220/imp-3406 component model, only visualizes its far-tail limit; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95670-physical-band-vs-wedge',
@@ -2727,7 +2727,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95670',
       pedagogicalStep: 174,
       honestCeiling:
-        'Presentation/measurement only: overlays the frozen imp-95646 heatmap/contour and imp-95635 physical-band computations verbatim (no re-derivation, no fresh term); a sensitivity diagnostic on the imp-95582 F3 transition-before-knee ordering, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: overlays the frozen imp-95646 heatmap/contour and imp-95635 physical-band computations verbatim (no re-derivation, no fresh term); a sensitivity diagnostic on the imp-95582 F3 transition-before-knee ordering, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95681-eflow-inversion-contour-surface',
@@ -2741,7 +2741,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95681',
       pedagogicalStep: 175,
       honestCeiling:
-        'Presentation/measurement only: renders the frozen imp-95658 baked literals verbatim (no re-derivation, no fresh term); an attribution diagnostic on the imp-95617 wedge, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: renders the frozen imp-95658 baked literals verbatim (no re-derivation, no fresh term); an attribution diagnostic on the imp-95617 wedge, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95682-twin-pair-block-floor-rho',
@@ -2755,7 +2755,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95682',
       pedagogicalStep: 176,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95659 tabulation verbatim (no re-derivation, no fresh term); the rho=1 value carries the same finite-size Szego factor as imp-95642 and is not the infinite-lattice infimum; model seam family only; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95659 tabulation verbatim (no re-derivation, no fresh term); the rho=1 value carries the same finite-size Szego factor as imp-95642 and is not the infinite-lattice infimum; model seam family only; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95790-rcap-deadzone',
@@ -2769,7 +2769,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95790',
       pedagogicalStep: 177,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95766 dead-zone measurement verbatim (no re-derivation, no fresh term); r_cap(T) is a derived upper envelope, not the true pointwise ratio r(T); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95766 dead-zone measurement verbatim (no re-derivation, no fresh term); r_cap(T) is a derived upper envelope, not the true pointwise ratio r(T); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95886-decade-reach-ledger',
@@ -2783,7 +2783,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95886',
       pedagogicalStep: 178.5,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95863 decade ledger verbatim (no re-derivation, no fresh RvM inversion); rows above N=1e6 are asymptotic estimates, not verified ordinates, and no cataloged in-repo source buys any decades; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95863 decade ledger verbatim (no re-derivation, no fresh RvM inversion); rows above N=1e6 are asymptotic estimates, not verified ordinates, and no cataloged in-repo source buys any decades; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95997-ufit-ledger',
@@ -2797,7 +2797,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95997',
       pedagogicalStep: 178.65,
       honestCeiling:
-        'Presentation only: re-tabulates the frozen imp-95963 retabulation verbatim (no re-derivation, no fresh extrapolation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-tabulates the frozen imp-95963 retabulation verbatim (no re-derivation, no fresh extrapolation); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95887-szego-dd-toeplitz-chain',
@@ -2811,7 +2811,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95887',
       pedagogicalStep: 178.6,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95743 and imp-95885 modules verbatim (no re-derivation, no fresh eigensolve); both certified DD-vs-dual intervals contain zero (consistent with agreement, not a separation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95743 and imp-95885 modules verbatim (no re-derivation, no fresh eigensolve); both certified DD-vs-dual intervals contain zero (consistent with agreement, not a separation); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95888-rcap-window-bottom',
@@ -2825,7 +2825,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95888',
       pedagogicalStep: 178.7,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95722 envelope verbatim (no re-derivation, no fresh measurement); the fine grid above the measured ceiling is the closed form evaluated for chart resolution, not new data; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95722 envelope verbatim (no re-derivation, no fresh measurement); the fine grid above the measured ceiling is the closed form evaluated for chart resolution, not new data; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95971-crossing-height-map',
@@ -2839,7 +2839,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95971',
       pedagogicalStep: 178.8,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95940 closed form verbatim over its own empirical a_0 range (no re-derivation, no new bound); a_0 is NOT pinned to a point; establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95940 closed form verbatim over its own empirical a_0 range (no re-derivation, no new bound); a_0 is NOT pinned to a point; establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95791-biaspct-vs-rho',
@@ -2853,7 +2853,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95791',
       pedagogicalStep: 178,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95762 / imp-95744 literals verbatim (no re-derivation, no fresh term); an independent numerical cross-check of an established interior quantity, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95762 / imp-95744 literals verbatim (no re-derivation, no fresh term); an independent numerical cross-check of an established interior quantity, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95792-di-zigzag',
@@ -2867,7 +2867,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95792',
       pedagogicalStep: 179,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95765 four-point dI table verbatim (no new quadrature); conditional on the +4 offset hypothesis (verified only at m=20); four conditional points, not four certified anchors; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95765 four-point dI table verbatim (no new quadrature); conditional on the +4 offset hypothesis (verified only at m=20); four conditional points, not four certified anchors; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95688-vk-crossover-height-gap',
@@ -2881,7 +2881,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95688',
       pedagogicalStep: 180,
       honestCeiling:
-        'Presentation/measurement only: reshapes the frozen imp-95632 gap verbatim (no re-derivation, no fresh term); the raw crossover height overflows IEEE-754 double and is carried in log space only; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: reshapes the frozen imp-95632 gap verbatim (no re-derivation, no fresh term); the raw crossover height overflows IEEE-754 double and is carried in log space only; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95697-szego-finite-size-decay',
@@ -2895,7 +2895,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95697',
       pedagogicalStep: 181,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95677 tabulation verbatim (no re-derivation, no fresh quadrature); the sub-1 undershoot at 320 pairs is float64 cancellation noise, not a physical drop below the symbol infimum; model seam family only; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95677 tabulation verbatim (no re-derivation, no fresh quadrature); the sub-1 undershoot at 320 pairs is float64 cancellation noise, not a physical drop below the symbol infimum; model seam family only; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95699-cf-band-reachability',
@@ -2909,7 +2909,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95699',
       pedagogicalStep: 182,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95674 provenance-band decision and imp-95660 cf* verbatim (no re-derivation, no fresh term); the component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95674 provenance-band decision and imp-95660 cf* verbatim (no re-derivation, no fresh term); the component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95737-half-retention-scale',
@@ -2923,7 +2923,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95737',
       pedagogicalStep: 183,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95703 derivation verbatim (no re-derivation, no fresh term); derives an already-observed constant of the imp-95659/imp-95693 twin-pair mechanism; model seam family only; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95703 derivation verbatim (no re-derivation, no fresh term); derives an already-observed constant of the imp-95659/imp-95693 twin-pair mechanism; model seam family only; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95776-cf-reff-gue-repulsion',
@@ -2937,7 +2937,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95776',
       pedagogicalStep: 186,
       honestCeiling:
-        'Presentation/measurement only: reshapes the frozen imp-95747 r_eff and box-min values verbatim (no re-derivation, no fresh term); the imp-486 C_mb GUE-conditional assumption is reweighted within, not established; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: reshapes the frozen imp-95747 r_eff and box-min values verbatim (no re-derivation, no fresh term); the imp-486 C_mb GUE-conditional assumption is reweighted within, not established; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95777-di-share-amplification',
@@ -2951,7 +2951,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95777',
       pedagogicalStep: 187,
       honestCeiling:
-        'Presentation/measurement only: reshapes the frozen imp-95724 / imp-95749 literals verbatim (no re-derivation, no new quadrature); the dI variation is CONDITIONAL on the +4 offset hypothesis, verified only at m=20, not a certified second anchor; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: reshapes the frozen imp-95724 / imp-95749 literals verbatim (no re-derivation, no new quadrature); the dI variation is CONDITIONAL on the +4 offset hypothesis, verified only at m=20, not a certified second anchor; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95808-bias-union-heatmap',
@@ -2965,7 +2965,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95808',
       pedagogicalStep: 188,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95785 union table verbatim (no re-derivation, no fresh term); biasPct is an interior model-seam quantity, not an RH bound; the two sources are delta-disjoint so most of the display grid is blank, not zero; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95785 union table verbatim (no re-derivation, no fresh term); biasPct is an interior model-seam quantity, not an RH bound; the two sources are delta-disjoint so most of the display grid is blank, not zero; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95809-deep-corner-bias-ladder',
@@ -2979,7 +2979,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95809',
       pedagogicalStep: 189,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95788 N=80..200 bias ladder verbatim (no re-derivation, no fresh DD solve); biasPct is an interior model-seam finite-size diagnostic, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95788 N=80..200 bias ladder verbatim (no re-derivation, no fresh DD solve); biasPct is an interior model-seam finite-size diagnostic, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95810-reach-universality',
@@ -2993,7 +2993,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95810',
       pedagogicalStep: 190,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95786 reachTable/crossings and imp-95761 ln14PrecisionWall verbatim (no re-derivation, no fresh solve); the reach-universality is an interior model-seam finite-grid diagnostic, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95786 reachTable/crossings and imp-95761 ln14PrecisionWall verbatim (no re-derivation, no fresh solve); the reach-universality is an interior model-seam finite-grid diagnostic, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95828-bracket-cluster',
@@ -3007,7 +3007,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95828',
       pedagogicalStep: 191,
       honestCeiling:
-        'Presentation/measurement only: re-plots the frozen imp-95806 nine-height tabulation verbatim (no re-derivation, no fresh measurement); confirms the T=1.5e5 bump is a windowing/sampling artifact rather than a genuine finite-height feature, which only deepens the existing r_cap<1 conservatism; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: re-plots the frozen imp-95806 nine-height tabulation verbatim (no re-derivation, no fresh measurement); confirms the T=1.5e5 bump is a windowing/sampling artifact rather than a genuine finite-height feature, which only deepens the existing r_cap<1 conservatism; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95868-biasn2-widom-fit',
@@ -3021,7 +3021,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95868',
       pedagogicalStep: 192,
       honestCeiling:
-        'Presentation/measurement only: reshapes the frozen imp-95845 fit literals verbatim (no re-derivation, no new least-squares run); the fit-family band is a spread across model orders/windows, not a formal covariance; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation/measurement only: reshapes the frozen imp-95845 fit literals verbatim (no re-derivation, no new least-squares run); the fit-family band is a spread across model orders/windows, not a formal covariance; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95869-two-sided-envelope',
@@ -3035,7 +3035,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95869',
       pedagogicalStep: 193,
       honestCeiling:
-        'Presentation plus light recomputation of the already-verified imp-95825/imp-95846 Rayleigh-quotient method (no new cited input); every n=160 row cross-checked against those frozen certified endpoints; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation plus light recomputation of the already-verified imp-95825/imp-95846 Rayleigh-quotient method (no new cited input); every n=160 row cross-checked against those frozen certified endpoints; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95914-ufit-comparison-panel',
@@ -3049,7 +3049,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95914',
       pedagogicalStep: 194,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95885 per-delta comparison verbatim (no re-derivation, no fresh extrapolation run); ln 1.25 carries no u_fit interval (recorded N/A); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95885 per-delta comparison verbatim (no re-derivation, no fresh extrapolation run); ln 1.25 carries no u_fit interval (recorded N/A); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95930-c0-offset-envelope',
@@ -3063,7 +3063,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95930',
       pedagogicalStep: 195,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95897 six-offset table and envelope band verbatim (no re-derivation, no fresh measurement); the offset is noise-dominated with an interior max, so monotonicity over [3e12, infinity) is UNDECIDED by this table alone (see imp-95921); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95897 six-offset table and envelope band verbatim (no re-derivation, no fresh measurement); the offset is noise-dominated with an interior max, so monotonicity over [3e12, infinity) is UNDECIDED by this table alone (see imp-95921); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96040-a0-reconcile-panel',
@@ -3077,7 +3077,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96040',
       pedagogicalStep: 207,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-96005 six-height a_0 scatter, mean/SE band and conjectural line verbatim (no re-derivation, no fresh measurement); the gap is 0.337 SE (p~0.736), fully noise-consistent, not a resolved discrepancy; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-96005 six-height a_0 scatter, mean/SE band and conjectural line verbatim (no re-derivation, no fresh measurement); the gap is 0.337 SE (p~0.736), fully noise-consistent, not a resolved discrepancy; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95931-ln12-descent-ladder',
@@ -3091,7 +3091,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95931',
       pedagogicalStep: 196,
       honestCeiling:
-        'Presentation only: re-plots three frozen ln1.2 u_fit_rel measurements verbatim against the frozen ln1.3 target (no re-derivation, no fresh extrapolation run); the final rung (0.247%) is 1.07x looser than the ln1.3 target and has NOT crossed it; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots three frozen ln1.2 u_fit_rel measurements verbatim against the frozen ln1.3 target (no re-derivation, no fresh extrapolation run); the final rung (0.247%) is 1.07x looser than the ln1.3 target and has NOT crossed it; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95975-tier13-imbalance-loglog',
@@ -3105,7 +3105,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95975',
       pedagogicalStep: 197,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95925 seven-interval imbalance sweep verbatim (no re-derivation, no fresh quadrature); the tail fit slope (~-2.95) is a prior offline fit over three points, not a rigorous asymptotic law; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95925 seven-interval imbalance sweep verbatim (no re-derivation, no fresh quadrature); the tail fit slope (~-2.95) is a prior offline fit over three points, not a rigorous asymptotic law; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95993-worst-alias-margin',
@@ -3119,7 +3119,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95993',
       pedagogicalStep: 198,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95962 four-window threshold table verbatim (no re-derivation); dSeam stands in for the true Section 4.5 turning-point depth, which is imp-95961 leg (i) and STILL OPEN -- if that depth is shallower than dSeam the margins shrink; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95962 four-window threshold table verbatim (no re-derivation); dSeam stands in for the true Section 4.5 turning-point depth, which is imp-95961 leg (i) and STILL OPEN -- if that depth is shallower than dSeam the margins shrink; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95995-vars-constant-decomposition',
@@ -3133,7 +3133,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-95995',
       pedagogicalStep: 199,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-95964 decomposition verbatim (no re-derivation, no fresh prime-sieve run); K is backed out from the imp-95940 empirical six-height mean, not derived from a rigorous smoothed explicit-formula computation, so its plotted size is illustrative of the obstruction, not a pinned value; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-95964 decomposition verbatim (no re-derivation, no fresh prime-sieve run); K is backed out from the imp-95940 empirical six-height mean, not derived from a rigorous smoothed explicit-formula computation, so its plotted size is illustrative of the obstruction, not a pinned value; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96075-route-m-vasyunin-dn-ladder',
@@ -3147,7 +3147,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96075',
       pedagogicalStep: 200,
       honestCeiling:
-        'Presentation only: every plotted value is copied verbatim from the rh-route-m NB_DISTANCE_LADDER and RECIPROCITY_STRUCTURAL_TEST.mellinResidual records (no re-derivation, no re-execution of the underlying Gram/Cholesky or quadrature numerics); only the three baked summary points are plotted for the residual, not a fabricated continuous curve; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every plotted value is copied verbatim from the rh-route-m NB_DISTANCE_LADDER and RECIPROCITY_STRUCTURAL_TEST.mellinResidual records (no re-derivation, no re-execution of the underlying Gram/Cholesky or quadrature numerics); only the three baked summary points are plotted for the residual, not a fabricated continuous curve; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96080-route-i-symbol-anatomy',
@@ -3161,7 +3161,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96080',
       pedagogicalStep: 201,
       honestCeiling:
-        'Presentation only: the w(t) curve is a direct evaluation of the source module\'s own exact closed-form weilSymbol (no re-derivation of the underlying Toeplitz forms, no fresh pencil solve); the resonance windows and mu_max(a) grid are copied verbatim from PENCIL_HIGHRES_LITERALS; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: the w(t) curve is a direct evaluation of the source module\'s own exact closed-form weilSymbol (no re-derivation of the underlying Toeplitz forms, no fresh pencil solve); the resonance windows and mu_max(a) grid are copied verbatim from PENCIL_HIGHRES_LITERALS; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96015-fracbelownull-saturation',
@@ -3175,7 +3175,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96015',
       pedagogicalStep: 202,
       honestCeiling:
-        'Presentation only: every plotted point is copied verbatim from the imp-95982 baked departure table and even-branch fit literals (no re-derivation, no fresh quadrature); Q0_RECON is certified only at m=20, so this fits the reconstruction, not a Prop-6.3-certified per-m quantity; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every plotted point is copied verbatim from the imp-95982 baked departure table and even-branch fit literals (no re-derivation, no fresh quadrature); Q0_RECON is certified only at m=20, so this fits the reconstruction, not a Prop-6.3-certified per-m quantity; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96016-vars-constant-stack',
@@ -3189,7 +3189,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96016',
       pedagogicalStep: 203,
       honestCeiling:
-        'Presentation only: every bar and marker is copied verbatim from the imp-95984 baked literature-located literals (Chan Thm 1.1 bracket, Mertens/P2 sums, imp-95940 empirical mean); no re-derivation of the pair-correlation integral, no fresh quadrature; I_F=1 stays conjectural (Montgomery pair correlation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every bar and marker is copied verbatim from the imp-95984 baked literature-located literals (Chan Thm 1.1 bracket, Mertens/P2 sums, imp-95940 empirical mean); no re-derivation of the pair-correlation integral, no fresh quadrature; I_F=1 stays conjectural (Montgomery pair correlation); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96115-below-envelope-dip-significance-table',
@@ -3203,7 +3203,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96115',
       pedagogicalStep: 204,
       honestCeiling:
-        'Presentation only: every table cell is copied verbatim from the imp-96089 baked verdict (n_w recovered from the imp-95562 deterministic tiling geometry, crossover and z-score re-derived there); no new measurement or re-derivation here; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every table cell is copied verbatim from the imp-96089 baked verdict (n_w recovered from the imp-95562 deterministic tiling geometry, crossover and z-score re-derived there); no new measurement or re-derivation here; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96038-route-a-lammin-descent',
@@ -3217,7 +3217,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96038',
       pedagogicalStep: 205,
       honestCeiling:
-        'Presentation only: every plotted lambda_min point and the p_N^0.45 reference exponent are copied verbatim from the rh-route-a-reflection-positivity-primon-gas-2026-09-23 baked records (no re-derivation, no fresh Gram solve); the finite-N test REFUTES reflection positivity for the truncated gas, but the infinite-N statement RP<=>Weil positivity<=>RH is an exact equivalence (Lagarias-Pick), not a stronger route; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every plotted lambda_min point and the p_N^0.45 reference exponent are copied verbatim from the rh-route-a-reflection-positivity-primon-gas-2026-09-23 baked records (no re-derivation, no fresh Gram solve); the finite-N test REFUTES reflection positivity for the truncated gas, but the infinite-N statement RP<=>Weil positivity<=>RH is an exact equivalence (Lagarias-Pick), not a stronger route; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96039-halfgram-interlacing-census',
@@ -3231,7 +3231,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96039',
       pedagogicalStep: 206,
       honestCeiling:
-        'Presentation only: every census count and height band is copied verbatim from the Route B Lemma H interlacing literals (no re-derivation, no fresh census); interlacing of the n=1 pencil with the zeta zeros presupposes RH (HKO real-rootedness), so this chart establishes no operator positivity and carries no RH claim; changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every census count and height band is copied verbatim from the Route B Lemma H interlacing literals (no re-derivation, no fresh census); interlacing of the n=1 pencil with the zeta zeros presupposes RH (HKO real-rootedness), so this chart establishes no operator positivity and carries no RH claim; changes no bound; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96058-fejer-ceiling-floor-ladder',
@@ -3245,7 +3245,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96058',
       pedagogicalStep: 207,
       honestCeiling:
-        'Presentation only: every ladder row and marker value is copied verbatim from ROUTE_J (no re-derivation of the Fejer inequality or the c_ceil(n) formula); the c/log t FORM of the zero-free region is unchanged by any weighting scheme, including Mossinghoff-Trudgian\'s tighter constant; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every ladder row and marker value is copied verbatim from ROUTE_J (no re-derivation of the Fejer inequality or the c_ceil(n) formula); the c/log t FORM of the zero-free region is unchanged by any weighting scheme, including Mossinghoff-Trudgian\'s tighter constant; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96059-detector-reach-ladder',
@@ -3259,7 +3259,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96059',
       pedagogicalStep: 208,
       honestCeiling:
-        'Presentation only: every detector row, resolved-count row, and law/reach string is copied verbatim from ROUTE_L (no re-derivation of the Levinson-Durbin recursion or the CMV diagonalisation); establishes no operator positivity beyond the already-resolved zeros; changes no bound; Route L stays NOT-A-LEVER (Weil positivity is its completeness step, no external arithmetic input); Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every detector row, resolved-count row, and law/reach string is copied verbatim from ROUTE_L (no re-derivation of the Levinson-Durbin recursion or the CMV diagonalisation); establishes no operator positivity beyond the already-resolved zeros; changes no bound; Route L stays NOT-A-LEVER (Weil positivity is its completeness step, no external arithmetic input); no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96060-littlewood-jensen-loss',
@@ -3273,7 +3273,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96060',
       pedagogicalStep: 209,
       honestCeiling:
-        'Presentation only: every I(T), J_1(T), and loss value is copied verbatim from ROUTE_K.littlewoodVsJensen (no re-derivation of the tanh-sinh zero-aware integration or the Jensen inequality); establishes no operator positivity, no RH claim; the wall is Jensen/integration (moments see zeros only through Littlewood\'s integrated lemma), distinct from Weil positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every I(T), J_1(T), and loss value is copied verbatim from ROUTE_K.littlewoodVsJensen (no re-derivation of the tanh-sinh zero-aware integration or the Jensen inequality); establishes no operator positivity, no RH claim; the wall is Jensen/integration (moments see zeros only through Littlewood\'s integrated lemma), distinct from Weil positivity; changes no bound; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96103-route-i-remainder-resonance',
@@ -3287,7 +3287,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96103',
       pedagogicalStep: 210,
       honestCeiling:
-        'Presentation only: the delta_S(rho) curve and the spike/regular points are direct evaluations of the source module\'s own exact closed-form deltaS(rho) (no re-derivation of the Sonine trace identity, no fresh Galerkin solve); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: the delta_S(rho) curve and the spike/regular points are direct evaluations of the source module\'s own exact closed-form deltaS(rho) (no re-derivation of the Sonine trace identity, no fresh Galerkin solve); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96120-route-m-burnol-ratio-dense-ladder',
@@ -3301,7 +3301,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96120',
       pedagogicalStep: 211,
       honestCeiling:
-        'Presentation only: every ratio(N) value is copied verbatim from imp-96094\'s own IMP96094_ROWS (no re-derivation of the exact Vasyunin Gram / Cholesky numerics); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every ratio(N) value is copied verbatim from imp-96094\'s own IMP96094_ROWS (no re-derivation of the exact Vasyunin Gram / Cholesky numerics); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96136-route-i-fixed-fraction-panel',
@@ -3315,7 +3315,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96136',
       pedagogicalStep: 212,
       honestCeiling:
-        'Presentation only: re-plots the frozen imp-96110 ten-point {oo,2,3} S-unit table verbatim (measured f_out vs target 1 - 1/rho; no re-derivation of the br23 double sum, no fresh numerics); the surviving fixed-fraction law is an obstruction (dense log^2 cusps), not a rescue; corr23 continuity through the cusp is ASSUMED by analogy with p = 2, not proved; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: re-plots the frozen imp-96110 ten-point {oo,2,3} S-unit table verbatim (measured f_out vs target 1 - 1/rho; no re-derivation of the br23 double sum, no fresh numerics); the surviving fixed-fraction law is an obstruction (dense log^2 cusps), not a rescue; corr23 continuity through the cusp is ASSUMED by analogy with p = 2, not proved; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96139-window-robustness-sweep-table',
@@ -3329,7 +3329,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96139',
       pedagogicalStep: 213,
       honestCeiling:
-        'Presentation only: every row is copied verbatim from the imp-96112 baked 12-config sweep (no re-derivation of the band() estimator or the offline quadrature); the +3.0% imp-96090 headline is the tight end of a uniformly-positive family, not a representative central margin; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every row is copied verbatim from the imp-96112 baked 12-config sweep (no re-derivation of the band() estimator or the offline quadrature); the +3.0% imp-96090 headline is the tight end of a uniformly-positive family, not a representative central margin; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96212-two-branch-etrunc-obstruction',
@@ -3343,7 +3343,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96212',
       pedagogicalStep: 215,
       honestCeiling:
-        'Presentation only: renders the frozen imp-96190 branch definitions and moving-tail ladder verbatim (no re-derivation of the Ingham density or the height-cancellation identity); this is an assessment/derivation, not a rigorous theorem; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the frozen imp-96190 branch definitions and moving-tail ladder verbatim (no re-derivation of the Ingham density or the height-cancellation identity); this is an assessment/derivation, not a rigorous theorem; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96141-excursion-depth-offset-ledger-table',
@@ -3357,7 +3357,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96141',
       pedagogicalStep: 214,
       honestCeiling:
-        'Presentation only: every row is copied verbatim from the imp-96108 baked offset ledger (no re-derivation of the Selberg-subtracted offset or the Odlyzko-fitted sd(C - E) literals); the max anchor is a SAMPLE maximum over 11 finite heights and cannot exclude a deeper unmeasured interior excursion; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every row is copied verbatim from the imp-96108 baked offset ledger (no re-derivation of the Selberg-subtracted offset or the Odlyzko-fitted sd(C - E) literals); the max anchor is a SAMPLE maximum over 11 finite heights and cannot exclude a deeper unmeasured interior excursion; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96216-route-bd-margin-column-gamma1000-table',
@@ -3371,7 +3371,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96216',
       pedagogicalStep: 218,
       honestCeiling:
-        'Presentation only: every row and fitted parameter is copied verbatim from the imp-96186 baked column and refit (no re-derivation of the Gilbert min-norm-point LP or the near-collision census); the sign (strictly positive margin, no crossing) is stable but the asymptotic floor and functional form remain undecided by this census depth; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every row and fitted parameter is copied verbatim from the imp-96186 baked column and refit (no re-derivation of the Gilbert min-norm-point LP or the near-collision census); the sign (strictly positive margin, no crossing) is stable but the asymptotic floor and functional form remain undecided by this census depth; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96199-route-bd-margin-column-gamma500-table',
@@ -3385,7 +3385,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96199',
       pedagogicalStep: 226,
       honestCeiling:
-        'Presentation only: every row and fitted parameter is copied verbatim from the imp-96167 baked column and refit (no re-derivation of the Gilbert min-norm-point LP or the near-collision census); the imp-96167 "settled positive asymptote" reading was later partly corrected by imp-96186 (floor non-monotone at gamma_1000); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every row and fitted parameter is copied verbatim from the imp-96167 baked column and refit (no re-derivation of the Gilbert min-norm-point LP or the near-collision census); the imp-96167 "settled positive asymptote" reading was later partly corrected by imp-96186 (floor non-monotone at gamma_1000); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96214-kato-temple-ueps',
@@ -3399,7 +3399,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96214',
       pedagogicalStep: 216,
       honestCeiling:
-        'Presentation only: both curves are live evaluations of the imp-96188 module\'s own katoTempleUpperTwoLevel on the exact FFT-Mellin semilocal spectrum literals (no re-derivation of the Rayleigh-Ritz eigenvalues or the Kato-Temple gap inequality); the two-level [1, eps] test function models a single-mode leak only, a lower bound on what an actual dyadic-grid ansatz incurs; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: both curves are live evaluations of the imp-96188 module\'s own katoTempleUpperTwoLevel on the exact FFT-Mellin semilocal spectrum literals (no re-derivation of the Rayleigh-Ritz eigenvalues or the Kato-Temple gap inequality); the two-level [1, eps] test function models a single-mode leak only, a lower bound on what an actual dyadic-grid ansatz incurs; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96215-ushape-peak-accident',
@@ -3413,7 +3413,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96215',
       pedagogicalStep: 217,
       honestCeiling:
-        'Presentation only: renders the frozen imp-96187 sensitivity sweep verbatim (no re-derivation of the peak-location formula or the local log-slopes a, b); measurement/derivation only, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the frozen imp-96187 sensitivity sweep verbatim (no re-derivation of the peak-location formula or the local log-slopes a, b); measurement/derivation only, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96142-decorrelation-safety-margin',
@@ -3427,7 +3427,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96142',
       pedagogicalStep: 219,
       honestCeiling:
-        'Presentation only: every rho_boundary, rho_crit, and safety-ratio value is copied verbatim from the imp-96109 baked rows and significantDip block (no re-derivation of the AR-1 de-correlation model or the imp-96071 chi-square crossover); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every rho_boundary, rho_crit, and safety-ratio value is copied verbatim from the imp-96109 baked rows and significantDip block (no re-derivation of the AR-1 de-correlation model or the imp-96071 chi-square crossover); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96236-route-bd-margin-gamma2000',
@@ -3441,7 +3441,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96236',
       pedagogicalStep: 220,
       honestCeiling:
-        'Presentation only: the 26-point column and both fit parameters (a, b, c, d) are copied verbatim from the imp-96209 baked fields; only the plotted curve samples are computed here (evaluating the already-fitted formulas, no re-fitting); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: the 26-point column and both fit parameters (a, b, c, d) are copied verbatim from the imp-96209 baked fields; only the plotted curve samples are computed here (evaluating the already-fitted formulas, no re-fitting); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96263-route-bd-margin-gamma4000',
@@ -3455,7 +3455,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96263',
       pedagogicalStep: 239,
       honestCeiling:
-        'Presentation only: the 34-point column and both fit parameters (a, b, c, d) are copied verbatim from the imp-96224 baked fields; only the plotted curve samples are computed here (evaluating the already-fitted formulas, no re-fitting); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: the 34-point column and both fit parameters (a, b, c, d) are copied verbatim from the imp-96224 baked fields; only the plotted curve samples are computed here (evaluating the already-fitted formulas, no re-fitting); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96237-height-to-floor-law',
@@ -3469,7 +3469,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96237',
       pedagogicalStep: 221,
       honestCeiling:
-        'Presentation only: the three threshold rows and kappa_star/prefactor/sensitivity anchors are copied verbatim from the imp-96207 baked fields; only the log-log line samples are computed here (evaluating the already-derived law, no re-derivation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: the three threshold rows and kappa_star/prefactor/sensitivity anchors are copied verbatim from the imp-96207 baked fields; only the log-log line samples are computed here (evaluating the already-derived law, no re-derivation); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96238-joint-leak-region',
@@ -3483,7 +3483,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96238',
       pedagogicalStep: 222,
       honestCeiling:
-        'Presentation only: the boundary curve re-runs the imp-96206 maxTolerableBottom bisection verbatim at plot resolution (no re-derivation), and the three named markers are copied from the imp-96206 baked literals; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: the boundary curve re-runs the imp-96206 maxTolerableBottom bisection verbatim at plot resolution (no re-derivation), and the three named markers are copied from the imp-96206 baked literals; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96256-joint-anchor-sweep',
@@ -3497,7 +3497,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96256',
       pedagogicalStep: 228,
       honestCeiling:
-        'Presentation only: every threshold value and the sqrt(3)/2 coupling constant are copied verbatim from the imp-96227 baked anchor-sweep table; only the chart-axis reshaping is computed here (no re-derivation, no new bisection); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every threshold value and the sqrt(3)/2 coupling constant are copied verbatim from the imp-96227 baked anchor-sweep table; only the chart-axis reshaping is computed here (no re-derivation, no new bisection); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96160-max-anchor-window-robustness',
@@ -3511,7 +3511,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96160',
       pedagogicalStep: 223,
       honestCeiling:
-        'Presentation only: every margin value plotted is imported verbatim from imp-96132 (no re-derivation, no re-baking of the underlying sd(C-E) / mean-L literals); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every margin value plotted is imported verbatim from imp-96132 (no re-derivation, no re-baking of the underlying sd(C-E) / mean-L literals); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96176-sigma-closed-form-ladder',
@@ -3525,7 +3525,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96176',
       pedagogicalStep: 224,
       honestCeiling:
-        'Presentation only: the ramp table and landmark values are copied verbatim from the imp-96151 baked fields; the U-shape/monotone comparison curve is illustrative of the imp-96151 sign findings, not a re-derivation of sigma(N); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: the ramp table and landmark values are copied verbatim from the imp-96151 baked fields; the U-shape/monotone comparison curve is illustrative of the imp-96151 sign findings, not a re-derivation of sigma(N); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96197-en-decay-exponent-ladder',
@@ -3539,7 +3539,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96197',
       pedagogicalStep: 225,
       honestCeiling:
-        'Presentation only: every ladder value plotted is imported verbatim from imp-96166 (no re-derivation, no fresh computation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every ladder value plotted is imported verbatim from imp-96166 (no re-derivation, no fresh computation); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96239-ushape-slope-drift',
@@ -3553,7 +3553,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96239',
       pedagogicalStep: 227,
       honestCeiling:
-        'Presentation only: recomputes the imp-96210 a(N), b(N) grid from the identical inherited component model (E_trunc frozen, Gronwall E_flow, GUE-conditional E_coll) purely to expose the per-N curve for charting, cross-checked against the imp-96210 frozen landmarks; the C_mb GUE-conditional share (imp-486) stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: recomputes the imp-96210 a(N), b(N) grid from the identical inherited component model (E_trunc frozen, Gronwall E_flow, GUE-conditional E_coll) purely to expose the per-N curve for charting, cross-checked against the imp-96210 frozen landmarks; the C_mb GUE-conditional share (imp-486) stays untouched; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96257-ushape-slope-drift',
@@ -3567,7 +3567,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96257',
       pedagogicalStep: 229,
       honestCeiling:
-        'Presentation only: every a(N), b(N), a+b grid value and the deep-probe reading are copied verbatim from the imp-96228 baked landmarks; only the chart-axis reshaping is computed here (no re-derivation, no new slope measurement); the component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every a(N), b(N), a+b grid value and the deep-probe reading are copied verbatim from the imp-96228 baked landmarks; only the chart-axis reshaping is computed here (no re-derivation, no new slope measurement); the component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays untouched; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96294-eflow-residual',
@@ -3581,7 +3581,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96294',
       pedagogicalStep: 230,
       honestCeiling:
-        'Presentation only: every R(N), E_flow/E_N, and peak/peak-recovery reading is copied verbatim from the imp-96266 baked landmarks; only the chart-axis reshaping (log10 N parsing) is computed here (no re-derivation, no new residual measurement); the component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every R(N), E_flow/E_N, and peak/peak-recovery reading is copied verbatim from the imp-96266 baked landmarks; only the chart-axis reshaping (log10 N parsing) is computed here (no re-derivation, no new residual measurement); the component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays untouched; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96314-covariance-deviation',
@@ -3595,7 +3595,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96314',
       pedagogicalStep: 230,
       honestCeiling:
-        'Presentation only: every deviation, rho_exact, and crossing value is copied verbatim from the imp-96267 baked ladder; only the log10 T axis reshaping is computed here (no re-derivation, no new height measurement); rho_exact is the theoretical GUE (sine-kernel, universality) two-interval correlation, not a measurement of the actual Riemann zeros; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every deviation, rho_exact, and crossing value is copied verbatim from the imp-96267 baked ladder; only the log10 T axis reshaping is computed here (no re-derivation, no new height measurement); rho_exact is the theoretical GUE (sine-kernel, universality) two-interval correlation, not a measurement of the actual Riemann zeros; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96316-etrunc-sensitivity',
@@ -3609,7 +3609,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96316',
       pedagogicalStep: 231,
       honestCeiling:
-        'Presentation only: recomputes the imp-96187 F3 E_trunc-scale sensitivity sweep from the identical inherited component model (Gronwall E_flow, GUE-conditional C_C_PINNED E_coll) at a finer grid to expose the smooth crossing for charting, cross-checked against the imp-96187 frozen sensitivity landmarks; the 1/sqrt(3) proximity is a crossing point, not a fixed point; the C_mb GUE-conditional share (imp-486) stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: recomputes the imp-96187 F3 E_trunc-scale sensitivity sweep from the identical inherited component model (Gronwall E_flow, GUE-conditional C_C_PINNED E_coll) at a finer grid to expose the smooth crossing for charting, cross-checked against the imp-96187 frozen sensitivity landmarks; the 1/sqrt(3) proximity is a crossing point, not a fixed point; the C_mb GUE-conditional share (imp-486) stays untouched; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96318-confident-span-crossing',
@@ -3623,7 +3623,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96318',
       pedagogicalStep: 232,
       honestCeiling:
-        'Presentation only: every crossSpan and rho value is copied verbatim from the imp-96288 baked fine-grid curve; only the log(rho) axis reshaping is computed here (no re-derivation, no new Monte-Carlo run); synthetic q4+q5 two-tone simulation, not a measurement of the real conductor content or its amplitude ratio; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every crossSpan and rho value is copied verbatim from the imp-96288 baked fine-grid curve; only the log(rho) axis reshaping is computed here (no re-derivation, no new Monte-Carlo run); synthetic q4+q5 two-tone simulation, not a measurement of the real conductor content or its amplitude ratio; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96320-route-l-reach-band',
@@ -3637,7 +3637,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96320',
       pedagogicalStep: 233,
       honestCeiling:
-        'Presentation only: every band and point-estimate literal is copied verbatim from the imp-96287 baked reconciliation; only the log10 axis reshaping is computed here (no re-derivation, no new LSQ fit); derivation on baked literals only, changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every band and point-estimate literal is copied verbatim from the imp-96287 baked reconciliation; only the log10 axis reshaping is computed here (no re-derivation, no new LSQ fit); derivation on baked literals only, changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96322-e-decomposition',
@@ -3651,7 +3651,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96322',
       pedagogicalStep: 234,
       honestCeiling:
-        'Presentation only: every E_trunc/E_flow/E_coll/E(N) magnitude and every C_shock/C_H value is copied verbatim from the imp-96290 baked inventory; only the log-scale bar layout is computed here (no re-derivation); the conditional anchor (C_H <= 0.127) is UNPROVEN (C_H isRigorousUpperBound = false, imp-2642/imp-2701) and C_Lip is the RH-hard unquantified residual (imp-2640 Gronwall discharge NEGATIVE); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every E_trunc/E_flow/E_coll/E(N) magnitude and every C_shock/C_H value is copied verbatim from the imp-96290 baked inventory; only the log-scale bar layout is computed here (no re-derivation); the conditional anchor (C_H <= 0.127) is UNPROVEN (C_H isRigorousUpperBound = false, imp-2642/imp-2701) and C_Lip is the RH-hard unquantified residual (imp-2640 Gronwall discharge NEGATIVE); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96262-model-selection-scores',
@@ -3665,7 +3665,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96262',
       pedagogicalStep: 235,
       honestCeiling:
-        'Presentation only: every R2/AICc/BIC/PRESS/Akaike-weight and permutation-test value is copied verbatim from the imp-96231 baked model-selection scores (no re-derivation, no new fit). The band decisively beats a slow smooth non-spectral drift (delta AICc -18.6), but is statistically indistinguishable from a free single tone at the same frequency (delta R2 0.002): the specific q4+q5 conductor content is NOT uniquely identified. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every R2/AICc/BIC/PRESS/Akaike-weight and permutation-test value is copied verbatim from the imp-96231 baked model-selection scores (no re-derivation, no new fit). The band decisively beats a slow smooth non-spectral drift (delta AICc -18.6), but is statistically indistinguishable from a free single tone at the same frequency (delta R2 0.002): the specific q4+q5 conductor content is NOT uniquely identified. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96334-ecoll-rate-ch-independence',
@@ -3679,7 +3679,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96334',
       pedagogicalStep: 236,
       honestCeiling:
-        'Presentation only: every E_coll value, segment slope, and slope-spread literal is copied verbatim from the imp-96311 baked columns/sharedSlopeProfile fields (no re-derivation); only the plotting shape is computed here. C_H isRigorousUpperBound remains false (imp-2642/imp-2701) and the imp-2640 Gronwall discharge of C_Lip remains NEGATIVE; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every E_coll value, segment slope, and slope-spread literal is copied verbatim from the imp-96311 baked columns/sharedSlopeProfile fields (no re-derivation); only the plotting shape is computed here. C_H isRigorousUpperBound remains false (imp-2642/imp-2701) and the imp-2640 Gronwall discharge of C_Lip remains NEGATIVE; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96337-mixed-ladder-margin',
@@ -3693,7 +3693,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96337',
       pedagogicalStep: 237,
       honestCeiling:
-        'Presentation only: every rung magnitude, margin, and threshold-count value is copied verbatim from the imp-96270 baked leadingMagnitudes/countAboveThreshold fields (no re-derivation); only the margin subtraction and threshold reordering are computed here. This charts a TABULATION of the already-reduced imp-96143 fact (I): it diagonalizes nothing, establishes no operator positivity, moves no Lambda bound, and does not touch the finitely-many top confined states (the actual residual). Changes no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every rung magnitude, margin, and threshold-count value is copied verbatim from the imp-96270 baked leadingMagnitudes/countAboveThreshold fields (no re-derivation); only the margin subtraction and threshold reordering are computed here. This charts a TABULATION of the already-reduced imp-96143 fact (I): it diagonalizes nothing, establishes no operator positivity, moves no Lambda bound, and does not touch the finitely-many top confined states (the actual residual). Changes no bound, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96338-worst-excess-evt',
@@ -3707,7 +3707,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96338',
       pedagogicalStep: 238,
       honestCeiling:
-        'Presentation only: every worstSigma, E[max], Gumbel-sd, and deviation value is copied verbatim from the imp-96271 baked rows (no re-derivation); only the bandLow/bandHigh = E[max] -/+ sd[max] arithmetic is computed here. This charts a measurement comparison already reduced by imp-96271 (itself testing an imp-95562 claim): it establishes no operator positivity, moves no Lambda bound, and touches nothing on the zero side. Changes no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every worstSigma, E[max], Gumbel-sd, and deviation value is copied verbatim from the imp-96271 baked rows (no re-derivation); only the bandLow/bandHigh = E[max] -/+ sd[max] arithmetic is computed here. This charts a measurement comparison already reduced by imp-96271 (itself testing an imp-95562 claim): it establishes no operator positivity, moves no Lambda bound, and touches nothing on the zero side. Changes no bound, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96393-discrepancy-envelope',
@@ -3721,7 +3721,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96393',
       pedagogicalStep: 239,
       honestCeiling:
-        'Presentation only: every discrepancy reading is copied verbatim from the imp-96371 baked decade ladder (no re-derivation); only the chart-axis reshaping (log10 T, log10 discrepancy) is computed here. rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L(T); at these heights (and at 3e12) there are no computed Riemann zeros, so this cross-validates two closed-form evaluations of the same envelope, not a measurement of actual zeros. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every discrepancy reading is copied verbatim from the imp-96371 baked decade ladder (no re-derivation); only the chart-axis reshaping (log10 T, log10 discrepancy) is computed here. rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L(T); at these heights (and at 3e12) there are no computed Riemann zeros, so this cross-validates two closed-form evaluations of the same envelope, not a measurement of actual zeros. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96298-pref-at-rayleigh',
@@ -3735,7 +3735,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96298',
       pedagogicalStep: 240,
       honestCeiling:
-        'Presentation only: every prefAtRayleigh and rho value is copied verbatim from the imp-96264 baked ratio table (no re-derivation); only the log(rho) axis reshaping is computed here. Route M off-lattice arithmetic per imp-96189, NOT a zero-tone measurement. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every prefAtRayleigh and rho value is copied verbatim from the imp-96264 baked ratio table (no re-derivation); only the log(rho) axis reshaping is computed here. Route M off-lattice arithmetic per imp-96189, NOT a zero-tone measurement. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96299-margin-floor-loo',
@@ -3749,7 +3749,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96299',
       pedagogicalStep: 241,
       honestCeiling:
-        'Presentation only: every LOO/LTO floor value is copied verbatim from the imp-96265 baked refit tables (no re-derivation); only the by-dropped-height sort and delta-from-full-fit are computed here. The positive-floor sign is robust across every held-out subset; the 0.14256 magnitude is endpoint-driven, not a sharp value. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every LOO/LTO floor value is copied verbatim from the imp-96265 baked refit tables (no re-derivation); only the by-dropped-height sort and delta-from-full-fit are computed here. The positive-floor sign is robust across every held-out subset; the 0.14256 magnitude is endpoint-driven, not a sharp value. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96302-route-l-reach-power-law',
@@ -3763,7 +3763,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96302',
       pedagogicalStep: 242,
       honestCeiling:
-        'Presentation only: every fit coefficient, measured point, and T0 extrapolation is copied verbatim from the imp-96269 baked crosscheck (no re-fit); only the log10 curve sampling is computed here. Both extrapolated orders sit ~15 decades beyond feasible computation, so Route L remains a fixed-cost detector, not a lever. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every fit coefficient, measured point, and T0 extrapolation is copied verbatim from the imp-96269 baked crosscheck (no re-fit); only the log10 curve sampling is computed here. Both extrapolated orders sit ~15 decades beyond feasible computation, so Route L remains a fixed-cost detector, not a lever. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96410-sigma-peak-knee-crossover',
@@ -3777,7 +3777,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96410',
       pedagogicalStep: 243,
       honestCeiling:
-        'Presentation only: every landmark value, shared-axis row, and finding is copied verbatim from the imp-96388 baked cross-tabulation (no re-derivation); only the log10 curve interpolation and axis sampling are computed here. Confirms two independent landmarks ~3.56 decades apart, not one feature at different differencing orders. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every landmark value, shared-axis row, and finding is copied verbatim from the imp-96388 baked cross-tabulation (no re-derivation); only the log10 curve interpolation and axis sampling are computed here. Confirms two independent landmarks ~3.56 decades apart, not one feature at different differencing orders. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96377-off-anchor-residual',
@@ -3791,7 +3791,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96377',
       pedagogicalStep: 244,
       honestCeiling:
-        'Presentation only: every T/rho pair and the seven-anchor line floor/slope are copied verbatim from imp-96345 (and, before that, imp-96148/imp-96224); only the per-point below-line flag and the line-curve sample points are computed here. The binding envelope stays strictly positive (0.3791 at gamma_4000) even as the fitted floor collapses toward zero off the line -- the margin SIGN survives, the positive FLOOR does not. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every T/rho pair and the seven-anchor line floor/slope are copied verbatim from imp-96345 (and, before that, imp-96148/imp-96224); only the per-point below-line flag and the line-curve sample points are computed here. The binding envelope stays strictly positive (0.3791 at gamma_4000) even as the fitted floor collapses toward zero off the line -- the margin SIGN survives, the positive FLOOR does not. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96378-route-m-beat-period-overlap',
@@ -3805,7 +3805,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96378',
       pedagogicalStep: 245,
       honestCeiling:
-        'Presentation only: the three marked anchors are copied verbatim from imp-96344; the connecting curve is a closed-form reconstruction of the same overlap definition (product-to-sum trig identity, no sampling/fitting) computed here, verified to agree with the baked anchors to within their own rounding. Establishes no operator positivity, moves no Lambda bound, and does not decide whether the real Route M data carries a genuine multi-conductor band (imp-96344 F4: that needs the actual Vasyunin Gram at N ~ 5.5e6..1.2e11). Changes no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: the three marked anchors are copied verbatim from imp-96344; the connecting curve is a closed-form reconstruction of the same overlap definition (product-to-sum trig identity, no sampling/fitting) computed here, verified to agree with the baked anchors to within their own rounding. Establishes no operator positivity, moves no Lambda bound, and does not decide whether the real Route M data carries a genuine multi-conductor band (imp-96344 F4: that needs the actual Vasyunin Gram at N ~ 5.5e6..1.2e11). Changes no bound, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96395-sigma-local-exponent-ramp',
@@ -3819,7 +3819,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96395',
       pedagogicalStep: 246,
       honestCeiling:
-        'Presentation only: the sigma(N)/OLS-exponent/D2 logic is copied verbatim from imp-96351 (identical sub-terms, identical estimator, no fresh model); it is re-run here only to expose the per-bracket p_dec/D2 series imp-96351 does not export, so the chart can render the ramp and its curvature rather than just the baked summary scalars. Establishes no operator positivity, moves no Lambda bound; measurement/fit only on an inherited, non-rigorous component model; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: the sigma(N)/OLS-exponent/D2 logic is copied verbatim from imp-96351 (identical sub-terms, identical estimator, no fresh model); it is re-run here only to expose the per-bracket p_dec/D2 series imp-96351 does not export, so the chart can render the ramp and its curvature rather than just the baked summary scalars. Establishes no operator positivity, moves no Lambda bound; measurement/fit only on an inherited, non-rigorous component model; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96399-route-m-reach-reprice',
@@ -3833,7 +3833,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96399',
       pedagogicalStep: 247,
       honestCeiling:
-        'Presentation only: every reach figure is copied verbatim from imp-96352 (corrected cost model) and imp-96230 (BUILD-only budget); no new timing measurement is made here, and the corrected reach ladder is itself an extrapolated cubic fit rather than a re-measured wall-clock run at each budget. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every reach figure is copied verbatim from imp-96352 (corrected cost model) and imp-96230 (BUILD-only budget); no new timing measurement is made here, and the corrected reach ladder is itself an extrapolated cubic fit rather than a re-measured wall-clock run at each budget. Changes no bound, establishes no operator positivity; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96401-intercept-se-trajectory',
@@ -3847,7 +3847,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96401',
       pedagogicalStep: 248,
       honestCeiling:
-        'Presentation only: every depth, intercept, and seC value is copied verbatim from the imp-96367 baked trajectory (no re-fit); only the +/-2 SE band and the sixth projected point are computed here. The gamma8000 point is a labeled projection, not a measurement -- the asymptotic sign past gamma4000 stays measurement-undecided pending fresh rho(32,T) evaluations. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every depth, intercept, and seC value is copied verbatim from the imp-96367 baked trajectory (no re-fit); only the +/-2 SE band and the sixth projected point are computed here. The gamma8000 point is a labeled projection, not a measurement -- the asymptotic sign past gamma4000 stays measurement-undecided pending fresh rho(32,T) evaluations. Changes no bound, establishes no operator positivity; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96413-count-model-sensitivity-ladder',
@@ -3861,7 +3861,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96413',
       pedagogicalStep: 249,
       honestCeiling:
-        'Presentation only: both ladder rungs and the scaling ratios are copied verbatim from the imp-96387 measurement (no re-fit, no re-derivation). Absolute anchor shifts stay tiny (~4.5e-8) despite the ~137x relative-sensitivity gap; conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: both ladder rungs and the scaling ratios are copied verbatim from the imp-96387 measurement (no re-fit, no re-derivation). Absolute anchor shifts stay tiny (~4.5e-8) despite the ~137x relative-sensitivity gap; conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false. Changes no bound, establishes no operator positivity; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96422-eflow-frac-ladder-peak-recovery',
@@ -3875,7 +3875,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96422',
       pedagogicalStep: 250,
       honestCeiling:
-        'Presentation only: every E_flow/E_N ladder reading and the recon-vs-full peak location/height are copied verbatim from the imp-96266 baked landmarks; only the chart-axis reshaping is computed here (no re-derivation, no new residual or peak measurement); the component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every E_flow/E_N ladder reading and the recon-vs-full peak location/height are copied verbatim from the imp-96266 baked landmarks; only the chart-axis reshaping is computed here (no re-derivation, no new residual or peak measurement); the component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays untouched; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96438-route-m-full-ladder',
@@ -3889,7 +3889,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96438',
       pedagogicalStep: 251,
       honestCeiling:
-        'Presentation only: every ratio(N) value is copied verbatim from imp-96094 IMP96094_ROWS and imp-96105 IMP96105_EXT_ROWS (no re-derivation of either exact Vasyunin Gram / Cholesky numerics); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every ratio(N) value is copied verbatim from imp-96094 IMP96094_ROWS and imp-96105 IMP96105_EXT_ROWS (no re-derivation of either exact Vasyunin Gram / Cholesky numerics); changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96439-three-basis-rho-crossvalidation',
@@ -3903,7 +3903,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96439',
       pedagogicalStep: 252,
       honestCeiling:
-        'Presentation only: every rho, agreement and roundoff-floor value is copied verbatim from the imp-96389 baked three-basis table (no re-derivation); rho is the theoretical GUE two-interval correlation with no computed Riemann zeros behind it; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every rho, agreement and roundoff-floor value is copied verbatim from the imp-96389 baked three-basis table (no re-derivation); rho is the theoretical GUE two-interval correlation with no computed Riemann zeros behind it; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96453-basis-c-corroboration-crossover',
@@ -3917,7 +3917,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96453',
       pedagogicalStep: 253,
       honestCeiling:
-        'Presentation only: every signal, floor and crossover value is copied verbatim from the imp-96430 baked crossover object (no re-derivation); rho is the theoretical GUE two-interval correlation with no computed Riemann zeros behind it; the crossover band is an extrapolation of a floor model calibrated only on accessible L (<= 960); the PT-anchor headroom marked is the imp-96430 model figure (~3.7e5), superseded by the imp-96448 measured ~640; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every signal, floor and crossover value is copied verbatim from the imp-96430 baked crossover object (no re-derivation); rho is the theoretical GUE two-interval correlation with no computed Riemann zeros behind it; the crossover band is an extrapolation of a floor model calibrated only on accessible L (<= 960); the PT-anchor headroom marked is the imp-96430 model figure (~3.7e5), superseded by the imp-96448 measured ~640; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96454-ecoll-gap-ladder',
@@ -3931,7 +3931,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96454',
       pedagogicalStep: 254,
       honestCeiling:
-        'Presentation only: every N, true height and relative-gap value is copied verbatim from the imp-96426 baked six-anchor object (no re-derivation); the reference 1/(gamma log gamma) envelope is scaled to match the N=1e3 anchor, a visual check of the imp-96426 prose claim, not an independent re-derivation; measurement/accuracy audit only, no gap closed, no bound changed, G6_polymath15_bridge not closed, conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701); Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every N, true height and relative-gap value is copied verbatim from the imp-96426 baked six-anchor object (no re-derivation); the reference 1/(gamma log gamma) envelope is scaled to match the N=1e3 anchor, a visual check of the imp-96426 prose claim, not an independent re-derivation; measurement/accuracy audit only, no gap closed, no bound changed, G6_polymath15_bridge not closed, conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701); no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96455-ckh-sensitivity',
@@ -3945,7 +3945,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96455',
       pedagogicalStep: 255,
       honestCeiling:
-        'Presentation only: every C_KH, factorVsBaseline, rateRelGap and eCollA1e22 value is copied verbatim from the imp-96429 baked sweep table (no re-derivation); the only new arithmetic is the log10 axis reshaping, a double-precision floor clip for the exact-zero 1e22 gap, and the eCollA1e22-to-baseline ratio; measurement/accuracy audit of a normalization constant only, no gap closed, no bound changed, conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701); Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: every C_KH, factorVsBaseline, rateRelGap and eCollA1e22 value is copied verbatim from the imp-96429 baked sweep table (no re-derivation); the only new arithmetic is the log10 axis reshaping, a double-precision floor clip for the exact-zero 1e22 gap, and the eCollA1e22-to-baseline ratio; measurement/accuracy audit of a normalization constant only, no gap closed, no bound changed, conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701); no refereed bound is changed; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96456-vasyunin-conditioning-ceiling',
@@ -3959,7 +3959,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96456',
       pedagogicalStep: 256,
       honestCeiling:
-        'Presentation only: the 12 measured lam_min rungs, the power-law fit, and the three proxy ceiling-N values are copied verbatim from imp-96428; the cond#(N) curves are traced from the exact lam_max(N) proxy formulas imp-96428 names (N, 10 log N, 1), each verified here to reproduce the published ceiling-N and target cond# values; measurement/extrapolation only, no Gram rebuilt, no bound changed, no operator positivity established; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the 12 measured lam_min rungs, the power-law fit, and the three proxy ceiling-N values are copied verbatim from imp-96428; the cond#(N) curves are traced from the exact lam_max(N) proxy formulas imp-96428 names (N, 10 log N, 1), each verified here to reproduce the published ceiling-N and target cond# values; measurement/extrapolation only, no Gram rebuilt, no bound changed, no operator positivity established; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96514-excursion-2sigma-interior-scan',
@@ -3973,7 +3973,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96514',
       pedagogicalStep: 257,
       honestCeiling:
-        'Presentation only: every Tc, z, relErr, nW, isDip and clipped value plotted here is copied verbatim from the imp-96493 baked scan object; the only new step is merging the T=1.5e5 reference point into the series and labelling each marker category; measurement/accuracy audit of imp-96452 lever (b) reach only, no gap closed, no bound changed; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every Tc, z, relErr, nW, isDip and clipped value plotted here is copied verbatim from the imp-96493 baked scan object; the only new step is merging the T=1.5e5 reference point into the series and labelling each marker category; measurement/accuracy audit of imp-96452 lever (b) reach only, no gap closed, no bound changed; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96515-ppp-collapse-map',
@@ -3987,7 +3987,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96515',
       pedagogicalStep: 258,
       honestCeiling:
-        'Presentation only: every L, optPpp, floor, floorModel and floorOverModel value plotted here is copied verbatim from the imp-96486 baked rung map; the only new step is labelling each rung cancellation or truncation branch from the existing crossover landmark; feasibility/cross-validation numerics only, theoretical GUE quantity, not real zeros, no bound changed; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every L, optPpp, floor, floorModel and floorOverModel value plotted here is copied verbatim from the imp-96486 baked rung map; the only new step is labelling each rung cancellation or truncation branch from the existing crossover landmark; feasibility/cross-validation numerics only, theoretical GUE quantity, not real zeros, no bound changed; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96516-route-m-remainder-model',
@@ -4001,7 +4001,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96516',
       pedagogicalStep: 259,
       honestCeiling:
-        'Presentation only: every N, ratio, c0, a, b, p, w and rms value plotted here is copied verbatim from the imp-96487 baked ladder/model objects; the only new step is sampling the fixed fitted curve at a dense grid for a smooth line; the 3.689-wide log-N window leaves the true asymptote undecided, no bound changed; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every N, ratio, c0, a, b, p, w and rms value plotted here is copied verbatim from the imp-96487 baked ladder/model objects; the only new step is sampling the fixed fitted curve at a dense grid for a smooth line; the 3.689-wide log-N window leaves the true asymptote undecided, no bound changed; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96475-etrunc-sensitivity',
@@ -4015,7 +4015,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96475',
       pedagogicalStep: 260,
       honestCeiling:
-        'Presentation only: every factor, eTrunc, knee, crossover and gap value plotted here is copied verbatim from the imp-96451 baked row literals; the only new step is the log10(factor) axis projection and the analytic reference line. Component-model curvature/sensitivity diagnostic only, not rigorous; changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every factor, eTrunc, knee, crossover and gap value plotted here is copied verbatim from the imp-96451 baked row literals; the only new step is the log10(factor) axis projection and the analytic reference line. Component-model curvature/sensitivity diagnostic only, not rigorous; changes no bound; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96478-count-gap-share',
@@ -4029,7 +4029,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96478',
       pedagogicalStep: 261,
       honestCeiling:
-        'Presentation only: every N, plus78Fraction, stFraction and S(gamma_N) value plotted here is copied verbatim from the imp-96445 baked per-anchor split; the only new step is the log10(N) stacked-bar projection. Accuracy-audit diagnostic only, not rigorous; changes no bound; conditional C_H <= 0.127 stays UNPROVEN; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every N, plus78Fraction, stFraction and S(gamma_N) value plotted here is copied verbatim from the imp-96445 baked per-anchor split; the only new step is the log10(N) stacked-bar projection. Accuracy-audit diagnostic only, not rigorous; changes no bound; conditional C_H <= 0.127 stays UNPROVEN; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96494-sigma-knee-widened-grid',
@@ -4043,7 +4043,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96494',
       pedagogicalStep: 262,
       honestCeiling:
-        'Presentation only: every factor, eTrunc, knee, crossover, gap and exit-factor value plotted here is copied verbatim from the imp-96464 baked row literals; the only new step is the log10(factor) axis projection and the analytic reference line. Component-model curvature/sensitivity diagnostic only, not rigorous; changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every factor, eTrunc, knee, crossover, gap and exit-factor value plotted here is copied verbatim from the imp-96464 baked row literals; the only new step is the log10(factor) axis projection and the analytic reference line. Component-model curvature/sensitivity diagnostic only, not rigorous; changes no bound; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96497-excursion-significance-sensitivity',
@@ -4057,7 +4057,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96497',
       pedagogicalStep: 263,
       honestCeiling:
-        'Presentation only: every n_w/z-score/window-gap value plotted here is copied verbatim from the imp-96452 baked reach record; only the bar layout is computed here (no re-derivation). The naive ~1.9-sigma is a conservative lower bound on a single fixed-data-ceiling dip whose window is fully interior to the existing 10^6-ordinate set; reaching 2-sigma needs a deeper excursion from new interior data, not more verified-zero height. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every n_w/z-score/window-gap value plotted here is copied verbatim from the imp-96452 baked reach record; only the bar layout is computed here (no re-derivation). The naive ~1.9-sigma is a conservative lower bound on a single fixed-data-ceiling dip whose window is fully interior to the existing 10^6-ordinate set; reaching 2-sigma needs a deeper excursion from new interior data, not more verified-zero height. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96498-solver-spread-count-shift-crossover',
@@ -4071,7 +4071,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96498',
       pedagogicalStep: 264,
       honestCeiling:
-        'Presentation only: every spread/shift value plotted here is copied verbatim from the imp-96449 baked rows; only the log10 axis reshaping is computed here (no re-derivation). The N ~ 1e15 crossover is benign, not a real divergence: past that height both the solver-path residual and the count-model reference shift are numerically negligible (sub-ULP of a double-precision gamma_N). Solver-path / conditioning diagnostic only, not rigorous; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every spread/shift value plotted here is copied verbatim from the imp-96449 baked rows; only the log10 axis reshaping is computed here (no re-derivation). The N ~ 1e15 crossover is benign, not a real divergence: past that height both the solver-path residual and the count-model reference shift are numerically negligible (sub-ULP of a double-precision gamma_N). Solver-path / conditioning diagnostic only, not rigorous; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96520-offset-drift-ldrift-prediction',
@@ -4085,7 +4085,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96520',
       pedagogicalStep: 265,
       honestCeiling:
-        'Presentation only: every crossoverLog10, offset and slope value plotted here is copied verbatim from the imp-96467 baked fit object; the only new step is sorting the rows and laying out the two charts. The analytic L-drift term reproduces the sign and near-linearity of the measured drift but over-predicts its slope by ~21%, so a residual sub-leading term is shaded, not closed; derivation/measurement diagnostic only, not rigorous; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every crossoverLog10, offset and slope value plotted here is copied verbatim from the imp-96467 baked fit object; the only new step is sorting the rows and laying out the two charts. The analytic L-drift term reproduces the sign and near-linearity of the measured drift but over-predicts its slope by ~21%, so a residual sub-leading term is shaded, not closed; derivation/measurement diagnostic only, not rigorous; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96534-ar-effective-count-ladder',
@@ -4099,7 +4099,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96534',
       pedagogicalStep: 266,
       honestCeiling:
-        'Presentation only: every n_eff/z_eff/correlation value plotted here is copied verbatim from the imp-96509 AR(p) resummation (which reproduces the imp-96489 AR-1 baseline exactly); the lag-2/lag-3 inputs are theoretical GUE sine-process box correlations, not empirical zero covariances, so the AR-2/AR-3 figures are indicative, not precise. The headline conservative z_cons = 1.9234 floor is unchanged and remains the strict lower bound; derivation/measurement diagnostic only, not rigorous; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every n_eff/z_eff/correlation value plotted here is copied verbatim from the imp-96509 AR(p) resummation (which reproduces the imp-96489 AR-1 baseline exactly); the lag-2/lag-3 inputs are theoretical GUE sine-process box correlations, not empirical zero covariances, so the AR-2/AR-3 figures are indicative, not precise. The headline conservative z_cons = 1.9234 floor is unchanged and remains the strict lower bound; derivation/measurement diagnostic only, not rigorous; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96535-ledger-reconciliation',
@@ -4113,7 +4113,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96535',
       pedagogicalStep: 267,
       honestCeiling:
-        'Presentation only: every Tc, nW, z, verdict and agreement flag shown here is copied verbatim from the imp-96512 baked height-by-height comparison; the only new step is picking a display nW/z per row and a ledger-membership category. Cross-validation only: changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every Tc, nW, z, verdict and agreement flag shown here is copied verbatim from the imp-96512 baked height-by-height comparison; the only new step is picking a display nW/z per row and a ledger-membership category. Cross-validation only: changes no bound, establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96554-two-exponent-relerr-cone',
@@ -4127,7 +4127,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96554',
       pedagogicalStep: 268,
       honestCeiling:
-        'Presentation only: SE(p), Delta_p and the separation-in-sigma are copied verbatim from the imp-96528 exponent-fit-reach verdict, and both relErr(T) measurements are copied verbatim from the imp-96493 interior scan; the only new computation is evaluating the two power laws and the cone bounds over a plotting grid. Neither exponent is established -- the fixed 10^6 Odlyzko set cannot resolve Delta_p=0.25 at better than ~1.16 sigma. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: SE(p), Delta_p and the separation-in-sigma are copied verbatim from the imp-96528 exponent-fit-reach verdict, and both relErr(T) measurements are copied verbatim from the imp-96493 interior scan; the only new computation is evaluating the two power laws and the cone bounds over a plotting grid. Neither exponent is established -- the fixed 10^6 Odlyzko set cannot resolve Delta_p=0.25 at better than ~1.16 sigma. Changes no bound, establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96555-route-i-concentration-ladder',
@@ -4141,7 +4141,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96555',
       pedagogicalStep: 269,
       honestCeiling:
-        'Presentation only: every lambda_0(c), dip-concentration, and nu_max value plotted here is copied verbatim from the Route I uncertainty/concentration certificate module. The pure concentration bound fails on its own (nu_max=0.997689 is a 0.23% cancellation); the certificate closes D_S <= L_S unconditionally by a different route (Theorem III, constant 9.04e-4), not via this concentration argument. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every lambda_0(c), dip-concentration, and nu_max value plotted here is copied verbatim from the Route I uncertainty/concentration certificate module. The pure concentration bound fails on its own (nu_max=0.997689 is a 0.23% cancellation); the certificate closes D_S <= L_S unconditionally by a different route (Theorem III, constant 9.04e-4), not via this concentration argument. Changes no bound, establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96557-eflow-domination-kappa',
@@ -4155,7 +4155,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96557',
       pedagogicalStep: 270,
       honestCeiling:
-        'Presentation only: every ladder row and landmark value plotted here is copied verbatim from the imp-96409 required-factor measurement; the only new step is parsing "1eK" N-labels to numeric N and taking log10 for the plotting grid. E_coll stays GUE-conditional (imp-486, UNTOUCHED); the imp-398 pinned C_F is UNTOUCHED; no admissible mollifier reshaping can inflate C_F by the required x5-6x+. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder row and landmark value plotted here is copied verbatim from the imp-96409 required-factor measurement; the only new step is parsing "1eK" N-labels to numeric N and taking log10 for the plotting grid. E_coll stays GUE-conditional (imp-486, UNTOUCHED); the imp-398 pinned C_F is UNTOUCHED; no admissible mollifier reshaping can inflate C_F by the required x5-6x+. Changes no bound, establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96560-basis-c-crossover-band-narrowing',
@@ -4169,7 +4169,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96560',
       pedagogicalStep: 271,
       honestCeiling:
-        'Presentation only: both band endpoints and the PT anchor value plotted here are copied verbatim from the imp-96479 baked verdict; the only new step is the shared log10(L) axis projection for the before/after range chart. The crossover L* remains an EXTRAPOLATION never evaluated at L~1e12; changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: both band endpoints and the PT anchor value plotted here are copied verbatim from the imp-96479 baked verdict; the only new step is the shared log10(L) axis projection for the before/after range chart. The crossover L* remains an EXTRAPOLATION never evaluated at L~1e12; changes no bound, establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96576-route-i-window-anatomy',
@@ -4183,7 +4183,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96576',
       pedagogicalStep: 272,
       honestCeiling:
-        'Presentation only: every window part/energy value plotted here is copied verbatim from the certificate module\'s own baked anatomy literal (no re-derivation, no fresh solve); the minimizer itself is not interval-verified, only the T=400/N=320 Galerkin lower bound is. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every window part/energy value plotted here is copied verbatim from the certificate module\'s own baked anatomy literal (no re-derivation, no fresh solve); the minimizer itself is not interval-verified, only the T=400/N=320 Galerkin lower bound is. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96577-route-i-certificate-constant-ladder',
@@ -4197,7 +4197,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96577',
       pedagogicalStep: 273,
       honestCeiling:
-        'Presentation only: every ladder value, extrapolant, and bracket endpoint plotted here is copied verbatim from the certificate module\'s own baked constantReconciliation literal (no re-derivation, no fresh solve); c(T) is a double-precision, non-interval lower bound and the two-term fit / Ritz value are point estimates, not proved bounds. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder value, extrapolant, and bracket endpoint plotted here is copied verbatim from the certificate module\'s own baked constantReconciliation literal (no re-derivation, no fresh solve); c(T) is a double-precision, non-interval lower bound and the two-term fit / Ritz value are point estimates, not proved bounds. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96581-route-m-lammax-rigorous-vs-measured',
@@ -4211,7 +4211,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96581',
       pedagogicalStep: 274,
       honestCeiling:
-        'Presentation only: every curve value is recomputed verbatim from the imp-96548 baked inputs (I(1,1), gamma, fit coefficients); no new measurement. The rigorous curve is an unconditional SPD trace-domination upper bound, not a match to the measured coefficient. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every curve value is recomputed verbatim from the imp-96548 baked inputs (I(1,1), gamma, fit coefficients); no new measurement. The rigorous curve is an unconditional SPD trace-domination upper bound, not a match to the measured coefficient. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96663-route-m-condfit-ladder',
@@ -4225,7 +4225,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96663',
       pedagogicalStep: 286,
       honestCeiling:
-        'Presentation only: every ladder row, fit coefficient, and ceiling value plotted here is copied verbatim from the imp-96570 baked literals (no re-derivation, no fresh solve); the power-law extrapolation is a double-precision, non-interval point estimate, not a proved bound. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder row, fit coefficient, and ceiling value plotted here is copied verbatim from the imp-96570 baked literals (no re-derivation, no fresh solve); the power-law extrapolation is a double-precision, non-interval point estimate, not a proved bound. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96598-sine-kernel-lag-decay',
@@ -4239,7 +4239,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96598',
       pedagogicalStep: 275,
       honestCeiling:
-        'Presentation only: every value plotted is reused verbatim from imp-96567\'s baked inputs; only the closed-form curve over an extended k-range is recomputed here from those same inputs, using the identical formula. Conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value plotted is reused verbatim from imp-96567\'s baked inputs; only the closed-form curve over an extended k-range is recomputed here from those same inputs, using the identical formula. Conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN). Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96600-basis-c-floor-ladder',
@@ -4253,7 +4253,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96600',
       pedagogicalStep: 276,
       honestCeiling:
-        'Presentation only: every ladder value is reused verbatim from imp-96568; only the log10 reshaping and the ppp-pinned regime split are new. imp-96568 itself is a theoretical GUE quantity (no computed zeros) and the above-anchor exponent is fit from only two rungs. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder value is reused verbatim from imp-96568; only the log10 reshaping and the ppp-pinned regime split are new. imp-96568 itself is a theoretical GUE quantity (no computed zeros) and the above-anchor exponent is fit from only two rungs. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96739-basis-c-above-anchor-ladder-lstar-crossover',
@@ -4267,7 +4267,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96739',
       pedagogicalStep: 277,
       honestCeiling:
-        'Presentation only: every ladder, bracket, and crossover value is reused verbatim from imp-96690/imp-96712; only the log10 reshaping is new. Both source modules are theoretical GUE quantities (no computed zeros) and every L* figure is a projection, not a measured reach. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder, bracket, and crossover value is reused verbatim from imp-96690/imp-96712; only the log10 reshaping is new. Both source modules are theoretical GUE quantities (no computed zeros) and every L* figure is a projection, not a measured reach. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96604-lammax-normalized-ratio',
@@ -4281,7 +4281,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96604',
       pedagogicalStep: 277,
       honestCeiling:
-        'Presentation only: every ratio value is reused verbatim from imp-96562; only the two-series reshape and target-line overlay are new. imp-96562 itself is a re-analysis measurement (Szego route does not apply; no bound moved). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ratio value is reused verbatim from imp-96562; only the two-series reshape and target-line overlay are new. imp-96562 itself is a re-analysis measurement (Szego route does not apply; no bound moved). Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96606-cert-limit-crossover',
@@ -4295,7 +4295,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96606',
       pedagogicalStep: 278,
       honestCeiling:
-        'Presentation only: every ladder value and the crossover figure are reused verbatim from imp-96591 (itself a re-analysis of the imp-96428 fit and the imp-96563 Higham/Rump rounding-shift formula); only the log10 reshape and marker packaging are new. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder value and the crossover figure are reused verbatim from imp-96591 (itself a re-analysis of the imp-96428 fit and the imp-96563 Higham/Rump rounding-shift formula); only the log10 reshape and marker packaging are new. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96621-sigma2-lammin-margin-ladder',
@@ -4309,7 +4309,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96621',
       pedagogicalStep: 279,
       honestCeiling:
-        'Presentation only: every ladder value, the crossing bracket, and the sigma_1 straddle/resolution are reused verbatim from the Route I Toeplitz/Krein certificate literals; only the ladder reshape and chart packaging are new. The zero crossing is a floating-point Rayleigh-Ritz measurement past the interval-verified range, not a proof of failure; establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder value, the crossing bracket, and the sigma_1 straddle/resolution are reused verbatim from the Route I Toeplitz/Krein certificate literals; only the ladder reshape and chart packaging are new. The zero crossing is a floating-point Rayleigh-Ritz measurement past the interval-verified range, not a proof of failure; establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96640-route-m-rankr-power-iteration-bracket',
@@ -4323,7 +4323,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96640',
       pedagogicalStep: 280,
       honestCeiling:
-        'Presentation only: every ladder value (slope, ratio, r2) is reused verbatim from imp-96612; only the ratio-to-target bar reshape is new. R_r -> lam_max by SPD power/Lanczos construction, so convergence to 0.3526 measures the coefficient collective rank, not an independent prediction. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder value (slope, ratio, r2) is reused verbatim from imp-96612; only the ratio-to-target bar reshape is new. R_r -> lam_max by SPD power/Lanczos construction, so convergence to 0.3526 measures the coefficient collective rank, not an independent prediction. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96721-sigma2-emp-vs-gue',
@@ -4337,7 +4337,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96721',
       pedagogicalStep: 281,
       honestCeiling:
-        'Presentation only: every Sigma2/rho value is reused verbatim from imp-96695; the |rho + 1/2| signal columns are a direct arithmetic reshape of the same baked rhoEmp/rhoGue values. Measures a finite-height (Berry semiclassical) number-variance saturation effect, not a GUE-universality failure; moves no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every Sigma2/rho value is reused verbatim from imp-96695; the |rho + 1/2| signal columns are a direct arithmetic reshape of the same baked rhoEmp/rhoGue values. Measures a finite-height (Berry semiclassical) number-variance saturation effect, not a GUE-universality failure; moves no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96641-gmin-gue-envelope',
@@ -4351,7 +4351,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96641',
       pedagogicalStep: 282,
       honestCeiling:
-        'Presentation only: every ladder value (N, ratio, gueMedian, ratioOverGue, argminIdx) is reused verbatim from imp-96616; only the log-log chart reshape and the isPlateau flag (derived from repeated argminIdx) are new. Changes no bound, establishes no operator positivity, no RH claim; the measured exponent stays conditional on no proven small-gaps theorem; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder value (N, ratio, gueMedian, ratioOverGue, argminIdx) is reused verbatim from imp-96616; only the log-log chart reshape and the isPlateau flag (derived from repeated argminIdx) are new. Changes no bound, establishes no operator positivity, no RH claim; the measured exponent stays conditional on no proven small-gaps theorem; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96646-krein-certificate-margin',
@@ -4365,7 +4365,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96646',
       pedagogicalStep: 283,
       honestCeiling:
-        'Presentation only: every anchor and fit coefficient (eps, l1, slopes, intercepts, wall band, ln2/ln3) is reused verbatim from the Route I Krein certificate literals; only the paired chart and reach-diagram reshape are new. The double-precision LP wall is a conditioning symptom of the certificate norm, not a positivity failure (lambda_min(T_a[sigma_2]) stays positive well past 2a=1.0). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every anchor and fit coefficient (eps, l1, slopes, intercepts, wall band, ln2/ln3) is reused verbatim from the Route I Krein certificate literals; only the paired chart and reach-diagram reshape are new. The double-precision LP wall is a conditioning symptom of the certificate norm, not a positivity failure (lambda_min(T_a[sigma_2]) stays positive well past 2a=1.0). Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96661-krein-ft-curve',
@@ -4379,7 +4379,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96661',
       pedagogicalStep: 284,
       honestCeiling:
-        'Presentation only: the two curves and zoom panel were generated offline from the already-committed double-precision certificateF/sigma2 against the baked certificate coefficient tables (no new numerics), then baked as literals; the worst-point and dip markers reproduce the imp-96633/imp-96651 values exactly. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the two curves and zoom panel were generated offline from the already-committed double-precision certificateF/sigma2 against the baked certificate coefficient tables (no new numerics), then baked as literals; the worst-point and dip markers reproduce the imp-96633/imp-96651 values exactly. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96662-lammax-rankr-slope-onset',
@@ -4393,7 +4393,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96662',
       pedagogicalStep: 285,
       honestCeiling:
-        'Presentation only: both curves are baked literals computed offline from the closed-form fit parameters already reported in imp-96636 (no new curve_fit run); the imp-96636 module is not imported at runtime. Changes no bound, establishes no operator positivity; the underlying fit is a measurement of a surrogate that converges to lam_max by construction, not a closed-form derivation of the 0.3526 coefficient. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: both curves are baked literals computed offline from the closed-form fit parameters already reported in imp-96636 (no new curve_fit run); the imp-96636 module is not imported at runtime. Changes no bound, establishes no operator positivity; the underlying fit is a measurement of a surrogate that converges to lam_max by construction, not a closed-form derivation of the 0.3526 coefficient. No refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96670-route-m-lammax-majorants',
@@ -4407,7 +4407,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96670',
       pedagogicalStep: 286,
       honestCeiling:
-        'Presentation only: every curve value and ceiling is reused verbatim from imp-96648 (rigorous, unconditional matrix inequalities measured on the same exact Vasyunin Gram as imp-96105/imp-96443); no re-solve. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every curve value and ceiling is reused verbatim from imp-96648 (rigorous, unconditional matrix inequalities measured on the same exact Vasyunin Gram as imp-96105/imp-96443); no re-solve. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96683-route-m-conditioning-ceiling-ci',
@@ -4421,7 +4421,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96683',
       pedagogicalStep: 289,
       honestCeiling:
-        'Presentation only: every band edge and point estimate is reused verbatim from imp-96656 (delta-method log-normal CI), the Frobenius reference ceiling from imp-96648, and the compute ceiling from imp-96352; no re-fit, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every band edge and point estimate is reused verbatim from imp-96656 (delta-method log-normal CI), the Frobenius reference ceiling from imp-96648, and the compute ceiling from imp-96352; no re-fit, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96701-frobenius-majorant-eleven-rung',
@@ -4435,7 +4435,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96701',
       pedagogicalStep: 290,
       honestCeiling:
-        'Presentation only: every curve value and ceiling is reused verbatim from imp-96648 (eight committed rungs) and imp-96684 (three new rungs + re-fit ceilings); no re-solve, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every curve value and ceiling is reused verbatim from imp-96648 (eight committed rungs) and imp-96684 (three new rungs + re-fit ceilings); no re-solve, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96702-route-m-reach-projection',
@@ -4449,7 +4449,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96702',
       pedagogicalStep: 291,
       honestCeiling:
-        'Presentation only: every gap, sigma, and reach-N value is reused verbatim from imp-96569 (SE-of-mean reach projection, an optimistic lower bound); no re-fit, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every gap, sigma, and reach-N value is reused verbatim from imp-96569 (SE-of-mean reach projection, an optimistic lower bound); no re-fit, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96777-krein-lammin-n-trend',
@@ -4463,7 +4463,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96777',
       pedagogicalStep: 292,
       honestCeiling:
-        'Presentation only: every floor value, condB reading, and window boundary is reused verbatim from imp-96749 (Rayleigh-Ritz upper floor, not an operator positivity proof); no re-solve, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every floor value, condB reading, and window boundary is reused verbatim from imp-96749 (Rayleigh-Ritz upper floor, not an operator positivity proof); no re-solve, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96779-route-m-ceiling-ladder',
@@ -4477,7 +4477,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96779',
       pedagogicalStep: 293,
       honestCeiling:
-        'Presentation only: every ladder value and ratio is reused verbatim from imp-96682 (itself a pure reconciliation of imp-96352/96548/96648/96443/96570/96656, no new measurement); no bound moved, no operator positivity established, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder value and ratio is reused verbatim from imp-96682 (itself a pure reconciliation of imp-96352/96548/96648/96443/96570/96656, no new measurement); no bound moved, no operator positivity established, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96671-spectral-share-vs-measured-slope',
@@ -4491,7 +4491,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96671',
       pedagogicalStep: 287,
       honestCeiling:
-        'Presentation only: the two-scale curve is computed at render time from baked closed-form parameters already reported in imp-96652 (no new numerics); the measured points and exact-share overlay are baked literals reused verbatim. Does not close IMP96562_SUBGAP, changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the two-scale curve is computed at render time from baked closed-form parameters already reported in imp-96652 (no new numerics); the measured points and exact-share overlay are baked literals reused verbatim. Does not close IMP96562_SUBGAP, changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96679-gmin-ratio-sawtooth',
@@ -4505,7 +4505,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96679',
       pedagogicalStep: 288,
       honestCeiling:
-        'Presentation only: every ladder value (N, ratioOverGue, argminIdx) is reused verbatim from imp-96616 and every doubling/jump/oscillation figure is reused verbatim from imp-96654; only the plateau/reset flags and the log-log chart reshape are new. Changes no bound, establishes no operator positivity, no RH claim; the measured exponent stays conditional on no proven small-gaps theorem; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder value (N, ratioOverGue, argminIdx) is reused verbatim from imp-96616 and every doubling/jump/oscillation figure is reused verbatim from imp-96654; only the plateau/reset flags and the log-log chart reshape are new. Changes no bound, establishes no operator positivity, no RH claim; the measured exponent stays conditional on no proven small-gaps theorem; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96723-route-m-three-ceiling-decomposition',
@@ -4519,7 +4519,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96723',
       pedagogicalStep: 294,
       honestCeiling:
-        'Presentation only: every ceiling value and ratio is reused verbatim from imp-96693 (itself a pure re-analysis of the imp-96684 bisection-solved ceilings, no new numerics); the Frobenius and measured ceilings inherit a log-fit extrapolation sub-gap, only the trace ceiling is a rigorous lower bound. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ceiling value and ratio is reused verbatim from imp-96693 (itself a pure re-analysis of the imp-96684 bisection-solved ceilings, no new numerics); the Frobenius and measured ceilings inherit a log-fit extrapolation sub-gap, only the trace ceiling is a rigorous lower bound. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96741-route-m-three-ceiling-decomposition',
@@ -4533,7 +4533,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96741',
       pedagogicalStep: 295,
       honestCeiling:
-        'Presentation only: every ceiling, ratio, and gap-fraction value is reused verbatim from imp-96713 (a pure re-analysis of the imp-96684/imp-96694 ceilings, no new numerics); only the trace ceiling is a rigorous lower bound, the Frobenius and measured ceilings inherit a log-fit extrapolation sub-gap. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ceiling, ratio, and gap-fraction value is reused verbatim from imp-96713 (a pure re-analysis of the imp-96684/imp-96694 ceilings, no new numerics); only the trace ceiling is a rigorous lower bound, the Frobenius and measured ceilings inherit a log-fit extrapolation sub-gap. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96742-safe-direction-sign-per-rung',
@@ -4547,7 +4547,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96742',
       pedagogicalStep: 296,
       honestCeiling:
-        'Presentation only: every d_sig(L) value and safe flag is reused verbatim from imp-96714 (itself a pure arithmetic reshape of the imp-96695 baked rhoEmp/rhoGue table); no new measurement, no recomputation from the zeros. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every d_sig(L) value and safe flag is reused verbatim from imp-96714 (itself a pure arithmetic reshape of the imp-96695 baked rhoEmp/rhoGue table); no new measurement, no recomputation from the zeros. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96801-gmin-exponent-noise-band',
@@ -4561,7 +4561,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96801',
       pedagogicalStep: 297,
       honestCeiling:
-        'Presentation only: every band edge, z-score, and observed exponent is reused verbatim from imp-96755 (200,000-trial Monte Carlo of the Weibull-3 block-extreme null); no re-fit, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; measurement conditional on GUE; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every band edge, z-score, and observed exponent is reused verbatim from imp-96755 (200,000-trial Monte Carlo of the Weibull-3 block-extreme null); no re-fit, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; measurement conditional on GUE; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96822-gmin-ladder-reach-frontier',
@@ -4575,7 +4575,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96822',
       pedagogicalStep: 298,
       honestCeiling:
-        'Presentation only: every N_center, fill fraction, and ordinate count is reused verbatim from imp-96754 (arithmetic on the cached zero COUNT only, no zeros bundle imported, no gaps recomputed). Changes no bound, establishes no operator positivity, no RH claim; measurement/scoping only, conditional on GUE; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every N_center, fill fraction, and ordinate count is reused verbatim from imp-96754 (arithmetic on the cached zero COUNT only, no zeros bundle imported, no gaps recomputed). Changes no bound, establishes no operator positivity, no RH claim; measurement/scoping only, conditional on GUE; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp96925-krein-t-truncation-deficit',
@@ -4589,7 +4589,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-96925',
       pedagogicalStep: 299,
       honestCeiling:
-        'Presentation only: every deficit and percentage value is reused verbatim from imp-96814 (itself verbatim from imp-96768); no re-solve, no new numerics. The deficit is a LOWER bound on the true t-truncation gap. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every deficit and percentage value is reused verbatim from imp-96814 (itself verbatim from imp-96768); no re-solve, no new numerics. The deficit is a LOWER bound on the true t-truncation gap. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97367-krein-csharp-coupled-nt-grid',
@@ -4603,7 +4603,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97367',
       pedagogicalStep: 317,
       honestCeiling:
-        'Presentation only: every grid value, extrapolant, and plateau statistic is reused verbatim from imp-97206; no re-solve, no new numerics. These are Rayleigh-Ritz UPPER bounds, not a certified floor. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every grid value, extrapolant, and plateau statistic is reused verbatim from imp-97206; no re-solve, no new numerics. These are Rayleigh-Ritz UPPER bounds, not a certified floor. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97368-w1-sign-profile',
@@ -4617,7 +4617,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97368',
       pedagogicalStep: 318,
       honestCeiling:
-        'Presentation only: every landmark, zero crossing, and mass ratio is reused verbatim from imp-97336; no re-solve, no new numerics. w1 is pointwise negative at the band edge -- this is NOT an operator positivity result and establishes no lower bound. Changes no bound; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every landmark, zero crossing, and mass ratio is reused verbatim from imp-97336; no re-solve, no new numerics. w1 is pointwise negative at the band edge -- this is NOT an operator positivity result and establishes no lower bound. Changes no bound; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97369-krein-routeb-enclosure',
@@ -4631,7 +4631,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97369',
       pedagogicalStep: 319,
       honestCeiling:
-        'Presentation only: reuses the exported certified enclosureUpper primitive and sPoly/cPoly verbatim; no re-derivation of the bounding argument, no new numerics. Establishes no operator positivity. Changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: reuses the exported certified enclosureUpper primitive and sPoly/cPoly verbatim; no re-derivation of the bounding argument, no new numerics. Establishes no operator positivity. Changes no bound; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97040-orphaned-calibration-leaves',
@@ -4645,7 +4645,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97040',
       pedagogicalStep: 300,
       honestCeiling:
-        'Presentation only: every value across all three tabs is reused verbatim from the imp-96959/imp-96960/imp-96961 viz-data leaves (themselves verbatim reshapes of imp-96938/imp-96936+imp-96950/imp-96934); no re-solve, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value across all three tabs is reused verbatim from the imp-96959/imp-96960/imp-96961 viz-data leaves (themselves verbatim reshapes of imp-96938/imp-96936+imp-96950/imp-96934); no re-solve, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97041-nyquist-alias-periodogram',
@@ -4659,7 +4659,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97041',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every frequency and power value is reused verbatim from imp-96915/imp-96941 (no re-derivation of the underlying Lomb-Scargle numerics). Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every frequency and power value is reused verbatim from imp-96915/imp-96941 (no re-derivation of the underlying Lomb-Scargle numerics). Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97082-ritz-vs-rigorous-crossval-range',
@@ -4673,7 +4673,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97082',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every band value is reused verbatim from imp-96983 (itself verbatim from imp-96958). The Ritz band is an UPPER estimate, not a certified lower bound. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every band value is reused verbatim from imp-96983 (itself verbatim from imp-96958). The Ritz band is an UPPER estimate, not a certified lower bound. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97068-mirror-descent-poisson-kernel',
@@ -4687,7 +4687,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97068',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every value is computed with the imported f() verbatim, no re-derivation. The pair lemma and Poisson domination are proved elementary facts, but the flow-descent theorem they feed stays conditional (hypothesis open, pointwise NS-RIGID class). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value is computed with the imported f() verbatim, no re-derivation. The pair lemma and Poisson domination are proved elementary facts, but the flow-descent theorem they feed stays conditional (hypothesis open, pointwise NS-RIGID class). Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97106-palm-mirror-surplus-comparison',
@@ -4701,7 +4701,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97106',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every count and surplus value is reused verbatim from imp-97080, no re-derivation. Only the far-height N1* Palm baseline and the 1e22 empirical block reach approximate parity (~1.0x); every seam-height / 1e12 baseline falls short of p_req. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every count and surplus value is reused verbatim from imp-97080, no re-derivation. Only the far-height N1* Palm baseline and the 1e22 empirical block reach approximate parity (~1.0x); every seam-height / 1e12 baseline falls short of p_req. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97111-route-m-reach-confidence-ladder',
@@ -4715,7 +4715,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97111',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every value is reused verbatim from imp-97060, no re-derivation. Only the trace ceiling T ~ 2.594e7 is rigorous; the 1-percent confidence rung (~2.01e7, ~49 percent of N*) is a downward extrapolation. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value is reused verbatim from imp-97060, no re-derivation. Only the trace ceiling T ~ 2.594e7 is rigorous; the 1-percent confidence rung (~2.01e7, ~49 percent of N*) is a downward extrapolation. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97212-route-m-residual-sign-magnitude',
@@ -4729,7 +4729,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97212',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every value is reused verbatim from imp-97140, no re-derivation. The observed sign law is omega odd => r>0 / omega even => r<0 except at the three primorial-floor exceptions (leading-term cancellation); the imp-97140 exponent string (-1)^omega(b) is data-inconsistent, corrected by imp-97167 to (-1)^(omega(b)+1). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value is reused verbatim from imp-97140, no re-derivation. The observed sign law is omega odd => r>0 / omega even => r<0 except at the three primorial-floor exceptions (leading-term cancellation); the imp-97140 exponent string (-1)^omega(b) is data-inconsistent, corrected by imp-97167 to (-1)^(omega(b)+1). Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97389-route-m-sign-law-omega-ladder',
@@ -4743,7 +4743,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97389',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every value is reused verbatim from imp-97333/imp-97352, no re-derivation. The domination method is proved for omega<=4 (tight 3-vs-3 match at omega=4) and fails first at omega=5 (Hall deficiency 2), reducing to the open IMP97333_SIGN_TAIL_SUBGAP. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value is reused verbatim from imp-97333/imp-97352, no re-derivation. The domination method is proved for omega<=4 (tight 3-vs-3 match at omega=4) and fails first at omega=5 (Hall deficiency 2), reducing to the open IMP97333_SIGN_TAIL_SUBGAP. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97453-route-m-sign-magnitude-omega-ladder',
@@ -4757,7 +4757,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97453',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every value is reused verbatim from imp-97352/imp-97423/imp-97422, no re-derivation. Sign law proved elementarily through omega=4, reduced (not proved) at omega=5 to a uniform-(p1,q1) tail lemma; magnitude collapses to |T(b)|<=1/4 and holds for every omega GIVEN the single MCM hypothesis, which is only numerically verified through omega=4. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value is reused verbatim from imp-97352/imp-97423/imp-97422, no re-derivation. Sign law proved elementarily through omega=4, reduced (not proved) at omega=5 to a uniform-(p1,q1) tail lemma; magnitude collapses to |T(b)|<=1/4 and holds for every omega GIVEN the single MCM hypothesis, which is only numerically verified through omega=4. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97470-route-m-sign-law-omega5-binet-decay',
@@ -4771,7 +4771,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97470',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every value is reused verbatim from imp-97443, no re-derivation. Confirms the leading Binet-term decay q1*certA -> (1-1/p1)/12 but proves nothing beyond the existing imp-97443 accuracy cross-check; no bound on Lambda moved, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value is reused verbatim from imp-97443, no re-derivation. Confirms the leading Binet-term decay q1*certA -> (1-1/p1)/12 but proves nothing beyond the existing imp-97443 accuracy cross-check; no bound on Lambda moved, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97409-b4-ceiling-sign-condition-omega-classes',
@@ -4785,7 +4785,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97409',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: primorial-ladder values reused verbatim from imp-97393; the semiprime magRatio column is an exact algebraic transform of the imp-97290 ratio field (|Delta|/(b/2) = (1-|E1|/(b/4))/2), no new numerics. The sign+magnitude condition is proved for omega<=2 and open for omega>=3, where the magnitude condition holds with slack (ratio -> 1/2 from below) but the sign condition needs retained Moebius cancellation once the naive triangle bound overcharges. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: primorial-ladder values reused verbatim from imp-97393; the semiprime magRatio column is an exact algebraic transform of the imp-97290 ratio field (|Delta|/(b/2) = (1-|E1|/(b/4))/2), no new numerics. The sign+magnitude condition is proved for omega<=2 and open for omega>=3, where the magnitude condition holds with slack (ratio -> 1/2 from below) but the sign condition needs retained Moebius cancellation once the naive triangle bound overcharges. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97213-route-m-explicit-remainder-envelope',
@@ -4799,7 +4799,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97213',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every value is reused verbatim from imp-97133, no re-derivation. The eps(b) envelope upper-bounds the measured relative residual on every sampled b (ratio < 1 throughout); tight (ratio ~0.16-0.20) on prime b, loose by 4-5 orders of magnitude on primorial b. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value is reused verbatim from imp-97133, no re-derivation. The eps(b) envelope upper-bounds the measured relative residual on every sampled b (ratio < 1 throughout); tight (ratio ~0.16-0.20) on prime b, loose by 4-5 orders of magnitude on primorial b. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97214-route-m-farfield-slopeband-vs-original',
@@ -4813,7 +4813,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97214',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every value is reused verbatim from imp-97142 and imp-96982, no re-derivation. The entire propagated interval sits below the original credible band floor, ~0.98 percentage points at the closest approach. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value is reused verbatim from imp-97142 and imp-96982, no re-derivation. The entire propagated interval sits below the original credible band floor, ~0.98 percentage points at the closest approach. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97215-route-m-kappa-decomposition',
@@ -4827,7 +4827,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97215',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every value is reused verbatim from imp-97096 and imp-97097, no re-derivation. The arithmetic part is EXACT (0.5704960511...); the cotangent part is MEASURED (~0.121); their sum kappa~0.69>0 is therefore MEASURED, not proved. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value is reused verbatim from imp-97096 and imp-97097, no re-derivation. The arithmetic part is EXACT (0.5704960511...); the cotangent part is MEASURED (~0.121); their sum kappa~0.69>0 is therefore MEASURED, not proved. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97216-route-m-per-class-saturation-ratio',
@@ -4841,7 +4841,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97216',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every value is reused verbatim from imp-97158, no re-derivation. The named constant 2^omega(b)(log b+2) is sharp only on primes (ratio -> 1/4, a finite factor-4 overhead); it is orders too large on prime powers and primorials (mu-sign cancellation the triangle bound discards). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value is reused verbatim from imp-97158, no re-derivation. The named constant 2^omega(b)(log b+2) is sharp only on primes (ratio -> 1/4, a finite factor-4 overhead); it is orders too large on prime powers and primorials (mu-sign cancellation the triangle bound discards). Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97217-krein-csharp-nt-coupled-descent',
@@ -4855,7 +4855,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97217',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every value is reused verbatim from imp-97183, no re-derivation. Rayleigh-Ritz floors are upper bounds only; the still-moving bracket ~[0.50, 0.58] is consistent with a positive limit but neither converges nor crosses zero. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value is reused verbatim from imp-97183, no re-derivation. Rayleigh-Ritz floors are upper bounds only; the still-moving bracket ~[0.50, 0.58] is consistent with a positive limit but neither converges nor crosses zero. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97300-palm-mirror-frac-ladder',
@@ -4869,7 +4869,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97300',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every (lnN, palm2, frac) and (target, lnN) value is reused verbatim from imp-97189, no re-derivation of the Palm 2-slot mirror kernel. frac approaches 1 but never reaches it at any finite height; the closed-form law is only asymptotic (loose at lnN=22, tight by lnN=200). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every (lnN, palm2, frac) and (target, lnN) value is reused verbatim from imp-97189, no re-derivation of the Palm 2-slot mirror kernel. frac approaches 1 but never reaches it at any finite height; the closed-form law is only asymptotic (loose at lnN=22, tight by lnN=200). Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97301-e1-quarter-b-saturation',
@@ -4883,7 +4883,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97301',
       pedagogicalStep: 301,
       honestCeiling:
-        'Presentation only: every (b, omega, q) value is reused verbatim from imp-97269, no re-derivation of the O(b) E1 kernel. The b/4 ceiling holds class-uniformly (0 violations, b in [2,20000]) but saturates toward 1 only on primes; the smooth-class undershoot is measured, not proved uniformly. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every (b, omega, q) value is reused verbatim from imp-97269, no re-derivation of the O(b) E1 kernel. The b/4 ceiling holds class-uniformly (0 violations, b in [2,20000]) but saturates toward 1 only on primes; the smooth-class undershoot is measured, not proved uniformly. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97302-inverse-line-diag-offdiag-coleading',
@@ -4897,7 +4897,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97302',
       pedagogicalStep: 302,
       honestCeiling:
-        'Presentation only: every (b, M2w, diag, offdiag) value is reused verbatim from imp-97267 and imp-97284, no re-derivation of the exact O(b^3) character-detection kernel. OFFDIAG carries ~half of M2w at every measured b (co-leading, not a vanishing remainder), so a Weil-bound route cannot certify M2w -- the transfer stays an open EVALUATION problem. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every (b, M2w, diag, offdiag) value is reused verbatim from imp-97267 and imp-97284, no re-derivation of the exact O(b^3) character-detection kernel. OFFDIAG carries ~half of M2w at every measured b (co-leading, not a vanishing remainder), so a Weil-bound route cannot certify M2w -- the transfer stays an open EVALUATION problem. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97303-bessel-hankel-majorant',
@@ -4911,7 +4911,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97303',
       pedagogicalStep: 303,
       honestCeiling:
-        'Presentation only: the majorant constant is reused verbatim from imp-97263 and the measured decay is reused verbatim from imp-97134, no re-evaluation of any spherical-Bessel function. The majorant is valid at every measured rung (bounds both trials) but loose by a factor of ~5x-210x, the price of the triangle inequality not exploiting further cross-degree cancellation. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the majorant constant is reused verbatim from imp-97263 and the measured decay is reused verbatim from imp-97134, no re-evaluation of any spherical-Bessel function. The majorant is valid at every measured rung (bounds both trials) but loose by a factor of ~5x-210x, the price of the triangle inequality not exploiting further cross-degree cancellation. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97316-committed-cjk-sparsity-band',
@@ -4925,7 +4925,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97316',
       pedagogicalStep: 316,
       honestCeiling:
-        'Presentation only: the sparsity census and anchor values are reused verbatim from imp-97293, no re-derivation of the BigInt-rational overlap sweep. The per-row band reconstruction is a direct combinatorial reading of the proved support rule, cross-checked against the imp-97293 offline-swept total. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the sparsity census and anchor values are reused verbatim from imp-97293, no re-derivation of the BigInt-rational overlap sweep. The per-row band reconstruction is a direct combinatorial reading of the proved support rule, cross-checked against the imp-97293 offline-swept total. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97388-second-moment-decomposition',
@@ -4939,7 +4939,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97388',
       pedagogicalStep: 388,
       honestCeiling:
-        'Presentation only: the QhatFrac/QrrOverB per-b figures and the Qcross(b)/b constant are reused verbatim from imp-97349, no re-derivation of the exact Vasyunin-kernel split. The qcrossFrac/qrrFrac chart values are an approximation (measured ratio divided by the baked leading slope s0), not an exact identity. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the QhatFrac/QrrOverB per-b figures and the Qcross(b)/b constant are reused verbatim from imp-97349, no re-derivation of the exact Vasyunin-kernel split. The qcrossFrac/qrrFrac chart values are an approximation (measured ratio divided by the baked leading slope s0), not an exact identity. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97413-sigma-ladder-subdecade-knee',
@@ -4953,7 +4953,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97413',
       pedagogicalStep: 390,
       honestCeiling:
-        'Presentation only: both the exponent ladder and the knee location are reused verbatim from imp-33582 and imp-33721, no re-derivation of the sigma(N) extrapolation model or the OLS local-exponent estimator. Combines two already-published measurements on one axis; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: both the exponent ladder and the knee location are reused verbatim from imp-33582 and imp-33721, no re-derivation of the sigma(N) extrapolation model or the OLS local-exponent estimator. Combines two already-published measurements on one axis; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97390-krein-csharp-upperbrackets-sidebyside',
@@ -4967,7 +4967,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97390',
       pedagogicalStep: 389,
       honestCeiling:
-        'Presentation only: every T-sweep point, extrapolated limit, plateau statistic, and joint range is reused verbatim from imp-97335/imp-97206/imp-97355; no re-solve, no new numerics. Both bars are Rayleigh-Ritz UPPER bounds, not a certified floor. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every T-sweep point, extrapolated limit, plateau statistic, and joint range is reused verbatim from imp-97335/imp-97206/imp-97355; no re-solve, no new numerics. Both bars are Rayleigh-Ritz UPPER bounds, not a certified floor. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97418-krein-csharp-floor-ladder',
@@ -4981,7 +4981,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97418',
       pedagogicalStep: 391,
       honestCeiling:
-        'Presentation only: both certified floors and the measured bracket are reused verbatim from imp-97335/imp-97399/imp-97206; only the sigma_2(t) sign-map curve is recomputed pointwise (no re-solve of any bound). Neither certified value is positive; the third marker is a Rayleigh-Ritz UPPER bound, not a floor. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: both certified floors and the measured bracket are reused verbatim from imp-97335/imp-97399/imp-97206; only the sigma_2(t) sign-map curve is recomputed pointwise (no re-solve of any bound). Neither certified value is positive; the third marker is a Rayleigh-Ritz UPPER bound, not a floor. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97426-per-term-overcharge-ladder',
@@ -4995,7 +4995,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97426',
       pedagogicalStep: 392,
       honestCeiling:
-        'Presentation only: the ladder is reused verbatim from the imp-97392 groupCounts kernel, no re-derivation. omega>=4 is an OPEN gap, not a disproof -- the per-term bound over-charges there and a uniform proof needs the retained Moebius cancellation between the positive-mu and negative-mu signed groups. Changes no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the ladder is reused verbatim from the imp-97392 groupCounts kernel, no re-derivation. omega>=4 is an OPEN gap, not a disproof -- the per-term bound over-charges there and a uniform proof needs the retained Moebius cancellation between the positive-mu and negative-mu signed groups. Changes no bound, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97427-sigma-fartail-exponent-ladder',
@@ -5009,7 +5009,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97427',
       pedagogicalStep: 393,
       honestCeiling:
-        'Presentation only: the decade and pointwise exponent ladders are reused verbatim from the imp-97404 measurement (itself extending imp-33582 on the inherited imp-3406/imp-33582 three-term sigma(N) model). Measurement/fit diagnostic, NOT an RH bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the decade and pointwise exponent ladders are reused verbatim from the imp-97404 measurement (itself extending imp-33582 on the inherited imp-3406/imp-33582 three-term sigma(N) model). Measurement/fit diagnostic, NOT an RH bound; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97452-rk-floor-linear-ladder',
@@ -5023,7 +5023,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97452',
       pedagogicalStep: 394,
       honestCeiling:
-        'Presentation only: the floor law and every measured rung are reused verbatim from imp-97431; no re-solve. The RKHS budget alone certifies c_sharp > 0 for no band in reach; establishes no operator positivity; changes no bound; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the floor law and every measured rung are reused verbatim from imp-97431; no re-solve. The RKHS budget alone certifies c_sharp > 0 for no band in reach; establishes no operator positivity; changes no bound; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97467-crossover-fraction-tolerance-ladder',
@@ -5037,7 +5037,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97467',
       pedagogicalStep: 395,
       honestCeiling:
-        'Presentation only: every plotted point is reused verbatim from the imp-97441 x*(eps) table; no re-solve. Establishes no operator positivity; changes no bound; the imp-97437 effective-curvature fixed point fits this table only in the mid-band eps ~ 1%-2%; the rigorous anchor stays T = 2.594e7; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every plotted point is reused verbatim from the imp-97441 x*(eps) table; no re-solve. Establishes no operator positivity; changes no bound; the imp-97437 effective-curvature fixed point fits this table only in the mid-band eps ~ 1%-2%; the rigorous anchor stays T = 2.594e7; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97471-mcm-tower-per-level-margin',
@@ -5051,7 +5051,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97471',
       pedagogicalStep: 396,
       honestCeiling:
-        'Presentation only: every bar height is reused verbatim from the imp-97442 baked sweep; no re-solve. Establishes no operator positivity; changes no bound; MCM stays VERIFIED (not proved) at omega=5,6 and is FALSE from omega=11 (imp-97432); Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every bar height is reused verbatim from the imp-97442 baked sweep; no re-solve. Establishes no operator positivity; changes no bound; MCM stays VERIFIED (not proved) at omega=5,6 and is FALSE from omega=11 (imp-97432); no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97485-krein-realizability-gap',
@@ -5065,7 +5065,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97485',
       pedagogicalStep: 397,
       honestCeiling:
-        'Presentation only: the f_bath indicator and the gap-split numbers are exact recomputation / verbatim reuse of imp-97457; the f_real curve is a labeled illustrative schematic (not the re-solved eigenfunction of P_a M_{sigma_2^-} P_a). R is a finite-section IEEE-double eigenvalue, not interval-certified. Establishes no operator positivity; changes no bound; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the f_bath indicator and the gap-split numbers are exact recomputation / verbatim reuse of imp-97457; the f_real curve is a labeled illustrative schematic (not the re-solved eigenfunction of P_a M_{sigma_2^-} P_a). R is a finite-section IEEE-double eigenvalue, not interval-certified. Establishes no operator positivity; changes no bound; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97486-sigma2-second-moment-profile',
@@ -5079,7 +5079,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97486',
       pedagogicalStep: 398,
       honestCeiling:
-        'Presentation only: the sigma_2(t) samples are an exact recomputation; the region boundaries and far-tail area table are reused verbatim from imp-97458. Establishes no operator positivity; changes no bound; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the sigma_2(t) samples are an exact recomputation; the region boundaries and far-tail area table are reused verbatim from imp-97458. Establishes no operator positivity; changes no bound; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97487-bimodal-1pct-crossover',
@@ -5093,7 +5093,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97487',
       pedagogicalStep: 399,
       honestCeiling:
-        'Presentation only: the d(a,b) samples are an exact recomputation; the crest tips, step point, and A(b) scale table are reused verbatim from imp-97459. Establishes no operator positivity; changes no bound; the rigorous anchor stays the trace ceiling T=2.594e7; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the d(a,b) samples are an exact recomputation; the crest tips, step point, and A(b) scale table are reused verbatim from imp-97459. Establishes no operator positivity; changes no bound; the rigorous anchor stays the trace ceiling T=2.594e7; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97488-krein-route2-kbig-saturation',
@@ -5107,7 +5107,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97488',
       pedagogicalStep: 400,
       honestCeiling:
-        'Presentation only: the measured points and fit parameters are reused verbatim from imp-97455; the fit curves are the same closed forms evaluated past the measured range. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the measured points and fit parameters are reused verbatim from imp-97455; the fit curves are the same closed forms evaluated past the measured range. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97504-krein-route2-kbig-direct-floor',
@@ -5121,7 +5121,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97504',
       pedagogicalStep: 401,
       honestCeiling:
-        'Presentation only: every point, step delta, and bracket is reused verbatim from imp-97482. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every point, step delta, and bracket is reused verbatim from imp-97482. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97550-krein-route2-lambda-floor-trace',
@@ -5135,7 +5135,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97550',
       pedagogicalStep: 409,
       honestCeiling:
-        'Presentation only: every point, step delta, and bracket is reused verbatim from imp-97513. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every point, step delta, and bracket is reused verbatim from imp-97513. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97505-krein-well-capture-tradeoff',
@@ -5149,7 +5149,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97505',
       pedagogicalStep: 402,
       honestCeiling:
-        'Presentation only: every point and constant is reused verbatim from imp-97483. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every point and constant is reused verbatim from imp-97483. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97506-window-set-surrogate-depth',
@@ -5163,7 +5163,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97506',
       pedagogicalStep: 403,
       honestCeiling:
-        'Presentation only: every point is the imp-97481 closed form evaluated verbatim. Establishes no operator positivity; changes no bound; the b/4-ceiling was exploratory Route-M, load-bearing for nothing; kappa_arith unchanged; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every point is the imp-97481 closed form evaluated verbatim. Establishes no operator positivity; changes no bound; the b/4-ceiling was exploratory Route-M, load-bearing for nothing; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97507-krein-nscaled-tgrid-heatmap',
@@ -5177,7 +5177,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97507',
       pedagogicalStep: 404,
       honestCeiling:
-        'Presentation only: every cell is the imp-97484 lam_min(N,T) table reused verbatim. Establishes no operator positivity; no lower bound; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every cell is the imp-97484 lam_min(N,T) table reused verbatim. Establishes no operator positivity; no lower bound; changes no bound; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97508-mcm-baseterm-extprec',
@@ -5191,7 +5191,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97508',
       pedagogicalStep: 405,
       honestCeiling:
-        'Presentation only: every point is the imp-97478 baked extended-precision ladder reused verbatim. Establishes no operator positivity; changes no bound; MCM stays VERIFIED not proved (and FALSE from omega=11 per imp-97432); kappa_arith unchanged; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every point is the imp-97478 baked extended-precision ladder reused verbatim. Establishes no operator positivity; changes no bound; MCM stays VERIFIED not proved (and FALSE from omega=11 per imp-97432); kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97526-named-concentration-tool-verdict-table',
@@ -5205,7 +5205,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97526',
       pedagogicalStep: 406,
       honestCeiling:
-        'Presentation only: every row and constant is reused verbatim from imp-97502. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every row and constant is reused verbatim from imp-97502. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97569-confined-well-sign-map',
@@ -5219,7 +5219,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97569',
       pedagogicalStep: 414,
       honestCeiling:
-        'Presentation only: sign-map boundaries and lambda_min samples are reused verbatim from imp-97537. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: sign-map boundaries and lambda_min samples are reused verbatim from imp-97537. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97528-krein-tail-converged-drift',
@@ -5233,7 +5233,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97528',
       pedagogicalStep: 407,
       honestCeiling:
-        'Presentation only: every point is reused verbatim from imp-97497. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every point is reused verbatim from imp-97497. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97549-two-term-law-descent-surrogate',
@@ -5247,7 +5247,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97549',
       pedagogicalStep: 408,
       honestCeiling:
-        'Presentation only: every curve is the imp-97500 two-term law evaluated verbatim. Establishes no operator positivity; changes no bound; the b/4-ceiling lower edge was already refuted (imp-97481) and is a dead route; kappa_arith unchanged; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every curve is the imp-97500 two-term law evaluated verbatim. Establishes no operator positivity; changes no bound; the b/4-ceiling lower edge was already refuted (imp-97481) and is a dead route; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97551-w1lower-farfield-margin',
@@ -5261,7 +5261,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97551',
       pedagogicalStep: 410,
       honestCeiling:
-        'Presentation only: the w_1(t) samples are an exact recomputation; the summary constants and confined-well boundaries are reused verbatim from imp-97501/imp-97399. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the w_1(t) samples are an exact recomputation; the summary constants and confined-well boundaries are reused verbatim from imp-97501/imp-97399. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97552-e1-envelope-decay',
@@ -5275,7 +5275,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97552',
       pedagogicalStep: 411,
       honestCeiling:
-        'Presentation only: all (b, ratio, env) points are reused verbatim from imp-97539, log-log transform only, no new measurement. Establishes no operator positivity; changes no bound; kappa_arith=0.5704960511 unchanged; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: all (b, ratio, env) points are reused verbatim from imp-97539, log-log transform only, no new measurement. Establishes no operator positivity; changes no bound; kappa_arith=0.5704960511 unchanged; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97553-kappa-decomposition',
@@ -5289,7 +5289,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97553',
       pedagogicalStep: 412,
       honestCeiling:
-        'Presentation only: all (b, kappaCot, kappa) points are reused verbatim from imp-97541, stacked-decomposition transform only, no new measurement. Establishes no operator positivity; changes no bound; kappa stays MEASURED, not proved; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: all (b, kappaCot, kappa) points are reused verbatim from imp-97541, stacked-decomposition transform only, no new measurement. Establishes no operator positivity; changes no bound; kappa stays MEASURED, not proved; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97554-b4-ceiling-minb-p0',
@@ -5303,7 +5303,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97554',
       pedagogicalStep: 413,
       honestCeiling:
-        'Presentation only: all (P0, log10b) points are reused verbatim from imp-97500, nothing re-derived. The b/4-ceiling lower edge was already REFUTED (imp-97481) and is a dead route; this only charts the already-measured smallest-witness curve. Establishes no operator positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: all (P0, log10b) points are reused verbatim from imp-97500, nothing re-derived. The b/4-ceiling lower edge was already REFUTED (imp-97481) and is a dead route; this only charts the already-measured smallest-witness curve. Establishes no operator positivity; changes no bound; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97570-crossover-crest-combined',
@@ -5317,7 +5317,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97570',
       pedagogicalStep: 414,
       honestCeiling:
-        'Presentation only: every value is reused verbatim from imp-97441 and imp-97459, merged into one row-aligned table and chart, nothing re-derived. Establishes no operator positivity; changes no bound; the rigorous anchor stays T = 2.594e7; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value is reused verbatim from imp-97441 and imp-97459, merged into one row-aligned table and chart, nothing re-derived. Establishes no operator positivity; changes no bound; the rigorous anchor stays T = 2.594e7; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97572-csharp-floor-ladder',
@@ -5331,7 +5331,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97572',
       pedagogicalStep: 415,
       honestCeiling:
-        'Presentation only: every value is reused verbatim from the imp-97492 cohort index, nothing re-derived. No rigorous positive lower bound on c_sharp exists; interval-rigorous certified reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value is reused verbatim from the imp-97492 cohort index, nothing re-derived. No rigorous positive lower bound on c_sharp exists; interval-rigorous certified reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97587-krein-farprofile-envelope',
@@ -5345,7 +5345,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97587',
       pedagogicalStep: 416,
       honestCeiling:
-        'Presentation only: the curve samples reuse the imp-97518 closed-form functions and the imp-97497 peak-validation ratios verbatim, nothing re-derived. Establishes no operator positivity; changes no bound; interval-rigorous certified reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the curve samples reuse the imp-97518 closed-form functions and the imp-97497 peak-validation ratios verbatim, nothing re-derived. Establishes no operator positivity; changes no bound; interval-rigorous certified reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97588-mcm-baseterm-K0-approach',
@@ -5359,7 +5359,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97588',
       pedagogicalStep: 417,
       honestCeiling:
-        'Presentation only: every value reuses the imp-97499/imp-97519 closed-form law and baked crossing/drift values verbatim, nothing re-derived. No bound moves; MCM stays VERIFIED at omega<=6 and FALSE from omega=11 (imp-97432); Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every value reuses the imp-97499/imp-97519 closed-form law and baked crossing/drift values verbatim, nothing re-derived. No bound moves; MCM stays VERIFIED at omega<=6 and FALSE from omega=11 (imp-97432); no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97589-sigma-landmark-ladder',
@@ -5373,7 +5373,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97589',
       pedagogicalStep: 418,
       honestCeiling:
-        'Presentation only: the curve re-evaluates the exact inherited imp-3406/imp-33582/imp-33601/imp-33723 sigma(N) sub-terms and the four landmarks are pulled verbatim from the imp-97520 tabulated ladder, nothing re-derived. No bound moves; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the curve re-evaluates the exact inherited imp-3406/imp-33582/imp-33601/imp-33723 sigma(N) sub-terms and the four landmarks are pulled verbatim from the imp-97520 tabulated ladder, nothing re-derived. No bound moves; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97612-cusp-separation',
@@ -5387,7 +5387,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97612',
       pedagogicalStep: 419,
       honestCeiling:
-        'Presentation only: every mean/sd value is reused verbatim from imp-97576 (a measurement, not a derivation); kappa_smooth is NOT pinned to an exact value, only its cusp-limit smallness is measured. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every mean/sd value is reused verbatim from imp-97576 (a measurement, not a derivation); kappa_smooth is NOT pinned to an exact value, only its cusp-limit smallness is measured. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97613-eflow-share-decay',
@@ -5401,7 +5401,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97613',
       pedagogicalStep: 420,
       honestCeiling:
-        'Presentation only: every ladder/landmark value is reused verbatim from imp-97585 (a measurement, not a derivation); no new computation. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder/landmark value is reused verbatim from imp-97585 (a measurement, not a derivation); no new computation. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97614-tailbias-Rsweep',
@@ -5415,7 +5415,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97614',
       pedagogicalStep: 421,
       honestCeiling:
-        'Presentation only: every R-sweep value is reused verbatim from imp-97580 (a measurement, not a derivation); no new computation. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every R-sweep value is reused verbatim from imp-97580 (a measurement, not a derivation); no new computation. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97627-mcm-margin-collapse-ladder',
@@ -5429,7 +5429,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97627',
       pedagogicalStep: 422,
       honestCeiling:
-        'Presentation only: every ladder/limit value is reused verbatim from imp-97583/imp-97601 (measurements, not derivations); no new computation. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder/limit value is reused verbatim from imp-97583/imp-97601 (measurements, not derivations); no new computation. Changes no bound; MCM stays refuted from omega=11; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97628-mcm-surrogate-vs-fullh-onset',
@@ -5443,7 +5443,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97628',
       pedagogicalStep: 423,
       honestCeiling:
-        'Presentation only: every surrogate/Rcorr/full-h value is reused verbatim from imp-97583 (a measurement, not a derivation); no new computation. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every surrogate/Rcorr/full-h value is reused verbatim from imp-97583 (a measurement, not a derivation); no new computation. Changes no bound; MCM stays refuted from omega=11; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97629-realizable-fraction-window-climb',
@@ -5457,7 +5457,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97629',
       pedagogicalStep: 424,
       honestCeiling:
-        'Presentation only: every R/fraction/extrapolation value is reused verbatim from imp-97564 (a measurement, not a derivation); no new computation. Realizability gap still persists (~half the envelope); no bound moved; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every R/fraction/extrapolation value is reused verbatim from imp-97564 (a measurement, not a derivation); no new computation. Realizability gap still persists (~half the envelope); no bound moved; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97630-lambda2-floor-spread-waterfall',
@@ -5471,7 +5471,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97630',
       pedagogicalStep: 425,
       honestCeiling:
-        'Presentation only: every anchor/magnitude/share value is reused verbatim from imp-97600 (a measurement/diagnosis, not a derivation); no new computation. No rigorous lower bound on lambda_2 produced; the floor stays four orders below the required 0.581059; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every anchor/magnitude/share value is reused verbatim from imp-97600 (a measurement/diagnosis, not a derivation); no new computation. No rigorous lower bound on lambda_2 produced; the floor stays four orders below the required 0.581059; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97631-sigma-landmark-elasticity-comparison',
@@ -5485,7 +5485,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97631',
       pedagogicalStep: 426,
       honestCeiling:
-        'Presentation only: both elasticity axes are reused verbatim from imp-97584 and imp-97598 (prior measurements, not derivations); no new computation. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: both elasticity axes are reused verbatim from imp-97584 and imp-97598 (prior measurements, not derivations); no new computation. Changes no bound; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97635-omega10-extremality-margin',
@@ -5499,7 +5499,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97635',
       pedagogicalStep: 427,
       honestCeiling:
-        'Presentation only: every T-value and set is reused verbatim from imp-97606 (a measurement, not a derivation); no new computation. The b/4 ceiling is untouched; no bound moves; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every T-value and set is reused verbatim from imp-97606 (a measurement, not a derivation); no new computation. The b/4 ceiling is untouched; no bound moves; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97651-tra2-ratio-drift',
@@ -5513,7 +5513,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97651',
       pedagogicalStep: 428,
       honestCeiling:
-        'Presentation only: every ratio and extrapolated value is reused verbatim from imp-97599 (a measurement, not a derivation); no new computation. Decides only the tail model (algebraic); no constant is pinned as rigorous. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ratio and extrapolated value is reused verbatim from imp-97599 (a measurement, not a derivation); no new computation. Decides only the tail model (algebraic); no constant is pinned as rigorous. Changes no bound; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97652-tail-model-fraction-band',
@@ -5527,7 +5527,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97652',
       pedagogicalStep: 429,
       honestCeiling:
-        'Presentation only: every fraction and band value is reused verbatim from imp-97626 (a measurement, not a derivation); no new computation. Eigenvalues are baked finite-section IEEE-double, not interval-enclosed; R_inf is an extrapolation, not a certified limit. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every fraction and band value is reused verbatim from imp-97626 (a measurement, not a derivation); no new computation. Eigenvalues are baked finite-section IEEE-double, not interval-enclosed; R_inf is an extrapolation, not a certified limit. Changes no bound; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97653-tail-bias-floor',
@@ -5541,7 +5541,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97653',
       pedagogicalStep: 430,
       honestCeiling:
-        'Presentation only: every floor, signal, and margin value is reused verbatim from imp-97625 (an assessment, not a derivation); no new computation. Assessment only; the m=1/m=2 Krein enclosure stays unusable at 2a = ln3; interval-rigorous reach stays 2a <= 0.96. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every floor, signal, and margin value is reused verbatim from imp-97625 (an assessment, not a derivation); no new computation. Assessment only; the m=1/m=2 Krein enclosure stays unusable at 2a = ln3; interval-rigorous reach stays 2a <= 0.96. Changes no bound; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97654-additivity-residual-eps-squared-collapse',
@@ -5555,7 +5555,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97654',
       pedagogicalStep: 431,
       honestCeiling:
-        'Presentation only: every residual and ratio value is reused verbatim from imp-97623 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every residual and ratio value is reused verbatim from imp-97623 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97670-three-axis-elasticity',
@@ -5569,7 +5569,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97670',
       pedagogicalStep: 432,
       honestCeiling:
-        'Presentation only: every elasticity and diagonal value is reused verbatim from imp-97644 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every elasticity and diagonal value is reused verbatim from imp-97644 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97812-tra2-ratio-ladder',
@@ -5583,7 +5583,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97812',
       pedagogicalStep: 446,
       honestCeiling:
-        'Presentation only: every ratio, drift and extrapolated limit is reused verbatim from imp-97684 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ratio, drift and extrapolated limit is reused verbatim from imp-97684 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp124815-pairratio-ladder',
@@ -5597,7 +5597,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-124815',
       pedagogicalStep: 447,
       honestCeiling:
-        'Presentation only: every ratio and reldiff value is reused verbatim from imp-124770 (a measurement, not a derivation); no new computation. The identity itself stays exact at every rung; the growing |reldiff| is a stencil/round-off artefact (imp-124769), not a deviation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ratio and reldiff value is reused verbatim from imp-124770 (a measurement, not a derivation); no new computation. The identity itself stays exact at every rung; the growing |reldiff| is a stencil/round-off artefact (imp-124769), not a deviation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97671-gap-law-decay-exponent',
@@ -5611,7 +5611,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97671',
       pedagogicalStep: 433,
       honestCeiling:
-        'Presentation only: every local exponent and residual ratio value is reused verbatim from imp-97640 (a measurement, not a derivation); no new computation. The precision-limited third rung is flagged, not resolved. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every local exponent and residual ratio value is reused verbatim from imp-97640 (a measurement, not a derivation); no new computation. The precision-limited third rung is flagged, not resolved. Changes no bound; MCM stays refuted from omega=11; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97715-route-m-exponent-robustness',
@@ -5625,7 +5625,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97715',
       pedagogicalStep: 437,
       honestCeiling:
-        'Presentation only: every band and exponent value is reused verbatim from imp-97687 (a measurement, not a derivation); no new computation. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every band and exponent value is reused verbatim from imp-97687 (a measurement, not a derivation); no new computation. Changes no bound; MCM stays refuted from omega=11; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97716-wrapper-elasticity-5point',
@@ -5639,7 +5639,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97716',
       pedagogicalStep: 438,
       honestCeiling:
-        'Presentation only: every residual and improvement-factor value is reused verbatim from imp-97686 (a measurement, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every residual and improvement-factor value is reused verbatim from imp-97686 (a measurement, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97745-fartail-diagnostic-asymptote',
@@ -5653,7 +5653,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97745',
       pedagogicalStep: 434,
       honestCeiling:
-        'Presentation only: every diagnostic value, overlay value, and crossing height is reused verbatim from imp-97723 (a measurement/closed-form derivation, not a new computation). Conditional-share diagnostic, NOT an RH bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every diagnostic value, overlay value, and crossing height is reused verbatim from imp-97723 (a measurement/closed-form derivation, not a new computation). Conditional-share diagnostic, NOT an RH bound; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97765-fartail-crossing-heights',
@@ -5667,7 +5667,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97765',
       pedagogicalStep: 444,
       honestCeiling:
-        'Presentation only: every L, log10 T0, log10 N, and mantissa value is reused verbatim from imp-97744 (a closed-form measurement, not a new computation). Conditional-share diagnostic, NOT an RH bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every L, log10 T0, log10 N, and mantissa value is reused verbatim from imp-97744 (a closed-form measurement, not a new computation). Conditional-share diagnostic, NOT an RH bound; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97746-mcm-dps-cap-scaling',
@@ -5681,7 +5681,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97746',
       pedagogicalStep: 435,
       honestCeiling:
-        'Presentation only: every cap value and fitted slope is reused verbatim from imp-97724 (a measured multi-precision fit, not a new computation). The extended cap does not alter the omega=10 gap or the omega=11 MCM onset. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every cap value and fitted slope is reused verbatim from imp-97724 (a measured multi-precision fit, not a new computation). The extended cap does not alter the omega=10 gap or the omega=11 MCM onset. Changes no bound; MCM stays refuted from omega=11; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97747-route-m-deep-ladder',
@@ -5695,7 +5695,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97747',
       pedagogicalStep: 436,
       honestCeiling:
-        'Presentation only: every ladder value, rise index, and slope estimate is reused verbatim from imp-97722 (an independent, non-OLS cross-check, not a new computation). Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder value, rise index, and slope estimate is reused verbatim from imp-97722 (an independent, non-OLS cross-check, not a new computation). Changes no bound; MCM stays refuted from omega=11; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97806-full-sigma-diagnostic-curve',
@@ -5709,7 +5709,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97806',
       pedagogicalStep: 439,
       honestCeiling:
-        'Presentation only: the continuous curve is a fresh sampling of the byte-for-byte imp-97723/imp-97759 closed form; the three marked landmarks are reused verbatim from their pinning modules, not a new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the continuous curve is a fresh sampling of the byte-for-byte imp-97723/imp-97759 closed form; the three marked landmarks are reused verbatim from their pinning modules, not a new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97787-fartail-hump-min-crossover',
@@ -5723,7 +5723,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97787',
       pedagogicalStep: 445,
       honestCeiling:
-        'Presentation only: the curve is reused byte-for-byte from imp-97806; all three marked landmarks are reused verbatim from their source pinning modules, not a new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the curve is reused byte-for-byte from imp-97806; all three marked landmarks are reused verbatim from their source pinning modules, not a new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97748-fold-amplitude-landmark-decomposition',
@@ -5737,7 +5737,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97748',
       pedagogicalStep: 443,
       honestCeiling:
-        'Presentation/decomposition only: K is the imp-97725 fold amplitude only at the peak (L1); the L2/L3/L4 entries evaluate the same closed-form numerator and smooth-model curvature off the peak as a diagnostic, not an extended fold law. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation/decomposition only: K is the imp-97725 fold amplitude only at the peak (L1); the L2/L3/L4 entries evaluate the same closed-form numerator and smooth-model curvature off the peak as a diagnostic, not an extended fold law. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97729-fartail-residual-twopiece-crossover',
@@ -5751,7 +5751,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97729',
       pedagogicalStep: 440,
       honestCeiling:
-        'Presentation only: every piece value, crossover height, and asymptote reading is reused verbatim from imp-97702 (a measurement/decomposition, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every piece value, crossover height, and asymptote reading is reused verbatim from imp-97702 (a measurement/decomposition, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97730-diag3-stencil-refine',
@@ -5765,7 +5765,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97730',
       pedagogicalStep: 441,
       honestCeiling:
-        'Presentation only: every landmark value and eps-ladder reading is reused verbatim from imp-97703 (a finite-difference cross-check, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every landmark value and eps-ladder reading is reused verbatim from imp-97703 (a finite-difference cross-check, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp124845-diag3-additivity-flowshare',
@@ -5779,7 +5779,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-124845',
       pedagogicalStep: 442,
       honestCeiling:
-        'Presentation only: the linear-model row is reused verbatim from imp-124812; the c^2-break row re-evaluates the identical imp-124812 formula at each flow share (imp-124812 only evaluated it at cf=1.0). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: the linear-model row is reused verbatim from imp-124812; the c^2-break row re-evaluates the identical imp-124812 formula at each flow share (imp-124812 only evaluated it at cf=1.0). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp97732-wlin-residual-halfdependence',
@@ -5793,7 +5793,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-97732',
       pedagogicalStep: 442,
       honestCeiling:
-        'Presentation only: every residual value and relative-span reading is reused verbatim from imp-97705 (a discretization-refinement cross-check, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every residual value and relative-span reading is reused verbatim from imp-97705 (a discretization-refinement cross-check, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp124840-fartail-per-nine-ladder',
@@ -5807,7 +5807,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-124840',
       pedagogicalStep: 448,
       honestCeiling:
-        'Presentation only: every log10 N / spacing / ratio value plotted here is copied verbatim from the imp-124793 closed-form RvM inversion (not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every log10 N / spacing / ratio value plotted here is copied verbatim from the imp-124793 closed-form RvM inversion (not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp124824-ecf-stencil-crossover',
@@ -5821,7 +5821,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-124937',
       pedagogicalStep: 449,
       honestCeiling:
-        'Presentation only: every ladder / crossover value plotted here is copied verbatim from the imp-124769 reconstruction (a measurement/cross-validation, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder / crossover value plotted here is copied verbatim from the imp-124769 reconstruction (a measurement/cross-validation, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp124882-dps-invariance-ladder',
@@ -5835,7 +5835,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-124882',
       pedagogicalStep: 455,
       honestCeiling:
-        'Presentation only: every dps / R / sigma_crit value plotted here is copied verbatim from the imp-124849 mpmath port (a measurement/sensitivity sweep, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every dps / R / sigma_crit value plotted here is copied verbatim from the imp-124849 mpmath port (a measurement/sensitivity sweep, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp124841-knee-locator-comparison',
@@ -5849,7 +5849,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-124841',
       pedagogicalStep: 450,
       honestCeiling:
-        'Presentation only: every p_knee value plotted here is copied verbatim from the imp-124814/imp-97822 exported comparison fields (measurement/cross-validation, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every p_knee value plotted here is copied verbatim from the imp-124814/imp-97822 exported comparison fields (measurement/cross-validation, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp124842-roundoff-law',
@@ -5863,7 +5863,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-124842',
       pedagogicalStep: 451,
       honestCeiling:
-        'Presentation only: every ladder row and fit statistic plotted here is copied verbatim from the imp-124811 reconstruction (a measurement/cross-validation, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ladder row and fit statistic plotted here is copied verbatim from the imp-124811 reconstruction (a measurement/cross-validation, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp124843-kernel-ratio-consumer',
@@ -5877,7 +5877,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-124843',
       pedagogicalStep: 452,
       honestCeiling:
-        'Presentation only: every ratio plotted here is copied verbatim from the two orphaned sibling viz-data leaves (themselves reused from imp-97823, a measurement, not a derivation). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ratio plotted here is copied verbatim from the two orphaned sibling viz-data leaves (themselves reused from imp-97823, a measurement, not a derivation). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp124918-kernel-ratio-bracket',
@@ -5891,7 +5891,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-124918',
       pedagogicalStep: 457,
       honestCeiling:
-        'Presentation only: every ratio is reused verbatim from the imp-124776/imp-97843 sibling leaves (themselves reused from imp-97823, a measurement, not a derivation); the merge and bracket_width column are presentational only. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every ratio is reused verbatim from the imp-124776/imp-97843 sibling leaves (themselves reused from imp-97823, a measurement, not a derivation); the merge and bracket_width column are presentational only. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp124880-pairratio-drift-slope-scatter',
@@ -5905,7 +5905,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-124880',
       pedagogicalStep: 453,
       honestCeiling:
-        'Presentation only: every scatter point and the fit slope/intercept/standard-errors are reused verbatim from imp-124850 (an OLS regression, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every scatter point and the fit slope/intercept/standard-errors are reused verbatim from imp-124850 (an OLS regression, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp124881-floor-elasticity-sidebyside',
@@ -5919,7 +5919,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-124881',
       pedagogicalStep: 454,
       honestCeiling:
-        'Presentation only: every plotted point and fit slope/intercept are reused verbatim from imp-124772 and imp-124848 (two OLS regressions, not new computations). Conditional-share curvature diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every plotted point and fit slope/intercept are reused verbatim from imp-124772 and imp-124848 (two OLS regressions, not new computations). Conditional-share curvature diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp124961-f2-residual-curvature-u',
@@ -5933,7 +5933,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-124961',
       pedagogicalStep: 458,
       honestCeiling:
-        'Presentation only: every residual row and the gap/ratio fields are reused verbatim from imp-124772/imp-124823 (measurements, not derivations); no new computation. Conditional-share curvature diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every residual row and the gap/ratio fields are reused verbatim from imp-124772/imp-124823 (measurements, not derivations); no new computation. Conditional-share curvature diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp124899-kernel-arm-offset-asymmetry',
@@ -5947,7 +5947,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-124899',
       pedagogicalStep: 456,
       honestCeiling:
-        'Presentation only: every offset, ratio and slope value is reused verbatim from imp-124852 (signed differences and a log-log slope over the frozen imp-97823 tables, no new kernel computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+        'Presentation only: every offset, ratio and slope value is reused verbatim from imp-124852 (signed differences and a log-log slope over the frozen imp-97823 tables, no new kernel computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
     }),
     Object.freeze({
       route: '/sign-switching',

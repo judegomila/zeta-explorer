@@ -6,8 +6,7 @@
  *   The analog of the imp-36082 Route-B analysis (which found Route B
  *   CONSUMABLE-MODULO-ANCHOR with r(N) = Theta(sqrt(log N) N^{-1/4})). Assessment
  *   / derivation ONLY: closes NOTHING, discharges no gap, the per-N translation
- *   stays OPEN, respects the imp-2519 no-overclaim guard, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   stays OPEN, respects the imp-2519 no-overclaim guard, NO QED. No refereed bound is changed.
  *
  *   WHY THIS TICKET
  *   ---------------
@@ -211,7 +210,7 @@ export const IMP36137_ROUTEC_PERN_RATE_FORM_AND_BRIDGE_CONSUMABILITY = Object.fr
     'r(N) directly bridge-consumable with NO GUE re-import. Status CONSUMABLE-MODULO-G3a. Matches the imp-36045 ' +
     'Route-C verdict, adding the explicit r(N) FORM and the precise blocker (an unproven premise, not a structural ' +
     'anchor gap). Closes NOTHING; discharges no gap; per-N stays OPEN; respects the imp-2519 no-overclaim guard; ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 
   rateForms: Object.freeze({
     integrated_squeeze: '|t_c(N)| <= B(0)^2 / (4 c(N) - 8)  [regime (c), c(N) > 2, ABSOLUTE per-N by construction]',
@@ -277,7 +276,7 @@ export const IMP36137_ROUTEC_PERN_RATE_FORM_AND_BRIDGE_CONSUMABILITY = Object.fr
       'deviation rate) so the E(N) bridge wants its shape, but cannot consume it because the derivation is ' +
       'contingent on the OPEN G3a_max_gap premise (CONSUMABLE-MODULO-G3a). Closes nothing; per-N translation stays ' +
       'OPEN; respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -340,7 +339,7 @@ export const IMP36137_ROUTEC_PERN_RATE_FORM_AND_BRIDGE_CONSUMABILITY_ASSERTIONS 
   {
     id: 'imp36137-honest-no-closure-no-qed',
     why: 'Mandatory honesty: a DERIVATION+ASSESSMENT that closes NOTHING, discharges no gap, keeps the per-N ' +
-         'translation and G3a_max_gap OPEN, carries NO RH verdict, PT 0.2 stays SOTA. If any flip the module over-claims.',
+         'translation and G3a_max_gap OPEN, carries NO RH verdict, no refereed bound is changed. If any flip the module over-claims.',
     holds: () => {
       const h = IMP36137_ROUTEC_PERN_RATE_FORM_AND_BRIDGE_CONSUMABILITY.honestCaveat;
       return (
@@ -354,7 +353,7 @@ export const IMP36137_ROUTEC_PERN_RATE_FORM_AND_BRIDGE_CONSUMABILITY_ASSERTIONS 
         h.g3aMaxGapStaysOpen === true &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

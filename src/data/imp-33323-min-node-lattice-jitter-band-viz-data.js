@@ -18,7 +18,7 @@
  * @see imp-33249-a-weight-graded-gl-minimal-full-window-1ulp-budget.js (the min-node hit)
  *
  * Ticket: imp-33323 (ux, low). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP33323_BAR = 1.0;

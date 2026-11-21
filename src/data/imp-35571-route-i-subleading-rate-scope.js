@@ -16,8 +16,7 @@
  * no bound; tightens no bound; establishes no operator positivity; no RH
  * verdict, NO QED. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the
  * E_trunc = 3.06e-5 floor (imp-2631) and the imp-398 C_F prefactor are
- * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED. No refereed bound is changed.
  *
  * THE THRESHOLD-COLLAPSE ARITHMETIC (a subleading rate would dissolve e^200)
  * -----------------------------------------------------------------------------
@@ -77,7 +76,7 @@
  * imp-35488 two-height data-anchored spot check, both landmark heights below
  * T_PT = 3e12) remains the only viable partial for the OPEN imp-35337a.
  * Assessment/scoping only; discharges nothing; changes no bound; no positivity;
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35538-route-i-remainder-derivation-requirements (REQ-2 explicit-rate crux, REQ-4 log T0 >= 200 threshold this module probes)
  * @see imp-35493-route-i-remainder-literature-scope (leading-rate survey; this module scopes the SUBLEADING sub-question)
@@ -91,7 +90,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // (1/8) sqrt(3 pi) ~ 0.38374752 (imp-2642/imp-2643 ansatz)
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any subleading-rate scoping)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any subleading-rate scoping)
 const T_PT = 3e12; // Platt-Trudgian verified height
 
 // The two interior landmark N values (imp-35337 / imp-35475), taken as given.
@@ -212,7 +211,7 @@ export const IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE = {
     'the only viable partial for the OPEN imp-35337a. Derives NO remainder; discharges NOTHING; changes no ' +
     'bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = ' +
     '3.06e-5 (imp-2631), the imp-398 C_F prefactor and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35538 (REQ-2 explicit-rate crux, REQ-4 log T0 >= 200 threshold this module probes, REQ-3 the ' +
     'conjectural transfer); imp-35493 (leading-rate literature survey); imp-35551 (ranks REQ-2 > REQ-4); ' +
@@ -250,7 +249,7 @@ export const IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE_ASSERTIONS = [
       Math.abs(C_C - 0.38374752) < 1e-6, // C_C ansatz constant untouched
   },
   {
-    // (3) honesty gate: conditional, inherits imp-486, no bound moves, PT SOTA, sub-gap named; NO QED.
+    // (3) honesty gate: conditional, inherits imp-486, no bound moves, no refereed bound is changed, sub-gap named; NO QED.
     id: 'imp35571-conditional-no-bound-moves-no-qed',
     description: 'route-(i) stays imp-486 GUE-conditional, sigma-fidelity is not a Lambda lever so no bound moves, PT 0.2 unchanged, imp-35337a named, NO QED',
     holds: () =>
@@ -260,7 +259,7 @@ export const IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE_ASSERTIONS = [
       /imp-486/.test(IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE.citation) &&
       /imp-35337a/.test(IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE.citation) &&
       /NO QED/.test(IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35571_ROUTE_I_SUBLEADING_RATE_SCOPE.verdict),
   },
 ];
 

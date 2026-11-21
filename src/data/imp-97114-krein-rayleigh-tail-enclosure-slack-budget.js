@@ -58,7 +58,7 @@
  * ONLY: no interval majorant is produced or claimed; the imp-96888/imp-96973 Rayleigh values stay QUADRATURE
  * evaluations; Rayleigh floors stay UPPER bounds; establishes NO operator positivity; changes NO bound;
  * IMP96888_RAYLEIGH_TAIL_MAJORANT and IMP96749_UNIFORM_N_GAP_UNSETTLED stay open; interval-rigorous reach
- * stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97100-krein-rayleigh-tail-interval-majorant-assessment.js (route assessment; floor + uncomputed slack)
  * @see imp-96888-krein-tresidual-rayleigh-permode-bound.js (min-max Rayleigh bound + T-ladder; source literals)

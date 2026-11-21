@@ -72,7 +72,7 @@ export const IMP36033_VIZ_DATA_DUPLICATE_GUARD_PROPOSAL = {
     'ASSESSMENT/PROPOSAL ONLY. Exactly 2 confirmed duplicate viz-data tickets found (imp-35976, ' +
     'imp-35978); guard proposed above, not implemented in this module per the ticket scope. ' +
     'Changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP36033_VIZ_DATA_DUPLICATE_GUARD_PROPOSAL_ASSERTIONS = [
@@ -110,11 +110,11 @@ export const IMP36033_VIZ_DATA_DUPLICATE_GUARD_PROPOSAL_ASSERTIONS = [
   },
   {
     id: 'imp36033-honesty-gate-no-qed',
-    description: 'Assessment is non-rigorous scoping metadata; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Assessment is non-rigorous scoping metadata; NO QED; no refereed bound is changed',
     holds: () =>
       IMP36033_VIZ_DATA_DUPLICATE_GUARD_PROPOSAL.isRigorous === false &&
       /NO QED/.test(IMP36033_VIZ_DATA_DUPLICATE_GUARD_PROPOSAL.verdict) &&
-      /remains SOTA/.test(IMP36033_VIZ_DATA_DUPLICATE_GUARD_PROPOSAL.verdict) &&
+      /refereed bound is changed/i.test(IMP36033_VIZ_DATA_DUPLICATE_GUARD_PROPOSAL.verdict) &&
       /GUE-conditional/.test(IMP36033_VIZ_DATA_DUPLICATE_GUARD_PROPOSAL.verdict),
   },
 ];

@@ -23,8 +23,7 @@
  * that imports data from and cites imp-95329/95330/95331/95332 directly, and
  * each page is both routed in src/App.jsx and listed in
  * visualizations-index.js. All four modules remain import-light (zero
- * import statements). AUDIT-ONLY: no bound change; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * import statements). AUDIT-ONLY: no bound change; NO QED; no refereed bound is changed.
  */
 
 const SUBJECT_MODULES = [
@@ -79,7 +78,7 @@ export const IMP95367_RZPEN3_6_SURFACING_AUDIT = {
     'viz page (imp-95349/95350/95351/95366) and a visualizations-index.js row, superseding the ' +
     'stale "all orphan" finding recorded by the earlier imp-95352 cohort audit. No page was ' +
     'fabricated by this ticket; it only re-checks state after those follow-on tickets shipped. ' +
-    'No bound change; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'No bound change; NO QED; no refereed bound is changed.',
 };
 
 export const IMP95367_RZPEN3_6_SURFACING_AUDIT_ASSERTIONS = [
@@ -103,9 +102,9 @@ export const IMP95367_RZPEN3_6_SURFACING_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-95367-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP95367_RZPEN3_6_SURFACING_AUDIT.honest)
-      && /Lambda<=0.2 remains SOTA/.test(IMP95367_RZPEN3_6_SURFACING_AUDIT.honest),
+      && /refereed bound is changed/i.test(IMP95367_RZPEN3_6_SURFACING_AUDIT.honest),
   },
 ];
 

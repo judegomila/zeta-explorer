@@ -2,7 +2,7 @@
  * imp-96734 -- Is the imp-96616 running-min gap exponent -0.3953 (vs GUE cube-root -1/3) a finite-N /
  * plateau-bias artifact, or persistent? Sliding-window / plateau-excluded / high-N-restricted refit of
  * the imp-96629 plateau-free block-minima data. Measurement only; conditional on GUE; NO QED.
- * PT Lambda <= 0.2 stays SOTA.
+ * No refereed bound is changed.
  *
  * BACKGROUND. imp-96616 fit the running-min normalized gap ratio g_min(N)/y_N over the first ~2e6
  * Odlyzko zeros (N=50..1e6) to a power law with exponent b = -0.3953, slightly steeper than the GUE
@@ -46,7 +46,7 @@
  * artifact: neither the sliding-window local exponent nor the high-N-restricted tail fit trends toward
  * GUE -1/3 as N grows (if anything they run steeper), and the split-half exponents are equal. The
  * cube-root small-gaps wall from imp-96616 is unmoved -- this RELOCATES nothing, it only rules out the
- * finite-N escape hatch. Measurement only; conditional on GUE; NO QED. PT Lambda <= 0.2 stays SOTA.
+ * finite-N escape hatch. Measurement only; conditional on GUE; NO QED. No refereed bound is changed.
  */
 
 export const GMIN_EXPONENT_FINITEN_TREND = {

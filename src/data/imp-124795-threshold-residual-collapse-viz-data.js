@@ -46,7 +46,7 @@ export const IMP124795_SUMMARY = Object.freeze({
     + 'relabeled for a "|rel| vs threshold" log-scale chart with the 2*E_flow/E_trunc predictor overlay; no '
     + 'new computation. Measurement / sensitivity only on the inherited imp-3220/imp-3406 extrapolation '
     + 'surrogate, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

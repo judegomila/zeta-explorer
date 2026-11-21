@@ -4,8 +4,7 @@
  * the imp-95785 union twin-pair biasPct grid across three deltas.
  *
  * GRADE: measurement / model-selection assessment only. Import-light (no heavy
- * bundle, no imports at all). Changes NO Lambda bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bundle, no imports at all). Changes NO Lambda bound; NO QED; no refereed bound is changed.
  *
  * BACKGROUND. imp-95785 assembled the complete finite-80 biasPct column over the
  * 13-cell union of the imp-95707 (delta = ln1.5, float64) and imp-95762 (delta in
@@ -79,7 +78,7 @@
  * by monotone L-segregation. Reach-collapse for biasPct is consistent but
  * UNDETERMINED; discriminating it requires L-matched cross-delta cells (named
  * sub-gap). Model seam family only; no new cited input. Changes NO bound of the
- * Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95785-twin-pair-block-bias-union-grid (the 13-cell union biasPct grid)
  * @see imp-95707-twin-pair-block-toeplitz-interior-limit (the delta=ln1.5 rho-sweep column)
@@ -162,7 +161,7 @@ export const IMP95804_TWIN_PAIR_BIAS_REACH_COLLAPSE_TEST = {
     "Discriminating H1 (biasPct = g(L)) from H2 (biasPct = g(delta, rho)) requires " +
     "L-matched cross-delta cells, of which the grid has none (named sub-gap). " +
     "Model seam family only; no new cited input. Changes no bound of the Lambda " +
-    "program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95804"],
 };
 
@@ -328,7 +327,7 @@ export const IMP95804_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /REACH-COLLAPSE CONSISTENT BUT UNDETERMINED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95804-closes-self",

@@ -72,7 +72,7 @@
  * an RH bound. Changes no bound; the C_C = (1/8) sqrt(3 pi) 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; C_mb stays GUE-conditional per imp-486;
  * imp-3066 K_a >= 0 untouched; no operator positivity, no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34686-crossover-contraction-margin-monotone-proof (monotone-margin lemma; sub-gap imp-34686a discharged here)
  * @see imp-34675-crossover-contraction-left-edge (closed-form N_star = K(1 - 1/W(K)) where g_prime = 1)
@@ -192,8 +192,8 @@ export const IMP34706_G_PRIME_MONOTONE_CLOSED_FORM_DERIVATION = {
     'S(T)/remainder and W(K) still need interval enclosure. Discharges the sample-vs-derive half of imp-34686a. ' +
     'Establishes a closed-form property of the inherited imp-3220/imp-3406 surrogate crossover map, NOT a rigorous ' +
     'asymptotic; changes no bound; the C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are ' +
-    'UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity, no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity, no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34686 (monotone-margin lemma; sub-gap imp-34686a: g_prime inputs double-precision); imp-34675 (closed-form ' +
     'N_star = K(1 - 1/W(K)) where g_prime = 1); imp-34650 (g_prime = K*2pi/(T0 log(T0/2pi)) positive, decreasing); ' +
@@ -232,12 +232,12 @@ export const IMP34706_G_PRIME_MONOTONE_CLOSED_FORM_DERIVATION_ASSERTIONS = [
   {
     // Honesty gate: closed-form derivation of a surrogate property, not rigorous, named residual, no QED.
     id: 'imp34706-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, named residual imp-34706a, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, named residual imp-34706a, no QED, no refereed bound is changed',
     holds: () =>
       IMP34706_G_PRIME_MONOTONE_CLOSED_FORM_DERIVATION.isRigorous === false &&
       /imp-34706a/.test(IMP34706_G_PRIME_MONOTONE_CLOSED_FORM_DERIVATION.subGap) &&
       /NO QED/.test(IMP34706_G_PRIME_MONOTONE_CLOSED_FORM_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP34706_G_PRIME_MONOTONE_CLOSED_FORM_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP34706_G_PRIME_MONOTONE_CLOSED_FORM_DERIVATION.verdict),
   },
 ];
 

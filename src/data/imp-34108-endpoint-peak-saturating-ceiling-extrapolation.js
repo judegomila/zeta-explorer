@@ -51,7 +51,7 @@
  * ~72x-716x beyond the data and assert NO physical plateau. The imp-33843 log-linear-vs-power-law FORM
  * verdict (a different question) is UNTOUCHED; the imp-34043 saturating-vs-log SELECTION margin is
  * UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34043-endpoint-peak-saturating-model-tournament (the four-way winner whose ceiling is measured)
  * @see imp-33982-endpoint-peak-power-law-model-selection (the three-form tournament imp-34043 extended)
@@ -166,7 +166,7 @@ export const IMP34108_ENDPOINT_PEAK_SATURATING_CEILING_EXTRAPOLATION = {
     'NOT a rigorous asymptotic; the imp-33843 log-linear-vs-power-law FORM verdict is UNTOUCHED; the ' +
     'imp-34043 saturating-vs-log SELECTION margin is UNTOUCHED; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34043 (the four-way Akaike winner whose ceiling is measured here); imp-33982 (the three-form ' +
     'tournament imp-34043 extended); imp-33917 (the 9 endpoint peaks; the non-saturating reading); ' +
@@ -216,7 +216,7 @@ export const IMP34108_ENDPOINT_PEAK_SATURATING_CEILING_EXTRAPOLATION_ASSERTIONS 
   {
     // (R3) In-window the curve is nowhere near the ceiling: honesty gate on the extrapolation.
     id: 'imp34108-in-window-far-from-ceiling-honesty-gate',
-    description: 'peak at edge ~28% of cap, ~72% shortfall; ceiling is a narrow-window extrapolation; isRigorous false; NO QED; PT SOTA; imp-3066 K_a>=0 untouched',
+    description: 'peak at edge ~28% of cap, ~72% shortfall; ceiling is a narrow-window extrapolation; isRigorous false; NO QED; no refereed bound is changed; imp-3066 K_a>=0 untouched',
     holds: () =>
       FRAC_OF_CEILING_AT_EDGE < 0.35 &&
       SHORTFALL_AT_EDGE > 0.65 &&
@@ -224,7 +224,7 @@ export const IMP34108_ENDPOINT_PEAK_SATURATING_CEILING_EXTRAPOLATION_ASSERTIONS 
       IMP34108_ENDPOINT_PEAK_SATURATING_CEILING_EXTRAPOLATION.isRigorous === false &&
       /NOT a rigorous asymptotic/.test(IMP34108_ENDPOINT_PEAK_SATURATING_CEILING_EXTRAPOLATION.verdict) &&
       /NO QED/.test(IMP34108_ENDPOINT_PEAK_SATURATING_CEILING_EXTRAPOLATION.verdict) &&
-      /remains SOTA/.test(IMP34108_ENDPOINT_PEAK_SATURATING_CEILING_EXTRAPOLATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34108_ENDPOINT_PEAK_SATURATING_CEILING_EXTRAPOLATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34108_ENDPOINT_PEAK_SATURATING_CEILING_EXTRAPOLATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34108_ENDPOINT_PEAK_SATURATING_CEILING_EXTRAPOLATION.verdict),
   },

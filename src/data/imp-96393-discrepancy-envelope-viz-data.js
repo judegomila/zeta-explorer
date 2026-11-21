@@ -17,7 +17,7 @@
  * MEASUREMENT / PRESENTATION ONLY. rho is the theoretical GUE (sine-kernel, universality)
  * two-interval correlation for boxes of unfolded length L(T); at these heights (and at 3e12)
  * there are no computed Riemann zeros. Changes no bound; establishes no operator positivity;
- * RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96371-covariance-exact-vs-asymptotic-decade-ladder.js (ladder, shape, honest caveat this reshapes)
  * @see imp-96350-covariance-outoffamily-crossvalidation (the PT-anchor-only reading this extends)
@@ -49,7 +49,7 @@ export const IMP96393_LANDMARKS = Object.freeze({
 });
 
 export const IMP96393_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every discrepancy reading '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every discrepancy reading '
   + 'is copied verbatim from the imp-96371 baked decade ladder; only the chart-axis reshaping '
   + '(log10 T, log10 discrepancy) is computed here (no re-derivation, no new discrepancy '
   + 'measurement). rho is the theoretical GUE (sine-kernel, universality) two-interval '

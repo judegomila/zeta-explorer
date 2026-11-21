@@ -59,7 +59,7 @@
  * observed rungs. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the
  * analytic E_flow slope is a property of that surrogate, not of the true residual; changes no bound;
  * establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34607-deflow-second-order-identifiability-window (the VIF < 10 rule-of-thumb span ~43.5)
  * @see imp-34584-deflow-refit-second-order-term (the overfit and the recovered |d| ~91.7)
@@ -325,7 +325,7 @@ export const IMP34628_DEFLOW_SECOND_ORDER_SE_TARGET_WINDOW = {
     'holds. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the analytic ' +
     'E_flow slope is a property of that surrogate, not of the true residual; changes no bound; ' +
     'establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34607 (the VIF < 10 rule-of-thumb span ~43.5); imp-34584 (the overfit and recovered |d| ' +
     '~91.7); imp-34571 (the one-parameter refit and ~7.3e-4 residual); imp-34448 (the observed local ' +
@@ -373,13 +373,13 @@ export const IMP34628_DEFLOW_SECOND_ORDER_SE_TARGET_WINDOW_ASSERTIONS = [
     holds: () => SWEEP_TABLE.every((row, i) => i === 0 || row.relSE < SWEEP_TABLE[i - 1].relSE),
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34628-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34628_DEFLOW_SECOND_ORDER_SE_TARGET_WINDOW.isRigorous === false &&
       /NO QED/.test(IMP34628_DEFLOW_SECOND_ORDER_SE_TARGET_WINDOW.verdict) &&
-      /remains SOTA/.test(IMP34628_DEFLOW_SECOND_ORDER_SE_TARGET_WINDOW.verdict) &&
+      /refereed bound is changed/i.test(IMP34628_DEFLOW_SECOND_ORDER_SE_TARGET_WINDOW.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34628_DEFLOW_SECOND_ORDER_SE_TARGET_WINDOW.verdict),
   },
 ];

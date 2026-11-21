@@ -131,7 +131,7 @@ export default function Imp95792DiZigzagViz() {
         hypothesis (verified only at m=20; imp-95720/95745/95746). imp-95765 fed the imp-95746
         faithful J_raw at m=18,19,20,21 through the imp-95724 exact split; this page re-plots that
         frozen four-point dI table verbatim (no new quadrature). Model seam family only; changes no
-        Lambda bound; NO QED; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
+        Lambda bound; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -187,8 +187,8 @@ export default function Imp95792DiZigzagViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page rendering the frozen
         imp-95765 dI table (no re-derivation). Four conditional points, not four certified anchors
         &mdash; only m=20 carries an independent certified kappa. Catalan G irrationality OPEN; Sun
-        arXiv:2609.04176 single-author, unrefereed; NO Lambda movement; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA; NO QED.
+        arXiv:2609.04176 single-author, unrefereed; NO Lambda movement; no refereed bound is changed;
+         NO QED.
       </div>
     </div>
   );

@@ -6,7 +6,7 @@
  * stays a free knob, not a discharge of that conditional; C_C 1/8 ansatz
  * imp-2642/imp-2643 UNTOUCHED; for the Krawczyk-family modules the imp-34714a
  * directed-rounding certificate REMAINS OPEN; changes-no-bound; establishes no
- * operator positivity; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA) is
+ * operator positivity; NO QED; no refereed bound is changed) is
  * carried by every module in the imp-34899..imp-34910 cohort and every viz
  * page built from imp-34934..imp-34940, extending the
  * imp-34725/imp-34812/imp-34834/imp-34857/imp-34879/imp-34897/imp-34921
@@ -99,7 +99,7 @@ export const CAVEAT_SURFACING_AUDIT_34899_34910 = {
     + 'surface of any kind yet, which is a completeness gap in coverage but not a caveat gap -- no surfacing '
     + 'was added because none of the existing surfaces was missing its caveat. No bound change; sub-gap '
     + 'imp-34714a stays OPEN; C_mb GUE-conditional share (imp-486) untouched; C_C 1/8 ansatz (imp-2642/imp-2643) '
-    + 'untouched; no operator positivity; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'untouched; no operator positivity; NO QED; no refereed bound is changed.',
 };
 
 export const CAVEAT_SURFACING_AUDIT_34899_34910_ASSERTIONS = [
@@ -147,10 +147,10 @@ export const CAVEAT_SURFACING_AUDIT_34899_34910_ASSERTIONS = [
   },
   {
     id: 'imp-34946-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(CAVEAT_SURFACING_AUDIT_34899_34910.honest)
       && /no surfacing was added because none/.test(CAVEAT_SURFACING_AUDIT_34899_34910.honest)
-      && /Lambda<=0.2 remains SOTA/.test(CAVEAT_SURFACING_AUDIT_34899_34910.honest),
+      && /refereed bound is changed/i.test(CAVEAT_SURFACING_AUDIT_34899_34910.honest),
   },
 ];
 

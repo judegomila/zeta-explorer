@@ -57,7 +57,7 @@
  * is the inherited imp-3220/imp-3406/imp-33723 surrogate, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; far-tail exponent 1/2 per imp-3463; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97404-sigma-fartail-exponent-ladder-past-1e12 (full-model ladder, single 0.4646 rung match)
  * @see imp-96151-sigma-closed-form-crossover-fartail-reproduction (two-term closed-form model)
@@ -222,8 +222,8 @@ export const IMP97428_SIGMA_FULL_VS_CLOSED_FORM_CROSS_VALIDATION = {
     'and not just at 1e12. The component model is the inherited imp-3220/imp-3406/imp-33723 ' +
     'surrogate, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97404 (full-model ladder, single 0.4646 rung match at 1e12); imp-96151 (two-term ' +
     'closed-form model, full-vs-CF gap < 4.6e-4 out to 1e100); imp-33723 (closed-form crossover ' +
@@ -289,14 +289,14 @@ export const IMP97428_SIGMA_FULL_VS_CLOSED_FORM_CROSS_VALIDATION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/cross-check only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/cross-check only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp97428-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP97428_SIGMA_FULL_VS_CLOSED_FORM_CROSS_VALIDATION.isRigorous === false &&
       IMP97428_SIGMA_FULL_VS_CLOSED_FORM_CROSS_VALIDATION.farTailExponent === 0.5 &&
       /NO QED/.test(IMP97428_SIGMA_FULL_VS_CLOSED_FORM_CROSS_VALIDATION.verdict) &&
-      /remains SOTA/.test(IMP97428_SIGMA_FULL_VS_CLOSED_FORM_CROSS_VALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP97428_SIGMA_FULL_VS_CLOSED_FORM_CROSS_VALIDATION.verdict),
   },
 ];
 

@@ -19,14 +19,14 @@
  *   (2) the R(b) tail sharpening -- proven O(log log b) via the triangle bound (1/6) sigma(b)/b, but the
  *       mu-signs cancel almost completely (measured |R| <= 0.13), so the true tail is O(1);
  *   (3) the cotangent first moment (imp-97097) stays a wholly separate open leaf.
- * No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97202-route-m-arith-first-moment-uniform-remainder.js (source of every verdict flag below)
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (the 2^omega-dependent bound made uniform)
  * @see imp-97158-route-m-theorem1-remainder-sharpness.js (measured primes-only saturation this note explains)
  *
  * Ticket: imp-97231 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97202_DEFAULT, { IMP97202_VERDICT, IMP97202_SUBGAP } from './imp-97202-route-m-arith-first-moment-uniform-remainder.js';
@@ -56,8 +56,8 @@ export const IMP97231_HONEST_BANNER =
   'holds for all b >= 2 with NO 2^omega(b) prefactor (the prefactor was a triangle-inequality artifact, not ' +
   'forced by the imp-97158 primes-only saturation). Left open: the explicit uniform constant for the loose, ' +
   'non-binding E1 remainder, sharpening the R(b) tail from proven O(log log b) to measured O(1), and the ' +
-  'separate cotangent first-moment leaf (imp-97097). No bound on Lambda moves; PT Lambda <= 0.2 remains ' +
-  'SOTA; RH open; NO QED.';
+  'separate cotangent first-moment leaf (imp-97097). No bound on Lambda moves; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97231_ASSERTIONS = [
@@ -82,9 +82,9 @@ const IMP97231_ASSERTIONS = [
       IMP97231_STATUS.rhResolved === false &&
       IMP97231_STATUS.qed === false &&
       /NO QED/.test(IMP97231_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97231_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97231_HONEST_BANNER) &&
       /RH open/.test(IMP97231_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

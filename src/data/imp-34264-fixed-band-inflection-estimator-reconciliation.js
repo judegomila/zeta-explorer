@@ -63,7 +63,7 @@
  * extrapolation, NOT a rigorous asymptotic; the OLS surrogate, the parabolic inflection, and the
  * second-difference crossing are descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (the two estimators reconciled here)
  * @see imp-34109-fixed-band-peak-amplitude-saturation-fit (the coarse 0.5-grid sweep imp-34196 refined)
@@ -190,8 +190,8 @@ export const IMP34264_FIXED_BAND_INFLECTION_ESTIMATOR_RECONCILIATION = {
     'findings are untouched. The OLS surrogate, the parabolic inflection, and the second-difference crossing ' +
     'are descriptive, not derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34196 (the parabolic vertex + second-difference sign-flip reconciled here; increments and second ' +
     'differences reused verbatim); imp-34109 (the coarse 0.5-grid sweep imp-34196 refined); imp-33843 (the ' +
@@ -240,14 +240,14 @@ export const IMP34264_FIXED_BAND_INFLECTION_ESTIMATOR_RECONCILIATION_ASSERTIONS 
       BAND_ENCLOSES_BOTH === true,
   },
   {
-    // Honesty gate: reconciliation/measurement only, isRigorous false, no QED, PT SOTA, C_mb / imp-3066 untouched.
+    // Honesty gate: reconciliation/measurement only, isRigorous false, no QED, no refereed bound is changed, C_mb / imp-3066 untouched.
     id: 'imp34264-honesty-gate-no-qed',
-    description: 'Measurement/reconciliation only: isRigorous false, no QED, PT SOTA, C_mb GUE-conditional / imp-3066 K_a>=0 untouched',
+    description: 'Measurement/reconciliation only: isRigorous false, no QED, no refereed bound is changed, C_mb GUE-conditional / imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34264_FIXED_BAND_INFLECTION_ESTIMATOR_RECONCILIATION.isRigorous === false &&
       /NOT a\s+rigorous asymptotic/.test(IMP34264_FIXED_BAND_INFLECTION_ESTIMATOR_RECONCILIATION.verdict) &&
       /NO QED/.test(IMP34264_FIXED_BAND_INFLECTION_ESTIMATOR_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP34264_FIXED_BAND_INFLECTION_ESTIMATOR_RECONCILIATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34264_FIXED_BAND_INFLECTION_ESTIMATOR_RECONCILIATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34264_FIXED_BAND_INFLECTION_ESTIMATOR_RECONCILIATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is\s+UNTOUCHED/i.test(IMP34264_FIXED_BAND_INFLECTION_ESTIMATOR_RECONCILIATION.verdict),
   },

@@ -48,7 +48,7 @@
  * tighter cubic-root upper bound r_star(x) <= 1 + y5(x)/x, halving the small-x
  * bracket factor (4.013 -> 2.006 upper, 7.050 -> 3.524 two-sided). The lower
  * bound is unimprovable by finite series truncation (named residual). Changes
- * no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -177,8 +177,8 @@ export const IMP95428_RSTAR_QUINTIC_BRACKET = {
   verdict:
     "DERIVATION / MEASUREMENT ONLY. The next positive term halves the small-x " +
     "upper looseness (4.013 -> 2.006) and the two-sided bracket (7.050 -> " +
-    "3.524). Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains " +
-    "SOTA.",
+    "3.524). Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
   measured: MEASURED,
 };
 
@@ -250,12 +250,12 @@ export const IMP95428_RSTAR_QUINTIC_BRACKET_ASSERTIONS = [
     id: "imp95428-record-honesty",
     description:
       "the record is derivation/measurement-only, states the quintic bound and " +
-      "the lower-bound named residual, carries NO QED and the SOTA line",
+      "the lower-bound named residual, carries NO QED and the no-refereed-bound-change line",
     holds: () =>
       /RSTAR-QUINTIC/.test(IMP95428_RSTAR_QUINTIC_BRACKET.quinticUpperBound) &&
       /not improvable/.test(IMP95428_RSTAR_QUINTIC_BRACKET.namedResidual) &&
       /NO QED/.test(IMP95428_RSTAR_QUINTIC_BRACKET.verdict) &&
-      /SOTA/.test(IMP95428_RSTAR_QUINTIC_BRACKET.verdict) &&
+      /refereed bound is changed/i.test(IMP95428_RSTAR_QUINTIC_BRACKET.verdict) &&
       /MEASUREMENT ONLY/.test(IMP95428_RSTAR_QUINTIC_BRACKET.verdict),
   },
 ];

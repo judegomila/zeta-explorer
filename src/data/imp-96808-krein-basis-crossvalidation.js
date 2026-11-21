@@ -56,7 +56,7 @@
  * agreement is at the shared fixed T=800 only; a t-converged (T>=3200) Legendre ladder has never been
  * produced (imp-96772 subgap), so the plateau VALUE ~0.579 is cross-validated in one basis only --
  * a matched-N Legendre-vs-Gegenbauer comparison AT T>=3200 would close the last gap. Interval-rigorous
- * certificate reach stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * certificate reach stays 2a <= 0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96768-gegenbauer-krein-lammin-recompute.js (orthogonal Gegenbauer, condB=1; t-converged plateau ~0.579)
  * @see imp-96772-krein-lammin-double-double-recompute.js (extended-precision Legendre; FINDING 2 this ticket tabulates)

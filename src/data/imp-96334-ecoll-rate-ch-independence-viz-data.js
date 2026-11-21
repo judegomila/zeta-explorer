@@ -14,7 +14,7 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Changes no bound, establishes no operator positivity,
  * no RH claim. C_H isRigorousUpperBound remains false (imp-2642/imp-2701); the imp-2640
- * Gronwall discharge of C_Lip remains NEGATIVE. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Gronwall discharge of C_Lip remains NEGATIVE. No refereed bound is changed.
  * RH open. NO QED.
  *
  * @see imp-96311-ecoll-rate-ch-independence-tabulation.js (baked columns, slope profile)
@@ -49,7 +49,7 @@ export const IMP96334_PREFACTOR = {
 };
 
 export const IMP96334_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every E_coll value, '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every E_coll value, '
   + 'segment slope, and slope-spread literal is copied verbatim from the imp-96311 baked '
   + 'columns/sharedSlopeProfile/slopeSpreadAcrossCH fields; only the per-point plotting shape '
   + '({N, value} pairs and {segment, slope} records) is computed here. C_H (hence C_Lip) is '

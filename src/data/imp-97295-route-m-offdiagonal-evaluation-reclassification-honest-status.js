@@ -16,7 +16,7 @@
  *   a certified EVALUATION of the net OFFDIAG (shown comparable to, and no more than a bounded multiple of,
  *   DIAG) so that M2w ~ 2 DIAG stays below the squared target 0.32546. A bound on |T_a(m)| alone does not
  *   suffice -- the off-diagonal is Theta(1) of the diagonal, not a lower-order remainder.
- * No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97267-route-m-inverse-map-kloosterman-transfer.js (source of every verdict flag below)
  * @see imp-97210-route-m-kappa-obligation-ledger.js (ledger: M2w is the sole open scalar; predates the reclassification)
@@ -24,7 +24,7 @@
  * @see imp-97225-route-m-inverse-oversampling-ratio-ladder.js (sibling: OVR ~1.25 single-modulus ladder, unchanged)
  *
  * Ticket: imp-97295 (content, medium, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97267_DEFAULT, { IMP97267_MEASURED, IMP97267_VERDICT, IMP97267_SUBGAP } from './imp-97267-route-m-inverse-map-kloosterman-transfer.js';
@@ -56,7 +56,7 @@ export const IMP97295_HONEST_BANNER =
   'of M2w, net positive, stable to b=401), so a Weil/Kloosterman bound on the twisted moments cannot certify ' +
   'M2w -- the transfer must evaluate the net off-diagonal. The imp-97210 kappa obligation ledger, imp-97203, ' +
   'and imp-97225 are cross-linked to this reclassification. M2w ~ 0.16 and OVR ~1.25 stay measured. No bound ' +
-  'on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'on Lambda moves; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97295_ASSERTIONS = [
@@ -90,9 +90,9 @@ const IMP97295_ASSERTIONS = [
       IMP97295_STATUS.rhResolved === false &&
       IMP97295_STATUS.qed === false &&
       /NO QED/.test(IMP97295_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97295_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97295_HONEST_BANNER) &&
       /RH open/.test(IMP97295_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

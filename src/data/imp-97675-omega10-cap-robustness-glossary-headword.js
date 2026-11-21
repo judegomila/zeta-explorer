@@ -42,7 +42,7 @@
  * @see imp-97634-mcm-onset-b4-ceiling-glossary-headwords.js (sibling headword: MCM onset = omega=11)
  *
  * Ticket: imp-97675 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import {
@@ -73,7 +73,7 @@ const OMEGA10_CAP_ROBUSTNESS_HEADWORD = Object.freeze({
   verificationStatus:
     'Re-cited from imp-97647 (cap-robustness re-evaluation) and imp-97606 (omega=10 primorial ' +
     'extremality, +7.520579e-5 gap). Naming / glossary headword only; supplies no new bound; RH ' +
-    'open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97675_OMEGA10_CAP_ROBUSTNESS_GLOSSARY_HEADWORD = Object.freeze({
@@ -90,7 +90,7 @@ export const IMP97675_OMEGA10_CAP_ROBUSTNESS_GLOSSARY_HEADWORD = Object.freeze({
     '+7.520579e-5 omega=10 primorial-extremality gap is robust across divisor caps d<=1000/5000/ ' +
     '10000 (drift < 1.4e-10, dwarfed by the < 5.6805e-11 rigorous tail-budget bound on any ' +
     'cut -> infinity shift) -- it is NOT a d<=1000 truncation artifact. The MCM onset stays ' +
-    'exactly omega=11. No bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'exactly omega=11. No bound moved; NO QED. No refereed bound is changed.',
   citation:
     'imp-97647-route-m-mcm-omega10-cap-robustness.js (cap sweep, tail-budget bound, Rexact noise ' +
     'ratios); imp-97606-route-m-mcm-omega10-primorial-extremality-broadened.js (+7.520579e-5 gap).',
@@ -141,11 +141,11 @@ const IMP97675_ASSERTIONS = [
   },
   {
     id: 'imp97675-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97675_OMEGA10_CAP_ROBUSTNESS_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97675_OMEGA10_CAP_ROBUSTNESS_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97675_OMEGA10_CAP_ROBUSTNESS_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97675_OMEGA10_CAP_ROBUSTNESS_GLOSSARY_HEADWORD.verdict) &&
       /NO QED/.test(IMP97647_HONEST_BANNER),
   },
 ];

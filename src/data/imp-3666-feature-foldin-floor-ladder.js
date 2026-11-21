@@ -53,7 +53,7 @@
  *   xi* or the sup NO closed form (the imp-3470 stationarity equation stays transcendental) and does
  *   NOT extend the finite-domain (0, 400] measurement of the |P1| objective. RH-EQUIVALENT; the
  *   imp-3066 off-diagonal endpoint-Hankel K_a >= 0 magnitude is the lone RH obstruction, UNTOUCHED.
- *   NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-3647-below-floor-replica-foldin-margin.js (parent: single-feature floor at xi_true=250)
  *   @see imp-3622-planted-replica-argmax-drift.js (above-floor planted-feature drift test)
@@ -359,7 +359,7 @@ export const IMP3666_FEATURE_FOLDIN_FLOOR_LADDER = Object.freeze({
     'argmax keeps xi_true on-grid at both grids (the imp-3647 artifact). The decisive quantity is the ' +
     'in-band peak count. Measurement/certification ' +
     'only; RH-equivalent; the imp-3066 K_a >= 0 magnitude is the lone obstruction, UNTOUCHED. NO RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     objective:
@@ -514,7 +514,7 @@ export const IMP3666_FEATURE_FOLDIN_FLOOR_LADDER = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -622,7 +622,7 @@ export const IMP3666_FEATURE_FOLDIN_FLOOR_LADDER_ASSERTIONS = [
     id: 'imp3666-honest-assessment-no-qed',
     why: 'Mandatory honesty: maps the fold-in floor line of SYNTHETIC features (not the |P1| objective) ' +
       'but NOT a closed form (equation transcendental), over the finite domain (0, 400], measures the ' +
-      'ratio not positivity, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'ratio not positivity, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3666_FEATURE_FOLDIN_FLOOR_LADDER.honestCaveat;
       return (
@@ -634,7 +634,7 @@ export const IMP3666_FEATURE_FOLDIN_FLOOR_LADDER_ASSERTIONS = [
         typeof c.syntheticNotObjective === 'string' &&
         typeof c.firstOrderAliasModel === 'string' &&
         typeof c.measuresRatioNotPositivity === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

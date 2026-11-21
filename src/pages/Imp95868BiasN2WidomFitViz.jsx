@@ -107,7 +107,7 @@ export default function Imp95868BiasN2WidomFitViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-95845 fit (no re-derivation, no new computation). Model seam
-        family only. Changes no bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; NO QED.
+        family only. Changes no bound; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

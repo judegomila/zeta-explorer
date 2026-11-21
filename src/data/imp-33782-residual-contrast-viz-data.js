@@ -54,7 +54,7 @@ export const IMP33782_CAVEAT_BANNER =
   `${(FARTAIL_POINT.relResidual * 100).toFixed(4)}% above the empirical far-tail landmark -- a ` +
   `~${IMP33782_TIGHTENING_RATIO}x tightening explained entirely by the dropped E_flow term shrinking ` +
   'down the tail. Derivation only: isRigorous false, no QED; RH-equivalent K_a >= 0 sign-positivity ' +
-  'untouched; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.';
+  'untouched; no refereed bound is changed.';
 
 export const IMP33782_RESIDUAL_CONTRAST_VIZ_DATA_ASSERTIONS = [
   {

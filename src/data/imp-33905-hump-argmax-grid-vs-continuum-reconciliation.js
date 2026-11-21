@@ -54,8 +54,7 @@
  * extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive,
  * not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33878-hump-argmax-grid-refinement (the continuum argmax k*~8.821 and the grid ladder)
  * @see imp-33896-decade-label-consistency-audit (the quarter-decade k=8.75 reading)
@@ -170,8 +169,8 @@ export const IMP33905_HUMP_ARGMAX_GRID_VS_CONTINUUM_RECONCILIATION = {
     'behind both is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33878 (continuum argmax k*~8.821 and the grid-refinement ladder, reused verbatim); ' +
     'imp-33896 (quarter-decade k=8.75 reading, reused verbatim); imp-33902 (Richardson limit ' +
@@ -209,16 +208,16 @@ export const IMP33905_HUMP_ARGMAX_GRID_VS_CONTINUUM_RECONCILIATION_ASSERTIONS = 
     holds: () => KSTAR_BETWEEN_QD_AND_INTEGER && INTEGER_MINUS_KSTAR > 0.1 && INTEGER_MINUS_KSTAR < 0.25,
   },
   {
-    // Honesty gate: reconciliation only, isRigorous false, same-argmax verdict, no QED, PT SOTA.
+    // Honesty gate: reconciliation only, isRigorous false, same-argmax verdict, no QED, no refereed bound is changed.
     id: 'imp33905-honesty-gate-no-qed',
-    description: 'Reconciliation only: isRigorous false, SAME argmax verdict, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Reconciliation only: isRigorous false, SAME argmax verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP33905_HUMP_ARGMAX_GRID_VS_CONTINUUM_RECONCILIATION.isRigorous === false &&
       /SAME sliding-window resid_exp\(k\) argmax at two/.test(
         IMP33905_HUMP_ARGMAX_GRID_VS_CONTINUUM_RECONCILIATION.verdict,
       ) &&
       /NO QED/.test(IMP33905_HUMP_ARGMAX_GRID_VS_CONTINUUM_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP33905_HUMP_ARGMAX_GRID_VS_CONTINUUM_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP33905_HUMP_ARGMAX_GRID_VS_CONTINUUM_RECONCILIATION.verdict),
   },
 ];
 

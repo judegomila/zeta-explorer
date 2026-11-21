@@ -48,7 +48,7 @@
  * this says nothing about whether the surrogate models the true collapse dynamic at 10^27-10^37. The
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35332-reentry-band-drift-analytic-derivation (derived DRIFT(N); this locates its geometric-mean value)
  * @see imp-35372-reentry-band-drift-integral-half-offset (the INTEGRAL-domain half-OFFSET landmark, ~0.0028 decades below)
@@ -212,8 +212,8 @@ export const IMP35373_REENTRY_BAND_DRIFT_GEOMETRIC_MEAN_LANDMARK = {
     'surrogate; it does NOT discharge imp-35243a (surrogate-fidelity), which stays OPEN with imp-35111a / ' +
     'imp-35174a / imp-34997a. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb GUE-' +
     'conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35332 (derived DRIFT(N), decreasing 1/(g - N_cross)); imp-35372 (INTEGRAL-domain half-OFFSET ' +
     'landmark 31.556242); imp-35111 (band width ~10.08 decades); imp-34997 (grid-measured the drift and the ' +
@@ -266,13 +266,13 @@ export const IMP35373_REENTRY_BAND_DRIFT_GEOMETRIC_MEAN_LANDMARK_ASSERTIONS = [
       Math.abs(DECADES_ABOVE_IMP35372_LANDMARK - 0.0028) < 5e-3,
   },
   {
-    // Honesty gate: measurement only, discharges nothing, no QED, PT SOTA, sub-gap named/OPEN.
+    // Honesty gate: measurement only, discharges nothing, no QED, no refereed bound is changed, sub-gap named/OPEN.
     id: 'imp35373-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, discharges nothing, no QED, PT SOTA, imp-35243a OPEN',
+    description: 'Measurement only: isRigorous false, discharges nothing, no QED, no refereed bound is changed, imp-35243a OPEN',
     holds: () =>
       IMP35373_REENTRY_BAND_DRIFT_GEOMETRIC_MEAN_LANDMARK.isRigorous === false &&
       /NO QED/.test(IMP35373_REENTRY_BAND_DRIFT_GEOMETRIC_MEAN_LANDMARK.verdict) &&
-      /remains SOTA/.test(IMP35373_REENTRY_BAND_DRIFT_GEOMETRIC_MEAN_LANDMARK.verdict) &&
+      /refereed bound is changed/i.test(IMP35373_REENTRY_BAND_DRIFT_GEOMETRIC_MEAN_LANDMARK.verdict) &&
       /imp-35243a/.test(IMP35373_REENTRY_BAND_DRIFT_GEOMETRIC_MEAN_LANDMARK.residual_sub_gap) &&
       /stay OPEN/.test(IMP35373_REENTRY_BAND_DRIFT_GEOMETRIC_MEAN_LANDMARK.finding),
   },

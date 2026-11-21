@@ -45,7 +45,7 @@
  * stays the strict minimiser and no non-primorial 10-set can cross it. Raising the double kernel cap past
  * ~1000 injects Gexact-GKmain cancellation noise rather than signal, so d <= 1000 is the correct, most-reliable
  * choice. The MCM onset stays exactly omega=11; the b/4 ceiling is not touched; kappa_arith unchanged; no bound
- * on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97606-route-m-mcm-omega10-primorial-extremality-broadened.js (broadened extremality; +7.52e-5 gap)
  * @see imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (kernel; cap d<=1000 with 1/(720 d^3) tail)
@@ -83,7 +83,7 @@ export const IMP97647_OMEGA10_CAP_ROBUSTNESS = Object.freeze({
 });
 
 export const IMP97647_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Re-evaluating the imp-97606 omega=10 primorial-extremality ' +
+  'RH open; no refereed bound is changed; NO QED. Re-evaluating the imp-97606 omega=10 primorial-extremality ' +
   'gap +7.520579e-5 with larger divisor caps (d <= 5000, 10000) and the exact 1/(720 d^3) tail bound: the gap ' +
   'is ROBUST, not a truncation artifact. Raising the cap moves it by only ~-1.3e-10; the rigorous omitted-' +
   'divisor budget bounds any cap -> infinity shift by < 5.69e-11, about 1.3e6 times smaller than the gap, so ' +
@@ -142,7 +142,7 @@ const IMP97647_ASSERTIONS = [
       IMP97647_OMEGA10_CAP_ROBUSTNESS.anyBoundMoved === false &&
       IMP97647_OMEGA10_CAP_ROBUSTNESS.qed === false &&
       /NO QED/.test(IMP97647_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97647_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97647_HONEST_BANNER) &&
       /RH open/.test(IMP97647_HONEST_BANNER),
     why: 'measurement only -- the cap-robustness re-evaluation confirms the omega=10 gap and onset omega=11; no bound moved, no QED.',
   },

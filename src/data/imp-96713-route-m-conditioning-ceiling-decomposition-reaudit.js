@@ -55,7 +55,7 @@
  * T(2.594e7,rigorous) < F(3.775e7,fit) < M(4.109e7,measured) holds; the residual factor
  * M/F = 1.0884 still rounds to 1.09x and the gap-fraction 0.7797 is still ~76-78%; the total
  * ratio M/T = 1.5842 is invariant to the Frobenius pivot. Accuracy audit only; no bound
- * moved; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * moved; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (inherited): the Frobenius and measured ceilings both rest on a log-fit
  * extrapolated ~four decades to N ~ 3.78e7 / ~4.11e7 (imp-96694 / imp-96443 sub-gaps); only
@@ -136,11 +136,11 @@ export const IMP96713_VERDICT = Object.freeze({
     'reported 1.09x; the gap-fraction rises 0.7722 -> 0.7797, still the reported ~76-78%; and ' +
     'the total ceiling ratio M/T = 1.5842 is invariant to the Frobenius pivot (it cancels in ' +
     'the exact decomposition). Accuracy audit only; no bound moved; no operator positivity; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96713_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy audit only: every ratio is pure ' +
+  'RH open; no refereed bound is changed; NO QED. Accuracy audit only: every ratio is pure ' +
   're-analysis of the trace (imp-96548 rigorous), measured (imp-96443), and imp-96694 ' +
   'N=12000-updated Frobenius (fit) conditioning ceilings; the Frobenius and measured ceilings ' +
   'inherit the imp-96694 / imp-96443 log-fit extrapolation sub-gap (only the trace ceiling ' +
@@ -188,7 +188,7 @@ const IMP96713_ASSERTIONS = [
       IMP96713_VERDICT.strictlyOrdered === true &&
       IMP96713_VERDICT.decompositionCloses === true &&
       /NO QED/.test(IMP96713_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96713_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96713_HONEST_BANNER) &&
       /RH open/.test(IMP96713_HONEST_BANNER),
     why: 'audit only: no bound moved, the ordering and decomposition-closure flags are set, and the honesty markers are present.',
   },

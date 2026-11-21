@@ -42,7 +42,7 @@
  * component model is NOT a rigorous asymptotic; the analytic E_flow slope -1 is a property of that
  * surrogate, not of the true residual; changes no bound; establishes no operator positivity; C_mb
  * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34448-deflow-decay-exponent (the pInf ~ 1.000 fit checked here against the analytic slope)
  * @see imp-34495-deflow-decay-viz-data (the directly-observed vs fit-extrapolated tagging)
@@ -147,7 +147,7 @@ export const IMP34571_DEFLOW_EXPONENT_VS_ANALYTIC_SLOPE = {
     'inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the analytic E_flow ' +
     'slope -1 is a property of that surrogate, not of the true residual; changes no bound; ' +
     'establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34448 (the pInf ~ 1.000 fit checked here); imp-34495 (the directly-observed vs ' +
     'fit-extrapolated tagging); imp-34485 (cancellation-free confirmation of deflow ~ N^-1); ' +
@@ -189,13 +189,13 @@ export const IMP34571_DEFLOW_EXPONENT_VS_ANALYTIC_SLOPE_ASSERTIONS = [
     holds: () => Number.isFinite(OBSERVED_C) && Math.abs(OBSERVED_C - 3) < 0.5,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34571-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34571_DEFLOW_EXPONENT_VS_ANALYTIC_SLOPE.isRigorous === false &&
       /NO QED/.test(IMP34571_DEFLOW_EXPONENT_VS_ANALYTIC_SLOPE.verdict) &&
-      /remains SOTA/.test(IMP34571_DEFLOW_EXPONENT_VS_ANALYTIC_SLOPE.verdict) &&
+      /refereed bound is changed/i.test(IMP34571_DEFLOW_EXPONENT_VS_ANALYTIC_SLOPE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34571_DEFLOW_EXPONENT_VS_ANALYTIC_SLOPE.verdict),
   },
 ];

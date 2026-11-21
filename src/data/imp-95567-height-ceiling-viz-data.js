@@ -13,7 +13,7 @@
  * Re-implements the imp-95533/imp-95559 numeric kernel standalone (no imports, no
  * 16.7MB zeros bundle) so a render-friendly chart can be baked at denser resolution.
  *
- * MEASUREMENT ONLY. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * MEASUREMENT ONLY. Changes no bound; NO QED; no refereed bound is changed.
  *
  * @see imp-95533-res-t-standalone-lemma (source lemma: L1-L4, T_X literals)
  * @see imp-95559-res-t-moment-refined (source (L4) ceiling table + refined T_X literals this cross-checks)
@@ -74,7 +74,7 @@ export const IMP95567_SUMMARY = {
     'H_ceil(T, delta) = 2 pi exp(E), E = delta^2 S(T delta)^4 T^3, doubly exponential in T '
     + '(ln E grows with T, slope approaching 2*delta once T*delta is in the asymptotic regime)',
   verdict:
-    'MEASUREMENT ONLY; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. '
+    'MEASUREMENT ONLY; changes no bound; NO QED; no refereed bound is changed. '
     + 'Re-plots the imp-95533/imp-95559 RES-T (L4) height-ceiling law at render-friendly resolution.',
 };
 
@@ -120,7 +120,7 @@ const IMP95567_VIZ_DATA_ASSERTIONS = [
   {
     id: 'imp95567-honesty-gate-no-qed',
     description: 'summary carries NO QED and SOTA denial markers',
-    holds: () => /NO QED/.test(IMP95567_SUMMARY.verdict) && /remains SOTA/.test(IMP95567_SUMMARY.verdict),
+    holds: () => /NO QED/.test(IMP95567_SUMMARY.verdict) && /refereed bound is changed/i.test(IMP95567_SUMMARY.verdict),
   },
 ];
 

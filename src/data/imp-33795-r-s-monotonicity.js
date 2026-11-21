@@ -55,8 +55,8 @@
  *   monotone, turning-point-free shape VALIDATES the premise the imp-33765 verdict rests on but
  *   carries NO RH verdict and discharges nothing: K_a >= 0 was NOT attempted; imp-3066 /
  *   imp-33704 / imp-33725 / imp-33765 / G7 remain UNTOUCHED as proofs; positivity was not
- *   attempted; this is not a proof or a reduction; Platt-Trudgian Lambda &lt;= 0.2 REMAINS the
- *   rigorous SOTA. No false QED.
+ *   attempted; this is not a proof or a reduction; no refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-33791-deg-ceiling-saturation.js (imp-33791: the DEG saturation-scale tabulation)
  *   @see imp-33765-g7-obstruction-orthogonal-lever.js (imp-33765: the orthogonal-lever verdict)
@@ -249,7 +249,7 @@ export const IMP33795_R_S_MONOTONICITY = Object.freeze({
     'at s ~ 0.2794, is already ~92.3% of the ceiling 5 at the s = 3 anchor (||R|| ~ 4.617014), ' +
     'and approaches DEG+1 with an exponential-like tail (log-gap slope ~ -0.1165 per unit s over ' +
     '[10,20]). This VALIDATES the monotone single-parameter shape the imp-33765 one-dimensionality ' +
-    'argument rests on. Diagnostic; no RH verdict; PT 0.2 SOTA.',
+    'argument rests on. Diagnostic; no RH verdict; no refereed bound is changed.',
 
   construction: Object.freeze({
     quadraturePanels: NQ,
@@ -313,7 +313,7 @@ export const IMP33795_R_S_MONOTONICITY = Object.freeze({
     didNotAttemptKaNonnegativity: true,
     didNotAttemptPositivity: true,
     carriesNoRHVerdict: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    sota: 'No refereed bound is changed.',
   }),
 });
 
@@ -369,7 +369,7 @@ export const IMP33795_R_S_MONOTONICITY_ASSERTIONS = [
          '(admissible) slice that VALIDATES the imp-33765 monotone premise but discharges ' +
          'nothing, ||R|| carries no RH verdict, imp-3066 / imp-33725 / imp-33765 / G7 are ' +
          'untouched, K_a >= 0 and positivity were not attempted, it is not a proof or a ' +
-         'reduction, and PT 0.2 stays SOTA.',
+         'reduction, and no refereed bound is changed.',
     holds: () => {
       const c = IMP33795_R_S_MONOTONICITY.honestCaveat;
       return (
@@ -385,7 +385,7 @@ export const IMP33795_R_S_MONOTONICITY_ASSERTIONS = [
         c.didNotAttemptKaNonnegativity === true &&
         c.didNotAttemptPositivity === true &&
         c.carriesNoRHVerdict === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

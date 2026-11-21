@@ -51,7 +51,7 @@
  * surrogate reading is NOT height-map-robust per imp-35497). E_flow > 0 strictness
  * (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail
  * exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; no operator positivity; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35413-eflow-fartail-remnant-sub1e3-crossing (the ladder this continues, endpoint 1e28)
  * @see imp-35552-eflow-fartail-remnant-product-decay-limit (independent remnant ~ 2 loglogN/(logN)^2 leading form)
@@ -184,7 +184,7 @@ export const IMP35831_EFLOW_FARTAIL_REMNANT_FAR_DECADE_DRIFT = {
     '(surrogate-vs-true fidelity, NOT height-map-robust per imp-35497); E_flow > 0 strictness ' +
     '(imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail ' +
     'exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no bound; no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35413 (sub-1e-3 crossing, endpoint N = 1e28, continued here); imp-35552 (independent ' +
     'remnant ~ 2 loglogN/(logN)^2 decay-to-zero leading form); imp-35280 (four-rung ' +
@@ -239,13 +239,13 @@ export const IMP35831_EFLOW_FARTAIL_REMNANT_FAR_DECADE_DRIFT_ASSERTIONS = [
       !Number.isFinite(Math.pow(10, DOUBLE_CEILING_LOG10 + 1)),
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35831-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35831_EFLOW_FARTAIL_REMNANT_FAR_DECADE_DRIFT.isRigorous === false &&
       /NO QED/.test(IMP35831_EFLOW_FARTAIL_REMNANT_FAR_DECADE_DRIFT.verdict) &&
-      /remains SOTA/.test(IMP35831_EFLOW_FARTAIL_REMNANT_FAR_DECADE_DRIFT.verdict),
+      /refereed bound is changed/i.test(IMP35831_EFLOW_FARTAIL_REMNANT_FAR_DECADE_DRIFT.verdict),
   },
   {
     // Inherits, and does not discharge, tracked sub-gap imp-35413a (surrogate-vs-true fidelity).

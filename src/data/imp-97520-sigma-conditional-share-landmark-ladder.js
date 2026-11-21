@@ -36,7 +36,7 @@
  * surrogate component model, NOT a rigorous asymptotic; C_mb GUE-conditional per
  * imp-486 UNTOUCHED; C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (closed-form N_cross fixed point, ~0.4% E_flow offset)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (F3: sigma=1/2 halving landmark)
@@ -164,7 +164,7 @@ export const IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER = {
     'N_cross ~ 3.280294e9 to ~0.4%, with the residual quantified as the E_flow gap. Measurement / ' +
     'verification cross-check only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional ' +
     'per imp-486; C_C 1/8 ansatz untouched; changes no bound; establishes no operator positivity; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER_ASSERTIONS = [
@@ -205,14 +205,14 @@ export const IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER_ASSERTIONS = [
   },
   {
     id: 'imp97520-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no operator positivity, no bound moves, structured qed false, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement only: isRigorous false, no operator positivity, no bound moves, structured qed false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER.isRigorous === false &&
       IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER.operatorPositivityProved === false &&
       IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER.boundMoves === false &&
       IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER.qed === false &&
       /NO QED/.test(IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER.note) &&
-      /remains SOTA/.test(IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER.note),
+      /refereed bound is changed/i.test(IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER.note),
   },
 ];
 

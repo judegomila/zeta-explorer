@@ -70,7 +70,7 @@
  * for the model cusp rho(x) = |x|^{-alpha}. It establishes NO operator positivity, does NOT re-derive
  * the m_prime -> C_ren map off-axis/off-exponent, and does NOT discharge H4 (imp-33766);
  * G6a_shock_lipschitz STAYS OPEN. C_mb GUE-conditional untouched; imp-3066 off-diagonal endpoint-Hankel
- * K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed.
  *
  * @see imp-34103-endpoint-distance-curvature (family (i) k=-+1 distance pi(1-alpha)/(2(1+alpha)), pi/8 curvature)
  * @see imp-34104-second-positive-branch-geometry (family (ii) k=-+2 distance pi(3-alpha)/(2(1+alpha)), slope -pi/8)
@@ -257,8 +257,8 @@ export const IMP34173_UNIFIED_BRANCH_ENDPOINT_LAW = {
     'slope/curvature match central finite differences. Pure phase-condition geometry on the inherited imp-33924 ' +
     'closed form for the model cusp rho(x) = |x|^{-alpha}; establishes NO operator positivity; does NOT re-derive ' +
     'the m_prime -> C_ren map off-axis/off-exponent and does NOT discharge H4 (imp-33766). C_mb GUE-conditional ' +
-    'untouched; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'untouched; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP34173_UNIFIED_BRANCH_ENDPOINT_LAW_ASSERTIONS = [
@@ -295,15 +295,15 @@ export const IMP34173_UNIFIED_BRANCH_ENDPOINT_LAW_ASSERTIONS = [
       Math.abs(IMP34173_UNIFIED_BRANCH_ENDPOINT_LAW.k1CurvatureAtAlpha1 - Math.PI / 4) < 1e-6,
   },
   {
-    // Honesty gate: derivation/measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed.
     id: 'imp34173-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Derivation/measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34173_UNIFIED_BRANCH_ENDPOINT_LAW.isRigorous === false &&
       IMP34173_UNIFIED_BRANCH_ENDPOINT_LAW.dischargesH4 === false &&
       /NO QED/.test(IMP34173_UNIFIED_BRANCH_ENDPOINT_LAW.verdict) &&
       /STAYS OPEN/.test(IMP34173_UNIFIED_BRANCH_ENDPOINT_LAW.verdict) &&
-      /remains the rigorous SOTA/.test(IMP34173_UNIFIED_BRANCH_ENDPOINT_LAW.verdict) &&
+      /refereed bound is changed/i.test(IMP34173_UNIFIED_BRANCH_ENDPOINT_LAW.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP34173_UNIFIED_BRANCH_ENDPOINT_LAW.verdict) &&
       /C_mb GUE-conditional untouched/i.test(IMP34173_UNIFIED_BRANCH_ENDPOINT_LAW.verdict),
   },

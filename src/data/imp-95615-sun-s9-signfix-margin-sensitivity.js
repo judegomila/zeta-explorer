@@ -58,7 +58,7 @@
  * primary source nor certifies the imp-95516 S2-S5 determinant/rank core.
  *
  * Catalan constant G irrationality remains OPEN; Sun arXiv:2609.04176 single-author and
- * unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.
+ * unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.
  *
  * NO heavy imports. All figures recomputed here from the ledger constants.
  */
@@ -147,7 +147,7 @@ export const SUN_S9_SIGNFIX_MARGIN_SENSITIVITY = Object.freeze({
     + '>3.49% error in the single gate value 0.00966243 (F2); interior optimum rho*~1/56 and '
     + 'delta_0_corr~0.0373 survive every +/-10% single-input and non-parabolic perturbation '
     + '(F3,F4); parabola NOT load-bearing for either qualitative claim; '
-    + 'G irrationality OPEN; Sun unrefereed; PT Lambda<=0.2 SOTA; NO QED',
+    + 'G irrationality OPEN; Sun unrefereed; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   assesses: 'imp-95600-sun-s9-signfix-rho-margin-assessment',
 
@@ -206,7 +206,7 @@ export const SUN_S9_SIGNFIX_MARGIN_SENSITIVITY = Object.freeze({
     'Assessment ATOP an unpublished Lambda_mid(rho) and ONE reading of "wrong-sign B-squared" '
     + '(-2rho^2 to +2rho^2). Not a primary-source re-derivation of Sun Section 9 nor a '
     + 'certification of the imp-95516 S2-S5 determinant/rank core. Catalan G irrationality OPEN; '
-    + 'Sun arXiv:2609.04176 unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'Sun arXiv:2609.04176 unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const SUN_S9_SIGNFIX_MARGIN_SENSITIVITY_ASSERTIONS = Object.freeze([
@@ -231,9 +231,9 @@ export const SUN_S9_SIGNFIX_MARGIN_SENSITIVITY_ASSERTIONS = Object.freeze([
     holds: () => (CUBIC_RHO_HI - CUBIC_RHO_LO) < 1e-4,
   },
   {
-    name: 'honest: assessment only, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: assessment only, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () => /G irrationality OPEN/.test(SUN_S9_SIGNFIX_MARGIN_SENSITIVITY.status)
-      && /PT Lambda<=0.2 SOTA/.test(SUN_S9_SIGNFIX_MARGIN_SENSITIVITY.status)
+      && /refereed bound is changed/i.test(SUN_S9_SIGNFIX_MARGIN_SENSITIVITY.status)
       && /NO QED/.test(SUN_S9_SIGNFIX_MARGIN_SENSITIVITY.status),
   },
 ]);

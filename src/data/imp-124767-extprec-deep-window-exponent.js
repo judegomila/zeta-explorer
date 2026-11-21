@@ -40,7 +40,7 @@
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F
  * prefactor are UNTOUCHED and appear only as the fixed surrogate; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * Literals baked from the offline mpmath run (dps = 60); this leaf is import-light and does NOT re-import
  * the surrogate at load. Regenerate: /tmp/rhvenv/bin/python tmp/imp-124767-extprec-deepwindow.py
@@ -147,7 +147,7 @@ export const IMP124767_EXTPREC_DEEP_WINDOW_EXPONENT = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97823 (double-precision deep window g=1e-5..1e-8, residual ~4e-4); imp-97721 (kernel |K| ~ ' +
     'sqrt(10) per decade, qualitative); imp-97520 (L1 peak sigma_max ~ 0.949429, N_peak ~ 9.22e5); ' +
@@ -213,13 +213,13 @@ export const IMP124767_EXTPREC_DEEP_WINDOW_EXPONENT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp124767-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124767_EXTPREC_DEEP_WINDOW_EXPONENT.isRigorous === false &&
       /NO QED/.test(IMP124767_EXTPREC_DEEP_WINDOW_EXPONENT.verdict) &&
-      /remains SOTA/.test(IMP124767_EXTPREC_DEEP_WINDOW_EXPONENT.verdict),
+      /refereed bound is changed/i.test(IMP124767_EXTPREC_DEEP_WINDOW_EXPONENT.verdict),
   },
 ];
 

@@ -44,8 +44,7 @@
  * belong beside the existing imp-3406 N_max / high-N extrapolation section
  * on ClosureRoutesPage.jsx, which already hosts the parent N_max
  * discussion. This module fabricates NO pages; it only records the audit
- * and flags the orphans. No new bound, no QED; Platt-Trudgian Lambda <= 0.2
- * stays SOTA.
+ * and flags the orphans. No new bound, no QED; no refereed bound is changed.
  *
  * @see imp-3459 (the imp-3399..3409 cohort surfacing audit)
  * @see imp-3480 (the imp-3441..3446 wave surfacing audit)
@@ -99,7 +98,7 @@ export const IMP_3498_NEWEST_SIX_MODULE_SURFACING_AUDIT = {
     'existing imp-3406 N_max section on ClosureRoutesPage.jsx; do not fabricate pages in this ' +
     'audit ticket.',
   honestNote:
-    'Read-only audit; no pages fabricated. No new bound, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages fabricated. No new bound, no QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -138,9 +137,9 @@ const IMP_3498_ASSERTIONS = [
   },
   {
     id: 'imp3498-honest-scope-locked',
-    holds: () => /SOTA/.test(IMP_3498_NEWEST_SIX_MODULE_SURFACING_AUDIT.honestNote) &&
+    holds: () => /refereed bound is changed/i.test(IMP_3498_NEWEST_SIX_MODULE_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3498_NEWEST_SIX_MODULE_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

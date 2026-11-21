@@ -164,11 +164,11 @@ export const IMP96610_VERDICT = Object.freeze({
     + 'blows up in 2a. The t^4 cap is thus the mechanism BEHIND the imp-96609 norm-growth '
     + 'wall, not an independent one; the baked certificates (2a <= 0.96) respect it with '
     + '~41% slack, so it is not yet binding there. Moves no bound; RH open; '
-    + 'PT Lambda <= 0.2 SOTA; NO QED.',
+    + 'no refereed bound is changed; NO QED.',
 });
 
 export const IMP96610_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + measurement only: the cap '
+  'RH open; no refereed bound is changed; NO QED. Derivation + measurement only: the cap '
   + 'is derived from the leading t^4 tail behaviour of sigma_2 + nu and verified against the '
   + 'exact 2theta_prime and the two interval-verified baked certificates (tmp/imp-96610-*.mjs). '
   + 'No new positivity, no bound moved, no support beyond the verified 2a <= 0.96 is claimed.';
@@ -221,7 +221,7 @@ const IMP96610_ASSERTIONS = [
       && IMP96610_VERDICT.capConstantIsSqrt2Ln2 === true
       && IMP96610_VERDICT.bakedCertsRespectCap === true
       && /NO QED/.test(IMP96610_HONEST_BANNER)
-      && /PT Lambda <= 0.2/.test(IMP96610_HONEST_BANNER)
+      && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96610_HONEST_BANNER)
       && /RH open/.test(IMP96610_HONEST_BANNER),
     why: 'derivation + measurement only: the cap is confirmed, no bound moved, and the honesty markers are present.',
   },

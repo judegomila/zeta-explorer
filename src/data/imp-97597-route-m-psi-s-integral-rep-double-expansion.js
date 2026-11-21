@@ -87,8 +87,8 @@
  *   uncomputed mixed kernel coefficient kappaK = coeff of epsilon*z^2 in K(s,z) at (1,0)
  *   (RESULT 3). No constant pinned; kappa_smooth stays measured (|kappa_smooth| <~ 1e-2, sign-
  *   swinging, imp-97460/imp-97578). The rigorous anchor stays the trace ceiling T = 2.594e7; compute
- *   (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; PT Lambda <= 0.2 remains
- *   SOTA; RH open; NO QED.
+ *   (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  *   SUB-GAP (carried forward, sharpened): imp-97597-psi-cusp-x2-mixed-kernel-coefficient -- pinning
  *   kappa_smooth reduces to the single scalar kappaK = coefficient of epsilon*z^2 in the Bettin-
@@ -158,7 +158,7 @@ export const IMP97597_VERDICT = Object.freeze({
     '(fixing only {A,B,C0}) does NOT touch. So the closed form does not close, no value is pinned, and ' +
     'the obstruction is sharpened from "needs the integral representation" to one mixed kernel ' +
     'coefficient. The rigorous anchor stays T = 2.594e7; compute binds first by >2600x; no operator ' +
-    'positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97597_SUBGAP = Object.freeze({
@@ -174,7 +174,7 @@ export const IMP97597_SUBGAP = Object.freeze({
 });
 
 export const IMP97597_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation attempt only: the (s,z)-double ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation attempt only: the (s,z)-double ' +
   'expansion of the Bettin-Conrey psi_s integral representation was set up and pushed one order past ' +
   'imp-97578 -- the leading Laurent block reproduces w_lin, the O(x^2) coefficient splits into a ' +
   'zeta(2) Eisenstein-period term and a gamma_1 double-pole term, and the obstruction is localised to ' +
@@ -234,7 +234,7 @@ const IMP97597_ASSERTIONS = [
       IMP97597_VERDICT.anyBoundMoved === false &&
       IMP97597_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97597_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97597_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97597_HONEST_BANNER) &&
       /RH open/.test(IMP97597_HONEST_BANNER) &&
       /mixed-kernel-coefficient/.test(IMP97597_SUBGAP.id),
   },

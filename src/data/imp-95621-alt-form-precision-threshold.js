@@ -10,7 +10,7 @@
  * for small delta.
  *
  * GRADE: numerical only. Imports no heavy bundle. Changes NO bound and
- * asserts NO new theorem; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ * asserts NO new theorem; no refereed bound is changed. NO QED.
  *
  * DERIVATION (term-size vs sum-size ratio = summation condition number):
  *   The true value is exponentially small, A_opt ~ (4 pi/delta) exp(-pi^2/delta),

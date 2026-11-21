@@ -65,8 +65,7 @@
  * DERIVATION / CERTIFICATE ONLY. This certifies a property of the inherited surrogate crossover, NOT a
  * rigorous asymptotic and NOT an RH bound. C_C = (1/8) sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643)
  * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no
- * bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (states N_cross as a fixed point with pointwise |g_prime| ~ 0.045)
  * @see imp-33749-crossover-contraction-etrunc-floor-sweep (pointwise |g_prime(N_cross)| across the E_trunc-floor sweep)
@@ -203,8 +202,8 @@ export const IMP34650_CROSSOVER_BANACH_CONTRACTION_CERTIFICATE = {
     'interval-arithmetic enclosures. This certifies a property of the inherited imp-3220/imp-3406 ' +
     'surrogate crossover map, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and ' +
     'the C_mb GUE-conditional per imp-486 are UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33723 (closed-form crossover fixed point, pointwise |g_prime| ~ 0.045); imp-33749 (pointwise ' +
     'contraction across the E_trunc-floor sweep); imp-3444 (E_coll = E_trunc crossover, bisected); ' +
@@ -247,14 +246,14 @@ export const IMP34650_CROSSOVER_BANACH_CONTRACTION_CERTIFICATE_ASSERTIONS = [
     holds: () => GP_1E8 > 1,
   },
   {
-    // Honesty gate: certificate of a surrogate property, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: certificate of a surrogate property, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34650-honesty-gate-no-qed',
-    description: 'Certificate only: isRigorous false, named sub-gap, no QED, Platt-Trudgian stays SOTA',
+    description: 'Certificate only: isRigorous false, named sub-gap, no QED, no refereed bound is changed',
     holds: () =>
       IMP34650_CROSSOVER_BANACH_CONTRACTION_CERTIFICATE.isRigorous === false &&
       /imp-34650a/.test(IMP34650_CROSSOVER_BANACH_CONTRACTION_CERTIFICATE.subGap) &&
       /NO QED/.test(IMP34650_CROSSOVER_BANACH_CONTRACTION_CERTIFICATE.verdict) &&
-      /remains SOTA/.test(IMP34650_CROSSOVER_BANACH_CONTRACTION_CERTIFICATE.verdict),
+      /refereed bound is changed/i.test(IMP34650_CROSSOVER_BANACH_CONTRACTION_CERTIFICATE.verdict),
   },
 ];
 

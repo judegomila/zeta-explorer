@@ -65,7 +65,7 @@
  * rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; the E_trunc = 3.06e-5
  * fixed-strip barrier-lemma constant (imp-2631, reclassified imp-34791) is UNCHANGED; identifying the
  * dominant term does NOT tighten it and closes no gap; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35418-far-tail-three-way-share-ladder-eflow-1e-9-landmark (parts() + far-tail share ladder source)
  * @see imp-35334-far-tail-effectively-unconditional-vs-etrunc-conditionality (sigma<1e-3 landmark, three-provenance classes)
@@ -207,7 +207,7 @@ export const IMP35456_EN_COMPONENT_BUDGET_AT_VERIFIED_HEIGHT_3E12 = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is ' +
     'UNTOUCHED; the E_trunc = 3.06e-5 fixed-strip barrier-lemma constant (imp-2631, reclassified imp-34791) is ' +
     'UNCHANGED; identifying the dominant term tightens no bound and closes no gap; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35418 (parts() + far-tail share ladder source); imp-35334 (three-provenance classes, sigma<1e-3 ' +
     'landmark); imp-35410 (sigma<1e-4 far-tail landmark); imp-34474 (sigma<0.01 landmark N ~ 4.6e13); imp-33582 ' +
@@ -259,9 +259,9 @@ export const IMP35456_EN_COMPONENT_BUDGET_AT_VERIFIED_HEIGHT_3E12_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement only, GUE-conditional per imp-486, E_trunc barrier-lemma per imp-34791,
-    // no QED, PT stays SOTA.
+    // no QED, no refereed bound is changed.
     id: 'imp35456-honesty-gate-no-qed',
-    description: 'Measurement only: C_mb GUE-conditional (imp-486), E_trunc barrier lemma (imp-34791), no QED, PT SOTA',
+    description: 'Measurement only: C_mb GUE-conditional (imp-486), E_trunc barrier lemma (imp-34791), no QED, no refereed bound is changed',
     holds: () =>
       IMP35456_EN_COMPONENT_BUDGET_AT_VERIFIED_HEIGHT_3E12.isRigorous === false &&
       /GUE-conditional share per imp-486 is UNTOUCHED/.test(
@@ -271,7 +271,7 @@ export const IMP35456_EN_COMPONENT_BUDGET_AT_VERIFIED_HEIGHT_3E12_ASSERTIONS = [
         IMP35456_EN_COMPONENT_BUDGET_AT_VERIFIED_HEIGHT_3E12.verdict,
       ) &&
       /NO QED/.test(IMP35456_EN_COMPONENT_BUDGET_AT_VERIFIED_HEIGHT_3E12.verdict) &&
-      /remains SOTA/.test(IMP35456_EN_COMPONENT_BUDGET_AT_VERIFIED_HEIGHT_3E12.verdict),
+      /refereed bound is changed/i.test(IMP35456_EN_COMPONENT_BUDGET_AT_VERIFIED_HEIGHT_3E12.verdict),
   },
 ];
 

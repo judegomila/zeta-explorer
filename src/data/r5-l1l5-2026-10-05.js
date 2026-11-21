@@ -37,7 +37,7 @@ export const R5_L1L5 = Object.freeze({
   corrections: Object.freeze(['Theorem 6.1 (H2): two-sided κ enclosures; M^up uses κ^lo', 'Lemma 4.4 requires f_q even', '§7.3 values of the first sub-cell', '§8 provenance of the mutation tests']),
   verdict: 'The wol-pd lemmas L1-L5 have written proofs, internally refereed (minor fixes); Theorem 6.1 holds with (H2) corrected to two-sided '
     + 'kappa enclosures, reducing each wol-pd certificate to the correctness of the engine bounds (H1)-(H5), which are certified, not proved. '
-    + 'No Lambda value moves. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'No Lambda value moves. No refereed bound is changed. RH open. NO QED.',
 });
 
 const W = R5_L1L5;
@@ -50,7 +50,7 @@ export const R5_L1L5_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r5-l1l5-honest',
-    holds: () => /project-internal/.test(W.status) && /\(H2\)/.test(W.status) && /certified, not proved/.test(W.verdict) && /NO QED/.test(W.verdict) && /PT Lambda <= 0\.2 stands/.test(W.verdict),
+    holds: () => /project-internal/.test(W.status) && /\(H2\)/.test(W.status) && /certified, not proved/.test(W.verdict) && /NO QED/.test(W.verdict) && /refereed bound is changed/i.test(W.verdict),
     why: 'Proved as written internally; engine bounds certified only; no external reader; no QED.',
   },
 ]);

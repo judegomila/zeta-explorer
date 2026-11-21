@@ -63,7 +63,7 @@
  * open), and step (b) -- the interpretive step from a T_a[sigma_2] >= 0 certificate to Weil /
  * operator positivity (operator floor is a Rayleigh UPPER bound; Sonine port obstructed at
  * 2a=ln2) -- is untouched. Certified reach stays 2a <= 0.96; operator positivity not proved;
- * Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97012-krein-kmax5-100-celllocal-w1pp-verify.js (the single in-pool run under test)
  * @see imp-96992-w1pp-celllocal-enclosure.js (the cell-local bound derivation)

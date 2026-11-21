@@ -58,8 +58,7 @@
  *   the node budget of a quadrature rule for a fixed autocorrelation weight used inside a
  *   mass-feasibility diagnostic; it establishes NO operator positivity. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-3897-a-weight-substitution-simpson-tau35-40-precision-floor.js (the single crossover tau*~4.006 this generalizes)
  *   @see imp-3873-a-weight-offline-literal-independent-reproduction.js (the peak-scaled substitution reference)
@@ -210,7 +209,7 @@ export const IMP3919_A_WEIGHT_FIXED_GRADED_GL_CROSSOVER_BUDGET_TAU6 = Object.fre
     'hits 0.83 ULP while the below-budget (200,grade4) fails at 1.8e6 ULP, validating the derived budget. The ' +
     'sigma-tracking substitution-Simpson reaches the same accuracy with n<=8000 and NO grade tuning, which is the ' +
     'budget it avoids. RULE-DESIGN DERIVATION/ACCURACY MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; ' +
-    'operator positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s) Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -280,7 +279,7 @@ export const IMP3919_A_WEIGHT_FIXED_GRADED_GL_CROSSOVER_BUDGET_TAU6 = Object.fre
       'rule needs to resolve the collapsing peak through tau=6, and confirms the sigma-tracking substitution ' +
       'reaches the same accuracy for free. It says nothing about the imp-3730 CANCELLATION floor near tau~6, which ' +
       'remains the binding limit on the clean window.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -321,7 +320,7 @@ export const IMP3919_A_WEIGHT_FIXED_GRADED_GL_CROSSOVER_BUDGET_TAU6_ASSERTIONS =
   {
     id: 'imp3919-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: rule-design/accuracy measurement only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3919_A_WEIGHT_FIXED_GRADED_GL_CROSSOVER_BUDGET_TAU6.honestCaveat;
       return (
@@ -329,7 +328,7 @@ export const IMP3919_A_WEIGHT_FIXED_GRADED_GL_CROSSOVER_BUDGET_TAU6_ASSERTIONS =
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

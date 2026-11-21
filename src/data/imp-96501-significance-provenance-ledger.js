@@ -36,7 +36,7 @@
  * VERDICT. Of the five modules citing the ~1.9-sigma figure, exactly ONE (imp-96089) sets it and ONE
  * (imp-96452) explains/quantifies it; the other three (imp-96128, imp-96184, imp-96430) are cross-checks
  * or unrelated threads that all either leave it untouched or would raise it if used (conservative
- * pinning). Ledger only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the
+ * pinning). Ledger only; changes no bound; NO QED; no refereed bound is changed; the
  * zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96089-mean-anchor-window-count-significance-verdict (SETS z = 1.9234)
@@ -133,7 +133,7 @@ export const IMP96501_SIGNIFICANCE_PROVENANCE_LEDGER = {
   sourceCount, // 1: exactly one module sets the figure
   anyChangesFigure, // false: none of the five modules changes the quoted 1.9234
   verdict:
-    'Of the five modules citing the ~1.9-sigma excursion confidence, exactly ONE (imp-96089) SETS z = 1.9234 (relErr = 0.159457 over naive n_w = 291 at T = 1.5e5); ONE (imp-96452) is the provenance assessment that traces and quantifies it (2-sigma needs n_w >= 315, obstructed because the dip window is already fully interior to the 10^6-ordinate set); and THREE (imp-96128, imp-96184, imp-96430) are cross-checks or unrelated threads that leave the quoted number untouched -- imp-96128 in particular shows the true significance is conservatively UNDER-stated (n_eff ~ 795 would give a naive z ~ 3.18). Ledger only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Of the five modules citing the ~1.9-sigma excursion confidence, exactly ONE (imp-96089) SETS z = 1.9234 (relErr = 0.159457 over naive n_w = 291 at T = 1.5e5); ONE (imp-96452) is the provenance assessment that traces and quantifies it (2-sigma needs n_w >= 315, obstructed because the dip window is already fully interior to the 10^6-ordinate set); and THREE (imp-96128, imp-96184, imp-96430) are cross-checks or unrelated threads that leave the quoted number untouched -- imp-96128 in particular shows the true significance is conservatively UNDER-stated (n_eff ~ 795 would give a naive z ~ 3.18). Ledger only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (comparison only; no re-derivation) ---
@@ -154,8 +154,8 @@ export const IMP96501_SIGNIFICANCE_PROVENANCE_LEDGER = {
   // honesty gates
   if (!/NO QED/.test(IMP96501_SIGNIFICANCE_PROVENANCE_LEDGER.verdict))
     throw new Error('imp-96501: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96501_SIGNIFICANCE_PROVENANCE_LEDGER.verdict))
-    throw new Error('imp-96501: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96501_SIGNIFICANCE_PROVENANCE_LEDGER.verdict))
+    throw new Error('imp-96501: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96501_SIGNIFICANCE_PROVENANCE_LEDGER;

@@ -48,7 +48,7 @@
  * it changes no bound, produces no interval majorant (F uses IEEE-double Bessel evaluation, not an interval
  * library), proves no operator positivity. imp-97227 Obstruction B (the degree-to-v0 overlap inversion d = C^T v0,
  * imp-97164) stays open; Route B does not close on the remainder bound alone. Interval-rigorous reach stays
- * 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97294-krein-bessel-z4-coherent-jfreq-majorant.js (the coherent across-order constant C_coh; exports P_j,Q_j)
  * @see imp-97263-krein-analytic-bessel-z4-remainder-majorant.js (the original incoherent triangle majorant)

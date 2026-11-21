@@ -58,7 +58,7 @@
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; C_C 1/8 ansatz (imp-2642) UNTOUCHED; E_trunc fixed
  * strip (imp-2631) UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35071-sigma-interior-peak-closed-form (same component model; interior peak closed form)
  * @see imp-33601-sigma-half-vs-crossover-eflow-offset (E_flow offset identity; same model)
@@ -200,7 +200,7 @@ export const IMP35100_SURROGATE_TOTAL_E_FARTAIL_FLOOR = {
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; C_C 1/8 ansatz ' +
     '(imp-2642) UNTOUCHED; E_trunc fixed strip (imp-2631) UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35071 (same component model, interior peak closed form); imp-33601 (E_flow offset ' +
     'identity); imp-3406 (component model source); imp-34130 (E_coll ~N^-1/2 sqrt-log tail rate); ' +
@@ -249,13 +249,13 @@ export const IMP35100_SURROGATE_TOTAL_E_FARTAIL_FLOOR_ASSERTIONS = [
     holds: () => GRONWALL_XMODULE_MAX_RELERR < 1e-5,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35100-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35100_SURROGATE_TOTAL_E_FARTAIL_FLOOR.isRigorous === false &&
       /NO QED/.test(IMP35100_SURROGATE_TOTAL_E_FARTAIL_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP35100_SURROGATE_TOTAL_E_FARTAIL_FLOOR.verdict),
+      /refereed bound is changed/i.test(IMP35100_SURROGATE_TOTAL_E_FARTAIL_FLOOR.verdict),
   },
 ];
 

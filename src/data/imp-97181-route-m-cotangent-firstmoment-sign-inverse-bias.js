@@ -8,7 +8,7 @@
  * does NOT prove positivity; it derives the exact SIGN STRUCTURE of the operative varying-modulus half
  * and reaches the precise obstruction: the sign is a SIGNED INVERSE-MAP BIAS against an exactly-odd,
  * mean-zero cotangent kernel, so no pointwise sign argument can exist. Derivation only; no bound on
- * Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-97097/imp-97116/imp-97204. V(h,k) = c_0(h/k) = Sum_{m=1}^{k-1} frac(m h/k) cot(pi m/k)
  * is the Vasyunin cotangent sum. imp-97097 RESULT 1 proved the fixed-modulus half Sum_{a in R_b} V(a,b)
@@ -95,7 +95,7 @@
  * distribution, which the imp-97097 a <-> b-a antisymmetry does not reach and the imp-97180/imp-97203
  * even-moment machinery destroys, so a signed Bettin-Conrey period average (no closed form) is the
  * irreducible input. Measured F_cot(b) > 0 (kappa_cot ~ +0.12) stays measured, not proved. No bound on
- * Lambda moves; T ~ 2.594e7 trace anchor; compute (N ~ 9916) binds first. PT Lambda <= 0.2 SOTA; RH
+ * Lambda moves; T ~ 2.594e7 trace anchor; compute (N ~ 9916) binds first. No refereed bound is changed; RH
  * open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97181-cotangent-sign-odd-inverse-equidistribution -- a SIGNED
@@ -196,7 +196,7 @@ export const IMP97181_VERDICT = Object.freeze({
     'antisymmetry does not reach and the imp-97180/imp-97203 even-moment machinery destroys (|c_0|, c_0^2 ' +
     'are even under h <-> a-h) -- so a signed Bettin-Conrey period average (no closed form) is the ' +
     'irreducible input. Measured F_cot(b) > 0 (kappa_cot ~ +0.12) stays measured, not proved. No bound ' +
-    'moved; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'moved; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97181_SUBGAP = Object.freeze({
@@ -212,7 +212,7 @@ export const IMP97181_SUBGAP = Object.freeze({
 });
 
 export const IMP97181_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation of sign structure + partial only: the sign ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation of sign structure + partial only: the sign ' +
   'of the Route M cotangent leaf F_cot(b) is NOT derived. Proved: the numerator antisymmetry ' +
   'c_0(h/a) = -c_0((a-h)/a) and the exact mean-zero Sum_{h coprime a} c_0(h/a) = 0, so the operative half ' +
   'S(b) = Sum_a c_0(h_a/a) samples an odd, mean-zero kernel and has NO pointwise sign. Positivity ' +
@@ -286,7 +286,7 @@ const IMP97181_ASSERTIONS = [
       /odd-inverse-equidistribution/.test(IMP97181_SUBGAP.id) &&
       /SIGNED equidistribution/.test(IMP97181_SUBGAP.statement) &&
       /NO QED/.test(IMP97181_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97181_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97181_HONEST_BANNER) &&
       /RH open/.test(IMP97181_HONEST_BANNER),
     why: 'derivation + partial: the numerator antisymmetry and mean-zero identity are rigorous, but positivity stays measured (an odd signed inverse-map bias, invisible to the deployed antisymmetry/even-moment tools) -- no bound moved, no rigorous ceiling, honesty markers and the named residual sub-gap present.',
   },

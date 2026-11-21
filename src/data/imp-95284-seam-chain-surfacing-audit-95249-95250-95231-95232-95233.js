@@ -42,8 +42,7 @@
  * AUDIT-ONLY: this ticket records the gap, it does not build the two
  * missing viz pages (that is separate follow-on scope, matching how prior
  * caveat-surfacing audits in this lineage separate "found the gap" from
- * "closed the gap"). No bound changes; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * "closed the gap"). No bound changes; NO QED; no refereed bound is changed.
  */
 
 const SURFACED = [
@@ -104,8 +103,8 @@ export const IMP95284_SEAM_CHAIN_SURFACING_AUDIT = {
     'inline honest-status banner (imp-95231-coalescence-ratio-monotonicity, imp-95232, imp-95233, ' +
     'imp-95250); 2 are ORPHAN with no driving page or visualizations-index row (imp-95231-rate-' +
     'monotonicity-closure, imp-95249). No viz page was fabricated by this ticket; closing the two ' +
-    'orphan gaps is separate follow-on scope. No bound change; NO QED; Platt-Trudgian Lambda<=0.2 ' +
-    'remains SOTA.',
+    'orphan gaps is separate follow-on scope. No bound change; NO QED; no refereed bound is changed' +
+    '.',
 };
 
 export const IMP95284_SEAM_CHAIN_SURFACING_AUDIT_ASSERTIONS = [
@@ -138,9 +137,9 @@ export const IMP95284_SEAM_CHAIN_SURFACING_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-95284-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP95284_SEAM_CHAIN_SURFACING_AUDIT.honest)
-      && /Lambda<=0.2 remains SOTA/.test(IMP95284_SEAM_CHAIN_SURFACING_AUDIT.honest),
+      && /refereed bound is changed/i.test(IMP95284_SEAM_CHAIN_SURFACING_AUDIT.honest),
   },
 ];
 

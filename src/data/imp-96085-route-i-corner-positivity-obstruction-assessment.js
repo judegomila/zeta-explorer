@@ -11,7 +11,7 @@
  * re-run the pencil; it bakes the frozen high-res literals and answers the CLOSE-OR-OBSTRUCTION question
  * for the corner analytically, adding three structural facts that sharpen imp-96063 section 3.
  * Import-light: no imports, no zeros bundle; literals baked from imp-96063 / the pencil high-res map.
- * RH open; PT Lambda <= 0.2 stands; NO QED; no bound moved; this is an assessment, not a proof.
+ * RH open; no refereed bound is changed; NO QED; no bound moved; this is an assessment, not a proof.
  *
  * ============================ 1. THE CORNER IS HARDNESS-PRESERVING, NOT HARDNESS-REDUCING ============================
  * Write the Rayleigh quotient R(h) = W_S(h) / L_S(h) on the pole-free space (W_S = Arch - P_2 = L_S - D_S).
@@ -66,7 +66,7 @@
  * corner margin is boundary-degenerate (m(0) -> 0 as 2a -> ln 3, negative past ln 3 in the odd sector, -P_3
  * rescue), so no positive-slack / support-free certificate exists -- the honest ceiling is a boundary-sharp
  * non-strict W_S(h_par) >= 0 that is exactly the endpoint semilocal inequality. Assessment only; no bound
- * moved; RH open; NO QED; PT Lambda <= 0.2 SOTA.
+ * moved; RH open; NO QED; no refereed bound is changed.
  */
 
 const LN3 = Math.log(3);
@@ -102,7 +102,7 @@ export const IMP_96085_CORNER_OBSTRUCTION = Object.freeze({
     Object.freeze({ a: 0.60, lambdaMin: 0.034 }),
     Object.freeze({ a: 0.65, lambdaMin: -0.19 }),
   ]),
-  verdict: 'NOT closed with positive slack; PRECISE OBSTRUCTION established. (1) The finite-constraint reduction is hardness-PRESERVING: the global minimizer v* lies in the corner C_k, so min of the Rayleigh quotient over the corner = the global m(0) = 2.8e-3 exactly -- closing the corner IS the full endpoint inequality, no easier. (2) At v* the perpendicular part is 0, so the cross term vanishes and the corner block ALONE sets the margin; the imp-96063 cross-term concern is certificate bookkeeping, not part of the extremal margin. (3) The corner margin is boundary-degenerate (m(0) -> 0 as 2a -> ln 3, negative past ln 3 in the odd sector, rescued only by -P_3), so NO uniform positive-slack / support-free certificate can exist; the honest ceiling is a boundary-sharp NON-STRICT W_S(h_par) >= 0. Assessment only; no bound moved; RH open; NO QED; PT Lambda <= 0.2 SOTA.',
+  verdict: 'NOT closed with positive slack; PRECISE OBSTRUCTION established. (1) The finite-constraint reduction is hardness-PRESERVING: the global minimizer v* lies in the corner C_k, so min of the Rayleigh quotient over the corner = the global m(0) = 2.8e-3 exactly -- closing the corner IS the full endpoint inequality, no easier. (2) At v* the perpendicular part is 0, so the cross term vanishes and the corner block ALONE sets the margin; the imp-96063 cross-term concern is certificate bookkeeping, not part of the extremal margin. (3) The corner margin is boundary-degenerate (m(0) -> 0 as 2a -> ln 3, negative past ln 3 in the odd sector, rescued only by -P_3), so NO uniform positive-slack / support-free certificate can exist; the honest ceiling is a boundary-sharp NON-STRICT W_S(h_par) >= 0. Assessment only; no bound moved; RH open; NO QED; no refereed bound is changed.',
   subGap: 'imp-96063-corner remains OPEN but is now precisely characterized: an explicit TWO-parameter even boundary-degenerate positivity (span{cosh(u/2), 1}) equal to the full endpoint semilocal inequality; it admits no positive-margin closure, only a boundary-sharp W_S >= 0.',
 });
 

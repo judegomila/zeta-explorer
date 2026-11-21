@@ -49,7 +49,7 @@
  *   resid_exp confirmed by the clean sign change), local slope dg_resid/dk|_{k*} ~ -2.32e-7,
  *   leading residue R ~ -1.979e-8. Surrogate diagnostic, finite-difference measurement on
  *   3 rungs; NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
- *   K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+ *   K_a>=0 untouched; NO QED; no refereed bound is changed.
  *
  *   @see imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js (source literals, same pole)
  *   @see imp-34253-fixed-band-peak-pole-divergence-vs-saturation-fit.js (simple linear zero, weak peak coupling)
@@ -123,7 +123,7 @@ export const IMP34310_EFLOW_OVER_RESID_POLE_RESIDUE = {
     'MEASUREMENT ONLY -- 3-rung finite differences on the imp-34237 surrogate; secant slope ' +
     'and residue carry ~10% offsets from curvature and the near-pole digit loss. Descriptive ' +
     'surrogate, NOT a rigorous asymptotic; changes no bound; C_mb GUE-conditional per imp-486 ' +
-    'UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const IMP34310_ASSERTIONS = [

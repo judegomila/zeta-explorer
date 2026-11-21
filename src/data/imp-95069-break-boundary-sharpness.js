@@ -31,7 +31,7 @@
 //       concrete low-decay transfer risk sits entirely in the s = 3 packet.
 //
 // Measurement/derivation only; instantiates no paper constant, changes no
-// bound, promotes no Lambda; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+// bound, promotes no Lambda; no refereed bound is changed. NO QED.
 
 // ── corner-guard functional and separations ──────────────────────────────────
 function ystar(s) {
@@ -94,7 +94,7 @@ export const IMP95069_BREAK_BOUNDARY_SHARPNESS = {
     "Finding A is a numeric root verification (independent bisection). Finding B is an EXACT analytic monotonicity argument (sign chase on g and g prime), cross-checked by a fine grid scan. Finding C records the closed form Ystar(3) = sqrt(5) - 1 and the thin margin. No paper constant is instantiated and no ceiling is transferred; this only characterizes the corner-guard threshold. NO QED.",
   promotesBound: false,
   verdict:
-    "DERIVATION of the imp-95026 Finding 4 break boundary. (A) s* = 2.948383274238082 is the root of Ystar(s) = 2^(1/3) (Ystar(s*) matches 2^(1/3) to <1 ULP; bisection reconfirms s* to 16 digits). (B) Ystar is STRICTLY DECREASING on s >= 2 by an exact sign chase (g(s) = 2(s-1)/(2s-1) - ln(2s-1) has g prime < 0 and g(2) = 2/3 - ln 3 < 0), so the corner guard is a clean single threshold. (C) The paper point s = 3 clears the guard by only 0.0238 with Ystar(3) = sqrt(5) - 1, while the model s = 11 clears it by 0.9040 - the low-decay transfer risk is confined to s = 3. Sub-gap: the Section 4.5 decay s is not pinned in this repo. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "DERIVATION of the imp-95026 Finding 4 break boundary. (A) s* = 2.948383274238082 is the root of Ystar(s) = 2^(1/3) (Ystar(s*) matches 2^(1/3) to <1 ULP; bisection reconfirms s* to 16 digits). (B) Ystar is STRICTLY DECREASING on s >= 2 by an exact sign chase (g(s) = 2(s-1)/(2s-1) - ln(2s-1) has g prime < 0 and g(2) = 2/3 - ln 3 < 0), so the corner guard is a clean single threshold. (C) The paper point s = 3 clears the guard by only 0.0238 with Ystar(3) = sqrt(5) - 1, while the model s = 11 clears it by 0.9040 - the low-decay transfer risk is confined to s = 3. Sub-gap: the Section 4.5 decay s is not pinned in this repo. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -156,12 +156,12 @@ export const IMP95069_SHARPNESS_ASSERTIONS = [
   {
     id: "imp95069-honesty-gate",
     description:
-      "the verdict promotes no bound, names the sub-gap, and keeps the NO QED / PT-SOTA discipline",
+      "the verdict promotes no bound, names the sub-gap, and keeps the NO QED / no-refereed-bound-change discipline",
     holds: () =>
       IMP95069_BREAK_BOUNDARY_SHARPNESS.promotesBound === false &&
       IMP95069_BREAK_BOUNDARY_SHARPNESS.openResiduals.length === 1 &&
       /NO QED/.test(IMP95069_BREAK_BOUNDARY_SHARPNESS.verdict) &&
-      /remains SOTA/.test(IMP95069_BREAK_BOUNDARY_SHARPNESS.verdict) &&
+      /refereed bound is changed/i.test(IMP95069_BREAK_BOUNDARY_SHARPNESS.verdict) &&
       /STRICTLY DECREASING/.test(IMP95069_BREAK_BOUNDARY_SHARPNESS.verdict),
   },
 ];

@@ -21,8 +21,7 @@
  *
  *   Ticket: imp-34496 (ux, medium). Presentation only of an already-established measurement;
  *   adds no new Lambda bound. Component model is the inherited imp-3220/imp-3406 extrapolation,
- *   NOT rigorous; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   NOT rigorous; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED. No refereed bound is changed.
  */
 
 // -- four-landmark excess-above-2 sequence: coupling_ratio - 2 --
@@ -49,8 +48,8 @@ export const IMP34496_SUMMARY = Object.freeze({
     'deepest interval (8.79e-3) is smaller than both earlier steps, confirming the coupling ' +
     'ratio is converging toward a finite limit rather than sliding through 2 at a steady rate. ' +
     'Measurement/extrapolation only within the inherited component model, NOT a rigorous ' +
-    'asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian ' +
-    'Lambda<=0.2 remains SOTA.',
+    'asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; no refereed bound is changed' +
+    '.',
 });
 
 export default Object.freeze({
@@ -108,8 +107,8 @@ const IMP34496_ASSERTIONS = [
   },
   {
     id: 'imp34496-honesty-gate-no-qed',
-    holds: () => /NO QED/.test(IMP34496_SUMMARY.verdict) && /remains SOTA/.test(IMP34496_SUMMARY.verdict) && /UNTOUCHED/.test(IMP34496_SUMMARY.verdict),
-    why: 'Honesty gate: measurement/extrapolation only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    holds: () => /NO QED/.test(IMP34496_SUMMARY.verdict) && /refereed bound is changed/i.test(IMP34496_SUMMARY.verdict) && /UNTOUCHED/.test(IMP34496_SUMMARY.verdict),
+    why: 'Honesty gate: measurement/extrapolation only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

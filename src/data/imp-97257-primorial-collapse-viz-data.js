@@ -14,7 +14,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Every (b, r, omega) value below is copied verbatim from the
  * imp-97156 baked `IMP97156_PRIMORIALS` and `IMP97156_NEAR_PRIMORIAL` (no re-derivation of the
  * coprime-sum residual). Changes no bound, establishes no operator positivity, no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-97156-route-m-primorial-signlaw-extension.js (IMP97156_PRIMORIALS, IMP97156_NEAR_PRIMORIAL, IMP97156_VERDICT)
  *
@@ -46,7 +46,7 @@ export const IMP97257_NEAR_PRIMORIAL_ROWS = IMP97156_NEAR_PRIMORIAL.map((row) =>
 export const IMP97257_GM_ABS_R_OMEGA1 = GM_ABS_R_OMEGA1;
 
 export const IMP97257_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every (b, r, omega) row is copied ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every (b, r, omega) row is copied ' +
   'verbatim from the imp-97156 baked IMP97156_PRIMORIALS / IMP97156_NEAR_PRIMORIAL (no re-derivation of the ' +
   'coprime-sum residual); no bound is claimed and no operator positivity is established.';
 
@@ -103,7 +103,7 @@ const IMP97257_ASSERTIONS = [
     id: 'imp97257-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97257_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97257_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97257_HONEST_BANNER) &&
       /NO QED/.test(IMP97257_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

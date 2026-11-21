@@ -43,7 +43,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent
- * stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34888-sigma-knee-pade-borel-resummation (the eps = 1 four-method cross-tabulation this sweeps off-point)
  * @see imp-34863-sigma-knee-cauchy-hadamard-radius (root-test radius R ~ 139)
@@ -389,7 +389,7 @@ export const IMP34902_SIGMA_KNEE_RESUMMATION_EPS_SWEEP = {
     'not a route to a tighter knee. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
     'operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   subGap:
     'ANSWERS the imp-34888 eps-range-robustness open question: the resummation inertness (< 5% cross-method ' +
     'deviation) holds across the WHOLE convergent (0, R], not just at eps = 1 (max deviation ~3.4e-2 at eps = 91). ' +
@@ -452,15 +452,15 @@ export const IMP34902_SIGMA_KNEE_RESUMMATION_EPS_SWEEP_ASSERTIONS = [
       ROW_EPS1.maxTotalRelDev < 1e-9 && ROW_LO.maxTotalRelDev < 1e-9 && ROW_HI.maxTotalRelDev > 0.1,
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34902-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34902_SIGMA_KNEE_RESUMMATION_EPS_SWEEP.isRigorous === false &&
       IMP34902_SIGMA_KNEE_RESUMMATION_EPS_SWEEP.farTailExponent === 0.5 &&
       typeof IMP34902_SIGMA_KNEE_RESUMMATION_EPS_SWEEP.subGap === 'string' &&
       /NO QED/.test(IMP34902_SIGMA_KNEE_RESUMMATION_EPS_SWEEP.verdict) &&
-      /remains SOTA/.test(IMP34902_SIGMA_KNEE_RESUMMATION_EPS_SWEEP.verdict),
+      /refereed bound is changed/i.test(IMP34902_SIGMA_KNEE_RESUMMATION_EPS_SWEEP.verdict),
   },
 ];
 

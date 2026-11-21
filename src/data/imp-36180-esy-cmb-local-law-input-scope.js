@@ -14,7 +14,7 @@
  *
  *   SCOPING / ASSESSMENT ONLY. Establishes nothing, discharges no conditional,
  *   claims NO input is available, changes no bound, respects the imp-2519
- *   no-overclaim guard, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no-overclaim guard, NO QED. No refereed bound is changed.
  *
  *   WHY THIS ENUMERATION (the thing the roadmap leaves implicit)
  *   ------------------------------------------------------------
@@ -56,7 +56,7 @@
  *   Ticket: imp-36180 (proof, medium). Scoping only; imports the source verdict
  *   verbatim; enumerates required inputs WITHOUT claiming any is established;
  *   discharges no conditional; changes no bound; imp-2519 no-overclaim preserved;
- *   NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED; no refereed bound is changed.
  */
 
 import { LAMBDA_CHAIN_STEPS } from './lambda-roadmap.js';
@@ -186,7 +186,7 @@ export const IMP36180_ESY_CMB_LOCAL_LAW_INPUT_SCOPE = Object.freeze({
       'arithmetic seed. Imports the source conditional verbatim; claims NO input ' +
       'is established; discharges nothing; the C_mb conditional stays irreducible ' +
       'and GUE-conditional (imp-486); respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; the assembled Route-A claim stays RH-modulo-GUE-universality',
+    sota: 'No refereed bound is changed; the assembled Route-A claim stays RH-modulo-GUE-universality',
   }),
 });
 
@@ -239,7 +239,7 @@ export const IMP36180_ESY_CMB_LOCAL_LAW_INPUT_SCOPE_ASSERTIONS = [
         h.derivesAnythingNew === false &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

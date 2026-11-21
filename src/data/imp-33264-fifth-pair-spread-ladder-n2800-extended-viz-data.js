@@ -16,7 +16,7 @@
  * @see imp-33217-fifth-pair-spread-ulp-floor-ladder-viz-data.js (prior four-rung viz-data module this extends)
  *
  * Ticket: imp-33264 (ux, low). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP33264_LADDER = [

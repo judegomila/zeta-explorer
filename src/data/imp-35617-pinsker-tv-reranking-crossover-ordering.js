@@ -56,8 +56,7 @@
  * ASSESSMENT ONLY; discharges nothing; imp-35488a, imp-35530a, imp-35530b,
  * imp-35337a, imp-35556a stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED;
  * C_C ansatz (imp-2642/imp-2643), E_trunc floor (imp-2631) UNTOUCHED; changes no
- * bound; no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * bound; no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35556-gtrue-ecoll-dimensional-comparability (the Pinsker first-order bridge; sub-gap imp-35556a)
  * @see imp-35530-crossover-gtrue-trend-extrapolation (the three extrapolation forms + raw ~10.5x ordering)
@@ -93,7 +92,7 @@ const AMP_FREE = TV_FREE / RAW_FREE; // ~39.44x
 const RAW_BRACKET = RAW_P1 / RAW_FREE; // ~3.566x (imp-35530 model bracket, p1 vs free)
 const TV_BRACKET = TV_P1 / TV_FREE; // ~1.888x = sqrt(RAW_BRACKET)
 
-const L_PT = 0.2; // SOTA (unchanged by any re-ranking assessment)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any re-ranking assessment)
 
 export const IMP35617_PINSKER_TV_RERANKING_CROSSOVER_ORDERING = {
   id: 'imp-35617',
@@ -154,13 +153,13 @@ export const IMP35617_PINSKER_TV_RERANKING_CROSSOVER_ORDERING = {
     'dictionary imp-35337a / imp-35556a leave OPEN. ASSESSMENT ONLY; discharges nothing; imp-35488a, ' +
     'imp-35530a, imp-35530b, imp-35337a, imp-35556a stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
     'C_C ansatz (imp-2642/imp-2643), E_trunc floor (imp-2631) UNTOUCHED; changes no bound; no operator ' +
-    'positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35556 (Pinsker first-order bridge TV <= sqrt(KL/2); sub-gap imp-35556a); imp-35530 (three ' +
     'extrapolation forms + raw ~10.5x ordering; sub-gaps imp-35530a/b); imp-35337 (imp-35337a ' +
     'surrogate->observable dictionary, OPEN); imp-2642/imp-2643 (C_C = (1/8) sqrt(3 pi) ansatz); imp-2631 ' +
     '(E_trunc floor); imp-486 (GUE-conditional caveat); Pinsker inequality TV <= sqrt(KL/2); Platt-Trudgian ' +
-    '2021 (Lambda <= 0.2 SOTA).',
+    '2021 (no refereed bound is changed).',
   L_pt_unchanged: L_PT,
 };
 
@@ -207,7 +206,7 @@ export const IMP35617_PINSKER_TV_RERANKING_CROSSOVER_ORDERING_ASSERTIONS = [
       TV_BRACKET > 1 && TV_BRACKET < RAW_BRACKET, // compressed but still directional
   },
   {
-    // Honesty gate: assessment only, upper-bound-only (no direction certified), sub-gaps stay open, no bound moves, PT SOTA, NO QED.
+    // Honesty gate: assessment only, upper-bound-only (no direction certified), sub-gaps stay open, no bound moves, no refereed bound is changed, NO QED.
     id: 'imp35617-honest-assessment-no-bound-moves-no-qed',
     description: 'ASSESSMENT ONLY: the ordering survives as an amplified UPPER-bound-only gap that cannot certify direction, sub-gaps imp-35530a/b/imp-35337a/imp-35556a stay OPEN, no bound moves, PT 0.2 unchanged, NO QED',
     holds: () =>
@@ -219,7 +218,7 @@ export const IMP35617_PINSKER_TV_RERANKING_CROSSOVER_ORDERING_ASSERTIONS = [
       /imp-486/.test(IMP35617_PINSKER_TV_RERANKING_CROSSOVER_ORDERING.verdict) &&
       /changes no bound/.test(IMP35617_PINSKER_TV_RERANKING_CROSSOVER_ORDERING.verdict) &&
       /NO QED/.test(IMP35617_PINSKER_TV_RERANKING_CROSSOVER_ORDERING.verdict) &&
-      /remains SOTA/.test(IMP35617_PINSKER_TV_RERANKING_CROSSOVER_ORDERING.verdict),
+      /refereed bound is changed/i.test(IMP35617_PINSKER_TV_RERANKING_CROSSOVER_ORDERING.verdict),
   },
 ];
 

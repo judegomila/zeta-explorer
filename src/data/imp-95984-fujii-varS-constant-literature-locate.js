@@ -59,7 +59,7 @@
  * available to O(0.01) rigorously; the unavailable published term is the pair-correlation integral
  * I_F, NOT the prime sum; the imp-95940 crossing range does not collapse. Assessment only; changes no
  * bound; NO QED; Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author unrefereed; the
- * zero-side route stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * zero-side route stays PCC / GRH-gated; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. P2 and P_Chan are summed live over a small
  * prime sieve; M, gamma, C0 and the imp-95940 empirical a_0 mean are baked literals.
@@ -217,7 +217,7 @@ export const IMP95984_FUJII_VARS_CONSTANT_LITERATURE_LOCATE = {
     'rigorously; the unavailable published term is the pair-correlation integral I_F, NOT the prime ' +
     'sum; and the imp-95940 crossing range [~5.8e17, ~1.36e28] does not collapse. Assessment only; ' +
     'changes no bound; NO QED; Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author ' +
-    'unrefereed; the zero-side route stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'unrefereed; the zero-side route stays PCC / GRH-gated; no refereed bound is changed.',
   citation:
     'Chan, On the second moment of S(T) (arXiv:math/0305339), Theorem 1.1; Goldston 1987 (JNT 27, ' +
     '149-177); Montgomery pair correlation; imp-95964 (b = M + P2 + K); imp-95940 (a_0 = b - gamma - 1).',
@@ -251,13 +251,13 @@ export const IMP95984_FUJII_VARS_CONSTANT_LITERATURE_LOCATE = {
   // crossing height stays within the imp-95940 range (context, not collapsed).
   if (!(crossingT(a0Conjectural) > 1e17 && crossingT(a0Conjectural) < 1.36e28))
     throw new Error('imp-95984: crossing at conjectural a_0 must stay inside the imp-95940 range');
-  // HONESTY gates: assessment only, no false pin, PT stays SOTA.
+  // HONESTY gates: assessment only, no false pin, no refereed bound is changed.
   if (IMP95984_FUJII_VARS_CONSTANT_LITERATURE_LOCATE.isRigorous !== false)
     throw new Error('imp-95984: isRigorous must be false');
   if (!/NO QED/.test(IMP95984_FUJII_VARS_CONSTANT_LITERATURE_LOCATE.verdict))
     throw new Error('imp-95984: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95984_FUJII_VARS_CONSTANT_LITERATURE_LOCATE.verdict))
-    throw new Error('imp-95984: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95984_FUJII_VARS_CONSTANT_LITERATURE_LOCATE.verdict))
+    throw new Error('imp-95984: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95984_FUJII_VARS_CONSTANT_LITERATURE_LOCATE;

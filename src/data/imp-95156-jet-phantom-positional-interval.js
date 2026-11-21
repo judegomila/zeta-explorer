@@ -110,7 +110,7 @@
  * UNCHANGED. Float discipline: carried 1e-9 relative inflation nudges
  * and Cholesky pivot tolerance 1e-12; asserted margins >= 4e-3, at
  * least 6 orders above the nudges. Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * Import-light; zero imports; all assertions deterministic, ~4 s.
  */
@@ -627,7 +627,7 @@ export const IMP95156_JET_PHANTOM_POSITIONAL_INTERVAL = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // --------------------------------------------------------------------------

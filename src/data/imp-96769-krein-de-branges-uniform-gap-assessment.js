@@ -92,7 +92,7 @@
  * OR (b) an operator-theoretic (NOT de Branges) analytic lower bound on lambda_1(a) -- e.g. a
  * quantitative concentration inequality bounding the concentrable dip fraction strictly below 1.
  * Assessment only; no operator positivity proved; interval-rigorous reach stays 2a <= 0.96; RH open;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (pole-free Weil positivity = T_a[sigma_2] >= 0; split bound refuted at 2a=0.6026; crossing 2a*=1.1316)
  * @see imp-96768-gegenbauer-krein-lammin-recompute.js (Gegenbauer diagonal-Gram floor plateau to N=124)

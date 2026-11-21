@@ -6,7 +6,7 @@
  * count m and lattice ratio rho. Validation only: recomputes the two
  * symbol endpoints and the finite-m eigenvalue extremes and measures how
  * fast the finite spectrum approaches the symbol infimum. Changes NO
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95252 normalization). Twin lattice V = union of
  * V_k = {rho^k, r rho^k}, k = 0..m-1; normalized Gram G_tilde_(2m) with
@@ -127,7 +127,7 @@ export const IMP95308_POISSON_SYMBOL_SANDWICH_FINITE_LATTICE = {
     "Toeplitz spectrum in every tested case, and the finite-m eigenvalues " +
     "approach the symbol infimum from above at the classical Szegoe-Widom " +
     "m^(-2) rate, confirming the ceiling both ways. Changes no bound; NO " +
-    "QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -312,7 +312,7 @@ export const IMP95308_ASSERTIONS = [
     id: "imp95308-verdict-honesty",
     description:
       "verdict and scope carry the honest labels: VALIDATION PASSED, " +
-      "empirical rate not proven asymptotic, no bound change, no QED, PT SOTA",
+      "empirical rate not proven asymptotic, no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /VALIDATION PASSED/.test(
         IMP95308_POISSON_SYMBOL_SANDWICH_FINITE_LATTICE.verdict,
@@ -327,7 +327,7 @@ export const IMP95308_ASSERTIONS = [
         IMP95308_POISSON_SYMBOL_SANDWICH_FINITE_LATTICE.verdict,
       ) &&
       /NO QED/.test(IMP95308_POISSON_SYMBOL_SANDWICH_FINITE_LATTICE.verdict) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95308_POISSON_SYMBOL_SANDWICH_FINITE_LATTICE.verdict,
       ),
   },

@@ -44,7 +44,7 @@
  *
  *   STATUS: a glossary restatement of already-committed scoping/assessment findings, not a new
  *   computation or an operator-positivity theorem. Certified interval-rigorous reach stays
- *   2a <= 0.96. NO QED. Platt-Trudgian Lambda <= 0.2 SOTA; RH open.
+ *   2a <= 0.96. NO QED. No refereed bound is changed; RH open.
  *
  * @see imp-97121-krein-uniform-n-floor-certificate-scope.js (source: Finding 2 names the two exits
  *   and Finding 1/3 the descending-upper-bound / dual-tail context this glosses)
@@ -54,7 +54,7 @@
  *   reproducing-kernel route; sigma_2 sign-indefinite)
  *
  * Ticket: imp-97145 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The two-exit headword, baked verbatim (no re-import).
@@ -86,7 +86,7 @@ const KREIN_UNIFORM_N_FLOOR_TWO_EXITS_HEADWORD = Object.freeze({
     'Glossary restatement assembled from two already-committed, independently-derived scoping/' +
     'assessment modules (imp-97121 Finding 2; imp-96846 Routes A-C) that agree on the same fork; ' +
     'no new numerical computation. Certified reach unchanged at 2a <= 0.96; establishes no ' +
-    'operator-positivity theorem; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'operator-positivity theorem; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97145_KREIN_UNIFORM_N_FLOOR_TWO_EXITS_GLOSSARY_HEADWORD = Object.freeze({
@@ -106,8 +106,8 @@ export const IMP97145_KREIN_UNIFORM_N_FLOOR_TWO_EXITS_GLOSSARY_HEADWORD = Object
     'T_a[sigma_2] >= c*I, whose literal reproducing-kernel form is already ruled out and whose ' +
     'operator-inequality form has no constructed constant. A third candidate (Garding / trace-' +
     'class tail) is structurally ruled out. Neither exit is instantiated; certified reach stays ' +
-    '2a <= 0.96; establishes nothing new; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    '2a <= 0.96; establishes nothing new; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97121 (Finding 2 names the two exits and the descending-upper-bound context); imp-96846 ' +
     '(independent three-route assessment corroborating the same fork and ruling out Garding / ' +
@@ -136,11 +136,11 @@ export const IMP97145_KREIN_UNIFORM_N_FLOOR_TWO_EXITS_GLOSSARY_HEADWORD_ASSERTIO
   },
   {
     id: 'imp97145-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97145_KREIN_UNIFORM_N_FLOOR_TWO_EXITS_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97145_KREIN_UNIFORM_N_FLOOR_TWO_EXITS_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97145_KREIN_UNIFORM_N_FLOOR_TWO_EXITS_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97145_KREIN_UNIFORM_N_FLOOR_TWO_EXITS_GLOSSARY_HEADWORD.verdict) &&
       IMP97145_KREIN_UNIFORM_N_FLOOR_TWO_EXITS_GLOSSARY_HEADWORD.glosses === 'imp-97121',
   },
 ];

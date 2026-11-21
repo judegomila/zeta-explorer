@@ -37,7 +37,7 @@
  * All numeric fields are computed at import; the self-executing assertions at the bottom throw if the
  * conditioning ever inflates the residual above 1e-12 on the swept grid. Measurement / scoping only; no
  * positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0
- * positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. H2 stays UNWRITTEN as a
+ * positivity UNTOUCHED. No refereed bound is changed. H2 stays UNWRITTEN as a
  * certificate, the K4 route stays WHOLLY NEW and G6a_shock_lipschitz stays OPEN.
  *
  * @see imp-3899-g6a-p1-resolvent-identity-caustic-stress (the b = 0.99 caustic stress this extends toward the axis)
@@ -289,8 +289,8 @@ export const IMP3915_G6A_P1_RESOLVENT_IDENTITY_YSTAR_CONDITIONING_SWEEP = {
     'sharper conditioning test and is left as the natural next sub-gap. So H2 stays UNWRITTEN as a certificate, ' +
     'the K4 route stays WHOLLY NEW (consistent with imp-3714 / imp-3727 / imp-3846 / imp-3872 / imp-3899) and ' +
     'G6a_shock_lipschitz stays OPEN. Scoping / measurement only; no positivity, no bridge closure, no RH claim, ' +
-    'NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3899 (the b = 0.99 caustic stress at fixed y_star = 4 d, extended here toward the axis); imp-3872 (the ' +
     'P1 exact finite-N flux identity verification); imp-3642 (attractive-CM RK4 flow, seed and integrator ' +
@@ -339,16 +339,16 @@ export const IMP3915_G6A_P1_RESOLVENT_IDENTITY_YSTAR_CONDITIONING_SWEEP_ASSERTIO
       BLOCKS.every((b) => b.heights.length === YSTAR_FRACS.length),
   },
   {
-    // Honesty gate: measurement not certificate -- H2 unwritten, K4 wholly new, G6a open, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: measurement not certificate -- H2 unwritten, K4 wholly new, G6a open, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3915-honesty-gate-no-qed',
-    description: 'MEASUREMENT not certificate: H2 unwritten, K4 wholly new, G6a open, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'MEASUREMENT not certificate: H2 unwritten, K4 wholly new, G6a open, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3915_G6A_P1_RESOLVENT_IDENTITY_YSTAR_CONDITIONING_SWEEP.isRigorous === false &&
       IMP3915_G6A_P1_RESOLVENT_IDENTITY_YSTAR_CONDITIONING_SWEEP.h2StillUnwritten === true &&
       IMP3915_G6A_P1_RESOLVENT_IDENTITY_YSTAR_CONDITIONING_SWEEP.k4ConfirmedWhollyNew === true &&
       IMP3915_G6A_P1_RESOLVENT_IDENTITY_YSTAR_CONDITIONING_SWEEP.g6aStillOpen === true &&
       /NO QED/.test(IMP3915_G6A_P1_RESOLVENT_IDENTITY_YSTAR_CONDITIONING_SWEEP.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3915_G6A_P1_RESOLVENT_IDENTITY_YSTAR_CONDITIONING_SWEEP.verdict) &&
+      /refereed bound is changed/i.test(IMP3915_G6A_P1_RESOLVENT_IDENTITY_YSTAR_CONDITIONING_SWEEP.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3915_G6A_P1_RESOLVENT_IDENTITY_YSTAR_CONDITIONING_SWEEP.verdict),
   },
 ];

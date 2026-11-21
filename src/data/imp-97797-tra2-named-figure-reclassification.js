@@ -46,14 +46,14 @@
  *
  *   HONESTY: assessment only. The imp-97538 lambda_2 floor (-310.692227 .. -313.756) is untouched;
  *   the tr(A2) trace is a diagnostic, not the floor. No constant is pinned as rigorous; no bound
- *   moves; interval-rigorous reach stays 2a <= 0.96; PT Lambda <= 0.2 remains SOTA; RH open. NO QED.
+ *   moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open. NO QED.
  *
  * @see imp-97482-krein-route2-kbig-direct-projector-floor.js (source of the ~4819.1M prose label)
  * @see imp-97684-tra2-fifth-block-tail-confirmation.js (converged ~4818.77M limit + measured gap)
  * @see imp-97649-tra2-trace-tail-algebraic-honest-status.js (prior algebraic-tail status note)
  *
  * Ticket: imp-97797 (accuracy, opus-4-8, api-pool). Assessment / honest reclassification only;
- * no bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97482_A2_TRACE_BY_KBIG } from './imp-97482-krein-route2-kbig-direct-projector-floor.js';

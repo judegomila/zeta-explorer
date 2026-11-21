@@ -50,8 +50,8 @@
  * headline, NOT soft; z_eff >= 13.71 (uses tail magnitudes) soft. imp-96543's placement of z_eff >= 1.9234
  * as "the headline" is over-conservative: the correct rigorous conditional headline is z_eff >= 7.012.
  * ALL conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN,
- * GRH-flavored); changes NO unconditional bound. Assessment only; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * GRH-flavored); changes NO unconditional bound. Assessment only; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96543-sine-kernel-vif-conditional-lower-bound (the two-level certificate and its OBSTRUCTION)
  * @see imp-96567-box-averaged-sine-kernel-lag-decay (direct tail from T_2; the discarded tail is <= 0)
@@ -130,12 +130,12 @@ export const IMP96571_VIF_RHO1_BOUND_RIGOR_ASSESSMENT = {
   conditionality:
     'All of the above is conditional on the GUE sine kernel / Montgomery pair correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored). It changes NO unconditional bound.',
   verdict:
-    'The explicit bound VIF_291 <= 0.0752 (z_eff >= 7.012) is GENUINELY RIGOROUS conditional on the sine kernel: it rests only on the exact rho_1 = -0.4639782 and on sign(rho_{k>=2}) <= 0, discarding the nonpositive finite-window tail in the bound-ENLARGING direction (every dropped term is (1 - k/291) > 0 times rho_k <= 0). Tail-magnitude softness does NOT cap it back at the sign level -- the softness lives entirely in the further sharpening to VIF_291 <= 0.0197 (z >= 13.71), which alone consumes the uncalibrated rho_2/rho_3, and a rigorous upper bound is not weakened by dropping a term it never used. imp-96567 independently confirms the discarded tail is genuinely negative and small (sum_{k>=2} rho_k = -0.036), so the true VIF sits ~0.0032, safely under 0.0752. Honest hierarchy: z_eff >= 1.9234 (sign only) robust; z_eff >= 7.012 (exact rho_1 + tail sign) ALSO rigorous and the honest explicit headline, NOT soft; z_eff >= 13.71 (tail magnitudes) soft -- so imp-96543 placing z_eff >= 1.9234 as "the headline" is over-conservative and the correct rigorous conditional headline is z_eff >= 7.012. Conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; assessment only; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The explicit bound VIF_291 <= 0.0752 (z_eff >= 7.012) is GENUINELY RIGOROUS conditional on the sine kernel: it rests only on the exact rho_1 = -0.4639782 and on sign(rho_{k>=2}) <= 0, discarding the nonpositive finite-window tail in the bound-ENLARGING direction (every dropped term is (1 - k/291) > 0 times rho_k <= 0). Tail-magnitude softness does NOT cap it back at the sign level -- the softness lives entirely in the further sharpening to VIF_291 <= 0.0197 (z >= 13.71), which alone consumes the uncalibrated rho_2/rho_3, and a rigorous upper bound is not weakened by dropping a term it never used. imp-96567 independently confirms the discarded tail is genuinely negative and small (sum_{k>=2} rho_k = -0.036), so the true VIF sits ~0.0032, safely under 0.0752. Honest hierarchy: z_eff >= 1.9234 (sign only) robust; z_eff >= 7.012 (exact rho_1 + tail sign) ALSO rigorous and the honest explicit headline, NOT soft; z_eff >= 13.71 (tail magnitudes) soft -- so imp-96543 placing z_eff >= 1.9234 as "the headline" is over-conservative and the correct rigorous conditional headline is z_eff >= 7.012. Conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; assessment only; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96571_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: the explicit VIF_291 <= 0.0752 '
+  'RH open; no refereed bound is changed; NO QED. Assessment only: the explicit VIF_291 <= 0.0752 '
   + '(z_eff >= 7.012) is GENUINELY RIGOROUS conditional on the sine kernel -- it uses only the exact '
   + 'rho_1 = -0.4639782 and sign(rho_{k>=2}) <= 0, dropping the nonpositive tail in the bound-enlarging '
   + 'direction (no tail magnitude). The tail-magnitude softness bites only on the SHARPER VIF <= 0.0197 '
@@ -176,11 +176,11 @@ export const IMP96571_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96571_VIF_RHO1_BOUND_RIGOR_ASSESSMENT.verdict))
     throw new Error('imp-96571: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96571_VIF_RHO1_BOUND_RIGOR_ASSESSMENT.verdict))
-    throw new Error('imp-96571: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96571_VIF_RHO1_BOUND_RIGOR_ASSESSMENT.verdict))
+    throw new Error('imp-96571: verdict dropped the no-refereed-bound-change banner');
   if (!/conditional/i.test(IMP96571_VIF_RHO1_BOUND_RIGOR_ASSESSMENT.verdict))
     throw new Error('imp-96571: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96571_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96571_HONEST_BANNER) && /NO QED/.test(IMP96571_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96571_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96571_HONEST_BANNER) && /NO QED/.test(IMP96571_HONEST_BANNER)))
     throw new Error('imp-96571: IMP96571_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

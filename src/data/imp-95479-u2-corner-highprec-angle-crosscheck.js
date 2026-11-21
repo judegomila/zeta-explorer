@@ -12,7 +12,7 @@
  * PROVEN fence. This module supplies the previously-missing numeric ground
  * truth at exactly those 3 corners by TWO independent high-precision routes and
  * records the fence-direction verdict. MEASUREMENT only; changes no bound; NO
- * QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED; no refereed bound is changed.
  *
  * THE 3 CORNERS (twin lattice V_k = {2^k, r 2^k}, k = 0..m-1; block k solved
  * against the joint rest span of the other blocks):
@@ -53,7 +53,7 @@
  * (b) The confirmation is over the same model-family twin-lattice grid used by
  * imp-95425; obligation (3) paper-per-window mapping unchanged. (c) Import-light
  * (no zeros bundle, no sibling imports; numerics self-contained). Changes no
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -357,8 +357,8 @@ export const IMP95479_U2_CORNER_HIGHPREC_ANGLE_CROSSCHECK = {
     "MEASUREMENT ONLY -- supplies numeric ground truth for a direction already "
     + "PROVEN in imp-95249 ANG-DET; both routes agree to <= 1e-10 and clear the "
     + "fence (tightest corner ~41x). Model-family twin-lattice grid; obligation "
-    + "(3) unchanged. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 "
-    + "remains SOTA.",
+    + "(3) unchanged. Changes no bound; NO QED; no refereed bound is changed"
+    + ".",
   fns: { cos2Whiten, cos2DD, phiFence, twinLattice, measureCorners },
 };
 
@@ -414,13 +414,13 @@ export const IMP95479_ASSERTIONS = [
     id: "imp-95479-honest-measurement-only",
     description:
       "verdict CONFIRMED, MEASUREMENT ONLY, direction already PROVEN in "
-      + "imp-95249, PT Lambda <= 0.2 stays SOTA",
+      + "imp-95249, no refereed bound is changed",
     holds: () =>
       /CONFIRMED/.test(IMP95479_U2_CORNER_HIGHPREC_ANGLE_CROSSCHECK.verdict)
       && /MEASUREMENT ONLY/.test(
         IMP95479_U2_CORNER_HIGHPREC_ANGLE_CROSSCHECK.honest,
       )
-      && /Lambda <= 0.2\s+remains SOTA/.test(
+      && /refereed bound is changed/i.test(
         IMP95479_U2_CORNER_HIGHPREC_ANGLE_CROSSCHECK.honest,
       ),
   },

@@ -78,7 +78,7 @@
  * paper-packet caps (c, beta, sigma, theta, A_d) enter only through the far
  * entries, whose direction is fixed above; the exact cap values remain the open
  * sibling residual and are NOT needed for the sharpness verdict. NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. Import-light (no heavy bundle).
+ * no refereed bound is changed. Import-light (no heavy bundle).
  */
 
 // ── carried literals (imp-95045 attribution) ────────────────────────────────
@@ -170,7 +170,7 @@ export const IMP95018_PARITY_AMGM_GRAM_SHARPNESS = {
     "The spectrum lambda_k = 1 + 2 rho cos(k pi/(K+1)) of the symmetric tridiagonal Toeplitz Gram tridiag(1;rho) with eigenvectors sin(b k pi/(K+1)) is textbook-exact. At rho* = 1/(2 cos(pi/(K+1))) the k=1 identity gives lambda_max = 2 EXACTLY and the k=K identity gives lambda_min = 0 EXACTLY, for every K >= 2 - an analytic fact, cross-checked to machine precision on K in {2,4,8,16,32,40} and independently via the sine-mode Rayleigh quotient (which rebuilds G* v without reusing the eigenvalue formula). The far-cap direction is a first-order perturbation argument with a strictly positive top eigenvector, giving admissible lambda_max >= 2. This ATTAINS the parity constant within the admissible Gram cone; it re-derives (does not merely carry) the unrecoverability claim. It changes no bound, does not touch the residual 1.4044x, and does not claim optimality of any witness. NO QED.",
   promotesBound: false,
   verdict:
-    "DECISIVE: the parity AM-GM factor 2 is Gram-SHARP. The admissible boundary Gram G* = tridiag(1 ; rho*), rho* = 1/(2 cos(pi/(K+1))), with far entries 0, is PSD (lambda_min = 0) with lambda_max = 2 EXACTLY for every K >= 2; the maximizing mode is the near-constant sine profile (the AM-GM equality x=y). Far caps only raise lambda_max above 2 (a first-order positive perturbation), so 2 is a floor on the admissible lambda_max, not a loose ceiling. This re-derives the eleventh continuation's uniformly-unrecoverable claim from a direct SDP boundary certificate (closing the referees' unverified predecessor flag) and caps the weld-chain endgame at the surviving residual 1.4044x (witness-floor-side, untouched). Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "DECISIVE: the parity AM-GM factor 2 is Gram-SHARP. The admissible boundary Gram G* = tridiag(1 ; rho*), rho* = 1/(2 cos(pi/(K+1))), with far entries 0, is PSD (lambda_min = 0) with lambda_max = 2 EXACTLY for every K >= 2; the maximizing mode is the near-constant sine profile (the AM-GM equality x=y). Far caps only raise lambda_max above 2 (a first-order positive perturbation), so 2 is a floor on the admissible lambda_max, not a loose ceiling. This re-derives the eleventh continuation's uniformly-unrecoverable claim from a direct SDP boundary certificate (closing the referees' unverified predecessor flag) and caps the weld-chain endgame at the surviving residual 1.4044x (witness-floor-side, untouched). Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -217,13 +217,13 @@ export const IMP95018_GRAM_ASSERTIONS = [
   {
     id: "imp95018-honesty-gate",
     description:
-      "the verdict states the factor 2 is Gram-sharp/attained, re-derives (not carries) unrecoverability, leaves the residual 1.4044x witness-side, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict states the factor 2 is Gram-sharp/attained, re-derives (not carries) unrecoverability, leaves the residual 1.4044x witness-side, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95018_PARITY_AMGM_GRAM_SHARPNESS.promotesBound === false &&
       IMP95018_PARITY_AMGM_GRAM_SHARPNESS.openResiduals.length === 2 &&
       /Gram-SHARP/.test(IMP95018_PARITY_AMGM_GRAM_SHARPNESS.verdict) &&
       /NO QED/.test(IMP95018_PARITY_AMGM_GRAM_SHARPNESS.verdict) &&
-      /remains SOTA/.test(IMP95018_PARITY_AMGM_GRAM_SHARPNESS.verdict) &&
+      /refereed bound is changed/i.test(IMP95018_PARITY_AMGM_GRAM_SHARPNESS.verdict) &&
       /1.4044x/.test(IMP95018_PARITY_AMGM_GRAM_SHARPNESS.verdict) &&
       typeof IMP95018_PARITY_AMGM_GRAM_SHARPNESS.subGap === "string",
   },

@@ -16,8 +16,8 @@
  *
  * PRESENTATION ONLY. All points, deltas, and brackets are reused verbatim
  * from imp-97482. Establishes no operator positivity; changes no bound;
- * interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 remains
- * SOTA; RH open; NO QED.
+ * interval-rigorous reach stays 2a<=0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97482-krein-route2-kbig-direct-projector-floor.js (the directly-built points, deltas, and brackets)
  * @see imp-97488-krein-route2-kbig-saturation-viz-data.js (the imp-97455 saturation panel this extends)

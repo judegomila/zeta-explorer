@@ -17,8 +17,8 @@
  *   - eps′ binding floor = 22.92 (min epsMax across the 10 re-anchors, at p1).
  *
  * SCOPE — NO Λ MOVEMENT. Writing these lemmas formalizes an internal transfer-leg
- * certificate. E(N) < 0.2 still bottlenecks on E_trunc/E_flow (height-bound); Platt–Trudgian
- * Λ ≤ 0.2 stands; RH untouched. NO QED. The three lemmas are prose real-variable arguments
+ * certificate. E(N) < 0.2 still bottlenecks on E_trunc/E_flow (height-bound); no refereed bound is changed
+ * ; RH untouched. NO QED. The three lemmas are prose real-variable arguments
  * (statement + hypotheses + proof + the numerically-verified margin), each resting only on
  * cited classical inputs (paired-sum zero ODE well-posedness, Puiseux √-branching at double
  * zeros, holomorphic motion of simple complex zeros — Csordas–Smith–Varga, Rodgers–Tao);
@@ -31,7 +31,7 @@ export const DISPLACEMENT_LEG_LEMMAS = Object.freeze({
   id: 'imp-95518-displacement-leg-lemmas',
   title: 'The three routine real-variable steps of the displacement leg, written as lemmas',
   status: 'WRITTEN (prose, rigorous modulo cited classical inputs); '
-    + 'discharges the imp-95518 residual; NO Λ movement; PT Λ≤0.2 stands; RH open; NO QED',
+    + 'discharges the imp-95518 residual; NO Λ movement; no refereed bound is changed; RH open; NO QED',
 
   lemmas: [
     {
@@ -135,7 +135,7 @@ export const DISPLACEMENT_LEG_LEMMAS = Object.freeze({
   stillOpen:
     'The cited classical inputs (paired-sum ODE well-posedness, Puiseux √-branching, holomorphic motion) '
     + 'are invoked, not re-proved in-repo; a Lean formalization is future work. NO Λ movement: E(N) < 0.2 '
-    + 'bottlenecks on E_trunc/E_flow (height-bound); PT Λ ≤ 0.2 stands; RH open; NO QED.',
+    + 'bottlenecks on E_trunc/E_flow (height-bound); no refereed bound is changed; RH open; NO QED.',
 });
 
 export const DISPLACEMENT_LEG_LEMMAS_ASSERTIONS = Object.freeze([
@@ -166,9 +166,9 @@ export const DISPLACEMENT_LEG_LEMMAS_ASSERTIONS = Object.freeze([
     },
   },
   {
-    name: 'honest: prose (not Lean), NO Λ movement, PT stands, RH open',
+    name: 'honest: prose (not Lean), NO Λ movement, no refereed bound is changed, RH open',
     check: () => /modulo cited classical inputs/.test(DISPLACEMENT_LEG_LEMMAS.status)
-      && /PT Λ ≤ 0.2 stands/.test(DISPLACEMENT_LEG_LEMMAS.stillOpen)
+      && /refereed bound is changed/i.test(DISPLACEMENT_LEG_LEMMAS.stillOpen)
       && /NO QED/.test(DISPLACEMENT_LEG_LEMMAS.stillOpen),
   },
 ]);

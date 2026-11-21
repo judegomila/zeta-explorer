@@ -28,8 +28,8 @@
  *  H2 far-field certificates (24 kernels), 10 two-height kernels (exact Bernstein), q_MTY(x_L) arb bound, local RH window (conditional on
  *  FLINT 3.6.0’s Platt/Turing lemmas). CONDITIONAL: every Λ value below. MEASURED: grid gains, crossings, Λ·ln T. HEURISTIC:
  *  zero-conditioned layer; PT-scaled prices.
- * Verdict: Λ < 0.145 NOT reached at PT height (best 0.147273668782792). Below 0.145 needs verified RH to T* ≥ 5.10e12. PT Lambda <= 0.2
- *  stands. RH open. NO QED.
+ * Verdict: Λ < 0.145 NOT reached at PT height (best 0.147273668782792). Below 0.145 needs verified RH to T* ≥ 5.10e12. No refereed bound is changed
+ *  . RH open. NO QED.
  * Files: tmp/b145-B-{lib,ccp,run,consume,consume-mh,stack,band,h2,h2-mh,mhk-cert,mhk-table,design,plans,vpath,final}.py,
  *  tmp/b145-B-out/{RESULT,H2,H2_MH}.json, kernels/MH1..MH10.json, walls/; referee tmp/b145-refB-*; archive /tmp/b145-B-archive/.
  * Import-free. ASSERTIONS recompute rationals, band = max(U1, U2), minimum certified heights, T* and PT ratios, N0 at each wall,
@@ -111,7 +111,7 @@ export const B145_STACK = Object.freeze({
     'Λ < 0.145 is NOT reached at PT height: the full stack gives Λ ≤ 0.147273668782792, conditional on Raymond’s chain (G0), Track A’s '
     + 'lemmas, the multi-height consumer, two-height coupling and Lemma B (one internal referee pass each), the FLINT local RH window and MTY. '
     + 'Below 0.145 is reached only at larger verified heights: 0.144867568901016 (band, RH to 5.10e12) and 0.144853511841549 (no band, RH to '
-    + '6.90e12); neither height is verified. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + '6.90e12); neither height is verified. No refereed bound is changed. RH open. NO QED.',
 });
 
 const B = B145_STACK;
@@ -203,7 +203,7 @@ export const B145_STACK_ASSERTIONS = Object.freeze([
   },
   {
     id: 'b145-stack-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(B.verdict) && /NO QED/.test(B.verdict) && /NOT reached at PT height/.test(B.verdict)
+    holds: () => /refereed bound is changed/i.test(B.verdict) && /NO QED/.test(B.verdict) && /NOT reached at PT height/.test(B.verdict)
       && /neither height is verified/.test(B.verdict) && /NO QED/.test(B.status),
     why: 'Sub-0.145 values are conditional on unverified RH height and unrefereed (externally) arguments; no bound below 0.2 proved.',
   },

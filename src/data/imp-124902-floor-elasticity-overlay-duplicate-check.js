@@ -32,8 +32,8 @@ export const IMP124902_FLOOR_ELASTICITY_OVERLAY_DUPLICATE_CHECK = Object.freeze(
   status:
     'DUPLICATE: the requested overlay already exists (imp-124881), is routed, and was already ' +
     'certified reachable by the imp-124901 discoverability audit. No new page created. Read-only ' +
-    'check; no bound moved; no operator positivity established; NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'check; no bound moved; no operator positivity established; NO QED; no refereed bound is changed' +
+    '.',
 });
 
 export const IMP124902_FLOOR_ELASTICITY_OVERLAY_DUPLICATE_CHECK_ASSERTIONS = Object.freeze([

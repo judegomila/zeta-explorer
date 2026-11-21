@@ -59,7 +59,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (whole-decade ladder localizing the knee to a decade)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (six-decade exponent ladder + sigma=1/2 halving landmark)
@@ -238,8 +238,8 @@ export const IMP33721_SIGMA_RAMP_INFLECTION_SUBDECADE = {
     'the ramp accelerates fastest essentially where sigma passes one half. The component model is ' +
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33701 (whole-decade ladder knee localized to [1e10,1e11]); imp-33582 (six-decade ' +
     'exponent ladder + sigma=1/2 halving landmark ~3.27e9); imp-3444 (E_coll=E_trunc crossover ' +
@@ -296,14 +296,14 @@ export const IMP33721_SIGMA_RAMP_INFLECTION_SUBDECADE_ASSERTIONS = [
     holds: () => Math.abs(NSTAR / HALVING_N - 1) < 0.05,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp33721-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP33721_SIGMA_RAMP_INFLECTION_SUBDECADE.isRigorous === false &&
       IMP33721_SIGMA_RAMP_INFLECTION_SUBDECADE.farTailExponent === 0.5 &&
       /NO QED/.test(IMP33721_SIGMA_RAMP_INFLECTION_SUBDECADE.verdict) &&
-      /remains SOTA/.test(IMP33721_SIGMA_RAMP_INFLECTION_SUBDECADE.verdict),
+      /refereed bound is changed/i.test(IMP33721_SIGMA_RAMP_INFLECTION_SUBDECADE.verdict),
   },
 ];
 

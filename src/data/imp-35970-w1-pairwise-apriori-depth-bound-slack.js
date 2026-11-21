@@ -73,7 +73,7 @@
  * ASSESSMENT / DERIVATION reusing published pairwise-summation theory against the imp-35893
  * literals. Certifies no W1 bound; evaluates no true H_0; instantiates no interval;
  * verifies no inequality; changes no bound; establishes no positivity; C_mb GUE-conditional
- * (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35893-w1-summation-pairwise-tree-shape.js (source: the tree-SHAPE sweep + measured errors)
  * @see imp-36018-w1-pairwise-slack-depth-scaling-exponent.js (CORRECTS the "linearly in d" prose below to SUB-linear, exponent ~0.748)
@@ -90,7 +90,7 @@ const SOURCE = IMP35893_W1_SUMMATION_PAIRWISE_TREE_SHAPE;
 const U_ROUNDOFF = 2 ** -53; // unit roundoff u (half ulp) -- the Higham gamma_d constant
 const EPS_DOUBLE = 2 ** -52; // machine epsilon (= 2u) -- the coarse d*eps form imp-35893 named
 const LEAF = SOURCE.representativeSum.leafBlock; // base block size (128); naive intra-block depth
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this assessment
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this assessment
 
 // Higham gamma_k = k u / (1 - k u): the exact first-order-accurate accumulated-rounding factor.
 function gamma(k) {
@@ -212,8 +212,8 @@ export const IMP35970_W1_PAIRWISE_APRIORI_DEPTH_BOUND_SLACK = {
     'sign-decorrelation along the spine, so it cannot see the measured floor -- confirming precision is NOT ' +
     'the binding constraint. Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies ' +
     'no inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT stays ' +
-    'GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35893 (source tree-SHAPE sweep + measured errors); imp-35952 (measured error is an N-independent ' +
     'floor); imp-35761 (log2(N)*eps pairwise and N*eps naive ceilings); imp-35760 (barrier-margin allocation); ' +
@@ -276,9 +276,9 @@ export const IMP35970_W1_PAIRWISE_APRIORI_DEPTH_BOUND_SLACK_ASSERTIONS = [
       SHAPES.every((r) => r.slackHigham > 1e3 && r.slackDepthEps > 1e3),
   },
   {
-    // Honesty gate: assessment only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: assessment only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp35970-honesty-gate',
-    description: 'Assessment only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Assessment only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35970_W1_PAIRWISE_APRIORI_DEPTH_BOUND_SLACK.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -287,7 +287,7 @@ export const IMP35970_W1_PAIRWISE_APRIORI_DEPTH_BOUND_SLACK_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP35970_W1_PAIRWISE_APRIORI_DEPTH_BOUND_SLACK.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35970_W1_PAIRWISE_APRIORI_DEPTH_BOUND_SLACK.verdict) &&
-      /remains SOTA/.test(IMP35970_W1_PAIRWISE_APRIORI_DEPTH_BOUND_SLACK.verdict),
+      /refereed bound is changed/i.test(IMP35970_W1_PAIRWISE_APRIORI_DEPTH_BOUND_SLACK.verdict),
   },
 ];
 

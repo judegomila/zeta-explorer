@@ -4,7 +4,7 @@
  * BLOCKED-ON-CONVENTION (specifically: blocked on the anchor cell's x*).
  * NO scan was run against the unanchored evaluator; NO surrogate was
  * substituted; probeVerdict was NOT fed. Measurement infrastructure only;
- * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; NO QED; no refereed bound is changed.
  *
  * WHAT WAS BUILT (the imp-95072 unlock item (5), now written, not found):
  * native/gate2-lane-a/{main.c, Makefile, README.md} - a standalone C
@@ -210,7 +210,7 @@ export const IMP95013B_GATE2_LANE_A_REAL_PROBE = Object.freeze({
     '(strict_sub014_extension_v1), which is absent from this machine - a missing input, not an ' +
     'implementation bug. NO scan was run; NO surrogate was substituted; probeVerdict was NOT fed. The REAL ' +
     'oscillation probe (L, sampledSup) remains unmeasured, one committed replay-convention away from ' +
-    'decidable. Changes no bound; closes no gap; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'decidable. Changes no bound; closes no gap; NO QED; no refereed bound is changed.',
 });
 
 // ── assertions (self-executing; import-light; throw on violation) ─────────────
@@ -274,13 +274,13 @@ export const IMP95013B_ASSERTIONS = [
   },
   {
     id: 'imp95013b-honesty-gate-no-qed',
-    description: 'promotes no bound, names the sharpened sub-gap (the [19] replay convention), NO QED, PT stays SOTA',
+    description: 'promotes no bound, names the sharpened sub-gap (the [19] replay convention), NO QED, no refereed bound is changed',
     holds: () =>
       IMP95013B_GATE2_LANE_A_REAL_PROBE.promotesBound === false &&
       IMP95013B_GATE2_LANE_A_REAL_PROBE.isRigorous === false &&
       IMP95013B_GATE2_LANE_A_REAL_PROBE.namedSubGap === 'imp-95013b-sub-replay-convention' &&
       /NO QED/.test(IMP95013B_GATE2_LANE_A_REAL_PROBE.verdict) &&
-      /remains SOTA/.test(IMP95013B_GATE2_LANE_A_REAL_PROBE.verdict),
+      /refereed bound is changed/i.test(IMP95013B_GATE2_LANE_A_REAL_PROBE.verdict),
   },
   {
     id: 'imp95013b-rev2-xstar-margin-recomputation',

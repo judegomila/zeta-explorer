@@ -74,7 +74,7 @@
  *   nor continuing to grow -- not the exact coefficients. The NPHI = 10 Phi-series truncation is inherited
  *   upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-33660-cluster-peak-envelope-height-growth-fit.js (the [400,1200] fit this extends; same scan rule)
  *   @see imp-33638-band-clearing-tail-reintensification-n900-1200.js (the tall tail clusters, now the plateau onset)
@@ -332,7 +332,7 @@ const verdict =
       'PERSISTENT-GROWTH-OR-REVERSION;-THE-NON-CONSTANT-R^2-SPREAD-STAYS-<0.15-(STILL-CLASS-UNRESOLVED).-' +
       'CONSISTENT-WITH-THE-imp-33599/imp-33621/imp-33638/imp-33660-latticeJitterCaveat-(THE-PLATEAU-HEIGHT-IS-' +
       'JITTER-DRIVEN).-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-' +
-      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33679_CLUSTER_PEAK_ENVELOPE_HEIGHT_1200_1600 = Object.freeze({
@@ -360,7 +360,7 @@ export const IMP33679_CLUSTER_PEAK_ENVELOPE_HEIGHT_1200_1600 = Object.freeze({
     'HEIGHT-SATURATES-AT-HIGH-PLATEAU-NEITHER-REVERTS-NOR-KEEPS-GROWING, consistent with the imp-33599/' +
     'imp-33621/imp-33638/imp-33660 latticeJitterCaveat. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, ' +
     'necessary-but-not-sufficient; jittery lattice floor; operator positivity (imp-3066) untouched; no QED. ' +
-    'PT Lambda <= 0.2 SOTA.',
+    'No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -499,7 +499,7 @@ export const IMP33679_CLUSTER_PEAK_ENVELOPE_HEIGHT_1200_1600 = Object.freeze({
       'within-window slope, the ~143.5 ULP plateau mean, and the ~0.79..0.80 growth-law R^2. The robust reading ' +
       'is the QUALITATIVE conclusion -- the height saturates at a high plateau, neither reverting to the early ' +
       'band nor continuing to grow -- not the exact coefficients.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -560,7 +560,7 @@ export const IMP33679_CLUSTER_PEAK_ENVELOPE_HEIGHT_1200_1600_ASSERTIONS = [
   {
     id: 'imp33679-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33679_CLUSTER_PEAK_ENVELOPE_HEIGHT_1200_1600.honestCaveat;
       return (
@@ -569,7 +569,7 @@ export const IMP33679_CLUSTER_PEAK_ENVELOPE_HEIGHT_1200_1600_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

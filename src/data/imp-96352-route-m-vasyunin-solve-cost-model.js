@@ -64,7 +64,7 @@
  * to what a memory-first feasibility read would suggest.
  *
  * MEASUREMENT / MODEL ONLY. Establishes no operator positivity, makes no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96230-route-m-vasyunin-gram-n1e4-feasibility.js (the BUILD-only budget corrected here)
  * @see imp-96325-route-m-vasyunin-gram-n1e4-run.js (the measured 1838.5 s run + wallNote)
@@ -146,7 +146,7 @@ export const IMP96352_SUBGAP = Object.freeze({
 });
 
 export const IMP96352_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cost-model correction only: the constants are derived from the imp-96325 measured single-process wall (1838.5 s) and the imp-96230 Cholesky constant; the model reprices future Route M reach estimates and changes NO bound and establishes NO operator positivity.';
+  'RH open; no refereed bound is changed; NO QED. Cost-model correction only: the constants are derived from the imp-96325 measured single-process wall (1838.5 s) and the imp-96230 Cholesky constant; the model reprices future Route M reach estimates and changes NO bound and establishes NO operator positivity.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -233,7 +233,7 @@ const IMP96352_ASSERTIONS = [
     id: 'imp96352-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96352_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96352_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96352_HONEST_BANNER) &&
       /NO QED/.test(IMP96352_HONEST_BANNER) &&
       /changes NO bound/.test(IMP96352_HONEST_BANNER) &&
       /iteration-count-unmeasured/.test(IMP96352_SUBGAP.id),

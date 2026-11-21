@@ -65,7 +65,7 @@ export const IMP36026_CASCADE_VIZ_DATA = {
     'VIZ-DATA ONLY -- baked literals reproducing the imp-35971 / imp-35950 term-elimination ' +
     'landmarks; adds no new derivation and changes no bound. C_C = (1/8) sqrt(3 pi) ' +
     '(imp-2642 / imp-2643) and E_trunc = 3.06e-5 (imp-2631) are UNTOUCHED; C_mb GUE-conditional ' +
-    '(imp-486) untouched; imp-35337a stays OPEN; NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    '(imp-486) untouched; imp-35337a stays OPEN; NO QED. No refereed bound is changed.',
 };
 
 export const IMP36026_VIZ_ASSERTIONS = [
@@ -97,13 +97,13 @@ export const IMP36026_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp36026-honesty-gate-no-qed',
-    description: 'honest status references viz-data-only, untouched constants, imp-35337a OPEN, NO QED, SOTA',
+    description: 'honest status references viz-data-only, untouched constants, imp-35337a OPEN, NO QED, no refereed bound is changed',
     holds: () =>
       /VIZ-DATA ONLY/.test(IMP36026_CASCADE_VIZ_DATA.honest) &&
       /UNTOUCHED/.test(IMP36026_CASCADE_VIZ_DATA.honest) &&
       /imp-35337a stays OPEN/.test(IMP36026_CASCADE_VIZ_DATA.honest) &&
       /NO QED/.test(IMP36026_CASCADE_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP36026_CASCADE_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP36026_CASCADE_VIZ_DATA.honest),
   },
 ];
 

@@ -77,7 +77,7 @@
  * untouched). The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the OLS surrogate and the crossover/widening classification are descriptive, not derived; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (F4 there is the argmax un-lock this classifies; machinery reused verbatim)
  * @see imp-34047-argmax-rung-creep-descent-law (the kEnd=14..17 "peak stabilizes / locked at 6.50" verdict this adjudicates)
@@ -357,7 +357,7 @@ export const IMP34265_ARGMAX_UNLOCK_RESIDUAL_MARGIN_CLASSIFICATION = {
     'are untouched. The OLS surrogate and the crossover/widening classification are descriptive, not derived; ' +
     'the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34196 (the F4 argmax un-lock this classifies; machinery reused verbatim); imp-34047 (the kEnd=14..17 ' +
     '"peak stabilizes / locked at 6.50" verdict adjudicated); imp-34040 (the argmax-locked-at-6.50 ' +
@@ -421,15 +421,15 @@ export const IMP34265_ARGMAX_UNLOCK_RESIDUAL_MARGIN_CLASSIFICATION_ASSERTIONS = 
       GENUINE_RESOLVED_SECOND_STEP === true,
   },
   {
-    // Honesty gate: measurement/classification only, isRigorous false, no QED, PT SOTA, C_mb / imp-3066
+    // Honesty gate: measurement/classification only, isRigorous false, no QED, no refereed bound is changed, C_mb / imp-3066
     // untouched.
     id: 'imp34265-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, C_mb GUE-conditional / imp-3066 K_a>=0 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, C_mb GUE-conditional / imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34265_ARGMAX_UNLOCK_RESIDUAL_MARGIN_CLASSIFICATION.isRigorous === false &&
       /NOT a rigorous asymptotic/.test(IMP34265_ARGMAX_UNLOCK_RESIDUAL_MARGIN_CLASSIFICATION.verdict) &&
       /NO QED/.test(IMP34265_ARGMAX_UNLOCK_RESIDUAL_MARGIN_CLASSIFICATION.verdict) &&
-      /remains SOTA/.test(IMP34265_ARGMAX_UNLOCK_RESIDUAL_MARGIN_CLASSIFICATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34265_ARGMAX_UNLOCK_RESIDUAL_MARGIN_CLASSIFICATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34265_ARGMAX_UNLOCK_RESIDUAL_MARGIN_CLASSIFICATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34265_ARGMAX_UNLOCK_RESIDUAL_MARGIN_CLASSIFICATION.verdict),
   },

@@ -71,7 +71,7 @@
  * (an integer program), not computed here, and theta_floor >= 0 is the only
  * rigorous lower bound used (G PSD). (d) The ACTUAL seam sign pattern is NOT
  * determined here; that is obligation (3) / imp-95397, left OPEN. Changes no
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD. (1) Closed-form Gram diagonal G_nn = 1/mu_n
  * verified against the equal-rate branch. (2) theta(all +1) = 1 exactly
@@ -179,7 +179,7 @@ export const IMP95375_THETA_RANGE_GEOMETRY_IMAGE = {
   subGap:
     "imp-95397 (recover the paper alias sign pattern) / obligation (3) -- STILL OPEN. This note localizes the theta residual entirely onto it: the geometry images the range [theta_floor, 1] and admits theta -> 0, so the ONLY missing ingredient is the actual per-window sign pattern of the seam alias expansion. The exact combinatorial floor theta_floor = min over {+-1}^N (an integer program) is a named secondary residual; theta_floor >= 0 (G PSD) is the rigorous lower bound used here.",
   verdict:
-    "ASSESSMENT (PARTIAL, honest): the imp-95255 LEG 2 wall is refined, not an impossibility. The GEOMETRY transcription images the theta RANGE [theta_floor, 1] via the exact quadratic form theta(sigma) = sigma^T G sigma / (1^T G 1) over the transcribed packet Gram G, and that range is WIDE -- the alternating witness drives theta toward 0 (0.111518 -> 0.000024 across pD = 8..704) because the ported centers overlap heavily (B/A grows). So theta < 1 is DEEPLY reachable on the transcribed geometry; the obstruct branch is FORECLOSED. The wall is therefore purely a missing-sign-SPECIFICATION wall: which point of the imaged range the real seam realizes is obligation (3) / imp-95397, left OPEN. Nothing derives or moves a bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT (PARTIAL, honest): the imp-95255 LEG 2 wall is refined, not an impossibility. The GEOMETRY transcription images the theta RANGE [theta_floor, 1] via the exact quadratic form theta(sigma) = sigma^T G sigma / (1^T G 1) over the transcribed packet Gram G, and that range is WIDE -- the alternating witness drives theta toward 0 (0.111518 -> 0.000024 across pD = 8..704) because the ported centers overlap heavily (B/A grows). So theta < 1 is DEEPLY reachable on the transcribed geometry; the obstruct branch is FORECLOSED. The wall is therefore purely a missing-sign-SPECIFICATION wall: which point of the imaged range the real seam realizes is obligation (3) / imp-95397, left OPEN. Nothing derives or moves a bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "theta(sigma) = sigma^T G sigma / (1^T G 1) is EXACT (closed-form Gram of two-sided exponentials, no quadrature; cross-checked to 1e-6 against imp-95255 Simpson quadrature thetaPort(3,8,[1,-1]) = 0.008176). theta(all +1) = 1 exactly. The alternating/greedy theta is an ACHIEVABLE point of the range (upper bound on theta_floor); theta_floor >= 0 (G PSD) is the rigorous lower bound; the exact combinatorial minimum over {+-1}^N is NOT computed (named residual). The actual seam sign pattern is NOT determined (obligation (3)).",
 };
@@ -257,7 +257,7 @@ export const IMP95375_THETA_RANGE_ASSERTIONS = [
       /range/i.test(IMP95375_THETA_RANGE_GEOMETRY_IMAGE.rangeIsImaged) &&
       /STILL OPEN/.test(IMP95375_THETA_RANGE_GEOMETRY_IMAGE.subGap) &&
       /NO QED/.test(IMP95375_THETA_RANGE_GEOMETRY_IMAGE.verdict) &&
-      /remains SOTA/.test(IMP95375_THETA_RANGE_GEOMETRY_IMAGE.verdict),
+      /refereed bound is changed/i.test(IMP95375_THETA_RANGE_GEOMETRY_IMAGE.verdict),
   },
 ];
 

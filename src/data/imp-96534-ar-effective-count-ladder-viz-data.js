@@ -10,7 +10,7 @@
  * No re-derivation: every n_eff/z_eff/correlation value is copied verbatim from
  * IMP96509_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR2 (which itself reproduces the imp-96489 AR-1
  * baseline exactly). Presentation only; changes no bound; establishes no operator positivity;
- * RH open; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96509-excursion-effective-significance-ar2.js (the source object this reshapes)
  * @see imp-96489-excursion-effective-significance-direct-rho.js (the AR-1 base model)
@@ -42,7 +42,7 @@ export const IMP96534_CORRELATIONS = Object.freeze([
 ]);
 
 export const IMP96534_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every n_eff/z_eff/correlation '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every n_eff/z_eff/correlation '
   + 'value plotted here is copied verbatim from the imp-96509 AR(p) resummation (which reproduces the '
   + 'imp-96489 AR-1 baseline exactly); the lag-2/lag-3 inputs are theoretical GUE sine-process box '
   + 'correlations, not empirical zero covariances, so the AR-2/AR-3 figures are indicative, not '

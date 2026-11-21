@@ -59,7 +59,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34006-pointwise-vs-window-exponent-cross-tabulation (F2 single-span S/4; F3 half-span lead)
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (POINTWISE gap law; crossings 1e44.17/1e436.06)
@@ -237,7 +237,7 @@ export const IMP34065_WINDOW_SPAN_SCALING_OF_EXPONENT_OFFSET = {
     'and the lead is half the span. imp-34006 F2/F3 are the S=12 slices. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34006 (pointwise-vs-window offset; F2 single-span S/4; F3 half-span lead); imp-33816 ' +
     '(POINTWISE gap law; crossings 1e44.17 / 1e436.06); imp-33274 (WINDOWED far-tail p_eff, OLS ' +
@@ -301,14 +301,14 @@ export const IMP34065_WINDOW_SPAN_SCALING_OF_EXPONENT_OFFSET_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34065-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP34065_WINDOW_SPAN_SCALING_OF_EXPONENT_OFFSET.isRigorous === false &&
       IMP34065_WINDOW_SPAN_SCALING_OF_EXPONENT_OFFSET.farTailExponent === 0.5 &&
       /NO QED/.test(IMP34065_WINDOW_SPAN_SCALING_OF_EXPONENT_OFFSET.verdict) &&
-      /remains SOTA/.test(IMP34065_WINDOW_SPAN_SCALING_OF_EXPONENT_OFFSET.verdict),
+      /refereed bound is changed/i.test(IMP34065_WINDOW_SPAN_SCALING_OF_EXPONENT_OFFSET.verdict),
   },
 ];
 

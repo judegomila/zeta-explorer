@@ -65,7 +65,7 @@
  * identified as the pointwise floor (4.1261e-5); the sibling ladder covers
  * every dyadic block and rate for the certified ceiling 4.13e-5. This module
  * CHANGES NO BOUND, pulls no chain (far bracket [0.0967451, 4] unchanged),
- * promotes nothing, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. The
+ * promotes nothing, NO QED; no refereed bound is changed. The
  * numerics cross-check the algebra; they are not the claim. Import-light.
  */
 
@@ -302,7 +302,7 @@ export const IMP95054_PARABOLA_TERMINAL_LEVER = {
   assessment:
     "The exact-mass gain never exceeds the parabola bound (M_new >= M0 only shrinks E_new/M_new), so refining the mass denominator can ONLY lower the ceiling. At the binding block-2 corner the exact-mass supremum reproduces the exact achieved witness gain 4.0918e-5, closing exactly the mass slack the relaxation opened. The refinement lever is therefore worth the gap parabolaFloor - exactMassSup ~ 3.4e-7 (~0.83 percent) and NO FURTHER: beneath it lies an attained witness, so the true single-append sup is pinned in [4.0918e-5, 4.1261e-5] and cannot be pushed lower by any mass-denominator refinement (or any other Theorem P device, all upper-bounding the same attained gain).",
   verdict:
-    "TERMINAL. The exact-mass-denominator parabola bound IS the terminal certificate lever for the single-append class: a bounded lever worth at most ~0.83 percent, floored by an exactly-attained witness at ~4.0918e-5. Refining the mass denominator to its exact value recovers that floor and nothing beyond it - the residual well under the pointwise floor 4.1261e-5 is genuinely terminal for single appends. The only levers surviving beneath it are OUTSIDE this class (simultaneous multi-packet re-optimization and different grid geometries, already named by the sibling). Changes no bound; pulls no chain; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "TERMINAL. The exact-mass-denominator parabola bound IS the terminal certificate lever for the single-append class: a bounded lever worth at most ~0.83 percent, floored by an exactly-attained witness at ~4.0918e-5. Refining the mass denominator to its exact value recovers that floor and nothing beyond it - the residual well under the pointwise floor 4.1261e-5 is genuinely terminal for single appends. The only levers surviving beneath it are OUTSIDE this class (simultaneous multi-packet re-optimization and different grid geometries, already named by the sibling). Changes no bound; pulls no chain; NO QED; no refereed bound is changed.",
   scope:
     "Assessment on the FROZEN terminal 13-packet headline base at the binding block-2 corner (center k = 249995) the sibling ladder identified as the pointwise floor. Single appends, eps >= 0. Does not cover multi-append interactions or joint re-optimization. Optimality of the achieved witness is NOT claimed; the exact-mass supremum is a lower bound on the true single-append sup because it is attained. Import-light; numerics cross-check the algebra, they are not the claim.",
   promotesBound: false,
@@ -379,12 +379,12 @@ export const IMP95054_TERMINAL_LEVER_ASSERTIONS = [
   {
     id: "imp95054-honesty-gate",
     description:
-      "the verdict names the terminal lever, the two-sided true-sup bracket, the single-append scope, promotes no bound, NO QED, PT stays SOTA, and out-of-class levers are named",
+      "the verdict names the terminal lever, the two-sided true-sup bracket, the single-append scope, promotes no bound, NO QED, no refereed bound is changed, and out-of-class levers are named",
     holds: () =>
       IMP95054_PARABOLA_TERMINAL_LEVER.promotesBound === false &&
       /TERMINAL/.test(IMP95054_PARABOLA_TERMINAL_LEVER.verdict) &&
       /NO QED/.test(IMP95054_PARABOLA_TERMINAL_LEVER.verdict) &&
-      /remains SOTA/.test(IMP95054_PARABOLA_TERMINAL_LEVER.verdict) &&
+      /refereed bound is changed/i.test(IMP95054_PARABOLA_TERMINAL_LEVER.verdict) &&
       /multi-packet re-optimization/.test(IMP95054_PARABOLA_TERMINAL_LEVER.verdict) &&
       /Single appends/.test(IMP95054_PARABOLA_TERMINAL_LEVER.scope) &&
       /NOT claimed/.test(IMP95054_PARABOLA_TERMINAL_LEVER.scope),

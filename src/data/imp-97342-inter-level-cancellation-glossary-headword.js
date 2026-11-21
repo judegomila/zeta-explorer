@@ -35,7 +35,7 @@
  * @see imp-97307-route-m-qlog-mertens-unbounded.js (the Mertens loglog divergence RESULT 2 uses)
  *
  * Ticket: imp-97342 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The inter-level cancellation headword, baked verbatim (no re-import).
@@ -63,7 +63,7 @@ const INTER_LEVEL_CANCELLATION_HEADWORD = Object.freeze({
     'divisor identity verified to < 1e-10 against the original S_b-integral on the primorial ' +
     'ladder omega = 1..12, and the A_1 divergence/overtake measured on the same ladder. Naming / ' +
     'glossary headword only; supplies no uniform remainder bound (IMP97289_TAIL_O1_SUBGAP stays ' +
-    'open); no bound moved; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'open); no bound moved; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97342_INTER_LEVEL_CANCELLATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -82,7 +82,7 @@ export const IMP97342_INTER_LEVEL_CANCELLATION_GLOSSARY_HEADWORD = Object.freeze
     'overtakes the measured O(1) plateau of |R(b)|, so the binding cancellation closing ' +
     'IMP97289_TAIL_O1_SUBGAP must be inter-level -- ruling out per-level and triangle-inequality ' +
     'bounds as viable proof strategies. No bound moved; the subgap stays open; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97309 (RESULT 2, the rigorous A_1 divergence localization this glosses); imp-97289 (the ' +
     'named subgap IMP97289_TAIL_O1_SUBGAP this localization constrains); imp-97307 (the Mertens ' +
@@ -109,12 +109,12 @@ export const IMP97342_INTER_LEVEL_CANCELLATION_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97342-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, subgap left open, no QED, PT SOTA line ' +
+    why: 'Documentation only: no bound claimed moved, subgap left open, no QED, no-refereed-bound-change line ' +
       'present.',
     holds: () =>
       IMP97342_INTER_LEVEL_CANCELLATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97342_INTER_LEVEL_CANCELLATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97342_INTER_LEVEL_CANCELLATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97342_INTER_LEVEL_CANCELLATION_GLOSSARY_HEADWORD.verdict) &&
       IMP97342_INTER_LEVEL_CANCELLATION_GLOSSARY_HEADWORD.glosses === 'imp-97309',
   },
 ];

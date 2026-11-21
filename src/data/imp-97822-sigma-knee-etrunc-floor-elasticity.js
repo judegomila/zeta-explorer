@@ -61,7 +61,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97708-sigma-knee-bracket-width-sensitivity (bracketing-free pointwise knee at baseline floor -- the locator reused here)
  * @see imp-33708-sigma-fartail-landmark-etrunc-model-sensitivity (the 0.5x..5x E_trunc floor sweep; far-tail exponent ~ -2.099)
@@ -256,8 +256,8 @@ export const IMP97822_SIGMA_KNEE_ETRUNC_FLOOR_ELASTICITY = {
     'halving from crossover) by ~105x: the E_trunc floor, not E_flow, sets where the knee lands. ' +
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97708 (bracketing-free pointwise knee at baseline floor -- the locator reused here); ' +
     'imp-33708 (0.5x..5x E_trunc floor sweep; far-tail sigma=0.5 exponent ~ -2.099); imp-33767 ' +
@@ -314,13 +314,13 @@ export const IMP97822_SIGMA_KNEE_ETRUNC_FLOOR_ELASTICITY_ASSERTIONS = [
       FLOOR_OVER_EFLOW_RATIO > 50,
   },
   {
-    // Honesty gate: measurement/fit only, robust-topology/fragile-coordinate verdict, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, robust-topology/fragile-coordinate verdict, no QED, no refereed bound is changed.
     id: 'imp97822-honesty-gate-no-qed',
-    description: 'Measurement only: knee robust to floor topology but fragile in coordinate, no QED, PT stays SOTA',
+    description: 'Measurement only: knee robust to floor topology but fragile in coordinate, no QED, no refereed bound is changed',
     holds: () =>
       IMP97822_SIGMA_KNEE_ETRUNC_FLOOR_ELASTICITY.isRigorous === false &&
       /NO QED/.test(IMP97822_SIGMA_KNEE_ETRUNC_FLOOR_ELASTICITY.verdict) &&
-      /remains SOTA/.test(IMP97822_SIGMA_KNEE_ETRUNC_FLOOR_ELASTICITY.verdict),
+      /refereed bound is changed/i.test(IMP97822_SIGMA_KNEE_ETRUNC_FLOOR_ELASTICITY.verdict),
   },
 ];
 

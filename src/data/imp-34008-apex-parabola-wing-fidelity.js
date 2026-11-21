@@ -51,7 +51,7 @@
  * the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33948-hump-apex-curvature-error-bar (the apex quadratic + E2 flat-top widths tested here)
  * @see imp-34005-apex-curvature-fit-window-sensitivity (the fit-window robustness companion)
@@ -289,7 +289,7 @@ export const IMP34008_APEX_PARABOLA_WING_FIDELITY = {
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) ' +
     'is descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33948 (apex parabola + E2 flat-top widths tested here); imp-34005 (fit-window robustness ' +
     'companion); imp-33878 (resid_exp(k) model reused verbatim); imp-33905 (R3 "one broad quadratic ' +
@@ -354,14 +354,14 @@ export const IMP34008_APEX_PARABOLA_WING_FIDELITY_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, no refereed bound is changed.
     id: 'imp34008-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, refines imp-33948, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, refines imp-33948, no QED, no refereed bound is changed',
     holds: () =>
       IMP34008_APEX_PARABOLA_WING_FIDELITY.isRigorous === false &&
       /refines, does not overturn, imp-33948/.test(IMP34008_APEX_PARABOLA_WING_FIDELITY.verdict) &&
       /NO QED/.test(IMP34008_APEX_PARABOLA_WING_FIDELITY.verdict) &&
-      /remains SOTA/.test(IMP34008_APEX_PARABOLA_WING_FIDELITY.verdict) &&
+      /refereed bound is changed/i.test(IMP34008_APEX_PARABOLA_WING_FIDELITY.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34008_APEX_PARABOLA_WING_FIDELITY.verdict),
   },
 ];

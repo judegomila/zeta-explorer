@@ -56,7 +56,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486,
  * the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are
  * UNTOUCHED and appear only symbolically as differentiation axes; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97821-diag3-sixth-landmark-crossvalidation (the L6 sigma = 0.005 cross-validation this reproduces)
  * @see imp-97710-diag3-fourth-landmark-crossvalidation (the L5 sigma = 0.02 machinery imp-97821 reused verbatim)
@@ -236,8 +236,8 @@ export const IMP97840_DIAG3_SIXTH_LANDMARK_INDEPENDENT_REPRODUCTION = {
     'diagnostic on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the ' +
     'imp-398 C_F prefactor are UNTOUCHED (appear only symbolically as differentiation axes); changes no bound; ' +
-    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97821 (L6 sigma = 0.005 cross-validation, reused imp-97710 machinery verbatim); imp-97710 (L5 sigma = ' +
     '0.02 machinery); imp-97689 (analytic Euler-additivity derivation); imp-97644 (MEASURED DIAG3 == 0); ' +
@@ -283,13 +283,13 @@ export const IMP97840_DIAG3_SIXTH_LANDMARK_INDEPENDENT_REPRODUCTION_ASSERTIONS =
     holds: () => DIAG3_LADDER.every((r) => Math.abs(r.DIAG3) < 1e-8),
   },
   {
-    // Honesty gate: cross-check / reproduction only, no QED, PT stays SOTA.
+    // Honesty gate: cross-check / reproduction only, no QED, no refereed bound is changed.
     id: 'imp97840-honesty-gate-no-qed',
-    description: 'Cross-check / reproduction only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Cross-check / reproduction only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97840_DIAG3_SIXTH_LANDMARK_INDEPENDENT_REPRODUCTION.isRigorous === false &&
       /NO QED/.test(IMP97840_DIAG3_SIXTH_LANDMARK_INDEPENDENT_REPRODUCTION.verdict) &&
-      /remains SOTA/.test(IMP97840_DIAG3_SIXTH_LANDMARK_INDEPENDENT_REPRODUCTION.verdict),
+      /refereed bound is changed/i.test(IMP97840_DIAG3_SIXTH_LANDMARK_INDEPENDENT_REPRODUCTION.verdict),
   },
 ];
 

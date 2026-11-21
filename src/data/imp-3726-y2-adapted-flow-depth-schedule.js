@@ -71,7 +71,7 @@
  * G6a_shock_lipschitz::y2-adapted-flow-depth is DERIVED (schedule + scale-consistency) but no
  * construction is shipped and G6a stays OPEN. Derivation / scoping only; no positivity, no bridge
  * closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3708-s2-gronwall-vacuity-intrinsic-assessment (names the sub-gap; fixed-depth collapse floor_meso^{k^2})
  * @see imp-3714-g6a-modulus-object-requirements (K1, K2 both require this y2-adapted per-pair depth)
@@ -211,7 +211,7 @@ export const IMP3726_Y2_ADAPTED_FLOW_DEPTH_SCHEDULE = {
     'pair-separation extension (REQ-i). So the schedule is DERIVED and shown scale-consistent, but no ' +
     'construction is shipped and G6a_shock_lipschitz stays OPEN. Derivation / scoping only; no positivity, ' +
     'no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity ' +
-    'UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'UNTOUCHED. No refereed bound is changed.',
   citation:
     'imp-3708 (names the sub-gap; fixed-depth floor collapse floor_meso^{k^2}, escape s(y) ~ y^2); ' +
     'imp-3714 (K1, K2 both require the y2-adapted per-pair depth); imp-3642 (backward-Dyson RK4 flow; ' +
@@ -288,13 +288,13 @@ export const IMP3726_Y2_ADAPTED_FLOW_DEPTH_SCHEDULE_ASSERTIONS = [
       IMP3726_Y2_ADAPTED_FLOW_DEPTH_SCHEDULE.g6aStillOpen === true,
   },
   {
-    // Honesty gate: derivation/scoping only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: derivation/scoping only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3726-honesty-gate-no-qed',
-    description: 'Derivation/scoping only: no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Derivation/scoping only: no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3726_Y2_ADAPTED_FLOW_DEPTH_SCHEDULE.isRigorous === false &&
       /NO QED/.test(IMP3726_Y2_ADAPTED_FLOW_DEPTH_SCHEDULE.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3726_Y2_ADAPTED_FLOW_DEPTH_SCHEDULE.verdict) &&
+      /refereed bound is changed/i.test(IMP3726_Y2_ADAPTED_FLOW_DEPTH_SCHEDULE.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3726_Y2_ADAPTED_FLOW_DEPTH_SCHEDULE.verdict),
   },
 ];

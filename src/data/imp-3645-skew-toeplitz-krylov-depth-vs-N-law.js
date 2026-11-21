@@ -73,7 +73,7 @@
  *   measured depth-lock anchors and assesses the depth-vs-N form; it does NOT run
  *   new Lanczos, does NOT construct the missing magnitude, and does NOT attempt the
  *   imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -200,7 +200,7 @@ export const IMP3645_SKEW_TOEPLITZ_KRYLOV_DEPTH_VS_N_LAW = Object.freeze({
     'depth-sweep: discriminating the form needs a MATCHED-PAIR sweep (fixed pair index, >= 3 values of N) to separate ' +
     'the pair-index dependence from the N dependence. Measurement/fit only; runs no new Lanczos; does NOT construct the ' +
     'missing magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   construction: Object.freeze({
     quantityFitted: 'm*(N, pair) = minimal reorthogonalized Lanczos Krylov depth that pins a leading pair to the < 2e-14 machine floor',
@@ -285,7 +285,7 @@ export const IMP3645_SKEW_TOEPLITZ_KRYLOV_DEPTH_VS_N_LAW = Object.freeze({
       'This unifies and fits two previously measured depth-lock anchors; it does NOT construct the missing magnitude ' +
       'and does NOT attempt the imp-3066 K_a >= 0 positivity.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -338,7 +338,7 @@ export const IMP3645_SKEW_TOEPLITZ_KRYLOV_DEPTH_VS_N_LAW_ASSERTIONS = [
   {
     id: 'imp3645-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT/FIT only -- form not discriminated, predictions are brackets, pair-index ' +
-      'confound unresolved (sub-gap named), positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip ' +
+      'confound unresolved (sub-gap named), positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip ' +
       'over-claims.',
     holds: () => {
       const c = IMP3645_SKEW_TOEPLITZ_KRYLOV_DEPTH_VS_N_LAW.honestCaveat;
@@ -349,7 +349,7 @@ export const IMP3645_SKEW_TOEPLITZ_KRYLOV_DEPTH_VS_N_LAW_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.formNotDiscriminated === 'string' &&
         typeof c.pairIndexConfoundUnresolved === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

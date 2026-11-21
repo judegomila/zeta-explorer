@@ -102,7 +102,7 @@
  * imp-3708 y2-adapted-flow-depth -- NOT a new positivity input. This reconciles the g6a-sub-hyperbolic
  * CLOSED record (pointwise) with the imp-33603 H5 OPEN mark (uniform). Assessment only; no positivity,
  * no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity
- * UNTOUCHED; C_mb share untouched. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * UNTOUCHED; C_mb share untouched. No refereed bound is changed.
  *
  * @see imp-33603-lemma52-port-scoping (the H1..H5 catalogue; H5 marked OPEN; H4 the named residual)
  * @see g6a-sub-hyperbolic-closure (imp-394: complex Burgers characteristics, real-boundary fold step, Privalov-Sokhotski)
@@ -248,7 +248,7 @@ export const IMP33619_H5_RH_TRANSCRIPTION_SCOPING = {
     'record (pointwise) with the imp-33603 H5 OPEN mark (uniform). Assessment / literature-scoping ' +
     'only; G6a_shock_lipschitz stays OPEN; no positivity, no bridge closure, no RH claim, NO QED. ' +
     'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED; C_mb share untouched. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33603-lemma52-port-scoping (H1..H5 catalogue, H5 OPEN, H4 residual); g6a-sub-hyperbolic-closure ' +
     '(imp-394: complex Burgers characteristics, real-boundary fold step, Privalov-Sokhotski); ' +
@@ -314,14 +314,14 @@ export const IMP33619_H5_RH_TRANSCRIPTION_ASSERTIONS = [
       ySharp(1e12) < 1e-5,
   },
   {
-    // Honesty gate: scoping only, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: scoping only, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33619-honesty-gate-no-qed',
-    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33619_H5_RH_TRANSCRIPTION_SCOPING.isRigorous === false &&
       /NO QED/.test(IMP33619_H5_RH_TRANSCRIPTION_SCOPING.verdict) &&
       /stays OPEN/.test(IMP33619_H5_RH_TRANSCRIPTION_SCOPING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33619_H5_RH_TRANSCRIPTION_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP33619_H5_RH_TRANSCRIPTION_SCOPING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33619_H5_RH_TRANSCRIPTION_SCOPING.verdict),
   },
 ];

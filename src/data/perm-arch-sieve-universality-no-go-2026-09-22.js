@@ -4,7 +4,7 @@
  * Λ<0.2 lever, plus the sharper §5(i) small-prime-weld closure. Import-light
  * (literals only; the exact algebra/identity checks live in
  * tmp/perm-arch-sieve-algebra-universality-check.mjs, all passing). NOT a bound;
- * PT Λ≤0.2 stands; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * SURFACE: the contract |C_{E,17}| < 0.27968819555261474 pointwise on
  * 690988≤N≤54799999 (both seam sides), E97(x)=L(M_A c), M_A = R97 − A97·I,
@@ -128,7 +128,7 @@ export const PERM_ARCH_SIEVE_UNIVERSALITY = Object.freeze({
       + 'but narrower (MAJ architecture only); imp-95519 is broader on A_{k,h} but '
       + 'conditional on the reach of arithmetic technology. Neither subsumes the other; '
       + 'jointly they close both the aggregation lever and the single-weld '
-      + 'sqrt-cancellation lever. Not a bound; PT Λ≤0.2 stands; RH open; NO QED.',
+      + 'sqrt-cancellation lever. Not a bound; no refereed bound is changed; RH open; NO QED.',
   },
 
   imp95519Caveat:
@@ -149,7 +149,7 @@ export const PERM_ARCH_SIEVE_UNIVERSALITY = Object.freeze({
     + 'short window; x-average → sup-of-Dirichlet-polynomial needing a refuted no-linger) hit '
     + 'the recorded walls. Independently the ℓ²-collapse route is over budget at the small '
     + 'primes (§5(i)). Only new arithmetic input (pointwise zero-location at 3e12–1.9e16) or '
-    + 'computation (≥3.4e17 cells) can move the contract. Not a bound; PT Λ≤0.2 stands; RH open.',
+    + 'computation (≥3.4e17 cells) can move the contract. Not a bound; no refereed bound is changed; RH open.',
 });
 
 export const PERM_ARCH_SIEVE_UNIVERSALITY_ASSERTIONS = Object.freeze([
@@ -173,9 +173,9 @@ export const PERM_ARCH_SIEVE_UNIVERSALITY_ASSERTIONS = Object.freeze([
     },
   },
   {
-    name: 'honest framing: no-go, not a bound; PT Λ≤0.2 stands',
+    name: 'honest framing: no-go, not a bound; no refereed bound is changed',
     holds: () => /not a bound|NO-GO/i.test(PERM_ARCH_SIEVE_UNIVERSALITY.status)
-      && /PT Λ≤0\.2 stands/.test(PERM_ARCH_SIEVE_UNIVERSALITY.verdict),
+      && /refereed bound is changed/i.test(PERM_ARCH_SIEVE_UNIVERSALITY.verdict),
   },
 ]);
 

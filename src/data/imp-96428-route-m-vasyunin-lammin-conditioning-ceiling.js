@@ -53,7 +53,7 @@
  * scheduling (imp-96261), NOT the lam_min decay.
  *
  * MEASUREMENT / EXTRAPOLATION ONLY. Changes no bound, establishes no operator
- * positivity, makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity, makes no RH claim; no refereed bound is changed.
  * RH open. NO QED.
  *
  * @see imp-96105-route-m-vasyunin-gram-extend-n6000.js (lam_min N<=6000, finding 4)
@@ -149,7 +149,7 @@ export const IMP96428_SUBGAP = Object.freeze({
 });
 
 export const IMP96428_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extrapolation only: every lam_min value is a reproducible numeric already committed in imp-96105 / imp-96325; the fit and conditioning ceiling are pure re-analysis (tmp/imp-96428-final.mjs); no Gram was rebuilt, no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Extrapolation only: every lam_min value is a reproducible numeric already committed in imp-96105 / imp-96325; the fit and conditioning ceiling are pure re-analysis (tmp/imp-96428-final.mjs); no Gram was rebuilt, no bound is claimed and no operator positivity is established.';
 
 // Honest-status caveat (imp-97026): the p/A fit above (IMP96428_FIT) has since been
 // cross-validated by imp-96999 across FOUR INDEPENDENT ESTIMATORS on this SAME Gram
@@ -211,7 +211,7 @@ const IMP96428_ASSERTIONS = [
     id: 'imp96428-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96428_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96428_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96428_HONEST_BANNER) &&
       /NO QED/.test(IMP96428_HONEST_BANNER) &&
       typeof IMP96428_SUBGAP.statement === 'string' &&
       /lammax-unrecorded/.test(IMP96428_SUBGAP.id),

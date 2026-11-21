@@ -41,7 +41,7 @@
  * MEASUREMENT ONLY. E(N) are bridge constants not the headline inequality (imp-2564);
  * the component model is the imp-3220/imp-3406 extrapolation which is NOT a rigorous
  * asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; no positivity, no bridge
- * closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-34434-en-bridge-total-minimum-locate (F3 approximate landmarks sharpened here)
  * @see imp-3406-sigma-highN-extrapolation (sigma share N-shape)
@@ -138,7 +138,7 @@ export const IMP34491_EN_FLOOR_PROXIMITY_BISECT = {
     'two-sig-fig quotes (~4.0e11, ~4.7e13). Tightening proximity 10x costs ~118x in N -- ' +
     'the 1/sqrt(N) E_coll tail. C_mb GUE-conditional per imp-486 untouched; E(N) are bridge ' +
     'CONSTANTS not the headline inequality (imp-2564); no positivity, no bridge closure, no ' +
-    'RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-34434 (F3 approximate floor-proximity landmarks); imp-3406 (sigma share N-shape); ' +
     'imp-3220 (conditional share sigma = E_coll/E(N)); imp-2564 (E(N) are bridge ' +
@@ -189,14 +189,14 @@ export const IMP34491_EN_FLOOR_PROXIMITY_BISECT_ASSERTIONS = [
       CROSS_1PCT.aboveFloor < CROSS_10PCT.aboveFloor,
   },
   {
-    // Honesty gate: measurement only, bridge-constant caveat present, no QED, PT SOTA.
+    // Honesty gate: measurement only, bridge-constant caveat present, no QED, no refereed bound is changed.
     id: 'imp34491-honesty-gate-no-qed',
-    description: 'Measurement only: bridge-constant caveat (imp-2564), no QED, PT stays SOTA',
+    description: 'Measurement only: bridge-constant caveat (imp-2564), no QED, no refereed bound is changed',
     holds: () =>
       IMP34491_EN_FLOOR_PROXIMITY_BISECT.isRigorous === false &&
       /bridge CONSTANTS/.test(IMP34491_EN_FLOOR_PROXIMITY_BISECT.verdict) &&
       /NO QED/.test(IMP34491_EN_FLOOR_PROXIMITY_BISECT.verdict) &&
-      /remains SOTA/.test(IMP34491_EN_FLOOR_PROXIMITY_BISECT.verdict),
+      /refereed bound is changed/i.test(IMP34491_EN_FLOOR_PROXIMITY_BISECT.verdict),
   },
 ];
 

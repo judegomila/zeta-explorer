@@ -74,8 +74,8 @@
  *   c_sharp ~ 0.582 (imp-97206), and no R closes the gap -- the true minimiser reaches 0.582 by
  *   cardinal-series cancellation, not radius tuning. The far-field cost is a spectral quantity, not a
  *   scalar the confinement radius can dial away. Measurement only; no operator positivity; no coercivity
- *   constant; no bound moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2
- *   remains SOTA; RH open; NO QED.
+ *   constant; no bound moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *   Resolves (measurement) SUB-GAP IMP97458_POSITIVE_FAR_FIELD_UNBOUNDED_COST_IS_SPECTRAL_NOT_SCALAR.
  *
  * @see imp-97458-krein-csharp-discarded-positive-far-field.js (named the spectral far-field cost; wells, island, t^4 tail)
@@ -85,7 +85,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (w_1, sigma_2; pole-free Weil positivity; reach 2a <= 0.96)
  *
  * Ticket: imp-97483 (numerical, medium, opus-4-8). Measurement only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

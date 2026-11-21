@@ -32,7 +32,7 @@
  *  crossover value (local D 1 → 2), not a scale-invariant dimension — to be weighed against Ramani–Grammaticos–Caurier 1995, van Zyl–Hutchinson
  *  2003, Schumayer–van Zyl–Hutchinson 2008 (cited from memory, not checked online). The construction consumes the ordinates: no RH lever.
  *
- * Tagged [map]; no Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_32_ASSERTIONS recompute live: E0 (asymptotic
+ * Tagged [map]; no Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_32_ASSERTIONS recompute live: E0 (asymptotic
  * and exact θ), the Abel constant c = 7/8 + 1/(48πE0) + …, the grid-stretch factor 1 − K(4K+3)/(2K+1)² ≈ 1/(4K) and the top-level shift it
  * causes, the variance-growth exponent α and Sobolev bound, the S(q) N-independence, and γ_n − t_n for the first 30 zeros.
  */
@@ -81,7 +81,7 @@ export const ROUTE_32 = Object.freeze({
     + 'as N grows. Its whiteness and limiting regularity are NOT established (spectral slope 0.5–1.1 depending on range; any limit, if it exists, '
     + 'sits below H^{−0.75}), and the 2k_max band limit is a property of min-norm updates. The phases are incoherent with the semiclassical '
     + 'prime-orbit sum. The construction consumes the zero ordinates, so it gives no lever on RH; a 1D Schrödinger Hilbert–Pólya operator '
-    + 'would also force simple zeros. Internal, one referee pass (major). No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'would also force simple zeros. Internal, one referee pass (major). No Λ bound moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_32;
@@ -141,7 +141,7 @@ export const ROUTE_32_ASSERTIONS = Object.freeze([
   {
     id: 'r32-honest-scope',
     holds: () => R.status === 'done' && /consumes the zero ordinates/.test(R.verdict) && /NOT established/.test(R.verdict) && /simple zeros/.test(R.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 9 && /REFUTED/.test(R.refereeKilled[0]),
+      && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 9 && /REFUTED/.test(R.refereeKilled[0]),
     why: 'Map result; continuum bug corrected; regularity/whiteness not established; no RH lever; no Λ change; no QED.',
   },
 ]);

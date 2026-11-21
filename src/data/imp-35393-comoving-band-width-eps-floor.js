@@ -48,7 +48,7 @@
  * It discharges NOTHING: imp-35111a / imp-35174a / imp-35243a (R1) stay OPEN. MEASUREMENT / ASSESSMENT ONLY; the
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35263-reentry-band-eps-floor-sweep (D4: co-moving reentry edge EPS_FP-invariant; sensitivity in the width)
  * @see imp-35259-two-rate-band-edges-direct-rootfind (the direct-bisection root-finder reproduced here)
@@ -194,8 +194,8 @@ export const IMP35393_COMOVING_BAND_WIDTH_EPS_FLOOR = {
     'OPEN. MEASUREMENT / ASSESSMENT ONLY on the inherited imp-3220/imp-3406 double surrogate, IEEE-754 double ' +
     'precision, point estimates; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb GUE-' +
     'conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); ' +
-    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35263 (D4: co-moving reentry edge EPS_FP-invariant, sensitivity in the width); imp-35259 (the direct-' +
     'bisection root-finder reproduced here); imp-35332 (drift decays 0.0186273 -> 0.0118306, why the slide grows ' +
@@ -242,13 +242,13 @@ export const IMP35393_COMOVING_BAND_WIDTH_EPS_FLOOR_ASSERTIONS = [
       INCREMENT_RATIOS.every((r) => Math.abs(r - 2) < 0.05),
   },
   {
-    // Honesty gate: assessment only, discharges nothing, no QED, PT SOTA, sub-gap stays OPEN and named.
+    // Honesty gate: assessment only, discharges nothing, no QED, no refereed bound is changed, sub-gap stays OPEN and named.
     id: 'imp35393-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, R1/imp-35243a OPEN, no QED, Platt-Trudgian stays SOTA',
+    description: 'Assessment only: isRigorous false, R1/imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP35393_COMOVING_BAND_WIDTH_EPS_FLOOR.isRigorous === false &&
       /NO QED/.test(IMP35393_COMOVING_BAND_WIDTH_EPS_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP35393_COMOVING_BAND_WIDTH_EPS_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP35393_COMOVING_BAND_WIDTH_EPS_FLOOR.verdict) &&
       /imp-35243a/.test(IMP35393_COMOVING_BAND_WIDTH_EPS_FLOOR.residual_sub_gap) &&
       /stay OPEN/.test(IMP35393_COMOVING_BAND_WIDTH_EPS_FLOOR.residual_sub_gap),
   },

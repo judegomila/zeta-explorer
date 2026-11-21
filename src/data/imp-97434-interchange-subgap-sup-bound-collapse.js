@@ -47,7 +47,7 @@
  * STATUS(d) "OPEN" re-citation) is superseded: branch (A) is FALSE. The live sub-gap is exactly the
  * direct boundary-layer estimate Integral_0^tau g e^t [M - M_k] dt -> 0, which coincides with
  * IMP97353_SIGNED_BOUNDARY_LAYER_SUBGAP. No new mechanism is supplied here; no bound on Lambda
- * moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * moves; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * RESIDUAL (the surviving sub-gap, sharpened).
@@ -151,11 +151,11 @@ export const IMP97434_VERDICT = Object.freeze({
     'see the M_k(0+)=0 vs M(0+)=-2 cancellation. The only live route is the direct signed estimate ' +
     'Integral_0^tau g e^t [M - M_k] dt -> 0, which coincides with IMP97353_SIGNED_BOUNDARY_LAYER_SUBGAP; ' +
     'IMP97332_INTERCHANGE_SUBGAP is re-stated accordingly (IMP97434_INTERCHANGE_SUBGAP_RESTATED). No ' +
-    'mechanism supplied, no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'mechanism supplied, no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97434_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest assessment: the imp-97434 branch (A) ' +
+  'RH open; no refereed bound is changed; NO QED. Honest assessment: the imp-97434 branch (A) ' +
   'friable-Mertens sup bound sup_t |M_k(t)| = o(p_k) is FALSE (imp-97353; sup ~ 1.71^k, crosses p_k ' +
   'at k = 13, re-confirmed), so IMP97332_INTERCHANGE_SUBGAP is not open as the imp-97364 STATUS(d) ' +
   'headword re-cites -- the disjunction collapses onto branch (B), the direct signed boundary-layer ' +
@@ -208,7 +208,7 @@ const IMP97434_ASSERTIONS = [
       IMP97434_VERDICT.rhResolved === false &&
       IMP97434_VERDICT.qed === false &&
       /NO QED/.test(IMP97434_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97434_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97434_HONEST_BANNER) &&
       /RH open/.test(IMP97434_HONEST_BANNER),
     why: 'honest assessment: branch (A) refuted, disjunction collapsed, no mechanism supplied, no bound moved, no QED.',
   },

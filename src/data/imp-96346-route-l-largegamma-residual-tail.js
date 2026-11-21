@@ -51,7 +51,7 @@
  * from the baked literals here. That measurement is left OPEN.
  *
  * Measurement on baked literals + closed-form extrapolation only; changes NO bound; RH open;
- * Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * Reproduce: tmp/imp-96346-scratch.mjs (pure-JS closed-form residual + extrapolation + sensitivity).
  *
@@ -115,6 +115,6 @@ export const IMP96346_VERDICT =
   + 'window extrapolated ~11 decades -- a gap of exactly 0 would flip the verdict to a constant -8.20% '
   + 'offset -- so confirming the exponent gap needs real higher-gamma detector rows (not baked literals), '
   + 'left OPEN. Closed-form extrapolation on baked literals only; changes no bound; RH open; '
-  + 'Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.';
+  + 'no refereed bound is changed; NO QED.';
 
 export const IMP96346_SCRIPTS = Object.freeze(['tmp/imp-96346-scratch.mjs']);

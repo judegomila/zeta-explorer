@@ -14,8 +14,7 @@
  *
  * MEASUREMENT / CHARACTERIZATION ONLY. Reuses the EXACT imp-3406 / imp-35723
  * sub-term formulas; ports nothing; discharges nothing; changes no bound; C_mb
- * GUE-conditional (imp-486) UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GUE-conditional (imp-486) UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE QUANTITY (identical sub-terms to imp-3406 / imp-35723)
  * -----------------------------------------------------------------------------
@@ -71,7 +70,7 @@
  * the parity onset unmoved (~0.003%), vindicating "E_flow negligible" for the upper band
  * edge -- but the LOWER band edge (the beat-regime sigma peak at ~9.22e5) is created by
  * E_flow and vanishes without it. Measurement only; asserts no beat beyond the recorded
- * imp-452/459 one; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-452/459 one; changes no bound; NO QED. No refereed bound is changed.
  *
  * @see imp-35723-beat-parity-regime-boundary-Nsigma-locator (band + crossover under E_flow-negligible)
  * @see imp-3406-sigma-highN-extrapolation (the sigma(N) ladder + sub-terms this reuses; N_half ~ 3.27e9)
@@ -220,8 +219,8 @@ export const IMP35784_EFLOW_RETENTION_CROSSOVER_BAND_SHIFT = {
     'to the bracket boundary, so the beat-regime peak is an E_flow-created feature. Measurement / ' +
     'characterization only; reuses the recorded imp-3406 / imp-35723 sub-terms; ports nothing; discharges ' +
     'nothing; changes no bound; asserts NO beat beyond the already-recorded imp-452/459 finite-height one; ' +
-    'C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35723 (band + crossover under E_flow-negligible); imp-3406 (sigma(N) ladder + sub-terms, N_half ~ ' +
     '3.27e9); imp-35750 (sigma = 0.5 crossover); imp-486/imp-35334 (E_coll/E(N) = sigma); imp-398 (E_flow ' +
@@ -269,16 +268,16 @@ export const IMP35784_EFLOW_RETENTION_CROSSOVER_BAND_SHIFT_ASSERTIONS = [
       EFLOW_OVER_ECOLL_AT_BRACKET_LO > 0.05, // E_flow materially suppresses sigma at small N
   },
   {
-    // Honesty gate: measurement only, no beat beyond recorded, C_mb untouched, no QED, PT SOTA.
+    // Honesty gate: measurement only, no beat beyond recorded, C_mb untouched, no QED, no refereed bound is changed.
     id: 'imp35784-honesty-gate-no-qed',
-    description: 'Measurement only: E_flow error quantified, no beat beyond the recorded one, C_mb GUE-conditional untouched, no QED, PT SOTA',
+    description: 'Measurement only: E_flow error quantified, no beat beyond the recorded one, C_mb GUE-conditional untouched, no QED, no refereed bound is changed',
     holds: () =>
       IMP35784_EFLOW_RETENTION_CROSSOVER_BAND_SHIFT.isRigorous === false &&
       /MEASUREMENT/.test(IMP35784_EFLOW_RETENTION_CROSSOVER_BAND_SHIFT.verdict) &&
       /asserts NO beat beyond/.test(IMP35784_EFLOW_RETENTION_CROSSOVER_BAND_SHIFT.verdict) &&
       /UNTOUCHED/.test(IMP35784_EFLOW_RETENTION_CROSSOVER_BAND_SHIFT.verdict) &&
       /NO QED/.test(IMP35784_EFLOW_RETENTION_CROSSOVER_BAND_SHIFT.verdict) &&
-      /remains SOTA/.test(IMP35784_EFLOW_RETENTION_CROSSOVER_BAND_SHIFT.verdict),
+      /refereed bound is changed/i.test(IMP35784_EFLOW_RETENTION_CROSSOVER_BAND_SHIFT.verdict),
   },
 ];
 

@@ -60,7 +60,7 @@
  * extrapolation, NOT a rigorous asymptotic; the closed form off ~ -1/(2 (log T0)^2) is a MATCH to
  * the measured decay, not a proven bound; the C_mb GUE-conditional share per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33887-ecoll-gap-anchoring-convention-reconciliation (three-way split; I3 reference offset ~-6.3e-4 on 1e12..1e15)
  * @see imp-33854-log-saturation-exponent-reconciliation (identity I1 gap_ecoll=g; I3 g -> 1/(2 log T0))
@@ -205,7 +205,7 @@ export const IMP33918_ECOLL_G_VS_LAW_REFERENCE_OFFSET_CONVERGENCE_RATE = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the closed form is a MATCH to the ' +
     'measured decay, not a proven bound; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33887 (three-way split; I3 reference offset ~-6.3e-4, ratio g/law ~0.96 on 1e12..1e15); ' +
     'imp-33854 (identity I1 gap_ecoll=g to machine precision; I3 g -> 1/(2 log T0)); imp-33816 ' +
@@ -251,13 +251,13 @@ export const IMP33918_ECOLL_G_VS_LAW_REFERENCE_OFFSET_CONVERGENCE_RATE_ASSERTION
     holds: () => MAX_I1_DEV < 1e-8,
   },
   {
-    // Honesty gate: measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp33918-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33918_ECOLL_G_VS_LAW_REFERENCE_OFFSET_CONVERGENCE_RATE.isRigorous === false &&
       /NO QED/.test(IMP33918_ECOLL_G_VS_LAW_REFERENCE_OFFSET_CONVERGENCE_RATE.verdict) &&
-      /remains SOTA/.test(IMP33918_ECOLL_G_VS_LAW_REFERENCE_OFFSET_CONVERGENCE_RATE.verdict),
+      /refereed bound is changed/i.test(IMP33918_ECOLL_G_VS_LAW_REFERENCE_OFFSET_CONVERGENCE_RATE.verdict),
   },
 ];
 

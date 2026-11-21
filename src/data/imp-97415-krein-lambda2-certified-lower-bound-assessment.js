@@ -11,7 +11,7 @@
  *
  *   DERIVATION / ASSESSMENT only. No unconditional lower bound on lambda_2 that exceeds 0.581059 is produced;
  *   the m=1 enclosure stays UNUSABLE; no operator positivity is established; no bound moves; interval-rigorous
- *   reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * SETUP. For the m=1 Lehmann-Maehly bracket lambda_1 >= rho - 1/nu_max(rho) to be BOTH valid AND non-trivial
  *   we need a shift rho with (a) rho <= lambda_2 (validity of the certified lower bound) and (b) rho > lambda_1

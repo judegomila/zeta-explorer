@@ -24,7 +24,7 @@
  *
  * WHAT REMAINS OPEN (unaffected by this closure): an unconditional proof that C_mb = O(1) (imp-486 shows
  * this requires GUE universality, itself unproved); no bound on Lambda moves; interval-rigorous reach
- * stays 2a <= 0.96 (Route I); Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * stays 2a <= 0.96 (Route I); no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-3406-sigma-highN-extrapolation.js (F1: interior max N_max ~ 9.22e5, sigma_max ~ 0.94943)
  * @see imp-34734-sigma-peak-cmb-elasticity.js (C_mb leverage measurement: peak location C_mb-invariant,
@@ -33,7 +33,7 @@
  *   GUE universality is an IRREDUCIBLE conditional premise for C_mb = O(1))
  *
  * Ticket: imp-97412 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP34734_SIGMA_PEAK_CMB_ELASTICITY } from './imp-34734-sigma-peak-cmb-elasticity.js';
@@ -60,8 +60,8 @@ export const IMP97412_HONEST_BANNER =
   'N ~ 9.22e5 then decays (imp-3406/imp-34734), but the GUE-conditional constant C_mb it depends on is ' +
   'only bounded C_mb <= 1 via GUE universality, and imp-486 shows the search for an UNCONDITIONAL C_mb ' +
   'bound is COMPLETE and FAILED (GUE universality is an IRREDUCIBLE conditional premise). So NO ' +
-  'unconditional Lambda movement follows from the sigma(N) peak. Platt-Trudgian Lambda <= 0.2 remains ' +
-  'SOTA; RH open; NO QED.';
+  'unconditional Lambda movement follows from the sigma(N) peak. No refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97412_ASSERTIONS = [
@@ -90,10 +90,10 @@ const IMP97412_ASSERTIONS = [
       IMP97412_STATUS.rhResolved === false &&
       IMP97412_STATUS.qed === false &&
       /NO QED/.test(IMP97412_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97412_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97412_HONEST_BANNER) &&
       /RH open/.test(IMP97412_HONEST_BANNER) &&
       /IRREDUCIBLE/.test(IMP97412_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

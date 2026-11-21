@@ -53,7 +53,7 @@
  * model is the inherited imp-3220/imp-3406 EXTRAPOLATION, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional (imp-486) and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; the imp-33828
  * reference ladder is unchanged; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33828-sigma-decay-landmark-ladder-reference (the six-rung ladder cross-validated here)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (identical parts() sub-terms; crossover closed form)
@@ -150,8 +150,8 @@ export const IMP33847_SIGMA_DECAY_LANDMARK_CROSSVAL = {
     'no value is re-derived and no tabulated N is altered. Component model is the inherited ' +
     'imp-3220/imp-3406 EXTRAPOLATION, NOT a rigorous asymptotic; the C_mb GUE-conditional (imp-486) ' +
     'and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33828 (six-rung sigma-decay landmark ladder reference); imp-33723 (identical parts() ' +
     'sub-terms; crossover closed form); imp-33601 (sigma=1/2 <=> E_coll=E_trunc+E_flow); imp-3406 ' +
@@ -192,13 +192,13 @@ export const IMP33847_SIGMA_DECAY_LANDMARK_CROSSVAL_ASSERTIONS = [
     holds: () => KNEE.sigma_direct > 0.1 && KNEE.sigma_direct < 0.5,
   },
   {
-    // Honesty gate: verification/measurement only, ladder unchanged, no QED, PT stays SOTA.
+    // Honesty gate: verification/measurement only, ladder unchanged, no QED, no refereed bound is changed.
     id: 'imp33847-honesty-gate-no-qed',
-    description: 'verification only: isRigorous false, no QED, imp-3066 untouched, PT stays SOTA',
+    description: 'verification only: isRigorous false, no QED, imp-3066 untouched, no refereed bound is changed',
     holds: () =>
       IMP33847_SIGMA_DECAY_LANDMARK_CROSSVAL.isRigorous === false &&
       /NO QED/.test(IMP33847_SIGMA_DECAY_LANDMARK_CROSSVAL.verdict) &&
-      /remains SOTA/.test(IMP33847_SIGMA_DECAY_LANDMARK_CROSSVAL.verdict) &&
+      /refereed bound is changed/i.test(IMP33847_SIGMA_DECAY_LANDMARK_CROSSVAL.verdict) &&
       /imp-3066/.test(IMP33847_SIGMA_DECAY_LANDMARK_CROSSVAL.verdict),
   },
 ];

@@ -6,7 +6,7 @@
  *   imp-3216 crossover LOCATION tau_1), or drifts / scales with a.
  *
  *   MEASUREMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   THE QUESTION (verbatim from the ticket)
  *   ---------------------------------------
@@ -69,7 +69,7 @@
  *   deficit MAGNITUDE is not re-derived, and a nonzero / a-invariant overflow clearance
  *   is necessary-but-NOT-sufficient at operator order -- the off-diagonal
  *   endpoint-Hankel operator step (imp-3066) remains the lone obstruction. RH-equivalent.
- *   No RH verdict, no false QED. Platt-Trudgian Lambda &lt;= 0.2 stays the rigorous SOTA.
+ *   No RH verdict, no false QED. No refereed bound is changed.
  *
  *   @see imp-3384-interior-crossover-below-horizon.js (reported min(nu/mu)~2.08, never tested a-invariance)
  *   @see imp-3216-overflow-support-length-closed-form.js (the crossover LOCATION tau_1 is a-invariant)
@@ -386,7 +386,7 @@ export const IMP3426_LOWER_CROSSOVER_CLEARANCE_FLOOR_A_INVARIANCE = Object.freez
       'A nonzero / a-invariant overflow clearance is necessary-but-NOT-sufficient at operator order; the ' +
       'off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -429,7 +429,7 @@ export const IMP3426_LOWER_CROSSOVER_CLEARANCE_FLOOR_A_INVARIANCE_ASSERTIONS = [
   {
     id: 'imp3426-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC at the genuine Phi, clearance strength (not the absolute deficit ' +
-         'magnitude), necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 stays SOTA.',
+         'magnitude), necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3426_LOWER_CROSSOVER_CLEARANCE_FLOOR_A_INVARIANCE.honestCaveat;
       return (
@@ -437,7 +437,7 @@ export const IMP3426_LOWER_CROSSOVER_CLEARANCE_FLOOR_A_INVARIANCE_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

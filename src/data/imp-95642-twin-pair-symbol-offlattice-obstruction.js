@@ -8,8 +8,7 @@
  * the imp-95609 open question ("can the twin-pair symbol be carried
  * off-lattice, or is 4.611560 a genuine floor?") in favour of GENUINE
  * FLOOR, with a structural obstruction and a two-endpoint collapse
- * witness. Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * witness. Changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * BACKGROUND (imp-95335 / imp-95419 / imp-95609). Normalized seam Gram
  * Gtilde_ij = sech((x_i - x_j)/2) on log-rates x. THEOREM SEP-OPT
@@ -81,8 +80,7 @@
  * plus the elementary class-infimum / continuity argument above; it
  * introduces no new cited input. (c) Model seam family only; the
  * imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay
- * OPEN. Changes NO bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95609-seam-gram-onset-ladder-table (the open 4.611560 residual)
  * @see imp-95419-separated-class-optimal-riesz-floor (THEOREM SEP-OPT, scalar class floor)
@@ -140,8 +138,8 @@ export const IMP95642_TWIN_PAIR_SYMBOL_OFFLATTICE_OBSTRUCTION = {
     "plus an elementary class-infimum argument; no new cited input. " +
     "Lattice-pinned RZ-PEN chart refinements stay lattice-only; the " +
     "imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay " +
-    "OPEN. Changes no bound of the Lambda program; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "OPEN. Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95642"],
 };
 
@@ -293,7 +291,7 @@ export const IMP95642_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /GENUINE FLOOR/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95642-closes-self",

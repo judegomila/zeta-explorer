@@ -39,7 +39,7 @@
  *   law g_min(N)/y_N -> 0.
  *
  *   STATUS: an analytic + tabular reconciliation of a single finite dataset, not a
- *   proof about the running-min process. NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   proof about the running-min process. NO QED. No refereed bound is changed.
  *
  * @see imp-96637-gmin-fit-gue-crossover.js (source: the crossover and classification
  *   this glosses)
@@ -48,7 +48,7 @@
  *   imp-96616 envelope-tracking finding itself)
  *
  * Ticket: imp-96658 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The two-sided-oscillation headword, baked verbatim (no re-import).
@@ -85,8 +85,8 @@ const GMIN_TWO_SIDED_OSCILLATION_HEADWORD = Object.freeze({
     'Analytic crossover solve (N* = (A/C)^{1/(c-b)}) plus a re-read of the imp-96616 ' +
     '14-rung tabular ladder (2,001,052 Odlyzko zeros). Reconciles two consistent ' +
     'descriptions of one finite dataset; not an asymptotic theorem about the running-' +
-    'min process. Changes no bound; establishes no operator positivity; PT Lambda <= 0.2 ' +
-    'remains SOTA; RH open; NO QED.',
+    'min process. Changes no bound; establishes no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96658_GMIN_TWO_SIDED_OSCILLATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -111,7 +111,7 @@ export const IMP96658_GMIN_TWO_SIDED_OSCILLATION_GLOSSARY_HEADWORD = Object.free
     'one-sided bound. Does not change the imp-96616 consequence that beating the ' +
     '1/log^2 fold-law surrogate needs the unproved GUE cube-root small-gaps law. ' +
     'Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96637 (the crossover solve and two-sided-oscillation classification this ' +
     'glosses); imp-96616 (the underlying running-min measurement).',
@@ -137,11 +137,11 @@ export const IMP96658_GMIN_TWO_SIDED_OSCILLATION_GLOSSARY_HEADWORD_ASSERTIONS = 
   },
   {
     id: 'imp96658-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96658_GMIN_TWO_SIDED_OSCILLATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96658_GMIN_TWO_SIDED_OSCILLATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96658_GMIN_TWO_SIDED_OSCILLATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96658_GMIN_TWO_SIDED_OSCILLATION_GLOSSARY_HEADWORD.verdict) &&
       IMP96658_GMIN_TWO_SIDED_OSCILLATION_GLOSSARY_HEADWORD.glosses === 'imp-96637',
   },
 ];

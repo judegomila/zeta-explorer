@@ -65,7 +65,7 @@
  * decides the open question (deep-corner underflow does NOT flatten the exponent).
  * (c) Model seam family only; the imp-95212 envelope port, signed WEIGHT, and
  * modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176 unrefereed.
+ * no refereed bound is changed; Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95841-ln13-shift-invert-direct-exponent (the nPts <= 1920 window this extends + its residual)
  * @see imp-95823-rho1-szego-direct-dd-eigensolve (the DD-Jacobi module + its exponent sub-gap)
@@ -239,7 +239,7 @@ export const IMP95857_LN13_EXTENDED_REACH_EXPONENT = {
     "NOT a new asymptotic regime. Measures an established endpoint; no new cited input. " +
     "Model seam family only; the imp-95212 envelope port, signed WEIGHT, and " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176 unrefereed.",
+    "no refereed bound is changed; Sun arXiv:2609.04176 unrefereed.",
   closesTickets: ["imp-95857"],
 };
 
@@ -360,7 +360,7 @@ export const IMP95857_ASSERTIONS = [
       REF.deepCornerDoesNotFlatten === true &&
       REF.residualSubGap === "imp-95820-ln125-shift-budget-scaling" &&
       /KEEPS TIGHTENING FROM BELOW/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95857-closes-self",

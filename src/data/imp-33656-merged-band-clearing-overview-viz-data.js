@@ -22,7 +22,7 @@
  * @see imp-33599-wide-range-band-crossing-envelope-law.js (the original [400,700] scan)
  *
  * Ticket: imp-33656 (ux, low). Presentation only, RH-equivalent; imp-3066 untouched;
- * Platt-Trudgian Lambda &lt;= 0.2 stays SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  */
 
 import {

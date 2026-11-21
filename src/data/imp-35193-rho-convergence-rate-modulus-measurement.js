@@ -53,7 +53,7 @@
  * log-log slope on a finite eps ladder gives an empirical theta ~ 3/2 and K ~ 0.4 but does NOT certify a
  * modulus of convergence, does NOT discharge O3 or G6a, establishes no operator positivity, changes no
  * bound. G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb
- * remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * remains GUE-conditional (imp-486); NO QED. No refereed bound is changed.
  *
  * @see imp-35076-h3-a-fortiori-discharges-h4-numerical-verification (the finite-ladder 2/3 margin measured here)
  * @see imp-35152-n-uniform-fold-modulus-back-conversion-scoping (names O3 / gap G-b as the load-bearing input)
@@ -216,8 +216,8 @@ export const IMP35193_RHO_CONVERGENCE_RATE_MODULUS_MEASUREMENT = {
     '|rho(eps) - 2/3| ~ K eps^{3/2} with K ~ 0.4. This PINS the exponent and prefactor an analytic proof of ' +
     'O3 would target but does NOT discharge O3 (no certified constant, no error bar, model-cusp surrogate, ' +
     'finite ladder), establishes no operator positivity, changes no bound. imp-3066 off-diagonal endpoint- ' +
-    'Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP35193_RHO_CONVERGENCE_RATE_ASSERTIONS = [
@@ -262,16 +262,16 @@ export const IMP35193_RHO_CONVERGENCE_RATE_ASSERTIONS = [
       IMP35193_RHO_CONVERGENCE_RATE_MODULUS_MEASUREMENT.headRho > TWO_THIRDS,
   },
   {
-    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35193-honesty-gate-no-qed',
     description:
-      'Measurement only: empirical theta/K estimated but O3/G6a NOT discharged, no QED, PT SOTA, imp-3066 untouched',
+      'Measurement only: empirical theta/K estimated but O3/G6a NOT discharged, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35193_RHO_CONVERGENCE_RATE_MODULUS_MEASUREMENT.isRigorous === false &&
       IMP35193_RHO_CONVERGENCE_RATE_MODULUS_MEASUREMENT.dischargesO3orG6a === false &&
       /NO QED/.test(IMP35193_RHO_CONVERGENCE_RATE_MODULUS_MEASUREMENT.verdict) &&
       /STAYS OPEN/.test(IMP35193_RHO_CONVERGENCE_RATE_MODULUS_MEASUREMENT.verdict) &&
-      /rigorous SOTA/.test(IMP35193_RHO_CONVERGENCE_RATE_MODULUS_MEASUREMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35193_RHO_CONVERGENCE_RATE_MODULUS_MEASUREMENT.verdict) &&
       /imp-3066 off-diagonal endpoint-\s*Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35193_RHO_CONVERGENCE_RATE_MODULUS_MEASUREMENT.verdict,
       ),

@@ -162,10 +162,10 @@ export const IMP33802_PERRON_NORM_CURVE_VIZ_DATA = Object.freeze({
     didNotAttemptPositivity: true,
     carriesNoRHVerdict: true,
     isRigorous: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    sota: 'No refereed bound is changed.',
     honestyLock:
       'Viz-data / structural diagnostic only, NO QED; C_mb GUE-conditional (imp-486) untouched; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'no refereed bound is changed.',
   }),
 });
 
@@ -205,7 +205,7 @@ export const IMP33802_PERRON_NORM_CURVE_VIZ_DATA_ASSERTIONS = [
     id: 'imp33802-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: viz-data only, decoupled probe is diagnostic (not an admissible ' +
          'imp-3066 modification), no RH verdict, imp-3066 / imp-33765 / imp-33789 untouched, ' +
-         'positivity not attempted, PT 0.2 stays SOTA.',
+         'positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP33802_PERRON_NORM_CURVE_VIZ_DATA.honestCaveat;
       return (
@@ -220,7 +220,7 @@ export const IMP33802_PERRON_NORM_CURVE_VIZ_DATA_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         c.carriesNoRHVerdict === true &&
         c.isRigorous === false &&
-        /Platt-Trudgian/.test(c.sota) &&
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota) &&
         /NO QED/.test(c.honestyLock)
       );
     },

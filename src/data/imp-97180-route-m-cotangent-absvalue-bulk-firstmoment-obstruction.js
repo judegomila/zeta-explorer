@@ -6,7 +6,7 @@
  * 0.5704960511308594, the sole open input imp-97168 names for kappa > 0. The attempt does NOT
  * produce a rigorous c; instead it REFINES (and partly corrects) the imp-97116 stated obstruction
  * with a data-grounded decomposition and rules out the elementary termwise route. No bound is
- * proved rigorous; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * proved rigorous; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-97116/imp-97097. A(b) = Sum_{a=2,(a,b)=1}^{b-1} |c_0(h_a/a)|, h_a = b-inverse
  * mod a, c_0(h/k) = Sum_{n=1}^{k-1} (n/k) cot(pi n h/k) (imp-97116 R1: V(b,a) = c_0(h_a/a) exactly).
@@ -71,7 +71,7 @@
  * the Bettin-Conrey ABSOLUTE FIRST MOMENT E_a[|c_0(h_a/a)|/a] ~ 0.27 over the inverse line, not the
  * small-inverse frequency. The measured c ~ 0.145 stays MEASURED, not proved; the ~3.9x margin below
  * kappa_arith = 0.5705 is unchanged in substance. No bound on Lambda moves; T ~ 2.594e7 trace anchor;
- * compute (N ~ 9916) binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * compute (N ~ 9916) binds first. No refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97180-cotangent-absvalue-first-moment -- prove
  * Sum_{a=2,(a,b)=1}^{b-1} |c_0(b-inverse mod a / a)| <= c_1 Sum_{a coprime} a with explicit
@@ -189,8 +189,8 @@ export const IMP97180_VERDICT = Object.freeze({
     'o(1), so the open input is not the small-inverse FREQUENCY but the Bettin-Conrey ABSOLUTE FIRST ' +
     'MOMENT E_a[|c_0(b-inverse mod a / a)|/a] ~ 0.27 (flat, no log) over the inverse line. The measured ' +
     'c ~ 0.145 stays MEASURED (< 0.5705 by ~3.9x); no uniform termwise O(a) bound exists (c_0(1/a) ~ ' +
-    '(1/pi) a log a). No bound moved; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    '(1/pi) a log a). No bound moved; T ~ 2.594e7 anchor; compute N ~ 9916 binds first. No refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97180_SUBGAP = Object.freeze({
@@ -205,7 +205,7 @@ export const IMP97180_SUBGAP = Object.freeze({
 });
 
 export const IMP97180_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment + partial only: the attempt to certify ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment + partial only: the attempt to certify ' +
   'A(b) <= c phi(b) b with c < 0.5705 does NOT succeed. It rules out the elementary termwise bound ' +
   '|c_0(h/a)| <= K (a/h) log(2a) (its error grows in the bulk h ~ a/2) and refines the imp-97116 ' +
   'obstruction: the small-inverse tail A_tail/(phi b) is measured lower order, so the sole open input is ' +
@@ -287,7 +287,7 @@ const IMP97180_ASSERTIONS = [
       /absvalue-first-moment/.test(IMP97180_SUBGAP.id) &&
       /ABSOLUTE\s+FIRST\s+MOMENT/.test(IMP97180_SUBGAP.statement) &&
       /NO QED/.test(IMP97180_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97180_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97180_HONEST_BANNER) &&
       /RH open/.test(IMP97180_HONEST_BANNER),
     why: 'assessment + partial: the certified c is not obtained; the elementary route is ruled out and the obstruction is refined to the Bettin-Conrey absolute first moment -- no bound moved, no rigorous ceiling, honesty markers and the named residual sub-gap present.',
   },

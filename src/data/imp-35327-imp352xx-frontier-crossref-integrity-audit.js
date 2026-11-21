@@ -28,7 +28,7 @@
  *
  * SCOPE. Read-only cross-reference audit only. No source file was modified as a result of
  * this check (none needed correction). Changes no bound; establishes no operator positivity;
- * no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35186-cross-reference-integrity-audit (the audit method this ticket repeats)
  * @see imp-35310-imp352xx-currentstatus-honesty-audit (the only file in the audited id range)
@@ -72,8 +72,8 @@ export const IMP35327_FRONTIER_CROSSREF_INTEGRITY_AUDIT = {
     'falls in [35245, 35323] against the actual src/data directory listing and the ticket ids ' +
     "recorded in improvements.js / improvement-queue.js. Result: zero dangling references, zero " +
     'misnamed exports, no missing files. No source file required correction. Changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation: 'imp-35186 (prior audit method), imp-70234 (adjacent sub-range audit), imp-35310 (the audited file).',
 };
 
@@ -92,11 +92,11 @@ export const IMP35327_FRONTIER_CROSSREF_INTEGRITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35327-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35327_FRONTIER_CROSSREF_INTEGRITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35327_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35327_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35327_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict),
   },
 ];
 

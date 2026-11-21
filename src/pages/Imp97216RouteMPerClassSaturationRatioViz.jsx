@@ -116,8 +116,8 @@ export default function Imp97216RouteMPerClassSaturationRatioViz() {
         <strong>primes</strong>, where the saturation ratio r0(b) = |E0(b)|/bound climbs toward the
         exact limit {e0AsymptoticSaturationRatioLabel} (a finite factor-4 overhead). On prime powers
         and primorials the same bound is orders too large &mdash; a mu-sign cancellation over the
-        squarefree divisors that the triangle method discards. Measurement only; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        squarefree divisors that the triangle method discards. Measurement only; no refereed bound is changed;
+         RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>

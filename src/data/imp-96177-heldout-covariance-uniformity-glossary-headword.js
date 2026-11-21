@@ -21,7 +21,7 @@
  * @see imp-96090-number-variance-mean-anchor-heldout-out-of-sample (the five held-out heights and window counts)
  *
  * Ticket: imp-96177 (content, low). Documentation only; establishes nothing; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The held-out-height uniformity headword, baked verbatim (no re-import).
@@ -64,7 +64,7 @@ export const IMP96177_HELDOUT_COVARIANCE_UNIFORMITY_GLOSSARY_HEADWORD = Object.f
     'uniformity result: rho_exact in -0.4587 .. -0.4660 (spread 0.0073, bracketing the imp-96128 ' +
     'T = 1.5e5 value), the AR-1 n_eff factor nearly constant at ~2.7x (2.695 .. 2.746), and the ' +
     'safe-side flip margin uniformly ~1.04 rho-units across the accessible band. Establishes ' +
-    'nothing; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'nothing; changes no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96150 (five-height uniformity census and verdict); imp-96128 (single-height exact ' +
     'covariance); imp-96090 (the five held-out heights and window counts); imp-96156 (the ' +
@@ -91,11 +91,11 @@ export const IMP96177_HELDOUT_COVARIANCE_UNIFORMITY_GLOSSARY_HEADWORD_ASSERTIONS
   },
   {
     id: 'imp96177-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96177_HELDOUT_COVARIANCE_UNIFORMITY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96177_HELDOUT_COVARIANCE_UNIFORMITY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96177_HELDOUT_COVARIANCE_UNIFORMITY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96177_HELDOUT_COVARIANCE_UNIFORMITY_GLOSSARY_HEADWORD.verdict) &&
       IMP96177_HELDOUT_COVARIANCE_UNIFORMITY_GLOSSARY_HEADWORD.glosses === 'imp-96150' &&
       IMP96177_HELDOUT_COVARIANCE_UNIFORMITY_GLOSSARY_HEADWORD.scopes === 'imp-96128',
   },

@@ -39,7 +39,7 @@
  * Δ⁻¹(xp + px)Δ, Δ = 1 − e^{−ip}), dates Sierra–Townsend 2019 (PRL 101, 110201 is 2008, per recall) and calls SRL/BBM boundary terms
  * prime-dependent; "Rodriguez-Lagares" (recalled coauthor: Rodríguez-Laguna, PRL 106, 200201 (2011)) appears in sierra-xp-regularization.js,
  * berry-keating-xp-spectral.js, berry-keating-xp-operator.js and BerryKeatingXpPage.jsx. Citations recalled, not checked online.
- * Tagged [map]; no Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_31_ASSERTIONS recompute live: the SRL area
+ * Tagged [map]; no Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_31_ASSERTIONS recompute live: the SRL area
  * asymptotics (2π/E vs 1/(48πE)), the 7/8 constant and 1/(48πE) term of θ/π + 1 (complex Stirling log-gamma), S(γ_n) and the Gamma-phase
  * displacement for the first 30 zeros, the SE distances of c and μ, the BBM eigenvalues / growth exponents / L² integral, the λ² = 3 edge effect.
  */
@@ -95,7 +95,7 @@ export const ROUTE_31 = Object.freeze({
     + 'return only with arithmetic input: prime-orbit sum (0.9992), explicit formula (4e-9), finite-Λ Weil form (primes ≤ λ²; controls fail '
     + 'without primes; for λ² ≥ 13 a rounding-dependent near-kernel). BBM matches the zeros because ζ(s) = 0 is its boundary condition; its '
     + 'eigenfunctions are not L², trivial zeros give non-real eigenvalues, and reality on growth-cap domains would imply RH (one direction). '
-    + 'Internal, one referee pass. No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'Internal, one referee pass. No Λ bound moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_31;
@@ -165,7 +165,7 @@ export const ROUTE_31_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r31-honest-scope',
-    holds: () => R.status === 'done' && /semiclassical SRL/.test(R.verdict) && /one direction/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict)
+    holds: () => R.status === 'done' && /semiclassical SRL/.test(R.verdict) && /one direction/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict)
       && /NO QED/.test(R.verdict) && /not a step toward RH/.test(R.verdict) && R.refereeKilled.length === 10,
     why: 'Map result; SRL claim scoped to the semiclassical count; BBM reality ⇒ RH one direction only; no Λ change; no QED.',
   },

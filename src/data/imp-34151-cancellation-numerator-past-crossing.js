@@ -42,7 +42,7 @@
  * crossing, NOT an RH bound. Reuses the imp-33773/imp-33810 sub-terms verbatim; the inherited imp-3220/
  * imp-3406 component model is NOT a rigorous asymptotic; the numerator profile is descriptive within that
  * model only; changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486
- * untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34087-f4-surrogate-cancellation-digit-loss (the reciprocal identity + ~0.978 numerator, band 13..21)
  * @see imp-34150-m2-residual-crossing-direct-bisection-crossval (the direct kEnd* ~ 21.28095 crossing)
@@ -222,8 +222,8 @@ export const IMP34151_CANCELLATION_NUMERATOR_PAST_CROSSING = {
     'the numerator approaches unity, carrying only that slowly-varying O(1) prefactor. The inherited ' +
     'imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the numerator profile is descriptive ' +
     'within the model only; changes no bound; establishes no operator positivity; C_mb GUE-conditional per ' +
-    'imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34087 (the reciprocal identity and ~0.978 O(1) numerator on the sign-stable band verified past ' +
     'the crossing here); imp-34150 (the direct kEnd* ~ 21.28095 crossing); imp-34023 (the F4 divergence ' +
@@ -280,13 +280,13 @@ export const IMP34151_CANCELLATION_NUMERATOR_PAST_CROSSING_ASSERTIONS = [
     holds: () => CROSSING_KEND > 21.27 && CROSSING_KEND < 21.29 && Math.abs(cancel(CROSSING_KEND).resid) < 1e-8,
   },
   {
-    // Honesty gate: numerical/measurement only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: numerical/measurement only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34151-honesty-gate-no-qed',
-    description: 'Numerator-survival diagnostic only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Numerator-survival diagnostic only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34151_CANCELLATION_NUMERATOR_PAST_CROSSING.isRigorous === false &&
       /NO QED/.test(IMP34151_CANCELLATION_NUMERATOR_PAST_CROSSING.verdict) &&
-      /remains SOTA/.test(IMP34151_CANCELLATION_NUMERATOR_PAST_CROSSING.verdict) &&
+      /refereed bound is changed/i.test(IMP34151_CANCELLATION_NUMERATOR_PAST_CROSSING.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34151_CANCELLATION_NUMERATOR_PAST_CROSSING.verdict),
   },
 ];

@@ -40,7 +40,7 @@
  * ~7 digits, closing the imp-95615 "is the gate even that accurate" sub-question.
  *
  * Catalan constant G irrationality remains OPEN; Sun arXiv:2609.04176 single-author and
- * unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.
+ * unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.
  *
  * NO heavy imports. All figures recomputed here from the ledger constants.
  */
@@ -78,7 +78,7 @@ export const SUN_S9_SIGNFIX_GATE_RECON = Object.freeze({
     + 'the ledger (relative residual ~3.6e-5 %), landing DEEP INSIDE the 3.494% headroom by '
     + '~1e5x, so imp-95615 F2 gate-error escape hatch is not live and the corrected 1/20 '
     + 'margin stays NEGATIVE; Lambda_mid literal + kappa provenance still uncertified; '
-    + 'G irrationality OPEN; Sun unrefereed; PT Lambda<=0.2 SOTA; NO QED',
+    + 'G irrationality OPEN; Sun unrefereed; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   assesses: 'imp-95615-sun-s9-signfix-margin-sensitivity (F2 gate-accuracy sub-question)',
 
@@ -124,8 +124,8 @@ export const SUN_S9_SIGNFIX_GATE_RECON = Object.freeze({
     + 'It does not certify Lambda_mid(1/20)=0.1763558379286483 (an unpublished 235-cell figure '
     + 'carried as a literal), the kappa=2.51069789 provenance (imp-95637), the raw (9.4) '
     + 'quadratic 4rho-2rho^2, or the imp-95516 S2-S5 determinant/rank core. Catalan G '
-    + 'irrationality OPEN; Sun arXiv:2609.04176 unrefereed; NO Lambda movement; PT Lambda<=0.2 '
-    + 'SOTA; NO QED.',
+    + 'irrationality OPEN; Sun arXiv:2609.04176 unrefereed; NO Lambda movement; no refereed bound is changed'
+    + '; NO QED.',
 });
 
 export const SUN_S9_SIGNFIX_GATE_RECON_ASSERTIONS = Object.freeze([
@@ -150,9 +150,9 @@ export const SUN_S9_SIGNFIX_GATE_RECON_ASSERTIONS = Object.freeze([
     holds: () => Math.abs(DELTA_GTB - 83 / 2400) < 1e-15,
   },
   {
-    name: 'honest: assessment only, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: assessment only, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () => /G irrationality OPEN/.test(SUN_S9_SIGNFIX_GATE_RECON.status)
-      && /PT Lambda<=0.2 SOTA/.test(SUN_S9_SIGNFIX_GATE_RECON.status)
+      && /refereed bound is changed/i.test(SUN_S9_SIGNFIX_GATE_RECON.status)
       && /NO QED/.test(SUN_S9_SIGNFIX_GATE_RECON.status),
   },
 ]);

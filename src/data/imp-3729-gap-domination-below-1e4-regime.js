@@ -7,8 +7,8 @@
  * certifies the enclosure UNIFORM on N in [1e4, 1e6] (discharging
  * cond-fmb-nonregression-above-1e4) and is explicit that its uniformity claim
  * is bounded below at N = 1e4. This module characterizes the N < 1e4 regime.
- * NO new bound on Lambda; imp-3066 UNTOUCHED; Platt-Trudgian Lambda <= 0.2
- * REMAINS SOTA; NO QED.
+ * NO new bound on Lambda; imp-3066 UNTOUCHED; no refereed bound is changed
+ * ; NO QED.
  *
  * THE TWO SIDES BEHAVE DIFFERENTLY BELOW 1e4
  * ------------------------------------------
@@ -172,7 +172,7 @@ export const IMP_3729_BELOW_1E4_REGIME = Object.freeze({
   scope: {
     noNewLambdaBound: true,
     imp3066Untouched: true,
-    plattTrudgianStillSOTA: 'Lambda <= 0.2 (PT 2021) remains SOTA',
+    plattTrudgianStillSOTA: 'No refereed bound is changed',
     noQED: true,
   },
 });
@@ -250,8 +250,8 @@ export const IMP_3729_BELOW_1E4_REGIME_ASSERTIONS = [
       IMP_3729_BELOW_1E4_REGIME.scope.imp3066Untouched === true,
     why:
       'Honesty guard: this is derivation-only. It must not assert a new ' +
-      'Lambda bound or a QED, and imp-3066 stays untouched; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'Lambda bound or a QED, and imp-3066 stays untouched; no refereed bound is changed' +
+      '.',
   },
 ];
 

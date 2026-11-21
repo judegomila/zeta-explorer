@@ -48,7 +48,7 @@
  * HEURISTIC: hybrid gap → 0 like c(z0)/L without sign change; tilt gain → 0 (w_p → 1 optimal by the tilt identity); RS
  *  family optimum declines without bound (caps vs budget force β_J → 0); edge slope tracks ρ(u) (u = 3 not converged).
  *
- * Verdict: no proportion or Λ statement. RH open; PT Lambda <= 0.2 stands; the project's Λ ≤ 0.1758354 is an unreviewed
+ * Verdict: no proportion or Λ statement. RH open; no refereed bound is changed; the project's Λ ≤ 0.1758354 is an unreviewed
  * computer-assisted candidate; NO QED.
  * Scripts: tmp/ns3-eulermoll-*.{c,py} (+ .json/.jsonl/.log); referee: tmp/ns3-eulermoll-ref0-{dense,e1e10,sigma0}.py,
  * tmp/ns3-eulermoll-ref1-tiltcheck.py (+ -T1e+04/06/10.json).
@@ -138,7 +138,7 @@ export const NS3_EULERMOLL = Object.freeze({
     + 'length efficiency (RS θ_eff 0.404 → 0.225), sharp edges (dM/dL ≈ 0.37·ρ(u) at fixed R, heuristic for u > 1), length reallocation (hybrid, '
     + 'gap·L 0.244–0.265, drifting up; sign persistence heuristic). A multiplicative small-prime tilt gives a finite-T gain larger per parameter '
     + 'than extra polynomial degrees, decaying from +0.013 (1e4) to +0.004 (1e10) against a converged P5; w_p → 1 is optimal in the limit '
-    + '(heuristic from the proved tilt identity). Main term only. RH open; PT Lambda <= 0.2 stands; the project’s Λ ≤ 0.1758354 is an '
+    + '(heuristic from the proved tilt identity). Main term only. RH open; no refereed bound is changed; the project’s Λ ≤ 0.1758354 is an '
     + 'unreviewed computer-assisted candidate. NO QED.',
   Ts: [1e4, 1e6, 1e10, 1e16],
   asymptotic: {
@@ -361,7 +361,7 @@ export const NS3_EULERMOLL_ASSERTIONS = Object.freeze([
   },
   {
     id: 'eulermoll-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(M.verdict) && /NO QED/.test(M.verdict) && /NO QED/.test(M.status)
+    holds: () => /refereed bound is changed/i.test(M.verdict) && /NO QED/.test(M.verdict) && /NO QED/.test(M.status)
       && /not a proportion statement/.test(M.status) && M.tiers.certified.length === 0 && /heuristic/.test(M.verdict)
       && /REPLACEMENTS/.test(M.refereeCorrections.join(' ')) && /unreviewed/.test(M.verdict),
     why: 'Main-term proxy only; nothing certified; asymptotic readings heuristic; the candidate stays an unreviewed computer-assisted candidate.',

@@ -47,7 +47,7 @@
  * the direct route's smaller window is an ansatz limitation, not extra sharpness. Both
  * remain double-precision (NOT interval-verified); the interval-verified status of
  * 2a <= 0.96 is the separate Krein/sigma_2 sibling. Fixed-window positivity says nothing
- * about zeros. RH open; PT Lambda <= 0.2 stands; NO QED.
+ * about zeros. RH open; no refereed bound is changed; NO QED.
  *
  * Import-light (pure baked literals from the two sibling certificate modules; no imports,
  * no zeros bundle). Self-executing assertions (imp-3715): any failure throws at import.
@@ -117,7 +117,7 @@ export const IMP96635_VERDICT = Object.freeze({
 });
 
 export const IMP96635_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reconciliation only: no new bound, no ' +
+  'RH open; no refereed bound is changed; NO QED. Reconciliation only: no new bound, no ' +
   'operator positivity, no zero localised. Both certificates are IEEE-double (NOT interval-' +
   'verified); the interval-verified status of pole-free positivity on 2a <= 0.96 is the ' +
   'separate Krein/sigma_2 sibling rh-route-i-toeplitz-krein-certificate-2026-09-24. All ' +
@@ -170,7 +170,7 @@ const IMP96635_ASSERTIONS = [
       IMP96635_VERDICT.windowDifferenceIsAnsatzCeilingNotSharpness === true &&
       IMP96635_VERDICT.bothDoublePrecisionNotIntervalVerified === true &&
       /NO QED/.test(IMP96635_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96635_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96635_HONEST_BANNER) &&
       /RH open/.test(IMP96635_HONEST_BANNER),
     why: 'reconciliation only: the window difference is an ansatz ceiling not sharpness, both stay double-precision, and the honesty markers are present.',
   },

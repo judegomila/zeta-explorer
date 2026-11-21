@@ -31,7 +31,7 @@
  *
  * SCOPE. Measurement / verification only; conditional on the GUE sine kernel / Montgomery pair
  * correlation holding for the zeta zeros (UNPROVEN, GRH-flavored); changes NO unconditional bound;
- * RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96567-box-averaged-sine-kernel-lag-decay (the claim this cross-validates)
  * @see imp-96543-sine-kernel-vif-conditional-lower-bound (the VIF certificate the tail feeds)
@@ -121,12 +121,12 @@ export const IMP96585_BOX_COVARIANCE_DIRECT_VS_CLOSEDFORM_CROSSTAB = {
   conditionality:
     'Conditional on the GUE sine kernel / Montgomery pair correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored). It changes NO unconditional bound.',
   verdict:
-    'Independent cross-validation CONFIRMS the imp-96567 claim: recomputing the box lag correlations rho_k BOTH ways at the L = 495.779 non-overlapping tiling -- (A) the direct double-box Simpson quadrature of T_2 = (sin pi x / pi x)^2 (triangular reduction, 100 panels/unit) and (B) the closed form rho_k = -(1/(2 pi^2 Sigma^2)) ln(k^2/(k^2-1)) -- gives Sigma^2(L) = 0.974834 and a max abs deviation of only ~3.2e-9 over k = 2..6, so the stated 6-digit agreement holds with several digits of margin. The k >= 2 covariances telescope (sum_{k>=2} ln(k^2/(k^2-1)) = ln 2), giving sum_{k>=2} Cov_k = -(ln 2)/(2 pi^2). Measurement / verification only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Independent cross-validation CONFIRMS the imp-96567 claim: recomputing the box lag correlations rho_k BOTH ways at the L = 495.779 non-overlapping tiling -- (A) the direct double-box Simpson quadrature of T_2 = (sin pi x / pi x)^2 (triangular reduction, 100 panels/unit) and (B) the closed form rho_k = -(1/(2 pi^2 Sigma^2)) ln(k^2/(k^2-1)) -- gives Sigma^2(L) = 0.974834 and a max abs deviation of only ~3.2e-9 over k = 2..6, so the stated 6-digit agreement holds with several digits of margin. The k >= 2 covariances telescope (sum_{k>=2} ln(k^2/(k^2-1)) = ln 2), giving sum_{k>=2} Cov_k = -(ln 2)/(2 pi^2). Measurement / verification only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96585_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Verification only: recomputing the GUE sine-kernel '
+  'RH open; no refereed bound is changed; NO QED. Verification only: recomputing the GUE sine-kernel '
   + 'box lag correlations rho_k both ways at L = 495.779 -- direct double-box Simpson quadrature of T_2 '
   + 'vs the closed form -(1/(2 pi^2 Sigma^2)) ln(k^2/(k^2-1)) -- agrees to a max abs deviation ~3.2e-9 '
   + 'over k = 2..6 (well inside the claimed 6 digits), with Sigma^2 = 0.974834 and the k>=2 tail '
@@ -168,11 +168,11 @@ export const IMP96585_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96585_BOX_COVARIANCE_DIRECT_VS_CLOSEDFORM_CROSSTAB.verdict))
     throw new Error('imp-96585: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96585_BOX_COVARIANCE_DIRECT_VS_CLOSEDFORM_CROSSTAB.verdict))
-    throw new Error('imp-96585: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96585_BOX_COVARIANCE_DIRECT_VS_CLOSEDFORM_CROSSTAB.verdict))
+    throw new Error('imp-96585: verdict dropped the no-refereed-bound-change banner');
   if (!/[Cc]onditional/.test(IMP96585_BOX_COVARIANCE_DIRECT_VS_CLOSEDFORM_CROSSTAB.verdict))
     throw new Error('imp-96585: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96585_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96585_HONEST_BANNER) && /NO QED/.test(IMP96585_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96585_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96585_HONEST_BANNER) && /NO QED/.test(IMP96585_HONEST_BANNER)))
     throw new Error('imp-96585: IMP96585_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

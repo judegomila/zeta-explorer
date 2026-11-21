@@ -48,8 +48,7 @@
  *
  *   Ticket: imp-36274 (numerical, medium). Measurement/derivation only; certifies no cap; instantiates
  *   no enclosure; changes no bound; C_mb GUE-conditional (imp-486) untouched; imp-35337a OPEN;
- *   imp-36254a (pin mu/logN, rho, delta_disk exactly) OPEN; no RH verdict, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   imp-36254a (pin mu/logN, rho, delta_disk exactly) OPEN; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-36141-route-ii-vs-route-i-panel-count-ratio.js (the frequency FLOOR this envelopes -- lower end)
  *   @see imp-36040-route-ii-optimal-cauchy-radius.js (the Gronwall e-factor disk-sup witness -- upper end)
@@ -155,7 +154,7 @@ export const IMP36274_PANEL_COUNT_RATIO_ENVELOPE = Object.freeze({
     certifiesI2Cap: false,
     changesAnyBound: false,
     openSubGaps: Object.freeze(['imp-36254a', 'imp-35337a']),
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -169,7 +168,7 @@ export const IMP36274_PANEL_COUNT_RATIO_ENVELOPE = Object.freeze({
     '"few percent" verdict is regime-conditional, holding only for slow disk growth g < w/e ~ ' +
     '0.368 w. Measurement/derivation only; certifies no cap; instantiates no enclosure; changes no ' +
     'bound; C_mb GUE-conditional (imp-486) untouched; imp-35337a OPEN; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 });
 
 export const IMP36274_PANEL_COUNT_RATIO_ENVELOPE_ASSERTIONS = [
@@ -238,16 +237,16 @@ export const IMP36274_PANEL_COUNT_RATIO_ENVELOPE_ASSERTIONS = [
   },
   {
     id: 'imp36274-honesty-gate',
-    why: 'Measurement/derivation only: it must not claim it certifies B or the I2 cap, nor a bound change, and must keep the PT SOTA caveat.',
+    why: 'Measurement/derivation only: it must not claim it certifies B or the I2 cap, nor a bound change, and must keep the no-refereed-bound-change caveat.',
     holds: () =>
       IMP36274_PANEL_COUNT_RATIO_ENVELOPE.honestCaveat.certifiesDerivativeBoundB === false &&
       IMP36274_PANEL_COUNT_RATIO_ENVELOPE.honestCaveat.certifiesI2Cap === false &&
       IMP36274_PANEL_COUNT_RATIO_ENVELOPE.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36274_PANEL_COUNT_RATIO_ENVELOPE.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36274_PANEL_COUNT_RATIO_ENVELOPE.honestCaveat.sota),
   },
   {
     id: 'imp36274-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP36274_PANEL_COUNT_RATIO_ENVELOPE.verdict),
   },
 ];

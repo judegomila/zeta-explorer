@@ -129,8 +129,7 @@ export default function Imp97653TailBiasFloorViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97625 floor-assessment literals verbatim (no re-derivation, no
         new computation). Assessment only; the m=1/m=2 Krein enclosure stays unusable at 2a = ln3;
-        interval-rigorous reach stays 2a &le; 0.96. Changes no bound; Platt&ndash;Trudgian &Lambda;
-        &le; 0.2 remains SOTA; RH open; NO QED.
+        interval-rigorous reach stays 2a &le; 0.96. Changes no bound; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

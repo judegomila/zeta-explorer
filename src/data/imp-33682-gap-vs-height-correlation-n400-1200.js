@@ -72,7 +72,7 @@
  *   the exact r / rho / R^2. Fifteen paired points is a SMALL sample, so even the sign is not robust. The
  *   NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT;
  *   the operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is
- *   UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the SOTA.
+ *   UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33660-cluster-peak-envelope-height-growth-fit.js (the sixteen peak HEIGHTS this correlates)
  *   @see imp-33661-cluster-peak-spacing-periodicity-extended-n400-1200.js (the fifteen GAPS this correlates)
@@ -341,7 +341,7 @@ const verdict =
       'LATTICE-DRIVER-AT-THIS-SAMPLE:-THEY-ARE-INDEPENDENT-ARITHMETIC-FLOOR-PHENOMENA-(imp-33599/imp-33621/' +
       'imp-33638/imp-33639/imp-33660/imp-33661-latticeJitterCaveat).-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-' +
       'FIFTEEN-PAIRED-POINTS-IS-A-SMALL-SAMPLE;-JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-' +
-      'SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33682_GAP_VS_HEIGHT_CORRELATION = Object.freeze({
@@ -370,7 +370,7 @@ export const IMP33682_GAP_VS_HEIGHT_CORRELATION = Object.freeze({
     'weak height growth do NOT share a detectable common lattice driver; they are independent arithmetic-floor ' +
     'phenomena (imp-33599/imp-33621/imp-33638/imp-33639/imp-33660/imp-33661 latticeJitterCaveat). ' +
     'ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; small sample; jittery ' +
-    'lattice floor; operator positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'lattice floor; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -478,7 +478,7 @@ export const IMP33682_GAP_VS_HEIGHT_CORRELATION = Object.freeze({
       'bounces and cross-platform libm exp/pow variation can shift the exact peak rungs, gaps, and heights, and ' +
       'hence every correlation coefficient. The robust reading is the QUALITATIVE conclusion -- negligible ' +
       'correlation, gap and height independent, taller peaks NOT at wider gaps -- not the exact r / rho / R^2.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -533,7 +533,7 @@ export const IMP33682_GAP_VS_HEIGHT_CORRELATION_ASSERTIONS = [
   {
     id: 'imp33682-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33682_GAP_VS_HEIGHT_CORRELATION.honestCaveat;
       return (
@@ -542,7 +542,7 @@ export const IMP33682_GAP_VS_HEIGHT_CORRELATION_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

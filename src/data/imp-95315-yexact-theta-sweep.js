@@ -52,7 +52,7 @@
  *      ratio of the two sup ceilings at the same block.
  *
  * SCOPE / HONEST LIMITS. Measurement only: changes NO bound, promotes NO
- * Lambda, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. The absolute
+ * Lambda, NO QED; no refereed bound is changed. The absolute
  * headline and fixed-97 gaps at theta != 10 are NOT tabulated here because
  * their witness FLOORS are theta = 10 literals carried from sibling
  * continuations (not recomputed for other theta); only the gap REDUCTION
@@ -335,7 +335,7 @@ export const IMP95315_YEXACT_THETA_SWEEP = {
     "Measurement only. The sweep re-runs the sibling exact closed form and window envelope with theta as a parameter and cross-checks the theta = 10 column against the sibling baked literals to rel 1e-12. The Lemma RM in-domain guard V(0,2) > Ystar(s) is verified for every tabulated theta (tightest at theta = 2). Float conditioning is the same ~1e-8 partial-fraction corner floor recorded in the sibling; negligible against the tabulated factors. The monotone trend statements are checked live, not asserted. No proof is advanced, no bound changed.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT: across theta from 2 to 10 the imp-95008 THEOREM Y-EXACT exact-pair move helps most at LARGE theta - the dominant-corner slack factor rises 1.2250855868693384 -> 2.847028693807461 and the far-ceiling ledger factor rises 1.2575469088311413 -> 2.848858085709456, both monotone. The exact far ceiling itself falls 0.8924624271952296 -> 0.2717408057586117 (exceeding 1/2 at theta = 2). Decomposing cFarNew = 2 x R, the correlation-mass residual R grows as theta decreases (0.13587040287930585 -> 0.4462312135976148), so the parity AM-GM factor 2 becomes relatively MORE dominant as theta INCREASES, not as theta decreases - answering the guiding question in the negative. The sup block is b = 2 at every theta. Changes no bound; does NOT promote Lambda; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT: across theta from 2 to 10 the imp-95008 THEOREM Y-EXACT exact-pair move helps most at LARGE theta - the dominant-corner slack factor rises 1.2250855868693384 -> 2.847028693807461 and the far-ceiling ledger factor rises 1.2575469088311413 -> 2.848858085709456, both monotone. The exact far ceiling itself falls 0.8924624271952296 -> 0.2717408057586117 (exceeding 1/2 at theta = 2). Decomposing cFarNew = 2 x R, the correlation-mass residual R grows as theta decreases (0.13587040287930585 -> 0.4462312135976148), so the parity AM-GM factor 2 becomes relatively MORE dominant as theta INCREASES, not as theta decreases - answering the guiding question in the negative. The sup block is b = 2 at every theta. Changes no bound; does NOT promote Lambda; NO QED; no refereed bound is changed.",
 };
 
 // assertions (self-executing; throw on violation)
@@ -403,11 +403,11 @@ export const IMP95315_ASSERTIONS = [
   {
     id: "imp95315-honesty-gate",
     description:
-      "the verdict is measurement only - promotes no bound, NO QED, PT stays SOTA, and states that the parity factor is relatively more dominant as theta increases (not decreases)",
+      "the verdict is measurement only - promotes no bound, NO QED, no refereed bound is changed, and states that the parity factor is relatively more dominant as theta increases (not decreases)",
     holds: () =>
       IMP95315_YEXACT_THETA_SWEEP.promotesBound === false &&
       /NO QED/.test(IMP95315_YEXACT_THETA_SWEEP.verdict) &&
-      /remains SOTA/.test(IMP95315_YEXACT_THETA_SWEEP.verdict) &&
+      /refereed bound is changed/i.test(IMP95315_YEXACT_THETA_SWEEP.verdict) &&
       /relatively MORE dominant as theta INCREASES/.test(IMP95315_YEXACT_THETA_SWEEP.verdict),
   },
 ];

@@ -38,7 +38,7 @@
  * derives no remainder; discharges nothing; changes no bound; establishes no
  * operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), C_H = 1/8,
  * E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED;
- * imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35696-collision-exponent-consistency-check (states prefCC/prefStd = ((pi^2/3)/C_C)^{1/3} ~ 2.047, never laddered)
  * @see imp-35695-resolution-floor-factor-M-ladder (the reciprocal floor factor M^{1/3} this is contrasted against)
@@ -51,7 +51,7 @@
 import { IMP35695_RESOLUTION_FLOOR_FACTOR_M_LADDER } from './imp-35695-resolution-floor-factor-M-ladder.js';
 import { IMP35696_COLLISION_EXPONENT_CONSISTENCY_CHECK } from './imp-35696-collision-exponent-consistency-check.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // Short-range collision constant (imp-2642/imp-2643 ansatz, C_H = 1/8).
 const C_C = (1 / 8) * Math.sqrt(3 * Math.PI); // ~ 0.38374752
@@ -157,7 +157,7 @@ export const IMP35720_PREFACTOR_M_INDEPENDENCE_LADDER = {
     'remainder; discharges nothing; changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) ' +
     '(imp-2642/imp-2643), C_H = 1/8, E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; ' +
     'imp-35337a stays OPEN; route-(ii) (imp-35488 two-height spot check) remains the only viable partial; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35696 (states prefCC/prefStd = ((pi^2/3)/C_C)^{1/3} ~ 2.047, laddered here); imp-35695 (reciprocal floor ' +
     'factor M^{1/3} contrasted against); imp-35680 (amplitude mismatch ratio (pi^2/3)/C_C ~ 8.573); imp-2642/' +
@@ -234,7 +234,7 @@ export const IMP35720_PREFACTOR_M_INDEPENDENCE_LADDER_ASSERTIONS = [
     },
   },
   {
-    // (6) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, NO QED.
+    // (6) honesty gate: measurement only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, NO QED.
     id: 'imp35720-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -246,7 +246,7 @@ export const IMP35720_PREFACTOR_M_INDEPENDENCE_LADDER_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

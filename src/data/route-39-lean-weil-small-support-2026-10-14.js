@@ -31,7 +31,7 @@
  *  PNT+ (package in /tmp/qrh-verify/lean) has IEANTN/Kadiri.lean: a Weil-type explicit formula for ζ (kadiri_thm_3_1_q1, q = 1, χ trivial;
  *  prop_2_1) decomposed into sublemmas that depend on 14 sorries — a scaffold, not a proof. The uncertainty method caps near 0.18 support.
  *
- * Verdict: structural Yoshida reduction Lean-checked; explicit formula still a hypothesis. Nothing bears on RH or Λ. PT Lambda <= 0.2 stands;
+ * Verdict: structural Yoshida reduction Lean-checked; explicit formula still a hypothesis. Nothing bears on RH or Λ. No refereed bound is changed;
  * RH open; NO QED. Import-free. ROUTE_39_ASSERTIONS recompute live (complex digamma by recurrence + Stirling series): archSymbol(0) and its
  * closed form, archSymbol(57/20) > 26/25, the deficit integral < 6, the zero crossing ξ0, 2aD = m, the log 2 window, the a ≈ 0.088 optimum.
  */
@@ -70,7 +70,7 @@ export const ROUTE_39 = Object.freeze({
     + 'link to the explicit-formula right-hand side, uncertainty positivity of the archimedean form), reaching supp g ⊂ [−0.1733, 0.1733] for even f. '
     + 'The explicit formula itself is a hypothesis over an abstract zero functional (formally 0 ≤ weilRHS(f⋆f*)); digamma monotonicity and two '
     + 'Arb numbers are paper/Arb inputs; integrability is not formalised. Far short of log 2 and of the project\'s 2a ≤ 0.9 certificate. Nothing '
-    + 'bears on RH or Λ. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'bears on RH or Λ. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_39;
@@ -125,7 +125,7 @@ export const ROUTE_39_ASSERTIONS = Object.freeze([
   {
     id: 'r39-honest-scope',
     holds: () => R.status === 'partial' && /abstract zero functional/.test(R.verdict) && /integrability/.test(R.verdict) && R.kadiri.sorries === 14
-      && abs(R.normalisation.refereeModulated) < 1e-20 && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 3,
+      && abs(R.normalisation.refereeModulated) < 1e-20 && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 3,
     why: 'Explicit formula is an abstract hypothesis; Kadiri scaffold has 14 sorries; normalisation checked against real zeros; no Λ or RH content; no QED.',
   },
 ]);

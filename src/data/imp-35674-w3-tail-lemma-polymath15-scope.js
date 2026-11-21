@@ -11,8 +11,7 @@
  * its constants, and (iii) how the estimate depends on the repo heat parameter t.
  *
  * ASSESSMENT / SCOPING ONLY. Ports nothing; establishes no positivity; discharges
- * nothing; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * nothing; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * PART A -- WHAT W3 STATES PRECISELY
  * -----------------------------------------------------------------------------
@@ -100,7 +99,7 @@ const X0_POLYMATH15_ILLUSTRATIVE = 6e10; // order-of-magnitude Polymath15 barrie
 const N_AT_X0 = N_TERMS(X0_POLYMATH15_ILLUSTRATIVE); // ~69097 terms
 const TERM_RATIO = N_AT_TPT / N_AT_X0; // ~7.07x more terms after re-anchoring
 const LOCAL_DENSITY_AT_TPT = Math.log(T_PT / TWO_PI) / TWO_PI; // ~4.279 zeros/unit (imp-35653)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 
 export const IMP35674_W3_TAIL_LEMMA_POLYMATH15_SCOPE = {
   id: 'imp-35674',
@@ -175,7 +174,7 @@ export const IMP35674_W3_TAIL_LEMMA_POLYMATH15_SCOPE = {
     'term count N = floor(sqrt(x/4 pi)) by ~7x (~6.9e4 -> ~4.89e5) and the constants, but not the ' +
     'NON-finite character. (Part E) No finite mesh spans the semi-infinite quantifier; W3 stays the ' +
     'breakthrough-tier analytic obligation. Ports nothing; establishes no positivity; changes no bound; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35653 (names W3 as the breakthrough-tier obligation); imp-35419 (the S_barrier statement / P2 ' +
     'option-a); imp-34791 (E_trunc = unported barrier lemma); winding-thread (Gaussian conv proxy = de ' +
@@ -213,15 +212,15 @@ export const IMP35674_W3_TAIL_LEMMA_POLYMATH15_SCOPE_ASSERTIONS = [
       /HARDER side/.test(IMP35674_W3_TAIL_LEMMA_POLYMATH15_SCOPE.heatParameterDependence.repoHeatSignCaveat),
   },
   {
-    // Part E + honesty gate: non-finite character, scoping only, no discharge, no QED, PT stays SOTA.
+    // Part E + honesty gate: non-finite character, scoping only, no discharge, no QED, no refereed bound is changed.
     id: 'imp35674-honesty-gate-nonfinite-no-qed',
-    description: 'W3 stays NON-finite; scoping only, discharges nothing, no QED, PT SOTA',
+    description: 'W3 stays NON-finite; scoping only, discharges nothing, no QED, no refereed bound is changed',
     holds: () =>
       IMP35674_W3_TAIL_LEMMA_POLYMATH15_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /SEMI-INFINITE/.test(IMP35674_W3_TAIL_LEMMA_POLYMATH15_SCOPE.whyNonFinite) &&
       /NO QED/.test(IMP35674_W3_TAIL_LEMMA_POLYMATH15_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35674_W3_TAIL_LEMMA_POLYMATH15_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35674_W3_TAIL_LEMMA_POLYMATH15_SCOPE.verdict),
   },
 ];
 

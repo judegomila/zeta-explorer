@@ -12,7 +12,7 @@
  * sample band, so a reader can see the anti-correlation bracket the proxy at every scale
  * without re-deriving it from prose.
  *
- * Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * @see imp-96171-number-variance-empirical-lag1-vs-gue-proxy (source L-sweep + proxy)
  * @see imp-96128-number-variance-two-interval-covariance-exact (the exact GUE proxy)
@@ -65,7 +65,7 @@ export const IMP_96193_LAG1_L_SWEEP_ANALYSIS_TABLE = {
   note:
     'documentation only, consolidating imp-96171 (clean unfolded edge-to-edge tiling L-sweep) into '
     + 'a single ordered table with per-L small-sample bands; no Lambda bound moves; '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    + 'no refereed bound is changed',
   closesTickets: ['imp-96193'],
 };
 

@@ -39,8 +39,7 @@
  *
  *   SCOPE: measurement only. f_oc is an upper-bound slack diagnostic, not a bound.
  *   Establishes no operator positivity; imp-3066 K_a>=0 UNTOUCHED; changes no
- *   Lambda bound; RH-EQUIVALENT; NO QED. Platt-Trudgian Lambda <= 0.2 remains the
- *   rigorous SOTA.
+ *   Lambda bound; RH-EQUIVALENT; NO QED. No refereed bound is changed.
  */
 
 // -- baked from imp-33300 IMP33300_PLATEAUS (endN, overChargeFraction), ordered by end-N --
@@ -196,8 +195,8 @@ const IMP33586_ASSERTIONS = [
       IMP33586_OVERCHARGE_FRACTION_TRAJECTORY.status === 'measurement',
     why:
       'Honesty guard: this orders and fits an existing slack diagnostic, claims ' +
-      'no new Lambda bound, leaves imp-3066 untouched, and Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'no new Lambda bound, leaves imp-3066 untouched, and no refereed bound is changed' +
+      '.',
   },
 ];
 

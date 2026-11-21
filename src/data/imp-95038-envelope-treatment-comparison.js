@@ -19,8 +19,8 @@
  * exact = 3.9197920255561178e-5 (nineteenth exact corner value).
  *
  * Content/viz follow-up only - no new lemma, no new bound. Floors untouched;
- * does not promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA. Import-light (no heavy bundle).
+ * does not promote Lambda <= 0.14; NO QED; no refereed bound is changed
+ * . Import-light (no heavy bundle).
  */
 
 const SIGMA = 1;

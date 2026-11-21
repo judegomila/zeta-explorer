@@ -32,7 +32,7 @@ export const IMP35826_HEAVY_ASSERTION_COHORT_VERIFICATION = {
     IMP35777_I2_LOGDERIVATIVE_PANEL_CAP_SCOPE.id,
     IMP35778_I3_EDGE_TYPE_FLOOR_DECOMPOSITION_SCOPE.id,
   ],
-  verdict: 'all six cohort modules import cleanly and their self-executing assertions pass; verification only, changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.',
+  verdict: 'all six cohort modules import cleanly and their self-executing assertions pass; verification only, changes no bound; NO QED; no refereed bound is changed.',
 };
 
 const EXPECTED_IDS = ['imp-35762', 'imp-35763', 'imp-35764', 'imp-35766', 'imp-35777', 'imp-35778'];

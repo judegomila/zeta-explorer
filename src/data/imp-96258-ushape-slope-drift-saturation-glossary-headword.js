@@ -32,20 +32,20 @@
  *   STATUS: MEASUREMENT/DERIVATION ONLY, not a QED. The component model is the inherited
  *   imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb
  *   GUE-conditional per imp-486 stays untouched; changes no bound; establishes no operator
- *   positivity. RH open; PT Lambda <= 0.2 stands; NO QED.
+ *   positivity. RH open; no refereed bound is changed; NO QED.
  *
  *   WHAT THIS IS AND IS NOT
  *   ------------------------
  *   A glossary-style lookup restating the imp-96228 far-N slope-saturation finding for
  *   quick reference. It establishes nothing, instantiates no interval, closes no sub-gap
- *   on its own, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   on its own, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96228-ushape-slope-drift-beyond-nflow (source: the saturation finding this glosses)
  * @see imp-96210-ushape-peak-slope-drift-location-law (the peak-decade drift measurement extended)
  * @see imp-96187-ushape-peak-ratio-logcorrection-identity-vs-accident (the location law drawing on a+b)
  *
  * Ticket: imp-96258 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The far-N slope-saturation headword, baked verbatim (no re-import).
@@ -86,8 +86,8 @@ const USHAPE_SLOPE_DRIFT_SATURATION_HEADWORD = Object.freeze({
     '(a+b) increment (saturation). The component model is the inherited ' +
     'imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 stays untouched; the C_C 1/8 ansatz (imp-2642/imp-2643) ' +
-    'is untouched. Changes no bound; establishes no operator positivity; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'is untouched. Changes no bound; establishes no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96258_USHAPE_SLOPE_DRIFT_SATURATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -107,7 +107,7 @@ export const IMP96258_USHAPE_SLOPE_DRIFT_SATURATION_GLOSSARY_HEADWORD = Object.f
     'REVERSAL to at least N = 1e40, but the (a+b) increment shrinks strictly, so the ' +
     'drift SATURATES toward the (1/2, 1/2, 1) asymptote for (a, b, a+b) rather than ' +
     'growing without bound. Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96228 (the far-N saturation finding this glosses); imp-96210 (the peak-decade ' +
     'drift measurement extended); imp-96187 (the location law drawing on a+b); imp-486 ' +
@@ -134,11 +134,11 @@ export const IMP96258_USHAPE_SLOPE_DRIFT_SATURATION_GLOSSARY_HEADWORD_ASSERTIONS
   },
   {
     id: 'imp96258-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96258_USHAPE_SLOPE_DRIFT_SATURATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96258_USHAPE_SLOPE_DRIFT_SATURATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96258_USHAPE_SLOPE_DRIFT_SATURATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96258_USHAPE_SLOPE_DRIFT_SATURATION_GLOSSARY_HEADWORD.verdict) &&
       IMP96258_USHAPE_SLOPE_DRIFT_SATURATION_GLOSSARY_HEADWORD.glosses === 'imp-96228',
   },
 ];

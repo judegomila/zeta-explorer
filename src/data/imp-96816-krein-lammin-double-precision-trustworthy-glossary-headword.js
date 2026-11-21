@@ -38,14 +38,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96772 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96772-krein-lammin-double-double-recompute.js (source: the recompute this glosses)
  * @see imp-96749-krein-lammin-N-trend-measurement.js (the condB ~ 1e13 flag this refutes)
  * @see imp-96768-gegenbauer-krein-lammin-recompute.js (independent orthogonal-basis confirmation: descent = t-truncation)
  *
  * Ticket: imp-96816 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The double-precision-trustworthy headword, baked verbatim (no re-import).
@@ -83,8 +83,8 @@ const KREIN_LAMMIN_DOUBLE_PRECISION_TRUSTWORTHY_HEADWORD = Object.freeze({
     't-converged plateau value and the uniform-in-N spectral gap ' +
     'lambda_min(T_a[sigma_2]) >= c > 0 remain open (SUB-GAP ' +
     'IMP96772_ENTRY_PRECISION_AND_TCONV). Changes no bound; establishes no operator ' +
-    'positivity; interval-rigorous certificate reach stays 2a <= 0.96; PT Lambda <= 0.2 ' +
-    'remains SOTA; RH open; NO QED.',
+    'positivity; interval-rigorous certificate reach stays 2a <= 0.96; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96816_KREIN_LAMMIN_DOUBLE_PRECISION_TRUSTWORTHY_GLOSSARY_HEADWORD = Object.freeze({
@@ -106,7 +106,7 @@ export const IMP96816_KREIN_LAMMIN_DOUBLE_PRECISION_TRUSTWORTHY_GLOSSARY_HEADWOR
     'trustworthy throughout the tested range, and the decrement re-acceleration it ' +
     'flagged is a real t-truncation effect (confirming imp-96768), not Gram-conditioning ' +
     'noise. Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96772 (the double-double recompute this glosses); imp-96749 (the condB ~ 1e13 ' +
     'wall reading this refutes); imp-96768 (independent orthogonal-basis confirmation ' +
@@ -134,11 +134,11 @@ export const IMP96816_KREIN_LAMMIN_DOUBLE_PRECISION_TRUSTWORTHY_GLOSSARY_HEADWOR
   },
   {
     id: 'imp96816-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96816_KREIN_LAMMIN_DOUBLE_PRECISION_TRUSTWORTHY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96816_KREIN_LAMMIN_DOUBLE_PRECISION_TRUSTWORTHY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96816_KREIN_LAMMIN_DOUBLE_PRECISION_TRUSTWORTHY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96816_KREIN_LAMMIN_DOUBLE_PRECISION_TRUSTWORTHY_GLOSSARY_HEADWORD.verdict) &&
       IMP96816_KREIN_LAMMIN_DOUBLE_PRECISION_TRUSTWORTHY_GLOSSARY_HEADWORD.glosses === 'imp-96772',
   },
 ];

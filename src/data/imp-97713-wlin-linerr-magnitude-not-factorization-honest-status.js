@@ -28,7 +28,7 @@
  * are not reliably discoverable). Read-only record; changes no bound; establishes no operator
  * positivity; no RH verdict; NO QED. The imp-97597 RESULT-3 mixed-kernel (epsilon*z^2) sub-gap
  * STANDS; w_lin stays forced by imp-97460; rigorous anchor stays T = 2.594e7; compute (N ~ 9916,
- * imp-96352) binds first by >2600x; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-96352) binds first by >2600x; no refereed bound is changed.
  *
  * @see imp-97688-wlin-linerr-factorization-independence.js (the four-factorization scan this note records)
  * @see imp-97664-wlin-b1e6-halfwidth-artifact-test.js (the original factorization framing, now refuted)
@@ -93,8 +93,8 @@ export const IMP97713_WLIN_LINERR_MAGNITUDE_HONEST_STATUS = {
     'So the elevation is a b-MAGNITUDE (finite-b convergence) effect, not a factorization effect. ' +
     'The imp-97597 RESULT-3 mixed-kernel sub-gap STANDS; w_lin stays forced by imp-97460; changes no ' +
     'bound; establishes no operator positivity; no RH verdict; NO QED. The rigorous anchor stays the ' +
-    `trace ceiling T = ${TRACE_CEILING}; compute binds first by >${COMPUTE_BIND_FACTOR}x; Platt-Trudgian ` +
-    'Lambda <= 0.2 remains SOTA.',
+    `trace ceiling T = ${TRACE_CEILING}; compute binds first by >${COMPUTE_BIND_FACTOR}x; no refereed bound is changed` +
+    '.',
   citation:
     'imp-97688-wlin-linerr-factorization-independence.js (IMP97688_VERDICT, the source finding this ' +
     'note records); imp-97664-wlin-b1e6-halfwidth-artifact-test.js (the original factorization ' +
@@ -140,7 +140,7 @@ export const IMP97713_WLIN_LINERR_MAGNITUDE_HONEST_STATUS_ASSERTIONS = [
   },
   {
     id: 'imp97713-honesty-gate-no-qed',
-    description: 'framing refuted, no bound moved, no fix, no QED, PT stays SOTA',
+    description: 'framing refuted, no bound moved, no fix, no QED, no refereed bound is changed',
     holds: () => {
       const s = IMP97713_WLIN_LINERR_MAGNITUDE_HONEST_STATUS;
       return (
@@ -154,7 +154,7 @@ export const IMP97713_WLIN_LINERR_MAGNITUDE_HONEST_STATUS_ASSERTIONS = [
         s.fixApplied === false &&
         s.isRigorous === false &&
         /NO QED/.test(s.verdict) &&
-        /remains SOTA/.test(s.verdict)
+        /refereed bound is changed/i.test(s.verdict)
       );
     },
   },

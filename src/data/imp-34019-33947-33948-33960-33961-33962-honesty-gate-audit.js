@@ -49,7 +49,7 @@ import { IMP33960_I1_ROUNDOFF_COEFFICIENT_FIT } from './imp-33960-i1-roundoff-co
 import { IMP33961_JOINT_ONSET_CONVERGENCE_RATE } from './imp-33961-joint-onset-convergence-rate.js';
 import { IMP33962_ATTENUATION_RUNG_BY_RUNG_DECOMPOSITION } from './imp-33962-attenuation-rung-by-rung-decomposition.js';
 
-const SOTA_RE = /Lambda <= 0.2 remains( the rigorous)? SOTA\.?$|Lambda <= 0.2 remains SOTA/;
+const SOTA_RE = /refereed bound is changed/i;
 
 const COHORT_HONESTY_GATES = Object.freeze([
   Object.freeze({
@@ -134,7 +134,7 @@ export const IMP34019_COHORT_HONESTY_GATE_AUDIT = Object.freeze({
   summary:
     'All five imp-33947/imp-33948/imp-33960/imp-33961/imp-33962 modules carry an executable ' +
     'honesty-gate tripwire that throws at import if the honest framing is weakened: each asserts ' +
-    'isRigorous===false, NO QED, and Platt-Trudgian Lambda<=0.2 remains SOTA, plus states its own ' +
+    'isRigorous===false, NO QED, and no refereed bound is changed, plus states its own ' +
     'untouched-parent-verdict clause in prose. Unlike the imp-33997 cohort (shape-DIVERGENT, 3 ' +
     'distinct isRigorous field shapes), this cohort is fully shape-CONSISTENT: all five use a bare ' +
     'top-level isRigorous field.',
@@ -142,14 +142,14 @@ export const IMP34019_COHORT_HONESTY_GATE_AUDIT = Object.freeze({
   verdict:
     'COHORT-FULLY-COVERED, SHAPE-CONSISTENT: 5 of 5 modules have an executable honesty tripwire ' +
     '(0 prose-only gaps), all 5 live-report isRigorous===false, all 5 carry NO QED text, all 5 carry ' +
-    'the Platt-Trudgian Lambda<=0.2 SOTA line, and all 5 state their own relevant untouched-parent-' +
-    'verdict clause. No bound changed; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda <= ' +
-    '0.2 remains the rigorous SOTA.',
+    'the no-refereed-bound-change line, and all 5 state their own relevant untouched-parent-' +
+    'verdict clause. No bound changed; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed' +
+    '.',
 
   honest:
     'AUDIT-ONLY -- reports the honesty-gate tripwire coverage found by live-importing and reading ' +
     'each of the five modules; does not modify any of the five modules and does not change ' +
-    'scripts/run-assertions.mjs wiring. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA.',
+    'scripts/run-assertions.mjs wiring. No refereed bound is changed.',
 });
 
 export const IMP34019_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
@@ -173,7 +173,7 @@ export const IMP34019_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34019-all-five-carry-no-qed-and-sota',
-    description: 'all five modules carry NO QED text and the Platt-Trudgian Lambda<=0.2 SOTA line',
+    description: 'all five modules carry NO QED text and the no-refereed-bound-change line',
     holds: () => ALL_HAVE_NO_QED && ALL_HAVE_SOTA,
   },
   {
@@ -188,11 +188,11 @@ export const IMP34019_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34019-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP34019_COHORT_HONESTY_GATE_AUDIT.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(IMP34019_COHORT_HONESTY_GATE_AUDIT.honest)
+      && /refereed bound is changed/i.test(IMP34019_COHORT_HONESTY_GATE_AUDIT.honest)
       && /NO QED/.test(IMP34019_COHORT_HONESTY_GATE_AUDIT.verdict)
-      && /Lambda <= 0.2 remains the rigorous SOTA/.test(IMP34019_COHORT_HONESTY_GATE_AUDIT.verdict),
+      && /refereed bound is changed/i.test(IMP34019_COHORT_HONESTY_GATE_AUDIT.verdict),
   },
 ];
 

@@ -13,8 +13,8 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Every (b, signed, abs, cancel) value below is copied verbatim
  * from the imp-97226 baked IMP97226_LADDER (no re-derivation of the V(h,k) cotangent sums). Changes
- * no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. RH open. NO QED.
+ * no bound, establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-97226-route-m-cotangent-cancellation-ratio-ladder.js (IMP97226_LADDER, IMP97226_MEASURED, IMP97226_VERDICT)
  *
@@ -42,7 +42,7 @@ export const IMP97272_ASYMPTOTES = Object.freeze({
 });
 
 export const IMP97272_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every (b, signed, abs, cancel) row ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every (b, signed, abs, cancel) row ' +
   'is copied verbatim from the imp-97226 baked IMP97226_LADDER (no re-derivation of the V(h,k) cotangent ' +
   'sums); no bound is claimed and no operator positivity is established.';
 
@@ -94,7 +94,7 @@ const IMP97272_ASSERTIONS = [
     id: 'imp97272-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97272_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97272_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97272_HONEST_BANNER) &&
       /NO QED/.test(IMP97272_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

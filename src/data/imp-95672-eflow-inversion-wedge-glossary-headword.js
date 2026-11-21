@@ -30,15 +30,14 @@
  *   A glossary-style lookup restating the imp-95639 measurement and its headline figures for quick
  *   reference. It establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
  *   Sensitivity/measurement only, NOT an RH bound; the component model is the inherited imp-3220/imp-3406
- *   extrapolation, not a rigorous asymptotic; no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   extrapolation, not a rigorous asymptotic; no QED. No refereed bound is changed.
  *
  * @see imp-95639-eflow-zero-inversion-wedge (source: the isolated E_flow measurement this glosses)
  * @see imp-95617-transition-knee-ordering-joint-2d (the joint sweep WITH E_flow defining the wedge)
  * @see imp-95598-transition-knee-ordering-robustness (F2 named E_flow as the pure-A-scaling breaker)
  * @see imp-398 (E_flow = C_F (log T0 / T0) Gronwall absolute additive term)
  *
- * Ticket: imp-95672 (content, low). Documentation only; establishes nothing; NO QED; Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * Ticket: imp-95672 (content, low). Documentation only; establishes nothing; NO QED; no refereed bound is changed.
  */
 
 // The E_flow-inversion-wedge headword, baked verbatim (no re-import).
@@ -80,8 +79,8 @@ export const IMP95672_EFLOW_INVERSION_WEDGE_GLOSSARY_HEADWORD = Object.freeze({
     'imp-398 absolute-additive E_flow term removes the imp-95617 inversion wedge entirely (min gap ' +
     '~ -0.00468 -> ~ +0.01708, anyInvertInBox true -> false), so the wedge is essentially 100% ' +
     'E_flow-driven within the nominal +/-50% box. Establishes nothing; instantiates no interval; moves ' +
-    'no bound; sensitivity/measurement only, NOT an RH bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'no bound; sensitivity/measurement only, NOT an RH bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95639 (isolated E_flow-zero measurement and headline figures); imp-95617 (joint sweep WITH ' +
     'E_flow defining the wedge); imp-95598 (F2 named E_flow as the pure-A-scaling breaker); imp-398 ' +
@@ -108,11 +107,11 @@ export const IMP95672_EFLOW_INVERSION_WEDGE_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95672-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95672_EFLOW_INVERSION_WEDGE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95672_EFLOW_INVERSION_WEDGE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95672_EFLOW_INVERSION_WEDGE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95672_EFLOW_INVERSION_WEDGE_GLOSSARY_HEADWORD.verdict) &&
       IMP95672_EFLOW_INVERSION_WEDGE_GLOSSARY_HEADWORD.glosses === 'imp-95639' &&
       IMP95672_EFLOW_INVERSION_WEDGE_GLOSSARY_HEADWORD.scopes === 'imp-95617',
   },

@@ -74,7 +74,7 @@
  *   pins the behaviour to that truncated-kernel model, not to a certified error bound.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a >= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict,
- *   no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. imp-3849, imp-3868,
+ *   no QED. No refereed bound is changed. imp-3849, imp-3868,
  *   imp-3895 and imp-3731 assertions are LEFT INTACT -- this extends the ladder alongside them.
  *
  *   @see imp-3895-saddle-crossing-clenshaw-curtis-third-solver.js (the MMAX = 628 CC ladder this extends)
@@ -516,7 +516,7 @@ export const IMP3912_SADDLE_RATIO_UPPER_RECROSSING_SEARCH = Object.freeze({
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -600,7 +600,7 @@ export const IMP3912_SADDLE_RATIO_UPPER_RECROSSING_SEARCH_ASSERTIONS = [
     id: 'imp3912-honest-measurement-not-a-verdict',
     why: 'Mandatory honesty: measurement only, locates no finite upper crossing, the crossing beyond the ' +
          'ceiling is UNDECIDED (named sub-gap), shared kernel truncation not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 SOTA, priors intact.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed, priors intact.',
     holds: () => {
       const c = IMP3912_SADDLE_RATIO_UPPER_RECROSSING_SEARCH.honestCaveat;
       return (
@@ -613,7 +613,7 @@ export const IMP3912_SADDLE_RATIO_UPPER_RECROSSING_SEARCH_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         c.leavesPriorAssertionsIntact === true &&
         /log-domain/.test(c.residualSubGap) &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -9,7 +9,7 @@
  * on RH, forcing reliance on the pair-correlation CONJECTURE proper. This module
  * ASSESSES the two named levers the ticket asks about - Fresnel width and
  * normalization - and reports which is rigid and which is a relabeling. Report
- * only: no bound changes, PT Lambda <= 0.2 stands, RH open, NO QED.
+ * only: no bound changes, no refereed bound is changed, RH open, NO QED.
  *
  * LEVER 1 - FRESNEL WIDTH: RIGID (exact). The frequency alpha_{k,h} is a function
  * of the stationary-point LOCATION u_{k,h} = v/(k - h/p) alone. That location is
@@ -68,7 +68,7 @@
  * pointwise, plus GRH height-boundedness, in range." The imp-95519 zero-side
  * no-go therefore STANDS; only its FRAMING sharpens - the operative wall is the
  * pointwise/height requirement, not the raw alpha range. No bound changes; NO QED;
- * PT Lambda <= 0.2 remains SOTA; RH open.
+ * no refereed bound is changed; RH open.
  *
  * Import-light: no zeros bundle, no sibling imports. All literals re-derived.
  */
@@ -174,7 +174,7 @@ export const IMP95534_ALPHA_GATING_RIGIDITY = Object.freeze({
   heightDeficitQ97: HEIGHT_DEFICIT_Q97,
 
   netVerdict:
-    'The alpha > 1 gating is RIGID under any Fresnel-width choice (alpha depends on the stationary point, not the width), and a REMOVABLE NORMALIZATION ARTIFACT under the analytic-conductor rescaling that the section-3 L(s, chi mod p) import warrants (all 15 alpha_T > 1 aliases fall to alpha_C in [0.914, 1.000], the floor alias to exactly 1). But removing it only RELOCATES the obstruction from pair-correlation-conjecture-out-of-range to mean-square-vs-pointwise plus GRH-height-boundedness in range; the floor alias sits at the alpha_C = 1 boundary. The imp-95519 zero-side no-go STANDS; only its framing sharpens - the operative wall is the pointwise/height requirement, not the raw alpha range. No bound changes; NO QED; PT Lambda <= 0.2 remains SOTA; RH open.',
+    'The alpha > 1 gating is RIGID under any Fresnel-width choice (alpha depends on the stationary point, not the width), and a REMOVABLE NORMALIZATION ARTIFACT under the analytic-conductor rescaling that the section-3 L(s, chi mod p) import warrants (all 15 alpha_T > 1 aliases fall to alpha_C in [0.914, 1.000], the floor alias to exactly 1). But removing it only RELOCATES the obstruction from pair-correlation-conjecture-out-of-range to mean-square-vs-pointwise plus GRH-height-boundedness in range; the floor alias sits at the alpha_C = 1 boundary. The imp-95519 zero-side no-go STANDS; only its framing sharpens - the operative wall is the pointwise/height requirement, not the raw alpha range. No bound changes; NO QED; no refereed bound is changed; RH open.',
 
   promotesBound: false,
   isRigorous: true,
@@ -216,11 +216,11 @@ export const IMP95534_ALPHA_GATING_RIGIDITY_ASSERTIONS = Object.freeze([
   },
   {
     id: 'imp95534-honesty-gate-no-qed',
-    description: 'assessment only: promotes no bound, NO QED, PT stays SOTA',
+    description: 'assessment only: promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95534_ALPHA_GATING_RIGIDITY.promotesBound === false &&
       /NO QED/.test(IMP95534_ALPHA_GATING_RIGIDITY.netVerdict) &&
-      /remains SOTA/.test(IMP95534_ALPHA_GATING_RIGIDITY.netVerdict),
+      /refereed bound is changed/i.test(IMP95534_ALPHA_GATING_RIGIDITY.netVerdict),
   },
 ]);
 

@@ -19,7 +19,7 @@ export const RH_NOVEL_ROUTES = Object.freeze({
   frame:
     'ζ = primon-gas partition function; zeros = 2D log-gas; functional equation = '
     + 'Kramers–Wannier self-duality about σ=½. RH ⟺ the log-gas collapses to the self-dual line.',
-  status: 'ROADMAP — novel testable routes; no results claimed; PT Λ≤0.2 SOTA; RH open',
+  status: 'ROADMAP — novel testable routes; no results claimed; no refereed bound is changed; RH open',
 
   routes: [
     {

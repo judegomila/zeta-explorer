@@ -164,7 +164,7 @@ export const R5_SYNTHESIS = Object.freeze({
     + '0.147273668782792. It is conditional on the shared inputs (G0-c, AF expository gaps, Lemma B.1–B.3 as written, RH-win trust base, RH-head, '
     + 'producer layer) and on single-implementation certificate engines with internal referee passes only. Λ < 0.145 is NOT certified (not even '
     + 'modulo G0-c / external review): Λ ≤ 0.144797589508376 needs WOL-C for 369 P47 floors, which is NOT PROVED. '
-    + 'Nothing is proved unconditionally below 0.2. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'Nothing is proved unconditionally below 0.2. No refereed bound is changed. RH open. NO QED.',
 });
 
 const S = R5_SYNTHESIS;
@@ -256,7 +256,7 @@ export const R5_SYNTHESIS_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r5-syn-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(S.verdict) && /NO QED/.test(S.verdict) && /NOT certified/.test(S.verdict) && /NOT PROVED/.test(S.verdict)
+    holds: () => /refereed bound is changed/i.test(S.verdict) && /NO QED/.test(S.verdict) && /NOT certified/.test(S.verdict) && /NOT PROVED/.test(S.verdict)
       && /Nothing is proved unconditionally below 0\.2/.test(S.verdict) && /NO QED/.test(S.status) && /REFUTED/.test(S.r3core4Audit),
     why: 'No bound below 0.2 is proved; Λ < 0.145 not certified; r3core4.c NL=2 not certified; RH open.',
   },

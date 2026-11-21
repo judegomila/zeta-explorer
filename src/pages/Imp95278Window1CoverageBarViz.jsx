@@ -75,8 +75,7 @@ export default function Imp95278Window1CoverageBarViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page reusing the imp-95213
         CERTIFIED_SLICE / WINDOW_WIDTH_U literals and the imp-95238
         windowsBeyondWindow1Untouched literal verbatim (no new computation). The certified slice
-        sets no G5 window-promotion flag and changes no bound. Platt&ndash;Trudgian &Lambda; &le;
-        0.2 remains SOTA. No QED.
+        sets no G5 window-promotion flag and changes no bound. No QED.
       </div>
     </div>
   );

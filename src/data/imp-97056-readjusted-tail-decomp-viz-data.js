@@ -58,8 +58,8 @@
  * ill-conditioning amplifying a ~1e-4 minimiser mismatch, not a moving minimiser; finer panels do not
  * uniformly repair it, but the re-adjusted fraction does not need them. This closes sub-gap
  * imp-97038-firstorder-tail-decomp-breaks-past-N148. Measurement only; the floor is a Rayleigh UPPER
- * bound; no operator positivity; interval-rigorous certificate reach stays 2a <= 0.96; Platt-Trudgian
- * Lambda <= 0.2 SOTA; RH open; NO QED.
+ * bound; no operator positivity; interval-rigorous certificate reach stays 2a <= 0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97038-bessel-onset-mass-extended-N-viz-data.js (the un-readjusted first-order comparison this repairs)
  * @see imp-96934-bessel-onset-tail-residual-viz-data.js (the committed {76,100,124} comparison)

@@ -145,8 +145,7 @@ export default function Imp95731NumberVarianceRatioViz() {
         is established only across the measured window T = 1e4..5e5; the
         extrapolation out to the imp-95519 window bottom T = 3.0e12 is a
         named, unmeasured sub-gap. It changes no bound and proves no
-        RH-relevant theorem. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains
-        state of the art. NO QED.
+        RH-relevant theorem. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -204,8 +203,7 @@ export default function Imp95731NumberVarianceRatioViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page
         rendering the frozen imp-95710 tabulation (no re-derivation). Supplies
-        no new bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        no new bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

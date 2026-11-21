@@ -55,7 +55,7 @@
  *   sign/weight, builds Gpass_c -- which is a different object from the functional
  *   calculus and remains un-ported. The un-ported half is now the core-assembly
  *   recipe, not the Gpass^{-1/2} machinery. RH-equivalent residual untouched;
- *   Platt-Trudgian Lambda &lt;= 0.2 stays SOTA. No reduction, no positivity, no QED.
+ *   no refereed bound is changed. No reduction, no positivity, no QED.
  *
  *   @see imp-3202-mupass-bridge-lag-cutoff-sweep.js (the sibling that named this sub-gap)
  *   @see section26-mupass-operator-verdict-2026-06-30.js (the verdict whose ||R||=1.0000 tautology this derives)
@@ -268,7 +268,7 @@ export const IMP3214_MUPASS_SYMMETRIC_NORMALIZATION_PORT = Object.freeze({
       'Porting the symmetric normalization functional calculus reproduces the full-core ||R|| = 1.0000 tautology ' +
       'and rules out the numerator-truncation reading of 0.876 / 0.711, but does NOT construct the passive-core ' +
       'assembly recipe or attempt the K_a >= 0 positivity, which remains the RH-equivalent obstruction.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -305,7 +305,7 @@ export const IMP3214_MUPASS_SYMMETRIC_NORMALIZATION_PORT_ASSERTIONS = [
   {
     id: 'imp3214-honest-no-qed-no-scalar-reproduction',
     why: 'Mandatory honesty: functional calculus ported, but the verdict 0.876 / 0.711 are NOT reproduced ' +
-         '(core-assembly recipe out-of-repo); ASSESSMENT only, RH-equivalent, positivity not attempted, PT 0.2 SOTA.',
+         '(core-assembly recipe out-of-repo); ASSESSMENT only, RH-equivalent, positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3214_MUPASS_SYMMETRIC_NORMALIZATION_PORT.honestCaveat;
       return (
@@ -316,7 +316,7 @@ export const IMP3214_MUPASS_SYMMETRIC_NORMALIZATION_PORT_ASSERTIONS = [
         c.reproducesVerdictScalarValues === false &&
         c.coreAssemblyRecipeStillOutOfRepo === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

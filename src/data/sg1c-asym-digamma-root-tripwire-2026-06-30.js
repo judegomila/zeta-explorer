@@ -24,7 +24,7 @@
  *   (3) drho/ds(0.9032364) > 0 strictly (imp-3045 false-onset sits above the
  *       true root), near its +0.00242.
  *
- * LOCK ONLY -- no new math, no QED; PT Lambda <= 0.2 stays the rigorous SOTA.
+ * LOCK ONLY -- no new math, no QED; no refereed bound is changed.
  *
  * @see sg1c-asym-isolation-closed-form-2026-06-30 (imp-3170, the self-asserted closed form this locks)
  */
@@ -86,7 +86,7 @@ export const SG1C_ASYM_DIGAMMA_ROOT_TRIPWIRE = {
   digammaIndependence: 'recurrence shift x>=12 + 1/(240 x^8) and 1/(132 x^10) Bernoulli terms; closed-form module used x>=6 truncated at 1/(252 x^6)',
   solverIndependence: 'Newton with central-difference derivative; closed-form module used 200-step bisection',
   status: 'cross-module tripwire: an independent digamma + Newton root reproduces the live c_asym to ~1e-9; the basin sign (drho/ds(0.72)<0) and false-onset sign (drho/ds(0.9032364)>0) are re-certified from the independent path',
-  honest: 'LOCK ONLY -- independent recompute of an existing transcendental root, no new math, no QED; PT Lambda <= 0.2 stays the rigorous SOTA.',
+  honest: 'LOCK ONLY -- independent recompute of an existing transcendental root, no new math, no QED; no refereed bound is changed.',
 };
 
 export const SG1C_ASYM_DIGAMMA_ROOT_TRIPWIRE_ASSERTIONS = [
@@ -113,9 +113,9 @@ export const SG1C_ASYM_DIGAMMA_ROOT_TRIPWIRE_ASSERTIONS = [
   },
   {
     id: 'sg1c-asym-tripwire-lock-honest',
-    description: 'explicitly a LOCK ONLY (no new math, no QED) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly a LOCK ONLY (no new math, no QED) and no refereed bound is changed',
     holds: () => /LOCK ONLY/.test(SG1C_ASYM_DIGAMMA_ROOT_TRIPWIRE.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(SG1C_ASYM_DIGAMMA_ROOT_TRIPWIRE.honest),
+      && /refereed bound is changed/i.test(SG1C_ASYM_DIGAMMA_ROOT_TRIPWIRE.honest),
   },
 ];
 

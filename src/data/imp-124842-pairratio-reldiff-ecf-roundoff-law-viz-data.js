@@ -51,7 +51,7 @@ export const IMP124842_SUMMARY = Object.freeze({
     + 'round-off precision loss as |E_CF| collapses, not a deviation from the imp-97665 EXACT '
     + 'pair-ratio identity. Measurement / sensitivity only on the inherited imp-3220/imp-3406 '
     + 'extrapolation surrogate, not a rigorous asymptotic. Changes no bound; establishes no operator '
-    + 'positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

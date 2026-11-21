@@ -43,7 +43,7 @@
  * closed form for the model cusp rho(x) = |x|^{-alpha}. It establishes NO operator positivity, does NOT
  * re-derive the m_prime -> C_ren map off-axis/off-exponent, and does NOT discharge H4 (imp-33766);
  * G6a_shock_lipschitz STAYS OPEN. C_mb GUE-conditional untouched; imp-3066 off-diagonal endpoint-Hankel
- * K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed.
  *
  * @see imp-34045-phase-zero-endpoint-degeneracy (residual-based branch identification AT the predicted angles)
  * @see imp-34104-second-positive-branch-geometry (the family (ii) real-positive branch geometry)
@@ -245,7 +245,7 @@ export const IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION = {
     'an independent code path. Pure phase-condition geometry on the inherited imp-33924 closed form; establishes ' +
     'NO operator positivity; does NOT re-derive the m_prime -> C_ren map off-axis/off-exponent and does NOT ' +
     'discharge H4 (imp-33766). C_mb GUE-conditional untouched; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 ' +
-    'UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'UNTOUCHED; NO QED. No refereed bound is changed.',
 };
 
 export const IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION_ASSERTIONS = [
@@ -278,15 +278,15 @@ export const IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION_ASSERTIONS = [
     holds: () => IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.axisSignsReproduce === true,
   },
   {
-    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34105-honesty-gate-no-qed',
-    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.isRigorous === false &&
       IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.dischargesH4 === false &&
       /NO QED/.test(IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.verdict) &&
       /STAYS OPEN/.test(IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.verdict) &&
-      /remains the rigorous SOTA/.test(IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.verdict) &&
       /C_mb GUE-conditional untouched/i.test(IMP34105_PHASE_ZERO_ROOTFIND_CROSSVALIDATION.verdict),
   },

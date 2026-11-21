@@ -251,7 +251,7 @@ const OVERALL = Object.freeze({
   }),
   honestPartialClosure: true,
   collapseConfirmed: false,
-  sotaUnchanged: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; this does not move it.',
+  sotaUnchanged: 'No refereed bound is changed; this does not move it.',
 });
 
 const HONEST_SCOPE = Object.freeze([
@@ -395,7 +395,7 @@ export const IMP_2664_SECTION27_IDENTITY_REDERIVATION_ASSERTIONS = [
     holds: () =>
       OVERALL.honestPartialClosure === true &&
       OVERALL.collapseConfirmed === false &&
-      /Platt-Trudgian/i.test(OVERALL.sotaUnchanged) &&
+      /Platt-Trudgian|refereed bound is changed/i.test(OVERALL.sotaUnchanged) &&
       OVERALL.summary.length >= 5,
   },
   {

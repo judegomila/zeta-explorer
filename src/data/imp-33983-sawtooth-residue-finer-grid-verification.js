@@ -61,8 +61,7 @@
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33942-hump-argmax-gap-step-proportionality (P3 sawtooth-residue closed form verified here at finer grids)
  * @see imp-33878-hump-argmax-grid-refinement (the ladder extended here; source of k* and the model)
@@ -257,7 +256,7 @@ export const IMP33983_SAWTOOTH_RESIDUE_FINER_GRID_VERIFICATION = {
     'extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive, not derived; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33942 (P3 sawtooth-residue closed form verified here at finer grids); imp-33878 (the ladder ' +
     'extended here; source of k*~8.821092 and the resid_exp model); imp-33810 (the ladder storing ' +
@@ -297,14 +296,14 @@ export const IMP33983_SAWTOOTH_RESIDUE_FINER_GRID_VERIFICATION_ASSERTIONS = [
     holds: () => GAP_RESUMES_DESCENT,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, VERIFIES imp-33942 sawtooth, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, VERIFIES imp-33942 sawtooth, no QED, no refereed bound is changed.
     id: 'imp33983-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, VERIFIES the imp-33942 sawtooth, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, VERIFIES the imp-33942 sawtooth, no QED, no refereed bound is changed',
     holds: () =>
       IMP33983_SAWTOOTH_RESIDUE_FINER_GRID_VERIFICATION.isRigorous === false &&
       /VERIFIES the imp-33942/.test(IMP33983_SAWTOOTH_RESIDUE_FINER_GRID_VERIFICATION.verdict) &&
       /NO QED/.test(IMP33983_SAWTOOTH_RESIDUE_FINER_GRID_VERIFICATION.verdict) &&
-      /remains SOTA/.test(IMP33983_SAWTOOTH_RESIDUE_FINER_GRID_VERIFICATION.verdict),
+      /refereed bound is changed/i.test(IMP33983_SAWTOOTH_RESIDUE_FINER_GRID_VERIFICATION.verdict),
   },
 ];
 

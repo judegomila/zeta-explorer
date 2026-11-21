@@ -61,8 +61,7 @@
  * ACCURACY / MEASUREMENT ONLY. Window-stability cross-check of an inherited surrogate ratio, NOT an RH
  * bound. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the closed-form
  * E_flow scaling and the OLS sub-terms are descriptive within that model only; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33922-eflow-analytic-decay-vs-widening-crosscheck (the fixed-kEnd=11 ~19.9x over-prediction)
  * @see imp-33917-endpoint-residual-growth-law (the 9-window kEnd = 11..13 boundary sweep reused here)
@@ -270,7 +269,7 @@ export const IMP33969_EFLOW_DECAY_WIDENING_RATIO_KEND_SWEEP = {
     'receding-boundary residual feature the imp-33917 endpoint peak tracks. The inherited ' +
     'imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the OLS sub-terms are descriptive ' +
     'within the model only; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33922 (the fixed-kEnd=11 ~19.9x F1/widening over-prediction anchored here); imp-33917 (the ' +
     '9-window kEnd = 11..13 boundary sweep reused); imp-33884 (the exact widening + F1..F4 factor ' +
@@ -314,13 +313,13 @@ export const IMP33969_EFLOW_DECAY_WIDENING_RATIO_KEND_SWEEP_ASSERTIONS = [
       F3_DRIFT_LOG_SHARE < 0.1,
   },
   {
-    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp33969-honesty-gate-no-qed',
-    description: 'Window-stability cross-check only: isRigorous false, no QED, PT SOTA',
+    description: 'Window-stability cross-check only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33969_EFLOW_DECAY_WIDENING_RATIO_KEND_SWEEP.isRigorous === false &&
       /NO QED/.test(IMP33969_EFLOW_DECAY_WIDENING_RATIO_KEND_SWEEP.verdict) &&
-      /remains SOTA/.test(IMP33969_EFLOW_DECAY_WIDENING_RATIO_KEND_SWEEP.verdict),
+      /refereed bound is changed/i.test(IMP33969_EFLOW_DECAY_WIDENING_RATIO_KEND_SWEEP.verdict),
   },
 ];
 

@@ -60,7 +60,7 @@
  * shows what happens beyond it). The component model is the inherited imp-3220/imp-3406 extrapolation, NOT
  * a rigorous asymptotic; the OLS surrogate and the growth-exponent classification are descriptive, not
  * derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (later cohort member: refines the
  *   increment minimum on the fixed-band peak this module's saturation-onset window feeds into)
@@ -301,7 +301,7 @@ export const IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE = {
     'growth-exponent classification are descriptive, not derived; the component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33987 (the kEnd = 11..14 convex-drift sweep this continues one decade; machinery reused ' +
     'verbatim); imp-33940 (the R2 convex low-k drift origin); imp-33917 (the endpoint peak whose ' +
@@ -355,14 +355,14 @@ export const IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement only, saturation onset, isRigorous false, imp-33987 CORRECTED not
-    // overturned within its window, no QED, PT SOTA.
+    // overturned within its window, no QED, no refereed bound is changed.
     id: 'imp34040-honesty-gate-no-qed',
-    description: 'Measurement only: saturation onset, isRigorous false, imp-33987 within-window untouched, no QED, PT SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Measurement only: saturation onset, isRigorous false, imp-33987 within-window untouched, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE.fixedBandDriftIsSaturating === true &&
       IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE.isRigorous === false &&
       /NO QED/.test(IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE.verdict) &&
-      /remains SOTA/.test(IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE.verdict) &&
+      /refereed bound is changed/i.test(IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34040_FIXED_BAND_DRIFT_SATURATION_DECADE.verdict),
   },
 ];

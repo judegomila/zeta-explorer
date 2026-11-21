@@ -50,7 +50,7 @@
  * CROSS-CHECK / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-95602-sigma-exponent-ramp-past-1e12 (the single-evaluator finding cross-checked here)
  * @see imp-95582-sigma-postpeak-fine-exponent-ramp (half-decade ramp [1e6,1e12])
@@ -214,7 +214,7 @@ export const IMP95614_SIGMA_EXPONENT_RAMP_CROSSCHECK = {
     'direct central-difference value to 9.3e-12. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95602 (single log-space evaluator, cross-checked here); imp-95582 (half-decade ramp); ' +
     'imp-3529 (pointwise local exponent p(N)); imp-3463 (far-tail exponent -> 1/2); imp-486 ' +
@@ -257,14 +257,14 @@ export const IMP95614_SIGMA_EXPONENT_RAMP_CROSSCHECK_ASSERTIONS = [
     holds: () => DEFICIT_LN_PRODUCT.every((r) => r.product > 0.5 && r.product < 0.51),
   },
   {
-    // Honesty gate: cross-check/measurement only, no QED, PT SOTA.
+    // Honesty gate: cross-check/measurement only, no QED, no refereed bound is changed.
     id: 'imp95614-honesty-gate-no-qed',
-    description: 'Cross-check only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Cross-check only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP95614_SIGMA_EXPONENT_RAMP_CROSSCHECK.isRigorous === false &&
       IMP95614_SIGMA_EXPONENT_RAMP_CROSSCHECK.farTailExponent === 0.5 &&
       /NO QED/.test(IMP95614_SIGMA_EXPONENT_RAMP_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP95614_SIGMA_EXPONENT_RAMP_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP95614_SIGMA_EXPONENT_RAMP_CROSSCHECK.verdict),
   },
 ];
 

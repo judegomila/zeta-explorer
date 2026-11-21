@@ -43,8 +43,8 @@
  * reconstruction faithfulness at m>20 (imp-95966 PIECE-A obstruction unchanged -- this is measurement of
  * the reconstruction, not a Prop-6.3-certified per-m statement). The exponent p is ~2 to within the
  * cross-branch spread, not proven 2. The reconstruction stays m=20-only certified. Catalan G irrationality
- * OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound; NO Lambda movement; PT
- * Lambda<=0.2 SOTA; NO QED. Import-light: bakes the imp-95967 fine-grid literals + certified kappa + the
+ * OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound; NO Lambda movement; no refereed bound is changed
+ * ; NO QED. Import-light: bakes the imp-95967 fine-grid literals + certified kappa + the
  * offline fit literals; no heavy L-scan at import. SCRATCH: tmp/imp-96007-scratch.mjs.
  *
  * SOURCE: arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26).
@@ -148,7 +148,7 @@ export const C_ODD_DEPARTURE_ODD_BRANCH_CROSSVALIDATION = Object.freeze({
     + 'SATURATES verdict is not an artifact of the four even-branch points. Combined-branch extrapolation '
     + 'uncertainty: ceiling -1.8332e-5 +/- ~2.4e-8, exponent p mean 1.93 spread 0.065 (~2, NOT proven 2). '
     + 'Measurement of the reconstruction (m=20-only certified, imp-95966 PIECE-A obstruction unchanged); '
-    + 'changes no bound. G irrationality OPEN; Sun unrefereed; PT Lambda<=0.2 SOTA; NO QED',
+    + 'changes no bound. G irrationality OPEN; Sun unrefereed; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26)',
   builtOn:
@@ -212,7 +212,7 @@ export const C_ODD_DEPARTURE_ODD_BRANCH_CROSSVALIDATION = Object.freeze({
     + 'and offline fit literals. Q0_RECON is certified only at m=20 (imp-95966 PIECE-A obstruction '
     + 'unchanged), so this fits the reconstruction, not a Prop-6.3-certified per-m quantity. p is ~2 to '
     + 'within the cross-branch spread (0.065), NOT proven 2. Catalan G irrationality OPEN; Sun '
-    + 'single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const C_ODD_DEPARTURE_ODD_BRANCH_CROSSVALIDATION_ASSERTIONS = Object.freeze([
@@ -250,14 +250,14 @@ export const C_ODD_DEPARTURE_ODD_BRANCH_CROSSVALIDATION_ASSERTIONS = Object.free
       && P_SPREAD < 0.1,
   },
   {
-    name: 'honest: fit only, m=20-only certified, p not proven 2, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: fit only, m=20-only certified, p not proven 2, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () => {
       const s = C_ODD_DEPARTURE_ODD_BRANCH_CROSSVALIDATION.status;
       return /MEASURED\/FIT/.test(s)
         && /m=20-only certified/.test(s)
         && /NOT proven 2/.test(s)
         && /G irrationality OPEN/.test(s)
-        && /PT Lambda<=0.2 SOTA/.test(s)
+        && /refereed bound is changed/i.test(s)
         && /NO QED/.test(s);
     },
   },

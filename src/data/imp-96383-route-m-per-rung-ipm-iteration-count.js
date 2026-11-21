@@ -5,7 +5,7 @@
  * m(n) on a Route M Vasyunin ladder run, to SEPARATE m(n) from the O(n^2)
  * triangular-back-solve constant and test whether m(n) grows as lam_min crowds to
  * zero. Resolves IMP96352_SUBGAP (the c_ipm lumped-aggregate residual).
- * Measurement only; changes no bound; RH open; NO QED; PT Lambda <= 0.2 SOTA.
+ * Measurement only; changes no bound; RH open; NO QED; no refereed bound is changed.
  *
  * WHY. imp-96352 calibrated c_ipm as a single LUMPED constant because the
  * imp-96325 m9.log recorded only ladder totals, not per-rung solve times, and the
@@ -46,7 +46,7 @@
  *      effects), a second reason the lumped O(n^2) model is optimistic.
  *
  * MEASUREMENT / MODEL ONLY. Establishes no operator positivity, makes no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96352-route-m-vasyunin-solve-cost-model.js (IMP96352_SUBGAP resolved here)
  * @see imp-96325-route-m-vasyunin-gram-n1e4-run.js (the fixed-60-iter run corrected here)
@@ -90,7 +90,7 @@ export const IMP96383_SUMMARY = Object.freeze({
 });
 
 export const IMP96383_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: per-rung inverse-power ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: per-rung inverse-power ' +
   'iteration counts and solve walls on the exact-cotangent Vasyunin Gram; separates m(n) from ' +
   'the O(n^2) back-solve constant and identifies the convergence driver as the near-degenerate ' +
   'bottom eigenvalue pair. Changes NO bound and establishes NO operator positivity.';
@@ -158,7 +158,7 @@ const IMP96383_ASSERTIONS = [
     id: 'imp96383-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96383_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96383_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96383_HONEST_BANNER) &&
       /NO QED/.test(IMP96383_HONEST_BANNER) &&
       /Changes NO bound/.test(IMP96383_HONEST_BANNER) &&
       /right-censored/.test(IMP96383_SUBGAP.id),

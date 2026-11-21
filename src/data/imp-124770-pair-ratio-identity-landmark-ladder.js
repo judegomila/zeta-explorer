@@ -56,7 +56,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486,
  * the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are
  * UNTOUCHED and appear only symbolically as differentiation axes; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97665-flow-etrunc-elasticity-identity-derivation (EXACT pair-ratio + 5-point verify at L2/L3/L4)
  * @see imp-97821-diag3-sixth-landmark-crossvalidation (individual L6 elasticity values, sigma = 0.005)
@@ -211,7 +211,7 @@ export const IMP124770_PAIR_RATIO_IDENTITY_LANDMARK_LADDER = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, ' +
     'the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are ' +
     'UNTOUCHED (perturbed only symbolically as differentiation axes); changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97665 (EXACT pair-ratio E_CF/E_ET = E_flow/E_trunc + 5-point verify at L2/L3/L4); imp-97821 (individual ' +
     'L6 elasticity values); imp-124768 (seventh landmark L7 at sigma = 0.001); imp-124769 (E_CF round-off ' +
@@ -269,13 +269,13 @@ export const IMP124770_PAIR_RATIO_IDENTITY_LANDMARK_LADDER_ASSERTIONS = [
     holds: () => LADDER.every((r) => r.target_Eflow_over_Etrunc > 0),
   },
   {
-    // Honesty gate: accuracy/cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: accuracy/cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124770-honesty-gate-no-qed',
-    description: 'Accuracy/cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Accuracy/cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124770_PAIR_RATIO_IDENTITY_LANDMARK_LADDER.isRigorous === false &&
       /NO QED/.test(IMP124770_PAIR_RATIO_IDENTITY_LANDMARK_LADDER.verdict) &&
-      /remains SOTA/.test(IMP124770_PAIR_RATIO_IDENTITY_LANDMARK_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP124770_PAIR_RATIO_IDENTITY_LANDMARK_LADDER.verdict),
   },
 ];
 

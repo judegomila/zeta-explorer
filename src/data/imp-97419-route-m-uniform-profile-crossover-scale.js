@@ -69,7 +69,7 @@
  *
  *   Derivation + measurement only; pins NO coefficient value for g(b) or B*; no bound moves; the only
  *   rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by
- *   >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97419-uniform-profile-crossover-linear -- the boundary-to-bulk crossover of
  *   the coefficient I(a,b) is measured LINEAR (A(b) = x* b, x*(2%) = 0.3311 b-independent), so there
@@ -216,7 +216,7 @@ export const IMP97419_VERDICT = Object.freeze({
     'SHARPENS imp-97329/imp-97398/imp-97397: the uniform profile and crossover scale are fully ' +
     'characterized and do NOT pin B* nor separate b^(1/2) from log^2 b. Derivation + measurement ' +
     'only; no coefficient pinned; the rigorous anchor stays T = 2.594e7; compute N ~ 9916 binds ' +
-    'first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'first by >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97419_SUBGAP = Object.freeze({
@@ -235,7 +235,7 @@ export const IMP97419_SUBGAP = Object.freeze({
 });
 
 export const IMP97419_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + measurement only: the UNIFORM (a ~ b) ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + measurement only: the UNIFORM (a ~ b) ' +
   'profile is the bulk b f(a/b), whose small-x truncation is I_lin = (a/2) log(b/a) + (C+1/2) a (the ' +
   'imp-97330 fixed-a pin d_a = a(C+1/2)-(a/2)log a, reconfirmed a = 1..12). The boundary-to-bulk ' +
   'crossover scale imp-97329 left unknown is settled LINEAR: A(b) = x*(eps) b with x*(2%) = 0.3311 ' +
@@ -330,7 +330,7 @@ const IMP97419_ASSERTIONS = [
       IMP97419_VERDICT.noSubLinearDistinguishedScale === true &&
       IMP97419_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97419_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97419_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97419_HONEST_BANNER) &&
       /RH open/.test(IMP97419_HONEST_BANNER) &&
       /uniform-profile-crossover-linear/.test(IMP97419_SUBGAP.id),
   },

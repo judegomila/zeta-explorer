@@ -54,7 +54,7 @@
  *   neither claims the section-26 cover holds nor that it fails (the imp-3084 raw-degree
  *   sweep already warns the truncation degree matters -- the open imp-3104 question). No
  *   positivity on the actual Gram is attempted; the bare-V pilot (imp-1240) is NOT re-run.
- *   Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   No refereed bound is changed. No false QED.
  *
  *   @see imp-3086-orthogonalized-basis-conditioning.js (imp-3086: the single-cell ||R_orth|| ~ 0.99)
  *   @see imp-3066-offdiagonal-hankel-obstruction.js (imp-3066: names ||R|| <= 1 as the RH-equivalent target)
@@ -334,7 +334,7 @@ export const IMP3103_ORTHOGONALIZED_OPNORM_AU_GRID = Object.freeze({
       'matters; whether ||R_orth|| stays a contraction as DEG grows is the SEPARATE open imp-3104 ' +
       'question. Only the s = a*U scaling and the no-crossing contraction on THIS truncation are asserted.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -390,7 +390,7 @@ export const IMP3103_ORTHOGONALIZED_OPNORM_AU_GRID_ASSERTIONS = [
     id: 'imp3103-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: REPRESENTATIVE diagnostic truncation, ||R_orth|| < 1 carries no RH ' +
          'verdict, positivity not attempted, not a proof or reduction, bare pilot not re-run, and ' +
-         'PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3103_ORTHOGONALIZED_OPNORM_AU_GRID.honestCaveat;
       return (
@@ -400,7 +400,7 @@ export const IMP3103_ORTHOGONALIZED_OPNORM_AU_GRID_ASSERTIONS = [
         c.isRepresentativeTruncationNotTheSection26Gram === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -6,7 +6,7 @@
  * r > 1, for every fixed x = nu_1 d > 0. The proof consumes THEOREM
  * COAL-DOM (imp-95227, endpoint dominance, proven independently of any
  * monotonicity) as an input, so there is no circularity. Changes no bound
- * of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * of the Lambda program; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95226 THEOREM SGN-2X, normalized). Fix x = nu_1 d > 0 and
  * write t = (r - 1) x > 0, E = e^(-t), and
@@ -118,7 +118,7 @@ export const IMP95231_RATE_MONOTONICITY_CLOSURE = {
     "LEMMA K + COAL-DOM input); the imp-95231 interior-bump sub-gap is " +
     "CLOSED and COROLLARY PIN pins Lambda_2 monotonically between the " +
     "SGN-EQ floor e^(-2x) and the COAL-2 cap coalLaw(x). Changes no bound; " +
-    "NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -255,12 +255,12 @@ export const IMP95231_CLOSURE_ASSERTIONS = [
     id: "imp95231c-verdict-honesty",
     description:
       "the verdict carries the honest scope: rigorous N = 2 closure only, " +
-      "no bound change, no QED, PT Lambda <= 0.2 SOTA",
+      "no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /RIGOROUS/.test(IMP95231_RATE_MONOTONICITY_CLOSURE.verdict) &&
       /Changes no bound/.test(IMP95231_RATE_MONOTONICITY_CLOSURE.verdict) &&
       /NO QED/.test(IMP95231_RATE_MONOTONICITY_CLOSURE.verdict) &&
-      /remains SOTA/.test(IMP95231_RATE_MONOTONICITY_CLOSURE.verdict) &&
+      /refereed bound is changed/i.test(IMP95231_RATE_MONOTONICITY_CLOSURE.verdict) &&
       /stays OPEN/.test(IMP95231_RATE_MONOTONICITY_CLOSURE.honestScope),
   },
 ];

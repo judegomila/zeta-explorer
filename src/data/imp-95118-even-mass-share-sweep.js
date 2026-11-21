@@ -69,7 +69,7 @@
  * proof. The all-witness bound (or a phi -> 1 family) remains the refined open
  * sub-gap imp-95113-subgap-tradeoff-proof-vs-scan. Floors and ceilings
  * untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * Import-light (no heavy bundle). The numerics MAP the sub-gap; they are not a
  * proof of it.
@@ -323,7 +323,7 @@ export const IMP95118_EVEN_MASS_SHARE_SWEEP = {
   finding2:
     "Parity-balance COLLAPSES MONOTONICALLY as evenMassShare -> 1, and excess positivity is a razor ridge. On the odd-mass-shedding branch lambda in {1,0.85,0.70,0.50,0.30,0.20,0.10,0}, evenMassShare increases 0.6325 -> 1 and B is strictly decreasing: B = 0.9612 at the tuned base (E > 0) falls through zero just below lambda = 1 and plunges to B = -737.4829700296433 at the all-even limit (E = -0.15522673207859267 < 0). phi = A x O x B attains its sweep MAXIMUM at exactly lambda = 1 (phi = 0.3563), so the terminal witness sits on the razor ridge imp-95113 measured by random battery.",
   verdict:
-    "HONEST DIRECTED MEASUREMENT: the imp-95008 coupling is MONOTONE and the tradeoff frontier is mapped -- evenMassShare BUYS occupancy (O rises monotonically to 0.974 as evenMassShare -> 1, A flat) but SELLS parity balance (B falls monotonically through zero to -737 on the same branch), and the excess-positive product phi is a single sharp maximum at the tuned base witness. Directed-sweep companion to the imp-95113 random assessment; together EVIDENCE FOR the conjectured tradeoff bound attainment x occupancy <= gamma < 1 over MAJ witnesses, NOT a proof. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "HONEST DIRECTED MEASUREMENT: the imp-95008 coupling is MONOTONE and the tradeoff frontier is mapped -- evenMassShare BUYS occupancy (O rises monotonically to 0.974 as evenMassShare -> 1, A flat) but SELLS parity balance (B falls monotonically through zero to -737 on the same branch), and the excess-positive product phi is a single sharp maximum at the tuned base witness. Directed-sweep companion to the imp-95113 random assessment; together EVIDENCE FOR the conjectured tradeoff bound attainment x occupancy <= gamma < 1 over MAJ witnesses, NOT a proof. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   subGap:
     "imp-95113-subgap-tradeoff-proof-vs-scan - OPEN: the tradeoff bound attainment x occupancy <= gamma < 1 over ALL MAJ witnesses is now mapped monotonically along the evenMassShare axis (occupancy up, parity-balance down, phi a single peak) but NOT proved; a proof (or a phi -> 1 family) remains open.",
   openResiduals: [
@@ -419,12 +419,12 @@ export const IMP95118_EVEN_MASS_SHARE_ASSERTIONS = [
   {
     id: "imp95118-ems-honesty-gate",
     description:
-      "the verdict scopes the result as a numerical directed measurement (not a theorem over all MAJ witnesses), names the open sub-gap, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict scopes the result as a numerical directed measurement (not a theorem over all MAJ witnesses), names the open sub-gap, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95118_EVEN_MASS_SHARE_SWEEP.promotesBound === false &&
       IMP95118_EVEN_MASS_SHARE_SWEEP.isRigorous === false &&
       /NO QED/.test(IMP95118_EVEN_MASS_SHARE_SWEEP.verdict) &&
-      /remains SOTA/.test(IMP95118_EVEN_MASS_SHARE_SWEEP.verdict) &&
+      /refereed bound is changed/i.test(IMP95118_EVEN_MASS_SHARE_SWEEP.verdict) &&
       /Floors and ceilings untouched/.test(IMP95118_EVEN_MASS_SHARE_SWEEP.verdict) &&
       /NOT a proof/.test(IMP95118_EVEN_MASS_SHARE_SWEEP.verdict) &&
       /imp-95113-subgap-tradeoff-proof-vs-scan/.test(IMP95118_EVEN_MASS_SHARE_SWEEP.subGap) &&

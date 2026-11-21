@@ -19,7 +19,7 @@
  *
  *   STATUS: documentation only. Explains an already-published assessment (imp-97690) in plain terms
  *   with a physics analogy and a worked numeric example; establishes nothing new; moves no bound;
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-97690 (sigmaDecayStep4LeverAssessment field in src/data/lambda-roadmap.js -- source
  *   assessment this exposition explains)
@@ -29,7 +29,7 @@
  *   never touches)
  *
  * Ticket: imp-124978 (content, low, sonnet-4-6). Documentation only; no bound change; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 const AGGREGATE_VS_POINTWISE_EXPOSITION = Object.freeze({
@@ -231,7 +231,7 @@ export const IMP124978_AGGREGATE_VS_POINTWISE_EXPOSITION = Object.freeze({
     'to <0.1 at N ~ 3.21e11) while C_Lip stays provably unbounded at the nearest-pair front ' +
     '(C_Lip >= C_shock/(2 sqrt(W_1)) -> infinity), so the decay is no Step-4 lever (imp-35147 C2/C3). ' +
     'Establishes nothing new; no bound moved; G6a_shock_lipschitz remains OPEN; C_mb stays ' +
-    'GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486); NO QED. No refereed bound is changed.',
   citation:
     'imp-97690 (sigmaDecayStep4LeverAssessment, the assessment this exposition explains); imp-35147 ' +
     '(C1-C6 minimal-gap classification, C2/C3 cited here); imp-95234 (C_H = C_shock*C_Lip/4 ' +
@@ -292,11 +292,11 @@ export const IMP124978_AGGREGATE_VS_POINTWISE_EXPOSITION_ASSERTIONS = [
   },
   {
     id: 'imp124978-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97690.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97690.',
     holds: () =>
       IMP124978_AGGREGATE_VS_POINTWISE_EXPOSITION.anyBoundMoved === false &&
       /NO QED/.test(IMP124978_AGGREGATE_VS_POINTWISE_EXPOSITION.verdict) &&
-      /remains SOTA/.test(IMP124978_AGGREGATE_VS_POINTWISE_EXPOSITION.verdict) &&
+      /refereed bound is changed/i.test(IMP124978_AGGREGATE_VS_POINTWISE_EXPOSITION.verdict) &&
       IMP124978_AGGREGATE_VS_POINTWISE_EXPOSITION.glosses === 'imp-97690',
   },
 ];

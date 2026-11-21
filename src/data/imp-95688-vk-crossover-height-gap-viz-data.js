@@ -44,8 +44,8 @@ export const IMP95688_CAVEAT_BANNER =
   'gap, not a new measurement. The Ford Vinogradov-Korobov zero-free-region crossover ' +
   `sits ~${IMP95688_GAP.gapDecadesT.toFixed(2)} decades of T above the imp-95519 barrier window top -- ` +
   'VK offers zero unconditional saving anywhere the barrier operates. Model seam family ' +
-  'only; introduces no new cited input and changes no bound; Platt-Trudgian Lambda <= 0.2 ' +
-  'remains the rigorous SOTA. No QED.';
+  'only; introduces no new cited input and changes no bound; no refereed bound is changed' +
+  '. No QED.';
 
 export const IMP95688_VERDICT = verdict;
 

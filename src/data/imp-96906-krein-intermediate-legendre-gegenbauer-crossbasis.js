@@ -49,8 +49,8 @@
  * across the whole 0.96 <= 2a <= 1.05 band are therefore genuinely basis-independent, not Gegenbauer
  * artifacts. Measurement / cross-validation only; the floor stays a Rayleigh UPPER bound; no operator
  * positivity; the uniform-in-N spectral gap (imp-96749 IMP96749_UNIFORM_N_GAP_UNSETTLED) stays the open
- * obstruction; interval-rigorous certificate reach stays 2a <= 0.96; RH open; Platt-Trudgian
- * Lambda <= 0.2 SOTA; NO QED.
+ * obstruction; interval-rigorous certificate reach stays 2a <= 0.96; RH open; no refereed bound is changed
+ * ; NO QED.
  *
  * @see imp-96852-krein-096-legendre-gegenbauer-crossbasis.js (the 2a=0.96 cross-basis check this extends)
  * @see imp-96835-krein-2a-monotonicity-cross-check.js (Gegenbauer condB=1 monotone-in-2a floor table)

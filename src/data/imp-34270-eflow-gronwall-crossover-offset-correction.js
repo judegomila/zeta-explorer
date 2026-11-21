@@ -49,7 +49,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642/imp-2643);
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (closed-form N_cross; named the E_flow offset)
  * @see imp-33601-sigma-half-vs-crossover-eflow-offset (exact identity sigma=1/2 <=> E_coll=E_trunc+E_flow)
@@ -170,7 +170,7 @@ export const IMP34270_EFLOW_GRONWALL_CROSSOVER_OFFSET_CORRECTION = {
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33723 (closed-form N_cross; named the E_flow offset); imp-33601 (exact identity ' +
     'sigma=1/2 <=> E_coll=E_trunc+E_flow); imp-33582 (sigma=1/2 halving landmark); imp-3444 ' +
@@ -207,13 +207,13 @@ export const IMP34270_EFLOW_GRONWALL_CROSSOVER_OFFSET_CORRECTION_ASSERTIONS = [
     holds: () => N_HALF < N_CROSS && Math.abs(REL_OFFSET - 3.98e-3) < 5e-4,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp34270-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34270_EFLOW_GRONWALL_CROSSOVER_OFFSET_CORRECTION.isRigorous === false &&
       /NO QED/.test(IMP34270_EFLOW_GRONWALL_CROSSOVER_OFFSET_CORRECTION.verdict) &&
-      /remains SOTA/.test(IMP34270_EFLOW_GRONWALL_CROSSOVER_OFFSET_CORRECTION.verdict),
+      /refereed bound is changed/i.test(IMP34270_EFLOW_GRONWALL_CROSSOVER_OFFSET_CORRECTION.verdict),
   },
 ];
 

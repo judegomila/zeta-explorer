@@ -63,7 +63,7 @@
  * label, the physical exponent is 7/2 (O(eps^2) in K-residual). This certifies no constant, supplies no error
  * bar or N-uniform inequality, establishes no operator positivity, changes no bound, and does NOT discharge
  * O3 / H3 / H4 or G6a. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional
- * (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * (imp-486); NO QED. No refereed bound is changed.
  *
  * @see imp-35264-rho-prefactor-vs-imp35076-margin-crosscheck (named the coarsest-rung deficit, never measured the term)
  * @see imp-35256-k-residual-decay-exponent-reconciliation (reconciled O(eps) vs O(eps^2); K_{7/2} = -8 sqrt(2)/(3 pi))
@@ -230,7 +230,7 @@ export const IMP35379_RHO_O_EPS_NEXT_ORDER_TERM_MEASUREMENT = {
     'the K-residual). This certifies no constant, supplies no error bar or N-uniform inequality, establishes ' +
     'no operator positivity, changes no bound, and does NOT discharge O3 / H3 / H4 or G6a. imp-3066 ' +
     'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP35379_RHO_O_EPS_NEXT_ORDER_TERM_ASSERTIONS = [
@@ -261,17 +261,17 @@ export const IMP35379_RHO_O_EPS_NEXT_ORDER_TERM_ASSERTIONS = [
     holds: () => KEMP_MATCH < 5e-4,
   },
   {
-    // Honesty gate: measurement only; discharges nothing, G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only; discharges nothing, G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35379-honesty-gate-no-qed',
     description:
-      'Measurement / cross-check only: magnitude confirmed but discharges nothing, G6a OPEN, no QED, PT SOTA, imp-3066 untouched',
+      'Measurement / cross-check only: magnitude confirmed but discharges nothing, G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35379_RHO_O_EPS_NEXT_ORDER_TERM_MEASUREMENT.isRigorous === false &&
       IMP35379_RHO_O_EPS_NEXT_ORDER_TERM_MEASUREMENT.dischargesAnything === false &&
       IMP35379_RHO_O_EPS_NEXT_ORDER_TERM_MEASUREMENT.matchesImp35256Reconciliation === true &&
       /NO QED/.test(IMP35379_RHO_O_EPS_NEXT_ORDER_TERM_MEASUREMENT.verdict) &&
       /STAYS OPEN/.test(IMP35379_RHO_O_EPS_NEXT_ORDER_TERM_MEASUREMENT.verdict) &&
-      /rigorous SOTA/.test(IMP35379_RHO_O_EPS_NEXT_ORDER_TERM_MEASUREMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35379_RHO_O_EPS_NEXT_ORDER_TERM_MEASUREMENT.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35379_RHO_O_EPS_NEXT_ORDER_TERM_MEASUREMENT.verdict,
       ),

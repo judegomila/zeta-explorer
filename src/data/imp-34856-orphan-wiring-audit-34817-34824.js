@@ -40,7 +40,7 @@ export const ORPHAN_WIRING_AUDIT_34817_34824 = {
     + '*_ASSERTIONS modules were already present in scripts/run-assertions.mjs MATH_MODULES and import '
     + 'cleanly under plain node with zero assertion failures; no wiring added because none was missing. '
     + 'Extends the imp-34724/imp-34788/imp-34802/imp-34833 orphan-wiring lineage. No bound change; no '
-    + 'operator positivity; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'operator positivity; NO QED; no refereed bound is changed.',
 };
 
 export const ORPHAN_WIRING_AUDIT_34817_34824_ASSERTIONS = [
@@ -73,10 +73,10 @@ export const ORPHAN_WIRING_AUDIT_34817_34824_ASSERTIONS = [
   },
   {
     id: 'imp-34856-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no wiring added, none needed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no wiring added, none needed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(ORPHAN_WIRING_AUDIT_34817_34824.honest)
       && /no wiring added because none was missing/.test(ORPHAN_WIRING_AUDIT_34817_34824.honest)
-      && /Lambda<=0.2 remains SOTA/.test(ORPHAN_WIRING_AUDIT_34817_34824.honest),
+      && /refereed bound is changed/i.test(ORPHAN_WIRING_AUDIT_34817_34824.honest),
   },
 ];
 

@@ -50,7 +50,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96328 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96328-margin-floor-realized-gamma4000-anchor (source: the realized refit this glosses)
  * @see imp-96307-anchor-confidence-gain-projection (the conditional design-floor projection tested)
@@ -58,7 +58,7 @@
  * @see imp-96289-margin-floor-t60-anchor-sensitivity (the 7-point 6.56-SE baseline)
  *
  * Ticket: imp-96354 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The design-floor-vs-realized-collapse headword, baked verbatim (no re-import).
@@ -88,7 +88,7 @@ const MARGIN_FLOOR_PROJECTION_VS_REALIZED_HEADWORD = Object.freeze({
     'realized floor sign stays strictly positive (c=0.05302 > 0, 1.69 SE), consistent ' +
     'with the imp-96224 independent full-column finding that the on-line floor trends ' +
     'toward zero rather than settling at 0.143. The binding uniform-in-T obstruction ' +
-    'stays OFF the critical line either way. Changes no bound; PT Lambda <= 0.2 SOTA; RH ' +
+    'stays OFF the critical line either way. Changes no bound; no refereed bound is changed; RH ' +
     'open; NO QED.',
 });
 
@@ -110,8 +110,8 @@ export const IMP96354_MARGIN_FLOOR_PROJECTION_VS_REALIZED_GLOSSARY_HEADWORD = Ob
     '(imp-96224) does not -- refitting with the real value COLLAPSES the intercept ' +
     '(0.14256 -> 0.05302) and its confidence (6.56 -> 1.69 SE) instead. The realized ' +
     'floor sign stays strictly positive but far weaker than projected. Establishes ' +
-    'nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96328 (the realized refit this glosses); imp-96307 (the conditional design-floor ' +
     'projection tested); imp-96224 (the measured rho(32,4000)=0.3845 datum); imp-96289 ' +
@@ -140,11 +140,11 @@ export const IMP96354_MARGIN_FLOOR_PROJECTION_VS_REALIZED_GLOSSARY_HEADWORD_ASSE
   },
   {
     id: 'imp96354-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96354_MARGIN_FLOOR_PROJECTION_VS_REALIZED_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96354_MARGIN_FLOOR_PROJECTION_VS_REALIZED_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96354_MARGIN_FLOOR_PROJECTION_VS_REALIZED_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96354_MARGIN_FLOOR_PROJECTION_VS_REALIZED_GLOSSARY_HEADWORD.verdict) &&
       IMP96354_MARGIN_FLOOR_PROJECTION_VS_REALIZED_GLOSSARY_HEADWORD.glosses === 'imp-96328',
   },
 ];

@@ -62,18 +62,18 @@
  * run carries (integrand node count, Phi-series term count, oscillatory argument-
  * reduction precision), all of which only worsen the picture. Measurement only;
  * extends no evaluator; certifies no value at any height; changes no bound; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35759-exact-debruijn-precision-digit-cost-scope (the OOM digit law; ran no arbitrary-precision arithmetic)
  * @see imp-35781-exact-debruijn-empirical-x-ceiling-scope (measured the DOUBLE ceiling; ran no arbitrary-precision arithmetic)
  * @see scripts/imp-34813-exact-debruijn-winding-offline.mjs (the exact evaluator; window x in [20,104], floor ~1e-17)
  * @see project_winding_thread_closed_corrected (imp-34813: Gaussian conv proxy = EXACT de Bruijn flow at t = -4 tau_repo)
- * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; Lambda <= 0.2 SOTA)
+ * @see Platt-Trudgian 2021 (verified zero height T_PT = 3e12; no refereed bound is changed)
  */
 
 // -- Anchor + operative constants (import-light; matching imp-35759 / imp-35781) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified zero-ordinate (gamma) height
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const X_TPT = 2 * T_PT; // x = 2 gamma convention; T_PT ordinate maps to x = 6e12
 const PI = Math.PI;
 const DIGITS_PER_X = PI / (8 * Math.LN10); // ~0.170547 decimal digits per unit x (imp-35759)
@@ -261,11 +261,11 @@ export const IMP35811_EXACT_DEBRUIJN_ARBITRARY_PRECISION_DIGIT_TABLE = {
     'the T_PT target x = 6e12 to ~1.02e12 decimal digits (~425 GB per value) -- a categorical wall. This upgrades ' +
     'imp-35759 (OOM only) and imp-35781 (double only), both of which ran NO arbitrary-precision arithmetic, to a ' +
     'MEASURED digit table. It extends no evaluator, evaluates no true H_0 at high precision, certifies no value at ' +
-    'any height, and changes no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'any height, and changes no bound. NO QED. No refereed bound is changed.',
   citation:
     'imp-35759 (OOM digit law, no arbitrary-precision run); imp-35781 (measured the double ceiling, no arbitrary-' +
     'precision run); scripts/imp-34813-exact-debruijn-winding-offline.mjs (the exact evaluator; window x in [20,104]); ' +
-    'Platt-Trudgian 2021 (T_PT = 3e12; Lambda <= 0.2 SOTA).',
+    'Platt-Trudgian 2021 (T_PT = 3e12; no refereed bound is changed).',
 };
 
 export const IMP35811_EXACT_DEBRUIJN_ARBITRARY_PRECISION_DIGIT_TABLE_ASSERTIONS = [
@@ -314,15 +314,15 @@ export const IMP35811_EXACT_DEBRUIJN_ARBITRARY_PRECISION_DIGIT_TABLE_ASSERTIONS 
       REACH_QUAD128 > 185 && REACH_QUAD128 < 215,
   },
   {
-    // Honesty gate: measurement only; no evaluator extension; no high-precision H_0; NO QED; PT SOTA at Lambda <= 0.2.
+    // Honesty gate: measurement only; no evaluator extension; no high-precision H_0; NO QED; no refereed bound is changed.
     id: 'imp35811-honesty-gate-no-qed',
-    description: 'Measurement only; extends no evaluator; certifies no value; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Measurement only; extends no evaluator; certifies no value; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35811_EXACT_DEBRUIJN_ARBITRARY_PRECISION_DIGIT_TABLE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /extends no evaluator/.test(IMP35811_EXACT_DEBRUIJN_ARBITRARY_PRECISION_DIGIT_TABLE.verdict) &&
       /NO QED/.test(IMP35811_EXACT_DEBRUIJN_ARBITRARY_PRECISION_DIGIT_TABLE.verdict) &&
-      /remains SOTA/.test(IMP35811_EXACT_DEBRUIJN_ARBITRARY_PRECISION_DIGIT_TABLE.verdict),
+      /refereed bound is changed/i.test(IMP35811_EXACT_DEBRUIJN_ARBITRARY_PRECISION_DIGIT_TABLE.verdict),
   },
 ];
 

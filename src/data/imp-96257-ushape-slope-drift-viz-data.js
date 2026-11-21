@@ -15,7 +15,7 @@
  * MEASUREMENT / PRESENTATION ONLY. The component model is the inherited
  * imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 stays untouched; changes no bound; establishes no
- * operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96228-ushape-slope-drift-beyond-nflow.js (grid, deep probe, findings)
  *
@@ -50,7 +50,7 @@ export const IMP96257_ANCHORS = Object.freeze({
 });
 
 export const IMP96257_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every a(N), b(N), a+b grid value '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every a(N), b(N), a+b grid value '
   + 'and the deep-probe reading are copied verbatim from the imp-96228 baked landmarks; only the '
   + 'chart-axis reshaping is computed here (no re-derivation, no new slope measurement). The '
   + 'component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous '
@@ -92,8 +92,8 @@ const IMP96257_ASSERTIONS = [
   },
   {
     id: 'imp96257-honest-banner-carries-status',
-    holds: () => /RH open/.test(IMP96257_HONEST_BANNER) && /NO QED/.test(IMP96257_HONEST_BANNER) && /SOTA/.test(IMP96257_HONEST_BANNER),
-    why: 'honesty gate: measurement/presentation only, no RH claim, PT stays SOTA.',
+    holds: () => /RH open/.test(IMP96257_HONEST_BANNER) && /NO QED/.test(IMP96257_HONEST_BANNER) && /refereed bound is changed/i.test(IMP96257_HONEST_BANNER),
+    why: 'honesty gate: measurement/presentation only, no RH claim, no refereed bound is changed.',
   },
 ];
 

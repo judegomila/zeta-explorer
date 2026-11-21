@@ -44,7 +44,7 @@
  * this says nothing about whether the surrogate models the true collapse dynamic at 10^27-10^37. The
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35332-reentry-band-drift-analytic-derivation (derived DRIFT(N), integral = OFFSET; this locates the half-OFFSET point)
  * @see imp-35111-off-by-one-reentry-band-width (band width ~10.08 decades, exit ~10^37.17)
@@ -224,8 +224,8 @@ export const IMP35372_REENTRY_BAND_DRIFT_INTEGRAL_HALF_OFFSET = {
     'inherited imp-3220/imp-3406 surrogate; it does NOT discharge imp-35243a (surrogate-fidelity), which stays ' +
     'OPEN with imp-35111a / imp-35174a / imp-34997a. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and ' +
     'the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays ' +
-    '1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-' +
-    'Trudgian Lambda <= 0.2 remains SOTA.',
+    '1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
+    'No refereed bound is changed.',
   citation:
     'imp-35332 (derived DRIFT(N), integral = OFFSET); imp-35111 (band width ~10.08 decades); imp-34997 ' +
     '(grid-measured the drift and the 10^27.08 reentry); imp-35243 (baked DRIFT_PER_DECADE=0.0187; sub-gap ' +
@@ -271,13 +271,13 @@ export const IMP35372_REENTRY_BAND_DRIFT_INTEGRAL_HALF_OFFSET_ASSERTIONS = [
       Math.abs(analyticDrift(Math.pow(10, WIDTH_CROSSING_EXP)) - BAND_AVERAGE_DRIFT) < 1e-6,
   },
   {
-    // Honesty gate: measurement only, discharges nothing, no QED, PT SOTA, sub-gap named/OPEN.
+    // Honesty gate: measurement only, discharges nothing, no QED, no refereed bound is changed, sub-gap named/OPEN.
     id: 'imp35372-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, discharges nothing, no QED, PT SOTA, imp-35243a OPEN',
+    description: 'Measurement only: isRigorous false, discharges nothing, no QED, no refereed bound is changed, imp-35243a OPEN',
     holds: () =>
       IMP35372_REENTRY_BAND_DRIFT_INTEGRAL_HALF_OFFSET.isRigorous === false &&
       /NO QED/.test(IMP35372_REENTRY_BAND_DRIFT_INTEGRAL_HALF_OFFSET.verdict) &&
-      /remains SOTA/.test(IMP35372_REENTRY_BAND_DRIFT_INTEGRAL_HALF_OFFSET.verdict) &&
+      /refereed bound is changed/i.test(IMP35372_REENTRY_BAND_DRIFT_INTEGRAL_HALF_OFFSET.verdict) &&
       /imp-35243a/.test(IMP35372_REENTRY_BAND_DRIFT_INTEGRAL_HALF_OFFSET.residual_sub_gap) &&
       /stay OPEN/.test(IMP35372_REENTRY_BAND_DRIFT_INTEGRAL_HALF_OFFSET.finding),
   },

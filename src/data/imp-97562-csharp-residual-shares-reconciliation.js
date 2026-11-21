@@ -29,7 +29,7 @@
  *
  *   Accuracy cross-check only. No new bound; the envelope, realizable floor, and c_sharp values are
  *   carried verbatim from imp-97457/97458/97492/97558; interval-rigorous reach stays 2a <= 0.96;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97558 (interval-certified realizable floor -1343.796 at the operator level)
  * @see imp-97457 (best band-limited realizable attainment 43.84% of the bathtub envelope)

@@ -49,7 +49,7 @@
  * IMP96847_TVSN_LAW_THREE_POINT_ONLY -- r(N)'s asymptote is unmeasured, so a real (N,T) solve at
  * N in {200,400,800} is needed to discriminate); the Rayleigh floor stays an UPPER bound on the true
  * lambda_min; establishes NO operator positivity; IMP96749_UNIFORM_N_GAP_UNSETTLED stays open;
- * interval-rigorous reach stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * interval-rigorous reach stays 2a <= 0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96827-krein-tresidual-envelope-extrapolation.js (source (N,T) grid; IMP96807_TCONV_LADDER_LOWER_ENVELOPE)
  * @see imp-96806-krein-tconv-plateau-2a-ln3.js (source T-sweep IMP96806_TSWEEP_LN3)

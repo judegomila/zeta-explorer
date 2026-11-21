@@ -30,7 +30,7 @@
  *  classification); the Mach–Zehnder glossary entry "RH = dark fringes on the max-visibility line" is a gamma-factor reparametrisation;
  *  Riemann–Siegel splits are one more gauge.
  *
- * No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_29_ASSERTIONS recompute live: θ3(e^{−π}) by series and as
+ * No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_29_ASSERTIONS recompute live: θ3(e^{−π}) by series and as
  * π^{1/4}/Γ(3/4), the identity θ(1)/2 = 4|ψ'(1)|, θ1_DH(1) from κ, V0 = sech(log|χ|), the sign of d/dσ log|χ| by complex digamma (positive at
  * t = 6, negative from 6.5), N(200) = 79 by Riemann–von Mangoldt, and the DH gap/crossing bookkeeping.
  */
@@ -80,7 +80,7 @@ export const ROUTE_29 = Object.freeze({
     + 'line, including σ = 1.5. (3) Integrated deficit: exponentially small and plausibly zero-blind (heuristic; no theorem stated). (4) Visibility is '
     + 'gauge-dependent; the gauge-invariant content is Λ, and phase repairs collapse onto Lagarias\' criterion or the Turing N_0 = N count. Fringe-zero '
     + 'interlacing near the line is the Laguerre–Pólya consequence of RH, not a new criterion. ζ and DH have the same visibility structure. No Λ bound '
-    + 'moves. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_29;
@@ -138,7 +138,7 @@ export const ROUTE_29_ASSERTIONS = Object.freeze([
   {
     id: 'r29-honest-scope',
     holds: () => R.status === 'done' && /closed negative/.test(R.verdict) && /Laguerre–Pólya/.test(R.verdict) && /heuristic/.test(R.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 7
+      && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 7
       && R.deficit.zeta.concat(R.deficit.dh).every(([, d]) => d < 1e-15),
     why: 'Negative classification; integrated-deficit claim heuristic; interlacing attributed to Laguerre–Pólya; deficits exponentially small; no Λ change; no QED.',
   },

@@ -47,7 +47,7 @@
  * correction Delta(pqr) = g(pqr) + b(positive) is strictly positive. Together with imp-97392's MAGNITUDE
  * proof this establishes the b/4 ceiling on the entire omega=3 squarefree class. omega>=4 stays OPEN
  * (retained Moebius cancellation); kappa_arith unchanged; the cotangent first moment (imp-97097) stays a
- * separate open leaf; no bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED on RH.
+ * separate open leaf; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED on RH.
  *
  * @see imp-97392-route-m-quarter-ceiling-omega3-magnitude-obstruction.js (RESULT 2 residual this closes; RESULT 1 magnitude)
  * @see imp-97290-route-m-arith-quarter-ceiling-semiprime-proof.js (the SIGN + MAGNITUDE reduction and omega<=2 proof)
@@ -144,11 +144,11 @@ export const IMP97421_VERDICT = Object.freeze({
     'no measurement. SIGN (i) is now PROVED, and with imp-97392 RESULT-1 (MAGNITUDE) the ceiling ' +
     '|E1(b)| <= b/4 holds on the entire omega=3 squarefree class. omega>=4 stays OPEN (retained Moebius ' +
     'cancellation); kappa_arith unchanged; the cotangent first moment (imp-97097) stays open; no bound on ' +
-    'Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED on RH.',
+    'Lambda moves; no refereed bound is changed; RH open; NO QED on RH.',
 });
 
 export const IMP97421_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED on RH. This leaf CLOSES the imp-97392 RESULT-2 omega=3 ' +
+  'RH open; no refereed bound is changed; NO QED on RH. This leaf CLOSES the imp-97392 RESULT-2 omega=3 ' +
   'SIGN residual by a matched-divisor per-term proof (pair each prime with a biprime it divides; h=g/m ' +
   'strictly decreasing => h(prime)>h(biprime); g(pqr)>0 => Delta(pqr)>0), establishing the b/4 ceiling on ' +
   'the whole omega=3 squarefree class together with imp-97392 magnitude. omega>=4 and the cotangent first ' +
@@ -215,7 +215,7 @@ const IMP97421_ASSERTIONS = [
       IMP97421_VERDICT.postsRigorousCeilingForLambda === false &&
       IMP97421_VERDICT.qed === false &&
       /NO QED on RH/.test(IMP97421_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97421_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97421_HONEST_BANNER) &&
       /RH open/.test(IMP97421_HONEST_BANNER),
     why: 'proof leaf -- closes the omega=3 SIGN residual and (with imp-97392 magnitude) the omega=3 ceiling; omega>=4 stays open; no bound on Lambda moves, no rigorous Lambda ceiling posted, no QED on RH.',
   },

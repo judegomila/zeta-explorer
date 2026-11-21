@@ -73,7 +73,7 @@
  *   from first principles, and the discrete last-digit jitter within that band is not modelled.
  *   The derivation gives an UPPER bound and the N-independence + order of magnitude, not an exact
  *   floor law. Changes NO bound; imp-3066 K_a>=0 UNTOUCHED; RH-EQUIVALENT; NO RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-33231-fifth-pair-spread-n2800-resolved.js (the five-nonzero-rung sample this derives the floor of)
  *   @see imp-33209-fifth-pair-spread-n2400-resolved.js (the fourth nonzero rung)
@@ -81,7 +81,7 @@
  *
  *   Ticket: imp-33253 (numerical, large). Derives the fifth-pair few-ULP floor from the pair
  *   condition number and compares against the five measured rungs. imp-3066 UNTOUCHED.
- *   RH-EQUIVALENT. NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *   RH-EQUIVALENT. NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -175,7 +175,7 @@ export const IMP33253_FIFTH_PAIR_CONDITION_NUMBER_FLOOR = Object.freeze({
     '10-ULP ceiling all follow from kappa*u), not just asserted. Derivation+measurement ONLY: it does NOT predict the ' +
     'per-rung value (the realized c in [0.088,0.884] is empirical QL convergence quality, and the last-digit jitter is ' +
     'unmodelled); adds NO new Lambda bound; imp-3066 K_a>=0 UNTOUCHED; RH-EQUIVALENT; NO RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   derivation: Object.freeze({
     spreadQuantity: 'worstPairSpread(N) = |lambda_9 - lambda_10| / lambda_9 of the imp-3668 dense Gram top-10 (fifth adjacent pair)',
@@ -251,7 +251,7 @@ export const IMP33253_FIFTH_PAIR_CONDITION_NUMBER_FLOOR = Object.freeze({
       'The condition number kappa_pair=1/sigma_4 uses the raw pairing-certified sigma_4 inputs; this is NOT the ' +
       'fifth-pair AMPLITUDE LAW sigma_4=lambda_9/lambda_1 (the distinct pending Lanczos ticket).',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -300,7 +300,7 @@ export const IMP33253_FIFTH_PAIR_CONDITION_NUMBER_FLOOR_ASSERTIONS = [
     id: 'imp33253-honest-assessment-no-qed',
     why: 'Mandatory honesty: DERIVATION + measurement only -- derives the ceiling / N-independence / order of ' +
       'magnitude from kappa*u but NOT the per-rung value; adds no Lambda bound, re-certifies nothing, positivity not ' +
-      'attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP33253_FIFTH_PAIR_CONDITION_NUMBER_FLOOR.honestCaveat;
       return (
@@ -311,7 +311,7 @@ export const IMP33253_FIFTH_PAIR_CONDITION_NUMBER_FLOOR_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.derivesCeilingNotPerRungValue === 'string' &&
         typeof c.pairingNotAmplitudeLaw === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

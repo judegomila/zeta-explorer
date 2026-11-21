@@ -56,7 +56,7 @@
  *   IMP97600_TAIL_MODEL_UNDECIDED_UNTIL_KBIG800) to decide geometric vs. slow-algebraic. Either way
  *   the floor stays four orders of magnitude below the -310.692227-to-0.581059 requirement for the
  *   m=1 enclosure to be usable at 2a=ln3. No bound on Lambda moves; interval-rigorous reach stays
- *   2a<=0.96; PT Lambda<=0.2 remains SOTA; RH open; NO QED.
+ *   2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97482-krein-route2-kbig-direct-projector-floor.js (Thread A origin; Kbig 140-260; bracket [-313.8,-308.7])
  * @see imp-97513-krein-route2-kbig420-500-deep-floor.js (Thread A; Kbig 420-500; ratio rising 0.730->0.771)
@@ -65,7 +65,7 @@
  * @see imp-97600-lambda2-floor-spread-decomposition.js (Thread B; 94.4% of the floor spread is the same tail-model disagreement)
  *
  * Ticket: imp-97636 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const ROUTE2_KBIG_MAX_BUILT = 720;
@@ -151,7 +151,7 @@ export const IMP97636_ROUTE2_KBIG_TRUNCATION_TAIL_COHORT_INDEX = Object.freeze({
     'pins tr(A2) tightly (~1.7e-6) but leaves the single extremal eigenvalue nu_max -- and hence ' +
     'the floor -- unpinned at the ~1e-2 relative level (94.4% tail-model disagreement per ' +
     'imp-97600). No bound on Lambda moves; the floor stays four orders below the m=1-enclosure ' +
-    'usability threshold; interval-rigorous reach stays 2a<=0.96; PT Lambda<=0.2 SOTA; RH open; ' +
+    'usability threshold; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; ' +
     'NO QED.',
   citation:
     'imp-97482 (origin Kbig build, first bracket); imp-97513 (Kbig 420-500, ratio rising); ' +
@@ -206,11 +206,11 @@ export const IMP97636_ROUTE2_KBIG_TRUNCATION_TAIL_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97636-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97636_ROUTE2_KBIG_TRUNCATION_TAIL_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97636_ROUTE2_KBIG_TRUNCATION_TAIL_COHORT_INDEX.verdict) &&
-      /SOTA/.test(IMP97636_ROUTE2_KBIG_TRUNCATION_TAIL_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97636_ROUTE2_KBIG_TRUNCATION_TAIL_COHORT_INDEX.verdict),
   },
 ];
 

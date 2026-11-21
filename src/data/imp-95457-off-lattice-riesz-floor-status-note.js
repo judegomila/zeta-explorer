@@ -57,8 +57,7 @@
  * the floor, so no better m-uniform scalar constant can ever be found.
  * What remains open is entirely structural (blocks, signs, phase,
  * envelope port) or citation-level (CLV), not scalar-floor slack.
- * Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * Changes no Lambda bound; NO QED; no refereed bound is changed.
  */
 
 export const OFF_LATTICE_RIESZ_FLOOR_STATUS = [
@@ -148,7 +147,7 @@ export const IMP_95457_OFF_LATTICE_RIESZ_FLOOR_STATUS_NOTE = {
   note:
     'documentation only, citing imp-95335 (Ingham floor A_sep), imp-95419 ' +
     '(THEOREM SEP-OPT), and imp-95438 (classical-input ledger); no Lambda ' +
-    'bound moves; Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    'bound moves; no refereed bound is changed',
   closesTickets: ['imp-95457'],
 };
 

@@ -54,8 +54,7 @@
  * Gronwall wall (non-N-uniform). The contribution of imp-2681 is to NARROW the
  * obstruction: of the two factors of C_H = C_shock * C_Lip / 4, the cusp factor
  * C_shock is bounded (~0.27 at N*=1e4, O(1/sqrt(log)) -> 0), so the obstruction is
- * ISOLATED to C_Lip ALONE. NO rigorous beat is claimed; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * ISOLATED to C_Lip ALONE. NO rigorous beat is claimed; no refereed bound is changed.
  *
  * Convention note (honest). The Whitham-fold reading C_cusp ~ 1/C_W (g6a-sub-
  * constant-value.js l.54) gives a DIFFERENT, divergent value because the boundary-
@@ -186,7 +185,7 @@ export const C_SHOCK_CUSP_CONSTANT_IMP2681 = {
     'C_shock IS pinnable to an explicit BOUNDED value C_shock(N) = sqrt(2 / (3 log gamma_N)) ' +
     '(~0.27 at N*=1e4, O(1/sqrt(log)) -> 0). Pinning it does NOT discharge C_H = C_shock * C_Lip / 4: ' +
     'the OTHER factor C_Lip remains the imp-2640 Gronwall wall (non-N-uniform). The obstruction is ' +
-    'thereby ISOLATED to C_Lip ALONE. No rigorous beat; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'thereby ISOLATED to C_Lip ALONE. No rigorous beat; no refereed bound is changed.',
   cShockPinned: true,
   remainingWall:
     'C_Lip — the gap-Lipschitz constant. Its only bound is the backward-flow Gronwall Jacobian 2/g^2, ' +
@@ -222,7 +221,7 @@ export const C_SHOCK_CUSP_CONSTANT_IMP2681 = {
   honestNote:
     'No false QED. This NARROWS the C_H obstruction from two factors to one (C_Lip) by pinning the ' +
     'cusp factor C_shock to a bounded explicit value. It does NOT close C_H and does NOT yield a ' +
-    'rigorous Lambda < 0.2. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'rigorous Lambda < 0.2. No refereed bound is changed.',
 };
 
 // ── Build-time assertions ────────────────────────────────────────────────────
@@ -296,13 +295,13 @@ export const C_SHOCK_CUSP_CONSTANT_ASSERTIONS = [
         r.rigorousBeat === false &&
         /C_Lip/.test(r.remainingWall) &&
         /ISOLATED to C_Lip ALONE/.test(r.verdict) &&
-        /SOTA/.test(r.honestNote)
+        /refereed bound is changed/i.test(r.honestNote)
       );
     },
     why:
       'VERDICT LOCK: C_shock is pinned (bounded) but C_H is NOT discharged — the remaining wall is C_Lip ' +
       '(imp-2640 Gronwall divergence). This assertion blocks any future edit from flipping the bounded-C_shock ' +
-      'finding into a claimed C_H closure or a rigorous Lambda < 0.2 beat. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+      'finding into a claimed C_H closure or a rigorous Lambda < 0.2 beat. No refereed bound is changed.',
   },
 ];
 

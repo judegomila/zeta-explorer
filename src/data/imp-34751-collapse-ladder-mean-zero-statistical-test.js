@@ -62,7 +62,7 @@
  *   regime, it does not rehabilitate it. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8)
  *   ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0
  *   untouched; the inherited surrogate is NOT rigorous; no operator positivity; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34730-third-footing-collapse-ladder-crossvalidation.js (footing 3; the three-footing eyeballed mean-zero reading this module tests formally)
  *   @see imp-34712-second-footing-collapse-ladder-crossvalidation.js (footing 2; first sign flip)
@@ -308,7 +308,7 @@ export const IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST = Object.freeze
     'regime, it does not rehabilitate it. The -2 asymptote and C_C=(1/8)sqrt(3 pi) (imp-2714, C_H=1/8) ' +
     'ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a>=0 ' +
     'untouched; the inherited surrogate is NOT rigorous; changes no bound; no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34730 (footing 3; the three-footing eyeballed mean-zero reading this module tests formally); ' +
     'imp-34712 (footing 2; first sign flip); imp-34689 (footing 1; r_k ~ {4.00,7.00,17.91}, slopes ' +
@@ -357,10 +357,10 @@ const IMP34751_ASSERTIONS = [
     holds: () =>
       IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST.isRigorous === false &&
       /NO QED/.test(IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST.verdict) &&
-      /remains SOTA/.test(IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST.verdict) &&
+      /refereed bound is changed/i.test(IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST.verdict) &&
       /UNTOUCHED/.test(IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST.verdict) &&
       /failure to reject, not acceptance/.test(IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST.verdict),
-    why: 'Honesty gate: measurement only, CI-contains-0 is failure to reject not acceptance, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, CI-contains-0 is failure to reject not acceptance, no bound change, no QED, no refereed bound is changed.',
   },
   {
     id: 'imp34751-per-footing-deviation-arrays-exposed',

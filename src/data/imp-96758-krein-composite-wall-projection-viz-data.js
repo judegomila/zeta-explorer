@@ -12,7 +12,7 @@
  * PRESENTATION ONLY. Every value here is reused verbatim from the imp-96732
  * IMP96732_RUNGS / IMP96732_WALLS / IMP96732_VERDICT records; only the
  * two-series chart reshape is new. Changes no bound, establishes no operator
- * positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity, no RH claim; no refereed bound is changed.
  * RH open. NO QED.
  *
  * @see imp-96732-krein-extended-precision-reach-assessment.js (source projection)

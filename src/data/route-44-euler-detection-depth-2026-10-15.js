@@ -39,7 +39,7 @@
  *
  * Verdict: done as posed. The Weil form misses the absent Euler product of a same-gamma-factor Dirichlet twin up to a support that depends
  * mostly on the root-number phase (through the height and real part of the first off-line zero) and only weakly on conductor (≈ 0.2–0.37 per
- * log q, censoring-biased), against slope 1 for route 15's Epstein principal forms. No Λ bound moves. PT Lambda <= 0.2 stands; RH open;
+ * log q, censoring-biased), against slope 1 for route 15's Epstein principal forms. No Λ bound moves. No refereed bound is changed; RH open;
  * NO QED. Import-free. ROUTE_44_ASSERTIONS recompute live: the conjugate-pair count (220 over 31 conductors) from Möbius/φ, κ for DH, the
  * tallies, the zero-side law at DH, the cube-root model at DH, the information floor and the real-zero sign rule.
  */
@@ -102,7 +102,7 @@ export const ROUTE_44 = Object.freeze({
     + 'per-twin certified support (387 Arb upper bounds in [0.36, 3.40]); that support follows the root-number phase and, through it, the first '
     + 'off-line zero (fitted law, rms 0.14), with a weak, censoring-biased conductor slope (≈ 0.2–0.37 per log q) against route 15\'s slope 1, so '
     + 'the Dirichlet and Epstein twin families blind the Weil form by different mechanisms. Euler arms stay positive. Lower ends are measured in a '
-    + 'finite basis. No Λ bound moves: the conditional value stays 0.116091488672439. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'finite basis. No Λ bound moves: the conditional value stays 0.116091488672439. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R44 = ROUTE_44;
@@ -165,7 +165,7 @@ export const ROUTE_44_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r44-honesty',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(R44.verdict) && /NO QED/.test(R44.verdict) && /0\.116091488672439/.test(R44.verdict)
+    holds: () => /refereed bound is changed/i.test(R44.verdict) && /NO QED/.test(R44.verdict) && /0\.116091488672439/.test(R44.verdict)
       && R44.refereeKilled.length === 8 && R44.status === 'done',
     why: 'Verdict keeps PT Λ ≤ 0.2 as the benchmark, the conditional value unchanged, and claims no QED; eight referee corrections recorded.',
   },

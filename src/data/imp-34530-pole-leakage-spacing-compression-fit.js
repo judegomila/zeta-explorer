@@ -52,7 +52,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the residExp
  * simple-pole structure is a numerical/structural observation, not a derivation; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34512-pole-leakage-fit-15-20-percent-crossings (R2 per-pp spacing compression fit here; the {1,3,8,15,20}% ladder)
  * @see imp-34468-pole-leakage-3-8-percent-crossings (the 1%/3%/8% ladder {18.106,18.497,19.034})
@@ -300,7 +300,7 @@ export const IMP34530_POLE_LEAKAGE_SPACING_COMPRESSION_FIT = {
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'residExp simple-pole structure is a numerical/structural observation, not a derivation; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34512 (R2 per-pp spacing compression fit here; the {1,3,8,15,20}% ladder); imp-34468 (the ' +
     '1%/3%/8% ladder); imp-34247 (R3 contaminationLadder devPct -- the metric reused); imp-34188 (the ' +
@@ -357,13 +357,13 @@ export const IMP34530_POLE_LEAKAGE_SPACING_COMPRESSION_FIT_ASSERTIONS = [
       EXTRAP_ACCURATE === true,
   },
   {
-    // Honesty gate: measurement + fit only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: measurement + fit only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34530-honesty-gate-no-qed',
-    description: 'measurement/fit only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'measurement/fit only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34530_POLE_LEAKAGE_SPACING_COMPRESSION_FIT.isRigorous === false &&
       /NO QED/.test(IMP34530_POLE_LEAKAGE_SPACING_COMPRESSION_FIT.verdict) &&
-      /remains SOTA/.test(IMP34530_POLE_LEAKAGE_SPACING_COMPRESSION_FIT.verdict) &&
+      /refereed bound is changed/i.test(IMP34530_POLE_LEAKAGE_SPACING_COMPRESSION_FIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34530_POLE_LEAKAGE_SPACING_COMPRESSION_FIT.verdict),
   },
 ];

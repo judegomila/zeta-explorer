@@ -95,7 +95,7 @@ export const ROUTE_3 = Object.freeze({
   verdict: 'Route 3 works but is a weak lever: certified −7.86e-7 on the route-P admission (0.145693297586243). The literal three-point design '
     + 'with a centre probe is dominated (measured). The useful find is outside route 3: new certified λ < 2 two-point kernels give '
     + '0.145465618111039 (−2.28e-4). All values are certified relative to the shared ledger and the unrefereed Theorem MP / MP3 / R2; '
-    + 'single implementation, internal referee only. Λ < 0.145 is not certified. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'single implementation, internal referee only. Λ < 0.145 is not certified. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_3;
@@ -173,7 +173,7 @@ export const ROUTE_3_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r3-honest-scope',
-    holds: () => R.status === 'done' && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && /not certified/.test(R.verdict)
+    holds: () => R.status === 'done' && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && /not certified/.test(R.verdict)
       && /measured/.test(R.refereeKilled[1]) && R.measured.referee.violations === 0 && R.measured.referee.maxCodeMinusExact < 0,
     why: 'Λ < 0.145 not certified; obstruction downgraded to measured; referee checks show code attenuations conservative; no QED.',
   },

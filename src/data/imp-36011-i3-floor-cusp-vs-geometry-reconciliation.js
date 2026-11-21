@@ -24,7 +24,7 @@
  * ASSESSMENT / MEASUREMENT ONLY. Certifies no delta > 0; instantiates no
  * interval enclosure; evaluates no |H_t| or |H_t prime| on any edge; counts no
  * zeros; positions no rectangle; fixes no Delta or h; changes no bound; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * WHY THE COMPARISON NEEDS A COMMON NORMALIZATION
  * -----------------------------------------------------------------------------
@@ -74,8 +74,7 @@
  * true |H_t| magnitude on dR at T_PT stays unknown. A certified I3 floor needs
  * an interval LOWER bound on |H_t| on each edge, gated on the greenfield
  * evaluator. Instantiates no interval enclosure; certifies no delta > 0; counts
- * no zeros; changes no bound; I3 stays GREENFIELD; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no zeros; changes no bound; I3 stays GREENFIELD; NO QED. No refereed bound is changed.
  *
  * @see imp-35951-i2-i3-sizing-from-imp33923-sampled-proxy (Route S: single-cusp C_PS floor proxy)
  * @see imp-35778-i3-edge-type-floor-decomposition-scope (Route G: delta = min(delta_short, delta_long))
@@ -89,7 +88,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35951 / imp-35778) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this reconciliation
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this reconciliation
 
 // Winding / derivative log-scale w(T) = (1/2) log(T / 2 pi) (imp-35757 / imp-35777 / imp-35778).
 const windingRate = (T) => 0.5 * Math.log(T / (2 * Math.PI));
@@ -179,7 +178,7 @@ export const IMP36011_I3_FLOOR_CUSP_VS_GEOMETRY_RECONCILIATION = {
     'using the imp-35777 sup-derivative in place of inf|H_t prime|); the agreement is between two normalized O(1) ' +
     'proxies, NOT two certified floors, and the true |H_t| magnitude on dR stays unknown. Instantiates no interval ' +
     'enclosure; certifies no delta > 0; counts no zeros; fixes no Delta or h; changes no bound; I3 stays ' +
-    'GREENFIELD; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GREENFIELD; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35951 (single-cusp C_PS = pi/sqrt(2) I3 floor proxy from the held imp-33923 quadrature); imp-35778 ' +
     '(two-knob delta = min(delta_short, delta_long) edge-type decomposition); imp-35993 (sibling I2 proxy ' +
@@ -230,9 +229,9 @@ export const IMP36011_I3_FLOOR_CUSP_VS_GEOMETRY_RECONCILIATION_ASSERTIONS = [
       /either edge family/.test(IMP36011_I3_FLOOR_CUSP_VS_GEOMETRY_RECONCILIATION.edgeMapping.consequence),
   },
   {
-    // Honesty gate: measurement only, both proxies, no certification, no QED, PT SOTA.
+    // Honesty gate: measurement only, both proxies, no certification, no QED, no refereed bound is changed.
     id: 'imp36011-honesty-gate-no-qed',
-    description: 'Measurement only; both routes PROXIES; certifies no delta>0; I3 GREENFIELD; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; both routes PROXIES; certifies no delta>0; I3 GREENFIELD; NO QED; no refereed bound is changed',
     holds: () =>
       IMP36011_I3_FLOOR_CUSP_VS_GEOMETRY_RECONCILIATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -241,7 +240,7 @@ export const IMP36011_I3_FLOOR_CUSP_VS_GEOMETRY_RECONCILIATION_ASSERTIONS = [
       /certifies no delta > 0/.test(IMP36011_I3_FLOOR_CUSP_VS_GEOMETRY_RECONCILIATION.verdict) &&
       /I3 stays[\s\S]*GREENFIELD/.test(IMP36011_I3_FLOOR_CUSP_VS_GEOMETRY_RECONCILIATION.verdict) &&
       /NO QED/.test(IMP36011_I3_FLOOR_CUSP_VS_GEOMETRY_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP36011_I3_FLOOR_CUSP_VS_GEOMETRY_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP36011_I3_FLOOR_CUSP_VS_GEOMETRY_RECONCILIATION.verdict),
   },
 ];
 

@@ -121,7 +121,7 @@
  * [0.2320723, 0.24502], unconditional window [0.23209, 0.24502], open
  * strip endpoints, k <= 4 ladder floor 47/200 all carried UNCHANGED.
  * Composition is as strong as the recorded links it cites. Changes no
- * Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda bound; NO QED; no refereed bound is changed.
  *
  * Import-light; zero imports; deterministic; in-sweep ~5 s.
  */
@@ -596,7 +596,7 @@ export const IMP95168_SATELLITE_BULGE_ARCHITECTURE_FLOOR = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // --------------------------------------------------------------------------

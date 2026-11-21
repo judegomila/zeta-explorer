@@ -28,7 +28,7 @@
  * already discharged this exact requirement. This module records the
  * duplicate-ticket finding so the completed status is auditable. Changes no
  * bound; establishes no operator positivity; no RH verdict; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35593-peak-damping-viz-data.js (the pre-existing module this ticket duplicates)
  * @see src/pages/Imp35593PeakDampingViz.jsx (the pre-existing page)
@@ -69,7 +69,7 @@ export const IMP35627_PEAK_DAMPING_VIZ_ALREADY_SATISFIED_AUDIT = {
     'AUDIT ONLY (not rigorous, not a measurement of a mathematical quantity). imp-35627 ' +
     'duplicates work already completed by imp-35593; no further module or page build needed. ' +
     'Changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35593 (git commit that already built this module + page); imp-35574 (the underlying ' +
     'peak-location vs crossover height-map damping measurement); imp-35458 (the ~18x crossover ' +
@@ -103,11 +103,11 @@ export const IMP35627_PEAK_DAMPING_VIZ_ALREADY_SATISFIED_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35627-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35627_PEAK_DAMPING_VIZ_ALREADY_SATISFIED_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35627_PEAK_DAMPING_VIZ_ALREADY_SATISFIED_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35627_PEAK_DAMPING_VIZ_ALREADY_SATISFIED_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35627_PEAK_DAMPING_VIZ_ALREADY_SATISFIED_AUDIT.verdict),
   },
 ];
 

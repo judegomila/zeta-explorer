@@ -43,7 +43,7 @@
  *   underived before imp-97460)
  *
  * Ticket: imp-97568 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The curvature-reduction / wobble-masking headword, baked verbatim (no re-import).
@@ -76,7 +76,7 @@ const CURVATURE_WOBBLE_MASKING_HEADWORD = Object.freeze({
     'shows |mean(r/x^2)| < rms in every tested window x in {0.05,0.1,0.15,0.2}, with mean sign-swinging ' +
     'across windows. Pins no analytic constant; isolating the smooth coefficient needs the ' +
     'Bettin-Conrey reciprocity resummation, unavailable termwise at finite b. Naming / glossary ' +
-    'headword only; supplies no new bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'headword only; supplies no new bound; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97568_CURVATURE_WOBBLE_MASKING_GLOSSARY_HEADWORD = Object.freeze({
@@ -95,8 +95,8 @@ export const IMP97568_CURVATURE_WOBBLE_MASKING_GLOSSARY_HEADWORD = Object.freeze
     'reduction r(x) = -(pi/2)[w(x) - w_lin(x)] and the wobble-masking obstruction it exposes: ' +
     '|kappa_smooth| <~ 1e-2, an order of magnitude below both the wobble RMS ~4.1e-2 and the imp-97437 ' +
     'effective parameter kappa_eff = 0.0995, which is shown to measure the wobble amplitude rather than ' +
-    'the smooth curvature. No analytic constant pinned; no bound moved; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'the smooth curvature. No analytic constant pinned; no bound moved; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97460 (the exact reduction and wobble-masking measurement this glosses); imp-97437 (source of ' +
     'kappa_eff = 0.0995, reinterpreted here as a wobble amplitude); imp-97419 (crossover scale left ' +
@@ -124,11 +124,11 @@ export const IMP97568_CURVATURE_WOBBLE_MASKING_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97568-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97460.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97460.',
     holds: () =>
       IMP97568_CURVATURE_WOBBLE_MASKING_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97568_CURVATURE_WOBBLE_MASKING_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97568_CURVATURE_WOBBLE_MASKING_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97568_CURVATURE_WOBBLE_MASKING_GLOSSARY_HEADWORD.verdict) &&
       IMP97568_CURVATURE_WOBBLE_MASKING_GLOSSARY_HEADWORD.glosses === 'imp-97460',
   },
 ];

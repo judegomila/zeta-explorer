@@ -61,7 +61,7 @@
  *   model is the inherited imp-3406/imp-33810 extrapolation, NOT a rigorous asymptotic;
  *   the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
  *   operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34405-resid-exp-near-pole-digit-loss.js (the 5e-6 pole-location floor this re-pins)
  *   @see imp-34127-m2-residual-signchange-ceiling-closed-form.js (the residAt/bisectCrossing machinery reused verbatim)
@@ -211,8 +211,8 @@ export const IMP34568_RESID_EXP_KSTAR_REPIN = {
     'near its zero, dk_star ~ 8.55e-10 (analytic) / ~1e-8 (empirical clean-sign), a ~2.70 to ~3.77 ' +
     'decade drop. The inherited component model is NOT a rigorous asymptotic; descriptive within the ' +
     'model only; changes no bound; establishes no operator positivity; C_mb GUE-conditional per ' +
-    'imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP34568_ASSERTIONS = [
@@ -262,13 +262,13 @@ export const IMP34568_ASSERTIONS = [
       IMP34568_DECADES_DROPPED_ANALYTIC > IMP34568_DECADES_DROPPED_EMPIRICAL,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34568-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34568_RESID_EXP_KSTAR_REPIN.isRigorous === false &&
       /NO QED/.test(IMP34568_RESID_EXP_KSTAR_REPIN.honest) &&
-      /remains SOTA/.test(IMP34568_RESID_EXP_KSTAR_REPIN.honest),
+      /refereed bound is changed/i.test(IMP34568_RESID_EXP_KSTAR_REPIN.honest),
   },
 ];
 

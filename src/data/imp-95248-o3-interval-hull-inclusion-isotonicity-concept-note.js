@@ -70,15 +70,13 @@
  *   as-is; it does not touch O1 (all-y sharp-mass monotonicity), O2
  *   (barrier/winding), O4 (analytic tail), or O6 (criterion assembly), all
  *   of which remain open per imp-95212. The y-thaw package value 0.17759432
- *   stays a package value, not a bound. NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   stays a package value, not a bound. NO QED. No refereed bound is changed.
  *
  * @see imp-95212-ythaw-o5-o3.js (source: O3_ERROR_BUDGET, the certified
  *   numbers this note explains the method behind)
  *
  * Ticket: imp-95248 (content, low). Documentation only; establishes no new
- * bound; O1/O2/O4/O6 stay OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * bound; O1/O2/O4/O6 stay OPEN; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95212).
@@ -139,7 +137,7 @@ export const IMP95248_O3_INTERVAL_HULL_CONCEPT_NOTE = Object.freeze({
     'CONCEPT NOTE ONLY (documentation, not a proof). Restates the imp-95212 ' +
     'O3 interval-hull inclusion-isotonicity method in plain terms. ' +
     'Establishes nothing new; fires no certificate; O1/O2/O4/O6 REMAIN ' +
-    'OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'OPEN; NO QED. No refereed bound is changed.',
   citation:
     'imp-95212-ythaw-o5-o3.js (O3_ERROR_BUDGET: precBits=320, ' +
     'gatesPassed=12/12, EmaxNew=2.43878668361931290e-7, ' +
@@ -173,12 +171,12 @@ export const IMP95248_O3_INTERVAL_HULL_CONCEPT_NOTE_ASSERTIONS = [
     id: 'imp95248-honesty-gate-no-qed',
     why:
       'Documentation only: no enclosure claimed established, O1/O2/O4/O6 ' +
-      'stay OPEN, no QED, PT SOTA line present.',
+      'stay OPEN, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95248_O3_INTERVAL_HULL_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
       /NO QED/.test(IMP95248_O3_INTERVAL_HULL_CONCEPT_NOTE.verdict) &&
-      /remains SOTA/.test(IMP95248_O3_INTERVAL_HULL_CONCEPT_NOTE.verdict) &&
+      /refereed bound is changed/i.test(IMP95248_O3_INTERVAL_HULL_CONCEPT_NOTE.verdict) &&
       /REMAIN OPEN/.test(IMP95248_O3_INTERVAL_HULL_CONCEPT_NOTE.verdict) &&
       IMP95248_O3_INTERVAL_HULL_CONCEPT_NOTE.glosses === 'imp-95212' &&
       IMP95248_O3_INTERVAL_HULL_CONCEPT_NOTE.scopes ===

@@ -17,7 +17,7 @@
  * @see imp-97662-cc-elasticity-peak-divergence.js (near-peak individual-elasticity square-root fold)
  *
  * Ticket: imp-97844 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97823_KERNEL_DECADE_GROWTH_SQRT10 } from './imp-97823-kernel-decade-growth-sqrt10.js';

@@ -64,7 +64,7 @@
  *   Descriptive surrogate fit, NOT a rigorous asymptotic; the component model is the inherited
  *   imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no
  *   bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34645-eflow-attr-pole-window-widen-se.js (the pole-centred SE-collapse this cross-validates)
  *   @see imp-34636-eflow-attr-pole-centred-window-slope.js (the 5-rung pole-centred baseline SE)
@@ -280,7 +280,7 @@ export const IMP34665_EFLOW_ATTR_FLANK_WINDOW_WIDEN_SE_CROSSVAL = {
     'imp-34645 F2/F3 stand. Descriptive surrogate fit, NOT a rigorous asymptotic; the component model ' +
     'is the inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no ' +
-    'RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED; no refereed bound is changed.',
 };
 
 export const IMP34665_ASSERTIONS = [
@@ -335,13 +335,13 @@ export const IMP34665_ASSERTIONS = [
       W7F.rmsLogResid < 1e-6,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34665-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34665_EFLOW_ATTR_FLANK_WINDOW_WIDEN_SE_CROSSVAL.isRigorous === false &&
       /NO QED/.test(IMP34665_EFLOW_ATTR_FLANK_WINDOW_WIDEN_SE_CROSSVAL.honest) &&
-      /remains SOTA/.test(IMP34665_EFLOW_ATTR_FLANK_WINDOW_WIDEN_SE_CROSSVAL.honest),
+      /refereed bound is changed/i.test(IMP34665_EFLOW_ATTR_FLANK_WINDOW_WIDEN_SE_CROSSVAL.honest),
   },
 ];
 

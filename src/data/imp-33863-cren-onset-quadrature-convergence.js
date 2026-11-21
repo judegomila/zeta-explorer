@@ -46,7 +46,7 @@
  * -modulus back-conversion, not a mesh-converged onset rate at finite N, and it says nothing about the coupled
  * H3 curvature rung (N-exponent 5/4, imp-33786) that dominates and jointly governs the discharge.
  * G6a_shock_lipschitz STAYS OPEN. No positivity. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED.
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33845-cren-gap-onset-rate (measured the fixed-3/2 tail onset exponent on the single NP = 8000 mesh)
  * @see imp-33794-cren-window-measurement (the parent C_ren finite-window / d log C_ren/d log N reading)
@@ -187,8 +187,8 @@ export const IMP33863_CREN_ONSET_QUADRATURE_CONVERGENCE = {
     'NOT DISCHARGE H4: the uniform bound requires the ANALYTIC tracking of C_ren through the fold-modulus ' +
     'back-conversion, not a mesh-converged onset rate at finite N, and it says nothing about the coupled H3 ' +
     'curvature rung (N-exponent 5/4, imp-33786) that dominates and jointly governs the discharge. No ' +
-    'positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP33863_CREN_ONSET_QUADRATURE_ASSERTIONS = [
@@ -218,15 +218,15 @@ export const IMP33863_CREN_ONSET_QUADRATURE_ASSERTIONS = [
       IMP33863_CREN_ONSET_QUADRATURE_CONVERGENCE.residualOffsetFromOnset < 1e-4,
   },
   {
-    // Honesty gate: robustness check only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: robustness check only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33863-honesty-gate-no-qed',
-    description: 'Robustness only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Robustness only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33863_CREN_ONSET_QUADRATURE_CONVERGENCE.isRigorous === false &&
       IMP33863_CREN_ONSET_QUADRATURE_CONVERGENCE.dischargesH4 === false &&
       /NO QED/.test(IMP33863_CREN_ONSET_QUADRATURE_CONVERGENCE.verdict) &&
       /STAYS OPEN/.test(IMP33863_CREN_ONSET_QUADRATURE_CONVERGENCE.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33863_CREN_ONSET_QUADRATURE_CONVERGENCE.verdict) &&
+      /refereed bound is changed/i.test(IMP33863_CREN_ONSET_QUADRATURE_CONVERGENCE.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP33863_CREN_ONSET_QUADRATURE_CONVERGENCE.verdict),
   },
 ];

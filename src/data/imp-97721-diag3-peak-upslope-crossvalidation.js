@@ -61,7 +61,7 @@
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are
  * UNTOUCHED and appear only symbolically as differentiation axes; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97710-diag3-fourth-landmark-crossvalidation (downslope L2/L3/L4/L5 DIAG3 cross-validation)
  * @see imp-97662-cc-elasticity-peak-divergence (near-peak individual-elasticity square-root fold)
@@ -301,7 +301,7 @@ export const IMP97721_DIAG3_PEAK_UPSLOPE_CROSSVALIDATION = {
     'asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned ' +
     'E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (appear only symbolically as differentiation ' +
     'axes); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-97710 (downslope L2/L3/L4/L5 DIAG3 cross-validation); imp-97662 (near-peak individual-elasticity ' +
     'square-root fold); imp-97689 (analytic Euler degree-0 derivation of DIAG3 == 0); imp-97703 (5-point ' +
@@ -369,13 +369,13 @@ export const IMP97721_DIAG3_PEAK_UPSLOPE_CROSSVALIDATION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/cross-validation only, no QED, no refereed bound is changed.
     id: 'imp97721-honesty-gate-no-qed',
-    description: 'Measurement/cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97721_DIAG3_PEAK_UPSLOPE_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP97721_DIAG3_PEAK_UPSLOPE_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP97721_DIAG3_PEAK_UPSLOPE_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP97721_DIAG3_PEAK_UPSLOPE_CROSSVALIDATION.verdict),
   },
 ];
 

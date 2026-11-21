@@ -39,7 +39,7 @@
  * grows logarithmically, so the GUE/mean-square envelope stays a ~2.5x conservative
  * over-estimate of the true pointwise variance throughout, with no visible trend toward
  * ratio = 1 at these heights. This MEASURES the trend; it changes no bound and asserts
- * no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays
+ * no QED. No refereed bound is changed; the zero-side route stays
  * PCC/GRH-gated regardless.
  *
  * Import-light: no zeros bundle, no sibling imports. Envelope/GUE formulas are
@@ -136,7 +136,7 @@ export const IMP95579_VARRATIO_HEIGHT_TREND = {
     sdGUEHi: ROWS[n - 1].sdGUE, // ~1.02 at T = 5e5 (grows logarithmically)
   },
   verdict:
-    'RECOMPUTED on a denser 16-height grid over actual zeta zeros: the ~40% finite-height suppression of the pointwise number variance below the GUE asymptote (avg var-ratio 0.40) reproduces imp-95562 finding 4 with no shift, and does NOT drift toward the Dyson-Mehta asymptote across [1e4, 5e5]. A least-squares fit of var-ratio against log10 T gives a slightly NEGATIVE slope (~ -0.060 per decade, R^2 ~ 0.30, weak): no measurable approach to ratio = 1. The mechanism is transparent -- the measured pointwise sd of C - E is essentially height-independent (~0.61 zeros, flat across the range) while the GUE sd grows logarithmically (0.90 -> 1.02), so the ratio inches AWAY from 1 with height and the GUE/mean-square envelope becomes a ~2.5x conservative over-estimate throughout. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'RECOMPUTED on a denser 16-height grid over actual zeta zeros: the ~40% finite-height suppression of the pointwise number variance below the GUE asymptote (avg var-ratio 0.40) reproduces imp-95562 finding 4 with no shift, and does NOT drift toward the Dyson-Mehta asymptote across [1e4, 5e5]. A least-squares fit of var-ratio against log10 T gives a slightly NEGATIVE slope (~ -0.060 per decade, R^2 ~ 0.30, weak): no measurable approach to ratio = 1. The mechanism is transparent -- the measured pointwise sd of C - E is essentially height-independent (~0.61 zeros, flat across the range) while the GUE sd grows logarithmically (0.90 -> 1.02), so the ratio inches AWAY from 1 with height and the GUE/mean-square envelope becomes a ~2.5x conservative over-estimate throughout. Changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---

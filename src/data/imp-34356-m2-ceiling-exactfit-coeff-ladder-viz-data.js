@@ -77,7 +77,7 @@ export const IMP34356_M2_CEILING_EXACTFIT_COEFF_LADDER_VIZ_DATA = {
     'VIZ-DATA ONLY -- baked literals reproducing the imp-34267 measurement; adds no new ' +
     'derivation and changes no bound. Descriptive surrogate/fit, NOT a rigorous asymptotic; ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; ' +
-    'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'no refereed bound is changed.',
 };
 
 export const IMP34356_ASSERTIONS = [

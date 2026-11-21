@@ -52,7 +52,7 @@
  *
  * Import-light (no zeros bundle, no sibling imports; the imp-95233 facts are
  * cited as text, not imported). Scope only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 // -- packet-model helpers (self-contained, cross-check quadrature) ------------
@@ -99,7 +99,7 @@ export const IMP95139_MODULUS_CURRENCY_SCOPE = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port STILL OPEN. Count leg = imp-95225 SGN-C (escaped, NP-terminal); weight leg = imp-95133 (both candidates failed); phase leg = imp-95233 PHASE-CERT (feasible, crude); raw-modulus leg = STRUCTURALLY EXCLUDED here. Obligations (1)/(3)/(4) UNCHANGED.",
   verdict:
-    "RIGOROUS scope step (no new bound): the phase leg is FEASIBLE (imp-95233 PHASE-CERT, consumed as text) and the RAW-MODULUS leg is STRUCTURALLY EXCLUDED by the degree-0 scale-invariance of R and theta -- so obligation (2)'s modulus/phase leg is exactly the one scale-invariant theta currency, not two. This is an assessment; it changes NO Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS scope step (no new bound): the phase leg is FEASIBLE (imp-95233 PHASE-CERT, consumed as text) and the RAW-MODULUS leg is STRUCTURALLY EXCLUDED by the degree-0 scale-invariance of R and theta -- so obligation (2)'s modulus/phase leg is exactly the one scale-invariant theta currency, not two. This is an assessment; it changes NO Lambda bound; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; import-light; THROW on violation) -----------
@@ -162,7 +162,7 @@ export const IMP95139_MODULUS_CURRENCY_ASSERTIONS = [
       /STRUCTURALLY EXCLUDED/.test(IMP95139_MODULUS_CURRENCY_SCOPE.rawModulusLeg) &&
       /STILL OPEN/.test(IMP95139_MODULUS_CURRENCY_SCOPE.subGap) &&
       /NO QED/.test(IMP95139_MODULUS_CURRENCY_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP95139_MODULUS_CURRENCY_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP95139_MODULUS_CURRENCY_SCOPE.verdict),
   },
 ];
 

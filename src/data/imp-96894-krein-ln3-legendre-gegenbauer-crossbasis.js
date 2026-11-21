@@ -50,7 +50,7 @@
  * to the binding endpoint. The direct comparison ends at N=76 (the imp-96749 conditioning cap); the
  * uniform-in-N spectral gap stays open. Measurement / cross-validation only; the floor stays a
  * Rayleigh UPPER bound; no operator positivity; interval-rigorous certificate reach stays 2a <= 0.96;
- * RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96852-krein-096-legendre-gegenbauer-crossbasis.js (companion cross-basis check at 2a=0.96)
  * @see imp-96749-krein-lammin-N-trend-measurement.js (IMP96749_LADDER Legendre ladder, N-trend cap N=76)

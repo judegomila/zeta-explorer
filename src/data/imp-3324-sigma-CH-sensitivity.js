@@ -58,7 +58,7 @@
  * load-bearing role of C_H is on E_coll, not on sigma.
  *
  * ASSESSMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3220-en-bridge-fidelity-frontier (the widest-gap sigma(10^6) ~ 0.949)
  * @see imp-3323-sigma-argmin-locator (the U-shape argmin, sibling reuse of the formulas)
@@ -191,7 +191,7 @@ export const IMP3324_SIGMA_CH_SENSITIVITY = {
     'These two roles of C_H (absolute-budget driver vs near-saturated-share driver) ' +
     'must not be conflated: a large swing in C_H produces an equally large swing in ' +
     'E_coll but only a small swing in sigma. No positivity, no bridge closure, no RH ' +
-    'claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'claim, NO QED. No refereed bound is changed.',
   verdict:
     'ASSESSMENT (frontier-direction, NOT rigorous). At the N* = 10^6 assembly ceiling the ' +
     'imp-3220 widest-gap conditional share sigma(10^6) = 0.949408 has local slope ' +
@@ -202,7 +202,7 @@ export const IMP3324_SIGMA_CH_SENSITIVITY = {
     'shifts it +4.40 pp. C_H is load-bearing for the ABSOLUTE E_coll budget (linear) but ' +
     'NOT for the SHARE, which saturates toward 1; the "94.9% rests on the C_H = 1/8 ansatz" ' +
     'headline is therefore robust to the ansatz value. No positivity, no bridge closure, ' +
-    'no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-3220 (widest-gap sigma(10^6) ~ 0.949); imp-3323 (sibling argmin locator, same ' +
     'formulas); imp-2642 (C_H = 1/8 ansatz classification); imp-2643 (audited effective ' +
@@ -263,15 +263,15 @@ export const IMP3324_SIGMA_CH_SENSITIVITY_ASSERTIONS = [
     holds: () => SWEEP.every((r, i) => i === 0 || r.sigma > SWEEP[i - 1].sigma),
   },
   {
-    // Honesty gate: assessment only, robustness verdict, no QED, PT stays SOTA, and the
+    // Honesty gate: assessment only, robustness verdict, no QED, no refereed bound is changed, and the
     // absolute-budget-vs-share distinction is stated.
     id: 'imp3324-honesty-gate-no-qed',
-    description: 'Assessment only: robustness verdict, absolute-vs-share distinction, no QED, PT SOTA',
+    description: 'Assessment only: robustness verdict, absolute-vs-share distinction, no QED, no refereed bound is changed',
     holds: () =>
       IMP3324_SIGMA_CH_SENSITIVITY.isRigorous === false &&
       /ABSOLUTE/.test(IMP3324_SIGMA_CH_SENSITIVITY.loadBearingAssessment) &&
       /NO QED/.test(IMP3324_SIGMA_CH_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP3324_SIGMA_CH_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP3324_SIGMA_CH_SENSITIVITY.verdict),
   },
   {
     // imp-3392: explicit honestStatus stamp so the absolute-budget-vs-share distinction

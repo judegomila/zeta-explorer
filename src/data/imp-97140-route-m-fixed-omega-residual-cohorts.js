@@ -8,7 +8,7 @@
  * the smooth-vs-general gap into two separate, cleaner laws (a SIGN law and a MAGNITUDE law) and
  * shows the loose "2^omega" heuristic is a divisor-COUNT proxy, not the cancellation depth. No bound
  * moves; supplies NO uniform remainder bound (the imp-97096 sub-gap stays open); T ~ 2.594e7 trace
- * anchor unchanged; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * anchor unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-97096 / imp-97122: R_b = {a : 1 <= a <= b-1, (a,b)=1}, C = (log 2pi - gamma)/2,
  * A(a,b) = C(a+b) + (1/2)(a-b) log(b/a), F_arith(b) = Sum_{a in R_b} A(a,b),
@@ -62,7 +62,7 @@
  * modulus-dependent, absolute remainder-bound sub-gap: an explicit uniform bound must control both
  * the (-1)^omega sign and the smoothness-driven magnitude, not a single 2^omega factor. Measurement
  * only: no uniform remainder bound is supplied, no bound moved, T ~ 2.594e7 anchor unchanged,
- * PT Lambda <= 0.2 SOTA, RH open, NO QED.
+ * no refereed bound is changed, RH open, NO QED.
  *
  * @see imp-97122-route-m-arith-first-moment-convergence-rate.js (the O(log b/b) rate + 2^omega claim)
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (exact kappa_arith + explicit-remainder sub-gap)
@@ -169,11 +169,11 @@ export const IMP97140_VERDICT = Object.freeze({
     '12.4/1.47/2.46 show smoothness (smallest-prime size), not the divisor count, drives the size. So ' +
     '2^omega is a term-COUNT proxy for the Moebius divisor sum, not the cancellation depth. Measurement ' +
     'only: no uniform remainder bound is supplied (imp-97096 sub-gap stays open); no bound moved; ' +
-    'T ~ 2.594e7 anchor; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'T ~ 2.594e7 anchor; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97140_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: across fixed-omega(b) cohorts the ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: across fixed-omega(b) cohorts the ' +
   'Route M residual r(b) obeys a parity SIGN law sign(r(b)) = (-1)^omega(b) (2799/2801 of b in [200,3000], ' +
   'failing only at the smoothest primorial moduli) and a MAGNITUDE decay with omega that is NOT a clean ' +
   '2^-omega (ratios 12.4/1.47/2.46) but is driven by smoothness. This resolves the imp-97122 2^omega ' +
@@ -254,7 +254,7 @@ const IMP97140_ASSERTIONS = [
       IMP97140_VERDICT.suppliesUniformRemainderBound === false &&
       IMP97140_VERDICT.qed === false &&
       /NO QED/.test(IMP97140_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97140_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97140_HONEST_BANNER) &&
       /RH open/.test(IMP97140_HONEST_BANNER),
     why: 'measurement only: sign + magnitude laws are quantified but no uniform remainder bound is supplied and no bound moved -- honesty markers present, no QED.',
   },

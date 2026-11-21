@@ -62,7 +62,7 @@
  * law predicts rho_2 = -0.015, rho_3 = -0.006, consistent with the tabulated round -0.020 / -0.008
  * (same exact-log ratio). Measurement only; conditional on the GUE sine kernel / Montgomery pair
  * correlation for the zeta zeros (UNPROVEN); changes NO unconditional bound; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96543-sine-kernel-vif-conditional-lower-bound (OBSTRUCTION 1, the tension this reconciles)
  * @see imp-96542-excursion-empirical-lag2-lag3-box-covariance (the empirical r_k at this box length)
@@ -156,12 +156,12 @@ export const IMP96567_BOX_AVERAGED_SINE_KERNEL_LAG_DECAY = {
   conditionality:
     'All of the above is conditional on the GUE sine kernel / Montgomery pair correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored). It changes NO unconditional bound.',
   verdict:
-    'The imp-96543 O(1/k^2)-vs-tabulated tension is a FALSE-ANCHORING artifact, not a mis-calibration. Deriving the box-averaged lag correlations directly from T_2 = (sin pi x / pi x)^2 over the L = 495.779 non-overlapping tiling gives Sigma^2(L) = 0.974834, rho_1 = -0.463978 (matching the exact union value -0.4639782), rho_2 = -0.014950, rho_3 = -0.006121, with the exact tail closed form rho_k = -(1/(2 pi^2 Sigma^2)) ln(k^2/(k^2-1)) ~ -0.051968/k^2. The tail genuinely decays like O(1/k^2), but rho_1 sits ~8.9x ABOVE that curve because touching lag-1 boxes obey the union identity rho_1 = Sigma^2(2L)/(2 Sigma^2(L)) - 1 (a log-number-variance mechanism), NOT the tail law; anchoring O(1/k^2) at rho_1 (rho_2 ~ rho_1/4 = -0.116) mis-anchors it at the one lag that does not obey it. Anchored at its own coefficient the law predicts rho_2 = -0.015, rho_3 = -0.006, consistent with the tabulated round -0.020 / -0.008 (exact tail ratio ln(4/3)/ln(9/8) = 2.4425 vs tabulated 2.5). The k >= 2 covariances telescope to a small bounded tail (sum rho_k = -0.036). Measurement only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The imp-96543 O(1/k^2)-vs-tabulated tension is a FALSE-ANCHORING artifact, not a mis-calibration. Deriving the box-averaged lag correlations directly from T_2 = (sin pi x / pi x)^2 over the L = 495.779 non-overlapping tiling gives Sigma^2(L) = 0.974834, rho_1 = -0.463978 (matching the exact union value -0.4639782), rho_2 = -0.014950, rho_3 = -0.006121, with the exact tail closed form rho_k = -(1/(2 pi^2 Sigma^2)) ln(k^2/(k^2-1)) ~ -0.051968/k^2. The tail genuinely decays like O(1/k^2), but rho_1 sits ~8.9x ABOVE that curve because touching lag-1 boxes obey the union identity rho_1 = Sigma^2(2L)/(2 Sigma^2(L)) - 1 (a log-number-variance mechanism), NOT the tail law; anchoring O(1/k^2) at rho_1 (rho_2 ~ rho_1/4 = -0.116) mis-anchors it at the one lag that does not obey it. Anchored at its own coefficient the law predicts rho_2 = -0.015, rho_3 = -0.006, consistent with the tabulated round -0.020 / -0.008 (exact tail ratio ln(4/3)/ln(9/8) = 2.4425 vs tabulated 2.5). The k >= 2 covariances telescope to a small bounded tail (sum rho_k = -0.036). Measurement only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96567_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the box-averaged GUE sine-kernel '
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the box-averaged GUE sine-kernel '
   + 'lag correlations derived directly from T_2 = (sin pi x / pi x)^2 over the L = 495.779 tiling are '
   + 'rho_2 = -0.0150, rho_3 = -0.0061, with the exact tail rho_k = -(1/(2 pi^2 Sigma^2)) ln(k^2/(k^2-1)) '
   + '~ -0.052/k^2. The imp-96543 tension is a FALSE-ANCHORING artifact: rho_1 = -0.4640 is the '
@@ -218,11 +218,11 @@ export const IMP96567_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96567_BOX_AVERAGED_SINE_KERNEL_LAG_DECAY.verdict))
     throw new Error('imp-96567: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96567_BOX_AVERAGED_SINE_KERNEL_LAG_DECAY.verdict))
-    throw new Error('imp-96567: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96567_BOX_AVERAGED_SINE_KERNEL_LAG_DECAY.verdict))
+    throw new Error('imp-96567: verdict dropped the no-refereed-bound-change banner');
   if (!/conditional/i.test(IMP96567_BOX_AVERAGED_SINE_KERNEL_LAG_DECAY.verdict))
     throw new Error('imp-96567: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96567_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96567_HONEST_BANNER) && /NO QED/.test(IMP96567_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96567_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96567_HONEST_BANNER) && /NO QED/.test(IMP96567_HONEST_BANNER)))
     throw new Error('imp-96567: IMP96567_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

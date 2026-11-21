@@ -62,7 +62,7 @@
  * IMP96768_A_CONDITIONING_REACH: the new ceiling is A-conditioning (condA ~ 1e14 at N=124), so a
  * further push (double-double A, or an operator-preconditioned Rayleigh quotient) is needed to drive
  * the truncation past N ~ 100-124. Measurement only; interval-rigorous certificate reach stays
- * 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * 2a <= 0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96749-krein-lammin-N-trend-measurement.js (Legendre ladder; SUB-GAP IMP96749_UNIFORM_N_GAP_UNSETTLED)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (pole-free Weil positivity = T_a[sigma_2] >= 0)

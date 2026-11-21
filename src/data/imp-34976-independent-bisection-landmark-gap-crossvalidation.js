@@ -40,8 +40,7 @@
  * an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation,
  * NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail
- * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34954-surplus-closed-form-vs-landmark-gap-crosscheck (the decomposition and
  *      the bisected landmarks this module independently re-locates and reconciles)
@@ -195,7 +194,7 @@ export const IMP34976_INDEPENDENT_BISECTION_LANDMARK_GAP_CROSSVALIDATION = {
     'decomposition-reconstructed gap to ~4e-6, ruling out the shared-bisection concern. The component model is ' +
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail ' +
-    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34954 (surplus + log-slope + E_flow-drift decomposition and its bisected landmarks); imp-34970 ' +
     '(band-wide slope + reconciliation); imp-3444 (E_coll=E_trunc crossover N ~3.280e9); imp-33582 (sigma=1/2 ' +
@@ -238,13 +237,13 @@ export const IMP34976_INDEPENDENT_BISECTION_LANDMARK_GAP_CROSSVALIDATION_ASSERTI
       Math.abs(RESID_GAP_RECON - REF.refinedConversion.resid_refined_full) < 5e-5,
   },
   {
-    // Honesty gate: cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation only, no QED, no refereed bound is changed.
     id: 'imp34976-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34976_INDEPENDENT_BISECTION_LANDMARK_GAP_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP34976_INDEPENDENT_BISECTION_LANDMARK_GAP_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP34976_INDEPENDENT_BISECTION_LANDMARK_GAP_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP34976_INDEPENDENT_BISECTION_LANDMARK_GAP_CROSSVALIDATION.verdict),
   },
 ];
 

@@ -85,7 +85,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5, and the imp-398 C_F prefactor are
  * UNTOUCHED and are perturbed here only as sensitivity probes, not re-pinned; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97644-three-axis-additivity-flow-prefactor (the crossing-landmark three-axis scaling symmetry L2/L3/L4)
  * @see imp-97520-sigma-conditional-share-landmark-ladder (the four landmarks; L1 peak N ~ 9.22e5, sigma_max ~ 0.9494)
@@ -227,7 +227,7 @@ export const IMP97661_PEAK_LANDMARK_ELASTICITY_SCALING_SYMMETRY = {
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the ' +
     'pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (perturbed only as probes, not ' +
     're-pinned); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97644 (crossing-landmark three-axis scaling symmetry L2/L3/L4); imp-97520 (four-landmark ladder; L1 ' +
     'peak N ~ 9.22e5, sigma_max ~ 0.9494); imp-97623 (two-axis C_C/E_trunc additivity); imp-97565 (C_C-axis ' +
@@ -277,13 +277,13 @@ export const IMP97661_PEAK_LANDMARK_ELASTICITY_SCALING_SYMMETRY_ASSERTIONS = [
       Math.abs(PEAK.elasticity_Et + PEAK.elasticity_CF) < 1e-4,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp97661-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97661_PEAK_LANDMARK_ELASTICITY_SCALING_SYMMETRY.isRigorous === false &&
       /NO QED/.test(IMP97661_PEAK_LANDMARK_ELASTICITY_SCALING_SYMMETRY.verdict) &&
-      /remains SOTA/.test(IMP97661_PEAK_LANDMARK_ELASTICITY_SCALING_SYMMETRY.verdict),
+      /refereed bound is changed/i.test(IMP97661_PEAK_LANDMARK_ELASTICITY_SCALING_SYMMETRY.verdict),
   },
 ];
 

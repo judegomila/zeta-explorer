@@ -51,7 +51,7 @@
  * RECOMPUTATION / RECONCILIATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (N_half halving landmark ~3.27e9)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (N_cross closed-form crossover ~3.280294e9)
@@ -247,7 +247,7 @@ export const IMP35106_THREE_LANDMARK_PRECISION_RECONCILIATION = {
     'recomputes them from scratch. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33582 (halving landmark ~3.27e9); imp-33723 (closed-form crossover ~3.280294e9); imp-33721 ' +
     '(sub-decade ramp knee ~3.38e9); imp-33601 (shared component model, sigma=1/2 <=> E_coll = ' +
@@ -309,13 +309,13 @@ export const IMP35106_THREE_LANDMARK_PRECISION_RECONCILIATION_ASSERTIONS = [
       GAP_STAR_CROSS > GAP_CROSS_HALF,
   },
   {
-    // Honesty gate: recomputation/reconciliation only, no QED, PT stays SOTA.
+    // Honesty gate: recomputation/reconciliation only, no QED, no refereed bound is changed.
     id: 'imp35106-honesty-gate-no-qed',
-    description: 'Recomputation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Recomputation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35106_THREE_LANDMARK_PRECISION_RECONCILIATION.isRigorous === false &&
       /NO QED/.test(IMP35106_THREE_LANDMARK_PRECISION_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP35106_THREE_LANDMARK_PRECISION_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP35106_THREE_LANDMARK_PRECISION_RECONCILIATION.verdict),
   },
 ];
 

@@ -100,7 +100,7 @@ export const ROUTE_6 = Object.freeze({
     + 'replaced by windows; with one window it must reach x_*\', and above it one window wider than D_K = 921–1639 with right wall ≥ x_{**} replaces '
     + 'contiguous verification up to x_{**}/2 — ≈ 1.73e12 ordinate units (5.45e6 core-hours) at τ = 0.145, base stack; full stack 1.66–1.78e12 (heuristic). '
     + 'Extra windows are worth at most ≈ 2.4e-5 (heuristic). The existing 7.8e12 window serves for the recorded sub-0.145 targets. No new Λ bound. '
-    + 'PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_6;
@@ -163,7 +163,7 @@ export const ROUTE_6_ASSERTIONS = Object.freeze([
   {
     id: 'r6-honest-scope',
     holds: () => R.status === 'done' && R.newWindowsRun === 0 && /framework/.test(R.verdict) && /No new Λ bound/.test(R.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 7,
+      && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && R.refereeKilled.length === 7,
     why: 'Framework- and catalogue-relative; no Λ bound; seven referee corrections recorded; no QED.',
   },
 ]);

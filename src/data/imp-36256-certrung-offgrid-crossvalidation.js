@@ -37,7 +37,7 @@
  * NOT A BOUND. This directly recomputes the ratio of two already-established deterministic quantities at
  * two additional N and compares a constant; it certifies no W1 bound, instantiates no directed-rounding
  * interval, evaluates no true H_0, verifies no inequality, changes no bound, establishes no positivity;
- * C_mb GUE-conditional (imp-486) is untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional (imp-486) is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36135-kbn-floor-headroom-extrapolation (the sqrt(N) fit + diverging-headroom conclusion this cross-validates)
  * @see imp-36083-kbn-floor-headroom-to-certified-rung (the sqrt(N)-widening headroom ladder)
@@ -47,7 +47,7 @@
  */
 
 // -- Operative constants (import-light; identical to imp-36135 / imp-36083) ---------------
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const U_ROUNDOFF = 2 ** -53; // unit roundoff u (half ulp) ~ 1.11e-16
 const gamma = (n) => (n * U_ROUNDOFF) / (1 - n * U_ROUNDOFF); // Higham gamma_n = n u / (1 - n u)
 const HEIGHT_FOR_N = (N) => 4 * Math.PI * N * N; // verified height a retained term count maps to
@@ -190,7 +190,7 @@ export const IMP36256_CERTRUNG_OFFGRID_CROSSVALIDATION = {
     'quantities at two additional N: certifies no W1 bound; evaluates no true H_0; instantiates no interval; ' +
     'verifies no inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT ' +
     'stays GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); C_mb GUE-conditional (imp-486) untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36135 (the sqrt(N) fit + diverging-headroom conclusion this cross-validates); imp-36083 (the ' +
     'sqrt(N)-widening headroom ladder); imp-35890 (CERTIFIED deterministic running-accumulator run-max bound); ' +
@@ -235,14 +235,14 @@ export const IMP36256_CERTRUNG_OFFGRID_CROSSVALIDATION_ASSERTIONS = [
   },
   {
     id: 'imp36256-honesty-gate',
-    description: 'Cross-validation only; sqrt(N) law not grid-anchored; greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Cross-validation only; sqrt(N) law not grid-anchored; greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36256_CERTRUNG_OFFGRID_CROSSVALIDATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /not fit-grid-anchored/.test(IMP36256_CERTRUNG_OFFGRID_CROSSVALIDATION.conclusion.lawHoldsOffGrid) &&
       /GREENFIELD/.test(IMP36256_CERTRUNG_OFFGRID_CROSSVALIDATION.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36256_CERTRUNG_OFFGRID_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP36256_CERTRUNG_OFFGRID_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP36256_CERTRUNG_OFFGRID_CROSSVALIDATION.verdict),
   },
 ];
 

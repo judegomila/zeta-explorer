@@ -35,7 +35,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96644 residual guidance for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-96644-krein-payload-bundle-hygiene-check.js (source: the check whose residualGuidance
  *   this glosses)
@@ -43,7 +43,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-payload-2026-09-24.js (the payload this guard covers)
  *
  * Ticket: imp-96666 (meta, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The standing lazy-import guard, baked verbatim (no re-import).
@@ -72,7 +72,7 @@ const KREIN_PAYLOAD_LAZY_IMPORT_GUARD_HEADWORD = Object.freeze({
   verificationStatus:
     'Standing architectural constraint (prospective guard), not a bugfix -- imp-96644 confirmed ' +
     'no route bundle currently carries this payload, so eagerLoadRiskPresent is false today. ' +
-    'Changes no bound; establishes no operator positivity; PT Lambda <= 0.2 remains SOTA; RH ' +
+    'Changes no bound; establishes no operator positivity; no refereed bound is changed; RH ' +
     'open; NO QED.',
 });
 
@@ -92,7 +92,7 @@ export const IMP96666_KREIN_PAYLOAD_LAZY_IMPORT_GUARD_GLOSSARY_HEADWORD = Object
     'guidance verbatim: any future page/component surfacing the Krein certificate payload must ' +
     'reach it via a lazy leaf (React.lazy / dynamic import()), never a static top-level import, ' +
     'to avoid repeating the imp-95523 eager-load bug. Establishes nothing; instantiates no ' +
-    'interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96644 (the bundle-hygiene check and residualGuidance this glosses); imp-95523 ' +
     '(precedent eager-load bug this guard prevents); ' +
@@ -119,11 +119,11 @@ export const IMP96666_KREIN_PAYLOAD_LAZY_IMPORT_GUARD_GLOSSARY_HEADWORD_ASSERTIO
   },
   {
     id: 'imp96666-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96666_KREIN_PAYLOAD_LAZY_IMPORT_GUARD_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96666_KREIN_PAYLOAD_LAZY_IMPORT_GUARD_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96666_KREIN_PAYLOAD_LAZY_IMPORT_GUARD_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96666_KREIN_PAYLOAD_LAZY_IMPORT_GUARD_GLOSSARY_HEADWORD.verdict) &&
       IMP96666_KREIN_PAYLOAD_LAZY_IMPORT_GUARD_GLOSSARY_HEADWORD.glosses === 'imp-96644',
   },
 ];

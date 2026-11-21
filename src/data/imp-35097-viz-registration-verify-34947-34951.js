@@ -64,7 +64,7 @@ export const VIZ_REGISTRATION_VERIFY_34947_34951 = {
     + 'already present in src/data/visualizations-index.js, closed by the prior imp-35043 wiring pass; none '
     + 'remain in the scripts/audit-nav-links.mjs EXEMPT_FROM_INDEX backlog. No routes added, no index entries '
     + 'changed. Changes no bound; establishes no operator positivity; no RH verdict; NO QED. '
-    + 'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'No refereed bound is changed.',
 };
 
 export const VIZ_REGISTRATION_VERIFY_34947_34951_ASSERTIONS = [
@@ -94,12 +94,12 @@ export const VIZ_REGISTRATION_VERIFY_34947_34951_ASSERTIONS = [
   },
   {
     id: 'imp-35097-verify-only-honest',
-    description: 'explicitly VERIFY-ONLY (no routes/index entries added) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly VERIFY-ONLY (no routes/index entries added) and no refereed bound is changed',
     holds: () =>
       VIZ_REGISTRATION_VERIFY_34947_34951.gapsFound.length === 0
       && /VERIFY-ONLY/.test(VIZ_REGISTRATION_VERIFY_34947_34951.honest)
       && /No routes added, no index entries changed/.test(VIZ_REGISTRATION_VERIFY_34947_34951.honest)
-      && /Lambda<=0.2 remains SOTA/.test(VIZ_REGISTRATION_VERIFY_34947_34951.honest),
+      && /refereed bound is changed/i.test(VIZ_REGISTRATION_VERIFY_34947_34951.honest),
   },
 ];
 

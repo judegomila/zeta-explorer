@@ -63,7 +63,7 @@
  *   qualitative one: NOT flat, and cleanly locatable at only 1 of 3 tail rungs. NPHI = 10 truncation is
  *   inherited; single-platform libm exp/pow. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the
  *   operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED.
- *   No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33627-saturation-budget-crossover.js (the mid-tail flat ~186 crossover this extends)
  *   @see imp-33638-band-clearing-tail-reintensification-n900-1200.js (the re-intensifying tail floor)
@@ -296,7 +296,7 @@ const verdict =
       '~2900-3200-NODES-OUTSIDE-ITS-OWN-BRACKET-(NOT-ROBUSTLY-LOCATABLE).-THIS-INVERTS-THE-imp-33627-FIXED-' +
       'PEAK-RESOLUTION-WALL-INDEPENDENT-OF-FLOOR-HEIGHT-READING-IN-THE-DEEP-TAIL.-NUMERICAL-BEHAVIOUR-MEASUREMENT-' +
       'ONLY;-JITTERY-LATTICE-FLOOR-IS-THE-HEADLINE;-DIRTY-RUNG-DIGITS-DIAGNOSED-UNRELIABLE-NOT-REPORTED;-' +
-      'mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33666_SATURATION_BUDGET_CROSSOVER_TAIL = Object.freeze({
@@ -326,7 +326,7 @@ export const IMP33666_SATURATION_BUDGET_CROSSOVER_TAIL = Object.freeze({
     'SATURATION-CROSSOVER-DOES-NOT-STAY-FLAT-INTO-THE-TAIL. This INVERTS the imp-33627 "fixed peak-resolution ' +
     'wall independent of floor height" reading in the deep tail. NUMERICAL-BEHAVIOUR MEASUREMENT ONLY, ' +
     'RH-EQUIVALENT, necessary-but-not-sufficient; the jittery lattice floor is the headline; dirty-rung digits ' +
-    'are diagnosed unreliable, not reported; operator positivity (imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'are diagnosed unreliable, not reported; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -410,7 +410,7 @@ export const IMP33666_SATURATION_BUDGET_CROSSOVER_TAIL = Object.freeze({
       'measurements. The robust reading is qualitative: NOT flat, cleanly locatable at only 1 of 3 tail rungs, ' +
       'and shifted up (~227) where clean. Cross-platform libm exp/pow variation can move the few-ULP floor.',
     singlePlatform: 'Single-platform libm exp/pow; the few-ULP floor values are platform-sensitive.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -463,7 +463,7 @@ export const IMP33666_SATURATION_BUDGET_CROSSOVER_TAIL_ASSERTIONS = [
   {
     id: 'imp33666-honest-measurement-not-a-verdict',
     why: 'Mandatory honesty: numerical-behaviour measurement only (a NEGATIVE result), not a certified bound, ' +
-         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33666_SATURATION_BUDGET_CROSSOVER_TAIL.honestCaveat;
       return (
@@ -472,7 +472,7 @@ export const IMP33666_SATURATION_BUDGET_CROSSOVER_TAIL_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

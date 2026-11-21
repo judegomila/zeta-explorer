@@ -66,8 +66,7 @@
  * MEASUREMENT / DERIVATION ONLY, pure phase-condition geometry on the inherited imp-33924 / imp-34167
  * closed form for the model cusp rho(x) = |x|^{-alpha}. It establishes NO operator positivity; does
  * NOT discharge H4 (imp-33766); G6a_shock_lipschitz STAYS OPEN. C_mb GUE-conditional per imp-486
- * UNTOUCHED; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * UNTOUCHED; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed.
  *
  * @see imp-34167-third-outer-branch-geometry (distance law d3(alpha), reports linear -pi/12 slope only)
  * @see imp-34166-second-positive-branch-curvature (the family-(ii) k=2 pi/16-curvature analog)
@@ -205,8 +204,8 @@ export const IMP34230_THIRD_BRANCH_CURVATURE = {
     'completes the endpoint-curvature ladder pi/4 (imp-34103, k=1), pi/16 (imp-34166, k=2), pi/36 (k=3) = pi/(4k^2). ' +
     'Pure phase-condition geometry on the inherited imp-33924 / imp-34167 closed form; establishes NO operator ' +
     'positivity; does NOT discharge H4 (imp-33766); G6a stays OPEN. C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
-    'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP34230_THIRD_BRANCH_CURVATURE_ASSERTIONS = [
@@ -253,15 +252,15 @@ export const IMP34230_THIRD_BRANCH_CURVATURE_ASSERTIONS = [
       Math.abs(IMP34230_THIRD_BRANCH_CURVATURE.measuredCubicCoeffAtCleanRung - Math.PI / 432) < 5e-5,
   },
   {
-    // Honesty gate: measurement/derivation only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, parents untouched.
+    // Honesty gate: measurement/derivation only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, parents untouched.
     id: 'imp34230-honesty-gate-no-qed',
-    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066/imp-486 untouched',
+    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066/imp-486 untouched',
     holds: () =>
       IMP34230_THIRD_BRANCH_CURVATURE.isRigorous === false &&
       IMP34230_THIRD_BRANCH_CURVATURE.dischargesH4 === false &&
       /NO QED/.test(IMP34230_THIRD_BRANCH_CURVATURE.verdict) &&
       /STAYS OPEN/.test(IMP34230_THIRD_BRANCH_CURVATURE.verdict) &&
-      /remains the rigorous SOTA/.test(IMP34230_THIRD_BRANCH_CURVATURE.verdict) &&
+      /refereed bound is changed/i.test(IMP34230_THIRD_BRANCH_CURVATURE.verdict) &&
       /C_mb GUE-conditional per imp-486 UNTOUCHED/.test(IMP34230_THIRD_BRANCH_CURVATURE.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP34230_THIRD_BRANCH_CURVATURE.verdict),
   },

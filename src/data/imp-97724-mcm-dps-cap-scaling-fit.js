@@ -52,7 +52,7 @@
  * single-point assertion of imp-97704 with a measured fit. The extension changes no conclusion: the
  * cap-independent 1/(720 d^3) tail budget (< 5.69e-11) leaves the omega=10 gap, the primorial extremality, and
  * the omega=11 MCM onset unchanged. MCM stays refuted from omega=11; the b/4 ceiling is untouched; kappa_arith
- * unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * HONEST-STATUS UPDATE (post-hoc, does not change this module's data). The dps=30 rung of CAPS_SNR1/CAPS_SNR10
  * above was evaluated against the imp-97432 truncated 17-digit Glaisher literal, not a full-precision
@@ -155,7 +155,7 @@ export const IMP97724_HONEST_BANNER =
   '0.215). The extension moves NO conclusion: the cap-independent 1/(720 d^3) tail budget (< 5.69e-11) bounds ' +
   'any cap-to-infinity shift of the +7.520579e-5 omega=10 gap a million-fold below it, so the primorial p_10# ' +
   'stays the strict minimiser and the MCM onset stays omega=11. MCM refuted; b/4 ceiling untouched; no bound ' +
-  'moved. PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  'moved. No refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): recompute; any failure throws at import --
 
@@ -205,7 +205,7 @@ const IMP97724_ASSERTIONS = [
       IMP97724_DPS_CAP_FIT.anyBoundMoved === false &&
       IMP97724_DPS_CAP_FIT.qed === false &&
       /NO QED/.test(IMP97724_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97724_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97724_HONEST_BANNER) &&
       /RH open/.test(IMP97724_HONEST_BANNER) &&
       /omega=11/.test(IMP97724_HONEST_BANNER),
     why: 'measurement/accuracy only -- the dps=16/24/30 run materializes the trustworthy d-range and fits the eps^{-1/4} exponent, but the cap-independent tail budget leaves the omega=10 gap and omega=11 onset unchanged; no bound moved; no QED.',

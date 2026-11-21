@@ -54,8 +54,8 @@
  * deepest (-0.0737, -16%) at the former T = 1.5e5 max-anchor touch point; r_cap(3e12) = 0.22255
  * < 1 still holds comfortably. The mean anchor buys tighter average clearance at the cost of
  * the uniform-upper-bound property, quantifying precisely why imp-95722 kept the max anchor for
- * the dead-zone carrier. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <=
- * 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * the dead-zone carrier. Measurement only; changes no bound; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-95946-number-variance-envelope-vs-measured-crossvalidation (the max-anchor six-height band)
  * @see imp-95958-number-variance-mean-anchor-c0-tightening (the mean/median anchor r_cap at T = 3e12)
@@ -154,7 +154,7 @@ export const IMP96049_NUMBER_VARIANCE_MEAN_ANCHOR_SIX_HEIGHT_RESIDUAL_BAND = {
   caveat:
     'NOT an out-of-sample validation. Both anchors are fitted FROM the same six in-repo measurements, so this redistributes the SAME self-consistency envelope rather than testing it out of sample. The mean anchor loses the uniform-upper-bound property over the overlap (three of six heights fall below the envelope, deepest at the former T = 1.5e5 touch point), which is the direct in-band evidence for why the conservative max anchor carries the dead-zone margin above the gamma_1e6 = 6.003e5 ceiling (imp-95750 F3): a mean anchor would under-cover any unmeasured interior height whose true offset exceeds the mean. The measured r_cap < 1 headline continues to rest on the max anchor.',
   verdict:
-    'MEASURED: recomputed with the mean offset anchor, the six-height residual band shrinks by ~54% (mean-abs +0.0770 -> +0.0350, max-abs +0.1327 -> +0.0552, signed mean +0.0770 -> ~0) but LOSES uniform conservatism -- three of six overlap heights fall below the envelope, the deepest (-0.0737, -16%) at the former T = 1.5e5 max-anchor touch point; r_cap(3e12) = 0.22255 < 1 still holds comfortably. The mean anchor buys tighter average clearance at the cost of the uniform-upper-bound property, quantifying precisely why imp-95722 kept the max anchor for the dead-zone carrier. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'MEASURED: recomputed with the mean offset anchor, the six-height residual band shrinks by ~54% (mean-abs +0.0770 -> +0.0350, max-abs +0.1327 -> +0.0552, signed mean +0.0770 -> ~0) but LOSES uniform conservatism -- three of six overlap heights fall below the envelope, the deepest (-0.0737, -16%) at the former T = 1.5e5 max-anchor touch point; r_cap(3e12) = 0.22255 < 1 still holds comfortably. The mean anchor buys tighter average clearance at the cost of the uniform-upper-bound property, quantifying precisely why imp-95722 kept the max anchor for the dead-zone carrier. Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -188,8 +188,8 @@ export const IMP96049_NUMBER_VARIANCE_MEAN_ANCHOR_SIX_HEIGHT_RESIDUAL_BAND = {
   // honesty gates
   if (!/NO QED/.test(IMP96049_NUMBER_VARIANCE_MEAN_ANCHOR_SIX_HEIGHT_RESIDUAL_BAND.verdict))
     throw new Error('imp-96049: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96049_NUMBER_VARIANCE_MEAN_ANCHOR_SIX_HEIGHT_RESIDUAL_BAND.verdict))
-    throw new Error('imp-96049: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96049_NUMBER_VARIANCE_MEAN_ANCHOR_SIX_HEIGHT_RESIDUAL_BAND.verdict))
+    throw new Error('imp-96049: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96049_NUMBER_VARIANCE_MEAN_ANCHOR_SIX_HEIGHT_RESIDUAL_BAND;

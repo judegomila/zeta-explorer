@@ -56,7 +56,7 @@
  *   quadrature value for a fixed autocorrelation weight used inside a mass-feasibility diagnostic;
  *   it establishes NO operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The
  *   operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is
- *   UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-3850-a-weight-dual-path-tau25-30-reconciliation.js (the module whose offline literals this reproduces)
  *   @see imp-3736-a-weight-quadrature-convergence-assessment.js (the tau in {1.5,2.0} reconciliation)
@@ -237,7 +237,7 @@ export const IMP3873_A_WEIGHT_OFFLINE_LITERAL_INDEPENDENT_REPRODUCTION = Object.
     '1.1e-6 at 3.0). Domain-invariant (Xmax in {40,80,120} agree <1e-9), so the x-cutoff is not a truncation ' +
     'artifact. The offline n=2.56e7 / 2.048e8 literals thus no longer rest on a single unreproduced run. ' +
     'ACCURACY/PROVENANCE REPRODUCTION, RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity ' +
-    '(imp-3066) untouched; no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    '(imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s) Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -299,7 +299,7 @@ export const IMP3873_A_WEIGHT_OFFLINE_LITERAL_INDEPENDENT_REPRODUCTION = Object.
       'The imp-3850 offline uniform-Simpson literals (n=2.56e7 at tau=2.5, n=2.048e8 at tau=3.0) are used here ONLY ' +
       'as comparison targets, never as inputs; the reproduction path is fully self-computing at import (n<=8000), so ' +
       'the offline literals are now independently corroborated rather than trusted on provenance.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -340,7 +340,7 @@ export const IMP3873_A_WEIGHT_OFFLINE_LITERAL_INDEPENDENT_REPRODUCTION_ASSERTION
   {
     id: 'imp3873-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/provenance reproduction only, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3873_A_WEIGHT_OFFLINE_LITERAL_INDEPENDENT_REPRODUCTION.honestCaveat;
       return (
@@ -348,7 +348,7 @@ export const IMP3873_A_WEIGHT_OFFLINE_LITERAL_INDEPENDENT_REPRODUCTION_ASSERTION
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

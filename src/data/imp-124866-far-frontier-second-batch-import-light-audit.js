@@ -26,7 +26,7 @@
  * VERDICT. All five modules (imp-124793/124810/124811/124812/124814) are import-light:
  * their transitive closure never reaches data/zeros-to-1e6.js. This is a bundle-hygiene
  * check only -- it changes no bound, establishes no operator positivity, and asserts no
- * QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED; no refereed bound is changed.
  */
 
 const AUDITED_MODULES = Object.freeze([

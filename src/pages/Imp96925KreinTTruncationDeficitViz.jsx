@@ -151,7 +151,7 @@ export default function Imp96925KreinTTruncationDeficitViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96814 viz-data leaf (every deficit value reused verbatim from imp-96768). Changes no
-        bound, establishes no operator positivity; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH
+        bound, establishes no operator positivity; RH
         open; NO QED.
       </div>
     </div>

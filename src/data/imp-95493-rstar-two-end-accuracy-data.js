@@ -26,7 +26,7 @@
  *
  * VERDICT. DERIVATION / MEASUREMENT ONLY. Renders the imp-95447 complementary-
  * ends structure as an accuracy-vs-x chart instead of a six-point table.
- * Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -145,7 +145,7 @@ export const IMP95493_SUMMARY = {
   verdict:
     "DERIVATION / MEASUREMENT ONLY. Renders the imp-95447 complementary-ends " +
     "structure as an accuracy-vs-x chart. Changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -204,11 +204,11 @@ export const IMP95493_ASSERTIONS = [
   {
     id: "imp95493-record-honesty",
     description:
-      "the summary is derivation/measurement-only, names the gap, carries NO QED and the SOTA line",
+      "the summary is derivation/measurement-only, names the gap, carries NO QED and the no-refereed-bound-change line",
     holds: () =>
       /gap/.test(IMP95493_SUMMARY.gapDescription) &&
       /NO QED/.test(IMP95493_SUMMARY.verdict) &&
-      /SOTA/.test(IMP95493_SUMMARY.verdict) &&
+      /refereed bound is changed/i.test(IMP95493_SUMMARY.verdict) &&
       /MEASUREMENT ONLY/.test(IMP95493_SUMMARY.verdict),
   },
 ];

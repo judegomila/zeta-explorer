@@ -28,7 +28,7 @@
  * a = (ln3)/2 = 0.5493061443340548, band |xi| <= a, 2a = ln3 = 1.0986... (the binding edge). This is the
  * same confinement family used by imp-97483/97497/97518; the m=1/m=2 Krein enclosure stays unusable at
  * 2a = ln3. Verification/measurement only; no operator positivity; no coercivity constant; no bound
- * moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ * moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open.
  *
  * @see imp-97518-krein-tail-endpoint-asymptotic-closed-form.js (the closed forms cross-validated here)
  * @see imp-97497-krein-welloptimum-tail-converged.js (the numerically-validated tail model)
@@ -36,7 +36,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (sigma_2, w_1; reach 2a <= 0.96)
  *
  * Ticket: imp-97579 (accuracy, medium, opus-4-8). Verification/measurement only; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const LN3 = Math.log(3);

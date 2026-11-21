@@ -4,7 +4,7 @@
  * imp-97500 (numerical -- MEASUREMENT ONLY: extends the imp-97481 finite-sieve descent of the window-set
  * surrogate to a 1e8 prime sieve, verifies the ~1/log Y approach to the exact limit, and locates the
  * SMALLEST reachable counterexample b. The b/4-ceiling line is already a dead route; no bound moves;
- * kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED).
+ * kappa_arith unchanged; no refereed bound is changed; RH open; NO QED).
  *
  *   Task (imp-97481 RESULT 3 residual): imp-97481 found the deepest window surrogate over primes in
  *   [379, 2e5] = -0.13212 but never reached the crossing to below -1/4 - R(1) = -0.251246 (only
@@ -58,8 +58,8 @@
  * giving the smallest reachable breach b_min = Prod_{1409<=p<=41,045,483} p (~10^{1.782e7}, ~17.82M
  * digits) -- ~44% smaller than the imp-97496 P0=379 witness. The b/4-ceiling lower edge was already
  * REFUTED (imp-97481) and the line is a dead route; this leaf only sharpens the witness. No Lambda bound
- * and no kappa_arith value depended on the ceiling; nothing in the verified ledger moves. PT Lambda <= 0.2
- * SOTA; cotangent first moment (imp-97097) open; RH open; NO QED. Referee-worthy.
+ * and no kappa_arith value depended on the ceiling; nothing in the verified ledger moves. No refereed bound is changed
+ * ; cotangent first moment (imp-97097) open; RH open; NO QED. Referee-worthy.
  *
  * @see imp-97481-route-m-quarter-ceiling-lower-edge-refuted-window-sets.js (proved the lower edge false; RESULT 3 descent)
  * @see imp-97496-route-m-quarter-ceiling-explicit-crossing-window.js (named the P0=379 crossing b*; two-term law A(P0))
@@ -144,11 +144,11 @@ export const IMP97500_VERDICT = Object.freeze({
     'giving the smallest reachable breach b_min = Prod_{1409<=p<=41,045,483} p (~10^{1.782e7}, ~17.82M ' +
     'digits, T=-0.25000<-1/4) -- ~44% fewer digits than the imp-97496 P0=379 witness (~31.97M). The ' +
     'b/4-ceiling lower edge was already refuted (imp-97481) and is a dead route; this only sharpens the ' +
-    'witness. No bound moved; kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED. Referee-worthy.',
+    'witness. No bound moved; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED. Referee-worthy.',
 });
 
 export const IMP97500_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. MEASUREMENT of the imp-97481 window-set surrogate ' +
+  'RH open; no refereed bound is changed; NO QED. MEASUREMENT of the imp-97481 window-set surrogate ' +
   'descent (exact 1e8 sieve): the descent to L(P0) is purely 1/log Y (gap*logY -> A(P0); A(101)=2.985, ' +
   'A(379)=4.461 match the imp-97496 two-term law); the crossing surrogate < -0.251246 (=> T(b) < -1/4) is ' +
   'reached exactly for P0 in [~300, ~10007]; and the counterexample size b has an INTERIOR minimum at ' +
@@ -222,7 +222,7 @@ const IMP97500_ASSERTIONS = [
       IMP97500_VERDICT.crossingReachedExactly === true &&
       IMP97500_VERDICT.minBIsInterior === true &&
       /NO QED/.test(IMP97500_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97500_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97500_HONEST_BANNER) &&
       /RH open/.test(IMP97500_HONEST_BANNER),
     why: 'measurement only -- the b/4-ceiling line was already refuted and is load-bearing for nothing; no bound moved, no QED.',
   },

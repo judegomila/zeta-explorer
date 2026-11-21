@@ -40,7 +40,7 @@ export const IMP97613_SUMMARY = Object.freeze({
   verdict:
     'PRESENTATION ONLY, no new computation; reshapes imp-97585 literals verbatim. E_flow is never the '
     + 'binding term of the E(N) bridge on the tail side of N_half. Changes no bound, establishes no '
-    + 'operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'operator positivity, no RH claim; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------
@@ -86,7 +86,7 @@ const IMP97613_VIZ_DATA_ASSERTIONS = [
     holds: () =>
       /no bound/.test(IMP97613_SUMMARY.verdict) &&
       /NO QED/.test(IMP97613_SUMMARY.verdict) &&
-      /SOTA/.test(IMP97613_SUMMARY.verdict),
+      /refereed bound is changed/i.test(IMP97613_SUMMARY.verdict),
   },
 ];
 

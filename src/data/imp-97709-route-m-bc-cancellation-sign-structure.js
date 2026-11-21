@@ -85,8 +85,8 @@
  *   a windowing artifact and does NOT decide the relative sign, so the reflection index is still needed to
  *   say whether the cap is exactly sharp or up-to-2x conservative (RESULT 3). No coefficient is pinned;
  *   kappa_smooth stays measured; no bound moved. The rigorous anchor stays the trace ceiling T = 2.594e7;
- *   compute (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; PT Lambda <= 0.2 remains
- *   SOTA; RH open; NO QED.
+ *   compute (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  *   SUB-GAP (carried forward from imp-97663 / imp-97681, sign structure now assessed):
  *   imp-97709-bc-cancellation-relative-sign -- whether the imp-97663 no-cancellation cap is exactly sharp
@@ -183,7 +183,7 @@ export const IMP97709_VERDICT = Object.freeze({
     'needed to say whether the cap is exactly sharp or up-to-2x conservative (RESULT 3). No value is ' +
     'pinned for kappaK or kappa_smooth; the reflection index stays uncomputed; kappa_smooth stays ' +
     'measured. The rigorous anchor stays T = 2.594e7; compute binds first by >2600x; no operator ' +
-    'positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97709_SUBGAP = Object.freeze({
@@ -201,7 +201,7 @@ export const IMP97709_SUBGAP = Object.freeze({
 });
 
 export const IMP97709_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement / assessment only: the "P2 - L2" minus in ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement / assessment only: the "P2 - L2" minus in ' +
   'the Bettin-Conrey cusp decomposition is spent by gamma_1 < 0, so the two contributions reinforce for ' +
   'same-signed normalisations and cancel only for opposite-signed ones. The imp-97663 cap ' +
   '|kappaK_period| <~ 3.87e-3 is therefore sharp under reinforcement and loosens by at most 2x under ' +
@@ -267,7 +267,7 @@ const IMP97709_ASSERTIONS = [
       IMP97709_VERDICT.anyBoundMoved === false &&
       IMP97709_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97709_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97709_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97709_HONEST_BANNER) &&
       /RH open/.test(IMP97709_HONEST_BANNER) &&
       /cancellation-relative-sign/.test(IMP97709_SUBGAP.id),
   },

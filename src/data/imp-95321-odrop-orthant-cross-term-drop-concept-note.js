@@ -63,7 +63,7 @@
  * @see imp-95233 (PHASE-CERT: the W(f) <= W(g) route that ODROP improves on)
  *
  * Ticket: imp-95321 (content, low). Documentation only; establishes no new
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95254).
@@ -122,8 +122,8 @@ export const IMP95321_ODROP_CONCEPT_NOTE = Object.freeze({
     'c_minus^T L c_minus, the one-line positivity argument behind it, and ' +
     'why it strictly dominates the imp-95233 PHASE-CERT envelope bound ' +
     'W(g) by exactly the nonnegative cross term 2 c_plus^T L c_minus. ' +
-    'Establishes nothing new; fires no certificate; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Establishes nothing new; fires no certificate; no refereed bound is changed' +
+    '.',
   citation:
     'imp-95254-orthant-split-phase-certificate.js (LEMMA ODROP, LEMMA ' +
     'ENT, THEOREM PHASE-AM); imp-95233 (PHASE-CERT, the W(f) <= W(g) ' +
@@ -241,11 +241,10 @@ export const IMP95321_ODROP_CONCEPT_NOTE_ASSERTIONS = [
   {
     id: 'imp95321-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present.',
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95321_ODROP_CONCEPT_NOTE.anyEnclosureEstablished === false &&
-      /remains SOTA/.test(IMP95321_ODROP_CONCEPT_NOTE.verdict) &&
+      /refereed bound is changed/i.test(IMP95321_ODROP_CONCEPT_NOTE.verdict) &&
       IMP95321_ODROP_CONCEPT_NOTE.glosses === 'imp-95254' &&
       IMP95321_ODROP_CONCEPT_NOTE.scopes ===
         'LEMMA ODROP: c^T L c <= c_plus^T L c_plus + c_minus^T L c_minus ' +

@@ -5,7 +5,7 @@
  * recent seam/pencil modules imp-95255, imp-95256, imp-95271, imp-95276,
  * imp-95277 each surface an honest-status banner consistent with their
  * source module's verdict (measurement/assessment/derivation only; changes
- * no bound; NO QED; Platt-Trudgian Lambda <= 0.2 stays SOTA).
+ * no bound; NO QED; no refereed bound is changed).
  *
  * METHOD: grepped src/pages/ for each source module's filename to find
  * citing pages, then grepped each citing page for "Honest status" /
@@ -33,12 +33,11 @@
  *  - src/pages/ObstructionSeamPage.jsx (the literal "ObstructionSeamPage")
  *    covers a distinct, older artifact (RH_OBSTRUCTION_SEAM, 2026-07-16),
  *    not the imp-95255..95277 chain. It already renders a
- *    HonestCeilingBanner plus explicit "PT Lambda<=0.2 stays SOTA. NO QED."
+ *    HonestCeilingBanner plus explicit "No refereed bound is changed. NO QED."
  *    text, consistent with its own source verdicts.
  *
  * AUDIT-ONLY: no banner text was found missing or inconsistent, so no
- * banner was added or changed. No bound change; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * banner was added or changed. No bound change; NO QED; no refereed bound is changed.
  */
 
 const AUDITED_PAIRS = [
@@ -90,11 +89,11 @@ export const IMP95417_SEAM_VIZ_BANNER_AUDIT = {
   honest:
     'AUDIT-ONLY: every routed viz page downstream of the imp-95255/95256/95271/95277 seam-chain ' +
     'modules already carries an honest-status banner matching its source module verdict ' +
-    '(measurement/assessment/derivation only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA). imp-95276 has no dedicated routed viz page so no banner-consistency question ' +
+    '(measurement/assessment/derivation only; changes no bound; NO QED; no refereed bound is changed' +
+    '). imp-95276 has no dedicated routed viz page so no banner-consistency question ' +
     'applies to it. ObstructionSeamPage.jsx itself covers a separate 2026-07-16 artifact and already ' +
     'carries a matching HonestCeilingBanner. No banner text was missing; none was added. No bound ' +
-    'change; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'change; NO QED; no refereed bound is changed.',
 };
 
 export const IMP95417_SEAM_VIZ_BANNER_AUDIT_ASSERTIONS = [
@@ -111,9 +110,9 @@ export const IMP95417_SEAM_VIZ_BANNER_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-95417-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP95417_SEAM_VIZ_BANNER_AUDIT.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(IMP95417_SEAM_VIZ_BANNER_AUDIT.honest),
+      && /refereed bound is changed/i.test(IMP95417_SEAM_VIZ_BANNER_AUDIT.honest),
   },
 ];
 

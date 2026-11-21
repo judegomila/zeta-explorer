@@ -65,7 +65,7 @@
  * r/x^2 (consistent with the analytic period-function cusp O(x^2) coefficient of the imp-97563 sub-gap),
  * NOT a fixed-x average. Measurement only; kappa_smooth NOT pinned to an exact value; no bound moves;
  * the rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by
- * >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * SUB-GAP (below): imp-97576-cusp-extrapolation -- extrapolating the x0 -> 0 limit of the mean to PIN
  * kappa_smooth needs (i) x0 below 0.005 (reduced denominators >1e5, currently compute-bound at this
@@ -162,7 +162,7 @@ export const IMP97576_VERDICT = Object.freeze({
     'VERDICT(c): kappa_smooth is the x -> 0 limit of the large-denominator mean of r/x^2, NOT a fixed-x ' +
     'average; the -2.0e-3 is a cusp value. Measurement only; kappa_smooth NOT pinned (exact value = the ' +
     'psi cusp O(x^2) coefficient, imp-97563 sub-gap); no bound moves; the rigorous anchor stays T = ' +
-    '2.594e7; compute binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    '2.594e7; compute binds first by >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97576_SUBGAP = Object.freeze({
@@ -177,7 +177,7 @@ export const IMP97576_SUBGAP = Object.freeze({
 });
 
 export const IMP97576_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the Gauss-Kuzmin average of the ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the Gauss-Kuzmin average of the ' +
   'normalized wobble r/x^2 isolates a small kappa_smooth (<~1e-2, measured -2.61e-3 at x0=0.005) ' +
   'distinct from the ~4e-2 pointwise wobble amplitude ONLY in the cusp x -> 0 limit -- at fixed x=0.1 ' +
   'the average is ~ -0.07 (O(kappa_eff)), collapsing to -8.65e-2 at denominator ~1e5. No analytic ' +
@@ -248,7 +248,7 @@ const IMP97576_ASSERTIONS = [
       IMP97576_VERDICT.kappaSmoothPinned === false &&
       IMP97576_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97576_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97576_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97576_HONEST_BANNER) &&
       /RH open/.test(IMP97576_HONEST_BANNER) &&
       /cusp-extrapolation/.test(IMP97576_SUBGAP.id),
   },

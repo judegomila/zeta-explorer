@@ -52,7 +52,7 @@
  * above both 1.92 and 1.58. Over the accessible ladder it has only reached ~1.92.
  *
  * AUDIT ONLY. Changes no bound, establishes no operator positivity, makes no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (the two ratios; curve forms)
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (raw per-rung lam_max / trace rows)
@@ -164,7 +164,7 @@ export const IMP96696_FINDING = Object.freeze({
 });
 
 export const IMP96696_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy audit only: this tabulates the ' +
+  'RH open; no refereed bound is changed; NO QED. Accuracy audit only: this tabulates the ' +
   'imp-96548 value ratio rigorous(N)/measured(N) per rung against the single ceiling ratio; ' +
   'both are re-analysis of the imp-96443 / imp-96428 numbers. No bound is claimed moved and no ' +
   'operator positivity is established.';
@@ -224,7 +224,7 @@ const IMP96696_ASSERTIONS = [
     id: 'imp96696-honesty-gate-no-qed',
     holds: () =>
       /RH open/.test(IMP96696_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96696_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96696_HONEST_BANNER) &&
       /NO QED/.test(IMP96696_HONEST_BANNER) &&
       IMP96696_FINDING.valueRatioIsConstant === false &&
       IMP96696_FINDING.distinctAtTopRung === true,

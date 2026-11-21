@@ -47,7 +47,7 @@
  * SCOPE. Elementary tail estimate over the SAME g(j) the floor evaluator uses;
  * it does not re-audit E, M, h or the append-chain lift (imp-95017-subgap-append-lift
  * stays open). Import-light (no heavy bundle). Changes NO bound; measurement only;
- * does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── constants (re-declared, matching imp-95017 conventions) ──────────────────
@@ -139,7 +139,7 @@ export const IMP95070_TAIL_BOUND_FLOOR_SAFETY = {
     "The three-step bound is elementary: 2^(j-1)-1 >= 2^(j-2) for j>=2 (arithmetic), the per-term geometric majorant, and the closed-form geometric series - all over the exact g(j) the floor uses. The dropJ values are read off the actual double-precision underflow. This measures the tail-mass safety only; it does not re-derive E, M, h or the append lift.",
   promotesBound: false,
   verdict:
-    "YES - the floor-UNSAFE Tx underflow truncation is replaceable by an explicit analytic bound. Because g(j) >= (1/2) 2^(2j/3) for all j >= 2, every dropped term is majorized by A^-theta rho^j (rho = 2^(-2theta/3) < 1) and the entire dropped tail is bounded in closed form by TAIL(theta) = A^-theta rho^dropJ/(1-rho): log10 TAIL(2) ~ -323.09 (dropJ = 807) and log10 TAIL(10) ~ -322.10 (dropJ = 162). Adding TAIL(theta) back gives Tx_safe = Tx_computed + TAIL >= Tx_true, so F_safe = E/(Tx_safe M) is a PROVABLE lower bound; the cost is ~1e-322 relative, ~314 orders below the ~1e-8 float rounding already priced. The floor-UNSAFE DIRECTION note stands but its safety is now backed by a closed-form geometric-tail inequality rather than the empirical denormal floor. Measurement only; changes no bound; does NOT promote Lambda<=0.14; imp-95017-subgap-append-lift stays open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "YES - the floor-UNSAFE Tx underflow truncation is replaceable by an explicit analytic bound. Because g(j) >= (1/2) 2^(2j/3) for all j >= 2, every dropped term is majorized by A^-theta rho^j (rho = 2^(-2theta/3) < 1) and the entire dropped tail is bounded in closed form by TAIL(theta) = A^-theta rho^dropJ/(1-rho): log10 TAIL(2) ~ -323.09 (dropJ = 807) and log10 TAIL(10) ~ -322.10 (dropJ = 162). Adding TAIL(theta) back gives Tx_safe = Tx_computed + TAIL >= Tx_true, so F_safe = E/(Tx_safe M) is a PROVABLE lower bound; the cost is ~1e-322 relative, ~314 orders below the ~1e-8 float rounding already priced. The floor-UNSAFE DIRECTION note stands but its safety is now backed by a closed-form geometric-tail inequality rather than the empirical denormal floor. Measurement only; changes no bound; does NOT promote Lambda<=0.14; imp-95017-subgap-append-lift stays open; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -200,13 +200,13 @@ export const IMP95070_TAIL_BOUND_ASSERTIONS = [
   {
     id: "imp95070-honesty-gate",
     description:
-      "the verdict records the replaceable answer, the safe-construction direction, promotes no bound, keeps the append-lift sub-gap open, NO QED, PT stays SOTA",
+      "the verdict records the replaceable answer, the safe-construction direction, promotes no bound, keeps the append-lift sub-gap open, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95070_TAIL_BOUND_FLOOR_SAFETY.promotesBound === false &&
       IMP95070_TAIL_BOUND_FLOOR_SAFETY.answer.replaceable === true &&
       /imp-95017-subgap-append-lift/.test(IMP95070_TAIL_BOUND_FLOOR_SAFETY.subGap) &&
       /NO QED/.test(IMP95070_TAIL_BOUND_FLOOR_SAFETY.verdict) &&
-      /remains SOTA/.test(IMP95070_TAIL_BOUND_FLOOR_SAFETY.verdict),
+      /refereed bound is changed/i.test(IMP95070_TAIL_BOUND_FLOOR_SAFETY.verdict),
   },
 ];
 

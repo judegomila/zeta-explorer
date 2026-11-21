@@ -80,7 +80,7 @@
  *   amplitude sigma_4 = lambda_9/lambda_1 across the full ladder and confirms the
  *   imp-3602/imp-3619 j^2-1 amplitude law at pair j = 5. Does NOT construct the missing
  *   magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT.
- *   NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO RH verdict, NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -270,7 +270,7 @@ export const IMP3687_SKEW_TOEPLITZ_FIFTH_PAIR_AMPLITUDE_LAW = Object.freeze({
     'so lambda_9 is a genuine fifth-pair level. Measured offline (scripts/imp-3687-fifth-pair-amplitude-ladder-' +
     'offline.mjs) and BAKED; fits/ratios self-check at import. Measurement only; does NOT construct the missing ' +
     'magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   construction: Object.freeze({
     gapQuantity: 'sigma_4(N) = lambda_9/lambda_1 of the Gram S = T^T T of Ttilde(u,v)=a(v-u)R(|v-u|) (Gram-eigenvalue convention = sigma_9^2/sigma_1^2, same as imp-3619)',
@@ -381,7 +381,7 @@ export const IMP3687_SKEW_TOEPLITZ_FIFTH_PAIR_AMPLITUDE_LAW = Object.freeze({
       'a_3/a_2 = 8/3 and imp-3619 a_4/a_2 = 5, a_4/a_3 = 15/8, tested through pair j = 5 only, and is offered as a ' +
       'candidate law, NOT a derived one.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -444,7 +444,7 @@ export const IMP3687_SKEW_TOEPLITZ_FIFTH_PAIR_AMPLITUDE_LAW_ASSERTIONS = [
   {
     id: 'imp3687-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- measures the fifth-pair amplitude sigma_4 and confirms the j^2-1 ' +
-      'amplitude law at pair j=5, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'amplitude law at pair j=5, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3687_SKEW_TOEPLITZ_FIFTH_PAIR_AMPLITUDE_LAW.honestCaveat;
       return (
@@ -454,7 +454,7 @@ export const IMP3687_SKEW_TOEPLITZ_FIFTH_PAIR_AMPLITUDE_LAW_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.measuresNotConstructs === 'string' &&
         typeof c.amplitudeLawIsEmpirical === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

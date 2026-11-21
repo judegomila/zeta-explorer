@@ -27,7 +27,7 @@
  *   STATUS: documentation glossary headword only, not a re-derivation or a new computation.
  *   Establishes nothing new; moves no bound. The residual absolute lower bound on the
  *   varying-modulus Vasyunin mean value (imp-97097's named sub-gap) remains open. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA; RH open.
+ *   No refereed bound is changed; RH open.
  *
  * @see imp-97097-route-m-cotangent-first-moment-reciprocity.js (source: full derivation, the exact
  *   fixed-modulus vanishing, and the varying-modulus obstruction this headword glosses)
@@ -37,7 +37,7 @@
  *   have an exact closed form -- the contrast that makes the cotangent obstruction notable)
  *
  * Ticket: imp-97126 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP97097_MEASURED, IMP97097_REDUCTION } from './imp-97097-route-m-cotangent-first-moment-reciprocity.js';
@@ -66,8 +66,8 @@ const BETTIN_CONREY_PERIOD_OBSTRUCTION_HEADWORD = Object.freeze({
     'Fixed-modulus vanishing is EXACT (imp-97097, verified to machine precision for even and odd b). ' +
     'The varying-modulus half is measured (coefficient ~ -0.076 phi(b) b, stable across b=31..257) ' +
     'but its non-elementarity as a Bettin-Conrey period average is a numerically-confirmed structural ' +
-    'fact, not a closed form; no absolute lower bound on it is proved. No bound moved; NO QED; PT ' +
-    'Lambda <= 0.2 remains SOTA; RH open.',
+    'fact, not a closed form; no absolute lower bound on it is proved. No bound moved; NO QED; no refereed bound is changed' +
+    '; RH open.',
 });
 
 export const IMP97126_BETTIN_CONREY_PERIOD_OBSTRUCTION_GLOSSARY_HEADWORD = Object.freeze({
@@ -87,7 +87,7 @@ export const IMP97126_BETTIN_CONREY_PERIOD_OBSTRUCTION_GLOSSARY_HEADWORD = Objec
     'fixed-modulus half that IS elementary (via the a <-> b-a antisymmetry) contributes exactly ' +
     'zero. Readers should read imp-97071 route (3) as REFUTED as stated -- not incomplete, but ' +
     'structurally obstructed on the half that carries the leading moment. Establishes nothing new; ' +
-    'moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-97097 (the full derivation, the exact fixed-modulus vanishing, and the varying-modulus ' +
     'Bettin-Conrey obstruction this headword glosses); imp-97071 (the parent route (3) this leaf ' +
@@ -124,11 +124,11 @@ export const IMP97126_BETTIN_CONREY_PERIOD_OBSTRUCTION_GLOSSARY_HEADWORD_ASSERTI
   },
   {
     id: 'imp97126-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97126_BETTIN_CONREY_PERIOD_OBSTRUCTION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97126_BETTIN_CONREY_PERIOD_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97126_BETTIN_CONREY_PERIOD_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97126_BETTIN_CONREY_PERIOD_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
       IMP97126_BETTIN_CONREY_PERIOD_OBSTRUCTION_GLOSSARY_HEADWORD.glosses === 'imp-97097',
   },
 ];

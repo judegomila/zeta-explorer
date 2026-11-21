@@ -73,8 +73,7 @@
  * MEASUREMENT / CROSS-CHECK ONLY. Pure numerical reproduction audit, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33730-sigma-exponent-ladder-reproduction-residual (the six-decade head this extends)
  * @see imp-33620-etrunc-ecoll-ladder-1e15-extension (the 1e15 tail whose 6-decimal sigma is the reference)
@@ -242,7 +241,7 @@ export const IMP33768_SIGMA_EXPONENT_LADDER_DEEPTAIL_REPRODUCTION = {
     'tighter 6-decimal endpoint-sigma level instead. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33730 (six-decade head this extends); imp-33620 (1e15 tail, 6-decimal sigma reference); ' +
     'imp-33727 (p_ecoll - p_sigma masking offset extended here); imp-33582 (published p_local ' +
@@ -297,16 +296,16 @@ export const IMP33768_SIGMA_EXPONENT_LADDER_DEEPTAIL_REPRODUCTION_ASSERTIONS = [
       Math.abs(EXP_LADDER[2].offsetEcollMinusSigma - 0.0020) < 5e-4,
   },
   {
-    // Honesty gate: measurement/cross-check only, sub-gap named, no QED, PT stays SOTA.
+    // Honesty gate: measurement/cross-check only, sub-gap named, no QED, no refereed bound is changed.
     id: 'imp33768-honesty-gate-no-qed',
-    description: 'Measurement/cross-check only: not rigorous, sub-gap named, no QED, PT stays SOTA',
+    description: 'Measurement/cross-check only: not rigorous, sub-gap named, no QED, no refereed bound is changed',
     holds: () =>
       IMP33768_SIGMA_EXPONENT_LADDER_DEEPTAIL_REPRODUCTION.isRigorous === false &&
       /independent published reference past/.test(
         IMP33768_SIGMA_EXPONENT_LADDER_DEEPTAIL_REPRODUCTION.subGapNamed,
       ) &&
       /NO QED/.test(IMP33768_SIGMA_EXPONENT_LADDER_DEEPTAIL_REPRODUCTION.verdict) &&
-      /remains SOTA/.test(IMP33768_SIGMA_EXPONENT_LADDER_DEEPTAIL_REPRODUCTION.verdict),
+      /refereed bound is changed/i.test(IMP33768_SIGMA_EXPONENT_LADDER_DEEPTAIL_REPRODUCTION.verdict),
   },
 ];
 

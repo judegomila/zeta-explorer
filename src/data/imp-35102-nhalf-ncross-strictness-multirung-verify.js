@@ -60,7 +60,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33848-nhalf-ncross-strict-ordering-closed-form (the two closed-form conditions)
  * @see imp-33601-sigma-half-vs-crossover-eflow-offset (source parts(N) model + surplus identity)
@@ -216,7 +216,7 @@ export const IMP35102_NHALF_NCROSS_STRICTNESS_MULTIRUNG_VERIFY = {
     'E_coll ~ N^{-1/2} Jacobian. The component model is the inherited extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33848 (two closed-form strictness conditions); imp-33796 (numerical N_half < N_cross); ' +
     'imp-33601 (parts(N) model + surplus identity); imp-33723 (closed-form N_cross); imp-398 ' +
@@ -277,13 +277,13 @@ export const IMP35102_NHALF_NCROSS_STRICTNESS_MULTIRUNG_VERIFY_ASSERTIONS = [
       Math.abs(N_GAP_OVER_SURPLUS - 8) < 1.5,
   },
   {
-    // Honesty gate: verification/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: verification/measurement only, no QED, no refereed bound is changed.
     id: 'imp35102-honesty-gate-no-qed',
-    description: 'Verification only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Verification only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35102_NHALF_NCROSS_STRICTNESS_MULTIRUNG_VERIFY.isRigorous === false &&
       /NO QED/.test(IMP35102_NHALF_NCROSS_STRICTNESS_MULTIRUNG_VERIFY.verdict) &&
-      /remains SOTA/.test(IMP35102_NHALF_NCROSS_STRICTNESS_MULTIRUNG_VERIFY.verdict),
+      /refereed bound is changed/i.test(IMP35102_NHALF_NCROSS_STRICTNESS_MULTIRUNG_VERIFY.verdict),
   },
 ];
 

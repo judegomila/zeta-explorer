@@ -136,8 +136,7 @@ export default function Imp95607GumbelZBandViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement-only
         page charting the imp-95583 gumbelZ record and the imp-95599 gumbelZmin
-        record verbatim. It re-derives no bound and changes no result.
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. NO QED.
+        record verbatim. It re-derives no bound and changes no result. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -233,8 +232,7 @@ export default function Imp95607GumbelZBandViz() {
         (T_c, nWindows, gumbelZ, gumbelZmin) tuples, no zeros bundle, no
         re-derivation). Distinct from the imp-95562 D-vs-number-variance envelope
         chart, which plots a different quantity. Changes no bound, establishes no
-        operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains SOTA. NO QED.
+        operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

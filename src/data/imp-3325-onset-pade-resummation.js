@@ -45,8 +45,7 @@
  *   measures an accuracy radius of a rational reconstruction of the imp-3064 scalar
  *   onset signature; it neither proves nor weakens RH. The off-diagonal
  *   endpoint-Hankel operator step (imp-3066) remains the lone obstruction and is
- *   untouched. Measurement only, no QED. Platt-Trudgian Lambda &lt;= 0.2 REMAINS the
- *   rigorous SOTA.
+ *   untouched. Measurement only, no QED. No refereed bound is changed.
  *
  *   @see imp-3222-onset-decay-second-order-coefficient.js (imp-3222: A2 ~ -2.59666, radius eps*~0.062)
  *   @see imp-3155-onset-decay-next-order-corrections.js (imp-3155: leading A1 ~ 3.25605)
@@ -179,7 +178,7 @@ export const IMP3325_ONSET_PADE_RESUMMATION = Object.freeze({
       'Measures an accuracy radius of a rational reconstruction of the imp-3064 degree-0 scalar ' +
       'onset signature; the off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone ' +
       'obstruction and is NOT addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -237,7 +236,7 @@ export const IMP3325_ONSET_PADE_RESUMMATION_ASSERTIONS = [
     id: 'imp3325-honest-rh-equivalent-not-a-reduction',
     why: 'Mandatory honesty: this is a Pade accuracy-radius measurement, RH-EQUIVALENT, ' +
          'structural/diagnostic, leaves the operator step untouched, is not a proof, not a reduction ' +
-         'below RH, and PT 0.2 stays SOTA. If any of these flip the module is over-claiming.',
+         'below RH, and no refereed bound is changed. If any of these flip the module is over-claiming.',
     holds: () => {
       const c = IMP3325_ONSET_PADE_RESUMMATION.honestCaveat;
       return (
@@ -246,7 +245,7 @@ export const IMP3325_ONSET_PADE_RESUMMATION_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.isStructuralDiagnostic === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

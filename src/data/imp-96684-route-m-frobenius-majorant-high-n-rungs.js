@@ -66,7 +66,7 @@
  * ceiling essentially unchanged: Frobenius 3.748e7 -> 3.764e7 (+0.42%), still ~76% of the
  * trace(2.594e7)->measured(4.109e7) gap, residual factor 1.092. The imp-96648 ~3.75e7
  * estimate is ROBUST to the extra high-N rungs, not tightened. No bound moved; no operator
- * positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * positivity; no refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): the ceiling still extrapolates the Frobenius log-FIT four
  * decades to N ~ 3.76e7, not a proved asymptotic (imp-96648 sub-gap, inherited); a
@@ -221,7 +221,7 @@ export const IMP96684_VERDICT = Object.freeze({
     '(residual factor 1.092, still ~76% of the trace->measured gap). Every new-rung Frobenius ' +
     'bound is a valid upper bound: ~11% above the imp-96649 lam_max and ~1.77x below the trace. ' +
     'The imp-96648 estimate is ROBUST to the extra rungs. No bound moved; no operator positivity; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96684_SUBGAP = Object.freeze({
@@ -238,7 +238,7 @@ export const IMP96684_SUBGAP = Object.freeze({
 });
 
 export const IMP96684_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the Frobenius ||G||_F and ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the Frobenius ||G||_F and ' +
   'Wolkowicz-Styan bounds at N=7000,8000,9000 are exact matrix quantities on the same exact ' +
   'Vasyunin Gram (rebuilt to NMAX=9000) as imp-96105 / imp-96443 / imp-96648 ' +
   '(tmp/imp-96684-frobenius-extend.py, ~358 s); the re-fit and ceiling re-solve are pure ' +
@@ -297,7 +297,7 @@ const IMP96684_ASSERTIONS = [
       IMP96684_VERDICT.majorantSlopeFlattens === true &&
       IMP96684_VERDICT.ceilingTightens === false &&
       /NO QED/.test(IMP96684_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96684_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96684_HONEST_BANNER) &&
       /RH open/.test(IMP96684_HONEST_BANNER) &&
       /inherits-fit-extrapolation/.test(IMP96684_SUBGAP.id),
     why: 'measurement only: no bound moved, the slope-flattens / ceiling-robust split is recorded, and the honesty markers plus the inherited fit-extrapolation sub-gap are present.',

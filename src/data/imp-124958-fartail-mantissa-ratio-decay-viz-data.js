@@ -8,7 +8,7 @@
  *
  * No re-derivation: every ratio / share / decay value is copied verbatim from
  * IMP124846_FARTAIL_MANTISSA_LEADING_RATIO_ISOLATION.ratioTable. Presentation only; changes no
- * bound; establishes no operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * bound; establishes no operator positivity; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-124846-fartail-mantissa-leading-ratio-isolation.js (the source object this reshapes)
  *
@@ -34,7 +34,7 @@ export const IMP124958_DECAY_LIMIT = SRC.ratioDecayLimit; // 10
 export const IMP124958_LEADING_RATE_COEFFICIENT = SRC.leadingRateCoefficient; // ~0.255843
 
 export const IMP124958_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every ratio / share / decay '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every ratio / share / decay '
   + 'value plotted here is copied verbatim from the imp-124846 far-tail mantissa-ratio isolation '
   + '(a closed-form RvM inversion, not a rigorous asymptotic). Conditional-share diagnostic, '
   + 'changes no bound, establishes no operator positivity.';

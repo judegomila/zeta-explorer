@@ -60,7 +60,7 @@
  * The lever therefore stays on the correlated-phase gates: retain correlated phase
  * across shells (the noncommuting weld [B_v, Pi_p], imp-95008) or a coercive
  * five-shell quadratic form (imp-95007). This is an illustrative finite pilot; it
- * changes no bound and closes no gap (NO QED). Platt-Trudgian Lambda <= 0.2 SOTA.
+ * changes no bound and closes no gap (NO QED). No refereed bound is changed.
  */
 
 const M = 1440;
@@ -331,7 +331,7 @@ export const IMP_95010_MOVING_REFERENCE_ROUCHE_GLUING = {
     'removes the whole analytic content, so both architectures face the identical ' +
     'correlated packet residual (budget gain ' + budgetGain.toExponential(2) + ', ' +
     'reserve not opened). Changes no bound; closes no gap; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 // ── assertions (import-light; no heavy bundle) ─────────────────────────────

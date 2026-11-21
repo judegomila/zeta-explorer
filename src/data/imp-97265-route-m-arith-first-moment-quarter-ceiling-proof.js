@@ -9,8 +9,8 @@
  * the prime-class Glaisher-Kinkelin mechanism to ALL omega classes. It does NOT succeed in closing the
  * ceiling, but it (a) supplies a fully explicit factorial-free per-divisor identity, (b) proves the prime
  * ceiling with a strictly positive margin, (c) identifies a NEW obstruction that reshapes the residual,
- * and (d) rules out the natural tail-peeling reduction as a dead end. No bound on Lambda moves; PT
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * and (d) rules out the natural tail-peeling reduction as a dead end. No bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  *   Notation as imp-97133 / imp-97208 / imp-97224: E1(b) = L1(b) - phi(b) b((1/2) log b - 1/4),
  *   L1(b) = Sum_{a in R_b} a log a, R_b = {a : 1 <= a <= b-1, (a,b)=1}, omega(b) = number of distinct
@@ -88,7 +88,7 @@
  * with positive margin. New: the close-prime-semiprime saturation obstruction (correcting the "primes
  * only" framing) and the ruling-out of the tail-peeling reduction. Residual: the uniform composite
  * ceiling on the close-factor family. kappa_arith unchanged; the cotangent first moment (imp-97097) stays
- * the separate open leaf; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * the separate open leaf; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97208-route-m-theorem2-tighter-remainder.js (measured |E1|<=b/4, proved prime asymptotic)
  * @see imp-97224-route-m-arith-first-moment-uniform-E1.js (2^omega removal; E1 = CK + E1_tail; tail bound)
@@ -221,8 +221,8 @@ export const IMP97265_VERDICT = Object.freeze({
     'already exceeds the reduced target 1/4 - (zeta(2)-1)/720 = 0.24910, so the transcendental tail cannot ' +
     'be triangle-split off. RESIDUAL: the uniform composite ceiling on the few-close-prime-factors family, ' +
     'which needs the coherent -b/4 leader cancellation retained across all omega classes. kappa_arith ' +
-    'unchanged; the cotangent first moment (imp-97097) stays open; no bound on Lambda moves; PT Lambda ' +
-    '<= 0.2 SOTA; RH open; NO QED.',
+    'unchanged; the cotangent first moment (imp-97097) stays open; no bound on Lambda moves; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97265_SUBGAP = Object.freeze({
@@ -239,7 +239,7 @@ export const IMP97265_SUBGAP = Object.freeze({
 });
 
 export const IMP97265_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Proof attempt at the uniform ceiling |E1(b)| <= b/4: ' +
+  'RH open; no refereed bound is changed; NO QED. Proof attempt at the uniform ceiling |E1(b)| <= b/4: ' +
   'proves the exact factorial-free per-divisor identity and the prime ceiling with positive margin ' +
   '(1/12)log p + ln A; finds the NEW obstruction that close-prime semiprimes saturate b/4 from below too ' +
   '(not primes alone), and rules out the tail-peeling reduction as a dead end. The uniform composite ' +
@@ -313,7 +313,7 @@ const IMP97265_ASSERTIONS = [
       IMP97265_VERDICT.classHeadroomExists === false &&
       /close-factor/.test(IMP97265_SUBGAP.id) &&
       /NO QED/.test(IMP97265_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97265_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97265_HONEST_BANNER) &&
       /RH open/.test(IMP97265_HONEST_BANNER),
     why: 'proof attempt / honest partial -- proves the identity and the prime ceiling, finds the semiprime obstruction, rules out tail-peeling, leaves the uniform composite ceiling open; no bound moved, no rigorous ceiling posted, no QED.',
   },

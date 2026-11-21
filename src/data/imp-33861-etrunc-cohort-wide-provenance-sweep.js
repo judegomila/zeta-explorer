@@ -31,7 +31,7 @@
  *
  * SCOPE. Executable accuracy/coverage check only; pins no new bound, discharges no hypothesis, claims no
  * QED. The imp-3066 K_a >= 0 operator-positivity invariant is untouched. C_mb stays GUE-conditional per
- * imp-486. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-486. No refereed bound is changed.
  *
  * @see imp-33818-etrunc-name-collision-crosscheck (the four-consumer guard this extends cohort-wide)
  * @see imp-33772-etrunc-baseline-cohort-provenance-tabulation (the original four-module tabulation)
@@ -171,7 +171,7 @@ export const IMP_33861_ETRUNC_COHORT_WIDE_PROVENANCE_SWEEP = {
   honestNote:
     'Executable cross-check / accuracy-coverage guard only; pins no new bound and claims no QED. The ' +
     'imp-3066 K_a >= 0 operator-positivity invariant is untouched. C_mb stays GUE-conditional per imp-486. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 // Build-time tripwires: any drift that collapses the decades-apart separation, or that lets a sigma(N)
@@ -220,10 +220,10 @@ const IMP_33861_ASSERTIONS = [
   {
     id: 'imp33861-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33861_ETRUNC_COHORT_WIDE_PROVENANCE_SWEEP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33861_ETRUNC_COHORT_WIDE_PROVENANCE_SWEEP.honestNote) &&
       /no QED/i.test(IMP_33861_ETRUNC_COHORT_WIDE_PROVENANCE_SWEEP.honestNote) &&
       /imp-3066/.test(IMP_33861_ETRUNC_COHORT_WIDE_PROVENANCE_SWEEP.honestNote),
-    why: 'VERDICT LOCK: executable guard only, no bound changed; Platt-Trudgian Lambda <= 0.2 stays SOTA, imp-3066 untouched.',
+    why: 'VERDICT LOCK: executable guard only, no bound changed; no refereed bound is changed, imp-3066 untouched.',
   },
 ];
 

@@ -17,7 +17,7 @@
  * verbatim; the collar over-pricing is a property of the count-uniform
  * BL-LAT certificate at finite N (its only merit is firing at unbounded
  * count); changes no bound; no operator positivity; no RH claim; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-95232-bl-lat-off-lattice-degradation.js (source: FINDING 1 onLatticeBaseline / collarOverpriceVsX)
  *

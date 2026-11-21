@@ -46,7 +46,7 @@
  * reinforces the imp-96428 / imp-96443 verdict that COMPUTE / wall-clock binds first.
  *
  * MEASUREMENT / EXTRAPOLATION ONLY. Changes no bound, establishes no operator
- * positivity, makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity, makes no RH claim; no refereed bound is changed.
  * RH open. NO QED.
  *
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (the measured lam_max log-fit + DP ceiling this extends)
@@ -120,7 +120,7 @@ export const IMP96466_SUBGAP = Object.freeze({
 });
 
 export const IMP96466_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extrapolation only: the double-double ceiling is a pure re-solve of cond#=1/eps at eps=1e-32 using the imp-96443 measured lam_max fit and the imp-96428 measured lam_min power law; no Gram was rebuilt, no bound is claimed, and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Extrapolation only: the double-double ceiling is a pure re-solve of cond#=1/eps at eps=1e-32 using the imp-96443 measured lam_max fit and the imp-96428 measured lam_min power law; no Gram was rebuilt, no bound is claimed, and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -182,7 +182,7 @@ const IMP96466_ASSERTIONS = [
     id: 'imp96466-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96466_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96466_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96466_HONEST_BANNER) &&
       /NO QED/.test(IMP96466_HONEST_BANNER) &&
       /extrapolated/.test(IMP96466_SUBGAP.id),
     why: 'the honest banner carries the RH-open / PT-Lambda / NO-QED markers and the residual extrapolation sub-gap is flagged.',

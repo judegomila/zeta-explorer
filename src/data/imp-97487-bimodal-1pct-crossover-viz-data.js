@@ -16,8 +16,8 @@
  * same signedDeviation() imp-97459 defines (cheap, coefficientI is O(b));
  * the crest tips, step point, and A(b) table are reused verbatim from
  * imp-97459. Establishes no operator positivity; changes no bound; the
- * rigorous anchor stays the trace ceiling T=2.594e7; PT Lambda<=0.2 remains
- * SOTA; RH open; NO QED.
+ * rigorous anchor stays the trace ceiling T=2.594e7; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97459-route-m-bimodal-1pct-crossover-peaks.js (the measured findings, crest table, step point, A(b) scale)
  * @see imp-97441-route-m-crossover-fraction-tolerance-table (the bimodal 1% row this resolves)

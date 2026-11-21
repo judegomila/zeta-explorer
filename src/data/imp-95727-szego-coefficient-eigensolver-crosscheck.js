@@ -55,8 +55,7 @@
  * imp-95704 delta^{-2} law at two well-conditioned delta via a method disjoint
  * from the dual (primal Gram + Jacobi + polynomial fit). (c) Model seam family
  * only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay
- * OPEN. Changes NO bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95704-rho1-szego-coefficient-delta-scaling (the dual-derived law checked here)
  * @see imp-95689-rho1-szego-dual-convergence-rate (the exponent-2 correction)
@@ -131,7 +130,7 @@ export const IMP95727_SZEGO_COEFFICIENT_EIGENSOLVER_CROSSCHECK = {
     "agree wherever both are reliable. Independent cross-check of an established " +
     "law; no new cited input. Model seam family only; the imp-95212 envelope port, " +
     "signed WEIGHT, and modulus/phase legs stay OPEN. Changes no bound of the " +
-    "Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95727"],
 };
 
@@ -299,7 +298,7 @@ export const IMP95727_ASSERTIONS = [
       REF.qed === false &&
       REF.lawConfirmed === true &&
       /CROSS-CHECKED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95727-closes-self",

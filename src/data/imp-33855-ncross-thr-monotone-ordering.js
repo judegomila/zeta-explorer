@@ -77,8 +77,7 @@
  * ASSESSMENT / DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642/imp-2643); changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33743-sigma-fartail-crossover-closed-form (closed form N_cross(thr), thr = 1/2 and 1/10)
  * @see imp-33796-nhalf-below-ncross-independent-recompute (strict ordering N_half < N_cross at thr = 1/2)
@@ -231,7 +230,7 @@ export const IMP33855_NCROSS_THR_MONOTONE_ORDERING = {
     'Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes ' +
     'no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33743 (closed form N_cross(thr), thr = 1/2 and 1/10); imp-33796 (strict ordering N_half < N_cross ' +
     'at thr = 1/2, E_flow displacement); imp-33723 (halving-landmark closed form); imp-399/imp-2642 ' +
@@ -280,13 +279,13 @@ export const IMP33855_NCROSS_THR_MONOTONE_ORDERING_ASSERTIONS = [
     holds: () => maxLeadingRelDev < 0.1,
   },
   {
-    // Honesty gate: assessment/derivation only, no QED, PT stays SOTA.
+    // Honesty gate: assessment/derivation only, no QED, no refereed bound is changed.
     id: 'imp33855-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Assessment only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33855_NCROSS_THR_MONOTONE_ORDERING.isRigorous === false &&
       /NO QED/.test(IMP33855_NCROSS_THR_MONOTONE_ORDERING.verdict) &&
-      /remains SOTA/.test(IMP33855_NCROSS_THR_MONOTONE_ORDERING.verdict),
+      /refereed bound is changed/i.test(IMP33855_NCROSS_THR_MONOTONE_ORDERING.verdict),
   },
 ];
 

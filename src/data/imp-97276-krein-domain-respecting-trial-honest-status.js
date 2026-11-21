@@ -19,7 +19,7 @@
  *   a finite small eta2 would require a trial vector from OUTSIDE the polynomial/Gegenbauer family --
  *   e.g. a genuine t-space smooth-cutoff/Gaussian function projected exactly onto dom(A) -- not yet
  *   built (SUB-GAP IMP97228_DOMAIN_RESPECTING_TRIAL_NO_FINITE_ETA2).
- * No bound on Lambda moves; interval-rigorous reach stays 2a<=0.96; PT Lambda <= 0.2 remains SOTA;
+ * No bound on Lambda moves; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-97228-krein-domain-respecting-trial-eta2.js (source of every verdict flag below)
@@ -27,7 +27,7 @@
  * @see imp-97136-krein-temple-lower-bound-feasibility.js (INGREDIENT 1/2 double obstruction)
  *
  * Ticket: imp-97276 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97228_DEFAULT, { IMP97228_VERDICT, IMP97228_BEST, IMP97228_RIGOROUS_REACH_2A } from './imp-97228-krein-domain-respecting-trial-eta2.js';
@@ -62,7 +62,7 @@ export const IMP97276_HONEST_BANNER =
   'is an intrinsic t-space (t^4 sigma_2 weight) phenomenon, not a mode-space artifact -- uncurable by ' +
   'trial-vector choice within the polynomial/Gegenbauer basis. A finite small eta2 would need a trial ' +
   'from outside this basis, not yet built. No bound on Lambda moves; interval-rigorous reach stays ' +
-  '2a<=0.96; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  '2a<=0.96; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97276_ASSERTIONS = [
@@ -87,9 +87,9 @@ const IMP97276_ASSERTIONS = [
       IMP97276_STATUS.qed === false &&
       IMP97276_STATUS.intervalRigorousReach2a === 0.96 &&
       /NO QED/.test(IMP97276_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97276_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97276_HONEST_BANNER) &&
       /RH open/.test(IMP97276_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

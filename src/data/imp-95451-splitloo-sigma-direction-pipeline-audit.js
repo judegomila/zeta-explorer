@@ -12,8 +12,7 @@
  *   imp-95220 (rate map) -> imp-95249 ANG-DET (fence) -> imp-95250 SPLIT-LOO
  *                                                          (collar)
  * and records, at EACH link, the direction verdict and any place the direction
- * is UNVERIFIED. AUDIT only; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * is UNVERIFIED. AUDIT only; changes no bound; NO QED; no refereed bound is changed.
  *
  * WHERE sigma_k ENTERS AND HOW THE COLLAR IS BUILT (three links).
  *
@@ -90,8 +89,7 @@
  * adds the previously-missing LINK-1 numeric audit and the link-by-link
  * ledger. (c) Model family only; no mapping to paper per-window data
  * (obligation (3) unchanged). Import-light (no zeros bundle, no sibling
- * imports; numerics self-contained). Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imports; numerics self-contained). Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -380,7 +378,7 @@ export const IMP95451_SPLITLOO_SIGMA_DIRECTION_PIPELINE_AUDIT = {
     + "corners = imp-95425 sub-gap); the within-family direction is already "
     + "PROVEN (LINK 1 exact operator norm, LINK 2 imp-95249 ANG-DET). Model "
     + "family only; obligation (3) unchanged. Changes no bound; NO QED; "
-    + "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    + "no refereed bound is changed.",
   fns: { link1CollarAudit, link2FenceAudit, cos2Direct, phiFence },
 };
 
@@ -434,14 +432,14 @@ export const IMP95451_ASSERTIONS = [
   {
     id: "imp-95451-honest-audit-only",
     description:
-      "verdict is CONFIRMED within-family, AUDIT ONLY, and PT Lambda <= 0.2 "
-      + "stays SOTA",
+      "verdict is CONFIRMED within-family, AUDIT ONLY, and no refereed bound is changed"
+      + "",
     holds: () =>
       /CONFIRMED within-family/.test(
         IMP95451_SPLITLOO_SIGMA_DIRECTION_PIPELINE_AUDIT.verdict,
       )
       && /AUDIT ONLY/.test(IMP95451_SPLITLOO_SIGMA_DIRECTION_PIPELINE_AUDIT.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(
+      && /refereed bound is changed/i.test(
         IMP95451_SPLITLOO_SIGMA_DIRECTION_PIPELINE_AUDIT.honest,
       ),
   },

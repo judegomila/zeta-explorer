@@ -53,7 +53,7 @@
  * hand-rolled double-double, self-checked below. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent
  * stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34997-iters-to-floor-tail-grid-refinement (parent: finite phase gap, reentry ~10^27.08, sub-gap imp-34997a)
  * @see imp-34903-iters-to-floor-residual-sign-wide-band (0 off-by-one above 1e12 on the 10^0.05 grid)
@@ -344,7 +344,7 @@ export const IMP35109_CEIL_PHASE_DRIFT_PRECISION_CERTIFICATION = {
     'imp-3220/imp-3406 surrogate, which is NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) ' +
     'and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent ' +
     'stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34997 (parent: finite phase gap, reentry ~10^27.08, sub-gap imp-34997a); imp-34903 (0 off-by-one ' +
     'above 1e12); imp-34951 (uniform quantized penult margin; sub-gap imp-34951a); imp-34926 (terminal ' +
@@ -387,13 +387,13 @@ export const IMP35109_CEIL_PHASE_DRIFT_PRECISION_CERTIFICATION_ASSERTIONS = [
       ARTIFACT_FREE === true,
   },
   {
-    // Honesty gate: certification of a surrogate arithmetic, not rigorous, no QED, PT SOTA, sub-gaps named.
+    // Honesty gate: certification of a surrogate arithmetic, not rigorous, no QED, no refereed bound is changed, sub-gaps named.
     id: 'imp35109-honesty-gate-no-qed',
-    description: 'Certification only: isRigorous false, no QED, Platt-Trudgian stays SOTA, sub-gaps named',
+    description: 'Certification only: isRigorous false, no QED, no refereed bound is changed, sub-gaps named',
     holds: () =>
       IMP35109_CEIL_PHASE_DRIFT_PRECISION_CERTIFICATION.isRigorous === false &&
       /NO QED/.test(IMP35109_CEIL_PHASE_DRIFT_PRECISION_CERTIFICATION.verdict) &&
-      /remains SOTA/.test(IMP35109_CEIL_PHASE_DRIFT_PRECISION_CERTIFICATION.verdict) &&
+      /refereed bound is changed/i.test(IMP35109_CEIL_PHASE_DRIFT_PRECISION_CERTIFICATION.verdict) &&
       /imp-34997a/.test(IMP35109_CEIL_PHASE_DRIFT_PRECISION_CERTIFICATION.question) &&
       /imp-35109a/.test(IMP35109_CEIL_PHASE_DRIFT_PRECISION_CERTIFICATION.residual_sub_gap_imp_35109a),
   },

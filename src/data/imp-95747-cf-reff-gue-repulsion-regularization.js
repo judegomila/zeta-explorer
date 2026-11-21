@@ -72,7 +72,7 @@
  * MEASUREMENT / DERIVATION ONLY. Closed-form reach + GUE-reweighted population average (4e6-point log-spaced-
  * in-(1-alpha) rule) + box-min re-evaluation on the inherited imp-3220/imp-3406 model, NOT a rigorous
  * asymptotic. The C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @reproduce tmp/imp-95747-scratch.mjs evaluates the closed-form reach(alpha), the GUE form factor g(x), and
  *   the reweighted r_eff(alpha_max) via a 4e6-point log-spaced-in-(1-alpha) rule (flat vs GUE); the box-min
@@ -164,7 +164,7 @@ export const IMP95747_CF_REFF_GUE_REPULSION_REGULARIZATION = {
     'wedge stays open with the same sign; the residual becomes the converged ' + R_EFF_GUE_SATURATED + 'x ' +
     'itself. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95721 (flat-RvM density-weighted r_eff; named CF-alpha-cutoff-unpinned); imp-95705 (measured reach ' +
     'profile); imp-95660 (exact box-min gap model; cf* ~ 0.839); imp-95617 (nominal box-min -0.00468 at ' +
@@ -222,13 +222,13 @@ export const IMP95747_CF_REFF_GUE_REPULSION_REGULARIZATION_ASSERTIONS = [
       WEDGE_CORNER.eTrunc_mult === 1.5,
   },
   {
-    // Honesty gate: assessment only, no bound moved, no QED, PT SOTA.
+    // Honesty gate: assessment only, no bound moved, no QED, no refereed bound is changed.
     id: 'imp95747-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Assessment only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP95747_CF_REFF_GUE_REPULSION_REGULARIZATION.isRigorous === false &&
       /NO QED/.test(IMP95747_CF_REFF_GUE_REPULSION_REGULARIZATION.verdict) &&
-      /remains SOTA/.test(IMP95747_CF_REFF_GUE_REPULSION_REGULARIZATION.verdict),
+      /refereed bound is changed/i.test(IMP95747_CF_REFF_GUE_REPULSION_REGULARIZATION.verdict),
   },
 ];
 

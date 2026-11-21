@@ -75,8 +75,7 @@
  *
  * CROSS-VALIDATION ONLY. Confirms the imp-97723 F3 coefficients c = -1 and 1/L^2 = -ln 2pi; no bound
  * moves, no new model, the conditional-share surrogate and the C_mb GUE-conditional (imp-486) are
- * UNTOUCHED, imp-3066 K_a >= 0 untouched, no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * UNTOUCHED, imp-3066 K_a >= 0 untouched, no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97723-sigma-fartail-diagnostic-asymptote-one (the H=1e-5 central-difference fit being cross-validated)
  * @see imp-97702-sigma-fartail-exponent-residual-half-loglaw (residual split a(1-sigma))
@@ -237,7 +236,7 @@ export const IMP97738_FARTAIL_A_COEFFICIENT_CLOSEDFORM_CROSSVAL = {
     'beyond the H=1e-5 central-difference stencil, and reproduce the imp-97723 differenced c to the ' +
     'stencil floor at its own heights. Cross-validation only; the conditional-share surrogate and the ' +
     'C_mb GUE-conditional (imp-486) are UNTOUCHED; changes no bound; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97723 (H=1e-5 central-difference c/e2 fit being cross-validated); imp-97702 (residual ' +
     'split); imp-3463 (far-tail exponent -> 1/2); imp-486 (C_mb GUE-conditional); ' +
@@ -288,15 +287,15 @@ export const IMP97738_FARTAIL_A_COEFFICIENT_CLOSEDFORM_CROSSVAL_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: cross-validation only, coefficients confirmed, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation only, coefficients confirmed, no QED, no refereed bound is changed.
     id: 'imp97738-honesty-gate-no-qed',
-    description: 'Cross-validation only: c = -1, 1/L^2 coefficient = -ln 2pi, no QED, PT stays SOTA',
+    description: 'Cross-validation only: c = -1, 1/L^2 coefficient = -ln 2pi, no QED, no refereed bound is changed',
     holds: () =>
       IMP97738_FARTAIL_A_COEFFICIENT_CLOSEDFORM_CROSSVAL.isRigorous === false &&
       IMP97738_FARTAIL_A_COEFFICIENT_CLOSEDFORM_CROSSVAL.nextOrderCoefficient === -1 &&
       Math.abs(IMP97738_FARTAIL_A_COEFFICIENT_CLOSEDFORM_CROSSVAL.oneOverL2Coefficient - -1.838) < 1e-3 &&
       /NO QED/.test(IMP97738_FARTAIL_A_COEFFICIENT_CLOSEDFORM_CROSSVAL.verdict) &&
-      /remains SOTA/.test(IMP97738_FARTAIL_A_COEFFICIENT_CLOSEDFORM_CROSSVAL.verdict),
+      /refereed bound is changed/i.test(IMP97738_FARTAIL_A_COEFFICIENT_CLOSEDFORM_CROSSVAL.verdict),
   },
 ];
 

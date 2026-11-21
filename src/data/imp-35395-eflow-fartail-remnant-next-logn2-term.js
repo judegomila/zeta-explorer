@@ -64,8 +64,7 @@
  * MEASUREMENT/DERIVATION ONLY on the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic. Changes no bound; E_flow > 0 strictness (imp-33848) untouched; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066
- * K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35280-eflow-fartail-fd-vs-analytic-surrogate-gap (the ~0.002 remnant this dissects)
  * @see imp-35198-eflow-fartail-exponent-logn-correction (the leading -1 + 3/log N law + its own next-term note)
@@ -227,7 +226,7 @@ export const IMP35395_EFLOW_FARTAIL_REMNANT_NEXT_LOGN2_TERM = {
     'extrapolation, NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 ' +
     'K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35280 (the ~0.002 remnant, gap1 column reproduced here); imp-35198 (leading -1 + 3/log N ' +
     'and its own next-term note); imp-35135 (measured on effectiveHeightForN); imp-486 (C_mb ' +
@@ -289,13 +288,13 @@ export const IMP35395_EFLOW_FARTAIL_REMNANT_NEXT_LOGN2_TERM_ASSERTIONS = [
     holds: () => LADDER.every((r) => r.fullExactGap < 1e-6),
   },
   {
-    // Honesty gate: derivation/measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35395-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35395_EFLOW_FARTAIL_REMNANT_NEXT_LOGN2_TERM.isRigorous === false &&
       /NO QED/.test(IMP35395_EFLOW_FARTAIL_REMNANT_NEXT_LOGN2_TERM.verdict) &&
-      /remains SOTA/.test(IMP35395_EFLOW_FARTAIL_REMNANT_NEXT_LOGN2_TERM.verdict),
+      /refereed bound is changed/i.test(IMP35395_EFLOW_FARTAIL_REMNANT_NEXT_LOGN2_TERM.verdict),
   },
 ];
 

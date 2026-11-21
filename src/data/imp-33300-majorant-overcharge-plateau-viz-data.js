@@ -11,8 +11,7 @@
  *   @see imp-33269-all-plateaus-majorant-ratio-scan.js (source aggregates, 10 imp-3725 plateaus)
  *
  *   Ticket: imp-33300 (ux, low). Presentation of an already-established decomposition; adds no
- *   new Lambda bound. imp-3066 K_a>=0 UNTOUCHED. RH-EQUIVALENT. NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   new Lambda bound. imp-3066 K_a>=0 UNTOUCHED. RH-EQUIVALENT. NO QED. No refereed bound is changed.
  */
 
 // -- baked from imp-33273 (R_maj = genuineRMaj + overChargeRMaj, all 10 imp-3725 plateaus) --

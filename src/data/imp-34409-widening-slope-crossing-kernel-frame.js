@@ -66,8 +66,7 @@
  * imp-34327 crossing location, and imp-34188 statistical finding are UNTOUCHED; the exponential-approach
  * surrogate is descriptive, not derived; the component model is the inherited imp-3220/imp-3406
  * extrapolation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34327-widening-slope-minus-one-crossing-location (the naive-vs-mapped sub-gap resolved here)
  * @see imp-34188-widening-slope-limit-exactly-minus-one (the exponential-approach kernel reconstructed here)
@@ -217,8 +216,8 @@ export const IMP34409_WIDENING_SLOPE_CROSSING_KERNEL_FRAME = {
     'fit sees the MAPPED crossing ~20.5. Measurement/surrogate-fit within the inherited ' +
     'imp-3220/imp-3406/imp-33810 component model, NOT a rigorous asymptotic; imp-34246/imp-34327/imp-34188 ' +
     'UNTOUCHED; the exponential-approach form is descriptive, not derived; C_mb GUE-conditional per imp-486 ' +
-    'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34327 (the naive-vs-mapped sub-gap resolved here); imp-34188 (the exponential-approach kernel ' +
     'reconstructed); imp-34246 (the -ln10/2 + ln10*3/u correction curve); imp-34408 (co-tabulates the ' +
@@ -280,12 +279,12 @@ const IMP34409_WIDENING_SLOPE_CROSSING_KERNEL_FRAME_ASSERTIONS = [
     // Honesty gate: measurement/surrogate-fit only, isRigorous false, no bound changed, NO QED, SOTA +
     // K_a untouched.
     id: 'imp34409-honesty-gate-no-qed',
-    description: 'subGapResolvedToward mapped; isRigorous false, no bound changed, NO QED, K_a>=0 untouched, PT SOTA',
+    description: 'subGapResolvedToward mapped; isRigorous false, no bound changed, NO QED, K_a>=0 untouched, no refereed bound is changed',
     holds: () =>
       IMP34409_WIDENING_SLOPE_CROSSING_KERNEL_FRAME.subGapResolvedToward === 'mapped' &&
       IMP34409_WIDENING_SLOPE_CROSSING_KERNEL_FRAME.isRigorous === false &&
       /NO QED/.test(IMP34409_WIDENING_SLOPE_CROSSING_KERNEL_FRAME.verdict) &&
-      /remains SOTA/.test(IMP34409_WIDENING_SLOPE_CROSSING_KERNEL_FRAME.verdict) &&
+      /refereed bound is changed/i.test(IMP34409_WIDENING_SLOPE_CROSSING_KERNEL_FRAME.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34409_WIDENING_SLOPE_CROSSING_KERNEL_FRAME.verdict),
   },
 ];

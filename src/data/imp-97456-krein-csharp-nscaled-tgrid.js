@@ -19,8 +19,8 @@
  *   sigma2 = (t^2+1/4)^2 w_1). Build time 712s. Raw output tmp/imp-97456-run.log, /tmp/imp-97456-out.json.
  *
  *   MEASUREMENT ONLY. lam_min(N,.) are Rayleigh-Ritz UPPER brackets; establishes NO operator positivity; NO
- *   lower bound; no bound moves; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian
- *   Lambda<=0.2 SOTA; RH open; NO QED.
+ *   lower bound; no bound moves; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * THE RAW lam_min(N,T) TABLE (fitter-free, the trustworthy object). Each column is monotone INCREASING in T
  *   (cumulative T resolves the inner limit from below); each row of a well-resolved column is monotone

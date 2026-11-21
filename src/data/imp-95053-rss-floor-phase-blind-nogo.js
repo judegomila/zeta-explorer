@@ -97,7 +97,7 @@
  * promote Lambda <= 0.14 and refutes a route class (phase-blind majorants) rather
  * than opening one. The numerics below are exact cross-checks of the Cauchy-Schwarz
  * floor and the documented constants (they are the claim's arithmetic, computed
- * import-light). Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * import-light). Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ── anchored constants (imp-95003 / 95006 / 95010 / 95011 / 95012) ──────────
@@ -210,7 +210,7 @@ export const IMP95053_RSS_FLOOR_PHASE_BLIND_NOGO = {
   promotesBound: false,
   refutesRouteClass: 'phase-blind (magnitude-only) majorants for |C_E,17|, including the l1 tiling AND the orthogonal RSS',
   verdict:
-    'THEOREM (phase-blind no-go): the orthogonal RSS majorant - the strongest bound shell orthogonality + reproducing-kernel duality can yield - is >= m/sqrt(5) = 0.4110 > R_ex = 0.2797 for EVERY shell-mass distribution (documented shape 0.4359, factor 1.56 over; l1 tiling 0.919, factor 3.29 over). So the five-shell orthogonality + anti-Hermitian lever cannot by itself fit the 0.0655627 reserve; the enclosure necessarily rests on a phase-coherent bound on arg(z_g), which the operator framework does not supply (anti-Hermitian coercivity is spectrally obstructed, imp-95009) and which reduces exactly to the arithmetic stationary-phase question of imp-95052. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'THEOREM (phase-blind no-go): the orthogonal RSS majorant - the strongest bound shell orthogonality + reproducing-kernel duality can yield - is >= m/sqrt(5) = 0.4110 > R_ex = 0.2797 for EVERY shell-mass distribution (documented shape 0.4359, factor 1.56 over; l1 tiling 0.919, factor 3.29 over). So the five-shell orthogonality + anti-Hermitian lever cannot by itself fit the 0.0655627 reserve; the enclosure necessarily rests on a phase-coherent bound on arg(z_g), which the operator framework does not supply (anti-Hermitian coercivity is spectrally obstructed, imp-95009) and which reduces exactly to the arithmetic stationary-phase question of imp-95052. Changes no bound; NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (self-executing; import-light; throw on violation) ───────────
@@ -274,13 +274,13 @@ export const IMP95053_RSS_FLOOR_PHASE_BLIND_NOGO_ASSERTIONS = [
   },
   {
     id: 'imp95053-honesty-gate-no-qed',
-    description: 'proved obstruction, not a closure: promotes no bound, refutes the phase-blind route class, NO QED, PT stays SOTA',
+    description: 'proved obstruction, not a closure: promotes no bound, refutes the phase-blind route class, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95053_RSS_FLOOR_PHASE_BLIND_NOGO.promotesBound === false &&
       IMP95053_RSS_FLOOR_PHASE_BLIND_NOGO.isRigorous === true &&
       /phase-blind/.test(IMP95053_RSS_FLOOR_PHASE_BLIND_NOGO.refutesRouteClass) &&
       /NO QED/.test(IMP95053_RSS_FLOOR_PHASE_BLIND_NOGO.verdict) &&
-      /remains SOTA/.test(IMP95053_RSS_FLOOR_PHASE_BLIND_NOGO.verdict),
+      /refereed bound is changed/i.test(IMP95053_RSS_FLOOR_PHASE_BLIND_NOGO.verdict),
   },
 ];
 

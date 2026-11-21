@@ -67,7 +67,7 @@
  * ASSESSMENT ONLY (structural / rate over the inherited surrogate model, which is NOT a
  * rigorous asymptotic). Changes no bound; establishes no operator positivity; the
  * C_mb / C_H GUE-conditional inputs are UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-95465-sigma-decay-no-escape-from-en-nonvanishing (LIMIT-level companion: no escape)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (far-tail exponent ramp -> 1/2)
@@ -187,8 +187,8 @@ export const IMP97839_SIGMA_DECAY_RATE_VS_STEP4_HANDLE = {
     'sigma rate measures; the sole scoped route is the OPEN vanishing-strip Knob A (imp-35149 ' +
     'R3, T_v(N) -> infinity beyond X ~ 3e12). imp-35164 stands, imp-2621 stays refuted; changes ' +
     'no bound; establishes no operator positivity; the C_mb / C_H GUE-conditional inputs are ' +
-    'UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95465 (limit-level no escape); imp-33582 (far-tail sigma exponent ramp -> 1/2); ' +
     'imp-3406 (interior peak, decay-to-0 right arm); imp-3463 (far-tail exponent -> 1/2); ' +
@@ -247,14 +247,14 @@ export const IMP97839_SIGMA_DECAY_RATE_VS_STEP4_HANDLE_ASSERTIONS = [
       /imp-35164 stands/.test(IMP97839_SIGMA_DECAY_RATE_VS_STEP4_HANDLE.verdict),
   },
   {
-    // Honesty gate: assessment only (not rigorous), imp-2621 stays refuted, no QED, PT SOTA.
+    // Honesty gate: assessment only (not rigorous), imp-2621 stays refuted, no QED, no refereed bound is changed.
     id: 'imp97839-honesty-gate-no-qed',
-    description: 'assessment only: not rigorous, imp-2621 refuted, no QED, PT stays SOTA',
+    description: 'assessment only: not rigorous, imp-2621 refuted, no QED, no refereed bound is changed',
     holds: () =>
       IMP97839_SIGMA_DECAY_RATE_VS_STEP4_HANDLE.isRigorous === false &&
       /refuted/.test(IMP97839_SIGMA_DECAY_RATE_VS_STEP4_HANDLE.verdict) &&
       /NO QED/.test(IMP97839_SIGMA_DECAY_RATE_VS_STEP4_HANDLE.verdict) &&
-      /remains SOTA/.test(IMP97839_SIGMA_DECAY_RATE_VS_STEP4_HANDLE.verdict),
+      /refereed bound is changed/i.test(IMP97839_SIGMA_DECAY_RATE_VS_STEP4_HANDLE.verdict),
   },
 ];
 

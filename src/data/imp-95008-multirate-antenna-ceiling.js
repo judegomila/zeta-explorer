@@ -162,8 +162,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are
  * not the claim. Import-light (no heavy bundle). Changes no bound; does
- * NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -421,7 +420,7 @@ export const IMP95008_MULTIRATE_ANTENNA_CEILING = {
     "Theorem T is quotient calculus on the exact rational function with the empty-block structure supplying strict positivity, verified against the twelfth continuation Theorem N at nu = mu; Lemma U is integrand-level differentiation of the exact kernel with a closed-form limit; Theorem W is an elementary quotient bound plus a monotone-envelope ladder whose every envelope is Lemma U - the baked ceilings are rigorous for the FROZEN base at the stated placement, over ALL rates and ALL amplitudes. Placement dominance is a finite scan (each per-point ceiling rigorous); the joint re-optimizations are measured optimizer outputs evaluated exactly; witness optimality is NOT claimed anywhere. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step settling the thirteenth continuation refined residual, with a REVERSAL of its hopeful reading: NEW Theorem T extends the empty-block antenna calculus to per-antenna rates (strict first-order improvement for every rate, closed-form epsStar(nu), Theorem N recovered at nu = mu), NEW Lemma U proves the antenna coupling supremum is the tau-independent flat-antenna limit 2 sum alpha_i/mu_i (the revival is maximal), and NEW Theorem W prices it: a rigorous monotone-envelope ceiling caps the headline theta = 10 antenna gain at 2.4510492140608618e-5 relative (all rates, all amplitudes, dominant placement, frozen base), with the achieved antenna at 95.86 percent of the ceiling. The coupling revives 312x versus rate-locking and is still priced away by Lemma V legality plus the 1/nu diagonal cost - the single-antenna lever at theta = 10 is now CLOSED in the full multi-rate class, not merely rate-locked-dead. Tracked headline bracket updates microscopically to [0.092873990839396667, 4], gap 43.069108626085018. Ceiling scope stated plainly: frozen base, per placement; joint re-optimization measured at +3.4e-10. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step settling the thirteenth continuation refined residual, with a REVERSAL of its hopeful reading: NEW Theorem T extends the empty-block antenna calculus to per-antenna rates (strict first-order improvement for every rate, closed-form epsStar(nu), Theorem N recovered at nu = mu), NEW Lemma U proves the antenna coupling supremum is the tau-independent flat-antenna limit 2 sum alpha_i/mu_i (the revival is maximal), and NEW Theorem W prices it: a rigorous monotone-envelope ceiling caps the headline theta = 10 antenna gain at 2.4510492140608618e-5 relative (all rates, all amplitudes, dominant placement, frozen base), with the achieved antenna at 95.86 percent of the ceiling. The coupling revives 312x versus rate-locking and is still priced away by Lemma V legality plus the 1/nu diagonal cost - the single-antenna lever at theta = 10 is now CLOSED in the full multi-rate class, not merely rate-locked-dead. Tracked headline bracket updates microscopically to [0.092873990839396667, 4], gap 43.069108626085018. Ceiling scope stated plainly: frozen base, per placement; joint re-optimization measured at +3.4e-10. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -674,12 +673,12 @@ export const IMP95008_MRAC_ASSERTIONS = [
   {
     id: "imp95008-mrac-honesty-gate",
     description:
-      "the verdict records the reversal of the thirteenth revival reading, the ceiling scope (frozen base, per placement), the measured status of dominance and joint re-optimization, the still-open residuals, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict records the reversal of the thirteenth revival reading, the ceiling scope (frozen base, per placement), the measured status of dominance and joint re-optimization, the still-open residuals, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95008_MULTIRATE_ANTENNA_CEILING.promotesBound === false &&
       IMP95008_MULTIRATE_ANTENNA_CEILING.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_MULTIRATE_ANTENNA_CEILING.verdict) &&
-      /remains SOTA/.test(IMP95008_MULTIRATE_ANTENNA_CEILING.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_MULTIRATE_ANTENNA_CEILING.verdict) &&
       /REVERSAL/.test(IMP95008_MULTIRATE_ANTENNA_CEILING.verdict) &&
       /frozen base/.test(IMP95008_MULTIRATE_ANTENNA_CEILING.verdict) &&
       /priced away/.test(IMP95008_MULTIRATE_ANTENNA_CEILING.verdict) &&

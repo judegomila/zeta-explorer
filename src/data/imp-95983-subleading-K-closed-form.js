@@ -39,7 +39,7 @@
  * accumulated-slope part; it does NOT touch the imp-95965 residual obstruction (the two under-determined
  * base scalars s_base_prime, c_base_prime whose required integral is -4 C_1 m - (C_1 + K) + O(m^-3)) --
  * that obstruction stands, now with K exact. Catalan G irrationality OPEN; Sun arXiv:2609.04176
- * single-author, unrefereed; changes no bound; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.
+ * single-author, unrefereed; changes no bound; NO Lambda movement; no refereed bound is changed; NO QED.
  * Import-light: bakes the closed-form literals and offline-converged grid; the closed form is checked
  * ARITHMETICALLY at import against the fundamental constants (no quadrature, no heavy imports).
  *
@@ -99,7 +99,7 @@ export const SUBLEADING_K_CLOSED_FORM = Object.freeze({
     + '2000-panel Simpson, m up to 1280): raw K_m - K is pure O(1/m) and Richardson 2 K_{2m} - K_m -> '
     + 'K_closed with residual 1.03e-5 (20,40) shrinking to 1.03e-8 (640,1280). This resolves the '
     + 'attributable subleading constant exactly; the imp-95965 base-scalar obstruction is UNCHANGED. '
-    + 'G irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'G irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26)',
   builtOn:
@@ -162,7 +162,7 @@ export const SUBLEADING_K_CLOSED_FORM = Object.freeze({
     + 'building blocks -C_1 = 3 - 2 gamma - pi^2/6 and Iv = 1 - pi^2/12 are exact. This resolves only the '
     + 'attributable accumulated-slope subleading constant; the imp-95965 under-determined base-scalar '
     + 'obstruction stands. Catalan G irrationality OPEN; Sun single-author, unrefereed; NO Lambda '
-    + 'movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'movement; no refereed bound is changed; NO QED.',
 });
 
 export const SUBLEADING_K_CLOSED_FORM_ASSERTIONS = Object.freeze([

@@ -44,7 +44,7 @@
  * imp-3406 extrapolation, NOT a rigorous asymptotic; changes no bound; E_flow > 0 strictness
  * (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent
  * 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35279-eflow-fartail-inverse-swap-ladder (four-rung ladder 0.786->0.568; extended here to 1e20/1e24)
  * @see imp-35370-eflow-fartail-swap-fraction-half-crossover (fraction first hits 0.5 near N ~ 5.7e44)
@@ -164,8 +164,8 @@ export const IMP35378_EFLOW_FARTAIL_INVERSE_SWAP_LADDER_1E20_1E24 = {
     'limit is reached by 1e24. Measurement only on the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional ' +
     'per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 ' +
-    'untouched; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'untouched; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35279 (four-rung ladder 0.786->0.568, extended here to 1e20/1e24); imp-35370 (swap ' +
     'fraction first hits 0.5 near N ~ 5.7e44); imp-35236 (isolated the swap at 1e6/1e16); ' +
@@ -226,13 +226,13 @@ export const IMP35378_EFLOW_FARTAIL_INVERSE_SWAP_LADDER_1E20_1E24_ASSERTIONS = [
       (RUNG_1E20.swapFraction - RUNG_1E24.swapFraction) / 4,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35378-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35378_EFLOW_FARTAIL_INVERSE_SWAP_LADDER_1E20_1E24.isRigorous === false &&
       /NO QED/.test(IMP35378_EFLOW_FARTAIL_INVERSE_SWAP_LADDER_1E20_1E24.verdict) &&
-      /remains SOTA/.test(IMP35378_EFLOW_FARTAIL_INVERSE_SWAP_LADDER_1E20_1E24.verdict),
+      /refereed bound is changed/i.test(IMP35378_EFLOW_FARTAIL_INVERSE_SWAP_LADDER_1E20_1E24.verdict),
   },
 ];
 

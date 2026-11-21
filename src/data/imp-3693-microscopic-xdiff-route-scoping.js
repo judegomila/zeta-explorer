@@ -56,8 +56,7 @@
  * scopes WHICH object to use, it does not supply C_Lip.
  *
  * ROUTE-SCOPING / ASSESSMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3671-mesoscopic-v0-vs-g6a-shock-lipschitz-assessment (obstruction S1 type mismatch, S2 scale)
  * @see imp-3642-sigma-crossover-tc-direct-dyson-crosscheck (R1: strip-sup V0, x-difference discarded)
@@ -144,7 +143,7 @@ export const IMP3693_MICROSCOPIC_XDIFF_ROUTE_SCOPING = {
     'g_k unchanged, so the R3 route clears the TYPE obstruction but inherits the SCALE obstruction. ' +
     'G6a_shock_lipschitz stays OPEN. Route-scoping / assessment only; no positivity, no bridge ' +
     'closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity ' +
-    'UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'UNTOUCHED. No refereed bound is changed.',
   citation:
     'imp-3671 (obstruction S1 type/dimension mismatch: strip-sup V0 carries no x-difference; S2 ' +
     'Gronwall-vacuous nearest-pair scale); imp-3642 (direct RK4 attractive-Dyson flow; published ' +
@@ -185,13 +184,13 @@ export const IMP3693_MICROSCOPIC_XDIFF_ROUTE_SCOPING_ASSERTIONS = [
       IMP3693_MICROSCOPIC_XDIFF_ROUTE_SCOPING.g6aStillOpen === true,
   },
   {
-    // Honesty gate: route-scoping/assessment only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: route-scoping/assessment only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3693-honesty-gate-no-qed',
-    description: 'Route-scoping/assessment only: no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Route-scoping/assessment only: no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3693_MICROSCOPIC_XDIFF_ROUTE_SCOPING.isRigorous === false &&
       /NO QED/.test(IMP3693_MICROSCOPIC_XDIFF_ROUTE_SCOPING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3693_MICROSCOPIC_XDIFF_ROUTE_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP3693_MICROSCOPIC_XDIFF_ROUTE_SCOPING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3693_MICROSCOPIC_XDIFF_ROUTE_SCOPING.verdict),
   },
 ];

@@ -58,8 +58,7 @@
  * finest-rung excess is the imp-35076 6-decimal storage / coarse-quadrature floor (the very floor imp-35240
  * pushed past) -- neither is a prefactor discrepancy. This certifies no constant, changes no bound, and does
  * NOT discharge O3 / H3 / H4 / G6a. G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal endpoint-Hankel
- * K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * the rigorous SOTA.
+ * K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed.
  *
  * @see imp-35240-rho-prefactor-finer-grid-remeasurement (finer grid: K -> 8 sqrt(2)/(9 pi), refutes 2/5)
  * @see imp-35076-h3-a-fortiori-discharges-h4-numerical-verification (finite-ladder 2/3 margin, N in 1e3..1e7)
@@ -166,8 +165,8 @@ export const IMP35264_RHO_PREFACTOR_VS_IMP35076_MARGIN_CROSSCHECK = {
     'excess. Neither end is a prefactor discrepancy: the two results tell one coherent story. This certifies ' +
     'no constant, supplies no error bar or N-uniform inequality, establishes no operator positivity, changes ' +
     'no bound, and does NOT discharge O3 / H3 / H4 or G6a. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 ' +
-    'UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP35264_RHO_PREFACTOR_VS_IMP35076_MARGIN_ASSERTIONS = [
@@ -206,17 +205,17 @@ export const IMP35264_RHO_PREFACTOR_VS_IMP35076_MARGIN_ASSERTIONS = [
     holds: () => IMP35264_RHO_PREFACTOR_VS_IMP35076_MARGIN_CROSSCHECK.finestRungExcessExplainedByFloor === true,
   },
   {
-    // Honesty gate: cross-validation only; discharges nothing, G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: cross-validation only; discharges nothing, G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35264-honesty-gate-no-qed',
     description:
-      'Cross-validation only: consistency confirmed but discharges nothing, G6a OPEN, no QED, PT SOTA, imp-3066 untouched',
+      'Cross-validation only: consistency confirmed but discharges nothing, G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35264_RHO_PREFACTOR_VS_IMP35076_MARGIN_CROSSCHECK.isRigorous === false &&
       IMP35264_RHO_PREFACTOR_VS_IMP35076_MARGIN_CROSSCHECK.dischargesAnything === false &&
       IMP35264_RHO_PREFACTOR_VS_IMP35076_MARGIN_CROSSCHECK.consistent === true &&
       /NO QED/.test(IMP35264_RHO_PREFACTOR_VS_IMP35076_MARGIN_CROSSCHECK.verdict) &&
       /STAYS OPEN/.test(IMP35264_RHO_PREFACTOR_VS_IMP35076_MARGIN_CROSSCHECK.verdict) &&
-      /rigorous\s+SOTA/.test(IMP35264_RHO_PREFACTOR_VS_IMP35076_MARGIN_CROSSCHECK.verdict) &&
+      /refereed bound is changed/i.test(IMP35264_RHO_PREFACTOR_VS_IMP35076_MARGIN_CROSSCHECK.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0\s+UNTOUCHED/.test(
         IMP35264_RHO_PREFACTOR_VS_IMP35076_MARGIN_CROSSCHECK.verdict,
       ),

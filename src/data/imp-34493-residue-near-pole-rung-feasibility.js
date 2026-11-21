@@ -67,7 +67,7 @@
  *   import-light module cannot evaluate. Surrogate/geometry diagnostic, finite-difference re-read on
  *   the same baked rungs; NOT a rigorous asymptotic; the pole-location-negligible verdict (imp-34451)
  *   and the +/-1.1% bar (imp-34449) are UNTOUCHED; changes no bound; C_mb GUE-conditional per imp-486
- *   UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+ *   UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.
  *
  *   SUB-GAP: fresh-near-pole-estimator-value-needs-heavy-bundle -- the genuine tightening magnitude
  *   is unmeasured until resid_exp(21.15) is computed from the surrogate estimator (offline/heavy).
@@ -236,7 +236,7 @@ export const IMP34493_RESIDUE_NEAR_POLE_RUNG_FEASIBILITY = {
     'import-light-computable, so the actual tightening magnitude stays unmeasured. Surrogate NOT ' +
     'rigorous; imp-34451 pole-location-negligible verdict and imp-34449 +/-1.1% bar UNTOUCHED; changes ' +
     'no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; ' +
-    'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'no refereed bound is changed.',
 };
 
 export const IMP34493_ASSERTIONS = [

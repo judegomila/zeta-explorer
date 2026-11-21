@@ -58,7 +58,7 @@
  * extrapolation): this module bounds it in (0.48458, 0.50627] but does not certify a limit.
  *
  * MEASUREMENT/DERIVATION ONLY. No positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal
- * endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3642-sigma-crossover-tc-direct-dyson-crosscheck (the single-seed invariant 0.48458 this sweeps)
  * @see backward-flow-stability-gronwall (imp-2520 Lemma B floor exp(-2 s / y_star^2), density floor V0)
@@ -266,8 +266,8 @@ export const IMP3662_MESOSCOPIC_INVARIANT_SEED_SENSITIVITY = {
     'continuum constant extrapolation (sg-3662-continuum-floor-extrapolation) and the absolute shock ' +
     'constant c_sh (imp-2520 SG1) stay OPEN, and the imp-3620 pin scale is still 2.37e-4 as imp-398 fixes ' +
     'it. Measurement/derivation only; no positivity, no bridge closure, no RH claim, NO QED. imp-3066 ' +
-    'off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3642 (single-seed invariant 0.48458, spread < 1e-9); imp-3620 (crossover pin, scale 2.37e-4); ' +
     'imp-398 (backward-flow-stability t_c ~ 1/log gamma law); imp-2520 / backward-flow-stability-gronwall ' +
@@ -319,13 +319,13 @@ export const IMP3662_MESOSCOPIC_INVARIANT_SEED_SENSITIVITY_ASSERTIONS = [
       Object.keys(FLOOR_TABLE).length === 27,
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement/derivation only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3662-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement/derivation only: no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3662_MESOSCOPIC_INVARIANT_SEED_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP3662_MESOSCOPIC_INVARIANT_SEED_SENSITIVITY.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3662_MESOSCOPIC_INVARIANT_SEED_SENSITIVITY.verdict) &&
+      /refereed bound is changed/i.test(IMP3662_MESOSCOPIC_INVARIANT_SEED_SENSITIVITY.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3662_MESOSCOPIC_INVARIANT_SEED_SENSITIVITY.verdict),
   },
 ];

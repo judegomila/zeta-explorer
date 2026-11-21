@@ -51,7 +51,7 @@
  *   real platform libms. It establishes NO operator positivity and NO new bound; it changes no bound.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity
  *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. The NPHI=10 Phi-series truncation is
- *   inherited upstream. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   inherited upstream. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33534-min-node-reference-precision-libm.js (the ~106-bit dd reference libm this reuses)
  *   @see imp-33312-tau-uniform-jitter-band.js (the per-height band whose ceilings are recomputed)
@@ -116,7 +116,7 @@ const verdict =
       'THE-SHIPPED-fp64-ENVELOPE-STAYS-A-VALID-(SLIGHTLY-~5%-CONSERVATIVE)-UPPER-BOUND-NEVER-BREACHED-BY-THE-' +
       'REFERENCE-libm.-ACCURACY-MEASUREMENT-ONLY;-DOUBLE-DOUBLE-IS-A-REFERENCE-PRECISION-SURROGATE-NOT-A-PLATFORM-' +
       'SURVEY;-CHANGES-NO-BOUND;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-' +
-      'PT-Lambda<=0.2-STAYS-SOTA'
+      'NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33559_ENVELOPE_UNDER_REFERENCE_LIBM = Object.freeze({
@@ -139,7 +139,7 @@ export const IMP33559_ENVELOPE_UNDER_REFERENCE_LIBM = Object.freeze({
     'sub-ULP). Since E_ref < E the shipped fp64 envelope stays a valid ~5%-conservative UPPER BOUND, never ' +
     'crossed by the reference libm. ACCURACY MEASUREMENT ONLY, RH-EQUIVALENT, reference-precision surrogate ' +
     'not a platform survey; changes no bound; imp-3066 untouched; necessary-but-not-sufficient; no QED. ' +
-    'PT Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   method: Object.freeze({
     band: 'the imp-33312 min-node grade6 lattice-jitter band: single-tau gold per height (grade5/grade6 ' +
@@ -213,7 +213,7 @@ export const IMP33559_ENVELOPE_UNDER_REFERENCE_LIBM = Object.freeze({
       '53-bit), NOT a survey of real platform libms. A specific platform libm with a ~1 ULP exp/log error could ' +
       'still differ; the robust conclusion is that the binding height survives and the fp64 envelope stays a ' +
       'valid (slightly conservative) upper bound.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -265,7 +265,7 @@ export const IMP33559_ENVELOPE_UNDER_REFERENCE_LIBM_ASSERTIONS = [
     id: 'imp33559-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy measurement only, changes no bound, reference-precision surrogate not a ' +
          'platform survey, mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) ' +
-         'untouched, PT 0.2 SOTA.',
+         'untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33559_ENVELOPE_UNDER_REFERENCE_LIBM.honestCaveat;
       return (
@@ -273,7 +273,7 @@ export const IMP33559_ENVELOPE_UNDER_REFERENCE_LIBM_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.changesNoBound === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

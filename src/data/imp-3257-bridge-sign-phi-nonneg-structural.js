@@ -65,7 +65,7 @@
  *   agreement is robust. This upgrades the imp-3197 sign half from measured to
  *   structural -- and it is still the EASY half: the binding K_a &gt;= 0 residual
  *   is the OPERATOR-NORM magnitude (imp-3197 magnitude half, the |Gshear|
- *   spectrum), untouched here. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   spectrum), untouched here. No refereed bound is changed.
  *
  *   @see imp-3197-mupass-bridge-sign-phi-only.js (the one-cell sign/magnitude split this makes structural)
  *   @see section26-mupass-operator-verdict-2026-06-30.js (the verdict whose Phi-only sign claim this backs)
@@ -272,7 +272,7 @@ export const IMP3257_BRIDGE_SIGN_PHI_NONNEG_STRUCTURAL = Object.freeze({
       'Correct signs are necessary-but-NOT-sufficient; the off-diagonal endpoint-Hankel operator ' +
       'magnitude (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -320,7 +320,7 @@ export const IMP3257_BRIDGE_SIGN_PHI_NONNEG_STRUCTURAL_ASSERTIONS = [
     id: 'imp3257-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, not a reduction below RH, RH-equivalent, the ' +
          'sign result is trivial/structural, the termwise bound is conservative, magnitude not addressed, ' +
-         'positivity not attempted, PT 0.2 stays SOTA. Any flip is over-claiming.',
+         'positivity not attempted, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3257_BRIDGE_SIGN_PHI_NONNEG_STRUCTURAL.honestCaveat;
       return (
@@ -328,7 +328,7 @@ export const IMP3257_BRIDGE_SIGN_PHI_NONNEG_STRUCTURAL_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

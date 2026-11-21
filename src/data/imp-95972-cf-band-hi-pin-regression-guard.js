@@ -242,7 +242,7 @@ export const CF_BAND_HI_PIN_REGRESSION_GUARD = {
     'current honest representative has been introduced beyond the frozen baseline of ' +
     'pre-imp-95972 supersession-chain documentation. The imp-95769/imp-95894 audit verdict ' +
     'stays enforced: it cannot silently regress without a red build. Documentation/regression ' +
-    'guard only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'guard only; changes no bound; NO QED; no refereed bound is changed.',
 };
 
 export const CF_BAND_HI_PIN_REGRESSION_GUARD_ASSERTIONS = [

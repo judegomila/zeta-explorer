@@ -41,7 +41,7 @@
  * random sweep -- 20,437 sets) confirms the primorial p_10# is the strict minimiser: the smallest
  * non-primorial T is +5.534829e-4 (from 29 -> 31), +7.52e-5 above the primorial's +4.782772e-4, and no set
  * gives T < 0. The MCM onset stays exactly omega=11; the b/4 ceiling is not touched; kappa_arith unchanged;
- * no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97583-route-m-mcm-onset-omega11-primorial.js (onset at omega=11; RESULT 4 two-alternative sample)
  * @see imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (MCM refuted at omega=11; kernel source)
@@ -77,7 +77,7 @@ export const IMP97606_OMEGA10_EXTREMALITY = Object.freeze({
 });
 
 export const IMP97606_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Broadening the imp-97583 RESULT 4 primorial-extremality ' +
+  'RH open; no refereed bound is changed; NO QED. Broadening the imp-97583 RESULT 4 primorial-extremality ' +
   'check at the razor-thin omega=10 margin (T(p_10#) = +4.782772e-4) from two alternatives to a broad family ' +
   '(single-prime substitutions, shift-up families, two-prime substitutions, and a 20,000-trial offline sweep ' +
   '-- 20,437 sets) confirms the primorial p_10# is the strict minimiser: smallest non-primorial T is ' +
@@ -174,7 +174,7 @@ const IMP97606_ASSERTIONS = [
       IMP97606_OMEGA10_EXTREMALITY.anyBoundMoved === false &&
       IMP97606_OMEGA10_EXTREMALITY.qed === false &&
       /NO QED/.test(IMP97606_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97606_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97606_HONEST_BANNER) &&
       /RH open/.test(IMP97606_HONEST_BANNER),
     why: 'measurement only -- broadened omega=10 extremality confirms the primorial minimiser and onset omega=11; no bound moved, no QED.',
   },

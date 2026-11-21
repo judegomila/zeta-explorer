@@ -41,7 +41,7 @@
  * remainder; discharges nothing; changes no bound; establishes no operator
  * positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), C_H = 1/8, E_trunc =
  * 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a
- * stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35680-constant-mismatch-magnitude (single full-band edge A_band = 1/2 extended here)
  * @see imp-35652-req3-option-a-restricted-support-surrogate-scope (constantMismatch / option-a scope)
@@ -52,7 +52,7 @@
 
 import { IMP35680_CONSTANT_MISMATCH_MAGNITUDE } from './imp-35680-constant-mismatch-magnitude.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 const ALPHA_LIMIT = 1; // Montgomery/Rudnick-Sarnak proven support |alpha| < 1
 
 // Target short-range collision constant (imp-2642/imp-2643 ansatz, C_H = 1/8).
@@ -144,7 +144,7 @@ export const IMP35733_BAND_EDGE_AMPLITUDE_SENSITIVITY = {
     'extending the imp-35680 single-edge reading. Derives no remainder; discharges nothing; changes no bound; ' +
     'establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), C_H = 1/8, E_trunc = 3.06e-5 ' +
     '(imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35680 (single full-band edge A_band = 1/2 extended here); imp-35652 (option-a / constantMismatch scope); ' +
     'imp-2642/imp-2643 (C_C = (1/8) sqrt(3 pi), C_H = 1/8); imp-2631 (E_trunc floor); imp-486 (GUE-conditional ' +
@@ -204,7 +204,7 @@ export const IMP35733_BAND_EDGE_AMPLITUDE_SENSITIVITY_ASSERTIONS = [
       bandEdgeLadder.every((row) => row.plateauInBand === false && row.c <= ALPHA_LIMIT),
   },
   {
-    // (6) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, NO QED.
+    // (6) honesty gate: measurement only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, NO QED.
     id: 'imp35733-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -217,7 +217,7 @@ export const IMP35733_BAND_EDGE_AMPLITUDE_SENSITIVITY_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

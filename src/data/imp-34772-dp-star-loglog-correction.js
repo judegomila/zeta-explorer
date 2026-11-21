@@ -59,7 +59,7 @@
  *   claim, and the crossover N remains an asymptotic extrapolation hundreds of decades past the 1e100 window
  *   that certifies NOTHING about the true q3. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8)
  *   ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched;
- *   changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34754-dp-star-probe-band-ratio-deep-tail.js (F3 reported the ~7.7% excess this module explains)
  *   @see imp-34735-dp-star-probe-band-crossover-N.js (exact ratio ladder to 1e100 + closed-form crossover)
@@ -268,7 +268,7 @@ export const IMP34772_DP_STAR_LOGLOG_CORRECTION = Object.freeze({
     'extrapolation hundreds of decades past the imp-34711-validated 1e100 window that certifies NOTHING ' +
     'about the true q3. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are ' +
     'UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
-    'changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34754 (F3 reported the ~7.7% exact-vs-asymptote excess this module diagnoses as a probe-band artifact); ' +
     'imp-34735 (exact-model ratio ladder to 1e100 + closed-form crossover log10 N ~ 374.6/630.1); ' +
@@ -326,10 +326,10 @@ const IMP34772_ASSERTIONS = [
     holds: () =>
       IMP34772_DP_STAR_LOGLOG_CORRECTION.isRigorous === false &&
       /NO QED/.test(IMP34772_DP_STAR_LOGLOG_CORRECTION.verdict) &&
-      /remains SOTA/.test(IMP34772_DP_STAR_LOGLOG_CORRECTION.verdict) &&
+      /refereed bound is changed/i.test(IMP34772_DP_STAR_LOGLOG_CORRECTION.verdict) &&
       /UNTOUCHED/.test(IMP34772_DP_STAR_LOGLOG_CORRECTION.verdict) &&
       /extrapolation/.test(IMP34772_DP_STAR_LOGLOG_CORRECTION.verdict),
-    why: 'Honesty gate: derivation/measurement only, crossover is an extrapolation, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: derivation/measurement only, crossover is an extrapolation, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

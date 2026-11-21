@@ -245,8 +245,7 @@ export default function Imp97369RouteBEnclosureViz() {
       >
         <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> derivation/execution only.
         No bound on Lambda moves; no operator positivity established; interval-rigorous reach
-        stays 2a&le;{IMP97337_VERDICT.intervalRigorousReachUnchanged}; Platt-Trudgian
-        Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        stays 2a&le;{IMP97337_VERDICT.intervalRigorousReachUnchanged}; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

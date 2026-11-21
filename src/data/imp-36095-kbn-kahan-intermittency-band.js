@@ -17,7 +17,7 @@
  * imp-36023 (same fixed oscillatory family, same clustered same-sign worst ORDER). MEASUREMENT
  * ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no
  * inequality; changes no bound; establishes no positivity; the C_mb GUE-conditional constant
- * (imp-486) is untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) is untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * MEASURED verdict on the CLUSTERED worst order across the fine [34000, 40000] step-250 ladder
  * (25 rungs; sep = KBN error strictly differs from Kahan error):
@@ -73,7 +73,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36062) ----------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 
 const U_ROUNDOFF = 2 ** -53; // unit roundoff u (half ulp) ~ 1.11e-16
 
@@ -306,7 +306,7 @@ export const IMP36095_KBN_KAHAN_INTERMITTENCY_BAND = {
     'the ENGINEERING of the certified length-N interval sum (MECHANICAL, imp-35725). Certifies no W1 ' +
     'bound; evaluates no true H_0; instantiates no interval; verifies no inequality; changes no bound; ' +
     'establishes no positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36062 (located onset at N~34000; asserted but did NOT store the intermittency band); imp-36124 ' +
     '(honest-status note: onset tracks N, soft/intermittent); imp-36023 (KBN=classic-Kahan at N<=1e4 but ' +
@@ -372,7 +372,7 @@ export const IMP36095_KBN_KAHAN_INTERMITTENCY_BAND_ASSERTIONS = [
   },
   {
     id: 'imp36095-honesty-gate',
-    description: 'Measurement only; verdict does not track kappa; precision non-binding; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; verdict does not track kappa; precision non-binding; no QED; no refereed bound is changed',
     holds: () =>
       IMP36095_KBN_KAHAN_INTERMITTENCY_BAND.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -382,7 +382,7 @@ export const IMP36095_KBN_KAHAN_INTERMITTENCY_BAND_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP36095_KBN_KAHAN_INTERMITTENCY_BAND.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36095_KBN_KAHAN_INTERMITTENCY_BAND.verdict) &&
-      /remains SOTA/.test(IMP36095_KBN_KAHAN_INTERMITTENCY_BAND.verdict),
+      /refereed bound is changed/i.test(IMP36095_KBN_KAHAN_INTERMITTENCY_BAND.verdict),
   },
 ];
 

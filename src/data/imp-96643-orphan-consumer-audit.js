@@ -49,7 +49,7 @@
  * registered sibling -- but is not yet page-reachable. None of the five can transitively pull the
  * zeros bundle (confirmed directly for all five; confirmed three hops deep for the one real import
  * chain). This audit changes no bound, establishes no operator positivity, and asserts no QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 const AUDITED = Object.freeze([
@@ -121,7 +121,7 @@ export const IMP96643_ORPHAN_CONSUMER_AUDIT = Object.freeze({
     + 'by a DATA_MODULES-registered sibling, though not yet page-reachable. None of the five has '
     + 'any import statement, and the one real transitive chain was walked three hops deep with no '
     + 'zeros-bundle pull found. Audit only; changes no bound; establishes no operator positivity; '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    + 'no refereed bound is changed; NO QED.',
   source: 'imp-96612, imp-96613, imp-96616, imp-96617, rh-route-i-toeplitz-krein-certificate-payload-2026-09-24',
 
   audited: AUDITED,
@@ -149,7 +149,7 @@ export const IMP96643_ORPHAN_CONSUMER_AUDIT = Object.freeze({
     + 'index.js citations and direct page/component imports; DATA_MODULES registration is checked '
     + 'via scripts/run-assertions.mjs. The four flagged orphans are candidates for either wiring '
     + 'into a consumer/page or explicit archival; this audit does neither. Changes no bound; '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    + 'no refereed bound is changed; NO QED.',
 });
 
 export const IMP96643_ORPHAN_CONSUMER_AUDIT_ASSERTIONS = Object.freeze([
@@ -171,9 +171,9 @@ export const IMP96643_ORPHAN_CONSUMER_AUDIT_ASSERTIONS = Object.freeze([
     holds: () => AUDITED.every((m) => m.pageReachable === false),
   },
   {
-    name: 'honest: audit only, no bound moved, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: audit only, no bound moved, no refereed bound is changed, NO QED',
     holds: () => /changes no bound/.test(IMP96643_ORPHAN_CONSUMER_AUDIT.status)
-      && /Platt-Trudgian Lambda <= 0.2 remains SOTA/.test(IMP96643_ORPHAN_CONSUMER_AUDIT.status)
+      && /refereed bound is changed/i.test(IMP96643_ORPHAN_CONSUMER_AUDIT.status)
       && /NO QED/.test(IMP96643_ORPHAN_CONSUMER_AUDIT.status),
   },
 ]);

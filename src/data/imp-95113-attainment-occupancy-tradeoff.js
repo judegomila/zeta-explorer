@@ -83,7 +83,7 @@
  * NOT a proof. The all-MAJ-witness bound (or a phi -> 1 family) is the
  * refined open sub-gap imp-95113-subgap-tradeoff-proof-vs-scan. Floors and
  * ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD: (1) the measurement pipeline reproduces
  * the imp-95008 baked A, O, B, phi at the terminal witness to rel 1e-9
@@ -100,7 +100,7 @@
  * and it does not by itself force phi < 1 for mixed-parity witnesses.
  *
  * Import-light (no heavy bundle). The numerics ASSESS the sub-gap; they are
- * not a proof of it. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+ * not a proof of it. Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // shared conventions (identical to the sibling modules)
@@ -421,7 +421,7 @@ export const IMP95113_ATTAINMENT_OCCUPANCY_TRADEOFF = {
   findingB:
     "Excess positivity is fine-tuned: a deterministic battery of 3000 random MAJ grid witnesses (LCG seed 13572468) yields ZERO with E > 0, and the local perturbation sup phi = 0.3572 is only 0.24 percent above the terminal 0.3563 - the terminal witness sits at or near a local maximizer of phi on a thin E>0 ridge, consistent with the 1536x X-vs-N cancellation imp-95008 measured.",
   verdict:
-    "ASSESSMENT (honest partial): over every scanned MAJ family the product attainment x occupancy stays below an empirical gamma_scan ~ 0.402 (< 1) and phi stays below ~ 0.357, so NO scanned family drives phi -> 1; the observed mechanism (odd mass buys parity balance but dilutes occupancy, and shedding it eliminates excess positivity) is anchored by the proven single-parity E <= 0 inequality. This is EVIDENCE FOR the conjectured tradeoff bound attainment x occupancy <= gamma < 1, NOT a proof. The all-MAJ-witness bound (or a phi -> 1 family) is the refined open sub-gap. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT (honest partial): over every scanned MAJ family the product attainment x occupancy stays below an empirical gamma_scan ~ 0.402 (< 1) and phi stays below ~ 0.357, so NO scanned family drives phi -> 1; the observed mechanism (odd mass buys parity balance but dilutes occupancy, and shedding it eliminates excess positivity) is anchored by the proven single-parity E <= 0 inequality. This is EVIDENCE FOR the conjectured tradeoff bound attainment x occupancy <= gamma < 1, NOT a proof. The all-MAJ-witness bound (or a phi -> 1 family) is the refined open sub-gap. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   subGap:
     "imp-95113-subgap-tradeoff-proof-vs-scan - OPEN: the tradeoff bound attainment x occupancy <= gamma < 1 is measured over the scanned families (gamma_scan ~ 0.402) and structurally anchored by the single-parity E <= 0 inequality, but NOT proved over all MAJ witnesses; a proof (or a phi -> 1 family) remains open.",
   openResiduals: [
@@ -502,12 +502,12 @@ export const IMP95113_TRADEOFF_ASSERTIONS = [
   {
     id: "imp95113-tradeoff-honesty-gate",
     description:
-      "the verdict scopes the assessment as numerical (not a theorem over all MAJ witnesses), names the executed sub-gap and the refined open sub-gap, records the single-parity anchor as the only proven statement, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict scopes the assessment as numerical (not a theorem over all MAJ witnesses), names the executed sub-gap and the refined open sub-gap, records the single-parity anchor as the only proven statement, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95113_ATTAINMENT_OCCUPANCY_TRADEOFF.promotesBound === false &&
       IMP95113_ATTAINMENT_OCCUPANCY_TRADEOFF.isRigorous === false &&
       /NO QED/.test(IMP95113_ATTAINMENT_OCCUPANCY_TRADEOFF.verdict) &&
-      /remains SOTA/.test(IMP95113_ATTAINMENT_OCCUPANCY_TRADEOFF.verdict) &&
+      /refereed bound is changed/i.test(IMP95113_ATTAINMENT_OCCUPANCY_TRADEOFF.verdict) &&
       /Floors and ceilings untouched/.test(IMP95113_ATTAINMENT_OCCUPANCY_TRADEOFF.verdict) &&
       /NOT a proof/.test(IMP95113_ATTAINMENT_OCCUPANCY_TRADEOFF.verdict) &&
       /imp-95113-subgap-tradeoff-proof-vs-scan/.test(IMP95113_ATTAINMENT_OCCUPANCY_TRADEOFF.subGap) &&

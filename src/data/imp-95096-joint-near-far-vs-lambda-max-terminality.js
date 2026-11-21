@@ -107,7 +107,7 @@
  * coupling (1.49e-11) the sibling already prices - not re-derived here. This
  * is an assessment: it changes no bound and adds no lemma to the closure
  * chain. Import-light. Changes no bound; does NOT promote Lambda <= 0.14;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // ── baked literals (from imp-95008-perron-weighted-far-routing.js) ───────────
@@ -183,7 +183,7 @@ export const IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX = {
     "Lemma JNF (beta = K(0,2)(2-alpha)) is an EXACT unconditional 2x2 SDP statement about the dominant (0,2) two-block kernel, matched by an independent exhaustive grid sup. The load-bearing terminality conclusion needs only that beta is strictly decreasing in alpha (adding a nonnegative diagonal penalty to a sup can only lower it) - unconditional in the full section - and that alpha is pinned at 1 by the Gram-sharp parity factor (imp-95018); both hold, so 'terminal within the bracket class' is rigorous. The absolute (out-of-class) sub-lambda_max trade is exhibited but its gap payoff is un-priced (named sub-gap). Assessment only: adds no lemma to the closure chain, changes no bound.",
   promotesBound: false,
   verdict:
-    "ASSESSMENT (imp-95096): the imp-95008 Lemma SW lambda_max sandwich IS the terminal aggregation certificate FOR THE BRACKET CLASS {cNear<=2}. Lemma JNF prices the diagonal jointly and gives the exact two-block Pareto line beta(alpha)=K(0,2)(2-alpha), whose alpha=1 endpoint reproduces lambda_max; since beta strictly decreases in alpha and alpha is pinned at 1 by the Gram-sharp parity factor 2 (imp-95018), any sub-lambda_max far constant needs cNear=2 alpha>2, exiting the class. So the scope-honesty note (8) hides no in-class slack: joint near/far is a REAL but OUT-OF-CLASS lever (beta<lambda_max only for alpha>1) whose gap payoff is un-priced by the carried literals - named sub-gap imp-95096-subgap-near-currency-ratio. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    "ASSESSMENT (imp-95096): the imp-95008 Lemma SW lambda_max sandwich IS the terminal aggregation certificate FOR THE BRACKET CLASS {cNear<=2}. Lemma JNF prices the diagonal jointly and gives the exact two-block Pareto line beta(alpha)=K(0,2)(2-alpha), whose alpha=1 endpoint reproduces lambda_max; since beta strictly decreases in alpha and alpha is pinned at 1 by the Gram-sharp parity factor 2 (imp-95018), any sub-lambda_max far constant needs cNear=2 alpha>2, exiting the class. So the scope-honesty note (8) hides no in-class slack: joint near/far is a REAL but OUT-OF-CLASS lever (beta<lambda_max only for alpha>1) whose gap payoff is un-priced by the carried literals - named sub-gap imp-95096-subgap-near-currency-ratio. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -248,12 +248,12 @@ export const IMP95096_ASSERTIONS = [
   {
     id: "imp95096-honesty-gate",
     description:
-      "the verdict states terminality within the bracket class, exhibits the out-of-class joint lever, names the near-currency sub-gap, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict states terminality within the bracket class, exhibits the out-of-class joint lever, names the near-currency sub-gap, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX.promotesBound === false &&
       IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX.openResiduals.length === 3 &&
       /NO QED/.test(IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX.verdict) &&
-      /remains SOTA/.test(IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX.verdict) &&
+      /refereed bound is changed/i.test(IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX.verdict) &&
       /terminal aggregation certificate FOR THE BRACKET CLASS/.test(IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX.verdict) &&
       /OUT-OF-CLASS/.test(IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX.verdict) &&
       /imp-95096-subgap-near-currency-ratio/.test(IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX.subGap) &&

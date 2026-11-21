@@ -23,7 +23,7 @@
  *        (later correction rejecting the quadratic top end)
  *
  *   Ticket: imp-97198 (ux, low). Presentation of an already-derived ladder;
- *   adds no new Lambda bound. PT Lambda <= 0.2 SOTA. RH open. NO QED.
+ *   adds no new Lambda bound. No refereed bound is changed. RH open. NO QED.
  */
 
 // -- five-rung ceiling ladder, exact N values recomputed from imp-96918's exports --
@@ -66,7 +66,7 @@ export const IMP97198_VERDICT = Object.freeze({
 });
 
 export const IMP97198_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: reshapes the ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: reshapes the ' +
   'already-derived (imp-96918) five-rung conditioning-ceiling ladder into a single ' +
   'chart-ready series with adjacent-gap percentages. No re-derivation, no bound moved, ' +
   'says nothing about the zeros. The concaveQuad rung is later rejected by imp-97081.';

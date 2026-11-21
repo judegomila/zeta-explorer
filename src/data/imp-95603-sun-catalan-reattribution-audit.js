@@ -21,7 +21,7 @@
  * Accuracy audit only. Restates no proof status. Catalan G irrationality OPEN;
  * Sun arXiv:2609.04176 single-author unrefereed with a flagged Section 9
  * wrong-sign B-squared; Raymond Lambda < 0.149396 is a genuine, separate,
- * unrefereed Lambda-ladder preprint; PT Lambda <= 0.2 remains SOTA; RH OPEN; NO QED.
+ * unrefereed Lambda-ladder preprint; no refereed bound is changed; RH OPEN; NO QED.
  *
  * NO heavy imports. Verdicts baked as literals.
  */
@@ -94,8 +94,8 @@ export const SUN_CATALAN_REATTRIBUTION_AUDIT = Object.freeze({
     + '2026-09-21 flip has been fully reverted across the repo -- every appearance now '
     + 'attributes the delta_0 ledger to Sun arXiv:2609.04176 and correctly separates '
     + 'Raymond Lambda < 0.149396. The one deleted site (sun-catalan-note.js) has no live '
-    + 'presence. Catalan G irrationality OPEN; Sun unrefereed (flagged Section 9); PT '
-    + 'Lambda <= 0.2 SOTA; NO QED.',
+    + 'presence. Catalan G irrationality OPEN; Sun unrefereed (flagged Section 9); no refereed bound is changed'
+    + '; NO QED.',
 });
 
 export const SUN_CATALAN_REATTRIBUTION_AUDIT_ASSERTIONS = Object.freeze([
@@ -119,7 +119,7 @@ export const SUN_CATALAN_REATTRIBUTION_AUDIT_ASSERTIONS = Object.freeze([
   {
     name: 'honest: G irrationality OPEN and PT Lambda<=0.2 SOTA in the summary',
     holds: () => /G irrationality OPEN/.test(SUN_CATALAN_REATTRIBUTION_AUDIT.summary)
-      && /Lambda <= 0\.2 SOTA/.test(SUN_CATALAN_REATTRIBUTION_AUDIT.summary),
+      && /refereed bound is changed/i.test(SUN_CATALAN_REATTRIBUTION_AUDIT.summary),
   },
 ]);
 

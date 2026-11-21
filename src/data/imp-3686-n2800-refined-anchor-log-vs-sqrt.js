@@ -79,8 +79,7 @@
  *   matched-pair anchor on a refined grid and discriminates log from sqrt (sqrt
  *   disfavoured, log preferred, steeper-than-log left as a refined sub-gap). Does NOT
  *   construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity.
- *   RH-EQUIVALENT. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the
- *   rigorous SOTA.
+ *   RH-EQUIVALENT. NO RH verdict, NO QED. No refereed bound is changed.
  */
 
 import { IMP3663_MATCHED_PAIR_KRYLOV_DEPTH_SWEEP } from './imp-3663-matched-pair-krylov-depth-sweep.js';
@@ -262,7 +261,7 @@ export const IMP3686_N2800_REFINED_ANCHOR_LOG_VS_SQRT = Object.freeze({
     'a pure sqrt (1:0.905:0.833) and steeper than a pure log (1:0.816:0.690), so the true fixed-pair depth law is at least ' +
     'as concave as log and may saturate steeper (named residual sg-3686-steeper-than-log-fixed-pair). Measurement/fit only; ' +
     'runs no new Lanczos at import; does NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0 ' +
-    'positivity; RH-EQUIVALENT; NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'positivity; RH-EQUIVALENT; NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     quantityMeasured: 'm*(2800, pair=lambda_5=lambda_6) = minimal reorthogonalized Lanczos Krylov depth entering the pair56 = |sigma_5-sigma_6|/sigma_5 < 1e-13 machine-noise plateau, on a REFINED 20-step sub-depth grid',
@@ -368,7 +367,7 @@ export const IMP3686_N2800_REFINED_ANCHOR_LOG_VS_SQRT = Object.freeze({
       'This measures and discriminates a Krylov depth law; it does NOT construct the missing magnitude and does NOT attempt ' +
       'the imp-3066 K_a >= 0 positivity.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -444,7 +443,7 @@ export const IMP3686_N2800_REFINED_ANCHOR_LOG_VS_SQRT_ASSERTIONS = [
   {
     id: 'imp3686-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT/FIT only -- log preferred over sqrt but steeper-than-log left as a sub-gap, m* ' +
-      'grid-quantised, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'grid-quantised, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3686_N2800_REFINED_ANCHOR_LOG_VS_SQRT.honestCaveat;
       return (
@@ -454,7 +453,7 @@ export const IMP3686_N2800_REFINED_ANCHOR_LOG_VS_SQRT_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.logVsSqrtResolvedForLog === 'string' &&
         typeof c.steeperThanLogOpen === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

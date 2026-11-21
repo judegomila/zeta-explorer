@@ -58,8 +58,7 @@
  *   adds NO new mathematical structure and establishes NO operator positivity.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT (imp-3481); the operator-level
  *   K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is
- *   UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the
- *   rigorous SOTA.
+ *   UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-3481-autocorrelation-moment-ladder.js (the Simpson ladder cross-validated here)
  *   @see imp-3469-degree2-bridge-mass-scaling.js (the M_2 = 4.537e-6 anchor)
@@ -317,7 +316,7 @@ export const IMP3503_MOMENT_LADDER_GL_CROSSVAL = Object.freeze({
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT (imp-3481). The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -356,7 +355,7 @@ export const IMP3503_MOMENT_LADDER_GL_CROSSVAL_ASSERTIONS = [
   {
     id: 'imp3503-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: numerical cross-check / certification only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3503_MOMENT_LADDER_GL_CROSSVAL.honestCaveat;
       return (
@@ -364,7 +363,7 @@ export const IMP3503_MOMENT_LADDER_GL_CROSSVAL_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

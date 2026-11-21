@@ -54,7 +54,7 @@
  *   eigenvalues vary: there ARE no intermediate eigenvalues. This strengthens imp-3351:
  *   the whole spectrum (not just min eig) is (a, U, Phi)-independent up to normalization.
  *   The binding RH-equivalent K_a >= 0 residual (the imp-3066 off-diagonal endpoint-Hankel
- *   step) is untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA. No QED.
+ *   step) is untouched; no refereed bound is changed. No QED.
  *
  *   @see imp-3351-shear-gram-symmetric-spectrum-aU-grid.js (the extremal-only cell-independence this extends)
  *   @see imp-3252-shear-gram-mineig-symmetric-spectrum-n-scaling.js (the single-cell rank-2 factorization)
@@ -325,7 +325,7 @@ export const IMP3404_SHEAR_GRAM_FULL_SPECTRUM_CELL_INDEPENDENCE = Object.freeze(
       'Cell-independence of the full spectrum confirms the rank-2 structure is (a, U, Phi)-independent; the off-diagonal ' +
       'endpoint-Hankel operator magnitude (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -364,7 +364,7 @@ export const IMP3404_SHEAR_GRAM_FULL_SPECTRUM_CELL_INDEPENDENCE_ASSERTIONS = [
   {
     id: 'imp3404-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, not a reduction below RH, RH-equivalent, positivity not ' +
-         'attempted, PT 0.2 stays SOTA. Any flip is over-claiming.',
+         'attempted, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3404_SHEAR_GRAM_FULL_SPECTRUM_CELL_INDEPENDENCE.honestCaveat;
       return (
@@ -372,7 +372,7 @@ export const IMP3404_SHEAR_GRAM_FULL_SPECTRUM_CELL_INDEPENDENCE_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

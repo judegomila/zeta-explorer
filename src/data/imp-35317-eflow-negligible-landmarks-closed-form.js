@@ -79,7 +79,7 @@
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * E_trunc fixed strip (imp-2631) UNTOUCHED; imp-398 C_F prefactor UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35154-eflow-negligible-threshold (L2/L4 bisection measurements this closes in closed form)
  * @see imp-35210-four-e-component-landmarks-viz-data (the four-landmark table with baked L1-L4 literals)
@@ -288,7 +288,7 @@ export const IMP35317_EFLOW_NEGLIGIBLE_LANDMARKS_CLOSED_FORM = {
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) are UNTOUCHED; E_trunc fixed strip (imp-2631) UNTOUCHED; imp-398 C_F ' +
     'prefactor UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35154 (L2/L4 bisection measurements); imp-35210 (four-landmark table, baked L1-L4 ' +
     'literals); imp-35153 (L1 closed form, height-solve template); imp-33723 (L3 closed form, ' +
@@ -345,13 +345,13 @@ export const IMP35317_EFLOW_NEGLIGIBLE_LANDMARKS_CLOSED_FORM_ASSERTIONS = [
     holds: () => N_1PCT_CF < N_CROSS && N_CROSS < N_0P1PCT_CF,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp35317-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35317_EFLOW_NEGLIGIBLE_LANDMARKS_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP35317_EFLOW_NEGLIGIBLE_LANDMARKS_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP35317_EFLOW_NEGLIGIBLE_LANDMARKS_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP35317_EFLOW_NEGLIGIBLE_LANDMARKS_CLOSED_FORM.verdict),
   },
 ];
 

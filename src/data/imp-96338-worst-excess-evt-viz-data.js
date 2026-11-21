@@ -17,8 +17,7 @@
  * PRESENTATION ONLY. This charts a measurement comparison already reduced by
  * imp-96271 (which itself only tests a claim from imp-95562 finding 2). It
  * establishes no operator positivity, moves no Lambda bound, and touches
- * nothing on the zero side. RH open; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * nothing on the zero side. RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96271-worst-excess-evt-gaussianity.js (ROWS, aggregates, verdict)
  *
@@ -53,7 +52,7 @@ export const IMP96338_AGGREGATES = Object.freeze({
 });
 
 export const IMP96338_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every worstSigma, E[max], Gumbel-sd, '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every worstSigma, E[max], Gumbel-sd, '
   + 'and deviation value is copied verbatim from the imp-96271 baked rows (no re-derivation); only the '
   + 'bandLow/bandHigh = E[max] -/+ sd[max] arithmetic is computed here. This charts a measurement '
   + 'comparison already reduced by imp-96271: it establishes no operator positivity, moves no Lambda '
@@ -109,8 +108,8 @@ const IMP96338_ASSERTIONS = [
   },
   {
     id: 'imp96338-honest-banner-carries-status',
-    holds: () => /RH open/.test(IMP96338_HONEST_BANNER) && /NO QED/.test(IMP96338_HONEST_BANNER) && /SOTA/.test(IMP96338_HONEST_BANNER),
-    why: 'honesty gate: presentation only, no RH claim, PT stays SOTA.',
+    holds: () => /RH open/.test(IMP96338_HONEST_BANNER) && /NO QED/.test(IMP96338_HONEST_BANNER) && /refereed bound is changed/i.test(IMP96338_HONEST_BANNER),
+    why: 'honesty gate: presentation only, no RH claim, no refereed bound is changed.',
   },
 ];
 

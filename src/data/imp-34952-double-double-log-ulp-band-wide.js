@@ -40,7 +40,7 @@
  * imp-34885/34867), does NOT discharge the conditional, changes no bound. imp-34714a REMAINS OPEN;
  * imp-34687a REMAINS OPEN; C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional
  * per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator positivity; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34927-double-double-log-ulp-measurement (single-point N_cross log measurement this extends band-wide)
  * @see imp-34928-directed-quotient-ulp-band-wide (SIBLING: band-wide DIVISION measurement; this is the log-site analogue)
@@ -263,8 +263,8 @@ export const IMP34952_DOUBLE_DOUBLE_LOG_ULP_BAND_WIDE = {
     'log binding), does NOT discharge the conditional. SUB-GAPs imp-34714a and imp-34687a REMAIN OPEN. ' +
     'Measurement only on the inherited imp-3220/imp-3406 surrogate crossover map; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes ' +
-    'no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34927 (double-double log ULP measurement at N_cross; this extends it band-wide); imp-34928 (SIBLING: ' +
     'band-wide DIVISION measurement; this is the log-site analogue); imp-34885 (directed-rounding checklist; ' +
@@ -310,16 +310,16 @@ export const IMP34952_DOUBLE_DOUBLE_LOG_ULP_BAND_WIDE_ASSERTIONS = [
       Math.abs(ddToNumber(ddLog(2)) - LOG2_DD[0]) < 1e-15,
   },
   {
-    // Honesty gate: measurement only, both sub-gaps open, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, both sub-gaps open, no QED, no refereed bound is changed.
     id: 'imp34952-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, imp-34714a and imp-34687a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, imp-34714a and imp-34687a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34952_DOUBLE_DOUBLE_LOG_ULP_BAND_WIDE.isRigorous === false &&
       /imp-34714a/.test(IMP34952_DOUBLE_DOUBLE_LOG_ULP_BAND_WIDE.subGap) &&
       /imp-34687a/.test(IMP34952_DOUBLE_DOUBLE_LOG_ULP_BAND_WIDE.subGap) &&
       /REMAINS? OPEN/.test(IMP34952_DOUBLE_DOUBLE_LOG_ULP_BAND_WIDE.subGap) &&
       /NO QED/.test(IMP34952_DOUBLE_DOUBLE_LOG_ULP_BAND_WIDE.verdict) &&
-      /remains SOTA/.test(IMP34952_DOUBLE_DOUBLE_LOG_ULP_BAND_WIDE.verdict),
+      /refereed bound is changed/i.test(IMP34952_DOUBLE_DOUBLE_LOG_ULP_BAND_WIDE.verdict),
   },
 ];
 

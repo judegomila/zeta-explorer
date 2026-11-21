@@ -37,13 +37,13 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95720 offset localization for quick reference.
  *   It establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   imp-2519 no-overclaim guard preserved; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   imp-2519 no-overclaim guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-95720-sun-prop63-second-anchor-obstruction (source: the +4 offset derivation and localization this glosses)
  * @see imp-95745-sun-prop63-plus4-offset-derivation (a companion derivation of the +4 offset)
  *
  * Ticket: imp-95756 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The +4 telescoping-constant headword, baked verbatim (no re-import).
@@ -85,7 +85,7 @@ export const IMP95756_PLUS4_OFFSET_TELESCOPING_CONSTANT_GLOSSARY_HEADWORD = Obje
     'telescoping constant (the divergent -2/(n+v) harmonic term absorbed by the A_rho/t ' +
     'subtraction), NOT the cell certificate or quadrature. Verified exactly at m=20 only; ' +
     'm-independence remains OPEN. Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95720 (the +4 offset derivation and localization this glosses); imp-95702 (named the ' +
     'blocking sub-gap this module sharpened); imp-95745 (companion +4 offset derivation).',
@@ -111,11 +111,11 @@ export const IMP95756_PLUS4_OFFSET_TELESCOPING_CONSTANT_GLOSSARY_HEADWORD_ASSERT
   },
   {
     id: 'imp95756-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95756_PLUS4_OFFSET_TELESCOPING_CONSTANT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95756_PLUS4_OFFSET_TELESCOPING_CONSTANT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95756_PLUS4_OFFSET_TELESCOPING_CONSTANT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95756_PLUS4_OFFSET_TELESCOPING_CONSTANT_GLOSSARY_HEADWORD.verdict) &&
       IMP95756_PLUS4_OFFSET_TELESCOPING_CONSTANT_GLOSSARY_HEADWORD.glosses === 'imp-95720',
   },
 ];

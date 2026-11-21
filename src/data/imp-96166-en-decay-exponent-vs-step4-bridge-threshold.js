@@ -52,7 +52,7 @@
  * from either direction.
  *
  * MEASUREMENT / DERIVATION ONLY. No positivity, no bridge closure, no RH claim,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH remains OPEN.
+ * NO QED. No refereed bound is changed; RH remains OPEN.
  *
  * @see imp-3220-en-bridge-fidelity-frontier (conditional share sigma(N), same formulas)
  * @see imp-2643-honest-assembled-EN (single-point E(N) capstone at N* = 1e4)
@@ -197,7 +197,7 @@ export const IMP96166_EN_DECAY_EXPONENT_VS_STEP4_BRIDGE = {
     'supply an unconditional E(N) -> 0 from either direction. This quantifies ' +
     'the imp-35164 "E(N) FLOORS" obstruction on which conditionalBookkeeping ' +
     'B1-B3 are blocked (G5-step4-bridge). No positivity, no bridge closure, no ' +
-    'RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH OPEN.',
+    'RH claim, NO QED. No refereed bound is changed; RH OPEN.',
   citation:
     'imp-3220 (E(N) sub-term formulas, conditional share); imp-2643 (single-point ' +
     'capstone); imp-35164 (E(N) FLOORS on the current surrogate); imp-2631 ' +
@@ -254,12 +254,12 @@ export const IMP96166_EN_DECAY_EXPONENT_VS_STEP4_BRIDGE_ASSERTIONS = [
     // Honesty gate: measurement only, names the frozen E_trunc floor as the
     // shortfall, keeps PT SOTA, and makes no rigorous / RH claim.
     id: 'imp96166-honesty-gate-no-qed',
-    description: 'Measurement only: names the E_trunc floor shortfall, no QED, PT stays SOTA',
+    description: 'Measurement only: names the E_trunc floor shortfall, no QED, no refereed bound is changed',
     holds: () =>
       IMP96166_EN_DECAY_EXPONENT_VS_STEP4_BRIDGE.isRigorous === false &&
       /E_trunc/.test(IMP96166_EN_DECAY_EXPONENT_VS_STEP4_BRIDGE.residualShortfall.shortfall) &&
       /NO QED/.test(IMP96166_EN_DECAY_EXPONENT_VS_STEP4_BRIDGE.verdict) &&
-      /remains SOTA/.test(IMP96166_EN_DECAY_EXPONENT_VS_STEP4_BRIDGE.verdict),
+      /refereed bound is changed/i.test(IMP96166_EN_DECAY_EXPONENT_VS_STEP4_BRIDGE.verdict),
   },
 ];
 

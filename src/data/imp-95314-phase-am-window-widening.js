@@ -9,7 +9,7 @@
  *   firing thresholds and the widening across y_min in the seam range, and
  *   reports where the widening is largest and where it is negligible.
  *   Measurement of an existing sharpening; NO bound is changed; NO QED;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no refereed bound is changed.
  *
  *   BACKGROUND
  *   -----------------------------------------------
@@ -185,7 +185,7 @@ export const IMP95314_PHASE_AM_WINDOW_WIDENING = {
     "3 - 2 sqrt(2)); Q3 answered (negligible shallow, capped deep). The " +
     "sub-gap imp-95212 STILL OPEN and the imp-95254 exact sharp frontier " +
     "remains OPEN. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -267,13 +267,13 @@ export const IMP95314_ASSERTIONS = [
     id: "imp95314-verdict-honesty",
     description:
       "the record carries the honest labels: measurement only, sub-gap still " +
-      "open, no bound change, no QED, PT SOTA",
+      "open, no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT only/.test(IMP95314_PHASE_AM_WINDOW_WIDENING.verdict) &&
       /STILL OPEN/.test(IMP95314_PHASE_AM_WINDOW_WIDENING.verdict) &&
       /Changes no bound/.test(IMP95314_PHASE_AM_WINDOW_WIDENING.verdict) &&
       /NO QED/.test(IMP95314_PHASE_AM_WINDOW_WIDENING.verdict) &&
-      /remains SOTA/.test(IMP95314_PHASE_AM_WINDOW_WIDENING.verdict),
+      /refereed bound is changed/i.test(IMP95314_PHASE_AM_WINDOW_WIDENING.verdict),
   },
 ];
 

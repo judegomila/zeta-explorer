@@ -54,7 +54,7 @@
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (the fixed point N=K*log T0(N), seed-20K single-shot ~0.2%)
  * @see imp-33749-crossover-contraction-etrunc-floor-sweep (analytic |g_prime(N_cross)| in [4.28e-2,5.30e-2] over the ladder)
@@ -169,7 +169,7 @@ export const IMP33752_CROSSOVER_ONESHOT_EXPLICIT_LEADING_ORDER = {
     'Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes ' +
     'no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33723 (closed-form crossover fixed point N=K*log T0(N), seed-20K single-shot ~0.2%); imp-33749 ' +
     '(analytic |g_prime(N_cross)| in [4.28e-2,5.30e-2] over the floor ladder); imp-33708 (0.5x..5x floor ' +
@@ -211,13 +211,13 @@ export const IMP33752_CROSSOVER_ONESHOT_EXPLICIT_LEADING_ORDER_ASSERTIONS = [
     holds: () => STEPS_MAX >= 4 && STEPS_MAX <= 8,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp33752-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33752_CROSSOVER_ONESHOT_EXPLICIT_LEADING_ORDER.isRigorous === false &&
       /NO QED/.test(IMP33752_CROSSOVER_ONESHOT_EXPLICIT_LEADING_ORDER.verdict) &&
-      /remains SOTA/.test(IMP33752_CROSSOVER_ONESHOT_EXPLICIT_LEADING_ORDER.verdict),
+      /refereed bound is changed/i.test(IMP33752_CROSSOVER_ONESHOT_EXPLICIT_LEADING_ORDER.verdict),
   },
 ];
 

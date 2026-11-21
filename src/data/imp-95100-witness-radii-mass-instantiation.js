@@ -68,7 +68,7 @@
  * representative number.
  *
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // -- imp-95076 ceiling-coefficient machinery (composite Simpson; amplitude is an
@@ -236,7 +236,7 @@ export const IMP95100_WITNESS_RADII_MASS_INSTANTIATION = {
     "MEASUREMENT only, NO theorem. The ceiling coefficient (sup_b OmegaE_b, Tx(2), cFar) is an exact evaluation on the imp-95076 composite-Simpson path; the mass M(A) = A^2 sum_i r_i is an exact algebraic factorization on the imp-95008 witness radii. No paper radius or amplitude is instantiated, so no numeric paper ceiling term is CLAIMED; the uniform-currency mass is not the legality-weighted imp-95008 witness mass. The numerics ARE the measurement. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT assembling the imp-95076 mass proportionality on the imp-95008 witness radii. FINDING A: the imp-95076 Simpson machinery re-derives the ceiling coefficient sup_b OmegaE_b = 3.9223358991795465e-5 (b=2), Tx(2) = 2.8874500929283736e-4, cFar = 0.2716816410981926 (amplitude-free). FINDING B: the imp-95008 pentaWitness (P_BIG=999983) radii sum to 7.694649928783372 (blocks [0,1,1,2,3]). FINDING C: instantiating M(A) = A^2 sum_i r_i, the assembled roll-up ceiling term is ceilTerm(A) = 2 (sup_b OmegaE_b) M(A) with ceilTerm/A^2 = 6.036200329457272e-4 EXACTLY across A in {0.5,1,2,3,7} - the ledger split is a concrete number (cFar bit-invariant, mass A^2-scaled on real witness radii), cross-checking the imp-95076 Finding-D representative figure 0.0003327244461629 by the exact radius-sum ratio. SUB-GAP named plainly: the Section 4.5 paper radii r_d and amplitude A_d are not pinned here (imp-95008 model-family radii + representative amplitude used), and the mass is the imp-95076 uniform-currency form, NOT the legality-weighted imp-95008 witness mass - no single paper ceiling term is claimed. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT assembling the imp-95076 mass proportionality on the imp-95008 witness radii. FINDING A: the imp-95076 Simpson machinery re-derives the ceiling coefficient sup_b OmegaE_b = 3.9223358991795465e-5 (b=2), Tx(2) = 2.8874500929283736e-4, cFar = 0.2716816410981926 (amplitude-free). FINDING B: the imp-95008 pentaWitness (P_BIG=999983) radii sum to 7.694649928783372 (blocks [0,1,1,2,3]). FINDING C: instantiating M(A) = A^2 sum_i r_i, the assembled roll-up ceiling term is ceilTerm(A) = 2 (sup_b OmegaE_b) M(A) with ceilTerm/A^2 = 6.036200329457272e-4 EXACTLY across A in {0.5,1,2,3,7} - the ledger split is a concrete number (cFar bit-invariant, mass A^2-scaled on real witness radii), cross-checking the imp-95076 Finding-D representative figure 0.0003327244461629 by the exact radius-sum ratio. SUB-GAP named plainly: the Section 4.5 paper radii r_d and amplitude A_d are not pinned here (imp-95008 model-family radii + representative amplitude used), and the mass is the imp-95076 uniform-currency form, NOT the legality-weighted imp-95008 witness mass - no single paper ceiling term is claimed. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) --------------------------
@@ -290,13 +290,13 @@ export const IMP95100_ASSERTIONS = [
   {
     id: "imp95100-honesty-gate",
     description:
-      "the verdict names the sub-gap (paper radii/amplitude not pinned; uniform-currency mass, not the legality-weighted witness mass), records the amplitude-invariant cFar and A^2 mass scaling, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (paper radii/amplitude not pinned; uniform-currency mass, not the legality-weighted witness mass), records the amplitude-invariant cFar and A^2 mass scaling, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95100_WITNESS_RADII_MASS_INSTANTIATION.promotesBound === false &&
       IMP95100_WITNESS_RADII_MASS_INSTANTIATION.isRigorous === false &&
       IMP95100_WITNESS_RADII_MASS_INSTANTIATION.openResiduals.length === 2 &&
       /NO QED/.test(IMP95100_WITNESS_RADII_MASS_INSTANTIATION.verdict) &&
-      /remains SOTA/.test(IMP95100_WITNESS_RADII_MASS_INSTANTIATION.verdict) &&
+      /refereed bound is changed/i.test(IMP95100_WITNESS_RADII_MASS_INSTANTIATION.verdict) &&
       /MEASUREMENT/.test(IMP95100_WITNESS_RADII_MASS_INSTANTIATION.verdict) &&
       /A\^2/.test(IMP95100_WITNESS_RADII_MASS_INSTANTIATION.verdict) &&
       /SUB-GAP/.test(IMP95100_WITNESS_RADII_MASS_INSTANTIATION.verdict),

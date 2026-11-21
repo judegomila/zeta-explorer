@@ -75,7 +75,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate and
  * the zero-crossing bisection are descriptive, not derived; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (sibling cohort member: refines the
  *   imp-34109 increment minimum on the same fixed-band (k<=10) peak this module tracks to the same k*~21.281 pole)
@@ -362,8 +362,8 @@ export const IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO = {
     'verdict and the imp-34109 findings are untouched. The OLS surrogate and the zero-crossing bisection ' +
     'are descriptive, not derived; the component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
-    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34109 (the kEnd = 14..20 sweep this continues one decade; machinery reused verbatim); imp-34040 ' +
     '(the kEnd = 14..17 saturation-onset sweep); imp-34107 (the resid_exp(k) schedule whose zero this ' +
@@ -427,9 +427,9 @@ export const IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO_ASSERTIONS 
   },
   {
     // Honesty gate: measurement only, re-acceleration persists AND log surrogate breaks, isRigorous false,
-    // imp-34109 within-window untouched, open sub-gap flagged, no QED, PT SOTA, imp-3066 K_a>=0 untouched.
+    // imp-34109 within-window untouched, open sub-gap flagged, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched.
     id: 'imp34169-honesty-gate-no-qed',
-    description: 'Measurement only: reAccelerationPersists & logSurrogateBreaks, isRigorous false, imp-34109 untouched, sub-gap flagged, no QED, PT SOTA, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched',
+    description: 'Measurement only: reAccelerationPersists & logSurrogateBreaks, isRigorous false, imp-34109 untouched, sub-gap flagged, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched',
     holds: () =>
       IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.reAccelerationPersists === true &&
       IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.logSurrogateBreaks === true &&
@@ -438,7 +438,7 @@ export const IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO_ASSERTIONS 
       /SUB-GAP-imp-34169-surrogate-domain-edge/.test(IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.verdict) &&
       /is CORRECT within its measured window and is not overturned/.test(IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.verdict) &&
       /NO QED/.test(IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.verdict) &&
-      /remains SOTA/.test(IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.verdict) &&
+      /refereed bound is changed/i.test(IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.verdict),
   },

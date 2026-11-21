@@ -66,7 +66,7 @@
  * MEASUREMENT / SENSITIVITY ONLY. Conditional-share diagnostic, NOT an RH bound. Uses the inherited
  * imp-3406/imp-97723 component model and the imp-33708 floor swap, NOT a rigorous asymptotic; C_mb
  * stays GUE-conditional per imp-486; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97777-fartail-diagnostic-local-minimum-pin (ROLE 4, value floor-insensitive ~ -3.3e-3)
  * @see imp-97782-fartail-diagnostic-hump-peak-pin (ROLE 5, value floor-sensitive ~ -4.09)
@@ -232,7 +232,7 @@ export const IMP124792_FARTAIL_DIAGNOSTIC_VALUE_ELASTICITY_THRESHOLD = {
     'the switch-on sigma tapers roughly linearly with the threshold. Measurement only; uses the ' +
     'inherited imp-3406/imp-97723 model and the imp-33708 floor swap, NOT a rigorous asymptotic; ' +
     'C_mb stays GUE-conditional (imp-486); changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97777 (ROLE 4 minimum, value floor-insensitive ~ -3.3e-3); imp-97782 (ROLE 5 hump, value ' +
     'floor-sensitive ~ -4.09); imp-97814 (ROLE catalogue); imp-97723 (full diagnostic closed form); ' +
@@ -298,13 +298,13 @@ export const IMP124792_FARTAIL_DIAGNOSTIC_VALUE_ELASTICITY_THRESHOLD_ASSERTIONS 
     },
   },
   {
-    // Honesty gate: measurement/sensitivity only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/sensitivity only, no QED, no refereed bound is changed.
     id: 'imp124792-honesty-gate-no-qed',
-    description: 'Measurement/sensitivity only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement/sensitivity only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP124792_FARTAIL_DIAGNOSTIC_VALUE_ELASTICITY_THRESHOLD.isRigorous === false &&
       /NO QED/.test(IMP124792_FARTAIL_DIAGNOSTIC_VALUE_ELASTICITY_THRESHOLD.verdict) &&
-      /remains SOTA/.test(IMP124792_FARTAIL_DIAGNOSTIC_VALUE_ELASTICITY_THRESHOLD.verdict),
+      /refereed bound is changed/i.test(IMP124792_FARTAIL_DIAGNOSTIC_VALUE_ELASTICITY_THRESHOLD.verdict),
   },
 ];
 

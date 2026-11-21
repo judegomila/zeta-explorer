@@ -53,7 +53,7 @@
  * imp-34926a (the underlying rate-mismatch bound on the true bit-collapse threshold) OPEN. IEEE-754 double
  * precision, no interval enclosure. The C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched. No RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34951-plus-one-impossibility-margin-band (parent: margin uniform across off-by-one rungs; names imp-34951a)
  * @see imp-34926-iters-to-floor-ceil-boundary-geometry (grandparent: +1 structurally impossible; penultimate witness)
@@ -244,8 +244,8 @@ export const IMP34990_PLUS_ONE_MARGIN_UNIFORM_LOWER_BOUND = {
     '(whether a penult > EPS_FP seed actually yields a +1 residual). IEEE-754 double precision; the component ' +
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
-    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34951 (parent: margin uniform across off-by-one rungs; names imp-34951a); imp-34926 (grandparent: ' +
     '+1 structurally impossible; penultimate witness); imp-34775 (closed-form log law and ceil rounding floor); ' +
@@ -287,13 +287,13 @@ export const IMP34990_PLUS_ONE_MARGIN_UNIFORM_LOWER_BOUND_ASSERTIONS = [
       SCAN.fractionAboveEpsFp > 0.5,
   },
   {
-    // Honesty gate: measurement of a surrogate proxy, not rigorous, no QED, PT stays SOTA, sub-gaps named.
+    // Honesty gate: measurement of a surrogate proxy, not rigorous, no QED, no refereed bound is changed, sub-gaps named.
     id: 'imp34990-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA, imp-34990a named',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, imp-34990a named',
     holds: () =>
       IMP34990_PLUS_ONE_MARGIN_UNIFORM_LOWER_BOUND.isRigorous === false &&
       /NO QED/.test(IMP34990_PLUS_ONE_MARGIN_UNIFORM_LOWER_BOUND.verdict) &&
-      /remains SOTA/.test(IMP34990_PLUS_ONE_MARGIN_UNIFORM_LOWER_BOUND.verdict) &&
+      /refereed bound is changed/i.test(IMP34990_PLUS_ONE_MARGIN_UNIFORM_LOWER_BOUND.verdict) &&
       /imp-34990a/.test(IMP34990_PLUS_ONE_MARGIN_UNIFORM_LOWER_BOUND.summary.residual_sub_gap_imp_34990a),
   },
 ];

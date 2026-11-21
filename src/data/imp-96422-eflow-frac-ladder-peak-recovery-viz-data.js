@@ -17,7 +17,7 @@
  * MEASUREMENT / PRESENTATION ONLY. The component model is the inherited
  * imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 stays untouched; changes no bound; establishes no operator positivity; RH open;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * @see imp-96266-eflow-peak-recovery-residual.js (fractional ladder, peak/peak-recovery landmarks)
  * @see imp-96294-eflow-residual-viz-data.js (related residual-R(N) chart; different reading)
@@ -63,7 +63,7 @@ export const IMP96422_PEAK_COMPARISON = Object.freeze({
 });
 
 export const IMP96422_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every E_flow/E_N ladder '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every E_flow/E_N ladder '
   + 'reading and the recon-vs-full peak location/height are copied verbatim from the imp-96266 '
   + 'baked landmarks; only the chart-axis reshaping (log10 N parsing) is computed here (no '
   + 're-derivation, no new residual or peak measurement). The component model is the inherited '

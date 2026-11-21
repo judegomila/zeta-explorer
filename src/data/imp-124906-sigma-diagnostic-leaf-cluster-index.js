@@ -98,7 +98,7 @@
  *
  *   STATUS: an index/map note over 17 already-committed modules, not a new derivation. No bound
  *   changes; C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz untouched; imp-3066
- *   K_a >= 0 untouched; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 untouched; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-124769-ecf-stencil-noise-floor-crossover.js (thread 1: E_CF crossover pin)
  * @see imp-124808-extprec-pairratio-two-axis.js (thread 1: dps/eps axis separation)
@@ -121,7 +121,7 @@
  * @see imp-124863-ecf-precision-cluster-cohort-index.js (sibling cohort-index, thread-1 subset)
  *
  * Ticket: imp-124906 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const SIGMA_DIAGNOSTIC_LEAF_CLUSTER = Object.freeze([
@@ -265,7 +265,7 @@ export const IMP124906_SIGMA_DIAGNOSTIC_LEAF_CLUSTER_INDEX = Object.freeze({
     'consult this index by thread rather than re-reading all 17 headers. Conditional-share ' +
     'diagnostic on the inherited imp-3220/imp-3406 extrapolation; C_mb GUE-conditional per ' +
     'imp-486 and the C_C 1/8 ansatz UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes nothing ' +
-    'new; moves no bound; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'new; moves no bound; RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-124769/124808/124810/124849 (thread 1, E_CF round-off floor); imp-124770/124811/124850 ' +
     '(thread 2, pair-ratio identity); imp-124772/124814/124826/124847/124848 (thread 3, knee ' +
@@ -314,11 +314,11 @@ export const IMP124906_SIGMA_DIAGNOSTIC_LEAF_CLUSTER_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp124906-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP124906_SIGMA_DIAGNOSTIC_LEAF_CLUSTER_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP124906_SIGMA_DIAGNOSTIC_LEAF_CLUSTER_INDEX.verdict) &&
-      /remains SOTA/.test(IMP124906_SIGMA_DIAGNOSTIC_LEAF_CLUSTER_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP124906_SIGMA_DIAGNOSTIC_LEAF_CLUSTER_INDEX.verdict),
   },
 ];
 

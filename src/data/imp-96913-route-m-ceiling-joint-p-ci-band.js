@@ -71,7 +71,7 @@
  * F < M band separation does NOT survive: the joint M_lo falls below F_hi = 3.899e7 in both CI
  * variants, so the F/M bands OVERLAP (by ~0.8% all-rung, ~14.5% dense). The central T < F < M
  * ordering (p-invariant) and the compute-binds-first verdict (>= 3300x) survive. Sensitivity
- * only; no bound moved; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * only; no bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (imp-96913-joint-band-independence-is-conservative). The joint band assumes
  * the two sources are INDEPENDENT, which OVERSTATES the width: the imp-96656 cond#-fit exponent
@@ -178,7 +178,7 @@ export const IMP96913_VERDICT = Object.freeze({
     'stay separated: the joint M_lo (3.868e7 all / 3.332e7 dense) falls below F_hi 3.899e7, so ' +
     'the F/M bands OVERLAP (~0.8% all-rung, ~14.5% dense). The central p-invariant ordering ' +
     'T < F < M and the compute-binds-first verdict (>= 3300x) survive. Sensitivity only; no ' +
-    'bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96913_SUBGAP = Object.freeze({
@@ -195,7 +195,7 @@ export const IMP96913_SUBGAP = Object.freeze({
 });
 
 export const IMP96913_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Sensitivity only: the p-band and the 95% CI ' +
+  'RH open; no refereed bound is changed; NO QED. Sensitivity only: the p-band and the 95% CI ' +
   'are imported verbatim from the import-light siblings imp-96833 / imp-96656 and combined by a ' +
   'pure log-space convolution (tmp/imp-96913-scratch.mjs); no Gram was rebuilt and no bound is ' +
   'claimed moved. The joint band is a fit-uncertainty band under a conservative independence ' +
@@ -257,7 +257,7 @@ const IMP96913_ASSERTIONS = [
       IMP96913_VERDICT.anyBoundMoved === false &&
       IMP96913_VERDICT.pointOrderingSurvives === true &&
       /NO QED/.test(IMP96913_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96913_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96913_HONEST_BANNER) &&
       /RH open/.test(IMP96913_HONEST_BANNER) &&
       /independence-is-conservative/.test(IMP96913_SUBGAP.id),
     why: 'sensitivity only: no bound moved, the point ordering survives, the honesty markers are present, and the conservative-independence sub-gap is recorded.',

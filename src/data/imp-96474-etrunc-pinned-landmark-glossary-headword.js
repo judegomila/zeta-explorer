@@ -43,8 +43,7 @@
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
  *   The component model is the inherited imp-3220/imp-3406 extrapolation, not a
  *   rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; C_H
- *   isRigorousUpperBound stays false (imp-2642/imp-2701). NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   isRigorousUpperBound stays false (imp-2642/imp-2701). NO QED. No refereed bound is changed.
  *
  * @see imp-96451-sigma-knee-etrunc-sensitivity (source: the E_trunc sensitivity measurement this glosses)
  * @see imp-96427-knee-crossover-solver-path-spread (the ~1e-13 solver-path noise this landmark is NOT primarily due to)
@@ -52,7 +51,7 @@
  * @see imp-96388-sigma-peak-vs-knee-cross-tabulation (the E_trunc-invariant knee-minus-crossover gap)
  *
  * Ticket: imp-96474 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The E_trunc-pinned-landmark headword, baked verbatim (no re-import of imp-96451).
@@ -87,8 +86,8 @@ const ETRUNC_PINNED_LANDMARK_HEADWORD = Object.freeze({
     'rigorous derivation. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; C_H isRigorousUpperBound stays false (imp-2642/imp-2701); changes ' +
-    'no bound; establishes no operator positivity; RH open; NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no bound; establishes no operator positivity; RH open; NO QED; no refereed bound is changed' +
+    '.',
 });
 
 export const IMP96474_ETRUNC_PINNED_LANDMARK_GLOSSARY_HEADWORD = Object.freeze({
@@ -111,7 +110,7 @@ export const IMP96474_ETRUNC_PINNED_LANDMARK_GLOSSARY_HEADWORD = Object.freeze({
     'the rigorous floor, not the GUE-conditional E_coll, pins the landmark location ' +
     'to leading order, while the knee-minus-crossover gap stays E_trunc-invariant. ' +
     'Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96451 (the E_trunc sensitivity measurement this glosses, elasticity ' +
     '~-0.911, gap-preservation ~0.0148 log10); imp-96427 (the solver-path residual, ' +
@@ -142,11 +141,11 @@ export const IMP96474_ETRUNC_PINNED_LANDMARK_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96474-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96474_ETRUNC_PINNED_LANDMARK_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96474_ETRUNC_PINNED_LANDMARK_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96474_ETRUNC_PINNED_LANDMARK_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96474_ETRUNC_PINNED_LANDMARK_GLOSSARY_HEADWORD.verdict) &&
       IMP96474_ETRUNC_PINNED_LANDMARK_GLOSSARY_HEADWORD.glosses === 'imp-96451',
   },
 ];

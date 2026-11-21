@@ -44,7 +44,7 @@
  * E_flow-inclusion mechanism; derives no remainder; discharges nothing; changes no bound;
  * establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643),
  * E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a
- * stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35968-e-trunc-coll-crossover-location (raw ratio E_coll/E_trunc = 1; stale docstring prose)
  * @see imp-35950-etrunc-ecoll-crossover-height (sigma = 0.5 bisection; N_cross ~ 3.267e9)
@@ -59,7 +59,7 @@ import { C_C_PINNED } from './polymath15-constant-C-C.js';
 import { IMP35968_E_TRUNC_COLL_CROSSOVER_LOCATION } from './imp-35968-e-trunc-coll-crossover-location.js';
 import { IMP35950_ETRUNC_ECOLL_CROSSOVER_HEIGHT } from './imp-35950-etrunc-ecoll-crossover-height.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any reconciliation here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any reconciliation here)
 
 // EXACT imp-3406 / imp-33582 sub-terms (byte-identical to imp-35950 / imp-35968; no fresh model).
 const TWO_PI = 2 * Math.PI;
@@ -200,7 +200,7 @@ export const IMP36022_ETRUNC_ECOLL_CROSSOVER_RECONCILIATION = {
     'Reconciliation only; imports the pinned imp-35968 / imp-35950 objects unchanged; derives no ' +
     'remainder; discharges nothing; changes no bound; establishes no operator positivity; C_C = (1/8) ' +
     'sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) ' +
-    'are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35968 (raw ratio E_coll/E_trunc = 1; stale docstring prose 3.1e9 / 9.49); imp-35950 (sigma = 0.5 ' +
     'bisection, N_cross ~ 3.267e9); imp-35994 (same sigma = 0.5 locator reused); imp-35337 (E_trunc = ' +
@@ -261,7 +261,7 @@ export const IMP36022_ETRUNC_ECOLL_CROSSOVER_RECONCILIATION_ASSERTIONS = [
       IMP36022_ETRUNC_ECOLL_CROSSOVER_RECONCILIATION.gapIsGenuineInputDifference === false,
   },
   {
-    // (7) honesty gate: reconciliation only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, PT SOTA, NO QED.
+    // (7) honesty gate: reconciliation only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp36022-measurement-only-no-qed',
     description: 'reconciliation only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -273,7 +273,7 @@ export const IMP36022_ETRUNC_ECOLL_CROSSOVER_RECONCILIATION_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

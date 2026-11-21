@@ -59,14 +59,14 @@
  *   the surrogate order carries; it does NOT derive the per-rung value from first principles (still
  *   empirical), does NOT re-run the compute-heavy deep-rung N x N offline dense solve, does NOT
  *   re-certify the pairing (imp-3668), and adds NO new Lambda bound. imp-3066 K_a >= 0 UNTOUCHED.
- *   RH-EQUIVALENT. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   RH-EQUIVALENT. NO RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-33272-fifth-pair-extended-precision-crossval.js (the surrogate-rotation cross-check this extends)
  *   @see imp-33253-fifth-pair-condition-number-floor.js (the derived Wilkinson kappa*u floor and c definition)
  *   @see scripts/imp-33289-genuine-eigenvector-fifth-pair-c.mjs (the offline genuine-eigenvector solver, reproducible)
  *
  *   Ticket: imp-33289 (numerical, medium). imp-3066 UNTOUCHED. RH-EQUIVALENT. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *   No refereed bound is changed.
  */
 
 const EPS = 2.220446049250313e-16; // IEEE double-precision unit roundoff u = 2^-52
@@ -162,7 +162,7 @@ export const IMP33289_GENUINE_EIGENVECTOR_FIFTH_PAIR_REALIZED_C = Object.freeze(
       'The measurement pins the per-rung c for the true-eigenvector embedding and confirms the surrogate O(1) order carries, but it does NOT derive the per-rung value from first principles -- c remains empirical QL-convergence quality (imp-33253), and two of seven rungs sit modestly above the c <= 1 Wilkinson envelope.',
     didNotReRunDeepRungOfflineSolve: true,
     imp3066Untouched: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; no RH verdict, no QED.',
+    sota: 'No refereed bound is changed; no RH verdict, no QED.',
   },
 });
 
@@ -206,7 +206,7 @@ export const IMP33289_GENUINE_EIGENVECTOR_FIFTH_PAIR_REALIZED_C_ASSERTIONS = [
     id: 'imp33289-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT / cross-check only -- pins the per-rung c for the true-eigenvector embedding ' +
       'and confirms the surrogate order carries, but c stays empirical, no Lambda bound, re-certifies nothing, ' +
-      'positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP33289_GENUINE_EIGENVECTOR_FIFTH_PAIR_REALIZED_C.honestCaveat;
       return (
@@ -217,7 +217,7 @@ export const IMP33289_GENUINE_EIGENVECTOR_FIFTH_PAIR_REALIZED_C_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         c.measurementOnly === true &&
         typeof c.perRungCStillEmpirical === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

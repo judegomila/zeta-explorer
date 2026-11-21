@@ -37,7 +37,7 @@ export const R4_G0DPRIME = Object.freeze({
   scope: Object.freeze({ closedAt: ['2.6X'], openAt: ['1.6X', '1.65X', '1.7X'] }),
   verdict: "G0-d′ at 2.6X: Theorem XT written and its premises certified at X′ by independent code (second arithmetic library for the row checks), "
     + 'one internal referee pass with minor findings only. U2 = 0.144254643222956 unchanged; open at 1.6X/1.65X/1.7X. '
-    + 'PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'No refereed bound is changed. RH open. NO QED.',
 });
 
 const D = R4_G0DPRIME;

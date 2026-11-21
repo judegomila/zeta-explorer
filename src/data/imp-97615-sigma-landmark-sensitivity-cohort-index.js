@@ -66,7 +66,7 @@
  *     establishes an intrinsic (floor-independent) landmark location.
  *
  *   STATUS: a grouping/index note over five already-completed tickets, not a new derivation. No
- *   bound changes: Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   bound changes: no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97520-sigma-conditional-share-landmark-ladder.js (baseline four-landmark object)
  * @see imp-97565-crossover-cc-sensitivity-landmark-shift.js (C_C-axis: N_cross / N_half elasticity)
@@ -75,10 +75,10 @@
  * @see imp-97585-eflow-etrunc-share-full-ladder.js (E_flow/E_trunc flow-share ladder across N)
  *
  * Ticket: imp-97615 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by this index)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by this index)
 
 const BASELINE_COHORT = Object.freeze([
   Object.freeze({
@@ -170,7 +170,7 @@ export const IMP97615_SIGMA_LANDMARK_SENSITIVITY_COHORT_INDEX = Object.freeze({
     'settles the orthogonal N-axis: the Gronwall flow share is monotone decreasing and never binding ' +
     'past the halving landmark. No bound moves in any group: the sigma(N) surrogate component model ' +
     'stays unchanged, C_C and C_mb stay untouched, and no landmark reordering occurs anywhere. RH ' +
-    'open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97520 (four-landmark object); imp-97565 (C_C-elasticity of the halving crossover); ' +
     'imp-36139 (E_trunc-elasticity of N_cross alone); imp-97584 (E_trunc-elasticity of all four ' +
@@ -242,12 +242,12 @@ export const IMP97615_SIGMA_LANDMARK_SENSITIVITY_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97615-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97615_SIGMA_LANDMARK_SENSITIVITY_COHORT_INDEX.anyBoundMoved === false &&
       IMP97615_SIGMA_LANDMARK_SENSITIVITY_COHORT_INDEX.lPt === 0.2 &&
       /NO QED/.test(IMP97615_SIGMA_LANDMARK_SENSITIVITY_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97615_SIGMA_LANDMARK_SENSITIVITY_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97615_SIGMA_LANDMARK_SENSITIVITY_COHORT_INDEX.verdict),
   },
 ];
 

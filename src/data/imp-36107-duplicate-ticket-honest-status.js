@@ -26,8 +26,7 @@
  * This module records the duplication so a reader landing on imp-36107 is pointed straight at
  * imp-36125 instead of a second copy of the same restatement.
  *
- * Meta finding only; no bound touched; no code path changed; NO QED. Platt-Trudgian
- * Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * Meta finding only; no bound touched; no code path changed; NO QED. No refereed bound is changed.
  *
  * @see imp-36125-w1-accumulator-recovery-margin-honest-status (the already-completed note this ticket duplicates)
  * @see imp-36061-w1-accumulator-recovery-detuning-width.js (source finding both tickets restate)
@@ -56,7 +55,7 @@ export const IMP36107_DUPLICATE_TICKET_HONEST_STATUS = {
     'AUDIT FINDING (not a measurement of a mathematical quantity). imp-36107 duplicates the ' +
     'already-completed imp-36125; no code change made here beyond recording the finding. ' +
     'Changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36125-w1-accumulator-recovery-margin-honest-status (the completed original); ' +
     'imp-36061-w1-accumulator-recovery-detuning-width.js (shared source finding).',
@@ -72,11 +71,11 @@ export const IMP36107_DUPLICATE_TICKET_HONEST_STATUS_ASSERTIONS = [
   },
   {
     id: 'imp36107-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36107_DUPLICATE_TICKET_HONEST_STATUS.isRigorous === false &&
       /NO QED/.test(IMP36107_DUPLICATE_TICKET_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(IMP36107_DUPLICATE_TICKET_HONEST_STATUS.verdict),
+      /refereed bound is changed/i.test(IMP36107_DUPLICATE_TICKET_HONEST_STATUS.verdict),
   },
 ];
 

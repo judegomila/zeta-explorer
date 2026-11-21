@@ -37,7 +37,7 @@ export default function VerifiedHeightLeverPage() {
               'Extending verified height only nudges the bound (0.20 → ~0.19 for a 3× height gain) because the ' +
               'improvement is inverse-logarithmic in height. It changes one input number; it does not touch the ' +
               'barrier method, the analytic gaps, or the Λ≥0 lower bound, and it can NEVER deliver Λ=0 (RH). ' +
-              'Platt–Trudgian Λ ≤ 0.2 stays SOTA. NO QED.'
+              'No refereed bound is changed. NO QED.'
             }
           />
         </div>

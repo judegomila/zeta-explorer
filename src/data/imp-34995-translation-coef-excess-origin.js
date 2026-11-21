@@ -47,7 +47,7 @@
  * NOT a rigorous derivation. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator
  * positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34950-eflow-crossing-strength-cmb-exponent-structural (the F3 translCoef ~2.06 + ~12% deficit this decomposes)
  * @see imp-35006 (the glossary headword heuristically attributing the ~3% excess to the log-odds derivative)
@@ -280,8 +280,8 @@ export const IMP34995_TRANSLATION_COEF_EXCESS_ORIGIN = {
     'it does NOT discharge the GUE conditional (C_mb GUE-conditional per imp-486). The level-vs-inflection split ' +
     'is a numerical attribution on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous derivation; the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap:
     'ANSWERS imp-34995: the ~3% excess of dx* /d ln(C_mb) ~ 2.064 over 2 is +3.18% and splits additively into a ' +
     'level-landmark surrogate-curvature part +5.02% (0.5 L\'/L height term +4.75%, phi\' ramp +0.25%) MINUS a ' +
@@ -344,16 +344,16 @@ export const IMP34995_TRANSLATION_COEF_EXCESS_ORIGIN_ASSERTIONS = [
     holds: () => EXCESS_LOGODDS < 0 && TRANSMISSION_DEFICIT > 0 && EXCESS_TOTAL > 0,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed.
     id: 'imp34995-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed',
     holds: () =>
       IMP34995_TRANSLATION_COEF_EXCESS_ORIGIN.isRigorous === false &&
       IMP34995_TRANSLATION_COEF_EXCESS_ORIGIN.farTailExponent === 0.5 &&
       typeof IMP34995_TRANSLATION_COEF_EXCESS_ORIGIN.subGap === 'string' &&
       /imp-486/.test(IMP34995_TRANSLATION_COEF_EXCESS_ORIGIN.subGap) &&
       /NO QED/.test(IMP34995_TRANSLATION_COEF_EXCESS_ORIGIN.verdict) &&
-      /remains SOTA/.test(IMP34995_TRANSLATION_COEF_EXCESS_ORIGIN.verdict),
+      /refereed bound is changed/i.test(IMP34995_TRANSLATION_COEF_EXCESS_ORIGIN.verdict),
   },
 ];
 

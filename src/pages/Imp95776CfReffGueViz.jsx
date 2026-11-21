@@ -135,8 +135,8 @@ export default function Imp95776CfReffGueViz() {
         measurement/presentation-only page re-plotting the frozen imp-95747
         literals (no re-derivation, no new computation). It changes no bound
         and proves no RH-relevant theorem. The imp-486 C_mb GUE-conditional
-        assumption is reweighted within, not established; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains state of the art. NO QED.
+        assumption is reweighted within, not established; no refereed bound is changed.
+         NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

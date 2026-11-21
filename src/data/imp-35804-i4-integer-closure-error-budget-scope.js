@@ -14,7 +14,7 @@
  *
  * ASSESSMENT / SCOPING ONLY. Ports nothing; certifies no count; sums no increments; allocates
  * no real budget; rounds no total; evaluates no A, B, or C; fixes no Delta or h; changes no
- * bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * INTEGRALITY IS A FREE EXACT FACT; I4 ONLY RESOLVES WHICH INTEGER
  * -----------------------------------------------------------------------------
@@ -96,8 +96,7 @@
  * Scoping only. It writes the integrality fact, the E < pi budget (width < 2pi), the four-edge
  * allocation, the O(1/P) per-panel precision sharpening, and the distinction from the I2 per-panel
  * cap. It sums no increments, allocates no real budget, rounds no total, computes no P, evaluates no
- * A / B / C, fixes no Delta or h, certifies no count, changes no bound. NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * A / B / C, fixes no Delta or h, certifies no count, changes no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-35727-w2-certified-winding-count-ingredients-scope (I4 named GREENFIELD, un-scoped)
  * @see imp-35803-i1-interval-enclosure-per-edge-scope (I1 base engine; Delta arg_panel = argwidth F(Z))
@@ -111,7 +110,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35803 / imp-35777) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 const TWO_PI = 2 * Math.PI;
 const HALF_TURN = Math.PI; // shared numeric threshold of BOTH the I2 cap and the I4 budget
 const CLOSURE_ERROR_BUDGET = Math.PI; // I4: accumulated argument HALF-WIDTH must stay under this
@@ -227,7 +226,7 @@ export const IMP35804_I4_INTEGER_CLOSURE_ERROR_BUDGET_SCOPE = {
     'P ~ 17 long-edge panels, demand ~ pi/17 ~ 0.185 rad). I4 converts the imp-2696 W_pp = 6.413 human-read non-integer ' +
     'into a machine-decided certified integer. It sums no increments; allocates no real budget; rounds no total; ' +
     'computes no P; evaluates no A / B / C; fixes no Delta or h; certifies no count; changes no bound; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35727 (I4 named GREENFIELD, un-scoped); imp-35803 (I1 base engine, Delta arg_panel = argwidth F(Z)); ' +
     'imp-35777 (I2 LOCAL per-panel increment cap argwidth F < pi); imp-35758 (I3 no zero on dR so exact total = 2pi*N); ' +
@@ -289,15 +288,15 @@ export const IMP35804_I4_INTEGER_CLOSURE_ERROR_BUDGET_SCOPE_ASSERTIONS = [
       /MACHINE-decided/.test(IMP35804_I4_INTEGER_CLOSURE_ERROR_BUDGET_SCOPE.artifactRemoved.i4Fix),
   },
   {
-    // Honesty gate: scoping only, sums nothing, certifies no count, NO QED, PT Lambda <= 0.2 SOTA.
+    // Honesty gate: scoping only, sums nothing, certifies no count, NO QED, no refereed bound is changed.
     id: 'imp35804-honesty-gate-no-qed',
-    description: 'Scoping only; sums no increments; rounds no total; certifies no count; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Scoping only; sums no increments; rounds no total; certifies no count; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35804_I4_INTEGER_CLOSURE_ERROR_BUDGET_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /certifies no count/.test(IMP35804_I4_INTEGER_CLOSURE_ERROR_BUDGET_SCOPE.verdict) &&
       /NO QED/.test(IMP35804_I4_INTEGER_CLOSURE_ERROR_BUDGET_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35804_I4_INTEGER_CLOSURE_ERROR_BUDGET_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35804_I4_INTEGER_CLOSURE_ERROR_BUDGET_SCOPE.verdict),
   },
 ];
 

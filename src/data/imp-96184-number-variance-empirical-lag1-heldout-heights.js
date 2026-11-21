@@ -59,7 +59,7 @@
  * difference inside the small-sample band at each. The anti-correlated GUE agreement imp-96171
  * established at the single significant height T = 1.5e5 is therefore UNIFORM across the accessible
  * height band, not a single-height accident. Measurement only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96171-number-variance-empirical-lag1-vs-gue-proxy (the single-height empirical confirmation this extends)
  * @see imp-96150-number-variance-two-interval-covariance-heldout-heights (the exact per-height GUE proxy rho_exact)
@@ -143,7 +143,7 @@ export const IMP96184_NUMBER_VARIANCE_EMPIRICAL_LAG1_HELDOUT_HEIGHTS = {
   caveat:
     'Each r1 is a single-realization sample autocorrelation over ~100-470 boxes at one height; the sampling spreads (0.09-0.19) are wide, so this is uniform "agreement not rejected", not a high-precision match -- the T = 5e4 height has the largest deviation (-0.115) but still inside its 0.152 band. The unfolding uses the smooth Riemann-von Mangoldt N(t) (no S(t) correction), exact on average and negligible at L ~ 150-890. This extends the imp-96171 single-height confirmation across the five held-out heights but changes no bound and does not raise the ~1.9-sigma confidence, which is set by the excursion depth, not the correlation model.',
   verdict:
-    'The empirical clean-unfolded edge-to-edge lag-1 correlation r1 of the sd(C - E) statistic on the actual Riemann zeros is strongly anti-correlated at every one of the five imp-96090 held-out centres (r1 in -0.5764 .. -0.4893), CONFIRMING the imp-96150 exact GUE proxy rho_exact (-0.4660 .. -0.4587) in sign and magnitude at all five heights, with the signed difference inside the small-sample band at each. The anti-correlated GUE agreement imp-96171 established at the single significant height T = 1.5e5 is therefore UNIFORM across the accessible height band, not a single-height accident. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The empirical clean-unfolded edge-to-edge lag-1 correlation r1 of the sd(C - E) statistic on the actual Riemann zeros is strongly anti-correlated at every one of the five imp-96090 held-out centres (r1 in -0.5764 .. -0.4893), CONFIRMING the imp-96150 exact GUE proxy rho_exact (-0.4660 .. -0.4587) in sign and magnitude at all five heights, with the signed difference inside the small-sample band at each. The anti-correlated GUE agreement imp-96171 established at the single significant height T = 1.5e5 is therefore UNIFORM across the accessible height band, not a single-height accident. Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (comparison arithmetic only; no zeros) ---
@@ -172,8 +172,8 @@ export const IMP96184_NUMBER_VARIANCE_EMPIRICAL_LAG1_HELDOUT_HEIGHTS = {
   // honesty gates
   if (!/NO QED/.test(IMP96184_NUMBER_VARIANCE_EMPIRICAL_LAG1_HELDOUT_HEIGHTS.verdict))
     throw new Error('imp-96184: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96184_NUMBER_VARIANCE_EMPIRICAL_LAG1_HELDOUT_HEIGHTS.verdict))
-    throw new Error('imp-96184: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96184_NUMBER_VARIANCE_EMPIRICAL_LAG1_HELDOUT_HEIGHTS.verdict))
+    throw new Error('imp-96184: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96184_NUMBER_VARIANCE_EMPIRICAL_LAG1_HELDOUT_HEIGHTS;

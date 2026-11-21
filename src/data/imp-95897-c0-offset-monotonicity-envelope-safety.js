@@ -69,7 +69,7 @@
  * offset substitution could drop r_cap(3e12) from 0.260 to as low as 0.196 (~25 pct) and
  * break the upper-envelope r_cap >= r, so it must NOT be performed; the max-over-accessible
  * -heights anchor is retained as the envelope-safe construction. Changes no bound; NO QED;
- * the zero-side route stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * the zero-side route stays PCC / GRH-gated; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. The r_cap closed forms and the six
  * imp-95710 / imp-95562 measured sd(C - E) literals are recomputed here exactly as imp-95722
@@ -228,7 +228,7 @@ export const IMP95897_C0_OFFSET_MONOTONICITY_ENVELOPE_SAFETY = {
     'could drop r_cap(3e12) from 0.260 to as low as 0.196 (~25 pct) and break the upper-envelope ' +
     'r_cap >= r, so it must NOT be performed; the max-over-accessible-heights anchor is retained ' +
     'as the envelope-safe construction. Changes no bound; NO QED; the zero-side route stays ' +
-    'PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'PCC / GRH-gated; no refereed bound is changed.',
   citation:
     'imp-95722 (r_cap envelope, C0 = max finite-height offset, r_cap(3e12) ~ 0.26); imp-95884 ' +
     '(raised the (C) envelope-safety hazard); imp-95710 / imp-95562 (six measured sd(C - E) ' +
@@ -262,13 +262,13 @@ export const IMP95897_C0_OFFSET_MONOTONICITY_ENVELOPE_SAFETY = {
     throw new Error('imp-95897: r_cap(3e12) max-anchor disagrees with imp-95722 (~0.26)');
   if (!(rCapMinOffset < rCapMaxAnchor)) throw new Error('imp-95897: lower offset must lower r_cap(3e12)');
   if (!(envelopeBandDrop > 0.03)) throw new Error('imp-95897: envelope band drop must be material (> 0.03)');
-  // honesty gates: assessment only, no QED, PT stays SOTA.
+  // honesty gates: assessment only, no QED, no refereed bound is changed.
   if (IMP95897_C0_OFFSET_MONOTONICITY_ENVELOPE_SAFETY.isRigorous !== false)
     throw new Error('imp-95897: isRigorous must be false');
   if (!/NO QED/.test(IMP95897_C0_OFFSET_MONOTONICITY_ENVELOPE_SAFETY.verdict))
     throw new Error('imp-95897: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95897_C0_OFFSET_MONOTONICITY_ENVELOPE_SAFETY.verdict))
-    throw new Error('imp-95897: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95897_C0_OFFSET_MONOTONICITY_ENVELOPE_SAFETY.verdict))
+    throw new Error('imp-95897: verdict dropped the no-refereed-bound-change banner');
   // consumer re-point (imp-95952): the UNDECIDED verdict above must forward-cite imp-95921.
   if (!/imp-95921/.test(IMP95897_C0_OFFSET_MONOTONICITY_ENVELOPE_SAFETY.supersededBy))
     throw new Error('imp-95897: supersededBy must cite imp-95921');

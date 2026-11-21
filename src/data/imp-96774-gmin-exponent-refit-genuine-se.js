@@ -5,7 +5,7 @@
  *   GENUINE standard error SE(b) and re-read how many SE b truly sits from the cube-root pole
  *   c = -1/3 that drives the imp-96654 / imp-96680 near-pole crossover fragility.
  *   Theoretical GUE (Wigner surmise, beta = 2), NOT real zeros. Measurement only; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   THE QUESTION
  *   -----------------------------------------------
@@ -68,7 +68,7 @@
  *   A numerical re-measurement of an exponent and its genuine standard error on theoretical GUE. It
  *   uses NO real zeros, instantiates no interval, closes no analytic sub-gap, and moves no bound. The
  *   imp-96616 consequence is unchanged: beating the 1/log^2 surrogate still needs the unproved GUE
- *   cube-root small-gaps law. RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   cube-root small-gaps law. RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96654-gmin-crossover-sensitivity-oscillation.js (the OLS SE = 0.0206 / "3 SE" reading this re-scores)
  * @see imp-96680-crossover-near-pole-fragility-glossary-headword.js (the near-pole fragility headword)
@@ -76,7 +76,7 @@
  * @see imp-96616-gmin-ratio-extreme-gap-decay.js (the real-zeros fit A N^b, A=2.1147, b=-0.3953)
  *
  * Ticket: imp-96774 (numerical, medium, opus-4-8). Measurement only; theoretical GUE not real zeros;
- * changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+ * changes no bound; NO QED; no refereed bound is changed.
  */
 
 export const IMP96774_GMIN_EXPONENT_REFIT_GENUINE_SE = Object.freeze({
@@ -166,7 +166,7 @@ export const IMP96774_GMIN_EXPONENT_REFIT_GENUINE_SE = Object.freeze({
     'SD from the pole, not the 3.006 SE quoted. The +/-1 SD band on b crosses the pole, so N* is ' +
     'unbounded on both sides -- the crossover is AT the singularity. Changes no bound; the imp-96616 ' +
     'consequence (beating 1/log^2 needs the unproved GUE cube-root law) is unchanged; RH open; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   citation:
     'imp-96654 (OLS SE 0.0206 / -3.006 SE reading re-scored here); imp-96680 (near-pole fragility ' +
     'headword); imp-96637 (point-estimate crossover N* = 2.09e6); imp-96616 (real-zeros fit A N^b).',
@@ -195,14 +195,14 @@ export const IMP96774_GMIN_EXPONENT_REFIT_GENUINE_SE_ASSERTIONS = [
   },
   {
     id: 'imp96774-honesty-gate-no-qed',
-    why: 'Measurement only: no bound moved, honest sub-gap named, NO QED, PT SOTA line present.',
+    why: 'Measurement only: no bound moved, honest sub-gap named, NO QED, no-refereed-bound-change line present.',
     holds: () => {
       const m = IMP96774_GMIN_EXPONENT_REFIT_GENUINE_SE;
       return (
         m.anyBoundMoved === false &&
         m.subGap.key === 'imp96774-wigner-surmise-iid-proxy' &&
         /NO QED/.test(m.verdict) &&
-        /remains SOTA/.test(m.verdict)
+        /refereed bound is changed/i.test(m.verdict)
       );
     },
   },

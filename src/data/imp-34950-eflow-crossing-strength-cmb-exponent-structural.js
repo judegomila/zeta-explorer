@@ -48,7 +48,7 @@
  * landmark translation) is a HINT for interpreting p, NOT a rigorous derivation. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/2643)
  * is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail
- * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34925-eflow-crossing-strength-cmb-functional-form (the power-law form + point p ~ 1.549 this refines with a CI + structural decomposition)
  * @see imp-34907-eflow-crossing-strength-cmb-sweep (the coarse 11-point sweep and the ~1.0..1.2 secant slope)
@@ -344,8 +344,8 @@ export const IMP34950_EFLOW_CROSSING_STRENGTH_CMB_EXPONENT_STRUCTURAL = {
     'imp-486). The structural-prediction chain is a HINT for interpreting p, NOT a rigorous derivation. The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap:
     'ANSWERS imp-34950: the imp-34925 power-law exponent is p = 1.5493 +/- 8.9e-4 (95% CI ~ [1.5476, ' +
     '1.5511]; free-K p = 1.5453 +/- 1.2e-3), a genuinely measured NON-rational exponent (3/2 and 8/5 are ' +
@@ -412,16 +412,16 @@ export const IMP34950_EFLOW_CROSSING_STRENGTH_CMB_EXPONENT_STRUCTURAL_ASSERTIONS
       TRANSMISSION_FRACTION < 0.95,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed.
     id: 'imp34950-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed',
     holds: () =>
       IMP34950_EFLOW_CROSSING_STRENGTH_CMB_EXPONENT_STRUCTURAL.isRigorous === false &&
       IMP34950_EFLOW_CROSSING_STRENGTH_CMB_EXPONENT_STRUCTURAL.farTailExponent === 0.5 &&
       typeof IMP34950_EFLOW_CROSSING_STRENGTH_CMB_EXPONENT_STRUCTURAL.subGap === 'string' &&
       /imp-486/.test(IMP34950_EFLOW_CROSSING_STRENGTH_CMB_EXPONENT_STRUCTURAL.subGap) &&
       /NO QED/.test(IMP34950_EFLOW_CROSSING_STRENGTH_CMB_EXPONENT_STRUCTURAL.verdict) &&
-      /remains SOTA/.test(IMP34950_EFLOW_CROSSING_STRENGTH_CMB_EXPONENT_STRUCTURAL.verdict),
+      /refereed bound is changed/i.test(IMP34950_EFLOW_CROSSING_STRENGTH_CMB_EXPONENT_STRUCTURAL.verdict),
   },
 ];
 

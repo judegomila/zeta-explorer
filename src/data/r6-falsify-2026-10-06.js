@@ -53,7 +53,7 @@ export const R6_FALSIFY = Object.freeze({
   files: Object.freeze(['tmp/r6-falsify-phi.c', 'tmp/r6-falsify-*.py', 'tmp/r6-falsify-out/summary.json', 'tmp/r6-ref-falsify-*.py', 'tmp/r6-ref-falsify-out/summary.json']),
   verdict: 'FALSIFICATION NEGATIVE (MEASURED): no WOL-C violation on the 369 uncertified P47 floors (cells 234-579); max excess over '
     + 'Phi(0) 1.98e-6 (|X_r| kink), sup_found Phi - K0* <= -0.00156 on every entry, so neither 0.0223 nor 0.0436 is approached. Nothing '
-    + 'certified (none needed). WOL-C NOT PROVED; P-cond stays conditional. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'certified (none needed). WOL-C NOT PROVED; P-cond stays conditional. No refereed bound is changed. RH open. NO QED.',
 });
 
 const F = R6_FALSIFY;
@@ -75,7 +75,7 @@ export const R6_FALSIFY_ASSERTIONS = Object.freeze([
   {
     id: 'r6-falsify-honest',
     holds: () => F.certified.length === 0 && /MEASURED/.test(F.status) && /NOT PROVED/.test(F.verdict) && /NO QED/.test(F.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(F.verdict) && F.corrections.length === 5,
+      && /refereed bound is changed/i.test(F.verdict) && F.corrections.length === 5,
     why: 'Float search only: evidence for WOL-C, not a bound; referee corrections carried.',
   },
 ]);

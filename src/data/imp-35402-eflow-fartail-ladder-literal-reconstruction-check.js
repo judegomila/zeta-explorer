@@ -33,8 +33,7 @@
  *
  * MEASUREMENT / CONSISTENCY CHECK ONLY. Changes no bound; no re-derivation of the underlying
  * E_flow quantity; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per
- * imp-486 UNTOUCHED; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-486 UNTOUCHED; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35279-eflow-fartail-inverse-swap-ladder (swap-fraction column checked in (3))
  * @see imp-35280-eflow-fartail-fd-vs-analytic-surrogate-gap (reconstruction identity checked in (2))
@@ -83,7 +82,7 @@ export const IMP35402_EFLOW_FARTAIL_LADDER_LITERAL_CHECK_ASSERTIONS = [
         1e-3,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35402-honesty-gate-no-derivation-change',
     description: 'both source modules stay isRigorous false with NO QED verdicts (unchanged by this audit)',
     holds: () =>

@@ -1,7 +1,7 @@
 /**
  * imp-96755 -- Bootstrap / Monte-Carlo sampling-variance band on the imp-96734 / imp-96629 small-gap
  * exponent fits: separate a genuine steepening from block-extreme sampling noise. Measurement only;
- * conditional on GUE; NO QED. PT Lambda <= 0.2 stays SOTA.
+ * conditional on GUE; NO QED. No refereed bound is changed.
  *
  * BACKGROUND. imp-96629 fit the plateau-free per-window (disjoint dyadic block-minima) normalized-gap
  * exponent at b = -0.3983 (full k=6..20) / -0.3818 (matched k=6..19), and imp-96734 refit it in
@@ -47,7 +47,7 @@
  * wide bands). This SHARPENS imp-96734: the persistent-vs-finite-N conclusion there is a statement about
  * the ABSENCE of an upward trend, not about a significant steepening -- the data are consistent with an
  * exact -1/3 cube-root law plus Weibull-3 block-extreme noise across the entire measured range. Moves no
- * bound; RELOCATES nothing. Measurement only; conditional on GUE; NO QED. PT Lambda <= 0.2 stays SOTA.
+ * bound; RELOCATES nothing. Measurement only; conditional on GUE; NO QED. No refereed bound is changed.
  */
 
 export const GMIN_EXPONENT_NOISE_BAND = {
@@ -97,7 +97,7 @@ export const GMIN_EXPONENT_NOISE_BAND = {
     '-1.1..-1.9, wide bands), and the sliding-window trend is indistinguishable from zero. The data are ' +
     'consistent with an exact -1/3 cube-root law plus block-extreme noise across the whole measured ' +
     'range; imp-96734 persistence is an ABSENCE-of-trend statement, not a significant steepening. ' +
-    'Measurement only; conditional on GUE; NO QED. PT Lambda <= 0.2 stays SOTA.',
+    'Measurement only; conditional on GUE; NO QED. No refereed bound is changed.',
 };
 
 export default GMIN_EXPONENT_NOISE_BAND;

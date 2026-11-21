@@ -18,7 +18,7 @@
  * formalization/paper/beat78-prop152-{subtract,holder,restrict}.md. Parent: src/data/beat-seven-eighths-2026-10-08.js.
  * The 7/8 manuscript is Lean-formalised by its authors and unrefereed.
  *
- * PT Lambda <= 0.2 stands; RH is open; NO QED. Import-free. BEAT78_PROP152_ASSERTIONS recompute the exponent bookkeeping,
+ * No refereed bound is changed; RH is open; NO QED. Import-free. BEAT78_PROP152_ASSERTIONS recompute the exponent bookkeeping,
  * the no-gain identities, the TRO fixed-geometry values, the slack-range values, the Lemma 20.2 binding margin and its
  * Delta cap, the corrected C>1 constants, and the local constants of Lemma R and the mod-2 sketch, in exact BigInt
  * rationals or plain JS doubles.
@@ -79,7 +79,7 @@ export const BEAT78_PROP152 = Object.freeze({
     + '(main-term level; error terms sketched). The paper\'s column coefficient equals its own exceptional component, c_sigma = kappa_sigma 1_sigma conj(chi_.(e0))/tau, '
     + 'so subtraction is vacuous in column form and circular in general. A bound that sees B only through Lemma 15.1 is at least ||A||_2 V, so Holder-type '
     + 'arguments cannot gain. Row weights and class restrictions that remove the term also remove the high-side signal (both need xi^6 = 1; local duality via '
-    + 'quadratic reciprocity). PT Lambda <= 0.2 stands; NO QED.',
+    + 'quadratic reciprocity). No refereed bound is changed; NO QED.',
 
   outcome: Object.freeze({
     rigorousGain: false,
@@ -212,7 +212,7 @@ export const BEAT78_PROP152 = Object.freeze({
   verdict: 'No theta\' < 7/8: subtraction (vacuous in column form, circular in general), Holder-type bounds (capped by ||A||_2 V) and row restrictions (dual to the '
     + 'signal) all leave the P_a^{1/6} exceptional term of Prop 15.2 and the abscissa 7/8 unchanged. No endpoint certificate is needed because no Part II inequality changed, and '
     + 'no conditional Lambda is computed. TRO-type values (839/960, 83/96 at fixed geometry; 0.87393, 0.8636 re-optimised) are heuristic, not theorems. '
-    + 'PT Lambda <= 0.2 stands; RH is open; NO QED.',
+    + 'No refereed bound is changed; RH is open; NO QED.',
 });
 
 const C = BEAT78_PROP152;
@@ -321,13 +321,13 @@ export const BEAT78_PROP152_ASSERTIONS = Object.freeze([
   },
   {
     id: 'p152-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(C.verdict) && /NO QED/.test(C.verdict) && /PT Lambda <= 0\.2 stands/.test(C.headline) && /NO QED/.test(C.headline)
+    holds: () => /refereed bound is changed/i.test(C.verdict) && /NO QED/.test(C.verdict) && /refereed bound is changed/i.test(C.headline) && /NO QED/.test(C.headline)
       && C.outcome.rigorousGain === false && C.outcome.thetaPrime === '7/8' && C.outcome.endpointCertificate === null && C.outcome.conditionalLambda === null
       && C.strategies.length === 3 && C.strategies.every((s) => /^FAILS/.test(s.verdict) && s.endpointCertificate === null
         && s.referees.length === 2 && s.referees.every((r) => r.refuted === false) && s.proved.length >= 5 && s.notProved.length >= 3)
       && C.strategies[2].referees.some((r) => r.severity === 'major') && /HEURISTIC/.test(C.jointObstruction.items[4])
       && /heuristic/.test(C.verdict),
-    why: 'No strategy gives theta\' < 7/8, no endpoint certificate, no conditional Lambda; each strategy has two non-refuting referees and lists unproved steps; the major referee finding on Strategy 3 is recorded; TRO values labelled heuristic; PT Lambda <= 0.2 stands; NO QED.',
+    why: 'No strategy gives theta\' < 7/8, no endpoint certificate, no conditional Lambda; each strategy has two non-refuting referees and lists unproved steps; the major referee finding on Strategy 3 is recorded; TRO values labelled heuristic; no refereed bound is changed; NO QED.',
   },
 ]);
 

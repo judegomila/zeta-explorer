@@ -75,8 +75,8 @@
  *   2. imp-3933-sub-bracket-rearchitecture (restate the E(N) bracket to
  *      route the collision-time transfer through the field channel)
  * The module's own `honest` field states the W_1-channel C_Lip verdicts are
- * RH-HARD-CONFIRMED and untouched, rigorousBeat is false, and Platt-Trudgian
- * Lambda <= 0.2 REMAINS the rigorous SOTA -- no new Lambda bound is claimed
+ * RH-HARD-CONFIRMED and untouched, rigorousBeat is false, and no refereed bound is changed
+ *  -- no new Lambda bound is claimed
  * anywhere in the cohort. This audit only records that status; it does not
  * re-derive or alter it.
  *
@@ -125,7 +125,7 @@ export const IMP_33247_3932_3919_COHORT_MODULE_SURFACING_AUDIT = {
     'dedicated-small-viz-page precedent.',
   honestNote:
     'Read-only audit; no pages fabricated. No new bound, no QED. The imp-3933 field-channel ' +
-    'reroute claims no new Lambda bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'reroute claims no new Lambda bound; no refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -176,9 +176,9 @@ const IMP_33247_ASSERTIONS = [
   },
   {
     id: 'imp33247-honest-scope-locked',
-    holds: () => /SOTA/.test(IMP_33247_3932_3919_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
+    holds: () => /refereed bound is changed/i.test(IMP_33247_3932_3919_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_33247_3932_3919_COHORT_MODULE_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

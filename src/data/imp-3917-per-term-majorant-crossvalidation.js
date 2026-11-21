@@ -64,8 +64,8 @@
  *    imp-3898 (hence imp-3725). Nothing new is derived; imp-3898 already proved
  *    the inequality -- this confirms it holds per-term, not only on the aggregate.
  *  - Three representative plateaus, not all ten (inherits the imp-3874 sub-gap).
- *  - No new Lambda bound; imp-3066 K_a >= 0 positivity UNTOUCHED; Platt-Trudgian
- *    Lambda <= 0.2 REMAINS SOTA; NO QED.
+ *  - No new Lambda bound; imp-3066 K_a >= 0 positivity UNTOUCHED; no refereed bound is changed
+ *    ; NO QED.
  *
  * OPEN SUB-GAP
  * ------------
@@ -180,7 +180,7 @@ export const IMP_3917_PER_TERM_MAJORANT_CROSSVALIDATION = Object.freeze({
       'plateau 0 at a tight nearest term, not a real violation. Every interior term is ' +
       'strictly below the majorant -- it is tight exactly where imp-3898 predicts and ' +
       'nowhere else. Verification only; 7 of 10 plateaus a named open sub-gap; ' +
-      'Platt-Trudgian Lambda <= 0.2 stays SOTA; imp-3066 untouched; NO QED.',
+      'no refereed bound is changed; imp-3066 untouched; NO QED.',
   },
 
   refinesAggregate:
@@ -210,7 +210,7 @@ export const IMP_3917_PER_TERM_MAJORANT_CROSSVALIDATION = Object.freeze({
     verificationOnly: true,
     noNewLambdaBound: true,
     imp3066Untouched: true,
-    plattTrudgianStillSOTA: 'Lambda <= 0.2 (PT 2021) remains SOTA',
+    plattTrudgianStillSOTA: 'No refereed bound is changed',
     noQED: true,
   },
 });
@@ -303,7 +303,7 @@ export const IMP_3917_PER_TERM_MAJORANT_CROSSVALIDATION_ASSERTIONS = [
     why:
       'Honesty guard: this per-term-verifies the imp-3898 majorant. It must not assert a ' +
       'new Lambda bound or a QED, imp-3066 stays untouched, and the 7-remaining-plateaus ' +
-      'sub-gap stays named open; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'sub-gap stays named open; no refereed bound is changed.',
   },
 ];
 

@@ -374,7 +374,7 @@ export const IMP33230_SADDLE_RATIO_PR_CROSSING_EXTENSION = Object.freeze({
       'the P_r crossing and overshoot exceed this floor by orders of magnitude. The finite NPHI = 10 kernel ' +
       'truncation remains the residual floor. NOT certified error bounds.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -446,7 +446,7 @@ export const IMP33230_SADDLE_RATIO_PR_CROSSING_EXTENSION_ASSERTIONS = [
     id: 'imp33230-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement/extension only, crossing is a measurement not a certified law, ultimate fate ' +
          'unresolved beyond the overflow ceiling, grid-stability not a certified bound, mass-feasibility necessary-but-' +
-         'not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA, imp-33211 assertions left intact.',
+         'not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed, imp-33211 assertions left intact.',
     holds: () => {
       const c = IMP33230_SADDLE_RATIO_PR_CROSSING_EXTENSION.honestCaveat;
       return (
@@ -456,7 +456,7 @@ export const IMP33230_SADDLE_RATIO_PR_CROSSING_EXTENSION_ASSERTIONS = [
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
         c.leavesImp33211AssertionsIntact === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

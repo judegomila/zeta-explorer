@@ -65,7 +65,7 @@
  * consistency result, not a unique identification.
  *
  * MEASUREMENT ONLY. Changes no bound, establishes no operator positivity, makes
- * no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96189-route-m-swing-attribution.js (band attribution + the sub-gap)
  * @see imp-96147-route-m-ratio-const-oscillation-fit.js (the residual rows r(N))
@@ -170,7 +170,7 @@ export const IMP96203_SUBGAP = Object.freeze({
 });
 
 export const IMP96203_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: every value is a reproducible numeric from tmp/rh-route-m/m13-subleading-spectrum.py; the d_N^2 rows reproduce imp-96105 bit-for-bit; no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Measurement only: every value is a reproducible numeric from tmp/rh-route-m/m13-subleading-spectrum.py; the d_N^2 rows reproduce imp-96105 bit-for-bit; no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -217,7 +217,7 @@ const IMP96203_ASSERTIONS = [
     id: 'imp96203-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96203_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96203_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96203_HONEST_BANNER) &&
       /NO QED/.test(IMP96203_HONEST_BANNER) &&
       typeof IMP96203_SUBGAP.statement === 'string' &&
       /band-uniqueness-and-beyond-6000/.test(IMP96203_SUBGAP.id),

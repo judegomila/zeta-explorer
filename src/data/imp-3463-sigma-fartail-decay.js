@@ -65,7 +65,7 @@
  * nothing beyond a super-polynomially small correction.
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3444-sigma-nshape-landmark-ladder (E_coll = E_trunc crossover N ~ 3.280e9, decay-to-0 right arm)
  * @see imp-3406-sigma-highN-extrapolation (N-shape, coarse right-arm landmarks)
@@ -165,7 +165,7 @@ export const IMP3463_SIGMA_FARTAIL_DECAY = {
     'denominator overshoot is x + f with f negligible), while E_flow/E_trunc is super-poly ' +
     'negligible (7.30e-4 -> 1.68e-6) so the geometric two-term refinement x - x^2 matches ' +
     'to O(x^2) (0.344 -> 0.038 -> 0.0041 -> 0.00045). No positivity, no bridge closure, no ' +
-    'RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-3444 (E_coll = E_trunc crossover N ~ 3.280e9, monotone decay-to-0 right arm); ' +
     'imp-3406 (N-shape extrapolation); imp-3220 (U-shaped sigma(N) decade ladder, exact ' +
@@ -232,13 +232,13 @@ export const IMP3463_SIGMA_FARTAIL_DECAY_ASSERTIONS = [
       DECAY_LADDER.every((r) => Math.abs(r.relerr_2term) < Math.abs(r.relerr_lead)),
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp3463-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: no QED, PT stays SOTA',
+    description: 'Derivation/measurement only: no QED, no refereed bound is changed',
     holds: () =>
       IMP3463_SIGMA_FARTAIL_DECAY.isRigorous === false &&
       /NO QED/.test(IMP3463_SIGMA_FARTAIL_DECAY.verdict) &&
-      /remains SOTA/.test(IMP3463_SIGMA_FARTAIL_DECAY.verdict),
+      /refereed bound is changed/i.test(IMP3463_SIGMA_FARTAIL_DECAY.verdict),
   },
 ];
 

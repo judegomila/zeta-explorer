@@ -56,7 +56,7 @@
  * difference, and the ~4% gap between q_S=3.09 and p=3.23) remains as REFINED SUB-GAP
  * imp-96995-floor-lift-eigendiff-residue-closed-form. Measurement/derivation only; the floor is a
  * Rayleigh UPPER bound; no operator positivity; interval-rigorous reach stays 2a <= 0.96;
- * Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96975-sigma2-tail-supercubic-derivation.js (the endpoint laws L1/L2 and the sub-gap this closes)
  * @see imp-96957-bessel-onset-tail-finer-ladder-viz-data.js (the measured p_global=3.228 ladder)

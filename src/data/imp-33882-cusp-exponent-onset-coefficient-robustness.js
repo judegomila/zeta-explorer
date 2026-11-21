@@ -53,7 +53,7 @@
  * tail tier. It does NOT re-derive the leading eps^{-3/2} amplitude for general alpha and it is NOT
  * the uniform ANALYTIC tracking of C_ren that H4 needs (imp-33766). H4 is NOT discharged.
  * G6a_shock_lipschitz STAYS OPEN. No positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0
- * UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-33853-cren-gap-coefficient-closed-form (DERIVED the 4/3 coefficient at alpha = 1/2; this generalizes to C(alpha))
  * @see imp-33845-cren-gap-onset-rate (MEASURED the 3/2 onset and 4/3 amplitude numerically)
@@ -158,8 +158,8 @@ export const IMP33882_CUSP_EXPONENT_ONSET_COEFFICIENT_ROBUSTNESS = {
     'alpha in {0.3, 0.4, 0.5, 0.6, 0.7} to < 1e-6. This does NOT re-derive the leading amplitude for general ' +
     'alpha and does NOT DISCHARGE H4: a general-alpha finite-window onset coefficient at fixed z_0* = i eps is ' +
     'not the uniform ANALYTIC tracking of C_ren the H4 minimal-input condition requires (imp-33766). No ' +
-    'positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP33882_CUSP_EXPONENT_ONSET_COEFFICIENT_ASSERTIONS = [
@@ -196,15 +196,15 @@ export const IMP33882_CUSP_EXPONENT_ONSET_COEFFICIENT_ASSERTIONS = [
       Math.abs(IMP33882_CUSP_EXPONENT_ONSET_COEFFICIENT_ROBUSTNESS.logSensitivityAtHalf - -1 / 3) < 1e-4,
   },
   {
-    // Honesty gate: derivation only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: derivation only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33882-honesty-gate-no-qed',
-    description: 'Derivation only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Derivation only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33882_CUSP_EXPONENT_ONSET_COEFFICIENT_ROBUSTNESS.isRigorous === false &&
       IMP33882_CUSP_EXPONENT_ONSET_COEFFICIENT_ROBUSTNESS.dischargesH4 === false &&
       /NO QED/.test(IMP33882_CUSP_EXPONENT_ONSET_COEFFICIENT_ROBUSTNESS.verdict) &&
       /STAYS OPEN/.test(IMP33882_CUSP_EXPONENT_ONSET_COEFFICIENT_ROBUSTNESS.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33882_CUSP_EXPONENT_ONSET_COEFFICIENT_ROBUSTNESS.verdict) &&
+      /refereed bound is changed/i.test(IMP33882_CUSP_EXPONENT_ONSET_COEFFICIENT_ROBUSTNESS.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP33882_CUSP_EXPONENT_ONSET_COEFFICIENT_ROBUSTNESS.verdict,
       ),

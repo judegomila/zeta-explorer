@@ -11,7 +11,7 @@
  * for a reader who has not read both modules in full.
  *
  * DOCUMENTATION ONLY. Ports nothing; measures nothing new; changes no
- * bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE NOTE
  * -----------------------------------------------------------------------------
@@ -82,7 +82,7 @@ export const IMP95472_RA_PART_A_STALE_BOOKING_HONEST_STATUS = {
     '"open" is STALE: imp-95448 found it already delivered (detection + repair) by imp-2563, narrowing the ' +
     'remaining data-side item to the single high-N exact recompute. R_A stays open overall via parts (b)/(c) ' +
     'and remains INERT for Lambda regardless. Ports nothing; measures nothing new; changes no bound; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95372-ra-proxy-true-gap-assessment (parent booking, THREE_PART_RESIDUAL); ' +
     'imp-95448-ra-ladder-input-data-audit (audit verdict, partAWasAlreadyDelivered / narrowedDataResidual).',
@@ -126,13 +126,13 @@ export const IMP95472_HONEST_STATUS_NOTE_ASSERTIONS = [
   },
   {
     id: 'imp95472-honesty-gate-no-qed',
-    description: 'Documentation only: not rigorous, no new claim, no QED, PT remains SOTA',
+    description: 'Documentation only: not rigorous, no new claim, no QED, no refereed bound is changed',
     holds: () =>
       IMP95472_RA_PART_A_STALE_BOOKING_HONEST_STATUS.isRigorous === false &&
       /HONEST-STATUS NOTE/.test(IMP95472_RA_PART_A_STALE_BOOKING_HONEST_STATUS.verdict) &&
       /not a new claim/.test(IMP95472_RA_PART_A_STALE_BOOKING_HONEST_STATUS.verdict) &&
       /NO QED/.test(IMP95472_RA_PART_A_STALE_BOOKING_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(IMP95472_RA_PART_A_STALE_BOOKING_HONEST_STATUS.verdict),
+      /refereed bound is changed/i.test(IMP95472_RA_PART_A_STALE_BOOKING_HONEST_STATUS.verdict),
   },
 ];
 

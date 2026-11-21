@@ -61,7 +61,7 @@
  * it corrects any consumer that reads the imp-95677 sub-1 (0.909) at ln 1.3 as a
  * real value below the symbol infimum. (c) Model seam family only; the imp-95212
  * envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes NO
- * bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95677-rho1-szego-finite-size-convergence (the sub-1 readout this certifies as roundoff)
  * @see imp-95419-separated-class-optimal-riesz-floor (A_opt scalar class floor = symbol infimum)
@@ -117,8 +117,8 @@ export const IMP95825_FINITE_SECTION_POSITIVITY_CERTIFICATE = {
     "sits at the cancellation floor lmax*eps ~ 5e-15. Analytic/verification note on " +
     "an established endpoint; no new cited input, no new bound. Model seam family " +
     "only; imp-95212 envelope port, signed WEIGHT, modulus/phase legs stay OPEN. " +
-    "Changes no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA.",
+    "Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95825"],
 };
 
@@ -309,7 +309,7 @@ export const IMP95825_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /CERTIFIED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95825-closes-self",

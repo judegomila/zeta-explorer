@@ -69,7 +69,7 @@
  * 1/8 Holder coefficient) and E_trunc = 3.06e-5 (imp-2631/imp-447) are UNTOUCHED;
  * the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35304-ecoll-exponent-residual-crossover-anchor-crossvalidation (dd-value crossover anchor, same C_C model)
  * @see imp-35417-sigma-landmark-distinct-dd-grid-cross-check (dd-PATH insensitivity of the same landmark)
@@ -219,8 +219,8 @@ export const IMP35458_CROSSOVER_HEIGHT_MAP_SENSITIVITY = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_C ansatz ' +
     '(imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) are UNTOUCHED; the C_mb ' +
     'GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35337/imp-35417 (E_coll = E_trunc crossover landmark 3.280294352e9, dd-PATH ' +
     'insensitivity); imp-35304 (dd-value crossover anchor, same C_C model); imp-35413/imp-35280 ' +
@@ -259,13 +259,13 @@ export const IMP35458_CROSSOVER_HEIGHT_MAP_SENSITIVITY_ASSERTIONS = [
       DAMPING_FACTOR < 40,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35458-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35458_CROSSOVER_HEIGHT_MAP_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP35458_CROSSOVER_HEIGHT_MAP_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP35458_CROSSOVER_HEIGHT_MAP_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP35458_CROSSOVER_HEIGHT_MAP_SENSITIVITY.verdict),
   },
 ];
 

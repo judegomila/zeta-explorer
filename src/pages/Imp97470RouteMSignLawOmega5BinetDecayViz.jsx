@@ -157,7 +157,7 @@ export default function Imp97470RouteMSignLawOmega5BinetDecayViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-97470
         viz-data leaf (every value reused verbatim from imp-97443, no re-derivation). Changes no bound,
-        establishes no operator positivity; Platt-Trudgian &Lambda;&le;0.2 remains SOTA; RH open; NO QED.
+        establishes no operator positivity; RH open; NO QED.
       </div>
     </div>
   );

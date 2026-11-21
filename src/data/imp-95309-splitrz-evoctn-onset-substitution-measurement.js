@@ -4,7 +4,7 @@
  * octave) every-octave assembly, in place of the SPLIT-LOO linear-in-m
  * leave-one-out collar, and reading off the resulting onset reduction.
  * Measurement only: NO new theorem, NO bound changed, NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * SETUP. imp-95285 THEOREM EV-OCT-N assembles the every-octave, up-to-N
  * -rates-per-octave certificate on THEOREM SPLIT-LOO (imp-95250):
@@ -173,8 +173,8 @@ export const IMP95309_SPLITRZ_EVOCTN_ONSET_SUBSTITUTION = {
     "below the finite m = 6 SPLIT-LOO onset (33.50); r-uniformity is LOST " +
     "in the constant (A_sym -> 0 as R -> 1) but the onset penalty is mild, " +
     "as at N = 2; N = 4 / small R are float-blocked at the dyadic ratio. " +
-    "MEASUREMENT ONLY. Changes no bound; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT ONLY. Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -474,7 +474,7 @@ export const IMP95309_ASSERTIONS = [
     description:
       "the verdict and sub-gap carry the honest labels: MEASUREMENT ONLY, " +
       "A_sym^(N) measured not proven, N = 4 float-blocked, neither route " +
-      "subsumes the other, no bound change, no QED, PT SOTA",
+      "subsumes the other, no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT ONLY/.test(REC.verdict) &&
       /measured, not proven/.test(REC.subGap) &&
@@ -482,7 +482,7 @@ export const IMP95309_ASSERTIONS = [
       /Neither route subsumes/.test(REC.subGap) &&
       /Changes NO Lambda bound/.test(REC.subGap) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict),
+      /refereed bound is changed/i.test(REC.verdict),
   },
 ];
 

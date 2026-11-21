@@ -4,7 +4,7 @@
  * positivity (RP) of the primon gas about sigma = 1/2 -> Osterwalder-Schrader
  * (OS) reconstruction of a Hilbert-Polya operator". Exact setup, computed
  * reflection Gram spectra on first-N-prime truncations, verdict. RH OPEN;
- * PT Lambda <= 0.2 stands; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * SETUP. Euclidean time tau = sigma - 1/2. Reflection theta: s -> 1 - conj(s)
  * (fixes the critical line pointwise), acting on observables by
@@ -333,7 +333,7 @@ export const RH_ROUTE_A_REFLECTION_POSITIVITY = Object.freeze({
   id: 'rh-route-a-reflection-positivity-primon-gas-2026-09-23',
   route: 'A — reflection positivity of the primon gas about sigma = 1/2 (Osterwalder-Schrader)',
   roadmap: 'src/data/rh-novel-routes-roadmap-2026-09-23.js',
-  status: 'FIRST TEST DONE — finite-N gas RP REFUTED (lambda_min -> -infinity ~ -p_N^{1/2-nu}); infinite-N RP holds numerically but is EQUIVALENT to Weil positivity = RH (Lagarias-Pick), not stronger; RH open; PT Lambda <= 0.2 stands; NO QED',
+  status: 'FIRST TEST DONE — finite-N gas RP REFUTED (lambda_min -> -infinity ~ -p_N^{1/2-nu}); infinite-N RP holds numerically but is EQUIVALENT to Weil positivity = RH (Lagarias-Pick), not stronger; RH open; no refereed bound is changed; NO QED',
   setup: {
     reflection: 'theta: s -> 1 - conj(s); (theta f)(s) = conj(f(1 - conj(s)))',
     pairing: 'Weil zero pairing <g,f>_W = sum_rho g(rho) f(rho) via the explicit formula (Iwaniec-Kowalski normalisation)',

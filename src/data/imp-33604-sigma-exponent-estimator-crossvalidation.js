@@ -80,8 +80,7 @@
  * MEASUREMENT / CROSS-VALIDATION ONLY. Conditional-share diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (per-decade OLS exponent ladder)
  * @see imp-3529-sigma-postpeak-decay-exponent (pointwise p(N) = -d ln sigma / d ln N)
@@ -217,8 +216,8 @@ export const IMP33604_SIGMA_EXPONENT_ESTIMATOR_CROSSVALIDATION = {
     'imp-3463 leading form, stay strictly below and ramp toward the 1/2 far-tail asymptote from ' +
     'below. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33582 (per-decade OLS exponent ladder 0.0105 -> 0.4310); imp-3529 (pointwise p(N) = ' +
     '-d ln sigma/d ln N); imp-3463 (far-tail leading form, exponent -> 1/2 from below); imp-3444 ' +
@@ -289,14 +288,14 @@ export const IMP33604_SIGMA_EXPONENT_ESTIMATOR_CROSSVALIDATION_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement/cross-validation only, far-tail exponent = 1/2 (imp-3463),
-    // no QED, PT stays SOTA.
+    // no QED, no refereed bound is changed.
     id: 'imp33604-honesty-gate-no-qed',
-    description: 'Cross-validation only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Cross-validation only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP33604_SIGMA_EXPONENT_ESTIMATOR_CROSSVALIDATION.isRigorous === false &&
       IMP33604_SIGMA_EXPONENT_ESTIMATOR_CROSSVALIDATION.farTailExponent === 0.5 &&
       /NO QED/.test(IMP33604_SIGMA_EXPONENT_ESTIMATOR_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP33604_SIGMA_EXPONENT_ESTIMATOR_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP33604_SIGMA_EXPONENT_ESTIMATOR_CROSSVALIDATION.verdict),
   },
 ];
 

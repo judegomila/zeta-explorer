@@ -67,7 +67,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share extrapolation-error diagnostic, NOT an RH bound. The
  * component model remains the inherited imp-3220/imp-3406 form; C_mb stays GUE-conditional per
  * imp-486 (UNTOUCHED); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (flags the extrapolation-not-asymptotic caveat)
  * @see imp-3406-sigma-highN-extrapolation (leading-form high-N branch; halving landmark ~3.27e9)
@@ -237,7 +237,7 @@ export const IMP33728_ECOLL_FINITEN_VS_EXTRAPOLATION_HALVING_SHIFT = {
     'closed-form extrapolation error: all the caveat weight sits on the conditional constant, not ' +
     'on numerical precision. Changes no bound; C_mb stays GUE-conditional per imp-486 (UNTOUCHED); ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33701 (flags the extrapolation-not-asymptotic caveat); imp-3406 (leading-form high-N ' +
     'branch, halving landmark ~3.27e9); imp-33582 (six-decade exponent ladder + halving landmark); ' +
@@ -291,14 +291,14 @@ export const IMP33728_ECOLL_FINITEN_VS_EXTRAPOLATION_HALVING_SHIFT_ASSERTIONS = 
   },
   {
     // Honesty gate: measurement/fit only, caveat is conditional (C_H) not numerical, no QED,
-    // PT stays SOTA.
+    // no refereed bound is changed.
     id: 'imp33728-honesty-gate-no-qed',
-    description: 'Measurement only: caveat is the conditional C_H not numerical extrapolation, no QED, PT stays SOTA',
+    description: 'Measurement only: caveat is the conditional C_H not numerical extrapolation, no QED, no refereed bound is changed',
     holds: () =>
       IMP33728_ECOLL_FINITEN_VS_EXTRAPOLATION_HALVING_SHIFT.isRigorous === false &&
       /C_H/.test(IMP33728_ECOLL_FINITEN_VS_EXTRAPOLATION_HALVING_SHIFT.finding.F3_caveat_is_conditional_not_numerical) &&
       /NO QED/.test(IMP33728_ECOLL_FINITEN_VS_EXTRAPOLATION_HALVING_SHIFT.verdict) &&
-      /remains SOTA/.test(IMP33728_ECOLL_FINITEN_VS_EXTRAPOLATION_HALVING_SHIFT.verdict),
+      /refereed bound is changed/i.test(IMP33728_ECOLL_FINITEN_VS_EXTRAPOLATION_HALVING_SHIFT.verdict),
   },
 ];
 

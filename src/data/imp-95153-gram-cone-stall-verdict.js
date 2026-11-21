@@ -121,8 +121,7 @@
  * is CARRIED: VU/VP top and low floors 47/200, the class sandwich
  * [0.2320723, 0.24502] (THEOREM HS remains the only full-class ceiling),
  * k >= 5 / mixed-heavy-pair / doubled-cert-gap / free-rate sub-gaps
- * untouched. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * untouched. Changes no bound; NO QED; no refereed bound is changed.
  *
  * FRONTIER AFTER THIS RUN (the k = 4 rung is done):
  * (i) the k >= 5 and mixed-heavy-pair channels of
@@ -782,7 +781,7 @@ export const IMP95153_GRAM_CONE_STALL_VERDICT = {
   ],
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // ---------------------------------------------------------------------------

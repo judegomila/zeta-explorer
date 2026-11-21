@@ -7,8 +7,7 @@
  * Here we hold the octave skeleton on-lattice and instead pack N >= 3
  * near-coincident rates into every octave window, measuring the firing-onset
  * shift and certificate inflation as the in-octave count N grows from the
- * twin pair. MEASUREMENT ONLY; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * twin pair. MEASUREMENT ONLY; changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT. The imp-95285 THEOREM EV-OCT-N actual-fence closed certificate for
  * an m-octave every-octave configuration that carries a block V_k of N rates
@@ -100,7 +99,7 @@
  * cross-Blaschke separation. The certificate stays a VALID upper bound
  * throughout (inherited from SPLIT-LOO/COAL-N/ANG-DET), but its value
  * inflates astronomically at fixed depth. MEASUREMENT ONLY; changes no
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -162,7 +161,7 @@ export const IMP95399_INOCTAVE_MULTIPLICITY_DEGRADATION = {
     "fence collapse (~10^12 per added rate) not the COAL-N count-pricing " +
     "(~35x per added rate). Certificate stays a valid upper bound throughout " +
     "(inherited from SPLIT-LOO/COAL-N/ANG-DET). Changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -346,7 +345,7 @@ export const IMP95399_INOCTAVE_MULTIPLICITY_ASSERTIONS = [
     id: "imp95399-verdict-honesty",
     description:
       "the verdict carries the honest labels: measurement only, hard wall, " +
-      "fence-collapse driver, no bound change, no QED, PT SOTA",
+      "fence-collapse driver, no bound change, no QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT ONLY/.test(
         IMP95399_INOCTAVE_MULTIPLICITY_DEGRADATION.verdict,
@@ -359,7 +358,7 @@ export const IMP95399_INOCTAVE_MULTIPLICITY_ASSERTIONS = [
         IMP95399_INOCTAVE_MULTIPLICITY_DEGRADATION.verdict,
       ) &&
       /NO QED/.test(IMP95399_INOCTAVE_MULTIPLICITY_DEGRADATION.verdict) &&
-      /remains SOTA/.test(IMP95399_INOCTAVE_MULTIPLICITY_DEGRADATION.verdict),
+      /refereed bound is changed/i.test(IMP95399_INOCTAVE_MULTIPLICITY_DEGRADATION.verdict),
   },
 ];
 

@@ -246,7 +246,7 @@ export const IMP3523_XISTAR_PANEL_COUNT_CONVERGENCE_LIMIT = Object.freeze({
     'location xi*_inf = 12.0666876(1); the FULL drift from the imp-3483 coarse value is 12.0870439 - 12.0666876 ~ ' +
     '0.0204 (imp-3511 ~0.018 was the partial 360 -> 1200 leg; the remaining ~0.0024 is the 1200 -> inf tail, first ' +
     'measured here). Measurement only; RH-equivalent; the imp-3066 K_a >= 0 magnitude is the lone obstruction, ' +
-    'UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     objective: 'sup_xi |P1(xi)|, P1 = dP/dxi, P(xi) = |Phihat(xi)|^2 = C^2 + S^2 (the peak slope behind ||Ttilde||)',
@@ -347,7 +347,7 @@ export const IMP3523_XISTAR_PANEL_COUNT_CONVERGENCE_LIMIT = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -419,7 +419,7 @@ export const IMP3523_XISTAR_PANEL_COUNT_CONVERGENCE_LIMIT_ASSERTIONS = [
     id: 'imp3523-honest-assessment-no-qed',
     why: 'Mandatory honesty: measures the LIMIT not a closed form (equation transcendental), the O(1/N^2) order is ' +
       'empirical over a finite ladder, the residual band is conservative, sub-Nyquist only, measures the ratio not ' +
-      'positivity, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'positivity, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3523_XISTAR_PANEL_COUNT_CONVERGENCE_LIMIT.honestCaveat;
       return (
@@ -431,7 +431,7 @@ export const IMP3523_XISTAR_PANEL_COUNT_CONVERGENCE_LIMIT_ASSERTIONS = [
         typeof c.orderIsEmpirical === 'string' &&
         typeof c.residualBandIsConservative === 'string' &&
         typeof c.subNyquistOnly === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

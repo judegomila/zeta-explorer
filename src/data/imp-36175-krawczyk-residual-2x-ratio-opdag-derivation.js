@@ -67,7 +67,7 @@
  * imp-34714a stays OPEN; this instantiates NO certified interval, ports NO operator, and does NOT discharge
  * the F(m) = 0 residual-at-root artifact. Explaining the 2x is NECESSARY narrative, never SUFFICIENT for a
  * certificate. C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36017-krawczyk-residual-surrogate-vs-layer-discrepancy (MEASURED the a-independent 2x this derives)
  * @see imp-36166-residual-node-storyline-cross-reference (restates the 2x ratio without a mechanism)
@@ -301,8 +301,8 @@ export const IMP36175_KRAWCZYK_RESIDUAL_2X_RATIO_OPDAG_DERIVATION = {
     'certified interval is instantiated, the F(m) = 0 artifact is not discharged, explaining the 2x is ' +
     'NECESSARY but not SUFFICIENT. Reuses the imp-36017/imp-35969/imp-34774 machinery (identical K_AMPL, g, ' +
     'N_cross, axis, nextUp/nextDown, ulpOf); C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) ' +
-    'UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36017 (MEASURED the a-independent 2x surrogate/layer ratio); imp-36166 (storyline restating the 2x ' +
     'without a mechanism); imp-35969 (bit-level nextafter SURROGATE width); imp-36153 (the 2x is the a -> 0 ' +
@@ -342,15 +342,15 @@ export const IMP36175_KRAWCZYK_RESIDUAL_2X_RATIO_OPDAG_DERIVATION_ASSERTIONS = [
     holds: () => RATIO_A_INDEPENDENT === true,
   },
   {
-    // Honesty gate: derivation / recomputation, not rigorous, sub-gaps open, both are MODELS, no QED, PT SOTA.
+    // Honesty gate: derivation / recomputation, not rigorous, sub-gaps open, both are MODELS, no QED, no refereed bound is changed.
     id: 'imp36175-honesty-gate-no-qed',
-    description: 'derivation: isRigorous false, imp-34714a/imp-34687a open, MODELS not certificate, NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'derivation: isRigorous false, imp-34714a/imp-34687a open, MODELS not certificate, NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP36175_KRAWCZYK_RESIDUAL_2X_RATIO_OPDAG_DERIVATION.isRigorous === false &&
       /imp-34714a AND imp-34687a REMAIN OPEN/.test(IMP36175_KRAWCZYK_RESIDUAL_2X_RATIO_OPDAG_DERIVATION.subGap) &&
       /NECESSARY but not SUFFICIENT/.test(IMP36175_KRAWCZYK_RESIDUAL_2X_RATIO_OPDAG_DERIVATION.verdict) &&
       /NO QED/.test(IMP36175_KRAWCZYK_RESIDUAL_2X_RATIO_OPDAG_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP36175_KRAWCZYK_RESIDUAL_2X_RATIO_OPDAG_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP36175_KRAWCZYK_RESIDUAL_2X_RATIO_OPDAG_DERIVATION.verdict),
   },
 ];
 

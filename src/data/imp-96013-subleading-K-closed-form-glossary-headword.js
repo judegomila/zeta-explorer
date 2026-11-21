@@ -28,7 +28,7 @@
  *   imp-95983 already closed, and moves no bound. The imp-95965 base-scalar obstruction
  *   (s_base_prime, c_base_prime jointly under-determined) is UNCHANGED by K being exact.
  *   Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; NO
- *   Lambda movement; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   Lambda movement; no refereed bound is changed; NO QED.
  *
  * @see imp-95983-subleading-K-closed-form (source: the Euler-Maclaurin derivation and
  *   high-precision Richardson-extrapolation confirmation this glosses)
@@ -37,7 +37,7 @@
  * @see imp-95900 (source of -C_1 = 3 - 2 gamma - pi^2/6)
  *
  * Ticket: imp-96013 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // fundamental constants (baked literals; standard values) -- checked arithmetically below,
@@ -82,8 +82,8 @@ export const IMP96013_SUBLEADING_K_CLOSED_FORM_GLOSSARY_HEADWORD = Object.freeze
     'Euler-Mascheroni constant and pi^2 with zeta(3) fully cancelled, confirmed offline to ' +
     '~1e-8 by Richardson extrapolation. Replaces the imp-95965 coarse literal K ~ 0.6452 as ' +
     'the citable value. The imp-95965 base-scalar obstruction is UNCHANGED. Establishes ' +
-    'nothing new; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'nothing new; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95983 (the Euler-Maclaurin derivation and Richardson-extrapolation confirmation ' +
     'this headword glosses); imp-95965 (the coarse K ~ 0.6452 measurement and the ' +
@@ -117,11 +117,11 @@ export const IMP96013_SUBLEADING_K_CLOSED_FORM_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96013-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96013_SUBLEADING_K_CLOSED_FORM_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96013_SUBLEADING_K_CLOSED_FORM_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96013_SUBLEADING_K_CLOSED_FORM_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96013_SUBLEADING_K_CLOSED_FORM_GLOSSARY_HEADWORD.verdict) &&
       IMP96013_SUBLEADING_K_CLOSED_FORM_GLOSSARY_HEADWORD.glosses === 'imp-95983',
   },
 ];

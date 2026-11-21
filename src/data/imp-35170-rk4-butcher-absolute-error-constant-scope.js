@@ -102,7 +102,7 @@
  * is closed; the binding input is B3, the I1 derivative bounds gated by the I2 minimum-gap lower bound.
  * Derives NONE of the bound; the imp-2466 cross-check is UNTOUCHED and remains a valid non-certifying
  * cross-check; establishes no operator positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35127-g-step-error-certified-bound-scope (I4 named this the distinguishing ingredient; parent)
  * @see imp-35167-g-min-non-collision-certificate-scope (I2 minimum-gap lower bound; gates B3)
@@ -367,7 +367,7 @@ export const IMP35170_RK4_BUTCHER_ABSOLUTE_ERROR_CONSTANT_SCOPE = {
     'SCOPING ONLY: discharges NONE of B1..B5 (only B1/B4 are already present); changes no bound; ' +
     'establishes no operator positivity; the imp-2466 cross-check is UNTOUCHED and remains a valid ' +
     'non-certifying cross-check; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35127 (I4 named the distinguishing ingredient; parent, B1); imp-35167 (I2 minimum-gap lower ' +
     'bound, gates B3); imp-2466 (empirical two-method gap, the DIFFERENCE B1 cannot come from); ' +
@@ -422,14 +422,14 @@ export const IMP35170_RK4_BUTCHER_ABSOLUTE_ERROR_CONSTANT_SCOPE_ASSERTIONS = [
       /no new/i.test(IMP35170_RK4_BUTCHER_ABSOLUTE_ERROR_CONSTANT_SCOPE.conclusion),
   },
   {
-    // Honesty gate: scoping only, no QED, imp-2466 untouched, PT stays SOTA.
+    // Honesty gate: scoping only, no QED, imp-2466 untouched, no refereed bound is changed.
     id: 'imp35170-honesty-gate-no-qed',
-    description: 'Scoping only: isRigorous false, NO QED, imp-2466 cross-check untouched, PT stays SOTA',
+    description: 'Scoping only: isRigorous false, NO QED, imp-2466 cross-check untouched, no refereed bound is changed',
     holds: () =>
       IMP35170_RK4_BUTCHER_ABSOLUTE_ERROR_CONSTANT_SCOPE.isRigorous === false &&
       /NO QED/.test(IMP35170_RK4_BUTCHER_ABSOLUTE_ERROR_CONSTANT_SCOPE.verdict) &&
       /imp-2466 cross-check is UNTOUCHED/.test(IMP35170_RK4_BUTCHER_ABSOLUTE_ERROR_CONSTANT_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35170_RK4_BUTCHER_ABSOLUTE_ERROR_CONSTANT_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35170_RK4_BUTCHER_ABSOLUTE_ERROR_CONSTANT_SCOPE.verdict),
   },
 ];
 

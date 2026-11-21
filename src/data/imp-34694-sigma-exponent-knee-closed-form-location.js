@@ -75,7 +75,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (the coarse whole-decade [1e10,1e11] bracket this sharpens)
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade OLS relocation to N* ~ 3.38e9)
@@ -266,7 +266,7 @@ export const IMP34694_SIGMA_EXPONENT_KNEE_CLOSED_FORM_LOCATION = {
     'Sub-gap: a higher-order or self-consistent expansion of delta is left OPEN. The component model ' +
     'is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'A tight closed form for the knee is OPEN: the first-order slowly-varying-v correction delta = ' +
     '-(3 v_prime)/(2 v^2) - v_secondDeriv/v^3 recovers the sign and ~halves the residual but overshoots ' +
@@ -326,15 +326,15 @@ export const IMP34694_SIGMA_EXPONENT_KNEE_CLOSED_FORM_LOCATION_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), OPEN sub-gap,
-    // no QED, PT SOTA.
+    // no QED, no refereed bound is changed.
     id: 'imp34694-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, OPEN sub-gap, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, OPEN sub-gap, no QED, no refereed bound is changed',
     holds: () =>
       IMP34694_SIGMA_EXPONENT_KNEE_CLOSED_FORM_LOCATION.isRigorous === false &&
       IMP34694_SIGMA_EXPONENT_KNEE_CLOSED_FORM_LOCATION.farTailExponent === 0.5 &&
       typeof IMP34694_SIGMA_EXPONENT_KNEE_CLOSED_FORM_LOCATION.subGap === 'string' &&
       /NO QED/.test(IMP34694_SIGMA_EXPONENT_KNEE_CLOSED_FORM_LOCATION.verdict) &&
-      /remains SOTA/.test(IMP34694_SIGMA_EXPONENT_KNEE_CLOSED_FORM_LOCATION.verdict),
+      /refereed bound is changed/i.test(IMP34694_SIGMA_EXPONENT_KNEE_CLOSED_FORM_LOCATION.verdict),
   },
 ];
 

@@ -66,8 +66,7 @@
  * form. This changes no bound; the imp-34043 saturating-vs-log SELECTION margin and the imp-33843 log-linear-
  * vs-power-law FORM verdict are UNTOUCHED; the component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34108-endpoint-peak-saturating-ceiling-extrapolation (endpoint-peak ceiling row; read verbatim)
  * @see imp-34109-fixed-band-peak-amplitude-saturation-fit (fixed-band ceiling row; read verbatim; log-dominance caveat)
@@ -192,7 +191,7 @@ export const IMP34175_ENDPOINT_VS_FIXED_BAND_SATURATING_CEILING_CROSS_TABULATION
     'and the imp-33843 log-linear-vs-power-law FORM verdict are UNTOUCHED; the component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34108 (endpoint-peak ceiling row, read verbatim); imp-34109 (fixed-band ceiling row, read ' +
     'verbatim, log-dominance caveat); imp-34043 (the four-way Akaike winner behind imp-34108); imp-33843 ' +
@@ -252,15 +251,15 @@ export const IMP34175_ENDPOINT_VS_FIXED_BAND_SATURATING_CEILING_CROSS_TABULATION
   },
   {
     // Honesty gate: cross-tabulation only, isRigorous false, no bound change, selection/form verdicts
-    // untouched, NO QED, PT SOTA, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched.
+    // untouched, NO QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched.
     id: 'imp34175-honesty-gate-no-qed',
-    description: 'Cross-tabulation only: isRigorous false, no bound change, imp-34043/imp-33843 untouched, NO QED, PT SOTA, imp-3066/imp-486 untouched',
+    description: 'Cross-tabulation only: isRigorous false, no bound change, imp-34043/imp-33843 untouched, NO QED, no refereed bound is changed, imp-3066/imp-486 untouched',
     holds: () =>
       IMP34175_ENDPOINT_VS_FIXED_BAND_SATURATING_CEILING_CROSS_TABULATION.isRigorous === false &&
       /NOT a rigorous asymptotic/.test(IMP34175_ENDPOINT_VS_FIXED_BAND_SATURATING_CEILING_CROSS_TABULATION.verdict) &&
       /changes no bound/.test(IMP34175_ENDPOINT_VS_FIXED_BAND_SATURATING_CEILING_CROSS_TABULATION.verdict) &&
       /NO QED/.test(IMP34175_ENDPOINT_VS_FIXED_BAND_SATURATING_CEILING_CROSS_TABULATION.verdict) &&
-      /remains SOTA/.test(IMP34175_ENDPOINT_VS_FIXED_BAND_SATURATING_CEILING_CROSS_TABULATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34175_ENDPOINT_VS_FIXED_BAND_SATURATING_CEILING_CROSS_TABULATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34175_ENDPOINT_VS_FIXED_BAND_SATURATING_CEILING_CROSS_TABULATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34175_ENDPOINT_VS_FIXED_BAND_SATURATING_CEILING_CROSS_TABULATION.verdict),
   },

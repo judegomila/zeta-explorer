@@ -582,8 +582,7 @@ export default function PermutationArchitecturePage() {
           useful cancellation by taking a modulus too early. It fixes a <strong>conditional contract</strong> for
           the strict sub-0.14 route — reducing the whole route to <em>one</em> explicit open family — and records
           five alternative sufficient gates. This is an architecture and a contract:{' '}
-          <strong>it proves neither RH nor a new bound on the de Bruijn–Newman constant Λ.</strong>{' '}
-          Platt–Trudgian <InlineMath tex="\Lambda \le 0.2" /> remains the rigorous benchmark.
+          <strong>it proves neither RH nor a new bound on the de Bruijn–Newman constant Λ.</strong>
         </p>
 
         <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '16px 0' }}>
@@ -987,8 +986,7 @@ export default function PermutationArchitecturePage() {
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '8px 0 0' }}>
             Both gaps have shrunk by the identical factor 2.851327× since the seventeenth-continuation baseline,
             because the same three composed ceiling-side moves (seventeenth through twenty-second continuations)
-            apply to both the headline and fixed-97 tracking. No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains
-            SOTA.
+            apply to both the headline and fixed-97 tracking. No bound is promoted.
           </p>
         </div>
 
@@ -1020,7 +1018,7 @@ export default function PermutationArchitecturePage() {
             and the packet-envelope constants (c, β, σ, θ, A_d) have not been transferred from this model family
             to the PAPER's packets. Also open: the curvature ceiling D retained by the window, the paper phase
             curvature normalization, and residual (c) — the ℓ²-weld-bound to pointwise |C<sub>E,17</sub>| passage.
-            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+            No bound is promoted.
           </p>
         </div>
 
@@ -1060,8 +1058,7 @@ export default function PermutationArchitecturePage() {
           </div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '8px 0 0' }}>
             Module file names are prefixed <code className="ed-mono" style={{ fontSize: 11 }}>src/data/imp-95008-</code>
-            and suffixed <code className="ed-mono" style={{ fontSize: 11 }}>.js</code>. No row promotes a bound;
-            Platt–Trudgian Λ ≤ 0.2 remains SOTA throughout.
+            and suffixed <code className="ed-mono" style={{ fontSize: 11 }}>.js</code>. No row promotes a bound.
           </p>
         </div>
 
@@ -1101,7 +1098,7 @@ export default function PermutationArchitecturePage() {
             Sourced from{' '}
             <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-occupied-block-append-floor.js</code>{' '}
             and <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-corner-cancellation-envelope.js</code>.
-            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+            No bound is promoted.
           </p>
         </div>
 
@@ -1138,7 +1135,7 @@ export default function PermutationArchitecturePage() {
             1.4032010197013394 is pinned to the witness-side E-realization step (named sub-gap
             imp-95008-subgap-witness-Erealization-split). Cross-checked in{' '}
             <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-perron-weighted-far-routing.js</code>.
-            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+            No bound is promoted.
           </p>
         </div>
 
@@ -1152,7 +1149,7 @@ export default function PermutationArchitecturePage() {
             E-realization step, sized at 1.4032010197013394× (named sub-gap
             imp-95008-subgap-witness-Erealization-split) — this is not shrunk by any of the twentieth–twenty-second
             moves and is the binding obstruction to closing the far-bracket gap further within this envelope family.
-            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+            No bound is promoted.
           </p>
         </div>
 
@@ -1172,7 +1169,7 @@ export default function PermutationArchitecturePage() {
             attainment × occupancy ≤ γ &lt; 1 over MAJ witnesses, or exhibit a witness family driving the
             product to 1. Cross-checked in{' '}
             <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-witness-erealization-split.js</code>.
-            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+            No bound is promoted.
           </p>
         </div>
 
@@ -1188,7 +1185,7 @@ export default function PermutationArchitecturePage() {
             itself breaks below the sharp threshold σ + θ = 2.948383274238082, falling back to the eighteenth-window
             envelope. This is a <strong>sensitivity map</strong> over plausible paper constants, not a single
             instantiated paper-packet number — the remaining step is reading (σ, θ, β, c, v, D) off the paper text.
-            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA. This same "paper Section 4.5 packet constants
+            No bound is promoted. This same "paper Section 4.5 packet constants
             unpinned" sub-gap is inherited and restated verbatim by imp-95075, imp-95092, imp-95093, imp-95097, and
             imp-95100 below — it is one shared residual, counted once here, not once per restating module.
           </p>
@@ -1359,7 +1356,7 @@ export default function PermutationArchitecturePage() {
             <strong> not a bound improvement</strong> — it changes no ledger number and promotes no bound.
             Cross-checked in{' '}
             <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95096-joint-near-far-vs-lambda-max-terminality.js</code>.
-            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+            No bound is promoted.
           </p>
           <div style={{ marginTop: 10 }}>
             <JointNearFarParetoChart />

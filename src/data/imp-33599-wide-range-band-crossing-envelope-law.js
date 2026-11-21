@@ -70,7 +70,7 @@
  *   monotone threshold -- not the exact per-rung ULP or the exact cluster edges. The NPHI = 10 Phi-series
  *   truncation is inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level
  *   K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no
- *   QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   QED. No refereed bound is changed.
  *
  *   @see imp-33579-band-crossing-floor-bisection.js (the narrow-bracket scan this widens)
  *   @see imp-33557-band-crossing-min-budget.js (the three-rung bracket and node ladder)
@@ -318,7 +318,7 @@ const verdict =
       '~+0.01-OVER-[596,700].-THE-n~531-SPIKE-INSIDE-[510,596]-IS-THE-TALLEST-CLUSTER,-NOT-A-THRESHOLD-ONSET.-' +
       'EXTENDS+SHARPENS-THE-imp-33579/imp-33557/imp-33537-latticeJitterCaveat:-THE-BAND-CROSSING-IS-A-CLUSTERED-' +
       'SPIKE-PHENOMENON-AT-ALL-SCALES,-NEVER-A-MONOTONE-RUNG-THRESHOLD.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-' +
-      'JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33599_WIDE_RANGE_BAND_CROSSING_ENVELOPE_LAW = Object.freeze({
@@ -347,7 +347,7 @@ export const IMP33599_WIDE_RANGE_BAND_CROSSING_ENVELOPE_LAW = Object.freeze({
     'NO-MONOTONE-WIDE-RANGE-BAND-CROSSING. EXTENDS and SHARPENS the imp-33579/imp-33557/imp-33537 ' +
     'latticeJitterCaveat -- the band crossing is a clustered-spike phenomenon at ALL scales examined, never a ' +
     'monotone rung threshold. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; ' +
-    'jittery lattice floor; operator positivity (imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'jittery lattice floor; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -452,7 +452,7 @@ export const IMP33599_WIDE_RANGE_BAND_CROSSING_ENVELOPE_LAW = Object.freeze({
       'every few-ULP measurement (the exact cluster edges ~[526,545]/[591,601]/[634,644], the ~76/~65/~64 ULP ' +
       'peaks, and the ~+0.10 ULP/rung wide slope). The robust reading is the QUALITATIVE structure -- three ' +
       'disjoint clusters riding a weak positive jitter trend, no monotone threshold -- not the exact per-rung ULP.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -508,7 +508,7 @@ export const IMP33599_WIDE_RANGE_BAND_CROSSING_ENVELOPE_LAW_ASSERTIONS = [
   {
     id: 'imp33599-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33599_WIDE_RANGE_BAND_CROSSING_ENVELOPE_LAW.honestCaveat;
       return (
@@ -517,7 +517,7 @@ export const IMP33599_WIDE_RANGE_BAND_CROSSING_ENVELOPE_LAW_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

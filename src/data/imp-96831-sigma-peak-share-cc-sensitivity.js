@@ -66,7 +66,7 @@
  * shrinks the binding conditional share is LOWERING C_C, which is pinned by imp-486
  * and is not a free lever. Measurement/sensitivity only; C_mb/C_C stay
  * GUE-conditional (imp-486); no bound changes, no positivity, no bridge closure, no
- * RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-96794-etrunc-reduction-peak-share-leverage (the E_trunc-side sweep; F3 is what this module tests)
  * @see imp-3406-sigma-highN-extrapolation (interior max N_max ~ 9.22e5, sigma_max ~ 0.9494)
@@ -176,7 +176,7 @@ export const IMP96831_SIGMA_PEAK_SHARE_CC_SENSITIVITY = {
     'truncation floor. The only in-model direction that shrinks the binding conditional share ' +
     'is LOWERING C_C, which is pinned by imp-486 and is not a free lever. Measurement/' +
     'sensitivity only; C_mb/C_C stay GUE-conditional (imp-486); no bound changes, no ' +
-    'positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-96794 (E_trunc-side sweep, F3 claim tested here); imp-3406 (interior max N_max ~ ' +
@@ -234,14 +234,14 @@ export const IMP96831_SIGMA_PEAK_SHARE_CC_SENSITIVITY_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/assessment only, F3-confirming verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement/assessment only, F3-confirming verdict, no QED, no refereed bound is changed.
     id: 'imp96831-honesty-gate-no-qed',
-    description: 'Assessment only: leverage-lives-in-C_C verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: leverage-lives-in-C_C verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP96831_SIGMA_PEAK_SHARE_CC_SENSITIVITY.isRigorous === false &&
       /LEVERAGE LIVES IN THE GUE-CONDITIONAL CONSTANT/.test(IMP96831_SIGMA_PEAK_SHARE_CC_SENSITIVITY.verdict) &&
       /NO QED/.test(IMP96831_SIGMA_PEAK_SHARE_CC_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP96831_SIGMA_PEAK_SHARE_CC_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP96831_SIGMA_PEAK_SHARE_CC_SENSITIVITY.verdict),
   },
 ];
 

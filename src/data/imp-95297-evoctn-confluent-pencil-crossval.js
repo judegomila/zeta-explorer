@@ -2,7 +2,7 @@
  * imp-95297: cross-validation of the imp-95285 THEOREM EV-OCT-N /
  * COROLLARY EV-OCT-N-UNIF firing onsets against DIRECT evaluation of the
  * exact every-octave CONFLUENT pencil. Verification only; changes no
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  *
  * WHAT imp-95285 REPORTED. The closed certificate certNm (finite m) and
  * certUnifN (m-uniform envelope) cross 1 (the collar fires) at bisected
@@ -112,7 +112,7 @@ export const IMP95297_EVOCTN_CONFLUENT_PENCIL_CROSSVAL = {
     "EV-OCT-N firing threshold is set by the COAL-N + leave-one-out " +
     "majorant slack, not by the exact configuration approaching Lambda = 1 " +
     "(imp-95285 HONEST LIMITS (d)/(f) confirmed). Verification only; " +
-    "changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.",
+    "changes no bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -411,7 +411,7 @@ export const IMP95297_ASSERTIONS = [
     id: "imp95297-verdict-honesty",
     description:
       "the verdict carries the honest labels: verification only, no bound " +
-      "change, collar fires, slack magnitudes recorded, NO QED, PT SOTA",
+      "change, collar fires, slack magnitudes recorded, NO QED, no refereed bound is changed",
     holds: () => {
       const v = IMP95297_EVOCTN_CONFLUENT_PENCIL_CROSSVAL.verdict;
       return (
@@ -419,7 +419,7 @@ export const IMP95297_ASSERTIONS = [
         /changes no bound/.test(v) &&
         /collar fires/.test(v) &&
         /NO QED/.test(v) &&
-        /remains SOTA/.test(v)
+        /refereed bound is changed/i.test(v)
       );
     },
   },

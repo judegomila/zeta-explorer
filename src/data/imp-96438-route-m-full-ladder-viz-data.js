@@ -14,8 +14,8 @@
  * a single chart can show the full oscillation from N=250 to N=6000.
  *
  * MEASUREMENT / PRESENTATION ONLY. Changes no bound, establishes no
- * operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. RH open. NO QED.
+ * operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96094-route-m-burnol-ratio-dense-ladder.js (N=250..2600 source)
  * @see imp-96105-route-m-vasyunin-gram-extend-n6000.js (N=3000..6000 source)
@@ -88,9 +88,9 @@ const IMP96438_ASSERTIONS = [
     id: 'imp96438-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96438_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96438_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96438_HONEST_BANNER) &&
       /NO QED/.test(IMP96438_HONEST_BANNER),
-    why: 'honesty gate: presentation only, no RH claim, PT stays SOTA.',
+    why: 'honesty gate: presentation only, no RH claim, no refereed bound is changed.',
   },
 ];
 

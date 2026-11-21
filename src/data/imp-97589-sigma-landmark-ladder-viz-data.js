@@ -13,7 +13,7 @@
  * flow term, E_trunc = 3.06e-5 fixed-strip constant), and the four landmark
  * points are pulled verbatim from the imp-97520 tabulated ladder object.
  * Nothing re-derived; no bound moves; establishes no operator positivity;
- * Platt-Trudgian Lambda<=0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97520-sigma-conditional-share-landmark-ladder.js (four-landmark ladder object, baked verbatim)
  *

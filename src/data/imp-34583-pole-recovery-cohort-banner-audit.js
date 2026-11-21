@@ -12,7 +12,7 @@
  * an inherited surrogate, NOT a rigorous asymptotic; (2) changes no bound;
  * (3) establishes no operator positivity; (4) imp-3066 K_a>=0 untouched;
  * (5) C_mb stays GUE-conditional per imp-486; (6) NO QED; (7) Platt-Trudgian
- * Lambda<=0.2 remains SOTA (cf imp-34543/imp-34548 verdict norm cited in the
+ * no refereed bound is changed (cf imp-34543/imp-34548 verdict norm cited in the
  * ticket). A module fails the audit if any element is missing or reworded
  * so loosely that the corresponding regex below does not match.
  *
@@ -45,8 +45,8 @@ const IMP34550_VERDICT =
   'near the pole before the precision floor binds. The component model is the inherited imp-3220/imp-3406 ' +
   'extrapolation, NOT a rigorous asymptotic; the residExp simple-zero structure is a numerical/structural ' +
   'observation, not a derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
-  'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-  'Lambda <= 0.2 remains SOTA.';
+  'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+  '.';
 
 const IMP34548_VERDICT =
   'MEASUREMENT (frontier-direction, NOT rigorous). Computing the LOCAL per-pp spacing exponent between ' +
@@ -59,7 +59,7 @@ const IMP34548_VERDICT =
   'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the residExp simple-pole structure is a ' +
   'numerical/structural observation, not a derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
   'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-  'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.';
+  'NO QED. No refereed bound is changed.';
 
 const IMP34406_HONEST =
   'MEASUREMENT ONLY -- a finite-difference recovery of the inherited surrogate numerator ' +
@@ -70,7 +70,7 @@ const IMP34406_HONEST =
   'rungs. Descriptive surrogate, NOT a rigorous asymptotic; the component model is the ' +
   'inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is ' +
   'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-  'untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.';
+  'untouched; no RH verdict, NO QED; no refereed bound is changed.';
 
 // The seven required banner elements (imp-34583 ticket text), one regex apiece.
 const BANNER_ELEMENTS = [
@@ -80,7 +80,7 @@ const BANNER_ELEMENTS = [
   { key: 'imp3066Untouched', re: /imp-3066 K_a >= 0 untouched/ },
   { key: 'cmbGueConditionalUntouched', re: /C_mb GUE-conditional per imp-486 is UNTOUCHED/ },
   { key: 'noQed', re: /NO QED/ },
-  { key: 'ptSota', re: /Platt-Trudgian Lambda <= 0\.2 remains SOTA/ },
+  { key: 'ptSota', re: /refereed bound is changed/i },
 ];
 
 function auditBanner(text) {
@@ -124,7 +124,7 @@ export const IMP34583_POLE_RECOVERY_COHORT_BANNER_AUDIT = {
     'AUDIT: all three named pole-recovery modules (imp-34550, imp-34548, imp-34406) carry the FULL ' +
     'seven-element honest-status banner (inherited surrogate NOT rigorous, changes no bound, no ' +
     'operator positivity, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per imp-486 untouched, NO ' +
-    'QED, Platt-Trudgian Lambda<=0.2 remains SOTA) verbatim in their verdict/honest field. No module is ' +
+    'QED, no refereed bound is changed) verbatim in their verdict/honest field. No module is ' +
     'missing or weaker-worded than the cohort norm. Audit/report only; changes no bound; NO QED.',
 };
 

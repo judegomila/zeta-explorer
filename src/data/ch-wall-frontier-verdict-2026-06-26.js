@@ -62,7 +62,7 @@
  * FUTILE: the true wall is metric-invariant -- the multi-body isolation D_rest --
  * so swapping W_1 for sup-norm relocates the obstruction without removing it.
  *
- * CONSEQUENCE: PLATT-TRUDGIAN Lambda <= 0.2 REMAINS the rigorous SOTA. The
+ * CONSEQUENCE: no refereed bound is changed. The
  * finite-N*=1e4 beat stays an ESTIMATE (rigorous-modulo-C_H = O(1)); cond-CH must
  * stay in the closure. The impossibility result ACTIVELY FORECLOSES the
  * Lipschitz/Gronwall path to a rigorous Lambda<0.2. No false QED. The skeptical
@@ -85,7 +85,7 @@ export const CH_WALL_FRONTIER = {
   residual: 'close the closed-form multi-body isolation constant c in [0.72,1) of sg1c R2-T (sg1c-r2-isolation-persistence) -- DETERMINISTIC, not RH-hard; scanned to ~0.943, not closed in form',
   foreclosed: 'a finite global-W_1 C_Lip is foreclosed within the W_1 bridge. CORRECTED (econn-metric-rearchitecture-verdict-2026-06-30): the sup-norm re-architecture is NOT foreclosed -- the metric is INCIDENTAL, not fundamental (in sup-norm g_min=min-over-pairs is 1-Lipschitz, so C_Lip is N-uniform ~9.4e-3). Re-architecting the metric is FUTILE, not impossible: the true wall is metric-invariant (the multi-body isolation D_rest), so swapping W_1 for sup-norm relocates but does not remove it.',
   metricCorrection: 'the prior blanket "sup-norm re-architecture foreclosed / global metric fundamental" was an OVERCLAIM about the C_Lip factor; W_1 is a norm CHOICE, not a wall (see econn-metric-rearchitecture-verdict-2026-06-30)',
-  sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; finite-N beat stays an ESTIMATE (cond-CH = O(1))',
+  sota: 'No refereed bound is changed; finite-N beat stays an ESTIMATE (cond-CH = O(1))',
 };
 
 export const CH_WALL_FRONTIER_ASSERTIONS = [
@@ -101,8 +101,8 @@ export const CH_WALL_FRONTIER_ASSERTIONS = [
   },
   {
     id: 'ch-frontier-sota-unchanged-no-qed',
-    description: 'PT 0.2 remains SOTA; finite-N beat stays ESTIMATE; no false QED',
-    holds: () => /Platt-Trudgian Lambda <= 0.2 remains/.test(CH_WALL_FRONTIER.sota) && /ESTIMATE/.test(CH_WALL_FRONTIER.sota),
+    description: 'No refereed bound is changed; finite-N beat stays ESTIMATE; no false QED',
+    holds: () => /refereed bound is changed/i.test(CH_WALL_FRONTIER.sota) && /ESTIMATE/.test(CH_WALL_FRONTIER.sota),
   },
 ];
 

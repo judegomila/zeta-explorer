@@ -70,8 +70,7 @@
  * forms are descriptive, not derived; the component model is the inherited imp-3220/imp-3406 extrapolation,
  * NOT a rigorous asymptotic; the OLS surrogate is descriptive, not derived; the imp-33843 log-linear-vs-power-
  * law FORM verdict is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34110-lto-per-pair-influence-ranking (the leave-TWO-out per-pair ranking extended here)
  * @see imp-34042-lto-model-selection-sensitivity (the 36 leave-two-out folds the pair ranking used)
@@ -277,8 +276,8 @@ export const IMP34171_LTO3_PER_TRIPLE_INFLUENCE_RANKING = {
     'descriptive, not derived; the OLS surrogate is descriptive, not derived; the component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the imp-33843 log-linear-vs-power-' +
     'law FORM verdict is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
-    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34110 (the leave-two-out per-pair ranking extended here); imp-34042 (the 36 leave-two-out folds); ' +
     'imp-33985 (the leave-ONE-out test naming kEnd = 11 most influential); imp-33941 (the log-form decision ' +
@@ -358,17 +357,17 @@ export const IMP34171_LTO3_PER_TRIPLE_INFLUENCE_RANKING_ASSERTIONS = [
       SPANNING_FOLD.rmsShift < MOST_DESTABILIZING.rmsShift,
   },
   {
-    // Honesty gate: influence ranking of an inherited sensitivity, isRigorous false, no QED, PT SOTA,
+    // Honesty gate: influence ranking of an inherited sensitivity, isRigorous false, no QED, no refereed bound is changed,
     // imp-3066 K_a >= 0 clause SPECIFICALLY untouched (imp-34024-26 convention -- a generic /UNTOUCHED/ regex
     // also matches the unrelated imp-33843 FORM and C_mb clauses, so bind to the imp-3066 statement), and the
     // C_mb GUE-conditional per imp-486 untouched-parent clause (imp-34178 cohort convention).
     id: 'imp34171-honesty-gate-imp3066-specific-no-qed',
-    description: 'Measurement only: isRigorous false, imp-3066 K_a >= 0 untouched (clause-specific), C_mb imp-486 untouched, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, imp-3066 K_a >= 0 untouched (clause-specific), C_mb imp-486 untouched, no QED, no refereed bound is changed',
     holds: () =>
       IMP34171_LTO3_PER_TRIPLE_INFLUENCE_RANKING.isRigorous === false &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34171_LTO3_PER_TRIPLE_INFLUENCE_RANKING.verdict) &&
       /NO QED/.test(IMP34171_LTO3_PER_TRIPLE_INFLUENCE_RANKING.verdict) &&
-      /remains SOTA/.test(IMP34171_LTO3_PER_TRIPLE_INFLUENCE_RANKING.verdict) &&
+      /refereed bound is changed/i.test(IMP34171_LTO3_PER_TRIPLE_INFLUENCE_RANKING.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34171_LTO3_PER_TRIPLE_INFLUENCE_RANKING.verdict),
   },
 ];

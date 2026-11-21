@@ -21,8 +21,7 @@
  *
  *   Ticket: imp-34456 (ux, medium). Presentation only of an already-established measurement;
  *   adds no new Lambda bound. Component model is the inherited imp-3220/imp-3406 extrapolation,
- *   NOT rigorous; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   NOT rigorous; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED. No refereed bound is changed.
  */
 
 // -- four-landmark coupling-ratio ladder: residual/(E_flow/E_trunc), pinned near leading value 2 --

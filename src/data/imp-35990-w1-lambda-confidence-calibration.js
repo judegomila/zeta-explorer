@@ -25,7 +25,7 @@
  * no W1 bound, changes no bound. The CERTIFIED a-priori bound stays the imp-35890 deterministic
  * ~6.41e-14; the certified length-N interval sum stays MECHANICAL / GREENFIELD (imp-35725 /
  * imp-35681 Part A); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * THE HIGHAM-MARY FAILURE-PROBABILITY MODEL
  * -----------------------------------------------------------------------------
@@ -72,7 +72,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35812 / imp-35890 / imp-35948) ----
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this assessment
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this assessment
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -222,8 +222,8 @@ export const IMP35990_W1_LAMBDA_CONFIDENCE_CALIBRATION = {
     'deterministic worst-case certificate; the CERTIFIED a-priori bound stays imp-35890 ~6.41e-14. ' +
     'Instantiates no directed-rounding interval; evaluates no true H_0; verifies no inequality; changes ' +
     'no bound; the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL ' +
-    '(imp-35725); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-35725); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35948 (the two probabilistic scales this calibrates lambda in); imp-35890 (CERTIFIED ' +
     'deterministic running-accumulator bound ~6.41e-14); imp-35812 (exact-BigInt achieved naive error ' +
@@ -306,16 +306,16 @@ export const IMP35990_W1_LAMBDA_CONFIDENCE_CALIBRATION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: probabilistic (independence-conditional), NOT certified; greenfield; no QED; PT SOTA.
+    // Honesty gate: probabilistic (independence-conditional), NOT certified; greenfield; no QED; no refereed bound is changed.
     id: 'imp35990-honesty-gate',
-    description: 'Probabilistic/not-certified; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Probabilistic/not-certified; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35990_W1_LAMBDA_CONFIDENCE_CALIBRATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       IMP35990_W1_LAMBDA_CONFIDENCE_CALIBRATION.lambdaCalibration.bothBelowUnity === true &&
       /GREENFIELD/.test(IMP35990_W1_LAMBDA_CONFIDENCE_CALIBRATION.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35990_W1_LAMBDA_CONFIDENCE_CALIBRATION.verdict) &&
-      /remains SOTA/.test(IMP35990_W1_LAMBDA_CONFIDENCE_CALIBRATION.verdict),
+      /refereed bound is changed/i.test(IMP35990_W1_LAMBDA_CONFIDENCE_CALIBRATION.verdict),
   },
 ];
 

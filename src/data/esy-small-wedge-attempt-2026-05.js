@@ -307,7 +307,7 @@ export const ESY_SMALL_WEDGE_ATTEMPT = {
   explicitScaleC: null,        // No c achieves a wedge.
   explicitRateA: null,         // No a < 2 was achieved.
   tighteningFactor: 0,         // Asymptotic Lambda is NOT improved by this attempt.
-  newAsymptoticBound: null,    // Platt-Trudgian 0.2 stands.
+  newAsymptoticBound: null,    // No refereed bound is changed.
 
   ptAsymptoticBaseline: PT_ASYMPTOTIC_BOUND,
   ptComputationHeight: T_PT,

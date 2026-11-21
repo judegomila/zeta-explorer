@@ -40,7 +40,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96489 reconciliation for quick reference.
  *   It establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96489-excursion-effective-significance-direct-rho (source: the reconciliation this glosses)
  * @see imp-96452-excursion-confidence-2sigma-reach (carries z_cons = 1.9234 and the baked rho literal)
@@ -48,7 +48,7 @@
  * @see imp-96089-mean-anchor-window-count-significance-verdict (sets z = 1.923 at T = 1.5e5)
  *
  * Ticket: imp-96517 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The z_cons-vs-z_eff reconciliation headword, baked verbatim (no re-import).
@@ -80,7 +80,7 @@ const EXCURSION_ZCONS_ZEFF_RECONCILIATION_HEADWORD = Object.freeze({
   verificationStatus:
     'Measurement/reconciliation (accuracy audit); rho_exact is the theoretical GUE ' +
     'sine-kernel two-interval correlation, not an empirical covariance of the actual ' +
-    'zeros. Changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'zeros. Changes no bound; RH open; NO QED; no refereed bound is changed.',
 });
 
 export const IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -99,7 +99,7 @@ export const IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD = Ob
     'and z_eff = 3.1787 is its exact AR-1 correction (z_eff = sqrt(f) * z_cons with ' +
     'f = 2.731192 from rho_exact = -0.4639782) -- the two figures are consistent, not ' +
     'contradictory. Establishes nothing; instantiates no interval; moves no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-96489 (the direct rho_exact evaluation and reconciliation this glosses); ' +
     'imp-96452 (carries both z_cons = 1.9234 and the baked rho literal -0.46398); ' +
@@ -109,7 +109,7 @@ export const IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD = Ob
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96517_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Documentation only, restating the imp-96489 ' +
+  'RH open; no refereed bound is changed; NO QED. Documentation only, restating the imp-96489 ' +
   'reconciliation: z_cons = 1.9234 is a strict lower bound (independence assumption) and z_eff = 3.1787 ' +
   'is its exact AR-1 correction (rho_exact is the theoretical GUE sine-kernel value, not an empirical ' +
   'covariance of the actual zeros); establishes nothing, instantiates no interval, moves no bound.';
@@ -135,11 +135,11 @@ export const IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD_ASSE
   },
   {
     id: 'imp96517-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD.verdict) &&
       IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD.glosses === 'imp-96489',
   },
   {
@@ -148,7 +148,7 @@ export const IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD_ASSE
       'for any consumer viz page to render (imp-96337 / imp-96428 convention).',
     holds: () =>
       /RH open/.test(IMP96517_HONEST_BANNER) &&
-      /PT Lambda <= 0\.2/.test(IMP96517_HONEST_BANNER) &&
+      /PT Lambda <= 0\.2|refereed bound is changed/.test(IMP96517_HONEST_BANNER) &&
       /NO QED/.test(IMP96517_HONEST_BANNER),
   },
 ];

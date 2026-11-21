@@ -124,7 +124,7 @@
  * strip endpoints, covered-band floor 0.2320727, k <= 4 ladder floor
  * 47/200 all carried UNCHANGED -- this step contracts the covered-band
  * burden, it closes no sub-band of the open strip. Changes no Lambda
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  *
  * Import-light; zero imports; deterministic; in-sweep ~2.5 s (the full
  * 55k-cell certified cover plus four batteries).
@@ -701,7 +701,7 @@ export const IMP95170_MERGE_CONSISTENT_COPOSITIVE_COVER = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // ---------------------------------------------------------------------------

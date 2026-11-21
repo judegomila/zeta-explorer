@@ -31,8 +31,7 @@
  * (a scalar per-pair floor vs. the lattice's sharper twin-pair symbol),
  * not to scalar-floor slack -- that slack is gone after SEP-OPT.
  *
- * Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * Changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * @see imp-95457-off-lattice-riesz-floor-status-note (source WHAT-REMAINS ledger)
  * @see imp-95335-ingham-offlattice-riesz-floor (original bracket [A_sep, A_lat])
@@ -99,7 +98,7 @@ export const IMP_95609_SEAM_GRAM_ONSET_LADDER_TABLE = {
     'documentation only, consolidating imp-95457 (status note), imp-95335 ' +
     '(A_sep bracket), imp-95419 (THEOREM SEP-OPT), and imp-95475 ' +
     '(XSTAR_UNIF robustness) into a single ordered table; no Lambda bound ' +
-    'moves; Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    'moves; no refereed bound is changed',
   closesTickets: ['imp-95609'],
 };
 

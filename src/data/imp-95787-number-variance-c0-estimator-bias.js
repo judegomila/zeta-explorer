@@ -43,8 +43,8 @@
  * bottom the three estimators give r_cap(3e12) in [0.196, 0.260] -- all far below 1 -- so
  * the r_cap < 1 conservatism does not depend on the max-vs-mean-vs-per-height choice.
  * Measure/assess only; the Selberg leading log log cap is unconditional; the detailed
- * saturation shape is PCC/GRH-gated; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * saturation shape is PCC/GRH-gated; changes no bound; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * Import-light: no zeros bundle, no sibling imports. Only the six sd(C - E) literals are
  * measured (imp-95562 over the verified ordinates); every derived quantity is recomputed
@@ -138,7 +138,7 @@ export const IMP95787_NUMBER_VARIANCE_C0_ESTIMATOR_BIAS = {
     conservatismInvariant: rCapMax < 1, // whole estimator range below the GUE asymptote 1
   },
   verdict:
-    'ESTIMATOR-CHOICE bias of the imp-95722 offset C0 = 0.3337. The six per-height windowing offsets span [0.2106, 0.3337] (spread 0.1231, sd 0.0399), and the max-based C0 is pinned by the single anomalous T = 1.5e5 height -- the same non-monotone bump imp-95710 flagged -- not by a trend. So the max-based C0 is a deliberate OVER-estimate of the true windowing correction: it exceeds the mean-based central offset 0.2618 by +27.5% (and the min 0.2106 by +58%). This is the correct conservative direction -- an upper envelope must over-shoot, and over-stating C0 can only ENLARGE the cap r_cap, never falsely strengthen the r_cap < 1 claim. Propagated to the imp-95519 window bottom, the three estimators give r_cap(3.0e12) in [0.196, 0.260], the whole range far below the GUE asymptote 1, so the QUALITATIVE conservatism is INVARIANT to the max-vs-mean-vs-per-height choice, consistent with the imp-95766 "robust to ~4x error" headroom. Measure/assess only; the Selberg leading log log cap is unconditional; the detailed saturation shape is PCC/GRH-gated; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'ESTIMATOR-CHOICE bias of the imp-95722 offset C0 = 0.3337. The six per-height windowing offsets span [0.2106, 0.3337] (spread 0.1231, sd 0.0399), and the max-based C0 is pinned by the single anomalous T = 1.5e5 height -- the same non-monotone bump imp-95710 flagged -- not by a trend. So the max-based C0 is a deliberate OVER-estimate of the true windowing correction: it exceeds the mean-based central offset 0.2618 by +27.5% (and the min 0.2106 by +58%). This is the correct conservative direction -- an upper envelope must over-shoot, and over-stating C0 can only ENLARGE the cap r_cap, never falsely strengthen the r_cap < 1 claim. Propagated to the imp-95519 window bottom, the three estimators give r_cap(3.0e12) in [0.196, 0.260], the whole range far below the GUE asymptote 1, so the QUALITATIVE conservatism is INVARIANT to the max-vs-mean-vs-per-height choice, consistent with the imp-95766 "robust to ~4x error" headroom. Measure/assess only; the Selberg leading log log cap is unconditional; the detailed saturation shape is PCC/GRH-gated; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -164,8 +164,8 @@ export const IMP95787_NUMBER_VARIANCE_C0_ESTIMATOR_BIAS = {
   // honesty gates
   if (!/NO QED/.test(IMP95787_NUMBER_VARIANCE_C0_ESTIMATOR_BIAS.verdict))
     throw new Error('imp-95787: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95787_NUMBER_VARIANCE_C0_ESTIMATOR_BIAS.verdict))
-    throw new Error('imp-95787: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95787_NUMBER_VARIANCE_C0_ESTIMATOR_BIAS.verdict))
+    throw new Error('imp-95787: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95787_NUMBER_VARIANCE_C0_ESTIMATOR_BIAS;

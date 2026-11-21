@@ -58,7 +58,7 @@ export const DECADE_LABEL_CONSISTENCY_AUDIT = {
     'unrelated and not counted as a conflict.',
   honest:
     'AUDIT-ONLY -- confirms label consistency across existing text; adds no new ' +
-    'derivation or measurement and changes no bound. PT Lambda <= 0.2 remains SOTA.',
+    'derivation or measurement and changes no bound. No refereed bound is changed.',
 };
 
 export const DECADE_LABEL_CONSISTENCY_AUDIT_ASSERTIONS = [
@@ -94,10 +94,10 @@ export const DECADE_LABEL_CONSISTENCY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-33896-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no new math, no bound change) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no new math, no bound change) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(DECADE_LABEL_CONSISTENCY_AUDIT.honest)
       && /changes no bound/.test(DECADE_LABEL_CONSISTENCY_AUDIT.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(DECADE_LABEL_CONSISTENCY_AUDIT.honest),
+      && /refereed bound is changed/i.test(DECADE_LABEL_CONSISTENCY_AUDIT.honest),
   },
 ];
 

@@ -60,8 +60,7 @@
  * MEASUREMENT / CROSS-VALIDATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (C1 E_flow-off Banach fixed point N_off ~ 3.280294e9)
  * @see imp-33750-eflow-corrected-crossover-fixed-point (C2 E_flow-on fixed point N_on ~ 3.267235e9)
@@ -213,7 +212,7 @@ export const IMP35054_TWO_CLOSED_FORM_CROSSOVERS_CROSS_VALIDATION = {
     'cache tolerance. Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33723 (E_flow-off Banach closed form N_off ~ 3.280294e9); imp-33750 (E_flow-on corrected fixed ' +
     'point N_on ~ 3.267235e9); imp-33601 (identity sigma=1/2 <=> E_coll=E_trunc+E_flow); imp-33582 ' +
@@ -268,13 +267,13 @@ export const IMP35054_TWO_CLOSED_FORM_CROSSOVERS_CROSS_VALIDATION_ASSERTIONS = [
     holds: () => CHECK_OFF_PUB < 1e-6 && CHECK_ON_PUB < 1e-6,
   },
   {
-    // Honesty gate: measurement/cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/cross-validation only, no QED, no refereed bound is changed.
     id: 'imp35054-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35054_TWO_CLOSED_FORM_CROSSOVERS_CROSS_VALIDATION.isRigorous === false &&
       /NO QED/.test(IMP35054_TWO_CLOSED_FORM_CROSSOVERS_CROSS_VALIDATION.verdict) &&
-      /remains SOTA/.test(IMP35054_TWO_CLOSED_FORM_CROSSOVERS_CROSS_VALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP35054_TWO_CLOSED_FORM_CROSSOVERS_CROSS_VALIDATION.verdict),
   },
 ];
 

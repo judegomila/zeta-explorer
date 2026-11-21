@@ -52,7 +52,7 @@
  * NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34172-deep-ladder-second-path-crossvalidation (Y2 measured the e=19 tie margin extended here)
  * @see imp-34106-sawtooth-phase-realignment-deep-ladder (the deep e=15..20 ladder profiled here)
@@ -287,8 +287,8 @@ export const IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION = {
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= ' +
-    '0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34172 (Y2 measured the e=19 tie margin extended here); imp-34106 (the deep e=15..20 ladder ' +
     'profiled here); imp-34168 (higher-precision-k* re-run of the departure); imp-33878 (source of ' +
@@ -340,16 +340,16 @@ export const IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION_ASSERTIONS = [
     holds: () => CLASS_PREDICTS_FLIP && RAW_FLIP_EXPONENTS.join(',') === '19,20',
   },
   {
-    // Honesty gate: measurement only, isRigorous false, QUANTIFIES the imp-34172 margin across e=15..20, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, QUANTIFIES the imp-34172 margin across e=15..20, no QED, no refereed bound is changed.
     id: 'imp34250-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, QUANTIFIES the imp-34172 Y2 margin across e=15..20, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Measurement only: isRigorous false, QUANTIFIES the imp-34172 Y2 margin across e=15..20, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION.isRigorous === false &&
       /QUANTIFIES the imp-34172 Y2 top-two precision-floor margin across the FULL imp-34106 deep ladder/.test(
         IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION.verdict,
       ) &&
       /NO QED/.test(IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION.verdict) &&
-      /remains SOTA/.test(IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION.verdict),

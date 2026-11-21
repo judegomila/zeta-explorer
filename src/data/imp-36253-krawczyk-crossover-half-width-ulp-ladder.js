@@ -43,7 +43,7 @@
  * directed-rounding MODEL, NOT the imp-34687a layer (which remains unimplemented); it instantiates NO
  * certified interval, ports NO operator, and does NOT discharge the F(m) = 0 residual-at-root artifact.
  * imp-34714a and imp-34687a REMAIN OPEN; C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486)
- * UNTOUCHED; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36153-krawczyk-residual-surrogate-layer-ratio-a-dependence (source: the a-sweep and F3 ULP(N) claim this tabulates)
  * @see imp-36017-krawczyk-residual-surrogate-vs-layer-discrepancy (the point-input "a-independent 2x" claim)
@@ -282,7 +282,7 @@ export const IMP36253_KRAWCZYK_CROSSOVER_HALF_WIDTH_ULP_LADDER = {
     'crossover is NECESSARY context but not SUFFICIENT. Reuses the imp-36017/imp-36153/imp-35969 machinery ' +
     '(identical K_AMPL, g, N_cross, nextUp/nextDown, LAYER formula); C_C = 1/8 (imp-2642/2643) and C_mb ' +
     'GUE-conditional (imp-486) UNTOUCHED; changes no bound; establishes no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36153 (surrogate/layer ratio a-sweep; F3 "scales with ULP(N)" this tabulates); imp-36017 ' +
     '(point-input surrogate/layer width sweep; "a-independent 2x"); imp-36066 (residual-node ' +
@@ -319,15 +319,15 @@ export const IMP36253_KRAWCZYK_CROSSOVER_HALF_WIDTH_ULP_LADDER_ASSERTIONS = [
     holds: () => CROSSING_IS_STEP === true,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gaps open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gaps open, no interval, no QED, no refereed bound is changed.
     id: 'imp36253-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a/imp-34687a open, NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a/imp-34687a open, NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP36253_KRAWCZYK_CROSSOVER_HALF_WIDTH_ULP_LADDER.isRigorous === false &&
       /imp-34714a AND imp-34687a REMAIN OPEN/.test(IMP36253_KRAWCZYK_CROSSOVER_HALF_WIDTH_ULP_LADDER.subGap) &&
       /NECESSARY (context )?but not SUFFICIENT/.test(IMP36253_KRAWCZYK_CROSSOVER_HALF_WIDTH_ULP_LADDER.subGap) &&
       /NO QED/.test(IMP36253_KRAWCZYK_CROSSOVER_HALF_WIDTH_ULP_LADDER.verdict) &&
-      /remains SOTA/.test(IMP36253_KRAWCZYK_CROSSOVER_HALF_WIDTH_ULP_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP36253_KRAWCZYK_CROSSOVER_HALF_WIDTH_ULP_LADDER.verdict),
   },
 ];
 

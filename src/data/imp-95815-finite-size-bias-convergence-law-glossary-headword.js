@@ -48,7 +48,7 @@
  *   rather than the disputed 2.4-2.7 figure.
  *
  *   STATUS: a glossary/Concepts lookup only. Establishes nothing new; changes
- *   no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no bound; NO QED. No refereed bound is changed.
  *
  * @see imp-95788-twin-pair-deep-corner-finite-n-bias-convergence (source: the convergence law this glosses)
  * @see imp-95762-twin-pair-block-floor-finite80-dd-eigensolver (the finite-80 51.63pct headline the law explains)
@@ -57,7 +57,7 @@
  * @see imp-95845-deep-corner-biasN2-widom-fit (closes the imp-95803 drift as O(N^-3) on a fixed p=2, exact constant C_Widom)
  *
  * Ticket: imp-95815 (content, low). Documentation only; establishes nothing;
- * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * changes no bound; NO QED; no refereed bound is changed.
  */
 
 // The finite-size bias convergence law headword, baked verbatim (no re-import).
@@ -119,8 +119,8 @@ export const IMP95815_FINITE_SIZE_BIAS_CONVERGENCE_LAW_GLOSSARY_HEADWORD = Objec
     'exponent read as superseded by imp-95803 (drifts toward p~2, since ' +
     'closed by imp-95845 as a fixed p=2 with O(N^-3) tail and exact constant ' +
     'C_Widom) while the qualitative law stands. Establishes nothing; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95788 (the finite-size bias convergence law this glosses); ' +
     'imp-95762 (the finite-80 51.63pct headline the law explains); ' +
@@ -152,11 +152,11 @@ export const IMP95815_FINITE_SIZE_BIAS_CONVERGENCE_LAW_GLOSSARY_HEADWORD_ASSERTI
   },
   {
     id: 'imp95815-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95815_FINITE_SIZE_BIAS_CONVERGENCE_LAW_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95815_FINITE_SIZE_BIAS_CONVERGENCE_LAW_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95815_FINITE_SIZE_BIAS_CONVERGENCE_LAW_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95815_FINITE_SIZE_BIAS_CONVERGENCE_LAW_GLOSSARY_HEADWORD.verdict) &&
       IMP95815_FINITE_SIZE_BIAS_CONVERGENCE_LAW_GLOSSARY_HEADWORD.glosses === 'imp-95788',
   },
 ];

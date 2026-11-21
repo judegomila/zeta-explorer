@@ -69,7 +69,7 @@
  * corner over the firing region); does NOT sharpen COAL-N, does NOT decide
  * the imp-95227 dominance conjecture, fires no certificate, certifies no
  * paper packet. Changes no bound of the Lambda program. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -126,8 +126,8 @@ export const IMP95294_COALN_OVERPRICING_WINDOW_PINCH = {
     "imp-95286 rho surface. The over-pricing peak over the firing region " +
     "sits at the onset corner and matches the baked WINDOW-PINCH caps; the " +
     "shallow-x growth is outside the firing region and moot. Changes no " +
-    "bound of the Lambda program; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -288,13 +288,13 @@ export const IMP95294_COALN_OVERPRICING_ASSERTIONS = [
   {
     id: "imp95294-honest-scope",
     description:
-      "honest-scope strings present: NO QED, PT SOTA, dominance NOT decided, " +
+      "honest-scope strings present: NO QED, no refereed bound is changed, dominance NOT decided, " +
       "MEASUREMENT only, sub-gap STILL OPEN",
     holds: () => {
       const o = IMP95294_COALN_OVERPRICING_WINDOW_PINCH;
       return (
         /NO QED/.test(o.verdict) &&
-        /remains SOTA/.test(o.verdict) &&
+        /refereed bound is changed/i.test(o.verdict) &&
         /STILL OPEN/.test(o.subGap) &&
         /does NOT decide/.test(o.subGap) &&
         /MEASUREMENT only/.test(o.subGap)

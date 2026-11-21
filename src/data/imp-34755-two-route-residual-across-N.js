@@ -45,7 +45,7 @@
  * an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation; the C_C = (1/8)
  * sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34733-crossover-closedform-vs-picard-crosstab (parent: single-seed two-route cross-tabulation)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (route A: closed-form fixed point N_cross)
@@ -166,7 +166,7 @@ export const IMP34755_TWO_ROUTE_RESIDUAL_ACROSS_N = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 ' +
     'untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34733 (parent: single-seed closed-form vs Picard cross-tabulation); imp-33723 (closed-form ' +
     'crossover fixed point N_cross); imp-34693/imp-34676 (Picard terminal value, iterate counts, seed ' +
@@ -211,13 +211,13 @@ export const IMP34755_TWO_ROUTE_RESIDUAL_ACROSS_N_ASSERTIONS = [
       TABLE.some((r) => r.seed_exponent === 300),
   },
   {
-    // Honesty gate: measurement of a surrogate consistency property, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: measurement of a surrogate consistency property, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34755-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34755_TWO_ROUTE_RESIDUAL_ACROSS_N.isRigorous === false &&
       /NO QED/.test(IMP34755_TWO_ROUTE_RESIDUAL_ACROSS_N.verdict) &&
-      /remains SOTA/.test(IMP34755_TWO_ROUTE_RESIDUAL_ACROSS_N.verdict),
+      /refereed bound is changed/i.test(IMP34755_TWO_ROUTE_RESIDUAL_ACROSS_N.verdict),
   },
 ];
 

@@ -13,7 +13,7 @@
  *     residual that sup_{N,j} B_j equals)
  *
  *   Ticket: imp-33550 (ux, low). Presentation only, RH-equivalent; imp-3066
- *   untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ *   untouched; no refereed bound is changed; NO QED.
  */
 
 // max_j B_j (= max_j P_j/D_j) per imp-3725 plateau (thetaBar=0.99) of

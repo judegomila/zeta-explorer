@@ -46,7 +46,7 @@
  * GUE-conditional per imp-486). The component model is the inherited imp-3220/imp-3406 extrapolation, NOT
  * a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463);
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34950-eflow-crossing-strength-cmb-exponent-structural (the p = 1.5493 +/- 8.9e-4 exponent + CI this tests for window stability)
  * @see imp-34956-pinned-product-window-sensitivity (the ~52.8x X_CROSS window freedom this connects to the exponent)
@@ -329,7 +329,7 @@ export const IMP35015_CROSSING_STRENGTH_EXPONENT_WINDOW_STABILITY = {
     'GUE-conditional per imp-486). The component model is the inherited imp-3220/imp-3406 extrapolation, NOT ' +
     'a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS imp-35015: the imp-34950 crossing-strength C_mb exponent p = 1.5493 is EXACTLY ' +
     'landmark-window-stable -- re-extracted at 10 X_CROSS windows over [1e9,1e11] it is 1.54933 at every ' +
@@ -383,16 +383,16 @@ export const IMP35015_CROSSING_STRENGTH_EXPONENT_WINDOW_STABILITY_ASSERTIONS = [
       Math.abs(DX_DLNCMB - 2.089) < 0.05,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed.
     id: 'imp35015-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed',
     holds: () =>
       IMP35015_CROSSING_STRENGTH_EXPONENT_WINDOW_STABILITY.isRigorous === false &&
       IMP35015_CROSSING_STRENGTH_EXPONENT_WINDOW_STABILITY.farTailExponent === 0.5 &&
       typeof IMP35015_CROSSING_STRENGTH_EXPONENT_WINDOW_STABILITY.subGap === 'string' &&
       /imp-486/.test(IMP35015_CROSSING_STRENGTH_EXPONENT_WINDOW_STABILITY.subGap) &&
       /NO QED/.test(IMP35015_CROSSING_STRENGTH_EXPONENT_WINDOW_STABILITY.verdict) &&
-      /remains SOTA/.test(IMP35015_CROSSING_STRENGTH_EXPONENT_WINDOW_STABILITY.verdict),
+      /refereed bound is changed/i.test(IMP35015_CROSSING_STRENGTH_EXPONENT_WINDOW_STABILITY.verdict),
   },
 ];
 

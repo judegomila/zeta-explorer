@@ -80,7 +80,7 @@
  * input, no new bound, no operator positivity, and NO numeric change to the
  * imp-95767 certified interval. Model seam family only; the imp-95212 envelope
  * port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the
- * Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. Sun
+ * Lambda program; NO QED; no refereed bound is changed. Sun
  * arXiv:2609.04176 unrefereed.
  *
  * @see imp-95767-dual-primal-agreement-interval (the certified interval audited here)
@@ -169,8 +169,8 @@ export const IMP95826_DUAL_PRIMAL_DD_EXTRAPOLATION_LIMITED_PER_DELTA_AUDIT = {
     "structure is CONFIRMED where a grid exists and CONSISTENT everywhere via reach-universality, but not " +
     "directly baked at ln1.2. Numerical audit; no new cited input; no numeric change to the imp-95767 " +
     "certified interval; model seam family only; the imp-95212 envelope port, signed WEIGHT, and " +
-    "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95826"],
 };
 
@@ -295,7 +295,7 @@ export const IMP95826_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /AUDITED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95826-closes-self",

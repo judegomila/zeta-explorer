@@ -66,8 +66,7 @@
  *   floating-point behaviour of a quadrature value for a fixed autocorrelation weight used inside a
  *   mass-feasibility diagnostic; it establishes NO operator positivity. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-3873-a-weight-offline-literal-independent-reproduction.js (the tau in {2.5,3.0} scheme this extends)
  *   @see imp-3850-a-weight-dual-path-tau25-30-reconciliation.js (the offline-literal source)
@@ -263,7 +262,7 @@ export const IMP3897_A_WEIGHT_SUBSTITUTION_SIMPSON_TAU35_40_PRECISION_FLOOR = Ob
     'so the breakdown is fixed-rule under-resolution of the collapsing peak, NOT a precision floor. The genuine ' +
     'absolute double-precision floor ulp(V)=|V|*2^-52=1 lands at tau~8.73, beyond the tau~6 cancellation floor ' +
     'that actually bounds the clean window. ACCURACY/PRECISION MEASUREMENT, RH-EQUIVALENT, ' +
-    'necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s) Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -333,7 +332,7 @@ export const IMP3897_A_WEIGHT_SUBSTITUTION_SIMPSON_TAU35_40_PRECISION_FLOOR = Ob
       'to ~1 ULP through tau=6 and that the only observed degradation is a fixed companion rule under-resolving ' +
       'the peak. It says nothing about the imp-3730 CANCELLATION floor near tau~6 (a property of the amp-sum ' +
       'inside logPhiFactored), which remains the binding limit on the clean window.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -385,7 +384,7 @@ export const IMP3897_A_WEIGHT_SUBSTITUTION_SIMPSON_TAU35_40_PRECISION_FLOOR_ASSE
   {
     id: 'imp3897-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: precision measurement only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3897_A_WEIGHT_SUBSTITUTION_SIMPSON_TAU35_40_PRECISION_FLOOR.honestCaveat;
       return (
@@ -393,7 +392,7 @@ export const IMP3897_A_WEIGHT_SUBSTITUTION_SIMPSON_TAU35_40_PRECISION_FLOOR_ASSE
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

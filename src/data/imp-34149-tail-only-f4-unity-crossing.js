@@ -53,7 +53,7 @@
  * NOT an RH bound. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the
  * factor identity is exact WITHIN that model only; changes no bound; establishes no operator positivity;
  * imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34086-aggregate-share-asymmetric-trim (the tail-only F4 unity crossing this locates, R3)
  * @see imp-34148-symmetric-trim-f4-cancellation (the companion symmetric-trim crossing, m* ~ 0.6791)
@@ -247,7 +247,7 @@ export const IMP34149_TAIL_ONLY_F4_UNITY_CROSSING = {
     '|ln F4|=0 crossing. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; ' +
     'the factor identity is exact WITHIN the model only; changes no bound; establishes no operator ' +
     'positivity; imp-3066 K_a >= 0 untouched; the C_mb GUE-conditional per imp-486 is UNTOUCHED; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34086 (the tail-only F4 unity crossing this locates, R3); imp-34148 (the companion symmetric ' +
     'crossing m* ~ 0.6791); imp-34009 (the symmetric endpoint sweep + m=1 share bump); imp-33962 (the ' +
@@ -301,13 +301,13 @@ export const IMP34149_TAIL_ONLY_F4_UNITY_CROSSING_ASSERTIONS = [
       TAIL_WINDOWS[1]._lnF4 > 0,
   },
   {
-    // Honesty gate: numerical/measurement only, isRigorous false, no QED, PT SOTA, imp-3066 untouched.
+    // Honesty gate: numerical/measurement only, isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34149-honesty-gate-no-qed',
-    description: 'Located-crossing measurement only: isRigorous false, no QED, PT SOTA, imp-3066 untouched',
+    description: 'Located-crossing measurement only: isRigorous false, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34149_TAIL_ONLY_F4_UNITY_CROSSING.isRigorous === false &&
       /NO QED/.test(IMP34149_TAIL_ONLY_F4_UNITY_CROSSING.verdict) &&
-      /remains SOTA/.test(IMP34149_TAIL_ONLY_F4_UNITY_CROSSING.verdict) &&
+      /refereed bound is changed/i.test(IMP34149_TAIL_ONLY_F4_UNITY_CROSSING.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34149_TAIL_ONLY_F4_UNITY_CROSSING.verdict),
   },
 ];

@@ -69,7 +69,7 @@
  *   CV holds under a doubled sample -- not the exact R^2 / CV / period. The NPHI = 10 Phi-series
  *   truncation is inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the
  *   operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is
- *   UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the SOTA.
+ *   UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33639-cluster-peak-spacing-periodicity-fit.js (the nine [400,900] peak spacing fit this extends)
  *   @see imp-33660-cluster-peak-envelope-height-growth-fit.js (the same [400,1200] sixteen-cluster scan)
@@ -314,7 +314,7 @@ const verdict =
       'NOT-REVEAL-A-QUASI-PERIOD:-THE-CV-HOLDS,-THE-RANGE-WIDENS,-THE-SPACING-IS-IRREGULAR-/-JITTER-DOMINATED,-NOT-' +
       'QUASI-PERIODIC-(imp-33599/imp-33621/imp-33638/imp-33639-latticeJitterCaveat).-ACCURACY/RULE-DESIGN-' +
       'MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-' +
-      'NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33661_CLUSTER_PEAK_SPACING_PERIODICITY_EXTENDED = Object.freeze({
@@ -342,7 +342,7 @@ export const IMP33661_CLUSTER_PEAK_SPACING_PERIODICITY_EXTENDED = Object.freeze(
     'doubling the sample does NOT reveal a quasi-period; the CV holds, the range widens, the spacing is ' +
     'jitter-dominated (imp-33599/imp-33621/imp-33638/imp-33639 latticeJitterCaveat). ACCURACY/RULE-DESIGN ' +
     'MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; operator positivity ' +
-    '(imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    '(imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -456,7 +456,7 @@ export const IMP33661_CLUSTER_PEAK_SPACING_PERIODICITY_EXTENDED = Object.freeze(
       'period, the ~17.3-rung residual RMS, the ~0.47 CV, and the ~0.01/~0.02 spacing-law R^2. The robust reading ' +
       'is the QUALITATIVE conclusion -- no fixed period, spacing irregular, CV persists under a doubled sample, ' +
       'not quasi-periodic -- not the exact fit coefficients.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -516,7 +516,7 @@ export const IMP33661_CLUSTER_PEAK_SPACING_PERIODICITY_EXTENDED_ASSERTIONS = [
   {
     id: 'imp33661-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33661_CLUSTER_PEAK_SPACING_PERIODICITY_EXTENDED.honestCaveat;
       return (
@@ -525,7 +525,7 @@ export const IMP33661_CLUSTER_PEAK_SPACING_PERIODICITY_EXTENDED_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -68,8 +68,7 @@
  *   Ticket: imp-3602 (numerical, medium). MEASUREMENT ONLY: measures the second gap
  *   exponent across the ladder and finds it converges to the same -2 heuristic as the
  *   first gap. Does NOT construct the missing magnitude and does NOT attempt the
- *   imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict, NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -220,7 +219,7 @@ export const IMP3602_SKEW_TOEPLITZ_SECOND_GAP_EXPONENT = Object.freeze({
     'certification, so lambda_5 is a genuine third-pair level, not a reorthogonalization ghost. So the -2 heuristic is ' +
     'a property of the whole leading spectrum, not only rho = lambda_3/lambda_1. Measurement only; does NOT construct ' +
     'the missing magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     gapQuantity: 'sigma_2(N) = lambda_5/lambda_1 of the Gram S = T^T T of Ttilde(u,v)=a(v-u)R(|v-u|) (Gram-eigenvalue convention = sigma_5^2/sigma_1^2, same as imp-3575 rho=lambda_3/lambda_1)',
@@ -307,7 +306,7 @@ export const IMP3602_SKEW_TOEPLITZ_SECOND_GAP_EXPONENT = Object.freeze({
       'the paired leading spectrum, offered as a candidate law; only two pair-gaps (rho, sigma_2) are measured, so ' +
       'the j^2-1 ordering is suggested by a single ratio, not confirmed across many pairs.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -353,7 +352,7 @@ export const IMP3602_SKEW_TOEPLITZ_SECOND_GAP_EXPONENT_ASSERTIONS = [
   {
     id: 'imp3602-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- measures a second gap exponent, positivity not attempted, ' +
-      'RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3602_SKEW_TOEPLITZ_SECOND_GAP_EXPONENT.honestCaveat;
       return (
@@ -363,7 +362,7 @@ export const IMP3602_SKEW_TOEPLITZ_SECOND_GAP_EXPONENT_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.measuresNotConstructs === 'string' &&
         typeof c.amplitudeRatioIsEmpirical === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

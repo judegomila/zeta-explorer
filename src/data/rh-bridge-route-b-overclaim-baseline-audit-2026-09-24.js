@@ -80,7 +80,7 @@
  *
  * HONEST SCOPE: no Lambda bound, no RH claim, NO QED. Nothing here refutes |t_c(N)| <= 0.384
  * sqrt(log gamma_N / N) as a statement about the actual collision times; it removes its claimed
- * proof. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * proof. No refereed bound is changed.
  *
  * @see dyson-burgers-shock.js (G6_PER_N_BOUND.overclaimCorrection)
  * @see rh-bridge-supercritical-fluid-shock-scaling-2026-09-24.js (fold law, MIN_GAP_LADDER)
@@ -177,7 +177,7 @@ export const ROUTE_B_OVERCLAIM_BASELINE_AUDIT = Object.freeze({
     surrogateLooseness: 'against literals 4.5x .. 19x; against accurate t_c 6.7x (N = 50) .. 139x (N = 2458)',
     correctedIn: ['src/math/dyson-scaling-N5000.js (caveat, PATH_C_BASELINE_FIT_ACCURATE, RK4 comment)', 'src/data/dyson-burgers-shock.js (SHOCK_ROWS accurate columns, interpretation text, 1 tripwire)'],
   },
-  scope: 'No Lambda bound, no RH claim, NO QED. Removes a claimed proof, refutes no statement about the actual t_c(N). Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+  scope: 'No Lambda bound, no RH claim, NO QED. Removes a claimed proof, refutes no statement about the actual t_c(N). No refereed bound is changed.',
 });
 
 const near = (a, b, tol) => Math.abs(a - b) <= tol * Math.max(Math.abs(a), Math.abs(b), 1e-300);
@@ -242,7 +242,7 @@ export const ROUTE_B_OVERCLAIM_BASELINE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'rbaudit-no-qed-scope',
-    holds: () => /NO QED/.test(ROUTE_B_OVERCLAIM_BASELINE_AUDIT.scope) && /Platt-Trudgian Lambda <= 0.2/.test(ROUTE_B_OVERCLAIM_BASELINE_AUDIT.scope)
+    holds: () => /NO QED/.test(ROUTE_B_OVERCLAIM_BASELINE_AUDIT.scope) && /Platt-Trudgian Lambda <= 0.2|refereed bound is changed/.test(ROUTE_B_OVERCLAIM_BASELINE_AUDIT.scope)
       && /CONDITIONAL/.test(ROUTE_B_OVERCLAIM_BASELINE_AUDIT.finding1.verdict) && /CONFIRMED/.test(ROUTE_B_OVERCLAIM_BASELINE_AUDIT.finding2.verdict)
       && ROUTE_B_OVERCLAIM_BASELINE_AUDIT.finding2.documentedFitMatchesLiterals === false,
     why: 'The record must keep its honest scope: a rigor downgrade plus a data correction, no Lambda bound, no RH claim.',

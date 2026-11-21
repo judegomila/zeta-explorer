@@ -56,8 +56,8 @@
  * feature) and the floor grows FASTER than the two-rung p ~ 1.81 -- log-log OLS p ~ 2.42 over five rungs.
  * Re-bisecting the crossover with the measured law reproduces imp-96568 L* ~ 1.9e8 at p = 1.8135 and
  * tightens it to L* ~ 8.1e7 (~1.14 decades past the anchor) at the extended exponent. Measurement only;
- * theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96568-basis-c-intermediate-rung-floor-ladder (the two-rung p ~ 1.81 / L* ~ 1.9e8 this extends)
  * @see imp-96599-basis-c-superlinear-floor-glossary-headword (the headword flagging the two-rung projection)
@@ -251,12 +251,12 @@ export const IMP96690_BASIS_C_ABOVE_ANCHOR_RUNG_LADDER = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values, and each floor is a double-precision quadrature/cancellation artifact of this direct integral. The local exponent is not constant (1.81 -> 2.81 -> 2.08 -> 2.65): the floor growth accelerates and the optimum ppp shifts, so a single power law is a summary, not a law. L* ~ 8.1e7 is a further-tightened projection, not a measured reach; if anything the accelerating local exponents suggest it could be tighter still. Changes no bound, establishes no operator positivity, does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'Extending the basis-C floor ladder above 1e7 (L = 2e7, 3e7, 5e7 at their best-achievable floors) shows the optimum ppp collapses further to 2 (the imp-96568 ppp = 3 pinning is a local anchor..1e7 feature) and the floor grows FASTER than the two-rung p ~ 1.81 -- log-log OLS p ~ 2.42 over five rungs. Re-bisecting the crossover reproduces imp-96568 L* ~ 1.9e8 at p = 1.8135 and tightens it to L* ~ 8.1e7 (~1.14 decades past the anchor) at the extended exponent. Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Extending the basis-C floor ladder above 1e7 (L = 2e7, 3e7, 5e7 at their best-achievable floors) shows the optimum ppp collapses further to 2 (the imp-96568 ppp = 3 pinning is a local anchor..1e7 feature) and the floor grows FASTER than the two-rung p ~ 1.81 -- log-log OLS p ~ 2.42 over five rungs. Re-bisecting the crossover reproduces imp-96568 L* ~ 1.9e8 at p = 1.8135 and tightens it to L* ~ 8.1e7 (~1.14 decades past the anchor) at the extended exponent. Measurement only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for any consumer surface.
 export const IMP96690_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: rho is the '
+  'RH open; no refereed bound is changed; NO QED. Measurement only: rho is the '
   + 'theoretical GUE two-interval correlation, not computed from real zeros; each floor '
   + 'is a double-precision quadrature/cancellation artifact of the direct integral. Adding '
   + 'above-anchor rungs (2e7, 3e7, 5e7) shows the optimum ppp collapses further to 2 and the '
@@ -307,11 +307,11 @@ export const IMP96690_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96690_BASIS_C_ABOVE_ANCHOR_RUNG_LADDER.verdict))
     throw new Error('imp-96690: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96690_BASIS_C_ABOVE_ANCHOR_RUNG_LADDER.verdict))
-    throw new Error('imp-96690: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96690_BASIS_C_ABOVE_ANCHOR_RUNG_LADDER.verdict))
+    throw new Error('imp-96690: verdict dropped the no-refereed-bound-change banner');
   if (!/imp-96568/.test(IMP96690_BASIS_C_ABOVE_ANCHOR_RUNG_LADDER.source))
     throw new Error('imp-96690: source dropped the imp-96568 reference');
-  if (!(/RH open/.test(IMP96690_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96690_HONEST_BANNER) && /NO QED/.test(IMP96690_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96690_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96690_HONEST_BANNER) && /NO QED/.test(IMP96690_HONEST_BANNER)))
     throw new Error('imp-96690: IMP96690_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

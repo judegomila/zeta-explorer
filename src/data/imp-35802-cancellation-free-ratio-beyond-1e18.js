@@ -42,8 +42,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate; reuses the imp-35266/imp-35766/imp-34996
  * machinery (identical K, delta, S_inf, aOf). The imp-34714a machine certificate REMAINS OPEN; F(m) = 0 stays a
  * double-precision artifact; C_C = 1/8 (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED;
- * changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35766-krawczyk-cancellation-ratio-beyond-band (B3 flagged the spurious upturn beyond N ~ 1e18)
  * @see imp-35810-cancellation-onset-height (pinned the float-cancellation onset at N ~ 6.3e18)
@@ -184,7 +183,7 @@ export const IMP35802_CANCELLATION_FREE_RATIO_BEYOND_1E18 = {
     'rounding layer, and F(m) = 0 remains a double-precision artifact. Measurement only on the inherited ' +
     'imp-3220/imp-3406 surrogate; reuses the imp-35266/imp-35766/imp-34996 machinery (identical K, delta, S_inf, ' +
     'aOf); the C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; changes no ' +
-    'bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35766 (B3 spurious upturn beyond N ~ 1e18; the algebraic collapse R = 2 (aLo/a)(1-a)/(1-aLo)); ' +
     'imp-35810 (float-cancellation onset ~ 6.3e18); imp-35855 (R_direct de-cancellation demo); imp-35266 ' +
@@ -222,15 +221,15 @@ export const IMP35802_CANCELLATION_FREE_RATIO_BEYOND_1E18_ASSERTIONS = [
     holds: () => DEV_RISES_NOT_DESCENDS === true && PLATEAU_IS_FROZEN === true,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35802-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35802_CANCELLATION_FREE_RATIO_BEYOND_1E18.isRigorous === false &&
       /imp-34714a/.test(IMP35802_CANCELLATION_FREE_RATIO_BEYOND_1E18.subGap) &&
       /REMAINS OPEN/.test(IMP35802_CANCELLATION_FREE_RATIO_BEYOND_1E18.subGap) &&
       /NO QED/.test(IMP35802_CANCELLATION_FREE_RATIO_BEYOND_1E18.verdict) &&
-      /remains SOTA/.test(IMP35802_CANCELLATION_FREE_RATIO_BEYOND_1E18.verdict),
+      /refereed bound is changed/i.test(IMP35802_CANCELLATION_FREE_RATIO_BEYOND_1E18.verdict),
   },
 ];
 

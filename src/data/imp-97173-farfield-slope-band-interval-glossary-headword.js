@@ -35,7 +35,7 @@
  *   STATUS: a sensitivity-measurement headword over an already-committed propagation, not a new
  *   computation or a certificate. Instantiates no interval certificate, closes no sub-gap, moves
  *   no bound. The only rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916,
- *   imp-96352) binds first by >2600x regardless. NO QED. Platt-Trudgian Lambda <= 0.2 SOTA;
+ *   imp-96352) binds first by >2600x regardless. NO QED. No refereed bound is changed;
  *   RH open.
  *
  * @see imp-97142-route-m-farfield-ceiling-slope-band-interval.js (source: the propagated
@@ -46,7 +46,7 @@
  *   +1.37%..+8.36% band the interval is checked against)
  *
  * Ticket: imp-97173 (content, medium, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The far-field slope-band interval headword, baked verbatim (no re-import).
@@ -76,8 +76,8 @@ const FARFIELD_SLOPE_BAND_INTERVAL_HEADWORD = Object.freeze({
     'modules (imp-97142 propagation, imp-97118 LAYER split, imp-97081 point anchor, imp-96667 ' +
     'slope band, imp-96982 original band); no new numerical computation. Instantiates no ' +
     'interval certificate; moves no bound; the rigorous anchor stays the trace ceiling ' +
-    'T = 2.594e7, and compute (N ~ 9916) binds first by >2600x regardless. PT Lambda <= 0.2 ' +
-    'remains SOTA; RH open; NO QED.',
+    'T = 2.594e7, and compute (N ~ 9916) binds first by >2600x regardless. No refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97173_FARFIELD_SLOPE_BAND_INTERVAL_GLOSSARY_HEADWORD = Object.freeze({
@@ -100,7 +100,7 @@ export const IMP97173_FARFIELD_SLOPE_BAND_INTERVAL_GLOSSARY_HEADWORD = Object.fr
     'SURVIVES the slope uncertainty; the exact within-sliver value does NOT (slope band alone ' +
     'spreads F ~2.42 pp; the imp-96750 O(1) term is a further residual). Readers should not cite ' +
     'the imp-97118 point value as pinned. Establishes nothing new; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97142 (the propagated interval and survival verdict this glosses); imp-97118 (the point ' +
     'value this headword contextualises); imp-96667 (the interior-slope band); imp-96982 (the ' +
@@ -127,11 +127,11 @@ export const IMP97173_FARFIELD_SLOPE_BAND_INTERVAL_GLOSSARY_HEADWORD_ASSERTIONS 
   },
   {
     id: 'imp97173-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97173_FARFIELD_SLOPE_BAND_INTERVAL_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97173_FARFIELD_SLOPE_BAND_INTERVAL_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97173_FARFIELD_SLOPE_BAND_INTERVAL_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97173_FARFIELD_SLOPE_BAND_INTERVAL_GLOSSARY_HEADWORD.verdict) &&
       IMP97173_FARFIELD_SLOPE_BAND_INTERVAL_GLOSSARY_HEADWORD.glosses === 'imp-97142',
   },
 ];

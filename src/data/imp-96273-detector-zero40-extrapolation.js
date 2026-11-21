@@ -25,7 +25,7 @@
  *
  * Reference literals copied verbatim from imp-96059 / imp-96149; pure-JS refit reproduced in
  * tmp/imp-96273-scratch.mjs. Measurement/extrapolation only; changes NO bound; the verified-zero
- * route stays cheaper; RH open; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * route stays cheaper; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96059-detector-reach-ladder-viz-data.js (IMP96059_NDET_RANGE_BY_ZERO, canonical rows)
  * @see imp-96149-route-l-detector-reach-law-fit.js (IMP96149_DETECTOR_FIT, IMP96149_UNDETECTED_TAIL)

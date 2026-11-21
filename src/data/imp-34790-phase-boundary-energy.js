@@ -213,7 +213,7 @@ export const IMP_34790_PHASE_BOUNDARY_ENERGY = Object.freeze({
     'CLASSIFICATION: reduces-to-known (Bost-Connes 1995, Julia 1990, Stieltjes ' +
     'expansion); the only zero-encoding phase boundary is the complex-beta ' +
     'Fisher-zero line Re beta = 1/2, which IS RH. No new route below the PCC ' +
-    'wall; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.',
+    'wall; no refereed bound is changed; NO QED.',
 });
 
 // ── Build-time tripwires ──────────────────────────────────────────────────────
@@ -283,10 +283,10 @@ export const IMP_34790_ASSERTIONS = [
   },
   {
     id: 'imp34790-honesty-gate',
-    description: 'closureNote states reduces-to-known, no Lambda contact, NO QED, and PT SOTA',
+    description: 'closureNote states reduces-to-known, no Lambda contact, NO QED, and no refereed bound is changed',
     holds: () => {
       const n = IMP_34790_PHASE_BOUNDARY_ENERGY.closureNote;
-      return /reduces-to-known/.test(n) && /NO QED/.test(n) && /Lambda <= 0.2 stays SOTA/.test(n) &&
+      return /reduces-to-known/.test(n) && /NO QED/.test(n) && /refereed bound is changed/i.test(n) &&
         /truncation artifact/.test(n);
     },
   },

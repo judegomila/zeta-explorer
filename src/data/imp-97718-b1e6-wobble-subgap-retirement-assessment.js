@@ -42,7 +42,7 @@
  *
  *   No coefficient newly pinned; no bound moves; the rigorous anchor stays the trace ceiling
  *   T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97664-wlin-b1e6-halfwidth-artifact-test.js (the named residual under assessment)
  * @see imp-97688-wlin-linerr-factorization-independence.js (refutes the factorization causal gloss)
@@ -81,7 +81,7 @@ export const IMP97718_ASSESSMENT = Object.freeze({
     'standalone honest-status note. No further action needed on imp-97696 or imp-97664. The ' +
     'imp-97597 RESULT-3 mixed-kernel (epsilon*z^2) sub-gap is untouched by either ticket and STANDS. ' +
     'No coefficient newly pinned; no bound moves; the rigorous anchor stays T = 2.594e7; compute ' +
-    'binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'binds first by >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
   citation:
     'imp-97664-wlin-b1e6-halfwidth-artifact-test.js (named residual under assessment); ' +
     'imp-97688-wlin-linerr-factorization-independence.js (refutes the causal gloss); ' +
@@ -127,7 +127,7 @@ const IMP97718_ASSERTIONS = [
       IMP97718_ASSESSMENT.operatorPositivityEstablished === false &&
       IMP97718_ASSESSMENT.computeBindsFirst === true &&
       /NO QED/.test(IMP97718_ASSESSMENT.verdict) &&
-      /PT Lambda <= 0.2/.test(IMP97718_ASSESSMENT.verdict) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97718_ASSESSMENT.verdict) &&
       /RH open/.test(IMP97718_ASSESSMENT.verdict),
   },
 ];

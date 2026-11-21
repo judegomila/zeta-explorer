@@ -74,8 +74,7 @@
  *   located global ceiling and a terminal cluster still rising at the window edge -- not the exact per-rung
  *   ULP or peak heights. The NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2
- *   remains the rigorous SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33621-band-clearing-cluster-decay-and-tail-scan.js (the [700,900] scan this extends)
  *   @see imp-33599-wide-range-band-crossing-envelope-law.js (the three [400,700] clusters)
@@ -333,7 +332,7 @@ const verdict =
       '(n~1198),-SO-ANY-GLOBAL-CEILING-LIES-BEYOND-n=1200.-SHARPENS-THE-imp-33621/imp-33599/imp-33579/imp-33557/' +
       'imp-33537-latticeJitterCaveat:-THE-DEEP-TAIL-GRADE-4-ARITHMETIC-FLOOR-ENVELOPE-KEEPS-CLIMBING;-NO-GLOBAL-' +
       'CEILING-IS-LOCATED-WITHIN-[900,1200].-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-' +
-      'mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33638_BAND_CLEARING_TAIL_REINTENSIFICATION_N900_1200 = Object.freeze({
@@ -363,7 +362,7 @@ export const IMP33638_BAND_CLEARING_TAIL_REINTENSIFICATION_N900_1200 = Object.fr
     'imp-33557/imp-33537 latticeJitterCaveat -- the deep-tail grade-4 arithmetic-floor envelope keeps climbing, ' +
     'no global ceiling located within [900,1200]. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, ' +
     'necessary-but-not-sufficient; jittery lattice floor; operator positivity (imp-3066) untouched; no QED. ' +
-    'PT Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -491,7 +490,7 @@ export const IMP33638_BAND_CLEARING_TAIL_REINTENSIFICATION_N900_1200 = Object.fr
       'The scan does NOT locate a global envelope ceiling within [900,1200], but neither does it EXCLUDE one ' +
       'beyond n=1200; it establishes only that no ceiling appears at or below the imp-33621 ~78 ULP level and ' +
       'that the envelope is still climbing at the window edge. Whether the climb eventually caps is left open.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -559,7 +558,7 @@ export const IMP33638_BAND_CLEARING_TAIL_REINTENSIFICATION_N900_1200_ASSERTIONS 
   {
     id: 'imp33638-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33638_BAND_CLEARING_TAIL_REINTENSIFICATION_N900_1200.honestCaveat;
       return (
@@ -568,7 +567,7 @@ export const IMP33638_BAND_CLEARING_TAIL_REINTENSIFICATION_N900_1200_ASSERTIONS 
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

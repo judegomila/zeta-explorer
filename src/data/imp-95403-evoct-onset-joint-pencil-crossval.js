@@ -10,8 +10,7 @@
  * (D G D, G) with G_ij = 1/(nu_i + nu_j), D = diag(exp(-x nu_i)), and
  * solves the generalized eigenproblem directly (Cholesky of G + symmetric
  * Jacobi) to obtain the true Lambda(V, x) = lambda_max. Measurement /
- * verification only; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * verification only; changes no bound; NO QED; no refereed bound is changed.
  *
  * WHAT IS CHECKED.
  *
@@ -270,7 +269,7 @@ export const IMP95403_EVOCT_ONSET_JOINT_PENCIL_CROSSVAL = {
     "confirms the DIRECTION and quantifies the slack; tightens no " +
     "certificate and moves no onset; twin-pair blocks only (>= 3-per-octave " +
     "residual untouched); rho = 2, r = 1.05 slice only; model family only; " +
-    "changes NO bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "changes NO bound; NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -342,13 +341,13 @@ export const IMP95403_ASSERTIONS = [
     id: "imp95403-honesty",
     description:
       "the record carries the honest scope labels: no bound change, NO QED, " +
-      "PT SOTA, direction-only measurement",
+      "no refereed bound is changed, direction-only measurement",
     holds: () =>
       /changes NO bound/.test(
         IMP95403_EVOCT_ONSET_JOINT_PENCIL_CROSSVAL.honestScope,
       ) &&
       /NO QED/.test(IMP95403_EVOCT_ONSET_JOINT_PENCIL_CROSSVAL.honestScope) &&
-      /remains SOTA/.test(IMP95403_EVOCT_ONSET_JOINT_PENCIL_CROSSVAL.honestScope) &&
+      /refereed bound is changed/i.test(IMP95403_EVOCT_ONSET_JOINT_PENCIL_CROSSVAL.honestScope) &&
       /moves no onset/.test(IMP95403_EVOCT_ONSET_JOINT_PENCIL_CROSSVAL.honestScope),
   },
 ];

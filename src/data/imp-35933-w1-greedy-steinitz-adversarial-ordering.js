@@ -54,7 +54,7 @@
  * interval; verifies no inequality; changes no bound; establishes no positivity; the W1
  * A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL
  * (imp-35725); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35852-w1-summation-adversarial-ordering (the four-ordering result this stresses)
  * @see imp-35927-w1-adversarial-ordering-n-ladder (scales the four orderings up an N ladder)
@@ -65,7 +65,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35852 / imp-35812) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -360,8 +360,8 @@ export const IMP35933_W1_GREEDY_STEINITZ_ADVERSARIAL_ORDERING = {
     'the ENGINEERING of the certified length-N interval sum (MECHANICAL, imp-35725). Reuses the imp-35812 term ' +
     'family and imp-35852 reference; certifies no W1 bound; evaluates no true H_0; instantiates no interval; ' +
     'verifies no inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT ' +
-    'stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35852 (four hand-designed orderings this stresses with an optimized adversary); imp-35927 (N-ladder of ' +
     'the four orderings); imp-35812 (single-ordering baseline term family); imp-35761 (coherent linear ceiling ' +
@@ -424,16 +424,16 @@ export const IMP35933_W1_GREEDY_STEINITZ_ADVERSARIAL_ORDERING_ASSERTIONS = [
       GREEDY_MAX.kahanNormErr > 0 && GREEDY_MAX.kahanNormErr < CEIL_KAHAN,
   },
   {
-    // Honesty gate: measurement only; imp-35852 stands; obstruction mechanical/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; imp-35852 stands; obstruction mechanical/greenfield; no QED; no refereed bound is changed.
     id: 'imp35933-honesty-gate',
-    description: 'Measurement only; imp-35852 clustered worst stands; obstruction engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; imp-35852 clustered worst stands; obstruction engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35933_W1_GREEDY_STEINITZ_ADVERSARIAL_ORDERING.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /remains the naive worst case/.test(IMP35933_W1_GREEDY_STEINITZ_ADVERSARIAL_ORDERING.conclusion.imp35852ResultStands) &&
       /GREENFIELD/.test(IMP35933_W1_GREEDY_STEINITZ_ADVERSARIAL_ORDERING.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35933_W1_GREEDY_STEINITZ_ADVERSARIAL_ORDERING.verdict) &&
-      /remains SOTA/.test(IMP35933_W1_GREEDY_STEINITZ_ADVERSARIAL_ORDERING.verdict),
+      /refereed bound is changed/i.test(IMP35933_W1_GREEDY_STEINITZ_ADVERSARIAL_ORDERING.verdict),
   },
 ];
 

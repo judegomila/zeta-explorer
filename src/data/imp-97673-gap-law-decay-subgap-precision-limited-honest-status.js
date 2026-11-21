@@ -13,7 +13,7 @@
  * @see imp-97659-route-m-gap-law-decay-extprec.js (the dps=30 recompute that resolved it)
  *
  * Ticket: imp-97673 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97640_RESULTS, IMP97640_VERDICT } from './imp-97640-route-m-gap-law-residual-decay-exponent.js';
@@ -47,7 +47,7 @@ export const IMP97673_SUBGAP_PRECISION_LIMITED_HONEST_STATUS = Object.freeze({
 });
 
 export const IMP97673_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. This note records the imp-97640 named sub-gap ' +
+  'RH open; no refereed bound is changed; NO QED. This note records the imp-97640 named sub-gap ' +
   'IMP97640_RESIDUAL_DECAY_EXPONENT_PRECISION_LIMITED_PAST_2E6 (the gap-law residual decay exponent is ' +
   'undecidable in IEEE double past p ~ 2e6, a 7-sig-fig catastrophic-cancellation floor) AND that imp-97659 ' +
   'already resolved it: the dps=30 extended-precision recompute shows the exponent neither climbs nor ' +
@@ -72,7 +72,7 @@ if (
     IMP97673_SUBGAP_PRECISION_LIMITED_HONEST_STATUS.isRigorous === false &&
     IMP97673_SUBGAP_PRECISION_LIMITED_HONEST_STATUS.qed === false &&
     /NO QED/.test(IMP97673_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP97673_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97673_HONEST_BANNER) &&
     /RH open/.test(IMP97673_HONEST_BANNER)
   )
 ) {

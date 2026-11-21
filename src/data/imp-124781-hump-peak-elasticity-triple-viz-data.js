@@ -55,7 +55,7 @@ export const IMP124781_SUMMARY = Object.freeze({
     + 'measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited '
     + 'imp-3406/imp-97723 component model and the imp-33708 floor swap, NOT a rigorous asymptotic; C_mb '
     + 'stays GUE-conditional (imp-486); changes no bound; establishes no operator positivity; imp-3066 '
-    + 'K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'K_a >= 0 untouched; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

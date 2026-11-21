@@ -7,7 +7,7 @@
  *   tau-grid resolution N -&gt; inf?
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   THE TWO QUANTITIES (degree-0, RH-equivalent scale class, Lebesgue on lag tau)
  *   -------------------------------------------------------------------------
@@ -236,7 +236,7 @@ export const IMP3251_BRIDGE_MARGIN_RESOLUTION_STABILITY = Object.freeze({
       'B > D_0 does NOT close the route: the surviving operator-level K_a >= 0 sign-positivity (the off-diagonal ' +
       'endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -278,7 +278,7 @@ export const IMP3251_BRIDGE_MARGIN_RESOLUTION_STABILITY_ASSERTIONS = [
   {
     id: 'imp3251-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC margin-stability only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, positivity not attempted, PT 0.2 stays SOTA. If any flip the ' +
+         'operator positivity (imp-3066) untouched, positivity not attempted, no refereed bound is changed. If any flip the ' +
          'module is over-claiming.',
     holds: () => {
       const c = IMP3251_BRIDGE_MARGIN_RESOLUTION_STABILITY.honestCaveat;
@@ -287,7 +287,7 @@ export const IMP3251_BRIDGE_MARGIN_RESOLUTION_STABILITY_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

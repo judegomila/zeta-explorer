@@ -68,7 +68,7 @@
  *   imp-3197/imp-3257 [0, U] window is untouched, and the binding RH-equivalent
  *   residual is the imp-3066 operator-norm magnitude K_a &gt;= 0, entirely
  *   unaffected. No new positivity, no reduction, no RH verdict.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3347-phi-leftmost-zero-vs-nphi.js (the residual this scales)
  *   @see imp-3402-leftmost-zero-drift-rate-fit.js (the drift fit this refines)
@@ -234,7 +234,7 @@ export const IMP3403_LEADING_ORDER_RESIDUAL_NPHI_SCALING = Object.freeze({
     'zero is a truncation artifact receding to -infinity (the untruncated Phi is positive on all of R), ' +
     'the imp-3197/imp-3257 [0, U] window is untouched, and the binding RH-equivalent residual is the ' +
     'imp-3066 operator-norm magnitude K_a >= 0, entirely unaffected; no positivity, no reduction, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..NPHI} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -317,7 +317,7 @@ export const IMP3403_LEADING_ORDER_RESIDUAL_NPHI_SCALING = Object.freeze({
       'The slope -0.98210 and the -1/(2N) law are the FINITE-NPHI behaviour over {10, ..., 1280}; the ' +
       'exact asymptotic exponent is -1 (residual * N -> -1/2), so no claim is made that the true decay ' +
       'differs from 1/N.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -380,7 +380,7 @@ export const IMP3403_LEADING_ORDER_RESIDUAL_NPHI_SCALING_ASSERTIONS = [
     id: 'imp3403-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- not a proof, not a reduction below RH, RH-equivalent, ' +
          'scales a truncation artifact, refines (does not overturn) the prior attribution, does not ' +
-         'advance positivity / the imp-3066 magnitude obstruction, PT 0.2 stays SOTA. Any flip over-claims.',
+         'advance positivity / the imp-3066 magnitude obstruction, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3403_LEADING_ORDER_RESIDUAL_NPHI_SCALING.honestCaveat;
       return (
@@ -388,7 +388,7 @@ export const IMP3403_LEADING_ORDER_RESIDUAL_NPHI_SCALING_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.doesNotAdvancePositivity.length > 0 &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

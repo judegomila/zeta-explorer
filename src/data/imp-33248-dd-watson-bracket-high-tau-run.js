@@ -61,7 +61,7 @@
  *       [3.4114, 3.4120]), consistent with the closed model and NOT crossing the majorant.
  *
  *   All measurement only. Certifies NO bound and NO RH. NPHI=10 truncation upstream; imp-3066 K_a &gt;= 0
- *   sign-positivity UNTOUCHED; no QED; Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   sign-positivity UNTOUCHED; no QED; no refereed bound is changed.
  */
 
 const NPHI = 10;
@@ -369,7 +369,7 @@ export const IMP33248_DD_WATSON_BRACKET_HIGH_TAU_RUN = Object.freeze({
       'Cross-platform libm variation in exp/log/expm1 can shift the ~1e-4-scale tau=6 residual by a few ' +
       'ULP; the robust readings are the DIRECT-route blow-up, the signal recovery to <=1e-4, and the ' +
       'bit-identical DD-vs-plain below tau=6 -- not the exact tau=6 digit.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -417,7 +417,7 @@ export const IMP33248_DD_WATSON_BRACKET_HIGH_TAU_RUN_ASSERTIONS = [
   {
     id: 'imp33248-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement/reconstruction only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33248_DD_WATSON_BRACKET_HIGH_TAU_RUN.honestCaveat;
       return (
@@ -425,7 +425,7 @@ export const IMP33248_DD_WATSON_BRACKET_HIGH_TAU_RUN_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

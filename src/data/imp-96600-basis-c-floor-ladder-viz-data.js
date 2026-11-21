@@ -15,8 +15,8 @@
  * PRESENTATION ONLY. Every value here is reused verbatim from the imp-96568
  * floorLadder / floorGrowth records; only the log10 reshaping and the
  * regime split (ppp-collapsed vs ppp-pinned) are new. Changes no bound,
- * establishes no operator positivity, no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96568-basis-c-intermediate-rung-floor-ladder.js (source measurement)
  *
@@ -104,7 +104,7 @@ const IMP96600_ASSERTIONS = [
     id: 'imp96600-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96600_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96600_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96600_HONEST_BANNER) &&
       /NO QED/.test(IMP96600_HONEST_BANNER),
     why: 'every Route I/basis-C viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

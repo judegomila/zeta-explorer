@@ -60,7 +60,7 @@
  * untouched). The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the OLS surrogate, the bounded-ceiling fit, and the growth-form classification are descriptive, not derived;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34233-fixed-band-peak-combined-grid-ceiling-contest (the F4 linear-overtakes-log flip and the 15-window
  *   combined grid this leaves-one-out; machinery reused verbatim)
@@ -301,7 +301,7 @@ export const IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS = {
     'classification are descriptive, not derived; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34233 (the F4 linear-overtakes-log flip and the 15-window combined grid this leaves-one-out; ' +
     'machinery reused verbatim); imp-34169 (the three near-pole windows kEnd 20/20.5/21); imp-34109 (the ' +
@@ -362,15 +362,15 @@ export const IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS_ASSERTIONS = [
       LOO.every((r) => r.aicGapSatMinusLog > 5),
   },
   {
-    // Honesty gate: measurement only, isRigorous false, imp-34233 untouched, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, imp-34233 untouched, no QED, no refereed bound is changed.
     id: 'imp34309-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, imp-34233 untouched, NOT a rigorous asymptotic, no QED, PT SOTA, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched',
+    description: 'Measurement only: isRigorous false, imp-34233 untouched, NOT a rigorous asymptotic, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, imp-486 C_mb untouched',
     holds: () =>
       IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS.isRigorous === false &&
       /NOT a rigorous asymptotic/.test(IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS.verdict) &&
       /are untouched/.test(IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS.verdict) &&
       /NO QED/.test(IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS.verdict) &&
-      /remains SOTA/.test(IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS.verdict) &&
+      /refereed bound is changed/i.test(IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS.verdict),
   },

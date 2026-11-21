@@ -9,7 +9,7 @@
  * imp-95378 named.
  *
  * DOCUMENTATION ONLY. Ports nothing; measures nothing new; changes no
- * bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED. No refereed bound is changed.
  *
  * THE NOTE
  * -----------------------------------------------------------------------------
@@ -85,8 +85,8 @@ export const IMP95490_DIRECT2_COLLAR_RESIDUAL_HONEST_STATUS = {
     'for asymmetric blocks), but it does NOT close the sigma -> 1 collar ' +
     'residual wedge against the exact joint pencil: it shares the same ' +
     '1/(1-sigma^2) collar and collapses to SPLIT-2 at L1=L2. Ports nothing; ' +
-    'measures nothing new; changes no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'measures nothing new; changes no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95426-direct-seam-pencil-twoblock-bound (source derivation, measurement, and verdict).',
 };
@@ -148,7 +148,7 @@ export const IMP95490_HONEST_STATUS_NOTE_ASSERTIONS = [
   },
   {
     id: 'imp95490-honesty-gate-no-qed',
-    description: 'Documentation only: not rigorous, no new claim, no QED, PT remains SOTA',
+    description: 'Documentation only: not rigorous, no new claim, no QED, no refereed bound is changed',
     holds: () =>
       IMP95490_DIRECT2_COLLAR_RESIDUAL_HONEST_STATUS.isRigorous === false &&
       /HONEST-STATUS NOTE/.test(
@@ -158,7 +158,7 @@ export const IMP95490_HONEST_STATUS_NOTE_ASSERTIONS = [
         IMP95490_DIRECT2_COLLAR_RESIDUAL_HONEST_STATUS.verdict,
       ) &&
       /NO QED/.test(IMP95490_DIRECT2_COLLAR_RESIDUAL_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95490_DIRECT2_COLLAR_RESIDUAL_HONEST_STATUS.verdict,
       ),
   },

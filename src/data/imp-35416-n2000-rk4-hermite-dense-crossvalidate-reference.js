@@ -50,8 +50,8 @@
  * SCOPE: MEASUREMENT / CROSS-CHECK ONLY -- does NOT advance the R2 ladder (certified
  * at N=1000 per imp-35221/imp-35324), changes NO bound, adopts NO new slack
  * denominator (imp-35412 KEEPS the endpoint DP45 dt/2 worst-case). Does NOT extend
- * the C_mb certificate; does NOT remove the imp-486 GUE conditional. Platt-Trudgian
- * Lambda <= 0.2 stays SOTA. NO QED.
+ * the C_mb certificate; does NOT remove the imp-486 GUE conditional. No refereed bound is changed
+ * . NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2" and "gamma[i+1]-gamma[i]".
  *
@@ -157,7 +157,7 @@ export const IMP_35416_N2000_RK4_HERMITE_DENSE_CROSSVALIDATE_REFERENCE = {
     doesNotAchieve:
       'Does NOT extend the R2 ladder to N=2000; does NOT extend the C_mb certificate; ' +
       'does NOT remove the imp-486 GUE conditional; changes NO Lambda bound. ' +
-      'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+      'No refereed bound is changed.',
   },
 };
 
@@ -219,6 +219,6 @@ export const IMP_35416_N2000_RK4_HERMITE_DENSE_CROSSVALIDATE_REFERENCE_ASSERTION
       'Cross-check only: the RK4-Hermite dense output CONFIRMS scheme-independence of ' +
       'the imp-35351 crossing but does NOT re-run the imp-35221 certification, does NOT ' +
       'advance the R2 ladder past N=1000, changes NO bound. C_mb stays GUE-conditional ' +
-      '(imp-486); Lambda <= 0.2 stays SOTA. Never a QED or a bound change.',
+      '(imp-486); no refereed bound is changed. Never a QED or a bound change.',
   },
 ];

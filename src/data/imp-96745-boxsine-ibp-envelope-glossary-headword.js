@@ -52,7 +52,7 @@
  * @see imp-96567-box-averaged-sine-kernel-lag-decay (the closed form Cov_k(inf) this corrects)
  *
  * Ticket: imp-96745 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The certified-envelope headword, baked verbatim (no re-import).
@@ -93,7 +93,7 @@ const BOXSINE_IBP_ENVELOPE_HEADWORD = Object.freeze({
     'one; it does NOT reopen the one-sided-bound route imp-96617 closed (the envelope is ' +
     'still two-sided) and is conditional on the GUE sine-kernel / Montgomery pair ' +
     'correlation for the zeta zeros (UNPROVEN, GRH-flavored). Changes no unconditional ' +
-    'bound; establishes no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; ' +
+    'bound; establishes no operator positivity; no refereed bound is changed; RH open; ' +
     'NO QED.',
 });
 
@@ -119,7 +119,7 @@ export const IMP96745_BOXSINE_IBP_ENVELOPE_GLOSSARY_HEADWORD = Object.freeze({
     'total-variation-bounded remainder). C(2) = 3/(8 pi^4) = 3.850e-3 dominates the ' +
     'imp-96617 measured 2.07e-3 (ratio 1.86). Establishes nothing new; instantiates no ' +
     'interval; moves no unconditional bound; conditional on the GUE sine kernel; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96628 (the two-IBP derivation and certified constant this glosses); imp-96617 ' +
     '(the sign finding and measured envelope this certifies the residual of); imp-96638 ' +
@@ -147,11 +147,11 @@ export const IMP96745_BOXSINE_IBP_ENVELOPE_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96745-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96745_BOXSINE_IBP_ENVELOPE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96745_BOXSINE_IBP_ENVELOPE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96745_BOXSINE_IBP_ENVELOPE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96745_BOXSINE_IBP_ENVELOPE_GLOSSARY_HEADWORD.verdict) &&
       IMP96745_BOXSINE_IBP_ENVELOPE_GLOSSARY_HEADWORD.glosses === 'imp-96628',
   },
 ];

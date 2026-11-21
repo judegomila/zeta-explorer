@@ -45,7 +45,7 @@
  * mathematical claim and changes no bound. The component model is NOT a rigorous asymptotic. The C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * imp-3066 K_a >= 0 untouched; establishes no operator positivity; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.
+ * no refereed bound is changed.
  *
  * @see imp-34408-widening-slope-prepole-landmark-decade-axis (F2: the "near-affine u(k)" assertion this quantifies)
  * @see imp-34327-widening-slope-minus-one-crossing-location (L2 mapped -1 crossing, defines the u-map)
@@ -177,7 +177,7 @@ export const IMP34470_HEIGHT_MAP_AFFINITY_DEPARTURE_FIT = {
     'F2 asserted but did not quantify. Measurement only within the inherited imp-3220/imp-3406/imp-33810/' +
     'imp-34246 component model, NOT a rigorous asymptotic; imp-34408 F1/F2/F3 UNTOUCHED; C_mb ' +
     'GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 const IMP34470_HEIGHT_MAP_AFFINITY_DEPARTURE_FIT_ASSERTIONS = [
@@ -225,13 +225,13 @@ const IMP34470_HEIGHT_MAP_AFFINITY_DEPARTURE_FIT_ASSERTIONS = [
       IMP34470_HEIGHT_MAP_AFFINITY_DEPARTURE_FIT.uMapNearAffine === true,
   },
   {
-    // Honesty gate: measurement only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34470-honesty-gate-no-qed',
-    description: 'isRigorous false, no bound changed, NO QED, K_a>=0 untouched, C_mb per imp-486 untouched, PT SOTA',
+    description: 'isRigorous false, no bound changed, NO QED, K_a>=0 untouched, C_mb per imp-486 untouched, no refereed bound is changed',
     holds: () =>
       IMP34470_HEIGHT_MAP_AFFINITY_DEPARTURE_FIT.isRigorous === false &&
       /NO QED/.test(IMP34470_HEIGHT_MAP_AFFINITY_DEPARTURE_FIT.verdict) &&
-      /remains SOTA/.test(IMP34470_HEIGHT_MAP_AFFINITY_DEPARTURE_FIT.verdict) &&
+      /refereed bound is changed/i.test(IMP34470_HEIGHT_MAP_AFFINITY_DEPARTURE_FIT.verdict) &&
       /C_mb GUE-conditional per imp-486 UNTOUCHED/.test(IMP34470_HEIGHT_MAP_AFFINITY_DEPARTURE_FIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34470_HEIGHT_MAP_AFFINITY_DEPARTURE_FIT.verdict),
   },

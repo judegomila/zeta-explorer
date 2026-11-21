@@ -40,7 +40,7 @@
  *   instantiate the primitive)
  *
  * Ticket: imp-97406 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The shared-primitive headword, baked verbatim (no re-import).
@@ -67,7 +67,7 @@ const PWA_CONCENTRATION_PRIMITIVE_HEADWORD = Object.freeze({
     'gate (src/data/imp-97384-krein-csharp-routes-not-independent-gate.js). The imp-97206 measured ' +
     'joint limit ~0.582 (range [0.5817,0.5842]) is confirmed an UPPER bracket on lambda_1 and does ' +
     'NOT instantiate the primitive. Naming / glossary headword only; supplies no new bound; RH ' +
-    'open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97406_PWA_CONCENTRATION_PRIMITIVE_GLOSSARY_HEADWORD = Object.freeze({
@@ -86,7 +86,7 @@ export const IMP97406_PWA_CONCENTRATION_PRIMITIVE_GLOSSARY_HEADWORD = Object.fre
     'band-limited (PW_a) concentration primitive: a quantitative uncertainty inequality bounding ' +
     'concentration against the confined negative sigma_2 well, needed identically by the ' +
     'Lehmann-Maehly a-priori rho and the de Branges coercivity constant c. No bound moved; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97350 (the three-finding derivation of the synthesis this glosses); imp-97384 (the ' +
     'honest-status note + do-not-treat-as-independent gate).',
@@ -113,11 +113,11 @@ export const IMP97406_PWA_CONCENTRATION_PRIMITIVE_GLOSSARY_HEADWORD_ASSERTIONS =
   },
   {
     id: 'imp97406-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97350.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97350.',
     holds: () =>
       IMP97406_PWA_CONCENTRATION_PRIMITIVE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97406_PWA_CONCENTRATION_PRIMITIVE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97406_PWA_CONCENTRATION_PRIMITIVE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97406_PWA_CONCENTRATION_PRIMITIVE_GLOSSARY_HEADWORD.verdict) &&
       IMP97406_PWA_CONCENTRATION_PRIMITIVE_GLOSSARY_HEADWORD.glosses === 'imp-97350',
   },
 ];

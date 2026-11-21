@@ -64,8 +64,7 @@
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the
  * imp-398 C_F prefactor are UNTOUCHED (appear only as symbolic axes); changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124812-diag3-additivity-exact-identity-assessment (B1 named; the w = 1 c^2 break)
  * @see imp-124835-degree1-hinge-audit-sufficiency-assessment (first-order audit misses m >= 3 decoys)
@@ -262,7 +261,7 @@ export const IMP124851_DIAG3_DEGREE2_COEFFICIENT_BOUND = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the pinned constants appear only as ' +
     'symbolic differentiation axes, not re-pinned; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-124812 (B1 sole hinge; the w = 1 c^2 break gives NUM = sigma(1-sigma)); imp-124835 (first-order ' +
     'audit misses m >= 3 decoys; symbolic monomial-degree proof); imp-97668 (six-probe audit; DIAG3 ' +
@@ -321,13 +320,13 @@ export const IMP124851_DIAG3_DEGREE2_COEFFICIENT_BOUND_ASSERTIONS = [
       ),
   },
   {
-    // Honesty gate: assessment only, no QED, PT stays SOTA.
+    // Honesty gate: assessment only, no QED, no refereed bound is changed.
     id: 'imp124851-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Assessment only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124851_DIAG3_DEGREE2_COEFFICIENT_BOUND.isRigorous === false &&
       /NO QED/.test(IMP124851_DIAG3_DEGREE2_COEFFICIENT_BOUND.verdict) &&
-      /remains SOTA/.test(IMP124851_DIAG3_DEGREE2_COEFFICIENT_BOUND.verdict),
+      /refereed bound is changed/i.test(IMP124851_DIAG3_DEGREE2_COEFFICIENT_BOUND.verdict),
   },
 ];
 

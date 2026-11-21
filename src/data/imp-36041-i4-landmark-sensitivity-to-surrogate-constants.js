@@ -16,7 +16,7 @@
  * landmarks move when those constants are perturbed, to bound how much the
  * pi-budget-never-threatened-at-physical-n reading depends on the illustrative choices. It sums NO
  * real increments; evaluates NO true H_t; certifies NO count; fixes NO Delta or h; instantiates NO
- * interval; changes NO bound; imp-34714a is untouched; NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * interval; changes NO bound; imp-34714a is untouched; NO QED. No refereed bound is changed.
  *
  * CLOSED-FORM LANDMARKS AND THEIR ELASTICITIES
  * -----------------------------------------------------------------------------
@@ -55,18 +55,18 @@
  * A double-precision SURROGATE sensitivity study on the imp-35989 illustrative model, not a
  * certificate. RHO_EVAL and K_TRUNC remain illustrative; N is anchored at 1 (roundoff linear in N).
  * It sums no real increments, evaluates no true H_t, certifies no count, fixes no Delta or h,
- * instantiates no interval, changes no bound; imp-34714a untouched. NO QED. PT Lambda <= 0.2 SOTA.
+ * instantiates no interval, changes no bound; imp-34714a untouched. NO QED. No refereed bound is changed.
  *
  * @see imp-35989-i4-accumulated-error-vs-panel-count-scale (parent: two-channel accrual + the two landmarks)
  * @see imp-35804-i4-integer-closure-error-budget-scope (I4 <pi GLOBAL accumulated-error budget)
  * @see imp-35777-i2-logderivative-panel-cap-scope (I2 per-panel cap; ~ 4.28 panels per unit height)
  * @see imp-35757-i2-panel-width-count-scope (I2 panel-width / count; mean gap ~ 0.2336)
- * @see Polymath15 2019 (H_t = A + B - C; barrier method); Platt-Trudgian 2021 (T_PT = 3e12; Lambda <= 0.2 SOTA)
+ * @see Polymath15 2019 (H_t = A + B - C; barrier method); Platt-Trudgian 2021 (T_PT = 3e12; no refereed bound is changed)
  */
 
 // -- Anchor + operative constants (import-light; matching imp-35989) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const HALF_TURN = Math.PI; // the I4 closure budget on the accumulated half-width E
 const U_ROUNDOFF = Math.pow(2, -53); // double-precision unit roundoff ~ 1.1102e-16
 const N_ANCHOR = 1; // winding integer for a single-mean-gap box (Delta ~ 0.2336)
@@ -168,13 +168,13 @@ export const IMP36041_I4_LANDMARK_SENSITIVITY_TO_SURROGATE_CONSTANTS = {
     'RHO_EVAL ~ 4.5e15. The imp-35989 pi-budget-never-threatened-at-physical-n reading therefore does ' +
     'NOT hinge on the illustrative constants. It sums no real increments; evaluates no true H_t; ' +
     'certifies no count; fixes no Delta or h; instantiates no interval; changes no bound; imp-34714a ' +
-    'untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; NO QED. No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-35989 (two-channel I4 accrual surrogate + the two landmarks); imp-35804 (I4 <pi GLOBAL ' +
     'accumulated-error budget); imp-35777 (I2 cap; ~ 4.28 panels per unit height); imp-35757 (I2 ' +
     'panel-width / count; mean gap ~ 0.2336); Polymath15 2019 (H_t = A + B - C; barrier method); ' +
-    'Platt-Trudgian 2021 (T_PT = 3e12; Lambda <= 0.2 SOTA).',
+    'Platt-Trudgian 2021 (T_PT = 3e12; no refereed bound is changed).',
 };
 
 export const IMP36041_I4_LANDMARK_SENSITIVITY_TO_SURROGATE_CONSTANTS_ASSERTIONS = [
@@ -229,15 +229,15 @@ export const IMP36041_I4_LANDMARK_SENSITIVITY_TO_SURROGATE_CONSTANTS_ASSERTIONS 
       K_TRUNC < K_TRUNC_SMALL_N_PI, // illustrative K_TRUNC=17 keeps the small-n margin
   },
   {
-    // Honesty gate: surrogate only, certifies no count, NO QED, PT Lambda <= 0.2 SOTA.
+    // Honesty gate: surrogate only, certifies no count, NO QED, no refereed bound is changed.
     id: 'imp36041-honesty-gate-no-qed',
-    description: 'Surrogate sensitivity study only; certifies no count; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Surrogate sensitivity study only; certifies no count; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP36041_I4_LANDMARK_SENSITIVITY_TO_SURROGATE_CONSTANTS.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /certifies no count/.test(IMP36041_I4_LANDMARK_SENSITIVITY_TO_SURROGATE_CONSTANTS.verdict) &&
       /NO QED/.test(IMP36041_I4_LANDMARK_SENSITIVITY_TO_SURROGATE_CONSTANTS.verdict) &&
-      /remains SOTA/.test(IMP36041_I4_LANDMARK_SENSITIVITY_TO_SURROGATE_CONSTANTS.verdict),
+      /refereed bound is changed/i.test(IMP36041_I4_LANDMARK_SENSITIVITY_TO_SURROGATE_CONSTANTS.verdict),
   },
 ];
 

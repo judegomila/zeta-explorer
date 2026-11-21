@@ -51,7 +51,7 @@
  * imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED (the share stays GUE-conditional); the C_C 1/8 ansatz (imp-2642/imp-2643)
  * is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96210-ushape-peak-slope-drift-location-law (measured a,b only across [N_peak, N_flow])
  * @see imp-96187-ushape-peak-ratio-logcorrection-identity-vs-accident (derived the location law P1/P2)
@@ -203,7 +203,7 @@ export const IMP96228_USHAPE_SLOPE_DRIFT_BEYOND_NFLOW = {
     'Component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 stays GUE-conditional and UNTOUCHED; the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96210 (measured a,b only across [N_peak, N_flow]); imp-96187 (derived the location law P1/P2); ' +
     'imp-96162 (measured 0.5769 and the peak slopes); imp-3220 (interior peak sigma_max ~ 0.9494 at ' +
@@ -250,13 +250,13 @@ export const IMP96228_USHAPE_SLOPE_DRIFT_BEYOND_NFLOW_ASSERTIONS = [
       SUM_DEEP < 1.0,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp96228-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: isRigorous false, no QED, PT Lambda<=0.2 stays SOTA',
+    description: 'Measurement/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96228_USHAPE_SLOPE_DRIFT_BEYOND_NFLOW.isRigorous === false &&
       /NO QED/.test(IMP96228_USHAPE_SLOPE_DRIFT_BEYOND_NFLOW.verdict) &&
-      /remains SOTA/.test(IMP96228_USHAPE_SLOPE_DRIFT_BEYOND_NFLOW.verdict),
+      /refereed bound is changed/i.test(IMP96228_USHAPE_SLOPE_DRIFT_BEYOND_NFLOW.verdict),
   },
 ];
 

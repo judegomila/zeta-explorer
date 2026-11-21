@@ -56,7 +56,7 @@
  * extrapolation, NOT a rigorous asymptotic; the OLS surrogate is descriptive; the KPSS critical values
  * are the KPSS-1992 asymptotic tabulated values applied on N=21; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34024-kpss-stationarity-bracket (the l=0 eta_mu ~0.3483 borderline this dissects; kpss reused)
  * @see imp-34083-kpss-bandwidth-sensitivity (R2 that isolated the sole rejection to the un-HAC l=0 cell)
@@ -275,7 +275,7 @@ export const IMP34155_KPSS_L0_BORDERLINE_MARGIN = {
     'critical values are asymptotic tabulated values applied on N=21; the component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34024 (the l=0 eta_mu ~0.3483 borderline dissected; kpss reused); imp-34083 (R2 isolating the ' +
     'sole rejection to the un-HAC l=0 cell); imp-33858 (the head/far-tail endpoints that dominate the ' +
@@ -337,13 +337,13 @@ export const IMP34155_KPSS_L0_BORDERLINE_MARGIN_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: isRigorous false, no QED, PT SOTA, RMSE-scale residual small, imp-3066 clause.
+    // Honesty gate: isRigorous false, no QED, no refereed bound is changed, RMSE-scale residual small, imp-3066 clause.
     id: 'imp34155-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, RMSE-scale residual small, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, RMSE-scale residual small, imp-3066 untouched',
     holds: () =>
       IMP34155_KPSS_L0_BORDERLINE_MARGIN.isRigorous === false &&
       /NO QED/.test(IMP34155_KPSS_L0_BORDERLINE_MARGIN.verdict) &&
-      /remains SOTA/.test(IMP34155_KPSS_L0_BORDERLINE_MARGIN.verdict) &&
+      /refereed bound is changed/i.test(IMP34155_KPSS_L0_BORDERLINE_MARGIN.verdict) &&
       /12% multiplicative/.test(IMP34155_KPSS_L0_BORDERLINE_MARGIN.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34155_KPSS_L0_BORDERLINE_MARGIN.verdict),
   },

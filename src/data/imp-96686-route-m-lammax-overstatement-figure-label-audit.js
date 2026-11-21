@@ -54,7 +54,7 @@
  * gap, whose true ratio is ~1.92x. One consumer (imp-96581 + page) already labels the two quantities
  * distinctly and is the correct template. Two further references (imp-96480 qualitative; imp-96399 a
  * distinct reach ratio) do not conflate. This audit changes no bound, establishes no operator
- * positivity, and asserts no QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open.
+ * positivity, and asserts no QED; no refereed bound is changed. RH open.
  */
 
 // imp-96548 inputs carried as literals (NOT imported) so this audit is self-contained and its
@@ -149,7 +149,7 @@ export const IMP96686_OVERSTATEMENT_LABEL_AUDIT = Object.freeze({
     + 'the two quantities distinctly and is the correct template. Two further references (imp-96480 '
     + 'qualitative, imp-96399 a distinct reach ratio) do not conflate. Recommended fixes recorded '
     + 'per consumer; no fix applied here (audit only). Changes no bound; establishes no operator '
-    + 'positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    + 'positivity; no refereed bound is changed; NO QED.',
   verdict: Object.freeze({
     mislabelCount: 2,
     correctCount: 1,
@@ -166,8 +166,8 @@ export const IMP96686_OVERSTATEMENT_LABEL_AUDIT = Object.freeze({
     'Static grep-based consistency audit; performs no re-derivation of any bound. The value ratio '
     + 'and ceiling ratio are recomputed only from the imp-96548 inputs carried as literals here, '
     + 'solely to demonstrate the two figures are distinct. No consumer text is edited by this module; '
-    + 'the recommended fixes are recorded for a follow-up. Changes no bound; Platt-Trudgian '
-    + 'Lambda <= 0.2 remains SOTA; NO QED.',
+    + 'the recommended fixes are recorded for a follow-up. Changes no bound; no refereed bound is changed'
+    + '; NO QED.',
 });
 
 export const IMP96686_OVERSTATEMENT_LABEL_AUDIT_ASSERTIONS = Object.freeze([
@@ -207,10 +207,10 @@ export const IMP96686_OVERSTATEMENT_LABEL_AUDIT_ASSERTIONS = Object.freeze([
         === AUDITED.filter((c) => c.verdict === 'SAFE').length,
   },
   {
-    name: 'honest: audit only, no bound moved, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: audit only, no bound moved, no refereed bound is changed, NO QED',
     holds: () =>
       /changes no bound/i.test(IMP96686_OVERSTATEMENT_LABEL_AUDIT.status)
-      && /Platt-Trudgian Lambda <= 0.2 remains SOTA/.test(IMP96686_OVERSTATEMENT_LABEL_AUDIT.status)
+      && /refereed bound is changed/i.test(IMP96686_OVERSTATEMENT_LABEL_AUDIT.status)
       && /NO QED/.test(IMP96686_OVERSTATEMENT_LABEL_AUDIT.status),
   },
 ]);

@@ -34,7 +34,7 @@
  * @see imp-96487-* (the 21-rung Burnol ratio(N) ladder whose remainder is analyzed)
  *
  * Ticket: imp-96944 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The w=3.85-is-a-Nyquist-alias headword, baked verbatim (no re-import).
@@ -66,7 +66,7 @@ const W385_NYQUIST_ALIAS_HEADWORD = Object.freeze({
     '(src/data/imp-96915-burnol-oscillation-frequency-periodogram.js). Naming / bookkeeping ' +
     'headword only; the qualitative VIF>1 conclusion is untouched; even the genuine peak is ' +
     'not formally significant (FAP ~0.11 > 0.05); interval-rigorous certificate reach stays ' +
-    '2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    '2a<=0.96; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP96944_W385_NYQUIST_ALIAS_GLOSSARY_HEADWORD = Object.freeze({
@@ -86,7 +86,7 @@ export const IMP96944_W385_NYQUIST_ALIAS_GLOSSARY_HEADWORD = Object.freeze({
     'is w=0.70 rad/sample (period ~9 lags, ~13.2x stronger), which -- via its ~9-lag period -- ' +
     'is what produces the real ACF anticorrelation lobe (signs ++-----+++, negative at lags ' +
     '3..7). No bound moved; the qualitative VIF>1 conclusion is untouched; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96915 (IMP96915_CLAIMED, IMP96915_GENUINE_PEAK, IMP96915_STABILITY, ' +
     'IMP96915_ACF_SIGNS, IMP96915_VERDICT); imp-96832 (the original w=3.85 label).',
@@ -114,11 +114,11 @@ export const IMP96944_W385_NYQUIST_ALIAS_GLOSSARY_HEADWORD_ASSERTIONS = [
   {
     id: 'imp96944-honesty-gate-no-qed',
     why: 'Documentation only: no bound claimed moved, VIF>1 conclusion untouched, no QED, ' +
-      'PT SOTA line present.',
+      'no-refereed-bound-change line present.',
     holds: () =>
       IMP96944_W385_NYQUIST_ALIAS_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96944_W385_NYQUIST_ALIAS_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96944_W385_NYQUIST_ALIAS_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96944_W385_NYQUIST_ALIAS_GLOSSARY_HEADWORD.verdict) &&
       /untouched/.test(IMP96944_W385_NYQUIST_ALIAS_GLOSSARY_HEADWORD.verdict) &&
       IMP96944_W385_NYQUIST_ALIAS_GLOSSARY_HEADWORD.glosses === 'imp-96915',
   },

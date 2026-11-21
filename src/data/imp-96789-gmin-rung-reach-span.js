@@ -1,8 +1,8 @@
 /**
  * imp-96789 -- Minimum contiguous zero-ordinate span to land the FIRST new imp-96629 / imp-96734
  * small-gap exponent rung past the cached N ~ 2e6, and its margin below the Platt-Trudgian rigorous
- * frontier T = 3.0000175e10. Measurement / scoping only; conditional on GUE; NO QED. PT Lambda <= 0.2
- * stays SOTA; RH open.
+ * frontier T = 3.0000175e10. Measurement / scoping only; conditional on GUE; NO QED. No refereed bound is changed
+ * ; RH open.
  *
  * TICKET (imp-96789). imp-96754 pinned the reach frontier of the imp-96629 / imp-96734 disjoint dyadic
  * block-minima gap-exponent ladder: the top rung k=20 is a ~91%-filled block and the next rung k=21
@@ -51,7 +51,7 @@
  * T ~ 3e10. The heights exist and are rigorously computed; the binding obstruction is list contiguity,
  * not zero height. Unlike the imp-96753 box estimator (~30 independent 2L windows per rung) the ladder
  * needs just ONE block per rung, so it is the cheapest reach ladder to extend by data. Measurement /
- * scoping only; conditional on GUE; NO QED. PT Lambda <= 0.2 remains SOTA; RH open.
+ * scoping only; conditional on GUE; NO QED. No refereed bound is changed; RH open.
  */
 
 const PI = Math.PI;
@@ -139,8 +139,8 @@ export const GMIN_RUNG_REACH_SPAN = {
     'Platt-Trudgian frontier T = 3.0000175e10 (a ~24,232x count margin). The ordinates exist and are ' +
     'rigorously computed; the binding obstruction is list contiguity, not zero height (same gap as ' +
     'imp-96753 / imp-96754). Unlike the box estimator (~30 independent 2L windows per rung) this ladder ' +
-    'needs one block per rung. Measurement / scoping only; conditional on GUE; NO QED. PT Lambda <= 0.2 ' +
-    'remains SOTA; RH open.',
+    'needs one block per rung. Measurement / scoping only; conditional on GUE; NO QED. No refereed bound is changed' +
+    '; RH open.',
   citation:
     'imp-96629 (per-window dyadic block-minima gap exponent); imp-96734 (finite-N trend); imp-96754 ' +
     '(reach frontier); imp-96753 (RvM height arithmetic); Platt-Trudgian (RH verified to T = 3.0000175e10).',
@@ -148,7 +148,7 @@ export const GMIN_RUNG_REACH_SPAN = {
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96789_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Scoping only: the first new imp-96629 gap-exponent ' +
+  'RH open; no refereed bound is changed; NO QED. Scoping only: the first new imp-96629 gap-exponent ' +
   'rung (k=21) needs a contiguous list to index 4,194,304 (2,193,252 more zeros than cached), height ' +
   'T = 2.237e6 -- 13,413x below the Platt-Trudgian frontier T ~ 3e10. Binding gap = list contiguity, ' +
   'not zero height. Changes no bound.';
@@ -187,8 +187,8 @@ export default GMIN_RUNG_REACH_SPAN;
     throw new Error('imp-96789: scoping must not move any bound');
   if (!/NO QED/.test(F.verdict))
     throw new Error('imp-96789: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(F.verdict))
-    throw new Error('imp-96789: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-  if (!(/RH open/.test(IMP96789_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96789_HONEST_BANNER) && /NO QED/.test(IMP96789_HONEST_BANNER)))
+  if (!/refereed bound is changed/i.test(F.verdict))
+    throw new Error('imp-96789: verdict dropped the no-refereed-bound-change banner');
+  if (!(/RH open/.test(IMP96789_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96789_HONEST_BANNER) && /NO QED/.test(IMP96789_HONEST_BANNER)))
     throw new Error('imp-96789: IMP96789_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();

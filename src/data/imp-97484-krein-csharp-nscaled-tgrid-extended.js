@@ -20,8 +20,8 @@
  *   validating that the Nmax=164 build reproduces the Nmax=132 build on its leading slices.
  *
  *   MEASUREMENT ONLY. lam_min(N,.) are Rayleigh-Ritz UPPER brackets; establishes NO operator positivity; NO
- *   lower bound; no bound moves; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian
- *   Lambda<=0.2 SOTA; RH open; NO QED.
+ *   lower bound; no bound moves; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * THE EXTENDED WELL-RESOLVED lam_min(N,T) TABLE (fitter-free, the trustworthy object). Each column is
  *   monotone INCREASING in T (cumulative T resolves the inner limit from below); each column is monotone

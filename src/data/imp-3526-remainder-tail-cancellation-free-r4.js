@@ -58,7 +58,7 @@
  *   NECESSARY-BUT-NOT-SUFFICIENT and the degree-2 face carries no feasibility
  *   comparison (imp-3469: D_2 = 0). The operator-level K_a >= 0 sign-positivity
  *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no
- *   QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   QED. No refereed bound is changed.
  *
  *   @see imp-3502-remainder-tail-exponent-fit.js (the 3-rung fit this upgrades)
  *   @see imp-3481-autocorrelation-moment-ladder.js (the remainder ladder)
@@ -315,7 +315,7 @@ export const IMP3526_REMAINDER_TAIL_CANCELLATION_FREE_R4 = Object.freeze({
       'at all (imp-3469: D_2 = 0). The operator-level K_a >= 0 sign-positivity (off-diagonal endpoint-Hankel step, ' +
       'imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -374,7 +374,7 @@ export const IMP3526_REMAINDER_TAIL_CANCELLATION_FREE_R4_ASSERTIONS = [
   {
     id: 'imp3526-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: reformulation/measurement only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3526_REMAINDER_TAIL_CANCELLATION_FREE_R4.honestCaveat;
       return (
@@ -382,7 +382,7 @@ export const IMP3526_REMAINDER_TAIL_CANCELLATION_FREE_R4_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

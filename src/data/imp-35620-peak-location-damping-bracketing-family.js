@@ -62,7 +62,7 @@
  * model verbatim; surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; C_C ansatz
  * (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
- * no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35574-peak-location-height-map-damping (the ~0.553 surrogate-only damping factor re-formed here)
  * @see imp-35536-peak-height-map-sensitivity (the multiplicative bracketing family + local N_max slope ~ -0.49)
@@ -243,7 +243,7 @@ export const IMP35620_PEAK_LOCATION_DAMPING_BRACKETING_FAMILY = {
     'surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; C_C ansatz (imp-2642/imp-2643) and ' +
     'E_trunc = 3.06e-5 (imp-2631/imp-447) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
     'E_coll far-tail exponent 1/2 per imp-3463; changes no bound; no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35574 (the ~0.553 surrogate-only peak-location damping factor re-formed here); imp-35536 ' +
     '(multiplicative bracketing family + local N_max slope ~ -0.49); imp-35555 (surrogate as a ' +
@@ -282,13 +282,13 @@ export const IMP35620_PEAK_LOCATION_DAMPING_BRACKETING_FAMILY_ASSERTIONS = [
       DAMPING_SUR > 0.54 && DAMPING_SUR < 0.57 && DAMPING_SUR < DAMPING_MIN,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35620-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35620_PEAK_LOCATION_DAMPING_BRACKETING_FAMILY.isRigorous === false &&
       /NO QED/.test(IMP35620_PEAK_LOCATION_DAMPING_BRACKETING_FAMILY.verdict) &&
-      /remains SOTA/.test(IMP35620_PEAK_LOCATION_DAMPING_BRACKETING_FAMILY.verdict),
+      /refereed bound is changed/i.test(IMP35620_PEAK_LOCATION_DAMPING_BRACKETING_FAMILY.verdict),
   },
 ];
 

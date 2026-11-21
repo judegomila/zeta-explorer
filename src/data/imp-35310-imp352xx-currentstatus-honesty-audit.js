@@ -13,7 +13,7 @@
  * top-of-file JSDoc banner and each named glossary.js headword's definition/
  * honestScope text for: an explicit "no operator positivity" / "no RH verdict"
  * / "NO QED" statement, the C_mb GUE-conditional (imp-486) UNTOUCHED caveat,
- * and the Platt-Trudgian Lambda &lt;= 0.2 rigorous-SOTA citation. Separately,
+ * and the Platt-Trudgian Lambda &lt;= 0.2 rigorous-no-refereed-bound-change citation. Separately,
  * read the lambda-roadmap.js currentStatus string (src/data/lambda-roadmap.js,
  * the property spanning roughly lines 1421-1644) to confirm no imp-352xx text
  * had been appended there yet, and that its existing tail (ending at the
@@ -23,7 +23,7 @@
  * module headers and their glossary companions already carries the full
  * honesty banner (MEASUREMENT/ASSESSMENT ONLY, "changes no bound", "no
  * operator positivity", "no RH verdict", "NO QED", C_mb GUE-conditional
- * UNTOUCHED, Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA):
+ * UNTOUCHED, no refereed bound is changed):
  *   - imp-35236 (eflow-fartail-inverse-swap-isolation)        : CLEAN
  *   - imp-35237 (eflow-fartail-exponent-ladder-crosscheck)     : CLEAN
  *   - imp-35238 (real-ordinate-three-factor-invariant)         : CLEAN
@@ -41,7 +41,7 @@
  *
  * RECOMMENDATION. No repair needed for this cohort. This module fabricates no
  * pages and asserts no new bound; it only records the audit outcome. No QED.
- * Platt-Trudgian Lambda &lt;= 0.2 stays the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-2519 (the original referee finding this audit pattern guards against)
  * @see imp-3637, imp-3660, imp-3706, imp-3684 (prior cohort-honesty-audit modules in this series)
@@ -53,7 +53,7 @@ export const IMP_35310_IMP352XX_HONESTY_AUDIT = {
   method:
     'Read each imp-352xx module header and its glossary companion definition for an explicit ' +
     'no-QED / no-RH-verdict / no-operator-positivity statement, the imp-486 C_mb GUE-conditional ' +
-    'UNTOUCHED note, and the Platt-Trudgian Lambda <= 0.2 SOTA citation; separately confirm the ' +
+    'UNTOUCHED note, and the no-refereed-bound-change citation; separately confirm the ' +
     'lambda-roadmap.js currentStatus tail carries no imp-352xx text yet.',
   modulesAudited: [
     { id: 'imp-35236', file: 'imp-35236-eflow-fartail-inverse-swap-isolation.js', drift: false },
@@ -77,7 +77,7 @@ export const IMP_35310_IMP352XX_HONESTY_AUDIT = {
     'lambda-roadmap.js currentStatus tail has no imp-352xx text appended yet, so there is nothing ' +
     'to soften there for this cohort.',
   honestNote:
-    'Read-only audit; no pages or bounds fabricated. No QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages or bounds fabricated. No QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -104,9 +104,9 @@ const IMP_35310_ASSERTIONS = [
   {
     id: 'imp35310-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_35310_IMP352XX_HONESTY_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_35310_IMP352XX_HONESTY_AUDIT.honestNote) &&
       /no QED/i.test(IMP_35310_IMP352XX_HONESTY_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

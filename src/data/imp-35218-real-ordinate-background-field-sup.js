@@ -66,7 +66,7 @@
  * certify N-uniformity (it in fact REFUTES it for real spacings), does NOT discharge M2 or M5, does
  * NOT touch the imp-2563 sandwich (which remains a valid CONDITIONAL bracket). Changes no bound;
  * establishes no operator positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict,
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * @see imp-35194-background-field-sup-n-uniformity (unit-spacing beta(N); the N-uniformity this refutes on real data)
  * @see imp-35167-g-min-non-collision-certificate-scope (M2 first binding piece; M3 initial-gap regime; parent)
@@ -320,8 +320,8 @@ export const IMP35218_REAL_ORDINATE_BACKGROUND_FIELD_SUP = {
     'local scale. This probe does NOT certify N-uniformity (it refutes it for real spacings), does NOT ' +
     'discharge M2 or M5, and does NOT touch the imp-2563 sandwich (a valid CONDITIONAL bracket). M5 ' +
     'horizon-front mismatch stays OPEN; changes no bound; establishes no operator positivity; ' +
-    'C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35194 (unit-spacing beta(N); N-uniformity this refutes on real data); imp-35167 (M2 first ' +
     'binding piece, M3 initial-gap regime; parent); imp-2563 (gap ODE du/ds = -8 + 4 B(s) u, assumes ' +
@@ -391,15 +391,15 @@ export const IMP35218_REAL_ORDINATE_BACKGROUND_FIELD_SUP_ASSERTIONS = [
     holds: () => productPrefactorGrowsWithN === true,
   },
   {
-    // Honesty gate: measurement only, no QED, M2/M5 stay OPEN, imp-2563 untouched, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, M2/M5 stay OPEN, imp-2563 untouched, no refereed bound is changed.
     id: 'imp35218-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, NO QED, M5 OPEN, imp-2563 untouched, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, NO QED, M5 OPEN, imp-2563 untouched, no refereed bound is changed',
     holds: () =>
       IMP35218_REAL_ORDINATE_BACKGROUND_FIELD_SUP.isRigorous === false &&
       /NO QED/.test(IMP35218_REAL_ORDINATE_BACKGROUND_FIELD_SUP.verdict) &&
       /M5 horizon-front mismatch stays OPEN/.test(IMP35218_REAL_ORDINATE_BACKGROUND_FIELD_SUP.verdict) &&
       /imp-2563 sandwich/.test(IMP35218_REAL_ORDINATE_BACKGROUND_FIELD_SUP.verdict) &&
-      /Lambda <= 0.2\s*\n?\s*remains SOTA/.test(IMP35218_REAL_ORDINATE_BACKGROUND_FIELD_SUP.verdict),
+      /refereed bound is changed/i.test(IMP35218_REAL_ORDINATE_BACKGROUND_FIELD_SUP.verdict),
   },
 ];
 

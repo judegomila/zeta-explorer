@@ -60,7 +60,7 @@
  * surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no
  * operator positivity; imp-3066 K_a >= 0 untouched; refines, does not overturn, imp-34084; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34084-apex-cubic-tilt-coefficient (C2/C3 named the residual odd quintic overshoot; fit here)
  * @see imp-34008-apex-parabola-wing-fidelity (W2 inferred the tilt from the wing asymmetry)
@@ -315,7 +315,7 @@ export const IMP34146_APEX_QUINTIC_TILT_COEFFICIENT = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is ' +
     'descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34084 (C2/C3 named the residual odd quintic overshoot, fit here); imp-34008 (W2 cubic-tilt ' +
     'inference from wing asymmetry); imp-34064 (the even quartic companion no odd term can address); ' +
@@ -371,14 +371,14 @@ export const IMP34146_APEX_QUINTIC_TILT_COEFFICIENT_ASSERTIONS = [
       Math.abs(QUINTIC_TOTAL_DISC - 0.6276) < 0.02,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, refines not overturns, no QED, no refereed bound is changed.
     id: 'imp34146-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, refines imp-34084, no QED, imp-3066 untouched, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, refines imp-34084, no QED, imp-3066 untouched, no refereed bound is changed',
     holds: () =>
       IMP34146_APEX_QUINTIC_TILT_COEFFICIENT.isRigorous === false &&
       /confirms and refines, does not overturn, imp-34084/.test(IMP34146_APEX_QUINTIC_TILT_COEFFICIENT.verdict) &&
       /NO QED/.test(IMP34146_APEX_QUINTIC_TILT_COEFFICIENT.verdict) &&
-      /remains SOTA/.test(IMP34146_APEX_QUINTIC_TILT_COEFFICIENT.verdict) &&
+      /refereed bound is changed/i.test(IMP34146_APEX_QUINTIC_TILT_COEFFICIENT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34146_APEX_QUINTIC_TILT_COEFFICIENT.verdict),
   },
 ];

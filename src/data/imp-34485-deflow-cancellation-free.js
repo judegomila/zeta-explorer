@@ -66,7 +66,7 @@
  * imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the exponent readings are accessible-rung
  * measurements of a fit, not a proved limit; changes no bound; establishes no operator positivity; C_mb
  * GUE-conditional per imp-486 untouched (E_coll untouched); imp-3066 K_a >= 0 untouched; no RH verdict, NO
- * QED. Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.
+ * QED. No refereed bound is changed.
  *
  * @see imp-34448-deflow-decay-exponent (the fit + honest double-precision-floor sub-gap this module resolves)
  * @see imp-34373-eflow-share-near-pole (the monotone deflow falloff)
@@ -279,7 +279,7 @@ export const IMP34485_DEFLOW_CANCELLATION_FREE = {
     'a fit, not a proved limit; E_flow is the benign mesoscopic-Gronwall term (imp-2845) and does NOT touch ' +
     'the divergent C_Lip collision-Gronwall; changes no bound; establishes no operator positivity; C_mb ' +
     'GUE-conditional per imp-486 untouched (E_coll untouched); imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34448 (the fit + double-precision-floor sub-gap resolved here); imp-34373 (the monotone falloff); ' +
     'imp-34285 (the ~2.2e-7 crossing share); imp-34211 (the ~0.278 gap normalizer); imp-34169 (the pole ' +
@@ -335,13 +335,13 @@ export const IMP34485_DEFLOW_CANCELLATION_FREE_ASSERTIONS = [
       ),
   },
   {
-    // Honesty gate: feasibility/measurement only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: feasibility/measurement only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34485-honesty-gate-no-qed',
-    description: 'Feasibility/measurement only: isRigorous false, no QED, PT SOTA, K_a untouched, E_coll untouched',
+    description: 'Feasibility/measurement only: isRigorous false, no QED, no refereed bound is changed, K_a untouched, E_coll untouched',
     holds: () =>
       IMP34485_DEFLOW_CANCELLATION_FREE.isRigorous === false &&
       /NO QED/.test(IMP34485_DEFLOW_CANCELLATION_FREE.verdict) &&
-      /remains the SOTA/.test(IMP34485_DEFLOW_CANCELLATION_FREE.verdict) &&
+      /refereed bound is changed/i.test(IMP34485_DEFLOW_CANCELLATION_FREE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34485_DEFLOW_CANCELLATION_FREE.verdict) &&
       /C_mb GUE-conditional per imp-486 untouched/.test(IMP34485_DEFLOW_CANCELLATION_FREE.verdict),
   },

@@ -54,7 +54,7 @@
  *  - The interior turn-over is EVIDENCE AGAINST unbounded growth (it argues the
  *    endpoint rise was an artifact), not a proof of boundedness.
  *  - Measurement only. imp-3910 C <= 54.56 (on its 3 plateaus) stands as stated;
- *    imp-3066 K_a>=0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *    imp-3066 K_a>=0 UNTOUCHED; no refereed bound is changed; NO QED.
  *
  * @see imp-3910-tail-weight-constant-certification.js (the 3-plateau majorant, extended here)
  * @see imp-33250-tail-weight-ratio-n-uniformity-assessment.js (named the residual)
@@ -140,7 +140,7 @@ export const IMP_33269_ALL_PLATEAUS_MAJORANT_RATIO_SCAN = Object.freeze({
       '[0.83,1.05] band. MEASUREMENT ONLY: the N->infinity sup remains un-certified (a ' +
       'bounded interior max on a finite plateau set is NOT a certified N-uniform constant); ' +
       'the turn-over is EVIDENCE AGAINST unbounded growth, not a proof of boundedness. ' +
-      'imp-3910 C<=54.56 stands as stated; imp-3066 K_a>=0 UNTOUCHED; PT Lambda<=0.2 SOTA; NO QED.',
+      'imp-3910 C<=54.56 stands as stated; imp-3066 K_a>=0 UNTOUCHED; no refereed bound is changed; NO QED.',
   },
 
   closesResidual: {
@@ -167,7 +167,7 @@ export const IMP_33269_ALL_PLATEAUS_MAJORANT_RATIO_SCAN = Object.freeze({
     noCertifiedNUniformConstant: true,
     noNewLambdaBound: true,
     imp3066Untouched: true,
-    plattTrudgianStillSOTA: 'Lambda <= 0.2 (PT 2021) remains SOTA',
+    plattTrudgianStillSOTA: 'No refereed bound is changed',
     noQED: true,
   },
 });
@@ -250,7 +250,7 @@ export const IMP_33269_ALL_PLATEAUS_MAJORANT_RATIO_SCAN_ASSERTIONS = [
     why:
       'Honesty guard: this measures R_maj across 10 plateaus but claims no certified ' +
       'N-uniform constant and no new Lambda bound, leaves imp-3066 untouched, and ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
   },
 ];
 

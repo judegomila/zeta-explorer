@@ -511,7 +511,7 @@ export const IMP95163_ENDPOINT_PAIR_SUPPORT_CERTIFICATE = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // --------------------------------------------------------------------------

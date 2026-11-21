@@ -165,7 +165,7 @@
  * The numerics below CROSS-CHECK the theorem statements; they are not
  * the claim. Import-light (no heavy bundle; imports only sibling verdict
  * modules for carried constants). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 import BNT from "./imp-95172-ballast-necessity-tradeoff.js";

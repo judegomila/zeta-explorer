@@ -21,7 +21,7 @@
  *
  *   Ticket: imp-35664 (ux, medium). Presentation only of an already-established measurement;
  *   adds no new Lambda bound. Discharges nothing; imp-35337a stays OPEN. C_mb GUE-conditional
- *   per imp-486 UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   per imp-486 UNTOUCHED. NO QED. No refereed bound is changed.
  */
 
 import IMP35577_FARTAIL_CROSSINGS_HEIGHT_MAP_SENSITIVITY from './imp-35577-fartail-crossings-height-map-sensitivity.js';

@@ -62,7 +62,7 @@
  *   O(e^{-4 tau}) tail (sg-3844-watson-tail stays OPEN). It establishes NO operator
  *   positivity; mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT and the operator-level
  *   K_a &gt;= 0 step (off-diagonal endpoint-Hankel, imp-3066) is UNTOUCHED. No RH verdict,
- *   no QED. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   no QED. No refereed bound is changed.
  *
  *   @see imp-3867-a-weight-closed-form-independent-reproduction.js (leading-order route being extended)
  *   @see imp-3844-a-weight-correction-limit-closed-form.js (the closed form B = 3/(2 pi) being reproduced)
@@ -208,7 +208,7 @@ export const IMP33210_A_WEIGHT_B_DIRECT_ROUTE_REPRODUCTION = Object.freeze({
     'single-path artifact. REPRODUCTION / cross-check only: independent NUMERICAL re-derivation of ' +
     'a diagnostic subleading coefficient, does NOT bound the O(e^{-4 tau}) Watson tail ' +
     '(sg-3844-watson-tail open); establishes NO operator positivity, mass-feasibility ' +
-    'necessary-but-not-sufficient, imp-3066 untouched; no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'necessary-but-not-sufficient, imp-3066 untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     directKernel: 'ln Phi(u) = logsumexp_n [ ln(2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) - pi n^2 e^{4u} ]; n=1 term as pivot',
@@ -268,7 +268,7 @@ export const IMP33210_A_WEIGHT_B_DIRECT_ROUTE_REPRODUCTION = Object.freeze({
       'sg-3844-watson-tail: this reproduces the subleading coefficient B via a structurally distinct ' +
       'numerical route but does NOT certify the all-orders O(e^{-4 tau}) Watson tail bound, which ' +
       'stays open. A reproduction of a diagnostic coefficient, not a theorem about zeros.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -303,7 +303,7 @@ export const IMP33210_A_WEIGHT_B_DIRECT_ROUTE_REPRODUCTION_ASSERTIONS = [
   {
     id: 'imp33210-honest-reproduction-not-a-verdict',
     why: 'Mandatory honesty: reproduction/cross-check only, does not bound the Watson tail, operator ' +
-         'positivity (imp-3066) untouched, mass-feasibility necessary-but-not-sufficient, PT 0.2 SOTA.',
+         'positivity (imp-3066) untouched, mass-feasibility necessary-but-not-sufficient, no refereed bound is changed.',
     holds: () => {
       const c = IMP33210_A_WEIGHT_B_DIRECT_ROUTE_REPRODUCTION.honestCaveat;
       return (
@@ -313,7 +313,7 @@ export const IMP33210_A_WEIGHT_B_DIRECT_ROUTE_REPRODUCTION_ASSERTIONS = [
         c.didNotBoundWatsonTail === true &&
         c.didNotAttemptPositivity === true &&
         /sg-3844-watson-tail/.test(c.residualSubGap) &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

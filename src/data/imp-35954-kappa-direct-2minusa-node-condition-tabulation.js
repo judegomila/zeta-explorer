@@ -41,7 +41,7 @@
  * Measurement/diagnostic only, double precision, on the imp-35855/imp-35892 surrogate (identical K_ampl,
  * delta, S_inf, aOf, effectiveHeightForN). Instantiates NO interval, ports nothing, derives no
  * remainder, changes no bound. imp-34714a REMAINS OPEN. C_C = (1/8) (imp-2642/2643) and C_mb
- * GUE-conditional (imp-486) UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * GUE-conditional (imp-486) UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-35892-rdirect-own-floor-departure-height (measured R_direct end-to-end error; cited kappa~1)
  * @see imp-35855-rclean-interval-de-cancellation-assessment (asserted kappa_direct ~ 1 for the 2-a node)
@@ -208,8 +208,8 @@ export const IMP35954_KAPPA_DIRECT_CONDITION_TABULATION = {
     'subtraction -- the only failure is the effectiveHeightForN overflow cliff (imp-35892), a ' +
     'representability limit. Reuses the imp-35855/imp-35892 machinery (identical K, delta, S_inf, aOf, ' +
     'effectiveHeightForN). imp-34714a REMAINS OPEN; C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional ' +
-    '(imp-486) UNTOUCHED; instantiates no interval; changes no bound; NO QED. Platt-Trudgian Lambda ' +
-    '<= 0.2 remains SOTA.',
+    '(imp-486) UNTOUCHED; instantiates no interval; changes no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35892 (measured R_direct end-to-end error to the last finite height; cited kappa~1 but never ' +
     'tabulated it); imp-35855 (asserted kappa_direct ~ 1 for the de-cancelled 2-a node); ' +
@@ -237,14 +237,14 @@ export const IMP35954_KAPPA_DIRECT_CONDITION_TABULATION_ASSERTIONS = [
     holds: () => FD_AGREES === true && MAX_FD_MISMATCH < 1e-6,
   },
   {
-    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp35954-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, no refereed bound is changed',
     holds: () =>
       IMP35954_KAPPA_DIRECT_CONDITION_TABULATION.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP35954_KAPPA_DIRECT_CONDITION_TABULATION.subGap) &&
       /NO QED/.test(IMP35954_KAPPA_DIRECT_CONDITION_TABULATION.verdict) &&
-      /remains SOTA/.test(IMP35954_KAPPA_DIRECT_CONDITION_TABULATION.verdict),
+      /refereed bound is changed/i.test(IMP35954_KAPPA_DIRECT_CONDITION_TABULATION.verdict),
   },
 ];
 

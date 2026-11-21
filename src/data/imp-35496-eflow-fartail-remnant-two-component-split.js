@@ -59,7 +59,7 @@
  * rigorous asymptotic; changes no bound. E_flow > 0 strictness (imp-33848) untouched;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
  * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35454-eflow-fartail-remnant-product-limit (aggregate product-limit, split here)
  * @see imp-35413-eflow-fartail-remnant-sub1e3-crossing (the ladder origin, endpoint 1e28)
@@ -212,7 +212,7 @@ export const IMP35496_EFLOW_FARTAIL_REMNANT_TWO_COMPONENT_SPLIT = {
     '(decay-rate law). Measurement only on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous ' +
     'asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 ' +
     'UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no ' +
-    'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35454 (aggregate product-limit, split here); imp-35413 (ladder origin, endpoint 1e28); ' +
     'imp-35473 (sub-1e-4 crossing); imp-35198 (analytic -1 + 3/log N); imp-35280 (four-rung remnant ' +
@@ -274,13 +274,13 @@ export const IMP35496_EFLOW_FARTAIL_REMNANT_TWO_COMPONENT_SPLIT_ASSERTIONS = [
     holds: () => PRE_1E28 > TAY_1E28 && PRE_1E120 > TAY_1E120,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35496-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35496_EFLOW_FARTAIL_REMNANT_TWO_COMPONENT_SPLIT.isRigorous === false &&
       /NO QED/.test(IMP35496_EFLOW_FARTAIL_REMNANT_TWO_COMPONENT_SPLIT.verdict) &&
-      /remains SOTA/.test(IMP35496_EFLOW_FARTAIL_REMNANT_TWO_COMPONENT_SPLIT.verdict),
+      /refereed bound is changed/i.test(IMP35496_EFLOW_FARTAIL_REMNANT_TWO_COMPONENT_SPLIT.verdict),
   },
 ];
 

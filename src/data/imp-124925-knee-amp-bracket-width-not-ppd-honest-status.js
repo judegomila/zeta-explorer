@@ -12,7 +12,7 @@
  * @see imp-97805-knee-eflow-amplification-ratio.js (discrete A ~ 9.54, PPD-refined at the baseline W = 0.25)
  *
  * Ticket: imp-124925 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import {

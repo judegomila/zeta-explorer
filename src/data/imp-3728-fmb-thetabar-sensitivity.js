@@ -60,7 +60,7 @@
  *    (the self-consistency theta_N >= thetaBar is verified at thetaBar* for
  *    all 10 plateaus below); imp-3725 loses NO rigor by picking 0.99.
  *  - This tunes the F_mb factor only. It does NOT close cond-CH or any other
- *    conditional leg, does NOT beat Platt-Trudgian (Lambda <= 0.2 stays SOTA),
+ *    conditional leg, does NOT beat Platt-Trudgian (no refereed bound is changed),
  *    and imp-3066 is UNTOUCHED. Necessary-but-not-sufficient. NO QED.
  *
  * @see imp-3725 (the gap-domination bootstrap lemma this measures)
@@ -131,7 +131,7 @@ export const IMP_3728_FMB_THETABAR_SENSITIVITY = Object.freeze({
       'ROBUST, not an artifact of the thetaBar = 0.99 choice: even at the ' +
       'K-minimizing thetaBar* the margin stays 8.31e4x. The enclosure remains ' +
       'a true-flow statement at every feasible thetaBar. Necessary but not ' +
-      'sufficient; Platt-Trudgian Lambda <= 0.2 stays SOTA; imp-3066 ' +
+      'sufficient; no refereed bound is changed; imp-3066 ' +
       'untouched; NO QED.',
   },
 

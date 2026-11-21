@@ -54,7 +54,7 @@ export const IMP97792_SUMMARY = Object.freeze({
     'Presentation only: every elasticity and channel factor is reused verbatim from imp-97757 (a '
     + 'measurement, not a derivation); no new computation. Cross-validation / measurement only on the '
     + 'inherited imp-3220/imp-3406 extrapolation surrogate, not a rigorous asymptotic. Changes no bound; '
-    + 'establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

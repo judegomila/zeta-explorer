@@ -47,7 +47,7 @@
  * of -1/2). The anti-correlation safe-side verdict of imp-96128/imp-96312 persists and DEEPENS all the way to
  * the corroboration-reach ceiling, connecting continuously to the 3e12 PT anchor (f = 2.859268, gap 1.056197).
  * Measurement/cross-validation only; theoretical GUE quantity, not real zeros; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96312-covariance-cross-validation-pt-anchor (the 3e12 anchor rho/AR-1/margin this band extends downward)
  * @see imp-96128-number-variance-two-interval-covariance-exact (the union-identity covariance and safe-side verdict)
@@ -128,7 +128,7 @@ export const IMP96472_AR1_FACTOR_CROSSOVER_BAND_SAFE_MARGIN = {
   caveat:
     'rho_exact is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L(T); at these heights there are no computed Riemann zeros, so this evaluates the closed-form envelope, not actual zeros. It changes no bound and does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'Across the imp-96430/imp-96444 corroboration-reach crossover band [1.3e12, 2.5e12], the imp-96128 AR-1 effective factor rises monotonically from 2.855981 to 2.858565 and the safe-side margin to the sign-forbidden rho_crit = 0.5744 flip threshold widens from 1.055755 to 1.056103, with rho_exact deepening from -0.4813252 to -0.4816726 (deviation |rho + 1/2| shrinking 0.0186748 -> 0.0183274 but never within 1e-2 of -1/2). The anti-correlation safe-side verdict of imp-96128/imp-96312 persists and DEEPENS to the corroboration-reach ceiling, connecting continuously to the 3e12 PT anchor (f = 2.859268, gap 1.056197). Measurement/cross-validation only; theoretical GUE quantity, not real zeros; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Across the imp-96430/imp-96444 corroboration-reach crossover band [1.3e12, 2.5e12], the imp-96128 AR-1 effective factor rises monotonically from 2.855981 to 2.858565 and the safe-side margin to the sign-forbidden rho_crit = 0.5744 flip threshold widens from 1.055755 to 1.056103, with rho_exact deepening from -0.4813252 to -0.4816726 (deviation |rho + 1/2| shrinking 0.0186748 -> 0.0183274 but never within 1e-2 of -1/2). The anti-correlation safe-side verdict of imp-96128/imp-96312 persists and DEEPENS to the corroboration-reach ceiling, connecting continuously to the 3e12 PT anchor (f = 2.859268, gap 1.056197). Measurement/cross-validation only; theoretical GUE quantity, not real zeros; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -168,8 +168,8 @@ export const IMP96472_AR1_FACTOR_CROSSOVER_BAND_SAFE_MARGIN = {
   // honesty gates
   if (!/NO QED/.test(IMP96472_AR1_FACTOR_CROSSOVER_BAND_SAFE_MARGIN.verdict))
     throw new Error('imp-96472: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96472_AR1_FACTOR_CROSSOVER_BAND_SAFE_MARGIN.verdict))
-    throw new Error('imp-96472: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96472_AR1_FACTOR_CROSSOVER_BAND_SAFE_MARGIN.verdict))
+    throw new Error('imp-96472: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96472_AR1_FACTOR_CROSSOVER_BAND_SAFE_MARGIN;

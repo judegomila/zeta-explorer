@@ -51,7 +51,7 @@
  * synthetic log N grids. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic;
  * the analytic E_flow slope is a property of that surrogate, not of the true residual; changes no
  * bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34607-deflow-second-order-identifiability-window (the anchored 1-D slice, span ~43.5)
  * @see imp-34584-deflow-refit-second-order-term (the overfit and ~0.9995 predictor collinearity)
@@ -247,7 +247,7 @@ export const IMP34634_DEFLOW_SECOND_ORDER_BOTH_ENDPOINTS_WINDOW = {
     'component model is NOT a rigorous asymptotic; the analytic E_flow slope is a property of that ' +
     'surrogate, not of the true residual; changes no bound; establishes no operator positivity; C_mb ' +
     'GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34607 (the anchored 1-D slice, span ~43.5); imp-34584 (the overfit and ~0.9995 predictor ' +
     'collinearity); imp-34448 (the observed local exponents and the fp floor at kEnd ~22.5).',
@@ -289,13 +289,13 @@ export const IMP34634_DEFLOW_SECOND_ORDER_BOTH_ENDPOINTS_WINDOW_ASSERTIONS = [
     holds: () => minSpanCrossingForKHi(6) === null && conditioningAt(K_FLOOR, 6).vif > 10,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34634-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34634_DEFLOW_SECOND_ORDER_BOTH_ENDPOINTS_WINDOW.isRigorous === false &&
       /NO QED/.test(IMP34634_DEFLOW_SECOND_ORDER_BOTH_ENDPOINTS_WINDOW.verdict) &&
-      /remains SOTA/.test(IMP34634_DEFLOW_SECOND_ORDER_BOTH_ENDPOINTS_WINDOW.verdict) &&
+      /refereed bound is changed/i.test(IMP34634_DEFLOW_SECOND_ORDER_BOTH_ENDPOINTS_WINDOW.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34634_DEFLOW_SECOND_ORDER_BOTH_ENDPOINTS_WINDOW.verdict),
   },
 ];

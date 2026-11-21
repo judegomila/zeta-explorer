@@ -59,7 +59,7 @@
  *        Polymath15 0.22, Platt-Trudgian verification 0.2). The topological
  *        frame re-derives the 0.2-ARCHITECTURE, not merely Lambda >= 0, but
  *        cannot beat 0.2 without new verification height or barrier input
- *        (computational, not topological, bottleneck). PT 0.2 stays SOTA.
+ *        (computational, not topological, bottleneck). No refereed bound is changed.
  *    Genuine new-to-repo instrument: the exact H_t integral turns the winding
  *    ladder into an exact-flow collision-time meter (first window collision
  *    t_c = -1.8837 for the (gamma_9, gamma_10) pair vs two-body -(2 dgamma)^2/8
@@ -144,7 +144,7 @@ export const WINDING_MONOTONICITY_RIGOR = {
     subGap:
       'Robust per-pair attribution of the exact-flow collision census BEYOND the first two window collisions is OPEN: it needs zero-trajectory continuation (following each real zero forward from t=0) rather than t=0 midpoint-proximity matching, plus a widened window to eliminate boundary flux. Only the two tightest well-separated pairs are cleanly measured here.',
     verdict:
-      'The two tightest window pairs both collide LATER (|t_c| larger) than their isolated two-body prediction, by a retardation factor 1.20 and 1.26 that GROWS mildly with pair spacing -- confirming and extending the imp-34813 tightest-pair 5.78-vs-8 slope finding to a second pair. Measurement only; changes no bound; NO QED; PT Lambda<=0.2 stays SOTA.',
+      'The two tightest window pairs both collide LATER (|t_c| larger) than their isolated two-body prediction, by a retardation factor 1.20 and 1.26 that GROWS mildly with pair spacing -- confirming and extending the imp-34813 tightest-pair 5.78-vs-8 slope finding to a second pair. Measurement only; changes no bound; NO QED; no refereed bound is changed.',
   },
   continuationAttribution: {
     // imp-34841. Closes the multiPairCollisionCensus SUB-GAP: replaces section H's
@@ -181,7 +181,7 @@ export const WINDING_MONOTONICITY_RIGOR = {
         'widening does NOT eliminate boundary flux -- it introduces boundary IN-flux (a zero enters from x>112) as early as t~-3.6, well before most merges, halting order-continuation. The BASE window [20,104] is the cleaner instrument: its sole boundary event is a DEEP exit (gamma_6 at t~-34.9), leaving all four interior merges cleanly attributable.',
     },
     verdict:
-      'Order-continuation cleanly attributes ALL FOUR base-window conjugate-pair mergers to specific labelled pairs (2 more than section H proximity matching), with a retardation ladder 1.23 -> 1.28 -> 1.41 -> 1.57 that stays > 1 and grows MONOTONICALLY with collision depth -- and it correctly reads the count->1 rung as a boundary EXIT of gamma_6, dissolving the section-H spurious retard 0.85 (4->2 mis-attribution) and 6.28 (boundary-as-merge) artifacts. Widening the window does not clean up the flux; it merely trades a deep exit for an early in-flux. Cross-validation instrument only; changes no bound; NO QED; PT Lambda<=0.2 stays SOTA.',
+      'Order-continuation cleanly attributes ALL FOUR base-window conjugate-pair mergers to specific labelled pairs (2 more than section H proximity matching), with a retardation ladder 1.23 -> 1.28 -> 1.41 -> 1.57 that stays > 1 and grows MONOTONICALLY with collision depth -- and it correctly reads the count->1 rung as a boundary EXIT of gamma_6, dissolving the section-H spurious retard 0.85 (4->2 mis-attribution) and 6.28 (boundary-as-merge) artifacts. Widening the window does not clean up the flux; it merely trades a deep exit for an early in-flux. Cross-validation instrument only; changes no bound; NO QED; no refereed bound is changed.',
   },
   thm13LandingBound: {
     // imp-34866. The imp-34813 (L2) de Bruijn 1950 Thm 13 landing bound (zeros in
@@ -222,7 +222,7 @@ export const WINDING_MONOTONICITY_RIGOR = {
     subGap:
       'A trustworthy full-window max-|Im z| census at DEEP t0 (t0 <~ -8) is OPEN: the oldest complex pairs drift out of the fixed x-window and grid-seeded complex Newton stalls at the ~1e-17 quadrature roundoff floor (positions good to ~1e-2 only). A boundary-tracking window (following each pair in Re z) or an argument-principle zero count on a widening contour is needed to certify the deep-t0 window Delta; only t0 in [-6, -2.1] is cleanly measured here.',
     verdict:
-      'The exact-flow last-pair landing time t_land = -1.878 satisfies the de Bruijn Thm 13 bound t0 + Delta^2/2 on every CLEAN reference time (gap >= 0 throughout). The WINDOW-WIDE bound is dominated by the single DEEPEST complex pair, so its slack grows steeply with |t0| (gap 0.034 at t0=-2.5 to 2.151 at t0=-6 -- at t0=-6 the classical bound only certifies all-real by t~+0.27, 2.15 later than the true -1.878). The SINGLE-PAIR bound for the shallowest (last-to-land) pair nearly SATURATES just below landing (gap 0.0067 at t0=-2.1, confirming near-isolated rate-2 landing) and its gap grows with depth as the many-body imaginary part exceeds the isolated rate-2 curve -- the same retardation the imp-34813 5.78-vs-8 slope records, now read on the imaginary axis. Measurement only; classical (de Bruijn 1950 Thm 13); establishes no new theorem; changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.',
+      'The exact-flow last-pair landing time t_land = -1.878 satisfies the de Bruijn Thm 13 bound t0 + Delta^2/2 on every CLEAN reference time (gap >= 0 throughout). The WINDOW-WIDE bound is dominated by the single DEEPEST complex pair, so its slack grows steeply with |t0| (gap 0.034 at t0=-2.5 to 2.151 at t0=-6 -- at t0=-6 the classical bound only certifies all-real by t~+0.27, 2.15 later than the true -1.878). The SINGLE-PAIR bound for the shallowest (last-to-land) pair nearly SATURATES just below landing (gap 0.0067 at t0=-2.1, confirming near-isolated rate-2 landing) and its gap grows with depth as the many-body imaginary part exceeds the isolated rate-2 curve -- the same retardation the imp-34813 5.78-vs-8 slope records, now read on the imaginary axis. Measurement only; classical (de Bruijn 1950 Thm 13); establishes no new theorem; changes no bound; NO QED; no refereed bound is changed.',
   },
   convIdentity: {
     relErrTau05: 1.982e-9,
@@ -342,7 +342,7 @@ export const WINDING_MONOTONICITY_RIGOR_ASSERTIONS = [
       const consistentTwoBody = c.every((r) => Math.abs(-(r.gapX * r.gapX) / 8 - r.tTwoBody) < 1e-3);
       const grows = c.length >= 2 && c[1].gapX > c[0].gapX && c[1].retard > c[0].retard;
       return allRetard && consistentTwoBody && grows && mc.retardGrowsWithSpacing === true &&
-        /OPEN/.test(mc.subGap) && /NO QED/.test(mc.verdict) && /stays SOTA/.test(mc.verdict);
+        /OPEN/.test(mc.subGap) && /NO QED/.test(mc.verdict) && /refereed bound is changed/i.test(mc.verdict);
     },
   },
   {
@@ -359,7 +359,7 @@ export const WINDING_MONOTONICITY_RIGOR_ASSERTIONS = [
       // widening is NOT cleaner: its in-flux halt sits far shallower (less negative) than the base deep exit
       const widenNotClean = ca.boundaryFluxSensitivity.inflowStopsAtT > ca.boundaryExit.tc;
       return allRetard && monotone && twoBodyOk && addsTwo && boundaryFixed && widenNotClean &&
-        /NO QED/.test(ca.verdict) && /stays SOTA/.test(ca.verdict);
+        /NO QED/.test(ca.verdict) && /refereed bound is changed/i.test(ca.verdict);
     },
   },
   {
@@ -383,7 +383,7 @@ export const WINDING_MONOTONICITY_RIGOR_ASSERTIONS = [
       const artifactFlagged = b.boundaryArtifact.found < b.boundaryArtifact.expected &&
         /NOT a Thm 13 failure/.test(b.boundaryArtifact.note);
       return landInWindow && winValid && winGrows && spValid && spSaturates && spGrows && artifactFlagged &&
-        /OPEN/.test(b.subGap) && /NO QED/.test(b.verdict) && /stays SOTA/.test(b.verdict);
+        /OPEN/.test(b.subGap) && /NO QED/.test(b.verdict) && /refereed bound is changed/i.test(b.verdict);
     },
   },
   {

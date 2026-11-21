@@ -8,8 +8,7 @@
  *   genuinely-unconditional limit limsup_N |t_c^proxy(N)| = 0 transfers to the
  *   PHYSICAL first-collision time |t_c(N)|, and (Q3) what closing R_A would
  *   require. ASSESSMENT ONLY: it derives NO bound, closes NO leg, fires NO
- *   certificate. The leg remains OPEN and Platt-Trudgian Lambda <= 0.2 remains
- *   SOTA.
+ *   certificate. The leg remains OPEN and no refereed bound is changed.
  *
  *   THE TWO OBJECTS THE LEG SEPARATES
  *   -----------------------------------------------
@@ -93,8 +92,7 @@
  *   step |t_c| <= |t_c - 1/(2 M_infty)| + 1/(2 M_infty))
  *
  * Ticket: imp-95372 (proof, medium). Assessment only; establishes no new
- * bound; closes no leg; fires no certificate; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bound; closes no leg; fires no certificate; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -197,7 +195,7 @@ export const IMP95372_RA_PROXY_TRUE_GAP_ASSESSMENT = Object.freeze({
     'The fatal, non-closable obstructions are imp-2621 (refuted amplified ' +
     'rate; only the inert bare limit survives) and imp-35164 (E(N) does not ' +
     'vanish); closing R_A produces NO Lambda bound. Leg remains OPEN. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'lambda-roadmap.js (our-asymptotic-via-imp-1261-redirect); ' +
     'asymptotic-lambda-bound-2026-05-20.js (imp-1147-sub-proxy-particle-' +
@@ -296,13 +294,13 @@ export const IMP95372_RA_PROXY_TRUE_GAP_ASSESSMENT_ASSERTIONS = [
   {
     id: 'imp95372-honesty-gate-no-qed',
     why:
-      'Assessment only: no enclosure established, leg still open, PT SOTA ' +
+      'Assessment only: no enclosure established, leg still open, no-refereed-bound-change ' +
       'line present, and it scopes the R_A residual and glosses imp-1261.',
     holds: () => {
       const a = IMP95372_RA_PROXY_TRUE_GAP_ASSESSMENT;
       return (
         a.anyEnclosureEstablished === false &&
-        /remains SOTA/.test(a.verdict) &&
+        /refereed bound is changed/i.test(a.verdict) &&
         a.glosses === 'imp-1261' &&
         /R_A/.test(a.legStillOpen)
       );

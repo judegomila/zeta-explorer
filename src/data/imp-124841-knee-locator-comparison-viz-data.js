@@ -87,7 +87,7 @@ export const IMP124841_SUMMARY = Object.freeze({
     'Presentation only: every bar is read verbatim from the imp-124814/imp-97822 exported comparison '
     + 'fields; no new computation. Measurement/cross-validation on the inherited imp-3220/imp-3406 '
     + 'extrapolation, not a rigorous asymptotic; changes no bound; imp-3066 K_a >= 0 untouched; '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

@@ -155,8 +155,7 @@ export default function Imp97652TailModelFractionBandViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97626 tail-model-fit literals verbatim (no re-derivation, no new
         computation). Eigenvalues are baked finite-section IEEE-double, not interval-enclosed; R_inf is
-        an extrapolation, not a certified limit. Changes no bound; Platt&ndash;Trudgian &Lambda; &le;
-        0.2 remains SOTA; RH open; NO QED.
+        an extrapolation, not a certified limit. Changes no bound; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

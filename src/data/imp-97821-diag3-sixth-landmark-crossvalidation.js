@@ -54,7 +54,7 @@
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are
  * UNTOUCHED and appear only symbolically as differentiation axes; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97710-diag3-fourth-landmark-crossvalidation (the far-downslope L5 sigma = 0.02 cross-validation)
  * @see imp-97689-diag3-additivity-euler-derivation (analytic derivation + L2/L3/L4 closed-form verification)
@@ -252,7 +252,7 @@ export const IMP97821_DIAG3_SIXTH_LANDMARK_CROSSVALIDATION = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C ' +
     '1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED ' +
     '(appear only symbolically as differentiation axes); changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97710 (far-downslope L5 sigma = 0.02 cross-validation); imp-97689 (analytic Euler-additivity ' +
     'derivation + L2/L3/L4 closed-form verification); imp-97665 (EXACT pair-ratio E_CF/E_ET = E_flow/E_trunc); ' +
@@ -323,13 +323,13 @@ export const IMP97821_DIAG3_SIXTH_LANDMARK_CROSSVALIDATION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/cross-validation only, no QED, no refereed bound is changed.
     id: 'imp97821-honesty-gate-no-qed',
-    description: 'Measurement/cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97821_DIAG3_SIXTH_LANDMARK_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP97821_DIAG3_SIXTH_LANDMARK_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP97821_DIAG3_SIXTH_LANDMARK_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP97821_DIAG3_SIXTH_LANDMARK_CROSSVALIDATION.verdict),
   },
 ];
 

@@ -7,8 +7,8 @@
  * and the imp-97497 < 1e-3 far-field tail bar, making the ~1e4x resolvability visible at a glance.
  *
  * PRESENTATION ONLY. Reuses the frozen IMP97625_FLOOR_ASSESSMENT / IMP97625_VERDICT literals
- * verbatim -- no re-derivation, no new computation. No bound moves; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; RH open; NO QED.
+ * verbatim -- no re-derivation, no new computation. No bound moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97625-krein-tail-bias-signal-vs-floor-assessment.js (IMP97625_FLOOR_ASSESSMENT, IMP97625_VERDICT)
  */

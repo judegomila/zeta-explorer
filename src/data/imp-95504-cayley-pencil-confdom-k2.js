@@ -8,7 +8,7 @@
  * general-K conjecture is reformulated as a finite PSD statement
  * (xStar G - D (G o G) D >= 0 on the theta_1 = 0 slice) and stays OPEN
  * for K >= 3. Derivation + cross-check numerics; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95501/95502/95503 normalization). Distinct positive rates
  * P = {p_1 < ... < p_K}, E_P = span{e^(-p t)} in L2(0, inf), mean-time
@@ -347,8 +347,8 @@ export const IMP95504_CAYLEY_PENCIL_CONFDOM_K2 = {
     "TRUE and STRICT at K = 2: mu_max({p_1, p_2}) < (2+sqrt2)/(2 p_1), " +
     "sharp only in the coalescent limit; general K is reformulated as a " +
     "finite PSD-slice statement and stays OPEN. Changes no bound; does " +
-    "NOT promote any Lambda claim; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA.",
+    "NOT promote any Lambda claim; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -546,11 +546,11 @@ export const IMP95504_ASSERTIONS = [
     id: "imp95504-honesty-gate",
     description:
       "the verdict names the executed residual, keeps K >= 3 OPEN, promotes " +
-      "no bound, NO QED, PT stays SOTA",
+      "no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95504_CAYLEY_PENCIL_CONFDOM_K2.promotesBound === false &&
       /NO QED/.test(IMP95504_CAYLEY_PENCIL_CONFDOM_K2.verdict) &&
-      /remains SOTA/.test(IMP95504_CAYLEY_PENCIL_CONFDOM_K2.verdict) &&
+      /refereed bound is changed/i.test(IMP95504_CAYLEY_PENCIL_CONFDOM_K2.verdict) &&
       /ii-next4/.test(IMP95504_CAYLEY_PENCIL_CONFDOM_K2.title) &&
       /K >= 3 OPEN/.test(IMP95504_CAYLEY_PENCIL_CONFDOM_K2.confDomStatus) &&
       /stays OPEN/.test(IMP95504_CAYLEY_PENCIL_CONFDOM_K2.verdict),

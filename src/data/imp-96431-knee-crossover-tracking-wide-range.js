@@ -46,7 +46,7 @@
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96405-knee-crossover-forced-vs-coincidental (M4: offset banded over 1.32 decades)
  * @see imp-96388-sigma-peak-vs-knee-cross-tabulation (knee ~0.013 log10 above the crossover)
@@ -225,7 +225,7 @@ export const IMP96431_KNEE_CROSSOVER_TRACKING_WIDE_RANGE = Object.freeze({
     'it. Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96405 M4 (offset banded [+0.0068, +0.0088] over 1.32 decades); imp-96388 (knee ~0.013 ' +
     'log10 above the crossover); imp-33723 (closed-form crossover N_cross ~ 3.28e9); imp-486 ' +
@@ -263,11 +263,11 @@ const IMP96431_ASSERTIONS = [
   },
   {
     id: 'imp96431-honesty-gate-no-qed',
-    description: 'Measurement/fit only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/fit only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96431_KNEE_CROSSOVER_TRACKING_WIDE_RANGE.isRigorous === false &&
       /NO QED/.test(IMP96431_KNEE_CROSSOVER_TRACKING_WIDE_RANGE.verdict) &&
-      /remains SOTA/.test(IMP96431_KNEE_CROSSOVER_TRACKING_WIDE_RANGE.verdict),
+      /refereed bound is changed/i.test(IMP96431_KNEE_CROSSOVER_TRACKING_WIDE_RANGE.verdict),
   },
 ];
 

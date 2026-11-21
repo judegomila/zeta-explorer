@@ -48,8 +48,7 @@
  * sigma ~ 1.34e-8, log T0 ~ 57.0, term ~ 7.6e-7. This is a resolution statement about the surrogate
  * diagnostic, NOT an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation,
  * NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; RH open; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-97723-sigma-fartail-diagnostic-asymptote-one.js (F1: the exact diagnostic decomposition; floor asserted, crossover not tabulated)
  * @see imp-97702-sigma-fartail-exponent-residual-half-loglaw.js (the residual split (1/2)sigma + a(1-sigma))
@@ -181,11 +180,11 @@ export const IMP97740_VERDICT = Object.freeze({
     'Past N ~ 1e26 the sigma*log T0 term is sub-stencil, so the diagnostic is the bare RvM slope at ' +
     'H=1e-5 resolution -- exactly the reduction imp-97723 F1 asserted. Conditional-share resolution ' +
     'statement on the inherited surrogate, NOT an RH bound; the C_mb GUE-conditional per imp-486 is ' +
-    'UNTOUCHED; changes no bound; imp-3066 K_a >= 0 untouched; RH open; NO QED. PT Lambda <= 0.2 SOTA.',
+    'UNTOUCHED; changes no bound; imp-3066 K_a >= 0 untouched; RH open; NO QED. No refereed bound is changed.',
 });
 
 export const IMP97740_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. The imp-97723 far-tail diagnostic reduces to the ' +
+  'RH open; no refereed bound is changed; NO QED. The imp-97723 far-tail diagnostic reduces to the ' +
   'bare 1 - 1/log(T0/2pi) once the sigma*log T0 term drops below the H=1e-5 central-difference floor ' +
   '(measured ~8.0e-7): the term crosses the floor between N=1e25 (1.64e-6) and N=1e26 (5.50e-7), at ' +
   'log10 N ~ 25.70 (N ~ 5.0e25, sigma ~ 1.34e-8, log T0 ~ 57.0). Measurement only; no bound moved.';
@@ -240,9 +239,9 @@ const IMP97740_ASSERTIONS = [
       IMP97740_VERDICT.ptSOTA === true &&
       IMP97740_VERDICT.qed === false &&
       /NO QED/.test(IMP97740_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97740_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97740_HONEST_BANNER) &&
       /RH open/.test(IMP97740_HONEST_BANNER),
-    why: 'measurement only -- a resolution statement on the inherited surrogate diagnostic; no bound moved, PT stays SOTA, no QED.',
+    why: 'measurement only -- a resolution statement on the inherited surrogate diagnostic; no bound moved, no refereed bound is changed, no QED.',
   },
 ];
 

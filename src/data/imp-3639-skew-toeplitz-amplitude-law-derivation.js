@@ -78,7 +78,7 @@
  *   every ratio). The open step is named sg-3639-effective-operator-identity below.
  *   This is a PARTIAL derivation: the ORDERING is reduced to structure, the
  *   MAGNITUDE is not. RH-EQUIVALENT; NO RH verdict, NO QED; the imp-3066 K_a >= 0
- *   positivity is UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   positivity is UNTOUCHED; no refereed bound is changed.
  *
  *   @see imp-3602-skew-toeplitz-second-gap-exponent.js (a_3/a_2 = 8/3, the first empirical ratio)
  *   @see imp-3619-skew-toeplitz-third-gap-exponent.js (a_4/a_2 = 5 and a_4/a_3 = 15/8, the law tested to j=4)
@@ -203,7 +203,7 @@ export const IMP3639_SKEW_TOEPLITZ_AMPLITUDE_LAW_DERIVATION = Object.freeze({
     'symbol-to-operator identity that the section reduces EXACTLY to mu_k=(k pi/U)^2, and (b) the absolute constant C ' +
     '(the imp-3066 missing magnitude, which cancels in ratios) -- named sg-3639-effective-operator-identity. PARTIAL ' +
     'derivation of the ordering, not of the magnitude; RH-EQUIVALENT; imp-3066 K_a>=0 UNTOUCHED; NO QED; ' +
-    'Platt-Trudgian Lambda<=0.2 stays SOTA.',
+    'no refereed bound is changed.',
 
   derivation: Object.freeze({
     effectiveOperatorHypothesis:
@@ -285,7 +285,7 @@ export const IMP3639_SKEW_TOEPLITZ_AMPLITUDE_LAW_DERIVATION = Object.freeze({
       'The match to 8/3, 5, 15/8 is against the imp-3602/imp-3619 finite-N (N=2000) measured ratios (agreement ~1e-4), ' +
       'a corroboration of the closed form, not a proven asymptotic.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -339,7 +339,7 @@ export const IMP3639_SKEW_TOEPLITZ_AMPLITUDE_LAW_DERIVATION_ASSERTIONS = [
   {
     id: 'imp3639-honest-assessment-no-qed',
     why: 'Mandatory honesty: PARTIAL DERIVATION of the ordering (not the magnitude), effective-operator step ' +
-      'heuristic, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'heuristic, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3639_SKEW_TOEPLITZ_AMPLITUDE_LAW_DERIVATION.honestCaveat;
       return (
@@ -350,7 +350,7 @@ export const IMP3639_SKEW_TOEPLITZ_AMPLITUDE_LAW_DERIVATION_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.derivesOrderingNotMagnitude === 'string' &&
         typeof c.effectiveOperatorStepIsHeuristic === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

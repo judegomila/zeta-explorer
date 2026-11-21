@@ -17,8 +17,8 @@
  *   @see lambda-rh-height-mapping.js (effectiveHeightForN: N -> T0 Riemann-von Mangoldt inverse)
  *
  *   Ticket: imp-35580 (ux, medium). Presentation only of an already-established requirements
- *   scoping; adds no new Lambda bound, derives no remainder. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA. NO QED.
+ *   scoping; adds no new Lambda bound, derives no remainder. No refereed bound is changed
+ *   . NO QED.
  */
 
 import { IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS } from './imp-35538-route-i-remainder-derivation-requirements.js';

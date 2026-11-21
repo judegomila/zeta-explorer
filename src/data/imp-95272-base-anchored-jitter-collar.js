@@ -6,7 +6,7 @@
  * count-uniform collar looseness and delivers the FIRST count-uniform
  * OFF-LATTICE signed certificate (the off-lattice ceiling residual named in
  * imp-95226/imp-95232). Changes no bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT (imp-95226 LEMMA SEG-N / SGN-NP). On distinct rates
  * nu_1 < ... < nu_N > 0 and depth d > 0, Lambda = lambda_max of the pencil
@@ -98,7 +98,7 @@
  * xStar1 = 2.594 is follow-on bookkeeping, their own certificates are
  * unaffected. (e) Model family only -- does NOT certify the paper packets
  * (imp-95212 envelope port still open). Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -170,8 +170,8 @@ export const IMP95272_BASE_ANCHORED_JITTER_COLLAR = {
     "exact-lattice 4.236). In-octave multiplicity stays a wall (hypothesis " +
     "load-bearing, asserted); the RZ-PEN FLOOR off-lattice leg (imp-95335/" +
     "imp-95374) remains OPEN; does NOT certify the paper packets. Changes " +
-    "no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA.",
+    "no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -458,14 +458,14 @@ export const IMP95272_BL_JIT_ASSERTIONS = [
       "the verdict carries the honest scope: rigorous majorization scope " +
       "stated, in-octave wall stands, the RZ-PEN floor off-lattice leg " +
       "remains OPEN, paper packets not certified, no bound change, NO QED, " +
-      "PT SOTA",
+      "no refereed bound is changed",
     holds: () =>
       /RIGOROUS at the stated scope/.test(K95272.verdict) &&
       /load-bearing/.test(K95272.verdict) &&
       /remains OPEN/.test(K95272.verdict) &&
       /does NOT certify the paper packets/.test(K95272.verdict) &&
       /NO QED/.test(K95272.verdict) &&
-      /remains SOTA/.test(K95272.verdict),
+      /refereed bound is changed/i.test(K95272.verdict),
   },
 ];
 

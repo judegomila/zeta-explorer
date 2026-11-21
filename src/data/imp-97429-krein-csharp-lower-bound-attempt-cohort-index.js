@@ -61,8 +61,7 @@
  *   - interval-rigorous certified reach stays EXACTLY 2a<=0.96, unchanged by this whole cohort.
  *
  *   STATUS: a grouping/index note over five already-completed tickets, not a new derivation. No bound
- *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 SOTA.
+ *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-97136-krein-temple-lower-bound-feasibility.js (Temple/Kato-Temple/Lehmann-Maehly; infeasible)
  * @see imp-97161-krein-concentration-lower-bound-assessment.js (Beurling-Selberg + Slepian; both rejected)
@@ -72,7 +71,7 @@
  * @see imp-97411-krein-csharp-two-routes-synthesis-chain-cohort-index.js (sibling meta index: the two-route synthesis chain, not the by-tool cohort)
  *
  * Ticket: imp-97429 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- the binding 2a for the Krein floor
@@ -156,7 +155,7 @@ export const IMP97429_KREIN_CSHARP_LOWER_BOUND_ATTEMPT_COHORT_INDEX = Object.fre
     'unchanged by this whole cohort. Future work on this thread should treat all five tools as closed ' +
     'or floor-only, and use -3200.029 (not -4336.198) as the current best certified floor when framing ' +
     'the remaining gap to the measured upper bracket ~0.581059. Establishes nothing new; moves no ' +
-    'bound; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97136 (Temple/Kato-Temple/Lehmann-Maehly feasibility; infeasible); imp-97161 (Beurling-' +
     'Selberg + Slepian assessment; both rejected); imp-97350 (synthesis: routes share one primitive); ' +
@@ -206,11 +205,11 @@ export const IMP97429_KREIN_CSHARP_LOWER_BOUND_ATTEMPT_COHORT_INDEX_ASSERTIONS =
   },
   {
     id: 'imp97429-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97429_KREIN_CSHARP_LOWER_BOUND_ATTEMPT_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97429_KREIN_CSHARP_LOWER_BOUND_ATTEMPT_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97429_KREIN_CSHARP_LOWER_BOUND_ATTEMPT_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97429_KREIN_CSHARP_LOWER_BOUND_ATTEMPT_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP97429_KREIN_CSHARP_LOWER_BOUND_ATTEMPT_COHORT_INDEX.verdict),
   },
 ];

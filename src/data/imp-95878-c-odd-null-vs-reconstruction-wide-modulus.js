@@ -52,7 +52,7 @@
  * pure-rho^2 null fails by the measured J-variation dI(m), whose own m-law is not clean."
  *
  * Derive/measure only; changes no bound. Catalan G irrationality OPEN; Sun arXiv:2609.04176
- * single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy
+ * single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED. NO heavy
  * imports (reuses the imp-95861 baked anchor + Q0_RECON literals).
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3, eqs (6.19)-(6.23). SCRATCH:
@@ -115,7 +115,7 @@ export const C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS = Object.freeze({
     + 'm; -5.59e-11 at the m=20 anchor by construction), which a pure-rho^2 form forces to 0. dI itself '
     + 'is not a clean linear-in-rho law (dI/drho spread ~11%). So NO reconstruction-independent '
     + 'closed-form c_odd(1/m) at m>20 exists; PIECE A stays the binding shortfall (imp-95861). '
-    + 'G irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'G irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.19)-(6.23)',
   builtOn:
@@ -176,7 +176,7 @@ export const C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS = Object.freeze({
     'Derive/measure only: reuses the imp-95861 baked Sun (6.23) anchor and the imp-95842 grid-converged '
     + 'Q0_RECON literals; constructs no new quadrature and no new certificate. The pure-rho^2 null is a '
     + 'genuine closed form but is shown NOT to be a valid independent PIECE-A target at m>20. Catalan G '
-    + 'irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS_ASSERTIONS = Object.freeze([
@@ -230,13 +230,13 @@ export const C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS_ASSERTIONS = Object.freez
     },
   },
   {
-    name: 'honest: PIECE A binding, null REFUTED, sub-gap named, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: PIECE A binding, null REFUTED, sub-gap named, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       /PIECE A/.test(C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS.verdict.bindingShortfall)
       && /REFUTED/.test(C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS.status)
       && /no reconstruction-independent closed-form/.test(C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS.verdict.namedSubGap)
       && /G irrationality OPEN/.test(C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS.status)
-      && /PT Lambda<=0.2 SOTA/.test(C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS.status)
+      && /refereed bound is changed/i.test(C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS.status)
       && /NO QED/.test(C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS.status),
   },
 ]);

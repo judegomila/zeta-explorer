@@ -69,8 +69,7 @@
  *   - interval-rigorous certified reach stays EXACTLY 2a<=0.96, unchanged by this whole chain.
  *
  *   STATUS: a grouping/index note over four already-completed tickets, not a new derivation. No bound
- *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 SOTA.
+ *   changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-97136-krein-temple-lower-bound-feasibility.js (route A, Temple family; declared dead)
  * @see imp-97137-krein-debranges-coercivity-scope.js (route B, de Branges coercivity; scoped, no constant)
@@ -80,7 +79,7 @@
  * @see imp-97429 (sibling meta index: the broader finite-negative-floor-only-so-far family)
  *
  * Ticket: imp-97411 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- the binding 2a for the Krein floor
@@ -164,7 +163,7 @@ export const IMP97411_KREIN_CSHARP_TWO_ROUTES_SYNTHESIS_CHAIN_INDEX = Object.fre
     '2a<=0.96, unchanged by this whole chain. Future work on this thread should treat Temple/' +
     'Kato-Temple/Lehmann-Maehly as closed, the de Branges realisation as a reformulation not a proof, ' +
     'and Lehmann-Maehly vs de Branges as ONE project, not two. Establishes nothing new; moves no bound; ' +
-    'RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97136 (Temple/Kato-Temple/Lehmann-Maehly feasibility; declared dead); imp-97137 (de Branges ' +
     'coercivity scoping; N-free reformulation, no constant); imp-97350 (synthesis: two routes share one ' +
@@ -211,11 +210,11 @@ export const IMP97411_KREIN_CSHARP_TWO_ROUTES_SYNTHESIS_CHAIN_INDEX_ASSERTIONS =
   },
   {
     id: 'imp97411-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97411_KREIN_CSHARP_TWO_ROUTES_SYNTHESIS_CHAIN_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97411_KREIN_CSHARP_TWO_ROUTES_SYNTHESIS_CHAIN_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97411_KREIN_CSHARP_TWO_ROUTES_SYNTHESIS_CHAIN_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97411_KREIN_CSHARP_TWO_ROUTES_SYNTHESIS_CHAIN_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP97411_KREIN_CSHARP_TWO_ROUTES_SYNTHESIS_CHAIN_INDEX.verdict),
   },
 ];

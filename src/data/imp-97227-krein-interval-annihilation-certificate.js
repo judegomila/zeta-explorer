@@ -47,7 +47,7 @@
  * the precise obstruction to the remaining O(t^-4) BOUND (the z^-4 remainder majorant and the v0 overlap map,
  * both needing IMP97015_ARB_INTERVAL_BESSEL). Attempt / execution only: produces NO interval tail majorant;
  * Rayleigh floors stay UPPER bounds on the true lambda_min; establishes no operator positivity; changes NO
- * bound; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * bound; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97134-krein-annihilating-rational-trial-execution.js (integer-arithmetic annihilation this leaf lifts to intervals)
  * @see imp-97113-krein-bessel-asymptotic-annihilation-scope.js (the six leading carrier functionals / integer weights)

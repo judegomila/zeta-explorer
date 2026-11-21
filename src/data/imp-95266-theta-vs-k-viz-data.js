@@ -37,7 +37,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Reuses the imp-95233 theta closed form
  * and modulus identities, and the imp-95224 SGN-SAT witness family,
  * verbatim; changes no bound, no operator positivity, no RH claim; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-95233-modulus-phase-currency-feasibility.js (source: theta(phi_K), L1/L2 modulus identities, PHASE-CERT)
  * @see imp-95224-signed-depth-currency-nogo.js (source: THEOREM SGN-SAT, phi_K witness family)

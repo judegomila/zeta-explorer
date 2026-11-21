@@ -49,7 +49,7 @@
  * DIRECTION as evidence about positivity. SUB-GAP
  * IMP96938_DRIFT_DIRECTION_IS_SCHEME_GENERIC_MARGIN_IS_THE_ONLY_DISCRIMINANT.
  * Ritz value is an UPPER bound (floor is an upper estimate, not a certified LB); interval-rigorous
- * certificate reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * certificate reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96911-krein-eta-nconvergence-scout.js (the ln3-only coupled-(N,T) drift this leaf calibrates)
  * @see imp-96889-krein-shiftinvert-katotemple-scout.js (Finding 3a eta drift source)

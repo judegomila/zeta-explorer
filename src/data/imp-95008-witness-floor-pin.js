@@ -92,8 +92,7 @@
  * base-plus-appended re-optimization, unmeasured here.
  *
  * The numerics below ARE the measurement. Import-light (no heavy bundle).
- * Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // -- shared conventions (identical to the sibling modules) --------------------
@@ -337,7 +336,7 @@ export const IMP95008_WITNESS_FLOOR_PIN = {
     "MEASUREMENT only, NO theorem. Every floor is an exact evaluation of a componentwise-legal witness; the jointly re-optimized appended packets and the greedy chain are optimizer outputs, optimality is NOT claimed. Axis 1 proves no ceiling (the true joint optimum could be higher than the baked +0.27 percent). Axis 2 is a finite scale-invariance scan (seven spacings). The full base-plus-appended joint re-optimization is gauge-degenerate under the simple coordinate ascent used here and is left as an explicit unmeasured sub-gap. The numerics ARE the measurement.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT settling the fifteenth continuation refined residual on both named axes. AXIS 1 (joint re-optimization): freeing the eight appended packets simultaneously lifts the greedy-chain terminal headline floor 0.096745062937484763 -> 0.097010871755310580 (+0.2747518165320484 percent, gap 41.345779087298143 -> 41.232492066344430) - the greedy chain captured 93.57 percent of the appended-gain-over-base, so the floor is NEARLY but not exactly pinned. AXIS 2 (grid geometry): over a 64x spacing range the penta geometry is scale-invariant (block structure identically [0,1,1,2,3], base floor and append lever geometry-independent to below 1e-4), so grid geometry is PINNED and NOT an open witness-side lever at scale. Witness-FLOOR-side only: does not touch the ceiling-side 2.8488580857094559 ledger factor (imp-95033). Surviving sub-gap named plainly: the gauge-degenerate full base-plus-appended re-optimization is unmeasured. Optimality is NOT claimed. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT settling the fifteenth continuation refined residual on both named axes. AXIS 1 (joint re-optimization): freeing the eight appended packets simultaneously lifts the greedy-chain terminal headline floor 0.096745062937484763 -> 0.097010871755310580 (+0.2747518165320484 percent, gap 41.345779087298143 -> 41.232492066344430) - the greedy chain captured 93.57 percent of the appended-gain-over-base, so the floor is NEARLY but not exactly pinned. AXIS 2 (grid geometry): over a 64x spacing range the penta geometry is scale-invariant (block structure identically [0,1,1,2,3], base floor and append lever geometry-independent to below 1e-4), so grid geometry is PINNED and NOT an open witness-side lever at scale. Witness-FLOOR-side only: does not touch the ceiling-side 2.8488580857094559 ledger factor (imp-95033). Surviving sub-gap named plainly: the gauge-degenerate full base-plus-appended re-optimization is unmeasured. Optimality is NOT claimed. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 function JOINT_BIG_BASE_FLOOR() {
@@ -417,13 +416,13 @@ export const IMP95008_WFP_ASSERTIONS = [
   {
     id: "imp95008-wfp-honesty-gate",
     description:
-      "the verdict records the measurement-only status, the +0.27 percent joint-reopt movement, the scale-invariant grid-geometry pinning, the witness-floor-side scope (does not touch the ceiling ledger factor), the surviving gauge-degenerate full-reopt sub-gap, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict records the measurement-only status, the +0.27 percent joint-reopt movement, the scale-invariant grid-geometry pinning, the witness-floor-side scope (does not touch the ceiling ledger factor), the surviving gauge-degenerate full-reopt sub-gap, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95008_WITNESS_FLOOR_PIN.promotesBound === false &&
       IMP95008_WITNESS_FLOOR_PIN.isRigorous === false &&
       IMP95008_WITNESS_FLOOR_PIN.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_WITNESS_FLOOR_PIN.verdict) &&
-      /remains SOTA/.test(IMP95008_WITNESS_FLOOR_PIN.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_WITNESS_FLOOR_PIN.verdict) &&
       /MEASUREMENT/.test(IMP95008_WITNESS_FLOOR_PIN.verdict) &&
       /PINNED/.test(IMP95008_WITNESS_FLOOR_PIN.verdict) &&
       /optimality is NOT claimed/i.test(IMP95008_WITNESS_FLOOR_PIN.verdict) &&

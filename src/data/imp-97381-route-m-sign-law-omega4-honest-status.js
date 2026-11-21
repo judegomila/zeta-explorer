@@ -26,14 +26,14 @@
  * WHAT REMAINS OPEN. The sign law T(b) < 0 is proved only for squarefree omega(b) <= 4; for
  * omega >= 5 it remains a measured pattern (verified through omega = 16 in imp-97372) awaiting
  * the quantitative weighted cross-level cancellation of IMP97333_SIGN_TAIL_SUBGAP. No bound on
- * Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97352-route-m-sign-law-omega4-proof.js (source of every verdict flag below)
  * @see imp-97333-route-m-sign-law-proof-attempt.js (the omega <= 3 elementary range extended here)
  * @see imp-97372-route-m-sign-law-weighted-domination-obstruction.js (omega >= 5 weighted route: analytically dead)
  *
  * Ticket: imp-97381 (content, medium, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 import IMP97352_DEFAULT, { IMP97352_VERDICT, IMP97352_CROSSOVER } from './imp-97352-route-m-sign-law-omega4-proof.js';
@@ -60,7 +60,7 @@ export const IMP97381_HONEST_BANNER =
   'level-1 negative terms. The elementary domination method has a SHARP wall at omega = 5, where ' +
   'the level-2 positive count C(omega-1,2)=6 first exceeds the level-1 negative count omega-1=4 ' +
   '(Hall deficiency 2); omega >= 5 is left to the weighted cross-level cancellation of ' +
-  'IMP97333_SIGN_TAIL_SUBGAP. No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; ' +
+  'IMP97333_SIGN_TAIL_SUBGAP. No bound on Lambda moves; no refereed bound is changed; RH open; ' +
   'NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
@@ -88,9 +88,9 @@ const IMP97381_ASSERTIONS = [
       IMP97381_STATUS.rhResolved === false &&
       IMP97381_STATUS.qed === false &&
       /NO QED/.test(IMP97381_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97381_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97381_HONEST_BANNER) &&
       /RH open/.test(IMP97381_HONEST_BANNER),
-    why: 'documentation only: decision recorded (proved at omega=4, walled at omega=5), no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: decision recorded (proved at omega=4, walled at omega=5), no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

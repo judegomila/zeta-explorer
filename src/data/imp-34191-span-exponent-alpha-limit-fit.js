@@ -59,7 +59,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34126-shortfall-span-scaling-of-centroid-offset (F2 alpha ladder 0.698..0.855, source)
  * @see imp-34129-widening-slope-drift-convergence-fit (sibling convergence-fit: widening slope b -> b_inf)
@@ -281,7 +281,7 @@ export const IMP34191_SPAN_EXPONENT_ALPHA_LIMIT_FIT = {
     'separate a limit of 0.88 from 1. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34126 (F2 span exponent alpha ladder 0.698..0.855, source); imp-34129/imp-34188 ' +
     '(sibling convergence/limit fits on the widening slope); imp-34065 (window-span scaling; S1 ' +
@@ -326,14 +326,14 @@ export const IMP34191_SPAN_EXPONENT_ALPHA_LIMIT_FIT_ASSERTIONS = [
     holds: () => PRECISION.downward_bias > 0 && PRECISION.downward_bias < 0.01,
   },
   {
-    // Honesty gate: measurement/fit only, extrapolated limit NOT confirmed to be 1, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, extrapolated limit NOT confirmed to be 1, no QED, no refereed bound is changed.
     id: 'imp34191-honesty-gate-no-qed',
-    description: 'Measurement only: verdict EQUIVOCAL (limit not confirmed 1), no QED, PT stays SOTA',
+    description: 'Measurement only: verdict EQUIVOCAL (limit not confirmed 1), no QED, no refereed bound is changed',
     holds: () =>
       IMP34191_SPAN_EXPONENT_ALPHA_LIMIT_FIT.isRigorous === false &&
       /EQUIVOCAL/.test(IMP34191_SPAN_EXPONENT_ALPHA_LIMIT_FIT.verdict) &&
       /NO QED/.test(IMP34191_SPAN_EXPONENT_ALPHA_LIMIT_FIT.verdict) &&
-      /remains SOTA/.test(IMP34191_SPAN_EXPONENT_ALPHA_LIMIT_FIT.verdict),
+      /refereed bound is changed/i.test(IMP34191_SPAN_EXPONENT_ALPHA_LIMIT_FIT.verdict),
   },
 ];
 

@@ -46,7 +46,7 @@
  * expectation that a mean-based C0 tightens the envelope while keeping r_cap < 1. This is a
  * tightening of the same in-repo self-consistency envelope, not an out-of-sample test, and
  * the conservative max anchor remains the one carrying the dead-zone margin (imp-95750 F3).
- * Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA;
+ * Measurement only; changes no bound; NO QED; no refereed bound is changed;
  * the zero-side route stays PCC/GRH-gated.
  *
  * Import-light: no zeros bundle, no sibling imports. The six sd(C - E) values are the same
@@ -137,7 +137,7 @@ export const IMP95958_NUMBER_VARIANCE_MEAN_ANCHOR_C0_TIGHTENING = {
   caveat:
     'NOT an out-of-sample validation. The mean/median anchors are still fitted FROM the same six in-repo measurements, so this tightens the SAME self-consistency envelope rather than testing it out of sample. Being lower than the max, a mean/median anchor carries LESS safety margin over any unmeasured interior height than the conservative max anchor imp-95722 chose; the dead-zone conservatism above the gamma_1e6 = 6.003e5 ceiling stays reliant on the derived envelope (imp-95750 F3). The measured r_cap < 1 headline continues to rest on the max anchor; these figures only quantify the slack that conservative choice leaves at the window bottom.',
   verdict:
-    'MEASURED: a mean anchor tightens the imp-95722 envelope r_cap(3e12) from ~0.260 (max anchor) to ~0.223 (a ~14.4% relative reduction), a median anchor to ~0.219 (~15.7%); r_cap < 1 holds comfortably under all three anchors, confirming the imp-95787/imp-95800 expectation that a mean-based C0 tightens the envelope while keeping r_cap < 1. This is a tightening of the same in-repo self-consistency envelope, not an out-of-sample test, and the conservative max anchor remains the one carrying the dead-zone margin (imp-95750 F3). Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'MEASURED: a mean anchor tightens the imp-95722 envelope r_cap(3e12) from ~0.260 (max anchor) to ~0.223 (a ~14.4% relative reduction), a median anchor to ~0.219 (~15.7%); r_cap < 1 holds comfortably under all three anchors, confirming the imp-95787/imp-95800 expectation that a mean-based C0 tightens the envelope while keeping r_cap < 1. This is a tightening of the same in-repo self-consistency envelope, not an out-of-sample test, and the conservative max anchor remains the one carrying the dead-zone margin (imp-95750 F3). Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -165,8 +165,8 @@ export const IMP95958_NUMBER_VARIANCE_MEAN_ANCHOR_C0_TIGHTENING = {
   // honesty gates
   if (!/NO QED/.test(IMP95958_NUMBER_VARIANCE_MEAN_ANCHOR_C0_TIGHTENING.verdict))
     throw new Error('imp-95958: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95958_NUMBER_VARIANCE_MEAN_ANCHOR_C0_TIGHTENING.verdict))
-    throw new Error('imp-95958: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95958_NUMBER_VARIANCE_MEAN_ANCHOR_C0_TIGHTENING.verdict))
+    throw new Error('imp-95958: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95958_NUMBER_VARIANCE_MEAN_ANCHOR_C0_TIGHTENING;

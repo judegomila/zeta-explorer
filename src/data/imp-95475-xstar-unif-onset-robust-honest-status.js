@@ -9,7 +9,7 @@
  * onset does NOT move under a tighter closed-form PhiUnif.
  *
  * DOCUMENTATION ONLY. Ports nothing; measures nothing new; changes no
- * bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED. No refereed bound is changed.
  *
  * THE NOTE
  * -----------------------------------------------------------------------------
@@ -81,7 +81,7 @@ export const IMP95475_XSTAR_UNIF_ONSET_ROBUST_HONEST_STATUS = {
     'bound is effectively sharp (within one ulp of the exact infinite ' +
     'product), so the XSTAR_UNIF = 27.035582 unbounded-count firing onset ' +
     'is ROBUST to PhiUnif tightening. Ports nothing; measures nothing new; ' +
-    'changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'changes no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95259-phiunif-crude-tail-tightness (source measurement and verdict); ' +
     'imp-95250-leaveoneout-multiblock-split-certificate (COROLLARY EV-OCT-UNIF).',
@@ -126,7 +126,7 @@ export const IMP95475_HONEST_STATUS_NOTE_ASSERTIONS = [
   },
   {
     id: 'imp95475-honesty-gate-no-qed',
-    description: 'Documentation only: not rigorous, no new claim, no QED, PT remains SOTA',
+    description: 'Documentation only: not rigorous, no new claim, no QED, no refereed bound is changed',
     holds: () =>
       IMP95475_XSTAR_UNIF_ONSET_ROBUST_HONEST_STATUS.isRigorous === false &&
       /HONEST-STATUS NOTE/.test(
@@ -136,7 +136,7 @@ export const IMP95475_HONEST_STATUS_NOTE_ASSERTIONS = [
         IMP95475_XSTAR_UNIF_ONSET_ROBUST_HONEST_STATUS.verdict,
       ) &&
       /NO QED/.test(IMP95475_XSTAR_UNIF_ONSET_ROBUST_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95475_XSTAR_UNIF_ONSET_ROBUST_HONEST_STATUS.verdict,
       ),
   },

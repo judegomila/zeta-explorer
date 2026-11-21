@@ -50,8 +50,7 @@
  * MEASUREMENT / CROSS-CHECK ONLY. Pure numerical reproduction audit, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (the reuse gate whose residual this tabulates)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (the published perDecadeLadder cross-checked against)
@@ -181,7 +180,7 @@ export const IMP33730_SIGMA_EXPONENT_LADDER_REPRODUCTION_RESIDUAL = {
     'model and OLS window are in use. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33701 (reuse gate whose residual this tabulates); imp-33582 (published perDecadeLadder); ' +
     'imp-3406 (interior MAX N ~ 9.22e5); imp-3463 (far-tail leading form, exponent -> 1/2 from ' +
@@ -223,13 +222,13 @@ export const IMP33730_SIGMA_EXPONENT_LADDER_REPRODUCTION_RESIDUAL_ASSERTIONS = [
     holds: () => RESIDUALS.every((r, i) => +P_FULL[i].toFixed(4) === PUB[i].p_local),
   },
   {
-    // Honesty gate: measurement/cross-check only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/cross-check only, no QED, no refereed bound is changed.
     id: 'imp33730-honesty-gate-no-qed',
-    description: 'Measurement/cross-check only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement/cross-check only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP33730_SIGMA_EXPONENT_LADDER_REPRODUCTION_RESIDUAL.isRigorous === false &&
       /NO QED/.test(IMP33730_SIGMA_EXPONENT_LADDER_REPRODUCTION_RESIDUAL.verdict) &&
-      /remains SOTA/.test(IMP33730_SIGMA_EXPONENT_LADDER_REPRODUCTION_RESIDUAL.verdict),
+      /refereed bound is changed/i.test(IMP33730_SIGMA_EXPONENT_LADDER_REPRODUCTION_RESIDUAL.verdict),
   },
 ];
 

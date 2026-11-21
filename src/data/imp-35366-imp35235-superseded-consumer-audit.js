@@ -38,7 +38,7 @@
  * imp-35327 audit precedent of reporting findings without editing the flagged
  * files in the same pass. No source file's substantive claims were changed by
  * this ticket. Changes no bound; establishes no operator positivity; no RH
- * verdict, NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35235-r2-n2000-flow-reference (the superseded original finding)
  * @see imp-35324-r2-n2000-finer-grid-reference (the resolution)
@@ -112,7 +112,7 @@ export const IMP35366_SUPERSEDED_CONSUMER_AUDIT = {
   verdict:
     'AUDIT ONLY (not a measurement of a mathematical quantity). Enumeration/flagging only, per the ' +
     'imp-35366 ticket text; the flagged files were not edited in this pass. Changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation: 'imp-35235 (superseded finding), imp-35324/imp-35278 (supersession), imp-35327 (audit method precedent).',
 };
 
@@ -132,11 +132,11 @@ export const IMP35366_SUPERSEDED_CONSUMER_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35366-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35366_SUPERSEDED_CONSUMER_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35366_SUPERSEDED_CONSUMER_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35366_SUPERSEDED_CONSUMER_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35366_SUPERSEDED_CONSUMER_AUDIT.verdict),
   },
 ];
 

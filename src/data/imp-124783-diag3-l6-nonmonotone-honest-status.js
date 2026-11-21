@@ -16,7 +16,7 @@
  * @see imp-97710-diag3-fourth-landmark-crossvalidation.js (the L5 clean O(eps^2) quartering this contrasts with)
  *
  * Ticket: imp-124783 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import {

@@ -16,8 +16,7 @@
  *
  * PRESENTATION ONLY. Simulation-derived values (synthetic q4+q5 two-tone plus
  * matched noise); no new zeros, no Gram build, no bound changes, no operator
- * positivity established; RH open; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity established; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96288-route-m-confident-span-lower-bound-test.js (fine-grid crossing curve, verdict; imp-96318 viz page)
  *
@@ -62,7 +61,7 @@ export const IMP96318_ANCHORS = Object.freeze({
 });
 
 export const IMP96318_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every crossSpan and rho value is '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every crossSpan and rho value is '
   + 'copied verbatim from the imp-96288 baked fine-grid curve; only the log(rho) axis reshaping is computed '
   + 'here (no re-derivation, no new Monte-Carlo run). Synthetic q4+q5 two-tone simulation only; no new zeros, '
   + 'no Gram build, no bound changes, no operator positivity established.';
@@ -108,8 +107,8 @@ const IMP96318_ASSERTIONS = [
   },
   {
     id: 'imp96318-honest-banner-present',
-    holds: () => /RH open/.test(IMP96318_HONEST_BANNER) && /NO QED/.test(IMP96318_HONEST_BANNER) && /SOTA/.test(IMP96318_HONEST_BANNER),
-    why: 'honesty gate: presentation only, no RH claim, PT stays SOTA.',
+    holds: () => /RH open/.test(IMP96318_HONEST_BANNER) && /NO QED/.test(IMP96318_HONEST_BANNER) && /refereed bound is changed/i.test(IMP96318_HONEST_BANNER),
+    why: 'honesty gate: presentation only, no RH claim, no refereed bound is changed.',
   },
 ];
 

@@ -295,7 +295,7 @@ export default function Imp96337MixedLadderMarginViz() {
         cubicGrowthSamples and firstNewRung fields. This is a tabulation of the already-reduced
         imp-96143 fact (I): it diagonalizes nothing, establishes no operator positivity, and does not
         touch the finitely-many top confined states outside the ladder (the actual residual). Changes
-        no bound, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        no bound, no RH claim. NO QED.
       </div>
     </div>
   );

@@ -981,7 +981,7 @@ export const IMP95150_QP_POSITION_UNIFICATION = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM VU is unconditional given the carried THEOREM FP/DP/PO/TP/QP/VP/VT machinery plus LEMMA PD2 (proved in-module, battery-attacked on 20000 draws): the covers are the imp-95149 production covers with the PD2-refined caps at lower rate floors (every consumed lemma is rate-generic; the OD2 fold points 0.47 and 0.478 lie inside the covered intervals; the Lemma TR exponent floors are 120 at 47/200 and 122 at 239/1000, both tail constants far below 1e-13; the gLo domain clamp is respected). Deterministic bisection, ZERO unresolved cells on both theorem covers, every approximation inflates caps: the certificate can fail spuriously but cannot certify spuriously. CERTIFICATE-CLASS CAVEAT stated plainly: the two theorem covers are OFFLINE-lane (bit-reproducible via the committed runner, commands baked) and are NOT recomputed by the sweep; the sweep recomputes the 59/250 anchor on the identical code path plus all batteries. Scope: parity-pure model family, ONE COMMON RATE, at most FOUR packets in ONE block and at most one in every other; lower occupancies dominated by subset domination as in the siblings. The middle-heavy strip [47/200, 239/1000) is NOT closed - it remains a named sub-gap with a wall now measured at 1.2e8 cells; the class sandwich [0.2320723, 0.24502] is carried unchanged; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings of the Lambda program untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED on the parent; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM VU is unconditional given the carried THEOREM FP/DP/PO/TP/QP/VP/VT machinery plus LEMMA PD2 (proved in-module, battery-attacked on 20000 draws): the covers are the imp-95149 production covers with the PD2-refined caps at lower rate floors (every consumed lemma is rate-generic; the OD2 fold points 0.47 and 0.478 lie inside the covered intervals; the Lemma TR exponent floors are 120 at 47/200 and 122 at 239/1000, both tail constants far below 1e-13; the gLo domain clamp is respected). Deterministic bisection, ZERO unresolved cells on both theorem covers, every approximation inflates caps: the certificate can fail spuriously but cannot certify spuriously. CERTIFICATE-CLASS CAVEAT stated plainly: the two theorem covers are OFFLINE-lane (bit-reproducible via the committed runner, commands baked) and are NOT recomputed by the sweep; the sweep recomputes the 59/250 anchor on the identical code path plus all batteries. Scope: parity-pure model family, ONE COMMON RATE, at most FOUR packets in ONE block and at most one in every other; lower occupancies dominated by subset domination as in the siblings. The middle-heavy strip [47/200, 239/1000) is NOT closed - it remains a named sub-gap with a wall now measured at 1.2e8 cells; the class sandwich [0.2320723, 0.24502] is carried unchanged; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings of the Lambda program untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED on the parent; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -1093,11 +1093,11 @@ export const IMP95150_QP_POSITION_UNIFICATION_ASSERTIONS = [
   {
     id: "imp95150-honesty-gate",
     description:
-      "the verdict is scoped: COMMON RATE only, offline-lane certificate class stated plainly, top-heavy channel CLOSED to the ladder floor, middle-heavy strip NARROWED not closed and still open with a 1.2e8-cell wall record, class sandwich carried unchanged; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: COMMON RATE only, offline-lane certificate class stated plainly, top-heavy channel CLOSED to the ladder floor, middle-heavy strip NARROWED not closed and still open with a 1.2e8-cell wall record, class sandwich carried unchanged; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95150_QP_POSITION_UNIFICATION.promotesBound === false &&
       /NO QED/.test(IMP95150_QP_POSITION_UNIFICATION.rigorScope) &&
-      /remains SOTA/.test(IMP95150_QP_POSITION_UNIFICATION.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95150_QP_POSITION_UNIFICATION.rigorScope) &&
       /ONE COMMON RATE/.test(IMP95150_QP_POSITION_UNIFICATION.rigorScope) &&
       /carried unchanged/.test(IMP95150_QP_POSITION_UNIFICATION.rigorScope) &&
       /NOT closed/.test(IMP95150_QP_POSITION_UNIFICATION.rigorScope) &&

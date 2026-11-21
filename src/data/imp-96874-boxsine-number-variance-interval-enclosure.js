@@ -62,8 +62,8 @@
  * oscillatory derivative cancelling. This leaves imp-96853 item (iii) (GUE throughout) as the ONLY residual
  * obstruction to the conditional VIF upper bound, plus the new sub-gap on whether L is exact. Derivation
  * only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN,
- * GRH-flavored); changes NO unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; the zero-side route stays PCC/GRH-gated.
+ * GRH-flavored); changes NO unconditional bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96853-vif-twosided-envelope-partition-assessment (residual item (i) this discharges)
  * @see imp-96567-box-averaged-sine-kernel-lag-decay (the direct Sigma^2 = 0.974834 and the T_2 setup)
@@ -154,12 +154,12 @@ export const IMP96874_BOXSINE_NUMBER_VARIANCE_INTERVAL_ENCLOSURE = {
   residualObstruction:
     'imp-96853 item (i) (interval-certified Sigma^2) is now DISCHARGED. The ONLY residual obstruction to the conditional VIF upper bound is item (iii) (GUE throughout), plus the new sub-gap IMP96874_SIGMA2_L_EXACTNESS on whether L = 495.779 is exact or a 6-digit proxy.',
   verdict:
-    'imp-96853 residual item (i) is DISCHARGED as an interval-certified ingredient: the box-sine number variance at the certificate window has the rigorous enclosure Sigma^2(495.779) in [0.9748336999829, 0.9748336999831] (half-width 7.8e-14, L exact), obtained from the EXACT Dyson-Mehta closed form Sigma^2(L) = (1/pi^2)[ln x + gamma + 1 - cos x - Ci(x)] + L[1 - (2/pi)Si(x)] (verified exact against direct double-box integration at L = 3 and reproducing the imp-96567 direct value 0.974834) enclosed via the enveloping Stieltjes asymptotics of the auxiliary functions f, g (truncation error certified below double precision, argument-roundoff dominated). Allowing L only to 6 digits still pins Sigma^2 to +/- 1.02e-7 because dSigma^2/dL = 1/(pi^2 L) = 2.04e-4 with the oscillatory Ci/Si derivative cancelling. This leaves imp-96853 item (iii) (GUE throughout) as the only residual obstruction to the conditional VIF upper bound, plus the new sub-gap IMP96874_SIGMA2_L_EXACTNESS on whether L is exact. Derivation only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes NO unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'imp-96853 residual item (i) is DISCHARGED as an interval-certified ingredient: the box-sine number variance at the certificate window has the rigorous enclosure Sigma^2(495.779) in [0.9748336999829, 0.9748336999831] (half-width 7.8e-14, L exact), obtained from the EXACT Dyson-Mehta closed form Sigma^2(L) = (1/pi^2)[ln x + gamma + 1 - cos x - Ci(x)] + L[1 - (2/pi)Si(x)] (verified exact against direct double-box integration at L = 3 and reproducing the imp-96567 direct value 0.974834) enclosed via the enveloping Stieltjes asymptotics of the auxiliary functions f, g (truncation error certified below double precision, argument-roundoff dominated). Allowing L only to 6 digits still pins Sigma^2 to +/- 1.02e-7 because dSigma^2/dL = 1/(pi^2 L) = 2.04e-4 with the oscillatory Ci/Si derivative cancelling. This leaves imp-96853 item (iii) (GUE throughout) as the only residual obstruction to the conditional VIF upper bound, plus the new sub-gap IMP96874_SIGMA2_L_EXACTNESS on whether L is exact. Derivation only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes NO unconditional bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 / imp-96593 / imp-96628 / imp-96853 convention).
 export const IMP96874_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation only: the box-sine number variance at the '
+  'RH open; no refereed bound is changed; NO QED. Derivation only: the box-sine number variance at the '
   + 'certificate window is interval-enclosed as Sigma^2(495.779) in [0.9748336999829, 0.9748336999831] '
   + '(half-width 7.8e-14, L exact) from the EXACT Dyson-Mehta closed form (verified exact vs direct '
   + 'integration at L = 3, reproducing the imp-96567 direct 0.974834) via enveloping Stieltjes asymptotics '
@@ -209,9 +209,9 @@ export const IMP96874_HONEST_BANNER =
   // honesty gates
   const V = IMP96874_BOXSINE_NUMBER_VARIANCE_INTERVAL_ENCLOSURE.verdict;
   if (!/NO QED/.test(V)) throw new Error('imp-96874: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(V)) throw new Error('imp-96874: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(V)) throw new Error('imp-96874: verdict dropped the no-refereed-bound-change banner');
   if (!/[Cc]onditional/.test(V)) throw new Error('imp-96874: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96874_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96874_HONEST_BANNER) && /NO QED/.test(IMP96874_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96874_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96874_HONEST_BANNER) && /NO QED/.test(IMP96874_HONEST_BANNER)))
     throw new Error('imp-96874: IMP96874_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

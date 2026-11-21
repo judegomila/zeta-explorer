@@ -12,7 +12,7 @@
  * decidable at a SINGLE FIXED SEAM WINDOW (one fixed depth d, one fixed rate/
  * center configuration, one fixed matrix size N), and if so, what analytic
  * ingredient is actually missing? ASSESSMENT only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ * no refereed bound is changed; RH open.
  *
  * THE FIXED-WINDOW REDUCTION. At a fixed seam window everything on both sides is
  * a FIXED FINITE object. Both ratios are restricted-Rayleigh suprema over the
@@ -196,8 +196,8 @@ export const IMP95537_LEGB_SINGLE_WINDOW_DECIDABILITY = {
     + 'does NOT supply, so it does not actually decide LEG B at any real seam window. A fixed-window decision '
     + 'would be a spot-check only, no uniform bound, LEG B not closed (substance = uniformity, imp-95443). '
     + 'Witnesses are small exact configurations, not paper-window Gram matrices. Full LEG B stays OPEN at '
-    + 'imp-95212-subgap-fresnel-airy-envelope-port. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 '
-    + 'remains SOTA; RH open.',
+    + 'imp-95212-subgap-fresnel-airy-envelope-port. Changes no bound; NO QED; no refereed bound is changed'
+    + '; RH open.',
   fns: { eigMinSym2, genEigMaxSym2 },
 };
 
@@ -234,11 +234,11 @@ export const IMP95537_LEGB_SINGLE_WINDOW_DECIDABILITY_ASSERTIONS = [
   },
   {
     id: 'imp-95537-assessment-only-honest',
-    description: 'explicitly ASSESSMENT ONLY, no QED, PT Lambda <= 0.2 stays SOTA, RH open',
+    description: 'explicitly ASSESSMENT ONLY, no QED, no refereed bound is changed, RH open',
     holds: () =>
       /ASSESSMENT ONLY/.test(IMP95537_LEGB_SINGLE_WINDOW_DECIDABILITY.honest)
       && /NO QED/.test(IMP95537_LEGB_SINGLE_WINDOW_DECIDABILITY.honest)
-      && /Lambda <= 0.2/.test(IMP95537_LEGB_SINGLE_WINDOW_DECIDABILITY.honest)
+      && /Lambda <= 0.2|refereed bound is changed/.test(IMP95537_LEGB_SINGLE_WINDOW_DECIDABILITY.honest)
       && /RH open/.test(IMP95537_LEGB_SINGLE_WINDOW_DECIDABILITY.honest),
   },
 ];

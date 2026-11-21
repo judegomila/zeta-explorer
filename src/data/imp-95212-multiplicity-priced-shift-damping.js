@@ -170,8 +170,7 @@
  * The numerics below CROSS-CHECK the theorem statements; they are not the
  * claim. Import-light (no heavy bundle; imports only the five sibling
  * verdict modules for carried constants). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 import BNT from "./imp-95172-ballast-necessity-tradeoff.js";
@@ -391,7 +390,7 @@ export const IMP95212_MULTIPLICITY_PRICED_DAMPING = {
     "THEOREM DR-M and COROLLARY CP are unconditional closed-form statements about multi-rate lacunary exponential sums on the half-line (the imp-95211 LEMMA BI coefficient bounds plus the split of the Cauchy beta factors into an in-shell part, capped by monotonicity of (q+1)/(q-1) at q >= rho, and a cross-shell part, capped by the same dyadic partial products; the CP shift argument uses only exponent >= 1 termwise). THEOREM HL-M is conditional exactly as THEOREM SL / COROLLARY GC-SL (the carried imp-95172/95208/95209/95210 chain) PLUS the new named dictionary hypothesis H-DYA-M replacing H-DYA -- strictly weaker structural input than imp-95211 (K = 1 is a special case), priced by strictly larger constants. H-DYA-M itself is NOT instantiated for the paper packets and every conditional statement names it. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step: the multiplicity-pricing branch recorded open by imp-95211 is developed in closed form. THEOREM DR-M: under H-DYA-M (at most K distinct rates per shell, in-shell pairwise ratio >= rho > 1, lacunary shells), the n-shell-uniform cross-seam bound survives as sqrt(LamBarM(x; K, rho)) = A_in K C_inf^K sum P_{b-1}^K e^(-2^(b-1) x) with the single new factor A_in = ((rho+1)/(rho-1))^(K-1) -- multi-rate shells reduce to the same single-shell damping times explicit Cauchy coupling constants. THEOREM HL-M: H-LOC follows for m d > xStarM(K, rho), instantiating gammaSL = 0.5996186917649009 / 0.5019141900742449 / 0.5000350679049952 at (K, rho) = (2, 1.5), m d = 8/10/12 (thresholds xStarM = 6.8802447087280605 / 6.375420548672336 / 9.976480881386347 at (2,1.5)/(2,2)/(3,2)). COROLLARY CP: xStarM <= xStar + ln K + (2K-2) ln C_inf + (K-1) ln((rho+1)/(rho-1)) -- the coalescence price is logarithmic in 1/(rho-1) and linear in K, exact at K = 1, divergent as rho -> 1: the LEMMA NG no-go is now a quantitative boundary, not just a refutation. HONEST: H-DYA-M is not instantiated for the paper packets (constants NOT extracted; Fresnel-Airy envelope port open = successor sub-gap imp-95212-subgap-fresnel-airy-envelope-port); the bound pays the A_in K C_inf^K premium on top of triangle-inequality lossiness (true 2.60e-5 vs bound 9.12e-4 at the canonical config, ratio 0.0285) and is one-sided; the linear-in-K growth may not be sharp; model-family constants; gammaSL is a cap, not proved attained; measured class sup phi = 0.3572 untouched. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step: the multiplicity-pricing branch recorded open by imp-95211 is developed in closed form. THEOREM DR-M: under H-DYA-M (at most K distinct rates per shell, in-shell pairwise ratio >= rho > 1, lacunary shells), the n-shell-uniform cross-seam bound survives as sqrt(LamBarM(x; K, rho)) = A_in K C_inf^K sum P_{b-1}^K e^(-2^(b-1) x) with the single new factor A_in = ((rho+1)/(rho-1))^(K-1) -- multi-rate shells reduce to the same single-shell damping times explicit Cauchy coupling constants. THEOREM HL-M: H-LOC follows for m d > xStarM(K, rho), instantiating gammaSL = 0.5996186917649009 / 0.5019141900742449 / 0.5000350679049952 at (K, rho) = (2, 1.5), m d = 8/10/12 (thresholds xStarM = 6.8802447087280605 / 6.375420548672336 / 9.976480881386347 at (2,1.5)/(2,2)/(3,2)). COROLLARY CP: xStarM <= xStar + ln K + (2K-2) ln C_inf + (K-1) ln((rho+1)/(rho-1)) -- the coalescence price is logarithmic in 1/(rho-1) and linear in K, exact at K = 1, divergent as rho -> 1: the LEMMA NG no-go is now a quantitative boundary, not just a refutation. HONEST: H-DYA-M is not instantiated for the paper packets (constants NOT extracted; Fresnel-Airy envelope port open = successor sub-gap imp-95212-subgap-fresnel-airy-envelope-port); the bound pays the A_in K C_inf^K premium on top of triangle-inequality lossiness (true 2.60e-5 vs bound 9.12e-4 at the canonical config, ratio 0.0285) and is one-sided; the linear-in-K growth may not be sharp; model-family constants; gammaSL is a cap, not proved attained; measured class sup phi = 0.3572 untouched. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ──────────────────────────
@@ -609,12 +608,12 @@ export const IMP95212_MPD_ASSERTIONS = [
   {
     id: "imp95212-mpd-honesty-gate",
     description:
-      "the verdict names H-DYA-M as un-instantiated for the paper packets, records the delivered multiplicity branch, the A_in K C_inf^K premium and tightness record, the narrowed successor sub-gap imp-95212-subgap-fresnel-airy-envelope-port, and the untouched ledger; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names H-DYA-M as un-instantiated for the paper packets, records the delivered multiplicity branch, the A_in K C_inf^K premium and tightness record, the narrowed successor sub-gap imp-95212-subgap-fresnel-airy-envelope-port, and the untouched ledger; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95212_MULTIPLICITY_PRICED_DAMPING.promotesBound === false &&
       IMP95212_MULTIPLICITY_PRICED_DAMPING.openResiduals.length === 5 &&
       /NO QED/.test(IMP95212_MULTIPLICITY_PRICED_DAMPING.verdict) &&
-      /remains SOTA/.test(IMP95212_MULTIPLICITY_PRICED_DAMPING.verdict) &&
+      /refereed bound is changed/i.test(IMP95212_MULTIPLICITY_PRICED_DAMPING.verdict) &&
       /Floors and ceilings untouched/.test(
         IMP95212_MULTIPLICITY_PRICED_DAMPING.verdict,
       ) &&

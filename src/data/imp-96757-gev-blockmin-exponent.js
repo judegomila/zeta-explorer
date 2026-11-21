@@ -1,7 +1,7 @@
 /**
  * imp-96757 -- Independent extreme-value (Weibull / Gumbel block-minima) estimate of the small-gap
  * N-scaling exponent, cross-checking the imp-96629 / imp-96734 least-squares pair (-0.3953
- * running-min, -0.3983 per-window). Measurement only; conditional on GUE; NO QED. PT Lambda <= 0.2 SOTA.
+ * running-min, -0.3983 per-window). Measurement only; conditional on GUE; NO QED. No refereed bound is changed.
  *
  * MOTIVATION. imp-96629 and imp-96734 both report a small-gap exponent slightly steeper than the GUE
  * (sine-kernel) extreme-gap cube-root -1/3: running-min -0.3953, per-window (disjoint dyadic block)
@@ -42,8 +42,8 @@
  * only to about +/- 0.02..0.03 over N <= ~1.48e6; the EV-MLE does NOT bring it to -1/3, so it does not
  * evidence convergence to the cube-root law within this window. This RELOCATES, does not remove, the
  * pair-correlation wall: beating the surrogate 1/log^2 envelope still requires g_min(N)/y_N -> 0 at the
- * cube-root rate, unproved unconditionally. Conditional on GUE; changes no bound; PT Lambda <= 0.2 stays
- * SOTA; RH open; NO QED.
+ * cube-root rate, unproved unconditionally. Conditional on GUE; changes no bound; no refereed bound is changed
+ * ; RH open; NO QED.
  */
 
 export const GEV_BLOCKMIN_EXPONENT = {
@@ -99,13 +99,13 @@ export const GEV_BLOCKMIN_EXPONENT = {
     'full value -- exactly the left-skew bias OLS on log(min) ignores -- but still steeper than GUE ' +
     '-1/3, so it does NOT evidence cube-root convergence over N <= ~1.48e6; the fitted shape c = 3.92 ' +
     'independently corroborates the GUE cubic-repulsion small-gap law within ~1.2 sigma. Measurement ' +
-    'only; conditional on GUE; changes no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'only; conditional on GUE; changes no bound; no refereed bound is changed; RH open; NO QED.',
 };
 
 export const GEV_BLOCKMIN_HONEST_BANNER =
   'imp-96757: extreme-value block-minima exponent estimate. Measurement only; conditional on the GUE ' +
   'sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); no bound moved; no operator ' +
-  'positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  'positivity; no refereed bound is changed; RH open; NO QED.';
 
 export const GEV_BLOCKMIN_SUBGAP = {
   id: 'imp-96757-ev-exponent-still-steeper-than-cuberoot',
@@ -175,7 +175,7 @@ const GEV_BLOCKMIN_ASSERTIONS = [
     holds: () =>
       B.crossCheck.stillSteeperThanGue === true &&
       /NO QED/.test(GEV_BLOCKMIN_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(GEV_BLOCKMIN_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(GEV_BLOCKMIN_HONEST_BANNER) &&
       /RH open/.test(GEV_BLOCKMIN_HONEST_BANNER) &&
       /still-steeper-than-cuberoot/.test(GEV_BLOCKMIN_SUBGAP.id),
     why: 'measurement only: no bound moved, no cube-root convergence claimed, the honesty markers and open sub-gap are present.',

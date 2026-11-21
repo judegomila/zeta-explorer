@@ -79,7 +79,7 @@
  * imp-96930 shared-p decorrelation, is M in [3.919e7, 4.308e7], which RESTORES a thin F < M
  * separation (M_lo 3.919e7 > F_hi 3.899e7, ~0.5 percent); the ~14.5 percent F/M overlap was a
  * dense-CI-sampling artifact. Point ordering T < F < M and compute-binds-first (~3953x) survive.
- * Sensitivity only; no bound moved; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH
+ * Sensitivity only; no bound moved; no operator positivity; no refereed bound is changed; RH
  * open; NO QED.
  *
  * RESIDUAL SUB-GAP (imp-96937-reconciled-band-rests-on-single-leverage-anchor). The all-rung fit
@@ -252,7 +252,7 @@ export const IMP96937_VERDICT = Object.freeze({
     'decorrelation) is [3.919e7, 4.308e7], which RESTORES a thin F < M separation (M_lo 3.919e7 > ' +
     'F_hi 3.899e7, ~0.5 percent); the ~14.5 percent dense F/M overlap was a sampling artifact. ' +
     'Point ordering T < F < M and compute-binds-first (~3953x) survive. Sensitivity only; no ' +
-    'bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96937_SUBGAP = Object.freeze({
@@ -269,7 +269,7 @@ export const IMP96937_SUBGAP = Object.freeze({
 });
 
 export const IMP96937_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Sensitivity only: the cond# rows and both CI ' +
+  'RH open; no refereed bound is changed; NO QED. Sensitivity only: the cond# rows and both CI ' +
   'variants are imported verbatim from the import-light siblings imp-96656 / imp-96930; the ' +
   'residual-structure and sampling-design diagnostics are a pure re-run of the two OLS fits ' +
   '(tmp/imp-96937-scratch.mjs); no Gram was rebuilt and no bound is claimed moved. The reconciled ' +
@@ -341,7 +341,7 @@ const IMP96937_ASSERTIONS = [
       IMP96937_VERDICT.anyBoundMoved === false &&
       IMP96937_VERDICT.pointOrderingSurvives === true &&
       /NO QED/.test(IMP96937_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96937_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96937_HONEST_BANNER) &&
       /RH open/.test(IMP96937_HONEST_BANNER) &&
       /single-leverage-anchor/.test(IMP96937_SUBGAP.id),
     why: 'sensitivity only: no bound moved, the point ordering survives, the honesty markers are present, and the single-leverage-anchor sub-gap is recorded.',

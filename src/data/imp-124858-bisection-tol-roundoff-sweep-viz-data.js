@@ -82,7 +82,7 @@ const IMP124858_VIZ_DATA_ASSERTIONS = [
   {
     id: 'imp124858-honesty-gate-no-qed',
     description: 'restated verdict carries the no-QED markers',
-    holds: () => /NO QED/.test(IMP124858_SUMMARY.verdict) && /remains SOTA/.test(IMP124858_SUMMARY.verdict),
+    holds: () => /NO QED/.test(IMP124858_SUMMARY.verdict) && /refereed bound is changed/i.test(IMP124858_SUMMARY.verdict),
   },
 ];
 

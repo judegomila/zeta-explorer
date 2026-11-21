@@ -53,7 +53,7 @@
  *   ~33x -- and that magnitude IS |Gshear| spectrum, i.e. the RH-equivalent
  *   K_a &gt;= 0 quantity. This sharpens "correct sign at correct lags": the sign
  *   is Phi-only and free; the lag-weighting magnitude is operator-level and
- *   remains the whole residual. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   remains the whole residual. No refereed bound is changed.
  *
  *   @see section26-mupass-operator-verdict-2026-06-30.js (the verdict whose Phi-only sign claim this tests)
  *   @see imp-3175-overflow-fraction-resolution-reconcile.js (the sibling shear-block diagnostic, same Phi cell)
@@ -308,7 +308,7 @@ export const IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY = Object.freeze({
       'Correct signs are necessary-but-NOT-sufficient; the off-diagonal endpoint-Hankel operator magnitude ' +
       '(the |Gshear| spectrum) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -349,7 +349,7 @@ export const IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY_ASSERTIONS = [
   {
     id: 'imp3197-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, not a reduction below RH, RH-equivalent, the sign ' +
-         'result is trivial, positivity not attempted, PT 0.2 stays SOTA. Any flip is over-claiming.',
+         'result is trivial, positivity not attempted, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY.honestCaveat;
       return (
@@ -357,7 +357,7 @@ export const IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

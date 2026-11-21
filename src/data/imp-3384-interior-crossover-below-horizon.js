@@ -7,7 +7,7 @@
  *   or is entirely horizon-bounded.
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   THE QUESTION (verbatim from the ticket)
  *   ---------------------------------------
@@ -65,7 +65,7 @@
  *   deg-2 deficit MAGNITUDE is not re-derived. A nonzero overflow measure is
  *   necessary-but-NOT-sufficient at operator order; the off-diagonal endpoint-Hankel
  *   operator step (imp-3066) remains the lone obstruction. RH-equivalent. No RH
- *   verdict, no false QED. Platt-Trudgian Lambda &lt;= 0.2 stays the rigorous SOTA.
+ *   verdict, no false QED. No refereed bound is changed.
  *
  *   @see imp-3322-spread-contraction-discriminator.js (the upper endpoint is the underflow horizon)
  *   @see imp-3309-two-tail-underflow-horizons.js (the two-tail closed-form horizons tau_mu / tau_nu)
@@ -357,7 +357,7 @@ export const IMP3384_INTERIOR_CROSSOVER_BELOW_HORIZON = Object.freeze({
       'A nonzero overflow measure is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -406,7 +406,7 @@ export const IMP3384_INTERIOR_CROSSOVER_BELOW_HORIZON_ASSERTIONS = [
   {
     id: 'imp3384-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC at the genuine Phi, overflow-support-only (not the absolute deficit ' +
-         'magnitude), necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 stays SOTA.',
+         'magnitude), necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3384_INTERIOR_CROSSOVER_BELOW_HORIZON.honestCaveat;
       return (
@@ -414,7 +414,7 @@ export const IMP3384_INTERIOR_CROSSOVER_BELOW_HORIZON_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

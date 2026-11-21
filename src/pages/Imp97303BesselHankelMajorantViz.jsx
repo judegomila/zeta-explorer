@@ -127,7 +127,7 @@ export default function Imp97303BesselHankelMajorantViz() {
         even-degree trial sits {IMP97303_MEASURED.evenRatioBand[0].toFixed(1)}x&ndash;
         {IMP97303_MEASURED.evenRatioBand[1].toFixed(1)}x under it, the odd-degree trial{' '}
         {IMP97303_MEASURED.oddRatioBand[0].toFixed(1)}x&ndash;{IMP97303_MEASURED.oddRatioBand[1].toFixed(1)}x
-        under it. No bound moves; Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA; RH
+        under it. No bound moves; RH
         open; NO QED.
       </div>
 
@@ -171,7 +171,7 @@ export default function Imp97303BesselHankelMajorantViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97303 viz-data leaf (majorant constant reused verbatim from imp-97263, measured decay
         reused verbatim from imp-97134; no re-evaluation of any spherical-Bessel function). Changes
-        no bound, establishes no operator positivity; Platt-Trudgian &Lambda;&le;0.2 remains SOTA;
+        no bound, establishes no operator positivity;
         RH open; NO QED.
       </div>
     </div>

@@ -20,7 +20,7 @@
  *
  * WHAT REMAINS OPEN: the residual's oscillation envelope has no closed-form periodicity model (only
  * measured rise/fall counts); the exact PNT/Mertens error term driving the oscillation is not derived
- * here. MCM stays refuted from omega=11; no bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open;
+ * here. MCM stays refuted from omega=11; no bound on Lambda moves; no refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-97706-route-m-deep-ladder-extension.js (source of every verdict flag below)
@@ -28,7 +28,7 @@
  * @see imp-97687-route-m-avg-exponent-robustness.js (11-rung bootstrap band [8.2,11.0] this note narrows)
  *
  * Ticket: imp-97728 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97706_DEFAULT, { IMP97706_VERDICT, IMP97706_BOOTSTRAP, IMP97706_RESULTS } from './imp-97706-route-m-deep-ladder-extension.js';
@@ -58,7 +58,7 @@ export const IMP97728_HONEST_BANNER =
   'fingerprint. Re-running the imp-97687 seeded bootstrap on the doubled ladder NARROWS the 95% band from ' +
   '[8.2,11.0] to [9.80,11.22], with the "outruns every fixed power <= 3" conclusion holding in 100% of ' +
   'resamples. Left open: no closed-form periodicity model for the oscillation envelope. MCM stays refuted ' +
-  'from omega=11; no bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'from omega=11; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97728_ASSERTIONS = [
@@ -92,9 +92,9 @@ const IMP97728_ASSERTIONS = [
       IMP97728_STATUS.rhResolved === false &&
       IMP97728_STATUS.qed === false &&
       /NO QED/.test(IMP97728_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97728_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97728_HONEST_BANNER) &&
       /RH open/.test(IMP97728_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no RH resolution, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no RH resolution, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

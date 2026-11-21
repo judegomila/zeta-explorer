@@ -13,7 +13,7 @@
  * WHAT REMAINS OPEN (imp-97285 named residual, unaffected by this note): a uniform equidistribution bound on
  * the single oversampling scalar Rw = X/Xbar (sufficient target Rw < ~2.5, measured ~1.2, ~2x headroom). The
  * resonance-main-term route is ruled out, not replaced -- no alternative evaluation route is established here.
- * No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97285-route-m-offdiag-oversampling-factorization.js (source of Result 3 and every verdict flag below)
  * @see imp-97267-route-m-inverse-map-kloosterman-transfer.js (parent: DIAG + OFFDIAG detection identity)
@@ -21,7 +21,7 @@
  * @see imp-97310-route-m-oversampling-rw-mean-value-decomposition.js (sibling: Rw per-modulus decomposition)
  *
  * Ticket: imp-97322 (content, medium, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97285_DEFAULT, { IMP97285_MEASURED, IMP97285_VERDICT, IMP97285_SUBGAP } from './imp-97285-route-m-offdiag-oversampling-factorization.js';
@@ -53,7 +53,7 @@ export const IMP97322_HONEST_BANNER =
   'is instead IDENTIFIED with the single bounded oversampling scalar Rw ~ 1.2 (level with the imp-97225/' +
   'imp-97271 OVR ~1.254 plateau), the same object the imp-97203/imp-97225 framing already named -- a downgrade ' +
   'of the imp-97267 "strictly harder" reclassification. Sufficient target Rw < ~2.5 has ~2x measured headroom. ' +
-  'M2w stays MEASURED ~0.16; no bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'M2w stays MEASURED ~0.16; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97322_ASSERTIONS = [
@@ -85,9 +85,9 @@ const IMP97322_ASSERTIONS = [
       IMP97322_STATUS.qed === false &&
       IMP97322_STATUS.m2wCertified === false &&
       /NO QED/.test(IMP97322_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97322_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97322_HONEST_BANNER) &&
       /RH open/.test(IMP97322_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

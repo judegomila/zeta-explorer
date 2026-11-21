@@ -8,8 +8,8 @@
  * (no re-derivation, no new computation): this module only reshapes them
  * into ordered per-cutoff rows and a four-point box-min-depth series.
  *
- * MEASUREMENT ONLY. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; imp-486 C_mb GUE-conditional untouched.
+ * MEASUREMENT ONLY. Changes no bound; NO QED; no refereed bound is changed
+ * ; imp-486 C_mb GUE-conditional untouched.
  *
  * @see imp-95747-cf-reff-gue-repulsion-regularization.js (source literals)
  */
@@ -44,7 +44,7 @@ export const BOX_MIN_ROWS = [
 export const IMP95776_SUMMARY = Object.freeze({
   law: 'GUE level repulsion regularizes the imp-95721 near-anchor 1/(1-alpha) divergence into a finite, cutoff-independent r_eff = 9.583x, but does not lower it below the 8.6x one-spacing value.',
   reading: `As the near-anchor cutoff c shrinks from 10 to 0.001 mean spacings, the flat-RvM r_eff keeps climbing (${FLAT.c10} -> ${FLAT.c0p001}, ~2.5x per decade) while the GUE-reweighted r_eff bends over and SATURATES at ${SATURATED}x. The resulting box-min gap barely moves at c=1 (${BOX_MIN.band.flat_c1} -> ${BOX_MIN.band.gue_c1}) and deepens slightly further to ${BOX_MIN.band.gue_saturated} at the saturated r_eff -- the same wedge corner throughout.`,
-  verdict: 'PRESENTATION ONLY, no new computation; re-plots imp-95747 literals. Changes no bound; NO QED; RH open; Catalan G irrationality open; Platt-Trudgian Lambda <= 0.2 remains SOTA; imp-486 C_mb GUE-conditional untouched.',
+  verdict: 'PRESENTATION ONLY, no new computation; re-plots imp-95747 literals. Changes no bound; NO QED; RH open; Catalan G irrationality open; no refereed bound is changed; imp-486 C_mb GUE-conditional untouched.',
 });
 
 // ---------------------------------------------------------------------------
@@ -90,11 +90,11 @@ const IMP95776_VIZ_DATA_ASSERTIONS = [
   },
   {
     id: 'imp95776-honesty-gate-no-qed',
-    description: 'summary carries NO QED / RH open / SOTA markers',
+    description: 'summary carries NO QED / RH open / no-refereed-bound-change markers',
     holds: () =>
       /NO QED/.test(IMP95776_SUMMARY.verdict) &&
       /RH open/.test(IMP95776_SUMMARY.verdict) &&
-      /remains SOTA/.test(IMP95776_SUMMARY.verdict),
+      /refereed bound is changed/i.test(IMP95776_SUMMARY.verdict),
   },
 ];
 

@@ -60,8 +60,7 @@
  * (imp-2642/imp-2643) and the baseline E_trunc = 3.06e-5 (imp-2631/imp-447)
  * UNTOUCHED (the 3.6e-5 value is a sensitivity probe, not a re-anchoring);
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per
- * imp-3463; no operator positivity; no RH verdict; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-3463; no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35574-peak-location-height-map-damping (the ~0.55 damping factor probed here)
  * @see imp-35594-peak-crossover-mechanism-derivation (the structural mechanism corroborated)
@@ -253,8 +252,8 @@ export const IMP35609_PEAK_DAMPING_INPUT_SENSITIVITY = {
     'rigorous asymptotic; surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; C_C ansatz ' +
     '(imp-2642/imp-2643) and the baseline E_trunc = 3.06e-5 (imp-2631/imp-447) UNTOUCHED; ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; ' +
-    'changes no bound; no operator positivity; no RH verdict; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'changes no bound; no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35574 (peak-location damping factor ~0.553, probed here); ' +
     'imp-35594 (structural mechanism corroborated); imp-35458 (crossover damping ~18x reference); ' +
@@ -293,13 +292,13 @@ export const IMP35609_PEAK_DAMPING_INPUT_SENSITIVITY_ASSERTIONS = [
       DAMPING_SPREAD_ABS < 0.05,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35609-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35609_PEAK_DAMPING_INPUT_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP35609_PEAK_DAMPING_INPUT_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP35609_PEAK_DAMPING_INPUT_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP35609_PEAK_DAMPING_INPUT_SENSITIVITY.verdict),
   },
 ];
 

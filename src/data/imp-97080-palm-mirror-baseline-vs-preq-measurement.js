@@ -47,7 +47,7 @@
  * The hypothesis H_desc-mirror concerns zeros of H_t for t in (0, t0], which carry
  * NO Euler product, and a single finite-height count supplies no uniform-in-t,
  * all-x lower bound (residual (c) of the source module, the NS-RIGID wall). No
- * Lambda bound follows from this measurement. PT Lambda <= 0.2 remains SOTA. RH
+ * Lambda bound follows from this measurement. No refereed bound is changed. RH
  * open. NO QED.
  *
  * @see rh-bridge-mirror-descent-2026-09-25.js (theorem B1, C1 Palm baseline 2.530,
@@ -154,7 +154,7 @@ export const IMP97080_MEASUREMENT = Object.freeze({
     'not a relaxation at the binding y0 = 0.165 window. Finite-height measurement ' +
     'only: the hypothesis concerns zeros of H_t (t > 0, no Euler product) uniformly ' +
     'in t and x, which no finite count supplies (residual (c) / NS-RIGID wall). ' +
-    'No Lambda bound follows. PT Lambda <= 0.2 remains SOTA. RH open. NO QED.',
+    'No Lambda bound follows. No refereed bound is changed. RH open. NO QED.',
   hypothesisHolds: false,
   anyBoundMoved: false,
 });
@@ -197,12 +197,12 @@ export const IMP97080_MEASUREMENT_ASSERTIONS = [
   {
     id: 'imp97080-honesty-gate-no-qed',
     why: 'finite-height measurement only: no bound moved, no Euler product for t > 0, ' +
-      'PT SOTA line and NO QED present.',
+      'no-refereed-bound-change line and NO QED present.',
     holds: () =>
       IMP97080_MEASUREMENT.anyBoundMoved === false &&
       /no Euler product/i.test(IMP97080_MEASUREMENT.verdict) &&
       /No Lambda bound/.test(IMP97080_MEASUREMENT.verdict) &&
-      /remains SOTA/.test(IMP97080_MEASUREMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP97080_MEASUREMENT.verdict) &&
       /NO QED/.test(IMP97080_MEASUREMENT.verdict) &&
       /RH open/.test(IMP97080_MEASUREMENT.verdict),
   },

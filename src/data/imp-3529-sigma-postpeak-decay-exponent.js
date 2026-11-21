@@ -74,7 +74,7 @@
  * exponent -- the decay steepens continuously toward the imp-3463 asymptote.
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (interior MAX N ~ 9.22e5, monotone decay-to-0 right arm)
  * @see imp-3463-sigma-fartail-decay (far-tail leading form sigma ~ (C_C/E_trunc) sqrt(logT0/N))
@@ -219,8 +219,8 @@ export const IMP3529_SIGMA_POSTPEAK_DECAY_EXPONENT = {
     '0.4956 at 1e50) because slow logT0 growth keeps the exponent under sqrt(1/N). ' +
     'Threshold crossings above the peak: sigma<0.9 at N~2.57e7, <0.5 at ~3.27e9, <0.1 at ' +
     '~3.21e11, <0.01 at ~4.62e13. This quantifies the roadmaps qualitative monotone-decay ' +
-    'claim. No positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'claim. No positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3406 (interior MAX N ~ 9.22e5, monotone decay-to-0 right arm); imp-3463 (far-tail ' +
     'leading form sigma ~ (C_C/E_trunc) sqrt(logT0/N)); imp-3444 (E_coll = E_trunc crossover ' +
@@ -296,13 +296,13 @@ export const IMP3529_SIGMA_POSTPEAK_DECAY_EXPONENT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, no QED, no refereed bound is changed.
     id: 'imp3529-honesty-gate-no-qed',
-    description: 'Measurement only: no QED, PT stays SOTA',
+    description: 'Measurement only: no QED, no refereed bound is changed',
     holds: () =>
       IMP3529_SIGMA_POSTPEAK_DECAY_EXPONENT.isRigorous === false &&
       /NO QED/.test(IMP3529_SIGMA_POSTPEAK_DECAY_EXPONENT.verdict) &&
-      /remains SOTA/.test(IMP3529_SIGMA_POSTPEAK_DECAY_EXPONENT.verdict),
+      /refereed bound is changed/i.test(IMP3529_SIGMA_POSTPEAK_DECAY_EXPONENT.verdict),
   },
 ];
 

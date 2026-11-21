@@ -68,7 +68,7 @@
  * the inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED (the share stays GUE-conditional); the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96162-sigma-ushape-peak-eflow-recovery (F2 flagged the 0.577 ~ 1/sqrt3 coincidence)
  * @see imp-96151-sigma-closed-form-crossover-fartail-reproduction (two-term CF, misses the peak)
@@ -273,7 +273,7 @@ export const IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION = {
     'N_peak/N_flow decided here is a FINITE-HEIGHT ACCIDENT of the inherited constants (a smooth ' +
     'crossing at the current E_trunc, C_C, C_F, not a fixed point or forced identity) -- it is not ' +
     'evidence toward, and carries no implication for, RH. Changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no QED. No refereed bound is changed.',
   verdict:
     'MEASUREMENT/DERIVATION (frontier-direction, NOT rigorous). The imp-3220 U-shape peak obeys the ' +
     'DERIVED law N_peak/N_flow = (b/a)^(1/(a+b)) with a = d ln g_t/d ln N ~ 0.4655 and b = -d ln ' +
@@ -286,7 +286,7 @@ export const IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION = {
     'Component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 stays GUE-conditional and UNTOUCHED; the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96162 (F2 flagged the 0.577 ~ 1/sqrt3 coincidence); imp-96151 (two-term closed form, misses ' +
     'the peak); imp-33723 (denominator crossover N_cross); imp-3220 (interior peak sigma_max ~ 0.9494 ' +
@@ -337,13 +337,13 @@ export const IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION_ASSERTIONS = [
     holds: () => F1_HOLDS_ACROSS_SWEEP && F1_OFFHEIGHT.length === 6 && F1_OFFHEIGHT_MAX_REL_ERR < 2e-4,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp96187-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: isRigorous false, no QED, PT Lambda<=0.2 stays SOTA',
+    description: 'Measurement/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION.isRigorous === false &&
       /NO QED/.test(IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION.verdict) &&
-      /remains SOTA/.test(IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION.verdict),
+      /refereed bound is changed/i.test(IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION.verdict),
   },
   {
     // Honest-status banner: conditional-share diagnostic, GUE-conditional/C_C ansatz untouched,

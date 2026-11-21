@@ -23,8 +23,7 @@
  * sampled in-chart theta (max truth/cap 0.9978), so the remaining
  * large-rho looseness (3.0 - 5.1x at rho = e^6) now lives ENTIRELY in
  * the other two named legs -- the {0, +-1} pair truncation and the
- * t3-vs-true-weight gap. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * t3-vs-true-weight gap. Changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95252 / imp-95288 / imp-95329 / imp-95330 / imp-95331
  * normalization, verbatim). a = ln rho in (0, 6], b = ln r in (0, a),
@@ -249,8 +248,8 @@ export const IMP95332_CHART_TAIL_PENCIL_FLOOR = {
     "1.2025x at rho = e^6 r = 2, looseness 6.085 -> 5.060; cap within " +
     "0.3 percent of the true t3-weighted tail). Every-octave onsets " +
     "unchanged; the pair-truncation and b-uniform-t3 legs remain " +
-    "OPEN. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA.",
+    "OPEN. Changes no bound; NO QED; no refereed bound is changed" +
+    ".",
   chainHonestStatus:
     "whole-chain summary (imp-95288 through imp-95332, six legs " +
     "RZ-PEN / RZ-PEN2 .. RZ-PEN6): every leg is a FLOOR-only " +
@@ -260,7 +259,7 @@ export const IMP95332_CHART_TAIL_PENCIL_FLOOR = {
     "onsets (13.297836 / 13.071303 / 12.817538) are bitwise " +
     "UNCHANGED across the entire chain. No leg in this chain has " +
     "moved a certificate onset or the program Lambda bound; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   crossPlatformCheck:
     "imp-95354: the eight self-executing assertions were re-run by " +
     "importing this module directly in a real Chromium browser " +
@@ -819,10 +818,10 @@ export const IMP95332_ASSERTIONS = [
     description:
       "the verdict names the executed-and-exhausted tail leg, keeps " +
       "the pair-truncation and t3 legs open, records unchanged onsets " +
-      "and floors-only scope, promotes no bound, NO QED, PT stays SOTA",
+      "and floors-only scope, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /EXECUTED and EXHAUSTED/.test(REC.verdict) &&
       /remain OPEN/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&

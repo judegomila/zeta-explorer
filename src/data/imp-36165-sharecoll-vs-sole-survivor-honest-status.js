@@ -14,7 +14,7 @@
  *
  *   Ticket: imp-36165 (content, low). Note only; re-derives nothing new; discharges nothing;
  *   changes no bound; E_trunc = 3.06e-5 (imp-2631) and C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643)
- *   are UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   are UNTOUCHED; no refereed bound is changed; NO QED.
  *
  * @see imp-36097-e-share-threshold-crossings-viz-data.js (source of the shareColl < 1% crossing)
  * @see imp-35971-etrunc-sole-survivor-height.js (source of the sole-survivor height)
@@ -82,7 +82,7 @@ export const IMP36165_SHARECOLL_VS_SOLE_SURVIVOR_HONEST_STATUS = Object.freeze({
     derivesRemainder: false,
     dischargesAnything: false,
     changesAnyBound: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -92,7 +92,7 @@ export const IMP36165_SHARECOLL_VS_SOLE_SURVIVOR_HONEST_STATUS = Object.freeze({
     'STRICTLY BELOW the sole-survivor height, never AT it. Reuses both source modules verbatim; ' +
     'derives no remainder; discharges nothing; changes no bound; E_trunc = 3.06e-5 (imp-2631) and ' +
     'C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643) are UNTOUCHED; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 });
 
 export const IMP36165_SHARECOLL_VS_SOLE_SURVIVOR_HONEST_STATUS_ASSERTIONS = [
@@ -138,11 +138,11 @@ export const IMP36165_SHARECOLL_VS_SOLE_SURVIVOR_HONEST_STATUS_ASSERTIONS = [
       IMP36165_SHARECOLL_VS_SOLE_SURVIVOR_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP36165_SHARECOLL_VS_SOLE_SURVIVOR_HONEST_STATUS.honestCaveat.isRigorous === false &&
       IMP36165_SHARECOLL_VS_SOLE_SURVIVOR_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36165_SHARECOLL_VS_SOLE_SURVIVOR_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36165_SHARECOLL_VS_SOLE_SURVIVOR_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36165-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP36165_SHARECOLL_VS_SOLE_SURVIVOR_HONEST_STATUS.verdict),
   },
 ];

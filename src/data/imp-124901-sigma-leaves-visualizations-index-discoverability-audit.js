@@ -31,7 +31,7 @@
  * the fifth (imp-124846) is intentionally index-free but not an orphan -- it is cross-cited
  * from a glossary headword and two audit modules. No silent orphan found. Read-only
  * discoverability audit; changes no bound; establishes no operator positivity; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-124804-far-frontier-import-light-audit (discoverability-audit method precedent)
  * @see imp-124878-newer-fartail-import-light-audit (companion bundle-hygiene audit of the

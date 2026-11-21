@@ -12,7 +12,7 @@
  * that E = sum over all panels of the per-panel argument uncertainty. It never tabulated how E
  * grows as n grows. This module supplies that tabulation with a two-channel accrual surrogate. It
  * sums NO real per-panel increments; evaluates NO A, B, or C; certifies NO count; fixes NO Delta or
- * h; instantiates NO interval; changes NO bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * h; instantiates NO interval; changes NO bound; NO QED. No refereed bound is changed.
  *
  * TWO COMPETING ACCRUAL CHANNELS AS n GROWS
  * -----------------------------------------------------------------------------
@@ -55,19 +55,19 @@
  * condition / convergence constants, not measured enclosure diameters; N is anchored at N = 1 (a
  * single-mean-gap box, Delta ~ 0.2336) with the linear-in-N roundoff scaling noted. It sums no real
  * increments, evaluates no true H_t, certifies no count, fixes no Delta or h, changes no bound.
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35804-i4-integer-closure-error-budget-scope (I4 <pi GLOBAL accumulated-error budget; E = sum of per-panel uncertainty)
  * @see imp-35777-i2-logderivative-panel-cap-scope (I2 per-panel cap; density ~ 4.28 panels per unit height)
  * @see imp-35757-i2-panel-width-count-scope (I2 panel-width / count regime; mean gap ~ 0.2336)
  * @see imp-35951-i2-i3-sizing-from-imp33923-sampled-proxy (I2/I3 sizing sibling)
  * @see imp-2696-winding-lyapunov-experiment (W_pp = 6.413 non-integer human-read count I4 removes)
- * @see Polymath15 2019 (H_t = A + B - C; barrier method); Platt-Trudgian 2021 (T_PT = 3e12; Lambda <= 0.2 SOTA)
+ * @see Polymath15 2019 (H_t = A + B - C; barrier method); Platt-Trudgian 2021 (T_PT = 3e12; no refereed bound is changed)
  */
 
 // -- Anchor + operative constants (import-light; matching imp-35804 / imp-35777) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const HALF_TURN = Math.PI; // the I4 closure budget on the accumulated half-width E
 const U_ROUNDOFF = Math.pow(2, -53); // double-precision unit roundoff ~ 1.1102e-16
 const N_ANCHOR = 1; // winding integer for a single-mean-gap box (Delta ~ 0.2336); roundoff scales linearly in N
@@ -151,13 +151,13 @@ export const IMP35989_I4_ACCUMULATED_ERROR_VS_PANEL_COUNT_SCALE = {
     'DECREASING truncation channel -- so subdividing helps I4 there and the closed-loop total comfortably clears the ' +
     'pi budget for every plausible n. RHO_EVAL, K_TRUNC are illustrative constants and N is anchored at 1 (roundoff ' +
     'linear in N). It sums no real increments; evaluates no true H_t; certifies no count; fixes no Delta or h; ' +
-    'instantiates no interval; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'instantiates no interval; changes no bound; NO QED. No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-35804 (I4 <pi GLOBAL accumulated-error budget; E = sum of per-panel uncertainty); imp-35777 (I2 cap; ~ 4.28 ' +
     'panels per unit height); imp-35757 (I2 panel-width / count; mean gap ~ 0.2336); imp-35951 (I2/I3 sizing sibling); ' +
     'imp-2696 (W_pp = 6.413 non-integer human-read count); Polymath15 2019 (H_t = A + B - C; barrier method); ' +
-    'Platt-Trudgian 2021 (T_PT = 3e12; Lambda <= 0.2 SOTA).',
+    'Platt-Trudgian 2021 (T_PT = 3e12; no refereed bound is changed).',
 };
 
 export const IMP35989_I4_ACCUMULATED_ERROR_VS_PANEL_COUNT_SCALE_ASSERTIONS = [
@@ -212,15 +212,15 @@ export const IMP35989_I4_ACCUMULATED_ERROR_VS_PANEL_COUNT_SCALE_ASSERTIONS = [
       SCALING_TABLE.find((row) => row.n === 1e6).eTotal < 1e-4,
   },
   {
-    // Honesty gate: surrogate only, sums no increments, certifies no count, NO QED, PT Lambda <= 0.2 SOTA.
+    // Honesty gate: surrogate only, sums no increments, certifies no count, NO QED, no refereed bound is changed.
     id: 'imp35989-honesty-gate-no-qed',
-    description: 'Surrogate measurement only; sums no real increments; certifies no count; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Surrogate measurement only; sums no real increments; certifies no count; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35989_I4_ACCUMULATED_ERROR_VS_PANEL_COUNT_SCALE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /certifies no count/.test(IMP35989_I4_ACCUMULATED_ERROR_VS_PANEL_COUNT_SCALE.verdict) &&
       /NO QED/.test(IMP35989_I4_ACCUMULATED_ERROR_VS_PANEL_COUNT_SCALE.verdict) &&
-      /remains SOTA/.test(IMP35989_I4_ACCUMULATED_ERROR_VS_PANEL_COUNT_SCALE.verdict),
+      /refereed bound is changed/i.test(IMP35989_I4_ACCUMULATED_ERROR_VS_PANEL_COUNT_SCALE.verdict),
   },
 ];
 

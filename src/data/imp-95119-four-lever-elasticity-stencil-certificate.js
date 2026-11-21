@@ -75,7 +75,7 @@
  *
  * The numerics below CROSS-CHECK the statements; they are not the claim.
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // -- parameterized ceiling machinery (identical shape to imp-95026/imp-95092) --
@@ -276,7 +276,7 @@ export const IMP95119_FOUR_LEVER_ELASTICITY_STENCIL_CERTIFICATE = {
     "CERTIFICATE (measurement/derivation). The four elasticities are recomputed with O(h^4) 5-point and Richardson stencils at three steps (r in {1,2,4} percent); the 5-point/Richardson estimates agree to ~1e-6 and recover the imp-95092 3-point values to O(h^2). The four |E| stencil-family intervals are pairwise DISJOINT, so the ranking theta > sigma > Q > beta is stencil-independent. The ~10 percent central-vs-secant residual is decomposed via a Taylor expansion of the secant slope into curvature (dominant; the wide secant midpoints are offset from the model point) plus a small third-derivative residue, so it is CURVATURE not stencil error. SUB-GAP: stencil-family brackets not interval-arithmetic enclosures; beta lever noisy; paper constants not pinned. NO QED.",
   promotesBound: false,
   verdict:
-    "CERTIFICATE that the imp-95092 four-lever far-ceiling elasticity RANKING theta > sigma > Q > beta is stencil-independent. Recomputing each elasticity with O(h^4) 5-point and Richardson-extrapolated stencils at r in {1,2,4} percent pins the values theta -1.2703, sigma -0.9443, Q +0.8848, beta -0.0992 (5-point/Richardson agree to ~1e-6; the imp-95092 +/- 2 percent central differences are recovered to O(h^2)). The four |E| stencil-family intervals theta[1.2703,1.2716], sigma[0.9443,0.9445], Q[0.8837,0.8850], beta[0.0992,0.1005] are pairwise DISJOINT, so the ranking holds for EVERY stencil in the family. The ~10 percent imp-95092 central-vs-secant disagreement is DECOMPOSED via a Taylor expansion of the secant slope into CURVATURE (the wide sigma/Q secant midpoints sit at 1.125, offset from the model point, times f''; this alone explains the bulk, and adding the third-derivative term closes to ~0.3 percent) plus a negligible stencil truncation (~1e-3 relative at worst); theta's residual is a pure third-derivative effect because its secant is symmetric. cFar is CONCAVE in Q (d2 < 0, matching imp-95093/imp-95075) and convex in theta, sigma, beta. SUB-GAP: these are stencil-family brackets not interval-arithmetic enclosures; the beta lever is numerically noisiest (its rank is still certified by an order-of-magnitude gap); the paper Section 4.5 constants are not pinned in-repo so this is the LOCAL model-point ranking. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "CERTIFICATE that the imp-95092 four-lever far-ceiling elasticity RANKING theta > sigma > Q > beta is stencil-independent. Recomputing each elasticity with O(h^4) 5-point and Richardson-extrapolated stencils at r in {1,2,4} percent pins the values theta -1.2703, sigma -0.9443, Q +0.8848, beta -0.0992 (5-point/Richardson agree to ~1e-6; the imp-95092 +/- 2 percent central differences are recovered to O(h^2)). The four |E| stencil-family intervals theta[1.2703,1.2716], sigma[0.9443,0.9445], Q[0.8837,0.8850], beta[0.0992,0.1005] are pairwise DISJOINT, so the ranking holds for EVERY stencil in the family. The ~10 percent imp-95092 central-vs-secant disagreement is DECOMPOSED via a Taylor expansion of the secant slope into CURVATURE (the wide sigma/Q secant midpoints sit at 1.125, offset from the model point, times f''; this alone explains the bulk, and adding the third-derivative term closes to ~0.3 percent) plus a negligible stencil truncation (~1e-3 relative at worst); theta's residual is a pure third-derivative effect because its secant is symmetric. cFar is CONCAVE in Q (d2 < 0, matching imp-95093/imp-95075) and convex in theta, sigma, beta. SUB-GAP: these are stencil-family brackets not interval-arithmetic enclosures; the beta lever is numerically noisiest (its rank is still certified by an order-of-magnitude gap); the paper Section 4.5 constants are not pinned in-repo so this is the LOCAL model-point ranking. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) --------------------------
@@ -363,7 +363,7 @@ export const IMP95119_ELASTICITY_STENCIL_ASSERTIONS = [
   {
     id: "imp95119-honesty-gate",
     description:
-      "the verdict names the sub-gaps (stencil-family not interval-arithmetic; beta noisy; paper constants not pinned), records the disjoint-interval ranking and the curvature decomposition, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gaps (stencil-family not interval-arithmetic; beta noisy; paper constants not pinned), records the disjoint-interval ranking and the curvature decomposition, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95119_FOUR_LEVER_ELASTICITY_STENCIL_CERTIFICATE.promotesBound === false &&
       IMP95119_FOUR_LEVER_ELASTICITY_STENCIL_CERTIFICATE.openResiduals.length === 3 &&
@@ -371,7 +371,7 @@ export const IMP95119_ELASTICITY_STENCIL_ASSERTIONS = [
       /CURVATURE/.test(IMP95119_FOUR_LEVER_ELASTICITY_STENCIL_CERTIFICATE.verdict) &&
       /SUB-GAP/.test(IMP95119_FOUR_LEVER_ELASTICITY_STENCIL_CERTIFICATE.verdict) &&
       /NO QED/.test(IMP95119_FOUR_LEVER_ELASTICITY_STENCIL_CERTIFICATE.verdict) &&
-      /remains SOTA/.test(IMP95119_FOUR_LEVER_ELASTICITY_STENCIL_CERTIFICATE.verdict),
+      /refereed bound is changed/i.test(IMP95119_FOUR_LEVER_ELASTICITY_STENCIL_CERTIFICATE.verdict),
   },
 ];
 

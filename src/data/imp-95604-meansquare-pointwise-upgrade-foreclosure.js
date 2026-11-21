@@ -12,7 +12,7 @@
  * needs, and is the cited Kronecker saturation a genuine obstruction to that
  * upgrade or does a gap remain. Assessment only; identifies the obstruction,
  * claims no closure; zero side stays PCC-gated; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ * no refereed bound is changed; RH open.
  *
  * THE TWO OBJECTS (imp-95519 sec 4).
  *   INPUT available. Montgomery F(alpha) is a MEAN SQUARE over gamma in [0, T]:
@@ -83,7 +83,7 @@
  * of the mean-square -> pointwise UPGRADE (the sqrt(H) transfer constant is
  * Kronecker-sharp and exactly cancels the H^{-1/2} mean-square saving); it must NOT
  * be over-read as refuting the contract at the anchor, which remains undecided and
- * PCC-gated. Changes no bound; closes no gap; NO QED; PT Lambda <= 0.2 remains SOTA.
+ * PCC-gated. Changes no bound; closes no gap; NO QED; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. All literals re-derived.
  */
@@ -213,7 +213,7 @@ export const IMP95604_MEANSQUARE_POINTWISE_UPGRADE = Object.freeze({
   },
 
   netVerdict:
-    'The imp-95519 sec-4 citation of imp-95526 T2 is ACCURATE as a foreclosure of the mean-square -> pointwise UPGRADE: the L^2 -> L^infinity transfer constant sqrt(H) is Kronecker-sharp and exactly cancels the H^{-1/2} mean-square saving, so any uniform upgrade of a mean-square pair-correlation statement returns the trivial size. It must NOT be over-read as refuting the contract at the anchor, which remains undecided and PCC-gated; the only residual lever is pointwise zero-location at the window heights (RH-hard, out of reach). Changes no bound; closes no gap; NO QED; PT Lambda <= 0.2 remains SOTA; RH open.',
+    'The imp-95519 sec-4 citation of imp-95526 T2 is ACCURATE as a foreclosure of the mean-square -> pointwise UPGRADE: the L^2 -> L^infinity transfer constant sqrt(H) is Kronecker-sharp and exactly cancels the H^{-1/2} mean-square saving, so any uniform upgrade of a mean-square pair-correlation statement returns the trivial size. It must NOT be over-read as refuting the contract at the anchor, which remains undecided and PCC-gated; the only residual lever is pointwise zero-location at the window heights (RH-hard, out of reach). Changes no bound; closes no gap; NO QED; no refereed bound is changed; RH open.',
 
   promotesBound: false,
   isRigorous: true,
@@ -261,11 +261,11 @@ export const IMP95604_ASSERTIONS = Object.freeze([
   },
   {
     id: 'imp95604-honesty-gate-no-qed',
-    description: 'assessment only: promotes no bound, NO QED, PT stays SOTA',
+    description: 'assessment only: promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95604_MEANSQUARE_POINTWISE_UPGRADE.promotesBound === false &&
       /NO QED/.test(IMP95604_MEANSQUARE_POINTWISE_UPGRADE.netVerdict) &&
-      /remains SOTA/.test(IMP95604_MEANSQUARE_POINTWISE_UPGRADE.netVerdict),
+      /refereed bound is changed/i.test(IMP95604_MEANSQUARE_POINTWISE_UPGRADE.netVerdict),
   },
 ]);
 

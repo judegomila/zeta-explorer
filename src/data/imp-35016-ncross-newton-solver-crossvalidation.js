@@ -53,7 +53,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (Banach/Picard closed form this module re-solves)
  * @see imp-3444-sigma-nshape-landmark-ladder (E_coll = E_trunc crossover N ~ 3.280e9, bisected)
@@ -220,7 +220,7 @@ export const IMP35016_NCROSS_NEWTON_SOLVER_CROSSVALIDATION = {
     'factor ~22 above N* and is untouched. Component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33723 (closed-form Banach fixed point N_cross = (C_C/E_trunc)^2 log T0(N_cross)); imp-3444 ' +
     '(E_coll = E_trunc crossover, bisected); imp-34800 (Banach + Krawczyk + inflection three-way ' +
@@ -267,13 +267,13 @@ export const IMP35016_NCROSS_NEWTON_SOLVER_CROSSVALIDATION_ASSERTIONS = [
     holds: () => N_STAR > 0 && N_STAR < N_CROSS_BANACH && ROOT_OVER_NSTAR > 5,
   },
   {
-    // Honesty gate: cross-validation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation/measurement only, no QED, no refereed bound is changed.
     id: 'imp35016-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35016_NCROSS_NEWTON_SOLVER_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP35016_NCROSS_NEWTON_SOLVER_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP35016_NCROSS_NEWTON_SOLVER_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP35016_NCROSS_NEWTON_SOLVER_CROSSVALIDATION.verdict),
   },
 ];
 

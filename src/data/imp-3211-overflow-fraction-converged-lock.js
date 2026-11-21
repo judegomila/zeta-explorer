@@ -45,8 +45,8 @@
  *   The absolute deg-2 deficit magnitude is a separate quantity and is NOT
  *   addressed here. A nonzero overflow fraction is necessary-but-NOT-sufficient at
  *   operator order; the off-diagonal endpoint-Hankel step (imp-3066) remains the
- *   lone obstruction. Lock only, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the
- *   rigorous SOTA. No false QED.
+ *   lone obstruction. Lock only, no QED. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3175-overflow-fraction-resolution-reconcile.js (converged ~0.209)
  *   @see imp-3007-mupass-overflow-cover.js (carries both stale + resolved fields)
@@ -80,7 +80,7 @@ export const IMP3211_OVERFLOW_FRACTION_CONVERGED_LOCK = Object.freeze({
     necessaryNotSufficient:
       'A nonzero overflow fraction is necessary-but-NOT-sufficient at operator order; ' +
       'the off-diagonal endpoint-Hankel step (imp-3066) remains the lone obstruction.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -147,7 +147,7 @@ export const IMP3211_OVERFLOW_FRACTION_CONVERGED_LOCK_ASSERTIONS = [
         c.isProof === false &&
         c.isReductionBelowRH === false &&
         c.isLockOnly === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

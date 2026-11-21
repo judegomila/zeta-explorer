@@ -44,7 +44,7 @@
  * @see imp-3642-sigma-crossover-tc-direct-dyson-crosscheck (single-seed 0.48458 invariant)
  * @see imp-3662-mesoscopic-invariant-seed-sensitivity (empirical (1/2) coth(pi y_star / d) floor)
  * Derivation/measurement only; no positivity, no bridge closure, NO QED; imp-3066 UNTOUCHED;
- * Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * no refereed bound is changed.
  */
 
 const TWO_PI = 2 * Math.PI;
@@ -187,5 +187,5 @@ export const IMP3707_MESOSCOPIC_DENSITY_FLOOR_COEFFICIENT_DERIVATION = {
     'y_star >= 2 d. The measured 0.48458 is NOT a closed form but the M = 161 finite-block truncation of 1/2 ' +
     '(deficit 1.58e-2 = 8/(pi*161) tail law); the c/(2 pi) candidate merely recovers V0 and is rejected. ' +
     'Named residual sg-3707-perturbed-block-continuum-limit. Derivation only; no positivity, NO QED; ' +
-    'imp-3066 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'imp-3066 UNTOUCHED; no refereed bound is changed.',
 };

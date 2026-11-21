@@ -9,7 +9,7 @@
  * beyond the 1D value enclosure I1 already scopes.
  *
  * ASSESSMENT / SCOPING ONLY. Ports nothing; certifies no cap; enclosures nothing;
- * changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE QUESTION, RESTATED
  * -----------------------------------------------------------------------------
@@ -69,7 +69,7 @@
  * Assessment only. It bounds no B (sup|H_t prime|), lower-bounds no delta (inf|H_t|),
  * instantiates no interval enclosure (I1), evaluates no H_t or H_t prime on any segment,
  * fixes no Delta, h, or Cauchy radius r, certifies no panel cap (I2), and changes no bound.
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-35777-i2-logderivative-panel-cap-scope (I2 cap sup|f prime/f| <= B/delta; B = sup|H_t prime|)
  * @see imp-35681-w1-w2-w4-existing-infra-inventory (I1 A_t+B_t-C_t enclosure graded greenfield, Part A)
@@ -81,7 +81,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35777 / imp-35757) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this assessment
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this assessment
 const TWO_PI = 2 * Math.PI;
 
 // Mean winding rate w(t) = (1/2) log(t/2pi); recovered here two ways as the B amplification.
@@ -168,7 +168,7 @@ export const IMP35832_I2_DERIVATIVE_BOUND_FROM_I1_ENCLOSURE_SCOPE = {
     'modest but genuinely NEW certificate ingredient. Bounds no B; lower-bounds no delta; instantiates no ' +
     'enclosure; evaluates no H_t or H_t prime; fixes no Delta, h, or Cauchy radius r; certifies no cap; ' +
     'establishes no positivity; certifies no non-vanishing; I2 remains GREENFIELD downstream of W1; changes no ' +
-    'bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35777 (I2 cap, B = sup|H_t prime|); imp-35681 Part A (I1 A_t+B_t-C_t enclosure, greenfield); ' +
     'imp-35725 (scalar error cap C_t = E_A + E_B + E_{C_0}); imp-35727 (I1..I5 ledger); imp-35758 (I3 floor ' +
@@ -218,15 +218,15 @@ export const IMP35832_I2_DERIVATIVE_BOUND_FROM_I1_ENCLOSURE_SCOPE_ASSERTIONS = [
       Math.abs(CAUCHY_RADIUS - MEAN_ZERO_GAP / Math.PI) < 1e-15,
   },
   {
-    // Honesty gate: assessment only, no certification, no QED, PT SOTA at Lambda <= 0.2.
+    // Honesty gate: assessment only, no certification, no QED, no refereed bound is changed.
     id: 'imp35832-honesty-gate-no-qed',
-    description: 'Assessment only; certifies no cap; bounds no B; changes no bound; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Assessment only; certifies no cap; bounds no B; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35832_I2_DERIVATIVE_BOUND_FROM_I1_ENCLOSURE_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /certifies no cap/.test(IMP35832_I2_DERIVATIVE_BOUND_FROM_I1_ENCLOSURE_SCOPE.verdict) &&
       /NO QED/.test(IMP35832_I2_DERIVATIVE_BOUND_FROM_I1_ENCLOSURE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35832_I2_DERIVATIVE_BOUND_FROM_I1_ENCLOSURE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35832_I2_DERIVATIVE_BOUND_FROM_I1_ENCLOSURE_SCOPE.verdict),
   },
   {
     // Honesty gate: the verdict must state B is genuinely NEW (not free) and keep the I2/W1 caveat template.

@@ -40,8 +40,7 @@
  *
  * MEASUREMENT ONLY (re-reading of the imp-35854 sweep). Certifies no W1 bound; evaluates no true
  * H_0; instantiates no interval; verifies no inequality; changes no bound; establishes no
- * positivity; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * positivity; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35854-w1-summation-kappa-sweep (supplies the measured kappa sweep this re-reads)
  * @see imp-35871-w1-summation-kappa-envelope (companion re-read of the naive column)
@@ -54,7 +53,7 @@
 import { IMP35854_W1_SUMMATION_KAPPA_SWEEP } from './imp-35854-w1-summation-kappa-sweep.js';
 
 // -- Anchor + operative constants (import-light; matching imp-35854 / imp-35871) ---------
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this re-reading
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this re-reading
 
 // Reference scales carried from the imported imp-35854 sweep (N = 488602 fixed).
 const N_AT_TPT = IMP35854_W1_SUMMATION_KAPPA_SWEEP.setup.N;
@@ -184,7 +183,7 @@ export const IMP35895_W1_SUMMATION_PAIRWISE_RELATIVE_KAPPA = {
     'binding constraint at any conditioning. Certifies no W1 bound; evaluates no true H_0; instantiates no ' +
     'interval; verifies no inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate ' +
     'at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); C_mb GUE-conditional (imp-486) ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35854 (measured kappa sweep this re-reads; naive/Kahan relative columns tabulated, pairwise left blank); ' +
     'imp-35871 (companion re-read of the naive column); imp-35812 (single-kappa baseline; pairwise scheme + ' +
@@ -245,16 +244,16 @@ export const IMP35895_W1_SUMMATION_PAIRWISE_RELATIVE_KAPPA_ASSERTIONS = [
     holds: () => RELATIVE_HIERARCHY_HOLDS,
   },
   {
-    // Honesty gate: measurement only; pairwise kappa-robust, sublinear; no QED; PT SOTA.
+    // Honesty gate: measurement only; pairwise kappa-robust, sublinear; no QED; no refereed bound is changed.
     id: 'imp35895-honesty-gate',
-    description: 'Measurement only; pairwise kappa-robust; sublinear; greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; pairwise kappa-robust; sublinear; greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35895_W1_SUMMATION_PAIRWISE_RELATIVE_KAPPA.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /kappa-robust/.test(IMP35895_W1_SUMMATION_PAIRWISE_RELATIVE_KAPPA.conclusion.pairwiseKappaRobust) &&
       /GREENFIELD/.test(IMP35895_W1_SUMMATION_PAIRWISE_RELATIVE_KAPPA.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35895_W1_SUMMATION_PAIRWISE_RELATIVE_KAPPA.verdict) &&
-      /remains SOTA/.test(IMP35895_W1_SUMMATION_PAIRWISE_RELATIVE_KAPPA.verdict),
+      /refereed bound is changed/i.test(IMP35895_W1_SUMMATION_PAIRWISE_RELATIVE_KAPPA.verdict),
   },
 ];
 

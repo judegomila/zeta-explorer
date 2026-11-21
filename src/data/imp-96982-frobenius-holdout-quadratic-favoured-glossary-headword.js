@@ -43,14 +43,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96912 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96912-route-m-frobenius-holdout-model-discriminator (source: the holdout this glosses)
  * @see imp-96890-route-m-frobenius-concave-norm-ceiling-refit (the three concave models + ceilings, "safer" framing corrected here)
  * @see imp-96751-route-m-frobenius-ladder-above-12000 (exact rungs N=13000..16000, part of the ladder)
  *
  * Ticket: imp-96982 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The holdout-favours-quadratic headword, baked verbatim (no re-import).
@@ -86,7 +86,7 @@ const FROBENIUS_HOLDOUT_QUADRATIC_FAVOURED_HEADWORD = Object.freeze({
     'exact ladder), not a rigorous asymptotic derivation and not a resolution of the ' +
     'far-field (~3.4-decade) ceiling ambiguity. Fresh exact rungs beyond N=16000 remain ' +
     'compute-blocked (imp-96912 sub-gap). Changes no bound; trace ceiling T ~ 2.594e7 and ' +
-    'the T<F<M ordering unaffected; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'the T<F<M ordering unaffected; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96982_FROBENIUS_HOLDOUT_QUADRATIC_FAVOURED_GLOSSARY_HEADWORD = Object.freeze({
@@ -109,7 +109,7 @@ export const IMP96982_FROBENIUS_HOLDOUT_QUADRATIC_FAVOURED_GLOSSARY_HEADWORD = O
     '"safer extrapolant" framing of +d/N -- but this is a near-field result only, and the ' +
     'far-field F-ceiling ambiguity (credible band +1.37% to +8.36% vs the line ceiling) ' +
     'stays unresolved. Establishes nothing; instantiates no interval; moves no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-96912 (the holdout measurement and finding this glosses); imp-96890 (the three ' +
     'concave models, ceilings, and "safer extrapolant" framing corrected here); imp-96751 ' +
@@ -138,12 +138,12 @@ export const IMP96982_FROBENIUS_HOLDOUT_QUADRATIC_FAVOURED_GLOSSARY_HEADWORD_ASS
   {
     id: 'imp96982-honesty-gate-no-qed',
     why: 'Documentation only: no bound claimed moved, far-field ceiling not claimed resolved, ' +
-      'no QED, PT SOTA line present.',
+      'no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96982_FROBENIUS_HOLDOUT_QUADRATIC_FAVOURED_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       IMP96982_FROBENIUS_HOLDOUT_QUADRATIC_FAVOURED_GLOSSARY_HEADWORD.farFieldCeilingResolved === false &&
       /NO QED/.test(IMP96982_FROBENIUS_HOLDOUT_QUADRATIC_FAVOURED_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96982_FROBENIUS_HOLDOUT_QUADRATIC_FAVOURED_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96982_FROBENIUS_HOLDOUT_QUADRATIC_FAVOURED_GLOSSARY_HEADWORD.verdict) &&
       IMP96982_FROBENIUS_HOLDOUT_QUADRATIC_FAVOURED_GLOSSARY_HEADWORD.glosses === 'imp-96912' &&
       IMP96982_FROBENIUS_HOLDOUT_QUADRATIC_FAVOURED_GLOSSARY_HEADWORD.corrects === 'imp-96890',
   },

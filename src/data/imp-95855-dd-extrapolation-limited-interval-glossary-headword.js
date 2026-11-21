@@ -55,7 +55,7 @@
  * @see imp-95761-szego-coefficient-larger-grid-subpct (the DD extrapolation grids feeding u_fit)
  *
  * Ticket: imp-95855 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The DD-extrapolation-limited interval headword, baked verbatim (no re-import).
@@ -123,8 +123,8 @@ export const IMP95855_DD_EXTRAPOLATION_LIMITED_INTERVAL_GLOSSARY_HEADWORD = Obje
     'exceeds it by more than 1e10 wherever a grid is baked, making the ' +
     'certified interval width a pure DD-grid-reach artifact rather than a ' +
     'real dual-vs-primal disagreement. Establishes nothing; instantiates ' +
-    'no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-95826 (the per-delta audit and measured u_fit/u_opt ratios this ' +
     'glosses); imp-95767 (the certified interval whose structure is ' +
@@ -150,11 +150,11 @@ export const IMP95855_DD_EXTRAPOLATION_LIMITED_INTERVAL_GLOSSARY_HEADWORD_ASSERT
   },
   {
     id: 'imp95855-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95855_DD_EXTRAPOLATION_LIMITED_INTERVAL_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95855_DD_EXTRAPOLATION_LIMITED_INTERVAL_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95855_DD_EXTRAPOLATION_LIMITED_INTERVAL_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95855_DD_EXTRAPOLATION_LIMITED_INTERVAL_GLOSSARY_HEADWORD.verdict) &&
       IMP95855_DD_EXTRAPOLATION_LIMITED_INTERVAL_GLOSSARY_HEADWORD.glosses === 'imp-95826',
   },
 ];

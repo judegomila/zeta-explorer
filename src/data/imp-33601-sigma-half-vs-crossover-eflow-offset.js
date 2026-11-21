@@ -63,8 +63,7 @@
  * DERIVATION / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (F3: sigma=1/2 ~ imp-3444 to ~0.4%)
  * @see imp-3444-sigma-nshape-landmark-ladder (E_coll = E_trunc crossover N ~ 3.280e9)
@@ -191,7 +190,7 @@ export const IMP33601_SIGMA_HALF_VS_CROSSOVER_EFLOW_OFFSET = {
     'hidden E-component. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-33582 (F3: sigma=1/2 ~ imp-3444 crossover to ~0.4%, unattributed); imp-3444 ' +
     '(E_coll = E_trunc crossover N ~ 3.280e9); imp-3406 (interior MAX, component model source); ' +
@@ -238,13 +237,13 @@ export const IMP33601_SIGMA_HALF_VS_CROSSOVER_EFLOW_OFFSET_ASSERTIONS = [
       PRED_FRACTION_EXPLAINED <= 1.0,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp33601-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33601_SIGMA_HALF_VS_CROSSOVER_EFLOW_OFFSET.isRigorous === false &&
       /NO QED/.test(IMP33601_SIGMA_HALF_VS_CROSSOVER_EFLOW_OFFSET.verdict) &&
-      /remains SOTA/.test(IMP33601_SIGMA_HALF_VS_CROSSOVER_EFLOW_OFFSET.verdict),
+      /refereed bound is changed/i.test(IMP33601_SIGMA_HALF_VS_CROSSOVER_EFLOW_OFFSET.verdict),
   },
 ];
 

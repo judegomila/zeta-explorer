@@ -62,8 +62,8 @@
  *   located eps sign-change and well depth do not move as the kernel truncation is refined
  *   from NPHI = 10 to 18 -- and establishes NO operator positivity. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a >= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the
- *   rigorous SOTA. Truncation-stability of a diagnostic is NOT an error bound and NOT an RH
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No refereed bound is changed
+ *   . Truncation-stability of a diagnostic is NOT an error bound and NOT an RH
  *   verdict. imp-3849 / imp-3868 / imp-3895 / imp-3918 assertions are LEFT INTACT: this is a
  *   sensitivity measurement alongside them, not an edit of them. No QED.
  *
@@ -357,7 +357,7 @@ export const IMP33212_SADDLE_FEATURES_NPHI_TRUNCATION_STABILITY = Object.freeze(
       'Model-systematic sensitivity measurement, not a certified error bound: it shows the features are stable to ' +
       'this truncation refinement, not that the truncated-kernel model equals the exact completed-Riemann kernel.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -428,7 +428,7 @@ export const IMP33212_SADDLE_FEATURES_NPHI_TRUNCATION_STABILITY_ASSERTIONS = [
   {
     id: 'imp33212-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement only, model-systematic not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA, and ' +
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed, and ' +
          'imp-3849 assertions left intact.',
     holds: () => {
       const c = IMP33212_SADDLE_FEATURES_NPHI_TRUNCATION_STABILITY.honestCaveat;
@@ -440,7 +440,7 @@ export const IMP33212_SADDLE_FEATURES_NPHI_TRUNCATION_STABILITY_ASSERTIONS = [
         c.isModelSystematicMeasurement === true &&
         c.didNotAttemptPositivity === true &&
         c.leavesImp3849AssertionsIntact === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

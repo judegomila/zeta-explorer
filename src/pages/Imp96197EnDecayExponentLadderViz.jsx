@@ -169,8 +169,7 @@ export default function Imp96197EnDecayExponentLadderViz() {
         term). The residual shortfall is the frozen E_trunc floor ({' '}
         {V.residualShortfall.E_floor.toExponential(3)}), not a slower-than-expected decay; the
         one decaying term (E_coll) is simultaneously the sole GUE-conditional term (imp-486).
-        Changes no bound, establishes no operator positivity, no RH claim. Platt-Trudgian Lambda
-        &le; 0.2 remains SOTA. NO QED.
+        Changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

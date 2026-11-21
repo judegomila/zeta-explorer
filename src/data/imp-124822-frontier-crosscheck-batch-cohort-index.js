@@ -53,7 +53,7 @@
  *
  *   STATUS: a grouping/index note over four already-committed modules, not a new derivation. No
  *   bound changes; C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz untouched; imp-3066
- *   K_a >= 0 untouched; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 untouched; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-124769-ecf-stencil-noise-floor-crossover.js (E_CF round-off crossover, sigma_crit ~ 0.013)
  * @see imp-124770-pair-ratio-identity-landmark-ladder.js (pair-ratio identity ladder L2..L7)
@@ -64,7 +64,7 @@
  * @see imp-97846-kernel-fold-diag3-cohort-index.js (sibling cohort-index this mirrors)
  *
  * Ticket: imp-124822 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const SIGMA_CRIT_ECF = 0.013; // imp-124769: E_CF round-off/truncation crossover sigma
@@ -156,7 +156,7 @@ export const IMP124822_FRONTIER_CROSSCHECK_BATCH_COHORT_INDEX = Object.freeze({
     'the interior-peak alternative. Conditional-share diagnostic on the inherited imp-3220/imp-3406 ' +
     'extrapolation; C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes nothing new; moves no bound; RH open; NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-124769 (E_CF stencil noise-floor crossover, sigma_crit ~ 0.013); imp-124770 (pair-ratio ' +
     'identity landmark ladder, L2..L7); imp-124771 (knee-amp bracket-width reconcile, A ~ 9.40); ' +
@@ -197,11 +197,11 @@ export const IMP124822_FRONTIER_CROSSCHECK_BATCH_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp124822-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP124822_FRONTIER_CROSSCHECK_BATCH_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP124822_FRONTIER_CROSSCHECK_BATCH_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP124822_FRONTIER_CROSSCHECK_BATCH_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP124822_FRONTIER_CROSSCHECK_BATCH_COHORT_INDEX.verdict),
   },
 ];
 

@@ -67,7 +67,7 @@
  * extrapolation, NOT a rigorous asymptotic; the OLS surrogate and the two convergence surrogates are
  * descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34022-argmin-argmax-migration-symmetry (the R3 three-window whole-line tilt fit/extrapolated here)
  * @see imp-33877-widening-fit-tail-endpoint-artifact-test (the buildLadder/fitLadder model reused verbatim)
@@ -320,7 +320,7 @@ export const IMP34129_WIDENING_SLOPE_DRIFT_CONVERGENCE_FIT = {
     'surrogate and the two convergence surrogates are descriptive, not derived; the component model is ' +
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34022 (the R3 three-window whole-line tilt fit/extrapolated here); imp-33877 (the ' +
     'buildLadder/fitLadder model reused verbatim); imp-33843 (the log-linear OLS whose slope drift is ' +
@@ -380,14 +380,14 @@ export const IMP34129_WIDENING_SLOPE_DRIFT_CONVERGENCE_FIT_ASSERTIONS = [
       Number.isNaN(LOCAL_SLOPE_AT_25),
   },
   {
-    // Honesty gate: convergence-fit only, finite-limit verdict, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: convergence-fit only, finite-limit verdict, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34129-honesty-gate-no-qed',
-    description: 'Measurement only: converges to finite limit, isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: converges to finite limit, isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34129_WIDENING_SLOPE_DRIFT_CONVERGENCE_FIT.slopeConvergesToFiniteLimit === true &&
       IMP34129_WIDENING_SLOPE_DRIFT_CONVERGENCE_FIT.isRigorous === false &&
       /NO QED/.test(IMP34129_WIDENING_SLOPE_DRIFT_CONVERGENCE_FIT.verdict) &&
-      /remains SOTA/.test(IMP34129_WIDENING_SLOPE_DRIFT_CONVERGENCE_FIT.verdict) &&
+      /refereed bound is changed/i.test(IMP34129_WIDENING_SLOPE_DRIFT_CONVERGENCE_FIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34129_WIDENING_SLOPE_DRIFT_CONVERGENCE_FIT.verdict),
   },
 ];

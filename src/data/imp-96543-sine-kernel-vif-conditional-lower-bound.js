@@ -72,7 +72,7 @@
  * magnitude, is rigorously delivered -- the headline conditional bound is therefore z_eff >= z_cons,
  * with z_eff >= 7.01 as the rho_1-explicit refinement. ALL of it is conditional on the sine-kernel /
  * Montgomery pair-correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored); it changes
- * NO unconditional bound. Assessment only; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO unconditional bound. Assessment only; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96529-excursion-zcons-model-free-tightening-assessment (the model-free straddle this closes)
  * @see imp-96509-excursion-effective-significance-ar2 (the AR(p) climb; positive-tail, not sine-kernel)
@@ -168,12 +168,12 @@ export const IMP96543_SINE_KERNEL_VIF_CONDITIONAL_LOWER_BOUND = {
   conditionality:
     'ALL of the above is conditional on the GUE sine-kernel / Montgomery pair-correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored). It changes NO unconditional bound.',
   verdict:
-    'YES -- the GUE sine-kernel decay theorem supplies a rigorous VIF < 1 and converts the imp-96529 model-contingent climb into a stated conditional-on-sine-kernel lower bound. Robust form (sign theorem only): all disjoint-box covariances are nonpositive because the cluster function T_2 = (sin(pi x)/(pi x))^2 >= 0, so rho_k <= 0 for all k >= 1 and VIF_n <= 1 term by term, giving z_eff >= z_cons = 1.9234. Explicit constant (using the one exact lag rho_1 = -0.4639782 plus the sign of the rest): VIF_291 <= 0.0752, z_eff >= 7.01. The obstruction is that the O(1/k^2) decay RATE and the tabulated tail magnitudes are not co-calibrated (O(1/k^2) from rho_1 predicts rho_2 ~ -0.116 vs the stated -0.020) and the imp-96509 AR completions carry a positive lag-2 term the theorem forbids, so only the SIGN, not a sharp magnitude, is rigorously delivered. Conditional on the sine kernel / Montgomery pair-correlation for the zeta zeros (UNPROVEN); changes no unconditional bound. Assessment only; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'YES -- the GUE sine-kernel decay theorem supplies a rigorous VIF < 1 and converts the imp-96529 model-contingent climb into a stated conditional-on-sine-kernel lower bound. Robust form (sign theorem only): all disjoint-box covariances are nonpositive because the cluster function T_2 = (sin(pi x)/(pi x))^2 >= 0, so rho_k <= 0 for all k >= 1 and VIF_n <= 1 term by term, giving z_eff >= z_cons = 1.9234. Explicit constant (using the one exact lag rho_1 = -0.4639782 plus the sign of the rest): VIF_291 <= 0.0752, z_eff >= 7.01. The obstruction is that the O(1/k^2) decay RATE and the tabulated tail magnitudes are not co-calibrated (O(1/k^2) from rho_1 predicts rho_2 ~ -0.116 vs the stated -0.020) and the imp-96509 AR completions carry a positive lag-2 term the theorem forbids, so only the SIGN, not a sharp magnitude, is rigorously delivered. Conditional on the sine kernel / Montgomery pair-correlation for the zeta zeros (UNPROVEN); changes no unconditional bound. Assessment only; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96543_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: the GUE sine-kernel cluster '
+  'RH open; no refereed bound is changed; NO QED. Assessment only: the GUE sine-kernel cluster '
   + 'function T_2 = (sin(pi x)/(pi x))^2 >= 0 forces every disjoint-box covariance <= 0, so rho_k <= 0 '
   + 'for all k >= 1 and VIF_n <= 1 term by term -- a rigorous conditional-on-sine-kernel lower bound '
   + 'z_eff >= z_cons = 1.9234 (z_eff >= 7.01 using the exact rho_1). Only the SIGN is robust; the '
@@ -208,11 +208,11 @@ export const IMP96543_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96543_SINE_KERNEL_VIF_CONDITIONAL_LOWER_BOUND.verdict))
     throw new Error('imp-96543: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96543_SINE_KERNEL_VIF_CONDITIONAL_LOWER_BOUND.verdict))
-    throw new Error('imp-96543: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96543_SINE_KERNEL_VIF_CONDITIONAL_LOWER_BOUND.verdict))
+    throw new Error('imp-96543: verdict dropped the no-refereed-bound-change banner');
   if (!/conditional/i.test(IMP96543_SINE_KERNEL_VIF_CONDITIONAL_LOWER_BOUND.verdict))
     throw new Error('imp-96543: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96543_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96543_HONEST_BANNER) && /NO QED/.test(IMP96543_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96543_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96543_HONEST_BANNER) && /NO QED/.test(IMP96543_HONEST_BANNER)))
     throw new Error('imp-96543: IMP96543_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

@@ -18,7 +18,7 @@
  * SCOPING / ASSESSMENT ONLY. Instantiates no interval; ports nothing; evaluates no residual; certifies
  * no enclosure; closes no sub-gap; imp-34687a stays UNIMPLEMENTED; imp-34714a stays OPEN. C_C = 1/8
  * (imp-2642/2643) and C_mb GUE-conditional (imp-486) untouched; changes no bound; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE RESIDUAL NODE AND ITS OP-DAG
  * -----------------------------------------------------------------------------
@@ -96,7 +96,7 @@
  */
 
 // -- Anchor + operative constants (import-light; matching imp-35969 / imp-36017 / imp-36120) ---------
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scope
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scope
 const C_C_PINNED = (1 / 8) * Math.sqrt(3 * Math.PI); // ~0.3837 ansatz (coefficient 1/8, imp-2642/2643/2714)
 const E_TRUNC_PT = 3.06e-5; // N-independent fixed-strip route (imp-2631/imp-3406/imp-33582)
 const K_AMPL = (C_C_PINNED / E_TRUNC_PT) ** 2; // ~1.5727e8 (identical K to imp-34774/imp-35855/imp-35969)
@@ -214,7 +214,7 @@ export const IMP36136_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_LAYER_CONSTRUCTION_SCO
     'interval; ports nothing; evaluates no residual; certifies no enclosure; closes no sub-gap; imp-34687a ' +
     'stays UNIMPLEMENTED; imp-34714a stays OPEN. C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional ' +
     '(imp-486) untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36066 (both width figures are MODELS; layer UNIMPLEMENTED, imp-34714a OPEN); imp-35969 (nextafter ' +
     'surrogate width ~2 ULP/op, a-independent, tightening); imp-36017 (surrogate over-estimates layer 2x; ' +
@@ -273,16 +273,16 @@ export const IMP36136_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_LAYER_CONSTRUCTION_SCO
     },
   },
   {
-    // Honesty gate: scoping only; precision non-binding; layer unimplemented; imp-34714a open; no QED; PT SOTA.
+    // Honesty gate: scoping only; precision non-binding; layer unimplemented; imp-34714a open; no QED; no refereed bound is changed.
     id: 'imp36136-honesty-gate-no-qed',
-    description: 'scoping only; precision non-binding; imp-34687a UNIMPLEMENTED; imp-34714a OPEN; no QED; PT SOTA',
+    description: 'scoping only; precision non-binding; imp-34687a UNIMPLEMENTED; imp-34714a OPEN; no QED; no refereed bound is changed',
     holds: () =>
       IMP36136_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_LAYER_CONSTRUCTION_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /UNIMPLEMENTED/.test(IMP36136_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_LAYER_CONSTRUCTION_SCOPE.conclusion.staysUnimplementedAndOpen) &&
       /imp-34714a stays OPEN/.test(IMP36136_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_LAYER_CONSTRUCTION_SCOPE.conclusion.staysUnimplementedAndOpen) &&
       /NO QED/.test(IMP36136_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_LAYER_CONSTRUCTION_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP36136_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_LAYER_CONSTRUCTION_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP36136_KRAWCZYK_RESIDUAL_DIRECTED_ROUNDING_LAYER_CONSTRUCTION_SCOPE.verdict),
   },
 ];
 

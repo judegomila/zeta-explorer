@@ -52,8 +52,7 @@
  * MEASUREMENT / TABULATION ONLY. This quantifies the approach of an already-derived ratio; it
  * changes NO bound. The component model is the inherited imp-3220/imp-3406/imp-33816 extrapolation,
  * NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains the SOTA unconditional bound.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34328-sigma-vs-product-gap-log2pi-shift (F3: the ratio (u-1)/(u+log 2pi) rising 0.89215 -> 0.99999)
  * @see imp-34197-logt0-resid-product-approach-rate (the product gap = 1/(2u) EXACT, log 2pi cancels)
@@ -139,7 +138,7 @@ export const IMP34415_SIGMA_PRODUCT_GAP_RATIO_99PCT_CROSSING = {
     '(u ~ 281.95, log T0 ~ 283.79), closing thereafter at ~8.08e-5 per decade -- a rate that itself ' +
     'falls like 1/(log T0)^2. Changes no bound; component model NOT rigorous; C_mb GUE-conditional ' +
     'per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP34415_ASSERTIONS = [
@@ -194,11 +193,11 @@ export const IMP34415_ASSERTIONS = [
   },
   {
     id: 'imp34415-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP34415_SIGMA_PRODUCT_GAP_RATIO_99PCT_CROSSING.isRigorous === false &&
       /NO QED/.test(IMP34415_SIGMA_PRODUCT_GAP_RATIO_99PCT_CROSSING.verdict) &&
-      /remains SOTA/.test(IMP34415_SIGMA_PRODUCT_GAP_RATIO_99PCT_CROSSING.verdict),
+      /refereed bound is changed/i.test(IMP34415_SIGMA_PRODUCT_GAP_RATIO_99PCT_CROSSING.verdict),
   },
 ];
 

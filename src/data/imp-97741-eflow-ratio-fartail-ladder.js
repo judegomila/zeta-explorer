@@ -44,8 +44,7 @@
  * MEASUREMENT ONLY on the inherited surrogate. Conditional-share diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; no bound moves; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97723-sigma-fartail-diagnostic-asymptote-one (asserts E_flow negligible on the band; does not tabulate)
  * @see imp-97702-sigma-fartail-exponent-residual-half-loglaw (residual split feeding the same parts())
@@ -132,8 +131,8 @@ export const IMP97741_EFLOW_RATIO_FARTAIL_LADDER = {
     '>= 6 orders) on the whole tested band. Conditional-share diagnostic, NOT an RH bound; the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97723 (asserts E_flow negligible on the band, untabulated); imp-97702 (residual split); ' +
     'imp-33644 (E_trunc/E_coll ladder); imp-3406 (parts() origin); imp-398 (C_F prefactor); ' +
@@ -180,13 +179,13 @@ export const IMP97741_EFLOW_RATIO_FARTAIL_LADDER_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, no bound moves, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound moves, no QED, no refereed bound is changed.
     id: 'imp97741-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP97741_EFLOW_RATIO_FARTAIL_LADDER.isRigorous === false &&
       /NO QED/.test(IMP97741_EFLOW_RATIO_FARTAIL_LADDER.verdict) &&
-      /remains SOTA/.test(IMP97741_EFLOW_RATIO_FARTAIL_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP97741_EFLOW_RATIO_FARTAIL_LADDER.verdict),
   },
 ];
 

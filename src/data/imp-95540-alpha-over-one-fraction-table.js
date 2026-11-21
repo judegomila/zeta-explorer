@@ -22,7 +22,7 @@
  * crosses the alpha = 1 line as N varies. The over-one fraction table below is thus a
  * single N-flat column, reported once with the two alpha_max endpoints alongside.
  *
- * Report only; NO bound change; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Report only; NO bound change; NO QED. No refereed bound is changed.
  * Import-light: no zeros bundle, no sibling imports. All literals re-derived here.
  */
 
@@ -114,7 +114,7 @@ export const IMP95540_ALPHA_OVER_ONE_FRACTION_TABLE = {
     smallPrimeExemptConfirmed: SMALL_PRIME_EXEMPT, // p <= 5 all zero
   },
   verdict:
-    'The alpha > 1 majorant-mass fraction is N-flat (fixed by h/p vs 1/(2 pi)): it is 0 for p <= 5, 47.38% at p = 7, 59.26% at p = 97, and lies in the 35.09%-59.49% band for every p >= 7 (measured min at p = 11, max at p = 89) -- slightly wider than the 47-60% imp-95519 section 4 quoted from its small spot sample, with a shallow rise toward ~59% as p grows and dips to ~35-44% for the smaller p in {11, 17}. alpha_max stays in (1, 1.0953] across the whole window, so no alias crosses alpha = 1 as N moves. This tabulates imp-95519 section 4; it changes no bound and asserts no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC-gated for the p >= 7 primes.',
+    'The alpha > 1 majorant-mass fraction is N-flat (fixed by h/p vs 1/(2 pi)): it is 0 for p <= 5, 47.38% at p = 7, 59.26% at p = 97, and lies in the 35.09%-59.49% band for every p >= 7 (measured min at p = 11, max at p = 89) -- slightly wider than the 47-60% imp-95519 section 4 quoted from its small spot sample, with a shallow rise toward ~59% as p grows and dips to ~35-44% for the smaller p in {11, 17}. alpha_max stays in (1, 1.0953] across the whole window, so no alias crosses alpha = 1 as N moves. This tabulates imp-95519 section 4; it changes no bound and asserts no QED. No refereed bound is changed; the zero-side route stays PCC-gated for the p >= 7 primes.',
 };
 
 export default IMP95540_ALPHA_OVER_ONE_FRACTION_TABLE;

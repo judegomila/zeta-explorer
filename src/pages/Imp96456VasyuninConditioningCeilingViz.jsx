@@ -226,7 +226,7 @@ export default function Imp96456VasyuninConditioningCeilingViz() {
         the exact lam_max(N) proxy formulas imp-96428's prose names (N, 10 log N, 1), each
         checked to reproduce the published ceiling-N and target cond# values. Measurement /
         extrapolation only: no Gram was rebuilt, no bound changed, no operator positivity
-        established. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. RH open. NO QED.
+        established. RH open. NO QED.
       </div>
     </div>
   );

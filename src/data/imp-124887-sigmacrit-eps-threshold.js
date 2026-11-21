@@ -42,8 +42,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F
  * prefactor are UNTOUCHED and appear only symbolically as differentiation axes; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124874-sigmacrit-eps-invariance (the eps 1e-2..1e-5 sigma_crit-invariance leg extended here)
  * @see imp-124849-extprec-ecf-floor-sigmacrit (the M3 threshold-search corollary closed here)
@@ -126,8 +125,8 @@ export const IMP124887_SIGMACRIT_EPS_THRESHOLD = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F ' +
     'prefactor are UNTOUCHED (perturbed only symbolically as differentiation axes); changes no bound; ' +
-    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124874 (the eps 1e-2..1e-5 sigma_crit-invariance leg extended here); imp-124849 (the M3 ' +
     'threshold-search corollary closed here); imp-124810 (the sigma_crit~0.013 double-precision pin); ' +
@@ -178,13 +177,13 @@ export const IMP124887_SIGMACRIT_EPS_THRESHOLD_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/sensitivity only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/sensitivity only, no QED, no refereed bound is changed.
     id: 'imp124887-honesty-gate-no-qed',
-    description: 'Measurement/sensitivity only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/sensitivity only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124887_SIGMACRIT_EPS_THRESHOLD.isRigorous === false &&
       /NO QED/.test(IMP124887_SIGMACRIT_EPS_THRESHOLD.verdict) &&
-      /remains SOTA/.test(IMP124887_SIGMACRIT_EPS_THRESHOLD.verdict),
+      /refereed bound is changed/i.test(IMP124887_SIGMACRIT_EPS_THRESHOLD.verdict),
   },
 ];
 

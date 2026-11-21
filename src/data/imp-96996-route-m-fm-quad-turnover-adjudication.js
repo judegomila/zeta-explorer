@@ -90,7 +90,7 @@
  * CPU-blocked in-pool) are still needed to pin the true curvature and settle F < M without the
  * prior. Under the monotonicity prior F < M is preserved; only the trace ceiling T is a rigorous
  * lower bound; F and M inherit the non-rigorous lam_min N^-p / ||G||_F log-fit extrapolations;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96976-route-m-fm-separation-joint-ap-robustness.js (the (A, p) robustness audit and the model-form sub-gap)
  * @see imp-96912-route-m-frobenius-holdout-model-discriminator.js (quad-vs-tail holdout + the ceilings imported here)
@@ -186,11 +186,11 @@ export const IMP96996_VERDICT = Object.freeze({
     'model-selection argument under a physical prior, not a rigorous bound; the near-field holdout ' +
     'still favours the quad locally, so the tie is broken by the prior, not the data; and the ' +
     'imp-96912 sub-gap (fresh EXACT rungs beyond N = 16000) stands. Under the monotonicity prior ' +
-    'F < M is preserved; only the trace ceiling T is rigorous; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'F < M is preserved; only the trace ceiling T is rigorous; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96996_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Adjudication / analysis only: the ||G||_F ' +
+  'RH open; no refereed bound is changed; NO QED. Adjudication / analysis only: the ||G||_F ' +
   'monotonicity is a structural identity (sum of squares over a growing index set); the quad ' +
   'coefficients and turnover (peak N = 2.31e9) are re-fit from the imp-96912 18-rung exact ladder ' +
   '(tmp/imp-96996-scratch.mjs); the ceilings are imported verbatim from imp-96912. No Gram was ' +
@@ -243,7 +243,7 @@ const IMP96996_ASSERTIONS = [
       IMP96996_VERDICT.fmPreservedUnderMonotonicityPrior === true &&
       IMP96996_VERDICT.freshExactRungsBeyond16000StillNeeded === true &&
       /NO QED/.test(IMP96996_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96996_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96996_HONEST_BANNER) &&
       /RH open/.test(IMP96996_HONEST_BANNER),
     why: 'adjudication only: no bound moved, the structural monotonicity / genuine-disqualifier / prior-not-data split is recorded, the imp-96912 sub-gap stands, and the honesty markers are present.',
   },

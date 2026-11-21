@@ -47,7 +47,7 @@
  * @see rh-novel-routes-roadmap-2026-09-23.js (route A firstTest)
  * @see project_flow_blindness_and_T3_strip (soft-flow no-go context)
  *
- * Ticket: imp-95998 (numerical, medium). Measurement only; no bound moved; NO QED; PT Lambda <= 0.2 SOTA.
+ * Ticket: imp-95998 (numerical, medium). Measurement only; no bound moved; NO QED; no refereed bound is changed.
  */
 
 // Reflection Gram lambda_min vs N at window sig=1 (measured, tmp/imp-95998-scratch.mjs).
@@ -96,7 +96,7 @@ export const IMP95998_PRIMON_REFLECTION_GRAM_PSD_TEST = Object.freeze({
     'toward 0. The control Gram M is PSD at every N. PSD is recovered only in the degenerate ' +
     'large-window (sig >~ 4) diagonal-dominant limit where the reflected cross-couplings are ' +
     'suppressed, which is not OS positivity. Measurement only; no bound moved; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   subGap:
     'imp-95998-osp-construction-dependence: only ONE concrete pairing tested (Gaussian-windowed ' +
     'sesquilinear critical-line pairing of elementary amplitudes f_i = p_i^{-s}). Route A wants ' +
@@ -133,11 +133,11 @@ export const IMP95998_PRIMON_REFLECTION_GRAM_PSD_TEST_ASSERTIONS = [
   },
   {
     id: 'imp95998-honesty-gate-no-qed',
-    why: 'Measurement only: sub-gap named, NO QED, PT SOTA line present, route A recorded as tested.',
+    why: 'Measurement only: sub-gap named, NO QED, no-refereed-bound-change line present, route A recorded as tested.',
     holds: () =>
       /osp-construction-dependence/.test(IMP95998_PRIMON_REFLECTION_GRAM_PSD_TEST.subGap) &&
       /NO QED/.test(IMP95998_PRIMON_REFLECTION_GRAM_PSD_TEST.verdict) &&
-      /remains SOTA/.test(IMP95998_PRIMON_REFLECTION_GRAM_PSD_TEST.verdict) &&
+      /refereed bound is changed/i.test(IMP95998_PRIMON_REFLECTION_GRAM_PSD_TEST.verdict) &&
       /route A/.test(IMP95998_PRIMON_REFLECTION_GRAM_PSD_TEST.tests),
   },
 ];

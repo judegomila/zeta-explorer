@@ -97,8 +97,7 @@
  *   step (imp-3066) remains the lone obstruction, UNTOUCHED. No positivity, no
  *   reduction, no RH verdict, no false QED. The degree-100 / 1e272 recorded
  *   constants are NOT reproduced here (they need arbitrary-exponent arithmetic);
- *   this module SHARPENS why. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous
- *   SOTA.
+ *   this module SHARPENS why. No refereed bound is changed.
  *
  *   @see imp-3382-rawdiagonal-R-degree-growth-law.js (the geometric lambda_min law and the sub-gap)
  *   @see imp-2686-mupass-construction.js (the physical diagonal m(tau) and the out-of-repo mpmath arbiter)
@@ -489,7 +488,7 @@ export const IMP3419_RAWDIAGONAL_R_EXTENDED_PRECISION_ANCHOR = Object.freeze({
       'A precision-budget diagnosis of the raw diagonal core is a DIAGNOSTIC of why it fails ' +
       'as a passive core; it is necessary-but-NOT-sufficient at operator order. The ' +
       'off-diagonal endpoint-Hankel step (imp-3066) is the lone obstruction, untouched.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -561,7 +560,7 @@ export const IMP3419_RAWDIAGONAL_R_EXTENDED_PRECISION_ANCHOR_ASSERTIONS = [
   {
     id: 'imp3419-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: MEASUREMENT/DIAGNOSTIC, RH-equivalent, recorded constants NOT ' +
-         'reproduced, positivity not attempted, imp-3066 untouched, PT 0.2 stays SOTA.',
+         'reproduced, positivity not attempted, imp-3066 untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3419_RAWDIAGONAL_R_EXTENDED_PRECISION_ANCHOR.honestCaveat;
       return (
@@ -570,7 +569,7 @@ export const IMP3419_RAWDIAGONAL_R_EXTENDED_PRECISION_ANCHOR_ASSERTIONS = [
         c.isMeasurementDiagnostic === true &&
         c.reproducedRecordedConstants === false &&
         c.imp3066Untouched === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

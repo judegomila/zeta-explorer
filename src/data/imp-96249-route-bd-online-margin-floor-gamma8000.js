@@ -6,7 +6,7 @@
  * and whether the sign-reversed reciprocal-log/log-linear R2 gap keeps favouring the
  * no-floor log-linear form.
  * Import-light (literals baked, no zeros bundle); holds() assertions; self-executing.
- * Measurement only. NOT a bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * Measurement only. NOT a bound; no refereed bound is changed; RH open; NO QED.
  *
  * ORIGIN. imp-96148 fit the worst-support (N=32) on-line margin rho(32,T) to rho=c+d/lnT
  * over a seven-point grid stopping at T=395.98 (gamma_200) and read a positive floor
@@ -67,7 +67,7 @@
  * height; what this depth settles is that the numeric floor has reached zero (the no-floor
  * log-linear law), NOT the sign. The uniform-in-T obstruction still lives OFF the line
  * (Weil-positivity strength), inaccessible to this on-line construction -- unchanged.
- * Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * Changes no bound; no refereed bound is changed; RH open; NO QED.
  */
 
 export const ROUTE_BD_ONLINE_MARGIN_FLOOR_GAMMA8000 = Object.freeze({
@@ -82,7 +82,7 @@ export const ROUTE_BD_ONLINE_MARGIN_FLOOR_GAMMA8000 = Object.freeze({
     + 'law (-0.01828 -> -0.05371), so the log-linear (no-floor) law fits better by the widest margin (R2 0.96835 vs '
     + '0.91464). This confirms and extends the imp-96224 sign-reversal reading. The margin still stays strictly positive '
     + '(0.2371 at T~8148, no crossing; log-linear naive cross stays far out at T~3.1e5). Changes no bound; '
-    + 'PT Lambda<=0.2 SOTA; RH open; NO QED',
+    + 'no refereed bound is changed; RH open; NO QED',
 
   method: {
     pipeline: 'reproduces imp-96020/imp-96167/imp-96186/imp-96209/imp-96224: a_n(x)=n^-1/2 cos(theta(x)-x log n); '
@@ -216,7 +216,7 @@ export const ROUTE_BD_ONLINE_MARGIN_FLOOR_GAMMA8000 = Object.freeze({
     + 'census step carries a single unusually steep drop (rho 0.3359 -> 0.2371) from a tight near-collision entering '
     + 'the hull; the no-positive-floor reading is robust to excluding it. What IS stable across all six depths is the '
     + 'sign: the margin stays strictly positive with no crossing (0.2371 at T~8148), and the uniform-in-T obstruction '
-    + 'stays off the line. Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED.',
+    + 'stays off the line. Changes no bound; no refereed bound is changed; RH open; NO QED.',
 
   subGap: {
     name: 'the on-line margin floor still cannot be certified EXACTLY zero (rigorous asymptotics vs a six-depth empirical trend, with a steep-drop caveat)',
@@ -306,7 +306,7 @@ export const ROUTE_BD_ONLINE_MARGIN_FLOOR_GAMMA8000_ASSERTIONS = Object.freeze([
     name: 'honest status: measurement only, no bound change, no QED',
     holds: () => /MEASURED/.test(D.status)
       && /Changes no bound/.test(D.status)
-      && /PT Lambda<=0.2 SOTA/.test(D.status)
+      && /refereed bound is changed/i.test(D.status)
       && /RH open/.test(D.status)
       && /NO QED/.test(D.status),
   },

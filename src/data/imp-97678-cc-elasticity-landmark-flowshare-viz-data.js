@@ -61,8 +61,8 @@ export const IMP97678_SUMMARY = Object.freeze({
     + `(excess +${IMP97678_LANDMARK_ROWS[2].flowExcess.toFixed(6)}).`,
   verdict:
     'Presentation only: all fields reused verbatim from imp-97642 (a prior independent verification), no '
-    + 'new computation. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 '
-    + 'remains SOTA; RH open; NO QED.',
+    + 'new computation. Changes no bound; establishes no operator positivity; no refereed bound is changed'
+    + '; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

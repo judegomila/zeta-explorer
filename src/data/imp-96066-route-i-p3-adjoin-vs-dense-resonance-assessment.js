@@ -54,8 +54,8 @@
  *  OPEN: an unconditionally-positive semilocal multiplier for S ⊇ {2, 3} still requires taming delta_S23.
  *
  * Import-light (Route I / Route H exports only; no zeros bundle). Assertions recompute one N = 20 pencil
- * (~1.5 s) plus cheap delta_S23 / delta_S spot checks (L = 24). Changes no bound; RH open; PT Lambda <= 0.2
- * stands; NO QED.
+ * (~1.5 s) plus cheap delta_S23 / delta_S spot checks (L = 24). Changes no bound; RH open; no refereed bound is changed
+ * ; NO QED.
  */
 
 import { pencilMap } from './rh-route-i-pencil-highres-map-2026-09-23.js';
@@ -70,7 +70,7 @@ export const IMP_96066_P3_ADJOIN_ASSESSMENT = Object.freeze({
     'src/data/rh-route-i-pencil-highres-map-2026-09-23.js',
     'src/data/rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js',
   ],
-  status: 'ASSESSED — the P_3-adjoined pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S = {oo,2,3} Sonine remainder delta_S23 (support the dense S-unit set {2^a 3^b}, log^2 spikes). So it stays <= 1 up to 2a = ln 3 (and past it) with ZERO dense-resonance cost -- but because L_S = Arch - P_2 + D_S, the inequality D_S + P_3 <= L_S is LOGICALLY IDENTICAL to Weil positivity W_{oo,2,3} >= 0 on pole-free h (RH-conditional), so it buys no unconditional gain. RH open; PT Lambda <= 0.2 stands; NO QED',
+  status: 'ASSESSED — the P_3-adjoined pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S = {oo,2,3} Sonine remainder delta_S23 (support the dense S-unit set {2^a 3^b}, log^2 spikes). So it stays <= 1 up to 2a = ln 3 (and past it) with ZERO dense-resonance cost -- but because L_S = Arch - P_2 + D_S, the inequality D_S + P_3 <= L_S is LOGICALLY IDENTICAL to Weil positivity W_{oo,2,3} >= 0 on pole-free h (RH-conditional), so it buys no unconditional gain. RH open; no refereed bound is changed; NO QED',
   theTwoObjects: {
     discreteP3: 'Weil p = 3 term (Route H primeTerms[3]): Toeplitz kernel supported on the lattice v = k ln 3; identically zero for 2a < ln 3 (verified: weilForm(0.5493,.).primeTerms has only key "2"); at 2a = ln 3 only v = ln 3 (boundary) is in reach. Discrete, RH-free, regular.',
     denseDeltaS23: 'S = {oo,2,3} semilocal Sonine remainder delta_S23: dilates 2^n 3^m resonate at every S-unit rho = 2^a 3^b (dense) with log^2 spikes. delta_S23(4/3(1+eps)) = 1.191, 4.884, 12.115 at eps = 1e-2, 1e-4, 1e-6 (ratios 4.10, 2.48 = log^2 growth); delta_S(4/3) = 1.6967 -> 1.7147 regular. Seven S-units of (1,3] at v = 0.1178, 0.2877, 0.4055, 0.6931, 0.8109, 0.9808, 1.0986.',

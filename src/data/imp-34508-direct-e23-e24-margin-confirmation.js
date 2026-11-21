@@ -62,8 +62,7 @@
  * RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * SUB-GAP-imp-34508-continuum-margin-at-ulp-floor: the e=24 stored margin has hit the discrete 1-ULP
  * floor (2^-53) under double precision, so whether the TRUE continuum top-two margin at e>=24 lies above
@@ -224,7 +223,7 @@ export const IMP34508_DIRECT_E23_E24_MARGIN_CONFIRMATION = {
     'extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA. ' +
+    'QED. No refereed bound is changed. ' +
     'SUB-GAP-imp-34508-continuum-margin-at-ulp-floor: whether the TRUE continuum margin at e>=24 lies ' +
     'above or below the ~1e-16 floor is OPEN -- only a higher-than-double precision recomputation could ' +
     'settle it.',
@@ -260,14 +259,14 @@ export const IMP34508_DIRECT_E23_E24_MARGIN_CONFIRMATION_ASSERTIONS = [
     holds: () => E23_HOLDS_STABILIZED_NODE && E24_SHIFTS_ONE_NODE && STABILIZED_NODE === 8.8210916519,
   },
   {
-    // Honesty gate: direct measurement only, isRigorous false, confirms/refines imp-34472, no QED, PT SOTA.
+    // Honesty gate: direct measurement only, isRigorous false, confirms/refines imp-34472, no QED, no refereed bound is changed.
     id: 'imp34508-honesty-gate-no-qed',
-    description: 'Direct measurement only: isRigorous false, DIRECTLY computes e=23,e=24 to confirm/refine the imp-34472 extrapolation, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per imp-486 untouched',
+    description: 'Direct measurement only: isRigorous false, DIRECTLY computes e=23,e=24 to confirm/refine the imp-34472 extrapolation, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per imp-486 untouched',
     holds: () =>
       IMP34508_DIRECT_E23_E24_MARGIN_CONFIRMATION.isRigorous === false &&
       /DIRECTLY computes the imp-34411 doubling-map top-two/.test(IMP34508_DIRECT_E23_E24_MARGIN_CONFIRMATION.verdict) &&
       /NO\s*\n?\s*QED|NO QED/.test(IMP34508_DIRECT_E23_E24_MARGIN_CONFIRMATION.verdict) &&
-      /remains SOTA/.test(IMP34508_DIRECT_E23_E24_MARGIN_CONFIRMATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34508_DIRECT_E23_E24_MARGIN_CONFIRMATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34508_DIRECT_E23_E24_MARGIN_CONFIRMATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34508_DIRECT_E23_E24_MARGIN_CONFIRMATION.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34508_DIRECT_E23_E24_MARGIN_CONFIRMATION.verdict),

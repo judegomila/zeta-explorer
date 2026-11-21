@@ -50,8 +50,7 @@
  *   least trustworthy, is inherited as-is (this diagnoses the finite-difference conditioning OF that
  *   measurement, it does not rehabilitate the model). The -2 asymptote and C_C = (1/8)sqrt(3 pi)
  *   (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED;
- *   imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34646-q1-first-difference-roundoff-floor.js (the narrow-window q1 baseline this widens)
  *   @see imp-34647-q3-deeper-window-exponent-amplitude-convergence.js (the wide-window recovery this extends to k=1)
@@ -251,8 +250,8 @@ export const IMP34666_Q1_WIDE_DEEP_WINDOW_EXPONENT_AMPLITUDE_RECOVERY = Object.f
     'as-is -- this diagnoses the finite-difference conditioning of that measurement, it does not ' +
     'rehabilitate the model. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are ' +
     'UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
-    'changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34647 (the wide-deep-window recovery this extends to k=1); ' +
     'imp-34646 (the narrow-window q1 baseline this widens -- m1 ~ 1.07, ratio ~0.38, R^2 ~ 0.946); ' +
@@ -307,9 +306,9 @@ const IMP34666_ASSERTIONS = [
     holds: () =>
       IMP34666_Q1_WIDE_DEEP_WINDOW_EXPONENT_AMPLITUDE_RECOVERY.isRigorous === false &&
       /NO QED/.test(IMP34666_Q1_WIDE_DEEP_WINDOW_EXPONENT_AMPLITUDE_RECOVERY.verdict) &&
-      /remains SOTA/.test(IMP34666_Q1_WIDE_DEEP_WINDOW_EXPONENT_AMPLITUDE_RECOVERY.verdict) &&
+      /refereed bound is changed/i.test(IMP34666_Q1_WIDE_DEEP_WINDOW_EXPONENT_AMPLITUDE_RECOVERY.verdict) &&
       /UNTOUCHED/.test(IMP34666_Q1_WIDE_DEEP_WINDOW_EXPONENT_AMPLITUDE_RECOVERY.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

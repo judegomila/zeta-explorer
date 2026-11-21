@@ -14,8 +14,8 @@
  *
  * PRESENTATION ONLY. Reuses the imp-97442 baked sweep verbatim; no re-solve.
  * Establishes no operator positivity; changes no bound; MCM stays VERIFIED
- * (not proved) at omega=5,6 and is FALSE from omega=11 (imp-97432); PT
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * (not proved) at omega=5,6 and is FALSE from omega=11 (imp-97432); no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97442-route-m-mcm-omega56-subgrid-verification.js (the per-level minima sweep, omega=5,6)
  * @see imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (MCM refuted at omega=11; ceiling survives)

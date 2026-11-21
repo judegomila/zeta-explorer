@@ -73,7 +73,7 @@
  * just-out-of-reach P0=101 crossing (Y ~ 2.63e9), recorded here as a two-term-law estimate. The b/4-ceiling line
  * is now an explicitly-witnessed dead route. This ceiling was exploratory Route-M: no Lambda bound and no
  * kappa_arith value ever depended on it, so nothing in the verified ledger moves. kappa_arith unchanged;
- * cotangent first moment (imp-97097) stays open; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * cotangent first moment (imp-97097) stays open; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  * Referee-worthy.
  *
  * @see imp-97481-route-m-quarter-ceiling-lower-edge-refuted-window-sets.js (proved the edge false; named no crossing)
@@ -162,7 +162,7 @@ export const IMP97496_VERDICT = Object.freeze({
     'the route only for the shallower, astronomically-larger and just-out-of-reach P0=101 crossing (Y ~ 2.63e9), ' +
     'recorded here as a two-term-law estimate (residual sub-gap). The b/4-ceiling line is now an ' +
     'explicitly-witnessed dead route; it was exploratory Route-M, load-bearing for nothing. kappa_arith ' +
-    'unchanged; cotangent first moment (imp-97097) open; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH ' +
+    'unchanged; cotangent first moment (imp-97097) open; no bound on Lambda moves; no refereed bound is changed; RH ' +
     'open; NO QED. Referee-worthy.',
 });
 
@@ -179,7 +179,7 @@ export const IMP97496_SUBGAP = Object.freeze({
 });
 
 export const IMP97496_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. The imp-97481 b/4-ceiling lower-edge refutation now has an ' +
+  'RH open; no refereed bound is changed; NO QED. The imp-97481 b/4-ceiling lower-edge refutation now has an ' +
   'EXPLICIT witness: the exact finite squarefree b* = Prod_{379<=p<=73,612,801} p (omega=4,317,797, ~10^{3.197e7}, ' +
   '~31.97 million digits) has T(b*) = -0.25000000 < -1/4, i.e. |E1(b*)| > b*/4, rigorous via the ' +
   '|Rcorr - R(1)| < 7.59e-10 enclosure. The P0=379 crossing needed NO effective Mertens (found by exact sieve to ' +
@@ -258,7 +258,7 @@ const IMP97496_ASSERTIONS = [
       IMP97496_VERDICT.p0_101_rigorous === false &&
       /explicit-crossing/.test(IMP97496_SUBGAP.id) &&
       /NO QED/.test(IMP97496_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97496_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97496_HONEST_BANNER) &&
       /RH open/.test(IMP97496_HONEST_BANNER),
     why: 'proof leaf naming an explicit rigorously-verified counterexample to an exploratory (load-bearing-for-nothing) ceiling; no bound moved, no QED.',
   },

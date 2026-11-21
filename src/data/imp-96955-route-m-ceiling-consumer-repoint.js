@@ -62,7 +62,7 @@
  * ~14.5 percent dense F/M overlap was a sampling artifact. Point ordering T < F < M and
  * compute-binds-first (~3953x) survive. Consumer re-point / audit only; no bound moved; no
  * operator positivity; the band still inherits the non-rigorous lam_min N^-p / lam_max a+b log N
- * extrapolations; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * extrapolations; no refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (imp-96955-canonical-band-inherits-single-leverage-anchor). The canonical band
  * is imp-96937 verbatim, so it carries imp-96937 own residual sub-gap unchanged: the all-rung
@@ -172,7 +172,7 @@ export const IMP96955_VERDICT = Object.freeze({
     '(M_lo 3.919e7 > F_hi 3.899e7, matching imp-96937 to full precision); the ~14.5 percent dense ' +
     'F/M overlap was a sampling artifact. Point ordering T < F < M and compute-binds-first ' +
     '(~3953x) survive. Consumer re-point / audit only; no bound moved; no operator positivity; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96955_SUBGAP = Object.freeze({
@@ -186,7 +186,7 @@ export const IMP96955_SUBGAP = Object.freeze({
 });
 
 export const IMP96955_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Consumer re-point / audit only: the canonical ' +
+  'RH open; no refereed bound is changed; NO QED. Consumer re-point / audit only: the canonical ' +
   'band and both superseded dense variants are imported verbatim from the import-light siblings ' +
   'imp-96937 / imp-96930 / imp-96913; the F/M gap is re-derived from those imported literals, ' +
   'reproducing imp-96937 to full precision. No Gram was rebuilt and no bound is claimed moved. ' +
@@ -238,7 +238,7 @@ const IMP96955_ASSERTIONS = [
       IMP96955_VERDICT.anyBoundMoved === false &&
       IMP96955_VERDICT.pointOrderingSurvives === true &&
       /NO QED/.test(IMP96955_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96955_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96955_HONEST_BANNER) &&
       /RH open/.test(IMP96955_HONEST_BANNER) &&
       /single-leverage-anchor/.test(IMP96955_SUBGAP.id),
     why: 'consumer re-point only: no bound moved, ordering survives, the honesty markers are present, and the inherited single-leverage-anchor sub-gap is recorded.',

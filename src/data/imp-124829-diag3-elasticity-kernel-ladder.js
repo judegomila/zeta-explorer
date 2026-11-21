@@ -56,8 +56,7 @@
  * surrogate component model, NOT a rigorous asymptotic; the pinned constants (C_C 1/8 ansatz
  * imp-2642/imp-2643, E_trunc 3.06e-5, imp-398 C_F prefactor) appear only as symbolic differentiation
  * axes, not re-pinned; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes
- * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124812-diag3-additivity-exact-identity-assessment (closed-form partials + B2 boundary)
  * @see imp-97644-three-axis-additivity-flow-prefactor (E_CC/E_ET/E_CF at L2/L3/L4; DIAG3 == 0)
@@ -225,7 +224,7 @@ export const IMP124829_DIAG3_ELASTICITY_KERNEL_LADDER = {
     'constants (C_C 1/8 ansatz, E_trunc 3.06e-5, imp-398 C_F prefactor) appear only as symbolic ' +
     'differentiation axes, not re-pinned; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-124812 (closed-form partials + B2 measurement-only boundary); imp-97644 (E_CC/E_ET/E_CF at ' +
     'L2/L3/L4; DIAG3 == 0 scaling symmetry); imp-97689 (three-axis Euler additivity); imp-97520 (sigma(N) ' +
@@ -300,16 +299,16 @@ export const IMP124829_DIAG3_ELASTICITY_KERNEL_LADDER_ASSERTIONS = [
     holds: () => Math.abs(TAIL.K_times_sigma - 2.06) < 0.05,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp124829-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no operator positivity, no bound moves, qed false, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement only: isRigorous false, no operator positivity, no bound moves, qed false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124829_DIAG3_ELASTICITY_KERNEL_LADDER.isRigorous === false &&
       IMP124829_DIAG3_ELASTICITY_KERNEL_LADDER.operatorPositivityProved === false &&
       IMP124829_DIAG3_ELASTICITY_KERNEL_LADDER.boundMoves === false &&
       IMP124829_DIAG3_ELASTICITY_KERNEL_LADDER.qed === false &&
       /NO QED/.test(IMP124829_DIAG3_ELASTICITY_KERNEL_LADDER.verdict) &&
-      /remains SOTA/.test(IMP124829_DIAG3_ELASTICITY_KERNEL_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP124829_DIAG3_ELASTICITY_KERNEL_LADDER.verdict),
   },
 ];
 

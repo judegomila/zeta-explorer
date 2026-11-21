@@ -47,8 +47,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate; reproduces the imp-35809/imp-35762/imp-35266
  * machinery (identical K, a(N), split form). The imp-34714a machine certificate REMAINS OPEN; F(m) = 0 stays a
  * double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED;
- * imp-3066 K_a >= 0 untouched; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35809-krawczyk-surplus-split-band-and-height-profile (a = 4 delta crossover at fixed delta = 2e-4)
  * @see imp-35762-krawczyk-surplus-shift-residual-isolation (defined the shift/curvature split)
@@ -185,7 +184,7 @@ export const IMP35846_CROSSOVER_HEIGHT_SENSITIVITY_TO_DELTA = {
     'double-precision artifact. Measurement only on the inherited imp-3220/imp-3406 surrogate; reproduces the ' +
     'imp-35809/imp-35762/imp-35266 machinery (identical K, a(N), split form); C_C 1/8 (imp-2642/2643) and ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes ' +
-    'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35809 (a = 4 delta crossover at fixed delta = 2e-4, N ~ 1.88e11); imp-35762 (shift/curvature split); ' +
     'imp-35266 (D3 leading estimate S_inf . a/2); imp-34996 (S_inf = 1/(2 delta) floor); imp-34693 (seed band); ' +
@@ -228,15 +227,15 @@ export const IMP35846_CROSSOVER_HEIGHT_SENSITIVITY_TO_DELTA_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35846-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35846_CROSSOVER_HEIGHT_SENSITIVITY_TO_DELTA.isRigorous === false &&
       /imp-34714a/.test(IMP35846_CROSSOVER_HEIGHT_SENSITIVITY_TO_DELTA.subGap) &&
       /REMAINS OPEN/.test(IMP35846_CROSSOVER_HEIGHT_SENSITIVITY_TO_DELTA.subGap) &&
       /NO QED/.test(IMP35846_CROSSOVER_HEIGHT_SENSITIVITY_TO_DELTA.verdict) &&
-      /remains SOTA/.test(IMP35846_CROSSOVER_HEIGHT_SENSITIVITY_TO_DELTA.verdict),
+      /refereed bound is changed/i.test(IMP35846_CROSSOVER_HEIGHT_SENSITIVITY_TO_DELTA.verdict),
   },
 ];
 

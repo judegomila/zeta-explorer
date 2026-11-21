@@ -9,7 +9,7 @@
  * DERIVATION / SCOPING ONLY. Certifies no modulus; constructs no rigorous curvature LOWER bound; ports no
  * Riemann-Hilbert fold inversion; does NOT re-attempt the RH-hard backward-flow Gronwall route (imp-2640
  * NEGATIVE); discharges no gap; G6a_shock_lipschitz stays OPEN; C_H stays symbolic; respects the imp-2519
- * no-overclaim guard; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no-overclaim guard; NO QED. No refereed bound is changed.
  *
  * WHAT c(N) IS AND WHY IT IS THE MISSING HALF OF S2
  * -----------------------------------------------------------------------------
@@ -86,7 +86,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 
 // -- Anchor + operative constants (import-light; matching imp-354 / imp-341 / imp-36172 / imp-36217) ----
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this derivation
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this derivation
 const TWO_PI = 2 * Math.PI;
 const C_SELBERG = 3.0; // imp-341 Selberg constant
 const C1_IMP341 = Math.PI * C_SELBERG; // Koksma-Hlawka constant C1 = pi C_Selberg ~ 9.4248
@@ -287,7 +287,7 @@ export const IMP36236_CANDIDATE_FINITE_HEIGHT_CURVATURE_LOWER_BOUND = {
     'bound; constructs no rigorous curvature bound; ports no Riemann-Hilbert fold inversion; does NOT ' +
     're-attempt the RH-hard Gronwall route; discharges no gap; G6a_shock_lipschitz stays OPEN; C_H stays ' +
     'symbolic; C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) untouched; changes no bound; ' +
-    'respects the imp-2519 no-overclaim guard; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'respects the imp-2519 no-overclaim guard; NO QED. No refereed bound is changed.',
   citation:
     'imp-36172 (finite-N surrogate requirements S1-S5; S2 certified finite-height curvature LOWER bound ' +
     'GREENFIELD, S3 non-degeneracy, S4 finite-strip fold inversion); imp-36217 (finite-strip Hoelder ' +
@@ -385,9 +385,9 @@ export const IMP36236_CANDIDATE_FINITE_HEIGHT_CURVATURE_LOWER_BOUND_ASSERTIONS =
     },
   },
   {
-    // Honesty gate: derivation only; G6a open; C_H symbolic; exponent 1/2; no QED; PT SOTA.
+    // Honesty gate: derivation only; G6a open; C_H symbolic; exponent 1/2; no QED; no refereed bound is changed.
     id: 'imp36236-honesty-gate-no-qed',
-    description: 'derivation only; G6a_shock_lipschitz stays OPEN; C_H stays symbolic; Hoelder exponent pinned at 1/2; no QED; PT SOTA',
+    description: 'derivation only; G6a_shock_lipschitz stays OPEN; C_H stays symbolic; Hoelder exponent pinned at 1/2; no QED; no refereed bound is changed',
     holds: () =>
       IMP36236_CANDIDATE_FINITE_HEIGHT_CURVATURE_LOWER_BOUND.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -395,7 +395,7 @@ export const IMP36236_CANDIDATE_FINITE_HEIGHT_CURVATURE_LOWER_BOUND_ASSERTIONS =
       /G6a_shock_lipschitz stays OPEN/.test(IMP36236_CANDIDATE_FINITE_HEIGHT_CURVATURE_LOWER_BOUND.verdict) &&
       /C_H stays[\s\S]*symbolic/.test(IMP36236_CANDIDATE_FINITE_HEIGHT_CURVATURE_LOWER_BOUND.verdict) &&
       /NO QED/.test(IMP36236_CANDIDATE_FINITE_HEIGHT_CURVATURE_LOWER_BOUND.verdict) &&
-      /remains SOTA/.test(IMP36236_CANDIDATE_FINITE_HEIGHT_CURVATURE_LOWER_BOUND.verdict),
+      /refereed bound is changed/i.test(IMP36236_CANDIDATE_FINITE_HEIGHT_CURVATURE_LOWER_BOUND.verdict),
   },
 ];
 

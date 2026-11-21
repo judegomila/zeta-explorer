@@ -63,8 +63,8 @@
  * the AR-1 n_eff inflation is a nearly-constant ~2.7x multiplier (f in 2.695 .. 2.746, not
  * height-specific), and the safe-side flip margin rho_crit - rho_exact holds uniformly at ~1.04 in rho
  * units. The imp-96128 significant-dip strengthening is UNIFORM across the accessible band, not a
- * single-height accident. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * single-height accident. Measurement only; changes no bound; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96128-number-variance-two-interval-covariance-exact (the single-height T = 1.5e5 census this extends)
  * @see imp-96090-number-variance-mean-anchor-heldout-out-of-sample (the five held-out heights and window counts)
@@ -162,7 +162,7 @@ export const IMP96150_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_HELDOUT_HEIGHTS = 
   caveat:
     'rho_exact is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L, not the empirical adjacent-box covariance of the actual Riemann zeros (which would need the zeros bundle). The window counts n_w are the imp-96090 held-out measurements; the AR-1 effective-count formula is the same imp-96109/imp-96128 model, and the sine process has slowly decaying higher-lag correlations (imp-96128: lag-2/lag-3 at -0.020 / -0.008, small and negative) so the tiling is only approximately AR-1, but the higher lags push the same way. This changes no bound and does not raise the ~1.9-sigma confidence (set by the excursion depth, not the correlation model); it shows the imp-96128 single-height finding is uniform across the accessible band.',
   verdict:
-    'Across the five imp-96090 held-out heights {2e4, 5e4, 1e5, 2e5, 4e5} the exact GUE two-interval covariance for the sd(C - E) statistic is uniformly strongly anti-correlated (rho_exact in -0.4587 .. -0.4660, spread 0.0073, bracketing the imp-96128 T = 1.5e5 value -0.46398), the AR-1 n_eff inflation is a nearly-constant ~2.7x multiplier (f in 2.695 .. 2.746, not height-specific), and the safe-side flip margin rho_crit - rho_exact holds uniformly at ~1.04 in rho units. The imp-96128 significant-dip strengthening is UNIFORM across the accessible band, not a single-height accident. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Across the five imp-96090 held-out heights {2e4, 5e4, 1e5, 2e5, 4e5} the exact GUE two-interval covariance for the sd(C - E) statistic is uniformly strongly anti-correlated (rho_exact in -0.4587 .. -0.4660, spread 0.0073, bracketing the imp-96128 T = 1.5e5 value -0.46398), the AR-1 n_eff inflation is a nearly-constant ~2.7x multiplier (f in 2.695 .. 2.746, not height-specific), and the safe-side flip margin rho_crit - rho_exact holds uniformly at ~1.04 in rho units. The imp-96128 significant-dip strengthening is UNIFORM across the accessible band, not a single-height accident. Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -197,8 +197,8 @@ export const IMP96150_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_HELDOUT_HEIGHTS = 
   // honesty gates
   if (!/NO QED/.test(IMP96150_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_HELDOUT_HEIGHTS.verdict))
     throw new Error('imp-96150: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96150_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_HELDOUT_HEIGHTS.verdict))
-    throw new Error('imp-96150: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96150_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_HELDOUT_HEIGHTS.verdict))
+    throw new Error('imp-96150: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96150_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_HELDOUT_HEIGHTS;

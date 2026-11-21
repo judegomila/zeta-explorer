@@ -594,7 +594,7 @@ export const expositions = {
       { level: 'intermediate', title: 'Track A ablation', text: `Raymond 0.149395 → +head 0.149193 → +tail 0.149131 → +reflected 0.148963.` },
       { level: 'advanced', title: 'Required uniform gain', text: `On Raymond's fixed schedule the output crosses 0.145 at a uniform shift of ≈ +0.265 (0.145003 at 0.265, 0.144931 at 0.27).` },
     ],
-    whyItMatters: `Source floors are the quantities that a decreasing-barrier bound actually consumes; every improvement from 0.149395 (Raymond) toward 0.145 at PT height came from higher certified floors or from using them at larger heights. All resulting Λ values are conditional (Raymond's chain, internal lemmas, the weak outer lemma for structured floors). Platt–Trudgian Λ ≤ 0.2 stands; RH is open.`,
+    whyItMatters: `Source floors are the quantities that a decreasing-barrier bound actually consumes; every improvement from 0.149395 (Raymond) toward 0.145 at PT height came from higher certified floors or from using them at larger heights. All resulting Λ values are conditional (Raymond's chain, internal lemmas, the weak outer lemma for structured floors). No refereed bound is changed; RH is open.`,
     example: { title: 'Cost gap at t = 0.075', text: `Certified 0.8008 (Raymond), 0.7495 (Track A); free-label relaxation ≥ 0.636 (ascent); Kronecker 0.5335; zero-conditioned model 0.4516.`, source: 'src/data/b145-floor-2026-10-01.js' },
     pitfalls: [
       '"Floor" and "cost" move in opposite directions: a higher floor is a lower cost.',
@@ -677,7 +677,7 @@ export const expositions = {
       { level: 'intermediate', title: 'Cost comparison', text: `t = 0.075: Kronecker 0.5335 < Track A 0.7495 < Raymond 0.8008 (cost; lower is better).` },
       { level: 'advanced', title: 'Structured-floor gap', text: `At cell 350 the structured cost falls from 0.6539 (P = 5) to 0.5921 (P = 47), still 0.0308 above Kronecker 0.5613.` },
     ],
-    whyItMatters: `The Kronecker floor tells the project how much a better certificate can possibly buy before new arithmetic information is needed. It showed that 0.145 at Platt–Trudgian height cannot be reached by floors alone on Raymond's schedule (Kronecker replay ≈ 0.14615), which is why the work moved to the two-band Lemma B and to height. All values are conditional or measured; Platt–Trudgian Λ ≤ 0.2 stands; RH is open.`,
+    whyItMatters: `The Kronecker floor tells the project how much a better certificate can possibly buy before new arithmetic information is needed. It showed that 0.145 at Platt–Trudgian height cannot be reached by floors alone on Raymond's schedule (Kronecker replay ≈ 0.14615), which is why the work moved to the two-band Lemma B and to height. All values are conditional or measured; no refereed bound is changed; RH is open.`,
     example: { title: 'Kronecker replay', text: `Raymond's fixed schedule with Kronecker floors: ≈ 0.14615 at PT height (model).`, source: 'src/data/b145-floor-2026-10-01.js' },
     pitfalls: [
       'Kronecker values are floating-point ascents; they bound the true worst case from below and are not certified.',
@@ -837,7 +837,7 @@ export const expositions = {
       { level: 'intermediate', title: 'Prefix at cell 0', text: `P = 11 because cos(1.0355·ln 13/2) = 0.240 < 0.3.` },
       { level: 'advanced', title: 'Uncertified block', text: `369 P47 floors in cells 234–579 separate the certified 0.146660920737233 from the conditional 0.144797588795775.` },
     ],
-    whyItMatters: `Prefix and cell are the coordinates in which the project's open problem for route P is stated: which cells, at which prefix, still lack a certified weak-outer-lemma margin. All Λ values involved are conditional; Platt–Trudgian Λ ≤ 0.2 stands; RH is open.`,
+    whyItMatters: `Prefix and cell are the coordinates in which the project's open problem for route P is stated: which cells, at which prefix, still lack a certified weak-outer-lemma margin. All Λ values involved are conditional; no refereed bound is changed; RH is open.`,
     example: { title: 'Where route P is blocked', text: `All 369 uncertified floors are P47 entries in cells 234–579.`, source: 'src/data/r6-synthesis-2026-10-06.js' },
     pitfalls: [
       '"P47" is a prefix label (primes ≤ 47), not 47 primes; there are 15 primes ≤ 47.',

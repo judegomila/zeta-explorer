@@ -74,7 +74,7 @@
  *
  * MEASUREMENT / DECOMPOSITION ONLY. Conditional-share diagnostic, NOT an RH bound. C_C is
  * GUE-conditional per imp-486; changes no bound; imp-3066 K_a >= 0 untouched; no positivity,
- * no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bridge closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-33315-sigma-fartail-law-vs-interior-max-reconciliation (the ~3.0e-2 overshoot decomposed here)
  * @see imp-33291-sigma-fartail-two-parameter-lnN-lnlogT0-fit (the (-1/2, +1/2) joint power pair)
@@ -240,7 +240,7 @@ export const IMP33540_SIGMA_FARTAIL_OVERSHOOT_TWO_POWER_DECOMPOSITION = {
     '(imp-33291) its off-regime residual at the interior max is carried almost entirely by the ' +
     'N^(-1/2) power, the sqrt(log T0) half-power being too slow (the imp-33291 collinearity) to ' +
     'matter. C_C is GUE-conditional per imp-486; changes no bound; imp-3066 K_a >= 0 untouched; no ' +
-    'positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-33315 (~3.0e-2 far-tail overshoot at the interior max); imp-33291 ((-1/2, +1/2) joint ' +
     'power law); imp-3406 (interior MAX N ~ 9.22e5, sigma_max ~ 0.9494); imp-3444 (E_coll = E_trunc ' +
@@ -296,13 +296,13 @@ export const IMP33540_SIGMA_FARTAIL_OVERSHOOT_TWO_POWER_DECOMPOSITION_ASSERTIONS
       LOCAL_SQRT_ELASTICITY > 0 && LOCAL_SQRT_ELASTICITY < 0.1,
   },
   {
-    // Honesty gate: measurement/decomposition only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/decomposition only, no QED, no refereed bound is changed.
     id: 'imp33540-honesty-gate-no-qed',
-    description: 'Measurement/decomposition only: no QED, PT stays SOTA',
+    description: 'Measurement/decomposition only: no QED, no refereed bound is changed',
     holds: () =>
       IMP33540_SIGMA_FARTAIL_OVERSHOOT_TWO_POWER_DECOMPOSITION.isRigorous === false &&
       /NO QED/.test(IMP33540_SIGMA_FARTAIL_OVERSHOOT_TWO_POWER_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP33540_SIGMA_FARTAIL_OVERSHOOT_TWO_POWER_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP33540_SIGMA_FARTAIL_OVERSHOOT_TWO_POWER_DECOMPOSITION.verdict),
   },
 ];
 

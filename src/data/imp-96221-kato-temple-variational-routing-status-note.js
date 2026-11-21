@@ -22,8 +22,8 @@
  * to the analytic edge-octave route (SG-96164-boundary / SG-96181-edge-octave)
  * confirmed as the live strict-gap carrier on the real spectrum.
  *
- * Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; RH open.
+ * Changes no Lambda bound; NO QED; no refereed bound is changed
+ * ; RH open.
  */
 
 export const KATO_TEMPLE_VARIATIONAL_ROUTING_STATUS = [
@@ -80,8 +80,8 @@ export const IMP_96221_KATO_TEMPLE_VARIATIONAL_ROUTING_STATUS_NOTE = {
   note:
     'documentation only, citing imp-96169 (stylized toy threshold), imp-96188 ' +
     '(real-spectrum recalibration), imp-96164 and imp-96181 (the analytic ' +
-    'no-modulus-1 route); no Lambda bound moves; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA; RH open',
+    'no-modulus-1 route); no Lambda bound moves; no refereed bound is changed' +
+    '; RH open',
   closesTickets: ['imp-96221'],
 };
 

@@ -51,7 +51,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96388-sigma-peak-vs-knee-cross-tabulation (knee ~0.013 log10 above the crossover)
  * @see imp-96351-sigma-knee-tenthdecade-1e12-stability (knee at log10 N* ~ 9.529)
@@ -277,7 +277,7 @@ export const IMP96405_KNEE_CROSSOVER_FORCED_VS_COINCIDENTAL = Object.freeze({
     'coincidence could not produce. Component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96388 (knee ~0.013 log10 above the crossover); imp-96351 (knee at log10 N* ~ 9.529); ' +
     'imp-33723 (closed-form crossover N_cross ~ 3.28e9); imp-486 (C_mb GUE-conditional); ' +
@@ -320,11 +320,11 @@ const IMP96405_ASSERTIONS = [
   },
   {
     id: 'imp96405-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96405_KNEE_CROSSOVER_FORCED_VS_COINCIDENTAL.isRigorous === false &&
       /NO QED/.test(IMP96405_KNEE_CROSSOVER_FORCED_VS_COINCIDENTAL.verdict) &&
-      /remains SOTA/.test(IMP96405_KNEE_CROSSOVER_FORCED_VS_COINCIDENTAL.verdict),
+      /refereed bound is changed/i.test(IMP96405_KNEE_CROSSOVER_FORCED_VS_COINCIDENTAL.verdict),
   },
 ];
 

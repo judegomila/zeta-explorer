@@ -51,7 +51,7 @@
  *   picture. This SHARPENS imp-3197: the magnitude gap the lag autocorrelation
  *   under-reports is a resolution-stable ~33x, so the binding RH-equivalent
  *   K_a &gt;= 0 obstruction (the imp-3066 off-diagonal endpoint-Hankel step) is
- *   NOT an artifact of finite N. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   NOT an artifact of finite N. No refereed bound is changed.
  *
  *   @see imp-3197-mupass-bridge-sign-phi-only.js (the parent MAGNITUDE probe, N in {160,240,320})
  *   @see section26-mupass-operator-verdict-2026-06-30.js (the verdict whose magnitude half this tracks)
@@ -282,7 +282,7 @@ export const IMP3215_MUPASS_CAPTURE_RATIO_N_SCALING = Object.freeze({
       'The resolution-stability of the ~97% position-concentration share is diagnostic; the off-diagonal ' +
       'endpoint-Hankel operator magnitude (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -329,7 +329,7 @@ export const IMP3215_MUPASS_CAPTURE_RATIO_N_SCALING_ASSERTIONS = [
   {
     id: 'imp3215-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, not a reduction below RH, RH-equivalent, positivity ' +
-         'not attempted, PT 0.2 stays SOTA. Any flip is over-claiming.',
+         'not attempted, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3215_MUPASS_CAPTURE_RATIO_N_SCALING.honestCaveat;
       return (
@@ -337,7 +337,7 @@ export const IMP3215_MUPASS_CAPTURE_RATIO_N_SCALING_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

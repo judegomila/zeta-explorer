@@ -73,7 +73,7 @@
  *   leaves the O(1) unpinned), and the near-field intercept may already be partly baked into
  *   F_center, so this is an upper-side sizing of the additive residual, not a correction to F. The
  *   only rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds
- *   first by >2600x regardless. PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   first by >2600x regardless. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97142-route-m-farfield-ceiling-slope-band-interval (the slope-only band this augments)
  * @see imp-97081-route-m-farfield-ceiling-interior-anchor-discriminator (the point anchor F)
@@ -82,7 +82,7 @@
  * @see imp-96667-route-m-frobenius-second-moment-asymptotic (the measured fit intercepts a_int, a_tot)
  *
  * Ticket: imp-97160 (numerical, opus-4-8, api-pool). Measurement + additive-term sizing + combined
- * spread + survival verdict; no bound moved; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * spread + survival verdict; no bound moved; NO QED; no refereed bound is changed.
  */
 
 // -- Inputs (baked from the sibling modules; all measured, none certified). ----------------------
@@ -180,11 +180,11 @@ export const IMP97160_VERDICT = Object.freeze({
     'only; the O(1) term is sized by the near-field FIT intercept (measured, not certified; the ' +
     'imp-96750 reduction leaves the O(1) unpinned); instantiates no interval certificate; the ' +
     'rigorous anchor stays T = 2.594e7; compute (N ~ 9916) binds first by >2600x; changes no bound; ' +
-    'no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97160_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the imp-96750 O(1) ADDITIVE ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the imp-96750 O(1) ADDITIVE ' +
   'term (near-field fit intercept a = -14.929 interior / -5.484 total, both negative) contributes ' +
   'addPct = -14.86% / -5.46% to the far-field ceiling F -- 2.25x..6.11x the imp-97142 slope band ' +
   '(2.43 pp), a ratio that is model-independent (same in the proportional and sqrt-log crossing ' +
@@ -256,7 +256,7 @@ const IMP97160_ASSERTIONS = [
       IMP97160_VERDICT.ratioModelIndependent === true &&
       IMP97160_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97160_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97160_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97160_HONEST_BANNER) &&
       /imp-96750/.test(IMP97160_VERDICT.conclusion),
   },
 ];

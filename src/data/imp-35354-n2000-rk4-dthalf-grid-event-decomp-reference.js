@@ -58,7 +58,7 @@
  *
  * SCOPE: MEASUREMENT ONLY. Does NOT advance the R2 ladder (stays N=1000 per
  * imp-35221); does NOT extend the C_mb certificate; does NOT remove the imp-486 GUE
- * conditional; changes NO bound. Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ * conditional; changes NO bound. No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; "dt-over-2" and "tauC/N" prose only.
  *
@@ -152,7 +152,7 @@ export const IMP_35354_N2000_RK4_DTHALF_GRID_EVENT_DECOMP_REFERENCE = {
     doesNotAchieve:
       'Does NOT advance the R2 ladder to N=2000; does NOT extend the C_mb ' +
       'certificate; does NOT remove the imp-486 GUE conditional; changes NO Lambda ' +
-      'bound. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'bound. No refereed bound is changed.',
     residualId: 'imp-35455 C1 grid convergence (verified tauC/32000 rung)',
   },
 };
@@ -225,6 +225,6 @@ export const IMP_35354_N2000_RK4_DTHALF_GRID_EVENT_DECOMP_REFERENCE_ASSERTIONS =
       'colliding pair would mean the cells bracket different events, not one gap. ' +
       'Measurement only: never a QED or a bound change; the R2 ladder ' +
       'largest-N-robustly-certified STAYS at 1000; C_mb stays GUE-conditional ' +
-      '(imp-486); Lambda <= 0.2 stays SOTA.',
+      '(imp-486); no refereed bound is changed.',
   },
 ];

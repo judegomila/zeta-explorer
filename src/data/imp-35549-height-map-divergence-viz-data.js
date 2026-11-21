@@ -24,7 +24,7 @@
  *
  *   Ticket: imp-35549 (ux, medium). Measurement only, diagnostic re-plot of two already-existing
  *   height maps; adds no new Lambda bound. C_mb GUE-conditional per imp-486 UNTOUCHED. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';

@@ -65,8 +65,7 @@
  * its vanishing here does NOT touch the divergent C_Lip collision-Gronwall. The
  * C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C 1/8
  * ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched;
- * establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains the
- * SOTA unconditional bound.
+ * establishes no operator positivity; no refereed bound is changed.
  *
  * @see imp-34248-crossover-surplus-small-thr-asymptotic (the P(thr) factorisation and the surplus/(thr.r) ladder)
  * @see imp-34174-crossover-surplus-threshold-family-decay (the closed form surplus(thr) and the tabulated ladder)
@@ -167,7 +166,7 @@ export const IMP34332_CROSSOVER_SURPLUS_PREFACTOR_LINEARITY_FIT = {
     '(imp-2845) and its vanishing here does NOT touch the divergent C_Lip collision-Gronwall; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C 1/8 ansatz (imp-2642/imp-2643) ' +
     'is UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no operator positivity; changes no bound; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the SOTA unconditional bound.',
+    'no refereed bound is changed.',
   citation:
     'imp-34248-crossover-surplus-small-thr-asymptotic.js (the P(thr) factorisation and surplus/(thr.r) ' +
     'ladder); imp-34174-crossover-surplus-threshold-family-decay.js (closed form surplus(thr)); ' +
@@ -220,14 +219,14 @@ export const IMP34332_CROSSOVER_SURPLUS_PREFACTOR_LINEARITY_FIT_ASSERTIONS = [
       Math.abs(APPROACH_LADDER[4].surplus_over_thr_r - 0.99) < 1e-4,
   },
   {
-    // Honesty gate: measurement/fit only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp34332-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; PT SOTA',
+    description: 'isRigorous is a literal false field; honestScope names the C_mb GUE-conditional per imp-486 UNTOUCHED clause; NO QED; no refereed bound is changed',
     holds: () =>
       IMP34332_CROSSOVER_SURPLUS_PREFACTOR_LINEARITY_FIT.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34332_CROSSOVER_SURPLUS_PREFACTOR_LINEARITY_FIT.honestScope) &&
       /NO QED/.test(IMP34332_CROSSOVER_SURPLUS_PREFACTOR_LINEARITY_FIT.honestScope) &&
-      /remains the SOTA/.test(IMP34332_CROSSOVER_SURPLUS_PREFACTOR_LINEARITY_FIT.honestScope),
+      /refereed bound is changed/i.test(IMP34332_CROSSOVER_SURPLUS_PREFACTOR_LINEARITY_FIT.honestScope),
   },
 ];
 

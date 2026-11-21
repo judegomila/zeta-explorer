@@ -56,7 +56,7 @@
  * inherited equally-spaced surrogate. It does NOT certify N-uniformity (beta still diverges as
  * g_min -> 0), does NOT discharge M2 or M5, does NOT touch the imp-2563 sandwich (a valid CONDITIONAL
  * bracket). Changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486
- * UNTOUCHED; M2/M5 stay OPEN; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED; M2/M5 stay OPEN; no RH verdict, NO QED; no refereed bound is changed.
  *
  * @see imp-35194-background-field-sup-n-uniformity (F2: beta * g_min band 1.33 -> 1.04; parent)
  * @see imp-35167-g-min-non-collision-certificate-scope (M2/M5 obstructions)
@@ -292,7 +292,7 @@ export const IMP35215_BETA_GMIN_NEAR_FRONT_LIMIT = {
     'g_min > 0. M2 stays INSEPARABLE from the horizon/front bridge M5. Certifies NO N-uniformity, does ' +
     'NOT discharge M2 or M5, does NOT touch the imp-2563 sandwich (a valid CONDITIONAL bracket). ' +
     'Changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 ' +
-    'UNTOUCHED; M2/M5 stay OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; M2/M5 stay OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35194 (F2 band 1.33 -> 1.04; parent); imp-35167 (M2/M5 obstructions); imp-2563 (gap ODE ' +
     'du/ds = -8 + 4 B(s) u, assumes beta finite, CONDITIONAL bracket); imp-2520 (backward-flow ' +
@@ -331,15 +331,15 @@ export const IMP35215_BETA_GMIN_NEAR_FRONT_LIMIT_ASSERTIONS = [
     holds: () => NEAR_FRONT_TABLE.every((r) => r.residualTimesN > 0.35 && r.residualTimesN < 0.42),
   },
   {
-    // Honesty gate: derivation only, no QED, M2/M5 stay OPEN, imp-2563 untouched, PT stays SOTA.
+    // Honesty gate: derivation only, no QED, M2/M5 stay OPEN, imp-2563 untouched, no refereed bound is changed.
     id: 'imp35215-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, NO QED, M2/M5 OPEN, imp-2563 untouched, PT stays SOTA',
+    description: 'Derivation only: isRigorous false, NO QED, M2/M5 OPEN, imp-2563 untouched, no refereed bound is changed',
     holds: () =>
       IMP35215_BETA_GMIN_NEAR_FRONT_LIMIT.isRigorous === false &&
       /NO QED/.test(IMP35215_BETA_GMIN_NEAR_FRONT_LIMIT.verdict) &&
       /M2\/M5 stay OPEN/.test(IMP35215_BETA_GMIN_NEAR_FRONT_LIMIT.verdict) &&
       /imp-2563 sandwich/.test(IMP35215_BETA_GMIN_NEAR_FRONT_LIMIT.verdict) &&
-      /Lambda <= 0.2 remains SOTA/.test(IMP35215_BETA_GMIN_NEAR_FRONT_LIMIT.verdict),
+      /refereed bound is changed/i.test(IMP35215_BETA_GMIN_NEAR_FRONT_LIMIT.verdict),
   },
 ];
 

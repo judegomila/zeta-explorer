@@ -55,7 +55,7 @@
  *   A cross-validation MEASUREMENT. It quantifies the GUE-vs-empirical rho gap and
  *   attributes it to finite-height number-variance saturation. It does NOT recompute the
  *   crossover, does NOT move L*, instantiates no interval, closes no sub-gap, changes no
- *   bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ *   bound. NO QED. No refereed bound is changed; RH open.
  *
  * @see imp-96430-basis-c-corroboration-reach-crossover (the sigma2Exact / rhoExact GUE model this checks)
  * @see imp-96531-basis-c-crossover-measured-floor (the L-linear re-anchored crossover L* ~ 2.86e9)
@@ -63,7 +63,7 @@
  * @see imp-96568-basis-c-intermediate-rung-floor-ladder (the floor ladder the crossover pairs rho against)
  *
  * Ticket: imp-96695 (numerical, low). Cross-validation measurement only; establishes
- * nothing; moves no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; moves no bound; NO QED; no refereed bound is changed.
  */
 
 // -- Provenance of the measurement --------------------------------------------
@@ -126,7 +126,7 @@ export const IMP96695_BASIS_C_EMPIRICAL_RHO_VS_GUE = Object.freeze({
     'accessible low-height zeros cannot independently corroborate the T -> infinity GUE rho ' +
     'the L* reach estimate uses -- they undershoot it -- but the discrepancy is in the ' +
     'safe direction (real-zero signal |rho + 1/2| is even smaller than GUE). Moves no ' +
-    'bound; instantiates no interval; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; instantiates no interval; NO QED. No refereed bound is changed.',
   citation:
     'imp-96430 (the sigma2Exact / rhoExact GUE crossover model); imp-96531 (the re-anchored ' +
     'reach L* ~ 2.86e9); imp-96599 (the "theoretical GUE, not real zeros" caveat this ' +

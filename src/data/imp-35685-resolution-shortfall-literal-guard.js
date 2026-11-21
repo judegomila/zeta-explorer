@@ -14,8 +14,7 @@
  * recomputes an established assessment/scoping figure; changes no bound;
  * establishes no operator positivity; C_C = (1/8) sqrt(3 pi)
  * (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional
- * (imp-486) UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * (imp-486) UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35652-req3-option-a-restricted-support-surrogate-scope (source scoping module pinned here)
  * @see imp-2642/imp-2643 (C_C = (1/8) sqrt(3 pi) ansatz)

@@ -68,7 +68,7 @@
  *   node budget of a quadrature rule for a fixed autocorrelation weight used inside a mass-feasibility
  *   diagnostic; it establishes NO operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT.
  *   The operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is
- *   UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-3919-a-weight-fixed-graded-gl-crossover-budget-tau6.js (the crossover + budget this audits)
  *   @see imp-3897-a-weight-substitution-simpson-tau35-40-precision-floor.js (the single crossover tau*~4.006)
@@ -240,7 +240,7 @@ export const IMP33232_A_WEIGHT_FIXED_GRADED_GL_BUDGET_FULL_WINDOW_VERIFY = Objec
     'substitution-independently: g8 39p vs 624p same-grade = ~1.5e4 ULP). imp-3919s ~2-order ' +
     'node-budget collapse across the grade sweep therefore does NOT hold at fixed full-window accuracy. ' +
     'ACCURACY MEASUREMENT/RULE-DESIGN AUDIT, RH-EQUIVALENT, necessary-but-not-sufficient; operator ' +
-    'positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s) Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -307,7 +307,7 @@ export const IMP33232_A_WEIGHT_FIXED_GRADED_GL_BUDGET_FULL_WINDOW_VERIFY = Objec
     ruleDesignScopeOnly:
       'This audits a QUADRATURE node budget, not a mathematical floor. It says nothing about the ' +
       'imp-3730 CANCELLATION floor near tau~6, which remains the binding limit on the clean window.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -350,7 +350,7 @@ export const IMP33232_A_WEIGHT_FIXED_GRADED_GL_BUDGET_FULL_WINDOW_VERIFY_ASSERTI
   {
     id: 'imp33232-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy measurement/rule-design audit only, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33232_A_WEIGHT_FIXED_GRADED_GL_BUDGET_FULL_WINDOW_VERIFY.honestCaveat;
       return (
@@ -358,7 +358,7 @@ export const IMP33232_A_WEIGHT_FIXED_GRADED_GL_BUDGET_FULL_WINDOW_VERIFY_ASSERTI
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

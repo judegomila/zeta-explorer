@@ -54,7 +54,7 @@
  * ACCURACY / MEASUREMENT ONLY. Cross-check / reconciliation diagnostic, NOT an RH bound. The inherited
  * imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the closed-form E_flow scaling is
  * exact WITHIN that model only; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33885-eflow-closedform-per-rung-crossvalidation (the (log N)^3/N per-rung machine-floor match)
  * @see imp-33884-eflow-resid-widening-fullprec-recompute (the exact 903.538 widening + F1..F4 factors)
@@ -243,7 +243,7 @@ export const IMP33922_EFLOW_ANALYTIC_DECAY_VS_WIDENING_CROSSCHECK = {
     'collapse, not by the raw decay alone. The inherited imp-3220/imp-3406 component model is NOT a ' +
     'rigorous asymptotic; the closed-form scaling is exact WITHIN the model only; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33885 (the (log N)^3/N per-rung machine-floor match, raw decay F1); imp-33884 (exact 903.538 ' +
     'widening + F1..F4 factor decomposition); imp-33843 (the ~918x widening form fit); imp-33810 (the ' +
@@ -290,13 +290,13 @@ export const IMP33922_EFLOW_ANALYTIC_DECAY_VS_WIDENING_CROSSCHECK_ASSERTIONS = [
       ATTENUATION < 0.06,
   },
   {
-    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp33922-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, no QED, PT SOTA',
+    description: 'Cross-check only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33922_EFLOW_ANALYTIC_DECAY_VS_WIDENING_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP33922_EFLOW_ANALYTIC_DECAY_VS_WIDENING_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP33922_EFLOW_ANALYTIC_DECAY_VS_WIDENING_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP33922_EFLOW_ANALYTIC_DECAY_VS_WIDENING_CROSSCHECK.verdict),
   },
 ];
 

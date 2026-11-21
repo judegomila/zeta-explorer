@@ -47,8 +47,7 @@
  * NUMERICAL / MEASUREMENT ONLY. Descriptive growth-law model selection on the inherited surrogate ratio,
  * NOT an RH bound. The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the fits
  * and the floor extrapolation are descriptive within that model only; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33969-eflow-decay-widening-ratio-kend-sweep (the R2 drift 19.913 -> 165.351 fit here)
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (the F4 log-linear fit + past-kEnd divergence)
@@ -296,7 +295,7 @@ export const IMP34041_EFLOW_WIDENING_RATIO_GROWTH_LAW_TOURNAMENT = {
     'only by the imp-33773 M2 residual sign change at kEnd ~ 21.3. The inherited imp-3220/imp-3406 ' +
     'component model is NOT a rigorous asymptotic; the growth-law fits and the floor extrapolation are ' +
     'descriptive within the model only; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33969 (the 9-window kEnd=11..13 over-prediction drift 19.913 -> 165.351 fit here); imp-34023 ' +
     '(the ln F4 log-linear fit + past-kEnd ratio divergence); imp-33922 (the fixed-kEnd=11 ~19.9x ' +
@@ -352,13 +351,13 @@ export const IMP34041_EFLOW_WIDENING_RATIO_GROWTH_LAW_TOURNAMENT_ASSERTIONS = [
       AITKEN_FLOOR > -1e-2,
   },
   {
-    // Honesty gate: numerical/measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: numerical/measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34041-honesty-gate-no-qed',
-    description: 'Growth-law model selection only: isRigorous false, no QED, PT SOTA, imp-3066 K_a>=0 untouched',
+    description: 'Growth-law model selection only: isRigorous false, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34041_EFLOW_WIDENING_RATIO_GROWTH_LAW_TOURNAMENT.isRigorous === false &&
       /NO QED/.test(IMP34041_EFLOW_WIDENING_RATIO_GROWTH_LAW_TOURNAMENT.verdict) &&
-      /remains SOTA/.test(IMP34041_EFLOW_WIDENING_RATIO_GROWTH_LAW_TOURNAMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP34041_EFLOW_WIDENING_RATIO_GROWTH_LAW_TOURNAMENT.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34041_EFLOW_WIDENING_RATIO_GROWTH_LAW_TOURNAMENT.verdict),
   },
 ];

@@ -36,7 +36,7 @@
  * @see imp-97210-route-m-kappa-obligation-ledger.js (ledger naming M2w the sole open scalar)
  *
  * Ticket: imp-97325 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The M2w = Rw*Mbar factorization headword, baked verbatim (no re-import).
@@ -66,7 +66,7 @@ const M2W_RW_MBAR_FACTORIZATION_HEADWORD = Object.freeze({
     '(src/data/imp-97285-route-m-offdiag-oversampling-factorization.js), exact O(b^3) kernels ' +
     '(factorization residual M2w - Rw*Mbar < 1e-9 at b=101,151). Naming / glossary headword only; ' +
     'supplies no uniform Rw bound (the imp-97210 ledger sub-gap stays open); no bound moved; RH ' +
-    'open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97325_M2W_RW_MBAR_FACTORIZATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -84,7 +84,7 @@ export const IMP97325_M2W_RW_MBAR_FACTORIZATION_GLOSSARY_HEADWORD = Object.freez
     'factorization M2w = Rw * Mbar: Mbar the residue-averaged, inverse-map-free Bettin-Conrey ' +
     'surrogate (certified bounded), Rw = X/Xbar the single open oversampling scalar (measured ' +
     '~1.1..1.25, level with the imp-97271 OVR ~1.254 plateau). No bound moved; the imp-97210 ' +
-    'ledger sub-gap stays open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'ledger sub-gap stays open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97285 (the exact factorization, measured Rw/Mbar ladder, and refuted resonance-main-term ' +
     'route this glosses); imp-97271 (the OVR ~1.254 plateau Rw is level with); imp-97210 (the ' +
@@ -111,12 +111,12 @@ export const IMP97325_M2W_RW_MBAR_FACTORIZATION_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97325-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, sub-gap left open, no QED, PT SOTA line ' +
+    why: 'Documentation only: no bound claimed moved, sub-gap left open, no QED, no-refereed-bound-change line ' +
       'present.',
     holds: () =>
       IMP97325_M2W_RW_MBAR_FACTORIZATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97325_M2W_RW_MBAR_FACTORIZATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97325_M2W_RW_MBAR_FACTORIZATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97325_M2W_RW_MBAR_FACTORIZATION_GLOSSARY_HEADWORD.verdict) &&
       IMP97325_M2W_RW_MBAR_FACTORIZATION_GLOSSARY_HEADWORD.glosses === 'imp-97285',
   },
 ];

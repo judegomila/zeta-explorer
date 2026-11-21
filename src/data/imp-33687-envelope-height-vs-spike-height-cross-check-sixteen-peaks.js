@@ -75,8 +75,7 @@
  *   conclusion -- the two envelope definitions agree, both decouple from the exact-rung floor -- not the
  *   exact numbers. The NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a >= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33660-cluster-peak-envelope-height-growth-fit.js (the envelope-height series being checked)
  *   @see imp-33663-recovery-grade-vs-spike-height-sixteen-peaks.js (the reading-A / reading-B series)
@@ -193,7 +192,7 @@ const verdict =
       'imp-33660s-TAIL-HEIGHT-GROWTH-LIVES-ENTIRELY-IN-READING-A-AND-imp-33663s-RECOVERY-GRADE-STEP-LIVES-ENTIRELY-IN-' +
       'READING-B.-CONSISTENT-WITH-THE-imp-33660/imp-33663-latticeJitterCaveat-(EXACT-PER-PEAK-ULP-BOUNCES,-SO-THE-ROBUST-' +
       'READING-IS-THE-QUALITATIVE-AGREEMENT-AND-DECOUPLING,-NOT-THE-EXACT-GAPS).-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-' +
-      'JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33687_ENVELOPE_HEIGHT_VS_SPIKE_HEIGHT_CROSS_CHECK = Object.freeze({
@@ -221,7 +220,7 @@ export const IMP33687_ENVELOPE_HEIGHT_VS_SPIKE_HEIGHT_CROSS_CHECK = Object.freez
     'reading A and imp-33663s recovery-grade step lives entirely in reading B. VERDICT: ' +
     'ENVELOPE-DEFINITIONS-AGREE-EXACTLY-BUT-DECOUPLE-FROM-THE-EXACT-RUNG-FLOOR, consistent with the imp-33660/' +
     'imp-33663 latticeJitterCaveat. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; ' +
-    'jittery lattice floor; operator positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 SOTA.',
+    'jittery lattice floor; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     source: 'imports the two published frozen series (imp-33660 measured.peakNs/peakHeights, imp-33663 measured.anchorRungs/envelopeHeights/exactRungFloors) -- validates the records, not a re-derivation',
@@ -324,7 +323,7 @@ export const IMP33687_ENVELOPE_HEIGHT_VS_SPIKE_HEIGHT_CROSS_CHECK = Object.freez
       'A-minus-B gap and the ~-0.2 A-vs-B correlation. The robust reading is the QUALITATIVE conclusion -- the two ' +
       'envelope definitions AGREE (a bit-identical construction) and both DECOUPLE from the exact-rung floor -- not ' +
       'the exact gap or correlation numbers.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -387,7 +386,7 @@ export const IMP33687_ENVELOPE_HEIGHT_VS_SPIKE_HEIGHT_CROSS_CHECK_ASSERTIONS = [
   {
     id: 'imp33687-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33687_ENVELOPE_HEIGHT_VS_SPIKE_HEIGHT_CROSS_CHECK.honestCaveat;
       return (
@@ -396,7 +395,7 @@ export const IMP33687_ENVELOPE_HEIGHT_VS_SPIKE_HEIGHT_CROSS_CHECK_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

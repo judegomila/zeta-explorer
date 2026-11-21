@@ -49,7 +49,7 @@
  *   assessment plus a Kahan measurement; the actual double-double RUN of the full graded-GL ladder is
  *   the remaining residual, sg-33229-extended-precision-run. Measurement/assessment only; certifies no
  *   bound and no RH; NPHI=10 truncation upstream; operator positivity (imp-3066 K_a &gt;= 0) UNTOUCHED;
- *   no QED. Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
+ *   no QED. No refereed bound is changed.
  *
  *   @see imp-33208-watson-majorant-numerical-verification.js (names sg-33208-high-tau-cancellation-floor)
  *   @see imp-3892-watson-majorant-constant.js (pinned K0=3.46, K_lead=-3.4120570431, K6=+2.1066020628)
@@ -238,7 +238,7 @@ export const IMP33229_HIGH_TAU_EXTENDED_PRECISION_ASSESSMENT = Object.freeze({
     + 'rather than the imp-3892 closed model. The actual double-double RUN of the full ladder is the '
     + 'remaining residual sg-33229-extended-precision-run. Assessment only; certifies no bound and no '
     + 'RH; NPHI=10 truncation upstream; operator positivity (imp-3066) UNTOUCHED; no QED. '
-    + 'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    + 'No refereed bound is changed.',
 
   measured: Object.freeze({
     nphi: NPHI,
@@ -303,7 +303,7 @@ export const IMP33229_HIGH_TAU_EXTENDED_PRECISION_ASSESSMENT = Object.freeze({
       'sg-33229-extended-precision-run: the assessment concludes double-double WOULD recover the '
       + 'high-tau signal, but the actual extended-precision run of the full imp-33208 graded-GL '
       + 'ladder is not performed here. NPHI=10 kernel truncation is an upstream modeling choice.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -341,7 +341,7 @@ export const IMP33229_HIGH_TAU_EXTENDED_PRECISION_ASSESSMENT_ASSERTIONS = [
   {
     id: 'imp33229-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: assessment only, mass-feasibility necessary-but-not-sufficient, operator '
-      + 'positivity (imp-3066) untouched, a residual sub-gap named, PT 0.2 SOTA.',
+      + 'positivity (imp-3066) untouched, a residual sub-gap named, no refereed bound is changed.',
     holds: () => {
       const c = IMP33229_HIGH_TAU_EXTENDED_PRECISION_ASSESSMENT.honestCaveat;
       return (
@@ -350,7 +350,7 @@ export const IMP33229_HIGH_TAU_EXTENDED_PRECISION_ASSESSMENT_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
         /sg-33229-extended-precision-run/.test(c.residualSubGap) &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

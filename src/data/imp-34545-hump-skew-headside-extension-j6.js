@@ -64,7 +64,7 @@
  * extrapolation, NOT a rigorous asymptotic, and the k = 3 head rung pushes it deepest into the
  * collision-dominated (sigma -> 1) regime where it is least tuned; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34532-hump-skew-headside-extension-k5-k4 (head-heavy skew ladder j=1..5, extended here to j=6)
  * @see imp-33851-hump-envelope-symmetry-vs-k (original head-heavy skew ladder j=1..3)
@@ -242,7 +242,7 @@ export const IMP34545_HUMP_SKEW_HEADSIDE_EXTENSION_J6 = {
     '(sigma -> 1) regime where the imp-3220/imp-3406 extrapolation is least trustworthy, not a ' +
     'rigorous asymptotic. The C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34532 (head-heavy skew ladder j = 1..5, extended here to j = 6); imp-33851 (original skew ' +
     'ladder j = 1..3); imp-33809 (per-k hump amplitudes + method, reuse-gated here); imp-34528 (tail ' +
@@ -304,14 +304,14 @@ export const IMP34545_HUMP_SKEW_HEADSIDE_EXTENSION_J6_ASSERTIONS = [
       Math.abs(HUMP15 - 2.9795e-4) < 5e-5,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34545-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, crossover k = 9, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, crossover k = 9, no QED, no refereed bound is changed',
     holds: () =>
       IMP34545_HUMP_SKEW_HEADSIDE_EXTENSION_J6.isRigorous === false &&
       IMP34545_HUMP_SKEW_HEADSIDE_EXTENSION_J6.crossoverDecadeK === 9 &&
       /NO QED/.test(IMP34545_HUMP_SKEW_HEADSIDE_EXTENSION_J6.verdict) &&
-      /remains SOTA/.test(IMP34545_HUMP_SKEW_HEADSIDE_EXTENSION_J6.verdict),
+      /refereed bound is changed/i.test(IMP34545_HUMP_SKEW_HEADSIDE_EXTENSION_J6.verdict),
   },
 ];
 

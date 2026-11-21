@@ -48,7 +48,7 @@
  * 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED and perturbed only as a probe, not
  * re-pinned; E_trunc pinned 3.06e-5 unchanged; changes no bound; establishes no
  * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-97622-sigma-l2-cc-elasticity-closed-form (the closed form being verified)
  * @see imp-97598-sigma-landmark-cc-sensitivity (measured L2 C_C-elasticity +2.5554)
@@ -197,8 +197,8 @@ export const IMP97642_L2_CC_ELASTICITY_INDEPENDENT_VERIFY = {
     'its excess. Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED (perturbed ' +
     'only as a probe, not re-pinned); E_trunc pinned 3.06e-5 unchanged; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97622 (L2 closed form being verified); imp-97598 (measured L2 C_C-elasticity +2.5554); imp-97565 ' +
     '(L3 halving 2/(1 - g_prime)); imp-97585 (E_flow/E_trunc share collapses down the tail); ' +
@@ -245,11 +245,11 @@ export const IMP97642_L2_CC_ELASTICITY_INDEPENDENT_VERIFY_ASSERTIONS = [
   },
   {
     id: 'imp97642-honesty-gate-no-qed',
-    description: 'verification only: isRigorous false, no QED, Platt-Trudgian stays SOTA, ansatz untouched',
+    description: 'verification only: isRigorous false, no QED, no refereed bound is changed, ansatz untouched',
     holds: () =>
       IMP97642_L2_CC_ELASTICITY_INDEPENDENT_VERIFY.isRigorous === false &&
       /NO QED/.test(IMP97642_L2_CC_ELASTICITY_INDEPENDENT_VERIFY.verdict) &&
-      /remains SOTA/.test(IMP97642_L2_CC_ELASTICITY_INDEPENDENT_VERIFY.verdict),
+      /refereed bound is changed/i.test(IMP97642_L2_CC_ELASTICITY_INDEPENDENT_VERIFY.verdict),
   },
 ];
 

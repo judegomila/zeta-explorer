@@ -7,7 +7,7 @@
  *   (a = 0.5, U = 6, NPHI = 10) at which they were measured.
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   WHAT imp-3175 LEFT SINGLE-CELL
  *   -----------------------------
@@ -67,7 +67,7 @@
  *   offline normalization convention) is NOT re-derived. A nonzero overflow
  *   fraction is necessary-but-NOT-sufficient at operator order; the off-diagonal
  *   endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH
- *   verdict. No false QED. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   verdict. No false QED. No refereed bound is changed.
  *
  *   @see imp-3175-overflow-fraction-resolution-reconcile.js (the single-cell sweep)
  *   @see imp-3154-genuine-deg2-deficit-degree-sweep.js (the O(N^2) reference loop)
@@ -352,7 +352,7 @@ export const IMP3199_OVERFLOW_FRACTION_CELL_SWEEP = Object.freeze({
       'A nonzero overflow fraction is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -417,7 +417,7 @@ export const IMP3199_OVERFLOW_FRACTION_CELL_SWEEP_ASSERTIONS = [
   {
     id: 'imp3199-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC cell sweep, overflow-support-only (not the absolute deficit magnitude), ' +
-         'necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 stays SOTA. If any ' +
+         'necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed. If any ' +
          'flip the module is over-claiming.',
     holds: () => {
       const c = IMP3199_OVERFLOW_FRACTION_CELL_SWEEP.honestCaveat;
@@ -426,7 +426,7 @@ export const IMP3199_OVERFLOW_FRACTION_CELL_SWEEP_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

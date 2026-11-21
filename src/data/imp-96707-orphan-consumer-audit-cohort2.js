@@ -49,7 +49,7 @@
  * run-assertions.mjs sweep -- only their ids appear as text inside sibling modules'
  * @see lines, prose tables, and improvements.js/improvement-queue.js log rows. This
  * audit changes no bound, establishes no operator positivity, and asserts no QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 const AUDITED = Object.freeze([
@@ -169,8 +169,8 @@ export const IMP96707_ORPHAN_CONSUMER_AUDIT_COHORT2 = Object.freeze({
     + 'in visualizations-index.js; only mentioned as text inside sibling @see lines, '
     + 'prose consumer-audit tables, and improvements.js/improvement-queue.js log rows. '
     + 'None has any import chain reaching the zeros bundle. Audit only; changes no '
-    + 'bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains '
-    + 'SOTA; NO QED.',
+    + 'bound; establishes no operator positivity; no refereed bound is changed'
+    + '; NO QED.',
   source: 'imp-96631, imp-96687, imp-96688, imp-96689, imp-96691, imp-96697, imp-96709, imp-96722, imp-96751, imp-96770',
 
   audited: AUDITED,
@@ -198,7 +198,7 @@ export const IMP96707_ORPHAN_CONSUMER_AUDIT_COHORT2 = Object.freeze({
     + 'via scripts/run-assertions.mjs; glossary reachability is checked via '
     + 'visualizations-index.js. The 10 flagged orphans are candidates for either wiring '
     + 'into a consumer/page/DATA_MODULES entry or explicit archival; this audit does '
-    + 'neither. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    + 'neither. Changes no bound; no refereed bound is changed; NO QED.',
 });
 
 export const IMP96707_ORPHAN_CONSUMER_AUDIT_COHORT2_ASSERTIONS = Object.freeze([
@@ -220,9 +220,9 @@ export const IMP96707_ORPHAN_CONSUMER_AUDIT_COHORT2_ASSERTIONS = Object.freeze([
     holds: () => AUDITED.every((m) => m.pageReachable === false && m.consumers.length === 0),
   },
   {
-    name: 'honest: audit only, no bound moved, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: audit only, no bound moved, no refereed bound is changed, NO QED',
     holds: () => /changes no bound/.test(IMP96707_ORPHAN_CONSUMER_AUDIT_COHORT2.status)
-      && /Platt-Trudgian Lambda <= 0.2 remains SOTA/.test(IMP96707_ORPHAN_CONSUMER_AUDIT_COHORT2.status)
+      && /refereed bound is changed/i.test(IMP96707_ORPHAN_CONSUMER_AUDIT_COHORT2.status)
       && /NO QED/.test(IMP96707_ORPHAN_CONSUMER_AUDIT_COHORT2.status),
   },
 ]);

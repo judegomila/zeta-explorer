@@ -138,7 +138,7 @@ export default function Imp95931Ln12DescentLadderViz() {
         measurements verbatim (no re-derivation). The final rung (0.247%) is
         {` ${IMP95931_LOOSER_THAN_LN13_FACTOR.toFixed(2)}x`} looser than the ln&nbsp;1.3 direct
         interval, not yet crossed. Supplies no new bound, establishes no operator positivity, no
-        RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        RH claim. NO QED.
       </div>
     </div>
   );

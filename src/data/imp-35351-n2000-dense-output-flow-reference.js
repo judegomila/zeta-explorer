@@ -67,7 +67,7 @@
  * N=2000 is UNMEASURED here.
  *
  * SCOPE: Does NOT extend the C_mb certificate; does NOT remove the imp-486 GUE
- * conditional; changes NO bound. Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ * conditional; changes NO bound. No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2" and "gamma[i+1]-gamma[i]".
  *
@@ -199,7 +199,7 @@ export const IMP_35351_N2000_DENSE_OUTPUT_FLOW_REFERENCE = {
       'Does NOT re-run the full imp-35221 order-robust certification pipeline under ' +
       'the dense event; does NOT extend the R2 ladder to N=2000; does NOT extend the ' +
       'C_mb certificate; does NOT remove the imp-486 GUE conditional; changes NO ' +
-      'Lambda bound. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+      'Lambda bound. No refereed bound is changed.',
     subGap:
       'imp-35351-sub-dense-certification: the DP45 dense-output event resolves the ' +
       'within-step step-over and places the crossing below t_c_hi on the tauC/1000 ' +
@@ -279,6 +279,6 @@ export const IMP_35351_N2000_DENSE_OUTPUT_FLOW_REFERENCE_ASSERTIONS = [
       'is a single-method sub-step measurement, NOT the full imp-35221 certification, ' +
       'so the R2 ladder largest-N-tested-and-met STAYS at 1000 and a refined sub-gap ' +
       '(imp-35351-sub-dense-certification) is recorded. C_mb stays GUE-conditional ' +
-      '(imp-486); Lambda <= 0.2 stays SOTA. Never a QED or a bound change.',
+      '(imp-486); no refereed bound is changed. Never a QED or a bound change.',
   },
 ];

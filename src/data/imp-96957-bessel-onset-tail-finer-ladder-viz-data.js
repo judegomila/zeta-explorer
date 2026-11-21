@@ -58,7 +58,7 @@
  * super-cubic component must fold in the sigma_2 ~ t^4 tail weighting and the minimiser's growing
  * high-k coefficient amplitudes, not just the bare Bessel onset. Measurement only; the floor is a
  * Rayleigh UPPER bound; no operator positivity; interval-rigorous certificate reach stays 2a<=0.96;
- * Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96934-bessel-onset-tail-residual-viz-data.js (the three-N table this extends)
  * @see imp-96928-krein-residual-vs-floor-uniform-N-extrap.js (the p~3.27 super-cubic residual growth)

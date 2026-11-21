@@ -80,7 +80,7 @@
  *   only across the covered band-crossing rungs. The NPHI = 10 Phi-series truncation is inherited upstream;
  *   single-platform libm. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-33557-band-crossing-min-budget.js (the measured node-budget ladder this characterizes)
  *   @see imp-33537-deep-tail-plateau-spike-recurrence.js (the depth-growing jitter envelope = floor(n))
@@ -208,7 +208,7 @@ const verdict =
       'ARITHMETIC-JITTER-LIMITED-(MORE-NODES-SATURATE-AT-AN-OUT-OF-BAND-FLOOR).-FORMALIZES-THE-imp-33557-' +
       '"ADDING-NODES-DOES-NOT-RESCUE-THE-DEEP-RUNG"-PROSE.-NUMERICAL-BEHAVIOUR-CHARACTERIZATION-ONLY;-JITTERY-' +
       'LATTICE-FLOOR;-n*-IS-AN-ENVELOPE-CROSSING;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-' +
-      'UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33583_NODE_BUDGET_VS_ARITHMETIC_FLOOR_SEPARATION = Object.freeze({
@@ -238,7 +238,7 @@ export const IMP33583_NODE_BUDGET_VS_ARITHMETIC_FLOOR_SEPARATION = Object.freeze
     'limited (more nodes saturate at an out-of-band floor). This FORMALIZES the imp-33557 "adding nodes does not ' +
     'rescue the deep rung" prose. VERDICT: TWO-REGIME-SEPARATION-CONFIRMED. NUMERICAL-BEHAVIOUR CHARACTERIZATION ' +
     'ONLY, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; n* is an envelope crossing; ' +
-    'operator positivity (imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -333,7 +333,7 @@ export const IMP33583_NODE_BUDGET_VS_ARITHMETIC_FLOOR_SEPARATION = Object.freeze
       'nodes is the flat imp-33557 peak-resolution wall, valid across the covered band-crossing rungs only. ' +
       'The ROBUST reading is the QUALITATIVE two-regime separation, not the exact per-rung numbers.',
     singlePlatform: 'Single-platform libm exp/pow; the few-ULP floor values are platform-sensitive.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -387,7 +387,7 @@ export const IMP33583_NODE_BUDGET_VS_ARITHMETIC_FLOOR_SEPARATION_ASSERTIONS = [
   {
     id: 'imp33583-honest-characterization-not-a-verdict',
     why: 'Mandatory honesty: numerical-behaviour characterization only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33583_NODE_BUDGET_VS_ARITHMETIC_FLOOR_SEPARATION.honestCaveat;
       return (
@@ -396,7 +396,7 @@ export const IMP33583_NODE_BUDGET_VS_ARITHMETIC_FLOOR_SEPARATION_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

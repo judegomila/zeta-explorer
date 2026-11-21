@@ -62,7 +62,7 @@
  * (N,T) solve, no residual constant computed, the DECAY vs GEOM extrapolations both stay heuristics; the
  * Rayleigh floor stays an UPPER bound on the true lambda_min; establishes NO operator positivity;
  * IMP96749_UNIFORM_N_GAP_UNSETTLED stays open; interval-rigorous reach stays 2a <= 0.96; RH open;
- * Platt-Trudgian Lambda <= 0.2 SOTA; NO QED. Sub-gap IMP96877_CLOSEDFORM_STILL_NUMERICALLY_INERT: the
+ * no refereed bound is changed; NO QED. Sub-gap IMP96877_CLOSEDFORM_STILL_NUMERICALLY_INERT: the
  * numerical reconciliation completes only when IMP96848_TAILTRACE_MAJORANT supplies the tail-trace constant.
  *
  * @see imp-96847-krein-tconv-tvsn-scaling-law.js (DECAY/GEOM T_req routes; twoRouteBracketN100 [2672.7, 4729])

@@ -33,7 +33,7 @@
  *   double-precision crossing, moves NO Lambda bound, executes NO B2, and asserts
  *   NO closure. The finite-height RH-up-to-T_star statement stays BLOCKED on the
  *   OPEN Step-4 / per-N / C_mb links; imp-2519 no-overclaim guard preserved;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  * @see lambda-rh-height-mapping (effectiveHeightForN / zeroCountAtHeight; imp-327 RvM inverse + self-inverse guard)
  * @see imp-36173-b2-tstar-checklist-ladder (parent: the coarse finite-N ladder whose top rung this refines)
@@ -123,7 +123,7 @@ export const IMP36238_TSTAR_PT_CROSSOVER_EXACT_N = Object.freeze({
     b2Executed: false,
     isMeasurementOnly: true,
     blockedOn: 'G5-step4-bridge + G5-perN-translation + G5-cmb-gue (all OPEN; rigorousUpgradeGap)',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -135,7 +135,7 @@ export const IMP36238_TSTAR_PT_CROSSOVER_EXACT_N = Object.freeze({
     'no B2, substitutes no achieved N (the achieved-N of the closed Steps 3-4 is undefined while ' +
     'those steps are OPEN), and upgrades no status string. The RH-up-to-T_star statement below ' +
     'N_star stays strictly weaker than Platt-Trudgian; changes no bound; imp-2519 no-overclaim ' +
-    'guard preserved; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'guard preserved; NO QED; no refereed bound is changed.',
 });
 
 export const IMP36238_TSTAR_PT_CROSSOVER_EXACT_N_ASSERTIONS = [
@@ -180,7 +180,7 @@ export const IMP36238_TSTAR_PT_CROSSOVER_EXACT_N_ASSERTIONS = [
         c.upgradesAnyStatusString === false &&
         c.b2Executed === false &&
         c.isMeasurementOnly === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

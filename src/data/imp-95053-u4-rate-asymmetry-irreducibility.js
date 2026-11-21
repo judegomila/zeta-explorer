@@ -71,8 +71,7 @@
  * so cancellation is self-defeating; and a genuine placement-independent null
  * requires equalizing the base twin rates mu_2 = mu_3, a base re-optimization
  * outside scope. This assesses only; witness optimality is NOT claimed; it
- * changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  *
  * Import-light (no heavy bundle). The numerics below CROSS-CHECK the statements
  * against the exact imp-95008 machinery replicated here; they are not the claim.
@@ -247,7 +246,7 @@ export const IMP95053_U4_RATE_ASYMMETRY_IRREDUCIBILITY = {
     conCancelCorner: conAt(CANCEL_CORNER.k, CANCEL_CORNER.nu).con,
   },
   verdict:
-    "Within the single-append-to-frozen-base scope the u = 4 rate-asymmetry residual is IRREDUCIBLE: sign-definite positive over the whole append rate range at the operating placement, so no rate-tuning nulls it; the one rate-matched placement that does cancel it (append coincident with the twins, fast rate) simultaneously cancels the driving coupling con = cTilde m - E n_b g and yields ZERO gain, so cancellation is self-defeating; a genuine placement-independent null requires equalizing the base twin rates mu_2 = mu_3, a base re-optimization outside scope. Assesses only; witness optimality is NOT claimed; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "Within the single-append-to-frozen-base scope the u = 4 rate-asymmetry residual is IRREDUCIBLE: sign-definite positive over the whole append rate range at the operating placement, so no rate-tuning nulls it; the one rate-matched placement that does cancel it (append coincident with the twins, fast rate) simultaneously cancels the driving coupling con = cTilde m - E n_b g and yields ZERO gain, so cancellation is self-defeating; a genuine placement-independent null requires equalizing the base twin rates mu_2 = mu_3, a base re-optimization outside scope. Assesses only; witness optimality is NOT claimed; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   isRigorous: true,
   promotesBound: false,
 };
@@ -318,11 +317,11 @@ export const IMP95053_ASSERTIONS = [
   {
     id: "imp95053-honesty-gate",
     description:
-      "the verdict assesses only, claims no witness optimality, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict assesses only, claims no witness optimality, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95053_U4_RATE_ASYMMETRY_IRREDUCIBILITY.promotesBound === false &&
       /NO QED/.test(IMP95053_U4_RATE_ASYMMETRY_IRREDUCIBILITY.verdict) &&
-      /remains SOTA/.test(IMP95053_U4_RATE_ASYMMETRY_IRREDUCIBILITY.verdict) &&
+      /refereed bound is changed/i.test(IMP95053_U4_RATE_ASYMMETRY_IRREDUCIBILITY.verdict) &&
       /IRREDUCIBLE/.test(IMP95053_U4_RATE_ASYMMETRY_IRREDUCIBILITY.verdict) &&
       /self-defeating/.test(IMP95053_U4_RATE_ASYMMETRY_IRREDUCIBILITY.verdict) &&
       /optimality is NOT claimed/.test(IMP95053_U4_RATE_ASYMMETRY_IRREDUCIBILITY.verdict),

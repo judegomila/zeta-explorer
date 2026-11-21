@@ -52,8 +52,8 @@
  * O(1/L) oscillatory and its sign must be pinned so VIF stays an UPPER bound), and (iii) GUE throughout.
  * The k >= 4 tail needs no such control for level (A): it is certified nonpositive and merely dropped.
  * ALL conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN,
- * GRH-flavored); changes NO unconditional bound; assessment only; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * GRH-flavored); changes NO unconditional bound; assessment only; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96571-vif-rho1-bound-rigor-assessment (confined the softness to the z >= 13.71 level)
  * @see imp-96567-box-averaged-sine-kernel-lag-decay (the exact closed-form tail and Sigma^2(L))
@@ -115,12 +115,12 @@ export const IMP96593_VIF_EXACT_TAIL_RIGOR_UPGRADE_ASSESSMENT = {
   conditionality:
     'All of the above is conditional on the GUE sine kernel / Montgomery pair correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored). It changes NO unconditional bound.',
   verdict:
-    'PARTIAL. The imp-96567 exact closed-form tail DOES discharge the specific softness imp-96571 flagged -- the uncalibrated tabulated rho_2 = -0.020, rho_3 = -0.008 are replaced by a derived, two-independent-ways closed form rho_2 = -0.014950, rho_3 = -0.006121 -- but it does NOT ratify z = 13.71 as the rigorous number. It SPLITS that soft level: the honest rigorous conditional bound from the same two calibrated lags (drop the certified-negative rest) is z >= 10.52 (VIF <= 0.0334), and the actual finite-window value from the full exact tail is z ~ 26.0 (VIF ~ 0.0055). The 13.71 figure was an artifact of tabulated magnitudes MORE negative than the calibrated truth, i.e. mildly anti-conservative, so it was never a valid upper-bound level. The residual obstruction MIGRATES from calibration to numerical enclosure: full rigor still needs an interval-certified Sigma^2(L), a certified one-sided bound that the closed form >= the true finite-L correlation (O(1/L) oscillatory correction sign pinned), and GUE throughout. Conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; assessment only; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'PARTIAL. The imp-96567 exact closed-form tail DOES discharge the specific softness imp-96571 flagged -- the uncalibrated tabulated rho_2 = -0.020, rho_3 = -0.008 are replaced by a derived, two-independent-ways closed form rho_2 = -0.014950, rho_3 = -0.006121 -- but it does NOT ratify z = 13.71 as the rigorous number. It SPLITS that soft level: the honest rigorous conditional bound from the same two calibrated lags (drop the certified-negative rest) is z >= 10.52 (VIF <= 0.0334), and the actual finite-window value from the full exact tail is z ~ 26.0 (VIF ~ 0.0055). The 13.71 figure was an artifact of tabulated magnitudes MORE negative than the calibrated truth, i.e. mildly anti-conservative, so it was never a valid upper-bound level. The residual obstruction MIGRATES from calibration to numerical enclosure: full rigor still needs an interval-certified Sigma^2(L), a certified one-sided bound that the closed form >= the true finite-L correlation (O(1/L) oscillatory correction sign pinned), and GUE throughout. Conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; assessment only; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96593_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment only: the imp-96567 exact closed-form tail '
+  'RH open; no refereed bound is changed; NO QED. Assessment only: the imp-96567 exact closed-form tail '
   + 'rho_k = -(1/(2 pi^2 Sigma^2)) ln(k^2/(k^2-1)) discharges the uncalibrated tabulated rho_2/rho_3 '
   + 'softness but does NOT ratify z = 13.71 -- it SPLITS it. The calibrated closed form (rho_2 = -0.0150, '
   + 'rho_3 = -0.0061) is LESS negative than the tabulated -0.020/-0.008, so 13.71 was mildly '
@@ -163,11 +163,11 @@ export const IMP96593_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96593_VIF_EXACT_TAIL_RIGOR_UPGRADE_ASSESSMENT.verdict))
     throw new Error('imp-96593: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96593_VIF_EXACT_TAIL_RIGOR_UPGRADE_ASSESSMENT.verdict))
-    throw new Error('imp-96593: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96593_VIF_EXACT_TAIL_RIGOR_UPGRADE_ASSESSMENT.verdict))
+    throw new Error('imp-96593: verdict dropped the no-refereed-bound-change banner');
   if (!/conditional/i.test(IMP96593_VIF_EXACT_TAIL_RIGOR_UPGRADE_ASSESSMENT.verdict))
     throw new Error('imp-96593: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96593_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96593_HONEST_BANNER) && /NO QED/.test(IMP96593_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96593_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96593_HONEST_BANNER) && /NO QED/.test(IMP96593_HONEST_BANNER)))
     throw new Error('imp-96593: IMP96593_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

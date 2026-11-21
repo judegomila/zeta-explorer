@@ -28,7 +28,7 @@
  * exactly (reldiff 0). No drift beyond the RE-BAKE NOTE above.
  *
  * Ticket: imp-3697 (ux, low). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP3697_RUNGS = [

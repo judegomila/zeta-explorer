@@ -52,7 +52,7 @@
  *
  * The numerics below CROSS-CHECK the statements; they are not the claim.
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── parameterized ceiling machinery (identical shape to imp-95026; the four
@@ -168,7 +168,7 @@ export const IMP95075_ISOLATION_Q_FAR_CEILING_SENSITIVITY = {
     "MEASUREMENT/DERIVATION. dcFar/dQ = 0.3816620268743663 is a central difference (c in {0.98, 1.02}) on the imp-95026 parameterized quadrature at the model point; the elasticity, the Q-re-indexed scan, and the concavity over-prediction (6.49 percent at Q(c=1.5)) are computed directly and cross-checked against the baked imp-95026 isolationScan literals. No paper constant is instantiated (the paper text is not carried here), so no transferred ceiling is CLAIMED - only the isolation-group sensitivity and its place on the scan. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT/DERIVATION of the isolation-group lever for the imp-95008 far-bracket ceiling. dcFar/dQ = 0.3816620268743663 at the model Q0 = 0.6299605249474366 (elasticity 0.8847868296486842: a strong, near-proportional lever, comparable to s = sigma + theta and far stronger than beta). cFar(Q) is CONCAVE, so the local linear model OVER-predicts above the model point (by 6.49 percent at Q(c=1.5)) - the derivative is a conservative upper estimate of the rise. The model c = v = D = 1 lands at Q0 = 2^(-2/3); the Q-indexed isolationScan spans [0.315, 1.260] with cFar 0.137 -> 0.421, all far below the pre-seventeenth 4, and the conservative linear model needs Q ~ 10.4 to reach 4. SUB-GAP: the paper (c, v, D) and hence the paper Q are not pinned in this repo, so this places the MODEL Q on the scan, not a paper number. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT/DERIVATION of the isolation-group lever for the imp-95008 far-bracket ceiling. dcFar/dQ = 0.3816620268743663 at the model Q0 = 0.6299605249474366 (elasticity 0.8847868296486842: a strong, near-proportional lever, comparable to s = sigma + theta and far stronger than beta). cFar(Q) is CONCAVE, so the local linear model OVER-predicts above the model point (by 6.49 percent at Q(c=1.5)) - the derivative is a conservative upper estimate of the rise. The model c = v = D = 1 lands at Q0 = 2^(-2/3); the Q-indexed isolationScan spans [0.315, 1.260] with cFar 0.137 -> 0.421, all far below the pre-seventeenth 4, and the conservative linear model needs Q ~ 10.4 to reach 4. SUB-GAP: the paper (c, v, D) and hence the paper Q are not pinned in this repo, so this places the MODEL Q on the scan, not a paper number. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -233,12 +233,12 @@ export const IMP95075_ISOLATION_ASSERTIONS = [
   {
     id: "imp95075-honesty-gate",
     description:
-      "the verdict names the sub-gap (paper Q not pinned; places the MODEL Q on the scan), records the derivative and concavity, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (paper Q not pinned; places the MODEL Q on the scan), records the derivative and concavity, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95075_ISOLATION_Q_FAR_CEILING_SENSITIVITY.promotesBound === false &&
       IMP95075_ISOLATION_Q_FAR_CEILING_SENSITIVITY.openResiduals.length === 2 &&
       /NO QED/.test(IMP95075_ISOLATION_Q_FAR_CEILING_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP95075_ISOLATION_Q_FAR_CEILING_SENSITIVITY.verdict) &&
+      /refereed bound is changed/i.test(IMP95075_ISOLATION_Q_FAR_CEILING_SENSITIVITY.verdict) &&
       /CONCAVE/.test(IMP95075_ISOLATION_Q_FAR_CEILING_SENSITIVITY.verdict) &&
       /SUB-GAP/.test(IMP95075_ISOLATION_Q_FAR_CEILING_SENSITIVITY.verdict),
   },

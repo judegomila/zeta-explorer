@@ -72,7 +72,7 @@
  * window (eigengap pinned, budget non-monotone) and the corrected minimal budget.
  * Model seam family only; the imp-95212 envelope port, signed WEIGHT, and
  * modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. Sun arXiv:2609.04176 unrefereed.
+ * no refereed bound is changed. Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95838-ln125-shift-budget-scaling (the global law + the residual this resolves)
  * @see imp-95820-shift-invert-dd-toeplitz-crossing (the PD-preserving solver)
@@ -154,8 +154,8 @@ export const IMP95859_LN125_WINDOW_SHIFT_BUDGET = {
     "residual; no new cited input; no numeric change to any certified interval (it " +
     "does not itself re-run the crossing at the corrected budget); model seam " +
     "family only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase " +
-    "legs stay OPEN. Changes no bound of the Lambda program; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "legs stay OPEN. Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95859"],
 };
 
@@ -356,7 +356,7 @@ export const IMP95859_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /MEASURED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
 ];
 

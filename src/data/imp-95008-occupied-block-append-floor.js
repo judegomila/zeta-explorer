@@ -162,8 +162,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are not
  * the claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -576,7 +575,7 @@ export const IMP95008_OCCUPIED_BLOCK_APPEND_FLOOR = {
     "Theorem Z is quotient calculus on the exact rational function (the occupied block contributes the signed coupling and the first-order mass drag; cubic cancellation checked by expansion and by quadratic-residual assertions); Theorem P is the elementary parabola bound plus an adaptive monotone-envelope ladder whose every envelope is Lemma U rate/distance monotonicity plus the h legality branch - the four certificates are re-executed by the assertions below over every dyadic block of the grid and nu in [1e-9, 1e8], with closed-form rate tails asserted below the tolerances. Ceilings are rigorous for the FROZEN bases, all grid placements, all rates, all eps >= 0; they do not cover joint re-optimization or multi-append interactions (the chain itself compounds appends). Witnesses are optimizer outputs evaluated exactly; optimality is NOT claimed. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step executing the fourteenth continuation refined residual (occupied-block packets), with a REVERSAL of its saturation suggestion: NEW Theorem Z extends the append calculus to occupied blocks (signed coupling, first-order mass drag E n_b g/m, closed-form epsStar, Theorem T recovered at n_b = 0), and the lever FIRES - a single interior append to occupied block 1 gains 2.6945 percent, and an eight-append chain lifts the headline theta = 10 floor 0.092873990839396667 -> 0.096745062937484763, far bracket gap 43.069108626085018 -> 41.345779087298143. NEW Theorem P then prices the continuation: adaptive monotone-envelope ladder certificates cap the NEXT single append at 0.62 percent relative (headline terminal witness) and 4.4e-6 relative (fixed-97, rigorously terminal), with the frozen-base first-append ceilings effectively tight (achieved gains at 97.62 and 95.23 percent of them). No contradiction with continuation fourteen: its empty-block ceiling scope is intact, and its +3.4e-10 joint re-optimization varied only existing parameters. Ceiling scope stated plainly: frozen bases, eps >= 0, single appends. Witness optimality is NOT claimed. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step executing the fourteenth continuation refined residual (occupied-block packets), with a REVERSAL of its saturation suggestion: NEW Theorem Z extends the append calculus to occupied blocks (signed coupling, first-order mass drag E n_b g/m, closed-form epsStar, Theorem T recovered at n_b = 0), and the lever FIRES - a single interior append to occupied block 1 gains 2.6945 percent, and an eight-append chain lifts the headline theta = 10 floor 0.092873990839396667 -> 0.096745062937484763, far bracket gap 43.069108626085018 -> 41.345779087298143. NEW Theorem P then prices the continuation: adaptive monotone-envelope ladder certificates cap the NEXT single append at 0.62 percent relative (headline terminal witness) and 4.4e-6 relative (fixed-97, rigorously terminal), with the frozen-base first-append ceilings effectively tight (achieved gains at 97.62 and 95.23 percent of them). No contradiction with continuation fourteen: its empty-block ceiling scope is intact, and its +3.4e-10 joint re-optimization varied only existing parameters. Ceiling scope stated plainly: frozen bases, eps >= 0, single appends. Witness optimality is NOT claimed. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -841,12 +840,12 @@ export const IMP95008_OBA_ASSERTIONS = [
   {
     id: "imp95008-oba-honesty-gate",
     description:
-      "the verdict records the reversal of the fourteenth saturation suggestion without contradicting its ceiling scope, the certificate scopes (frozen bases, eps >= 0, single appends), the optimizer provenance of witnesses, the still-open residuals, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict records the reversal of the fourteenth saturation suggestion without contradicting its ceiling scope, the certificate scopes (frozen bases, eps >= 0, single appends), the optimizer provenance of witnesses, the still-open residuals, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95008_OCCUPIED_BLOCK_APPEND_FLOOR.promotesBound === false &&
       IMP95008_OCCUPIED_BLOCK_APPEND_FLOOR.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_OCCUPIED_BLOCK_APPEND_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP95008_OCCUPIED_BLOCK_APPEND_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_OCCUPIED_BLOCK_APPEND_FLOOR.verdict) &&
       /REVERSAL/.test(IMP95008_OCCUPIED_BLOCK_APPEND_FLOOR.verdict) &&
       /No contradiction with continuation fourteen/.test(IMP95008_OCCUPIED_BLOCK_APPEND_FLOOR.verdict) &&
       /optimality is NOT claimed/.test(IMP95008_OCCUPIED_BLOCK_APPEND_FLOOR.verdict) &&

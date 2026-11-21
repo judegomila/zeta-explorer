@@ -50,7 +50,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34769-sigma-knee-optimal-step-richardson-gap (reported OPT_GAP ~ -4.5e-8 dex and posed the exactly-0 question)
  * @see imp-34756-sigma-knee-second-order-v-expansion (F3 posed the ~9.2e-5 dex FD gap imp-34769 optimal-stepped)
@@ -198,7 +198,7 @@ export const IMP34796_SIGMA_KNEE_GAP_EXACT_ZERO_IDENTITY = {
     'coincidence of roots, without needing a finer Richardson or bignum tower. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail ' +
-    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'CLOSES imp-34769s deferred "does the ~4.5e-8 dex optimal-step gap extrapolate to exactly 0 or leave a residual ' +
     'physical term" question: the exact algebraic identity F = -g_thirdDeriv/(1-S) with (1-S) > 0 makes the two ' +
@@ -241,15 +241,15 @@ export const IMP34796_SIGMA_KNEE_GAP_EXACT_ZERO_IDENTITY_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34796-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34796_SIGMA_KNEE_GAP_EXACT_ZERO_IDENTITY.isRigorous === false &&
       IMP34796_SIGMA_KNEE_GAP_EXACT_ZERO_IDENTITY.farTailExponent === 0.5 &&
       typeof IMP34796_SIGMA_KNEE_GAP_EXACT_ZERO_IDENTITY.subGap === 'string' &&
       /NO QED/.test(IMP34796_SIGMA_KNEE_GAP_EXACT_ZERO_IDENTITY.verdict) &&
-      /remains SOTA/.test(IMP34796_SIGMA_KNEE_GAP_EXACT_ZERO_IDENTITY.verdict),
+      /refereed bound is changed/i.test(IMP34796_SIGMA_KNEE_GAP_EXACT_ZERO_IDENTITY.verdict),
   },
 ];
 

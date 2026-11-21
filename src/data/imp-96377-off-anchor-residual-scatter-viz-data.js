@@ -15,7 +15,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Every T/rho pair and the line floor/slope are copied
  * verbatim from imp-96345; only the per-point residual sign and the line-curve sampling are
  * computed here. Changes no bound, establishes no operator positivity, no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96345-route-bd-offline-margin-envelope.js (source measurement: residuals, envelope)
  *
@@ -85,7 +85,7 @@ export const IMP96377_LANDMARKS = {
 };
 
 export const IMP96377_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every T/rho pair and the '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every T/rho pair and the '
   + 'seven-anchor line floor/slope are copied verbatim from imp-96345 (and, before that, '
   + 'imp-96148/imp-96224); only the per-point below-line flag and the line-curve sample points '
   + 'are computed here. The binding envelope (minimum measured margin) stays strictly positive '

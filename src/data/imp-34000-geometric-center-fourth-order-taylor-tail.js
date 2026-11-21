@@ -61,7 +61,7 @@
  * MEASUREMENT ONLY. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; L1..L4 are finite-difference measurements; the C_mb GUE-conditional share
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33947-geometric-center-third-order-taylor-tail (third-order term S3, tail measured here)
  * @see imp-33900-geometric-center-second-order-taylor-tail (second-order term S2)
@@ -202,7 +202,7 @@ export const IMP34000_GEOMETRIC_CENTER_FOURTH_ORDER_TAYLOR_TAIL = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; L1..L4 are finite-difference ' +
     'measurements; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33947 (third-order term S3, fourth-order tail measured here); imp-33900 (second-order term ' +
     'S2); imp-33903 (direct-vs-derivative offset); imp-33879 (leading factor S1); imp-33816 ' +
@@ -236,13 +236,13 @@ export const IMP34000_GEOMETRIC_CENTER_FOURTH_ORDER_TAYLOR_TAIL_ASSERTIONS = [
     holds: () => RES4_REL_MAX > 1e-5 && RES4_REL_MAX < 1e-3,
   },
   {
-    // Honesty gate: measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp34000-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34000_GEOMETRIC_CENTER_FOURTH_ORDER_TAYLOR_TAIL.isRigorous === false &&
       /NO QED/.test(IMP34000_GEOMETRIC_CENTER_FOURTH_ORDER_TAYLOR_TAIL.verdict) &&
-      /remains SOTA/.test(IMP34000_GEOMETRIC_CENTER_FOURTH_ORDER_TAYLOR_TAIL.verdict) &&
+      /refereed bound is changed/i.test(IMP34000_GEOMETRIC_CENTER_FOURTH_ORDER_TAYLOR_TAIL.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34000_GEOMETRIC_CENTER_FOURTH_ORDER_TAYLOR_TAIL.verdict) &&
       /C_mb[^.]*imp-486[^.]*UNTOUCHED/i.test(IMP34000_GEOMETRIC_CENTER_FOURTH_ORDER_TAYLOR_TAIL.verdict),
   },

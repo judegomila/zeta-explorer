@@ -62,7 +62,7 @@
  *
  *   STATUS: a grouping/index note over five already-completed tickets, not a new derivation. No
  *   bound changes: F_cot(b) > 0 (equivalently S(b) < 0, kappa_cot ~ +0.12) stays MEASURED not
- *   PROVED; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   PROVED; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-97181-route-m-cotangent-firstmoment-sign-inverse-bias.js (numerator odd/mean-zero reframing)
  * @see imp-97226-route-m-cotangent-cancellation-ratio-ladder.js (cancellation ratio + S(b)/(phi b b) ladder)
@@ -71,7 +71,7 @@
  * @see imp-97314-route-m-cotangent-smallr-family-dominance-obstruction.js (small-shift dominance obstruction)
  *
  * Ticket: imp-97346 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const ROUTE_M_COTANGENT_SIGN_COHORT = Object.freeze([
@@ -136,7 +136,7 @@ export const IMP97346_ROUTE_M_COTANGENT_SIGN_COHORT_INDEX = Object.freeze({
     'should not re-attempt small-r/finite-band dominance arguments (already shown to fail by a ' +
     'Theta(b log b) vs Theta(b^2) growth gap) and should not re-measure the cancellation ratio or ' +
     'kappa_cot reconstruction this cohort already settled. Establishes nothing new; moves no bound; ' +
-    'RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97181 (numerator odd/mean-zero reframing); imp-97226 (cancellation ratio ladder); ' +
     'imp-97270 (kappa_cot reconciliation); imp-97287 (residue-resonance decomposition); ' +
@@ -172,11 +172,11 @@ export const IMP97346_ROUTE_M_COTANGENT_SIGN_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97346-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97346_ROUTE_M_COTANGENT_SIGN_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97346_ROUTE_M_COTANGENT_SIGN_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97346_ROUTE_M_COTANGENT_SIGN_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97346_ROUTE_M_COTANGENT_SIGN_COHORT_INDEX.verdict) &&
       /MEASURED, not proved/.test(IMP97346_ROUTE_M_COTANGENT_SIGN_COHORT_INDEX.verdict),
   },
 ];

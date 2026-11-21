@@ -12,7 +12,7 @@
  * PRESENTATION ONLY. All (b, kappaCot, kappa) points are reused verbatim
  * from the committed IMP97541_LADDER; nothing is re-derived. Establishes no
  * operator positivity; changes no bound; kappa still MEASURED, not proved;
- * PT Lambda<=0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97541-route-m-kappa-cot-extended-measurement.js (the tabulated ladder, reused verbatim)
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (kappa_arith exact value)

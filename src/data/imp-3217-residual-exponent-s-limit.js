@@ -60,8 +60,8 @@
  *   largest cells (s = 4, 6) already sit close to the resolution floor and are
  *   corroborating-only, not fit-grade. No positivity attempted; not a proof or
  *   a reduction; the off-diagonal endpoint-Hankel operator step (imp-3066)
- *   remains the lone obstruction and is untouched. Platt-Trudgian
- *   Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   remains the lone obstruction and is untouched. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-3196-residual-gap-convergence-rate.js (the four-cell p(s) fit this extends)
  *   @see imp-3146-residual-gap-limit-aU-grid.js (the single-variable limit G(s) = tanh(s) - tanh(s/2))
@@ -382,7 +382,7 @@ export const IMP3217_RESIDUAL_EXPONENT_S_LIMIT = Object.freeze({
     operatorStepUntouched:
       'Measures how the representative monomial-truncation exponent behaves with s; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction and is NOT addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   whatRemains: Object.freeze({
@@ -458,7 +458,7 @@ export const IMP3217_RESIDUAL_EXPONENT_S_LIMIT_ASSERTIONS = [
     why: 'Mandatory honesty: this is an empirical exponent-trend MEASUREMENT, RH-EQUIVALENT, representative ' +
          'truncation diagnostic; it leaves the operator step untouched, did not attempt positivity, does NOT ' +
          'claim a proved s -> inf limit (only that p does not saturate to 2 within reach), is not a proof or ' +
-         'reduction, and PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'reduction, and no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3217_RESIDUAL_EXPONENT_S_LIMIT.honestCaveat;
       return (
@@ -469,7 +469,7 @@ export const IMP3217_RESIDUAL_EXPONENT_S_LIMIT_ASSERTIONS = [
         c.isRepresentativeTruncationNotTheSection26Gram === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.limitAsSInfinityUnresolved === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -66,8 +66,7 @@
  *   recedes to -infinity; the untruncated Phi is positive on all of R), the
  *   imp-3197/imp-3257 [0, U] window is untouched, and the binding RH-equivalent
  *   residual is the imp-3066 operator-norm magnitude K_a >= 0, entirely
- *   unaffected. No positivity, no reduction, no RH verdict. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   unaffected. No positivity, no reduction, no RH verdict. No refereed bound is changed.
  *
  *   @see imp-3441-gaussian-curvature-coefficient-closed-form.js (the 5/(14 pi) this refines)
  *   @see imp-3403-leading-order-residual-nphi-scaling.js (the ~0.114 measurement)
@@ -203,7 +202,7 @@ export const IMP3468_GAUSSIAN_CURVATURE_SUBLEADING_COEFFICIENT = Object.freeze({
     'two-term model C(1 - 1/N + b/N^2) beats the one-term C(1 - 1/N) across the ladder. Derivation/accuracy ' +
     'only: pins a subleading coefficient of a truncation artifact (untruncated Phi positive on all of R); the ' +
     'imp-3197/imp-3257 [0, U] window and the imp-3066 K_a >= 0 operator-norm magnitude obstruction are ' +
-    'untouched; no positivity, no reduction, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'untouched; no positivity, no reduction, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     zeroCondition: 'y = pi x^2 = 9 A^2/(4 pi B^2), A = sum n^2 g_n, B = sum n^4 g_n, g_n = exp(-n^2 y)',
@@ -270,7 +269,7 @@ export const IMP3468_GAUSSIAN_CURVATURE_SUBLEADING_COEFFICIENT = Object.freeze({
       'The binding RH-equivalent residual is the operator-norm magnitude (the |Gshear| spectrum, ' +
       'imp-3066 K_a >= 0), entirely untouched here; correct signs / positivity of Phi on [0, U] were ' +
       'already necessary-but-NOT-sufficient.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -329,7 +328,7 @@ export const IMP3468_GAUSSIAN_CURVATURE_SUBLEADING_COEFFICIENT_ASSERTIONS = [
     id: 'imp3468-honest-assessment-no-qed',
     why: 'Mandatory honesty: DERIVATION/ACCURACY only -- not a proof, not a reduction below RH, ' +
          'RH-equivalent, refines a coefficient of a truncation artifact, does not advance positivity / the ' +
-         'imp-3066 magnitude obstruction, PT 0.2 stays SOTA. Any flip over-claims.',
+         'imp-3066 magnitude obstruction, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3468_GAUSSIAN_CURVATURE_SUBLEADING_COEFFICIENT.honestCaveat;
       return (
@@ -337,7 +336,7 @@ export const IMP3468_GAUSSIAN_CURVATURE_SUBLEADING_COEFFICIENT_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.doesNotAdvancePositivity.length > 0 &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

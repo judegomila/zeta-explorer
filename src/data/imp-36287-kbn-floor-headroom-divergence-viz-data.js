@@ -11,7 +11,7 @@
  * "import-light" instruction.
  *
  * NOT A BOUND. Presentation only; changes no bound; certifies no W1 bound; C_mb GUE-conditional
- * (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36083-kbn-floor-headroom-to-certified-rung (the sqrt(N)-widening headroom ladder)
  * @see imp-36135-kbn-floor-headroom-extrapolation (the extrapolation + crossing determination this bakes)

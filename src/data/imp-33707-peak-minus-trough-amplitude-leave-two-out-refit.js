@@ -77,8 +77,7 @@
  *   removed, at least as hard as the height trend did, so it is likewise a two-point artifact -- not the
  *   exact coefficients. The NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2
- *   remains the SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33681-peak-minus-trough-amplitude-series-n400-1200.js (the full-sixteen amplitude fit this refits robustly)
  *   @see imp-33680-cluster-peak-height-leave-two-out-refit.js (the parallel HEIGHT leave-two-out cross-checked here)
@@ -207,7 +206,7 @@ const verdict =
       'POSITIVE-AMPLITUDE-TREND-IS-A-TWO-POINT-ARTIFACT-OF-THE-imp-33638-TAIL-RE-INTENSIFICATION,-NOT-A-' +
       'DISTRIBUTED-ENVELOPE-AMPLIFICATION-LAW.-CONSISTENT-WITH-THE-imp-33681/imp-33680/imp-33660/imp-33638-' +
       'latticeJitterCaveat.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-' +
-      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33707_PEAK_MINUS_TROUGH_AMPLITUDE_LEAVE_TWO_OUT_REFIT = Object.freeze({
@@ -236,7 +235,7 @@ export const IMP33707_PEAK_MINUS_TROUGH_AMPLITUDE_LEAVE_TWO_OUT_REFIT = Object.f
     'TWO-POINT-ARTIFACT -- the imp-33681 weak-positive amplitude trend is carried ENTIRELY by the two tallest tail ' +
     'clusters, exactly as the height trend was, NOT a distributed envelope-amplification law. ACCURACY/RULE-DESIGN ' +
     'MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; operator positivity ' +
-    '(imp-3066) untouched; no QED. PT Lambda <= 0.2 SOTA.',
+    '(imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     source: 'the EXACT sixteen imp-33681 measured.peakNs / measured.amplitudes (frozen import; no re-derivation)',
@@ -363,7 +362,7 @@ export const IMP33707_PEAK_MINUS_TROUGH_AMPLITUDE_LEAVE_TWO_OUT_REFIT = Object.f
       'reduction, and the ~0.036/~0.0045 survival ratios. The robust reading is the QUALITATIVE conclusion -- the ' +
       'amplitude trend collapses when the two tallest tail clusters are removed, at least as hard as the height ' +
       'trend, so it is likewise a two-point artifact -- not the exact coefficients.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -425,7 +424,7 @@ export const IMP33707_PEAK_MINUS_TROUGH_AMPLITUDE_LEAVE_TWO_OUT_REFIT_ASSERTIONS
   {
     id: 'imp33707-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33707_PEAK_MINUS_TROUGH_AMPLITUDE_LEAVE_TWO_OUT_REFIT.honestCaveat;
       return (
@@ -434,7 +433,7 @@ export const IMP33707_PEAK_MINUS_TROUGH_AMPLITUDE_LEAVE_TWO_OUT_REFIT_ASSERTIONS
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

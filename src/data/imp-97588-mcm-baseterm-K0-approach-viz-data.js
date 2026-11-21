@@ -12,7 +12,7 @@
  * imp-97519 direct exact-kernel spot-check) evaluated at plotted x, plus the
  * imp-97519 baked ladder/crossing points reused verbatim. Nothing re-derived;
  * no bound moves; MCM stays VERIFIED at omega<=6, FALSE from omega=11
- * (imp-97432); Platt-Trudgian Lambda<=0.2 remains SOTA; RH open; NO QED.
+ * (imp-97432); no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97519-route-m-mcm-baseterm-043-crossing-spotcheck.js (K0, M0, crossing043, driftLadder baked verbatim)
  * @see imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (MCM refuted at omega=11)

@@ -64,7 +64,7 @@
  *   near-zero and the only above-noise correlation is the lag-0 same-rung tautology -- not the exact coefficients.
  *   The NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the
  *   operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH
- *   verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33663-recovery-grade-vs-spike-height-sixteen-peaks.js (the same-rung sixteen-peak correlation this extends)
  *   @see imp-33640-recovery-grade-vs-spike-height-correlation.js (the original three-rung correlation)
@@ -311,7 +311,7 @@ const verdict =
       'TAUTOLOGY-(THE-GRADE-5-OUTLIER-n=998-ALIGNING-WITH-THE-EXACT-RUNG-FLOOR-SPIKE-AT-THE-SAME-RUNG),-NOT-A-CROSS-' +
       'RUNG-LEAD-OR-LAG.-SPIKE-HEIGHT-AT-CLUSTER-PEAK-n-DOES-NOT-PREDICT-THE-RECOVERY-GRADE-AT-A-NEIGHBORING-PEAK-IN-' +
       'EITHER-DIRECTION.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-' +
-      'NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33686_LAGGED_RECOVERY_GRADE_VS_SPIKE_HEIGHT = Object.freeze({
@@ -341,7 +341,7 @@ export const IMP33686_LAGGED_RECOVERY_GRADE_VS_SPIKE_HEIGHT = Object.freeze({
     'with the exact-rung-floor spike at the same rung), NOT a cross-rung lead or lag. Every off-diagonal |r| &lt; 0.3, ' +
     'far below the lag-0 tautology of +0.629. VERDICT: NO-LAGGED-PREDICTIVE-STRUCTURE-EXACT-RUNG-TAUTOLOGY-IS-' +
     'STRICTLY-LAG-ZERO. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery ' +
-    'lattice floor; operator positivity (imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'lattice floor; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -430,7 +430,7 @@ export const IMP33686_LAGGED_RECOVERY_GRADE_VS_SPIKE_HEIGHT = Object.freeze({
       'cross-platform libm exp/pow variation can shift the few-ULP measurements, so the robust reading is the ' +
       'QUALITATIVE pattern -- every off-diagonal correlation is near-zero and only the lag-0 same-rung tautology is ' +
       'above noise -- not the exact correlation coefficients. Rung-local, not a cross-rung cluster-amplitude law.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -469,7 +469,7 @@ export const IMP33686_LAGGED_RECOVERY_GRADE_VS_SPIKE_HEIGHT_ASSERTIONS = [
   {
     id: 'imp33686-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33686_LAGGED_RECOVERY_GRADE_VS_SPIKE_HEIGHT.honestCaveat;
       return (
@@ -478,7 +478,7 @@ export const IMP33686_LAGGED_RECOVERY_GRADE_VS_SPIKE_HEIGHT_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

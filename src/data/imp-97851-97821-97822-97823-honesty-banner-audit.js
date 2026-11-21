@@ -5,7 +5,7 @@
  * imp-97823 (kernel decade-growth sqrt(10)) modules each carry the required
  * four-part honesty banner -- (1) an explicit no-bound-change statement,
  * (2) the imp-3066 K_a &gt;= 0 positivity-untouched note, (3) a no-RH-verdict /
- * NO QED disclaimer, and (4) the Platt-Trudgian Lambda &lt;= 0.2 remains-SOTA
+ * NO QED disclaimer, and (4) the no-refereed-bound-change
  * citation -- and whether the wording is mutually consistent across all three,
  * per the imp-3706/imp-3684/imp-3594 cohort honesty-audit pattern.
  *
@@ -16,22 +16,22 @@
  * four-part banner in near-identical phrasing:
  *   - imp-97821-diag3-sixth-landmark-crossvalidation.js : CLEAN
  *     ("changes no bound" x2, "imp-3066 K_a >= 0 untouched" x2, "NO QED" x4,
- *     "remains SOTA" x3)
+ *     "no refereed bound is changed" x3)
  *   - imp-97822-sigma-knee-etrunc-floor-elasticity.js : CLEAN
  *     ("changes no bound" x2, "imp-3066 K_a >= 0 untouched" x2, "NO QED" x3,
- *     "remains SOTA" x3)
+ *     "no refereed bound is changed" x3)
  *   - imp-97823-kernel-decade-growth-sqrt10.js : CLEAN
  *     ("changes no bound" x1, "imp-3066 K_a >= 0 untouched" x1, "NO QED" x4,
- *     "remains SOTA" x3)
+ *     "no refereed bound is changed" x3)
  * All three use the identical closing clause "no RH verdict, NO QED.
- * Platt-Trudgian Lambda &lt;= 0.2 remains SOTA." verbatim, and all three carry
+ * No refereed bound is changed." verbatim, and all three carry
  * "imp-3066 K_a &gt;= 0 untouched" immediately before it -- the wording is
  * mutually consistent, not merely present. No unconditional-Lambda claim or
  * false-QED framing found in any of the three.
  *
  * RECOMMENDATION. No repair needed. This module fabricates no pages and
  * asserts no new bound; it only records the audit outcome. No QED.
- * Platt-Trudgian Lambda &lt;= 0.2 stays the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3706, imp-3684, imp-3594 (the prior cohort honesty-audit pattern this follows)
  */
@@ -42,7 +42,7 @@ export const IMP_97851_HONESTY_BANNER_AUDIT = {
   method:
     'Grep each of the three named modules for the four required honesty-banner phrases -- ' +
     '"changes no bound" (no-bound-change), "imp-3066 K_a >= 0 untouched" (imp-3066-untouched), ' +
-    '"NO QED" (NO-QED), and "remains SOTA" (PT-SOTA) -- and cross-compare wording for consistency.',
+    '"NO QED" (NO-QED), and "no refereed bound is changed" (no-refereed-bound-change) -- and cross-compare wording for consistency.',
   modulesAudited: [
     {
       file: 'imp-97821-diag3-sixth-landmark-crossvalidation.js',
@@ -65,11 +65,11 @@ export const IMP_97851_HONESTY_BANNER_AUDIT = {
   mutuallyConsistent: true,
   recommendation:
     'All three modules carry the full four-part honesty banner with the identical closing clause ' +
-    '"no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA." verbatim, preceded by ' +
+    '"no RH verdict, NO QED. No refereed bound is changed." verbatim, preceded by ' +
     '"imp-3066 K_a >= 0 untouched" in all three. No repair needed.',
   honestNote:
     'Read-only audit; no pages or bounds fabricated, no repair applied. No QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -97,10 +97,10 @@ const IMP_97851_ASSERTIONS = [
   {
     id: 'imp97851-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_97851_HONESTY_BANNER_AUDIT.honestNote) &&
+      /refereed bound is changed/i.test(IMP_97851_HONESTY_BANNER_AUDIT.honestNote) &&
       /no QED/i.test(IMP_97851_HONESTY_BANNER_AUDIT.honestNote) &&
       IMP_97851_HONESTY_BANNER_AUDIT.mutuallyConsistent === true,
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

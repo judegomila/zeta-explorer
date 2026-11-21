@@ -12,8 +12,8 @@
  * in the closure (no-heavy-imports invariant); (3) confirm the module's
  * honest-status banner text carries all six required elements (measurement-
  * only framing, inherited imp-3220/imp-3406 surrogate NOT rigorous, C_mb
- * GUE-conditional per imp-486, imp-3066 K_a>=0 untouched, Platt-Trudgian
- * Lambda <= 0.2 SOTA, NO QED); (4) confirm the module is registered in
+ * GUE-conditional per imp-486, imp-3066 K_a>=0 untouched, no refereed bound is changed
+ * , NO QED); (4) confirm the module is registered in
  * scripts/run-assertions.mjs DATA_MODULES so its self-executing assertions
  * actually run in the build-time sweep.
  *
@@ -65,7 +65,7 @@ export const RECOVERY_COHORT_INVARIANT_AUDIT = {
   bannerGapsFound: COHORT.filter((m) => !m.bannerComplete).map((m) => m.ticket),
   registrationGapsFoundBeforeFix: REGISTRATION_GAPS_FOUND,
   registrationGapsFixed: REGISTRATION_GAPS_FOUND,
-  honest: 'AUDIT: confirms all 10 imp-34645..34654 cohort modules are import-light (no heavy zeros bundle, direct or transitive) and carry the complete six-element honest-status banner. While auditing, found all 10 were missing from run-assertions.mjs DATA_MODULES (self-executing assertions never ran in the build-time sweep) and wired all in. No bound change; imp-3066 K_a>=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+  honest: 'AUDIT: confirms all 10 imp-34645..34654 cohort modules are import-light (no heavy zeros bundle, direct or transitive) and carry the complete six-element honest-status banner. While auditing, found all 10 were missing from run-assertions.mjs DATA_MODULES (self-executing assertions never ran in the build-time sweep) and wired all in. No bound change; imp-3066 K_a>=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const RECOVERY_COHORT_INVARIANT_AUDIT_ASSERTIONS = [
@@ -103,9 +103,9 @@ export const RECOVERY_COHORT_INVARIANT_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34682-audit-honest',
-    description: 'no bound change and PT Lambda <= 0.2 stays SOTA',
+    description: 'no bound change and no refereed bound is changed',
     holds: () => /No bound change/.test(RECOVERY_COHORT_INVARIANT_AUDIT.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(RECOVERY_COHORT_INVARIANT_AUDIT.honest),
+      && /refereed bound is changed/i.test(RECOVERY_COHORT_INVARIANT_AUDIT.honest),
   },
 ];
 

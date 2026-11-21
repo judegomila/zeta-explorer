@@ -181,8 +181,7 @@ export default function Imp95565AlphaOverOneMajorantMassFractionViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement-only
         page tabulating the imp-95540 record, which extends the imp-95519 section 4
-        spot sample to all 25 sieving primes. Changes no bound. Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains state of the art. NO QED.
+        spot sample to all 25 sieving primes. Changes no bound. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -270,7 +269,7 @@ export default function Imp95565AlphaOverOneMajorantMassFractionViz() {
         frozen imp-95540 record (import-light, no zeros bundle, no re-derivation of the
         imp-95519 majorant construction). Changes no bound, establishes no operator
         positivity, no RH claim; the zero-side route stays PCC-gated for the p &ge; 7
-        primes. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        primes. NO QED.
       </div>
     </div>
   );

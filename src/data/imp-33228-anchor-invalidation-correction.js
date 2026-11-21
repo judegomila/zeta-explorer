@@ -20,8 +20,8 @@
  *
  * NO Λ CONSEQUENCE. This is the internal E_field leg of the (already conditional)
  * imp-33226 bracket restatement; E_trunc/E_flow were already the binding legs, and
- * those bind on verified zero height (PT-floor audit). Platt–Trudgian Λ ≤ 0.2
- * remains the rigorous SOTA. RH is untouched. NO QED. This corrects an internal
+ * those bind on verified zero height (PT-floor audit). No refereed bound is changed
+ * . RH is untouched. NO QED. This corrects an internal
  * engineering certificate, not a bound.
  *
  * NO heavy imports (no zeros bundle). Verified figures baked as literals.
@@ -30,7 +30,7 @@
 export const EPS_FIELD_ANCHOR_CORRECTION = Object.freeze({
   id: 'imp-33228-anchor-invalidation-correction',
   title: 'Correction: the field-channel certificate anchors N=endN are invalid (boundary collision)',
-  status: 'CORRECTION — double-verified; anchor-choice fix; no Λ consequence; PT Λ≤0.2 stands',
+  status: 'CORRECTION — double-verified; anchor-choice fix; no Λ consequence; no refereed bound is changed',
   resolvesResidual: 'imp-34427-sub-edge-no-collision (resolves NEGATIVE at old anchors, POSITIVE at re-anchors)',
   supersededResidual: 'sg-33228-rvm-continuum-vs-discrete (resolves NEGATIVE at anchors: the W* half-mean-spacing proxy is false there)',
 
@@ -89,7 +89,7 @@ export const EPS_FIELD_ANCHOR_CORRECTION = Object.freeze({
     'Anchor-choice correction to an internal E_field certificate. The imp-3933 lemma, '
     + 'plateau structure, and Psi/theta arithmetic are correct (reproduced to ≤1e-9 by '
     + 'two independent reconstructions from src/data/zeros-to-1e6.js). No Λ consequence: '
-    + 'E_trunc/E_flow are the binding legs and bind on verified height; PT Λ≤0.2 stands; '
+    + 'E_trunc/E_flow are the binding legs and bind on verified height; no refereed bound is changed; '
     + 'RH untouched. Follow-up DONE (imp-95517): imp-3933 EPS_FIELD_ROWS regenerated at the '
     + 'N′ anchors (anchorN field; Psi upper-sum truncated at N′; all 10 plateaus re-certify).',
 });
@@ -113,8 +113,8 @@ export const EPS_FIELD_ANCHOR_CORRECTION_ASSERTIONS = Object.freeze([
       >= EPS_FIELD_ANCHOR_CORRECTION.reCertification.thetaBar,
   },
   {
-    name: 'honest: no Λ consequence, PT stands, RH untouched',
-    check: () => /PT Λ≤0.2 stands|Platt–Trudgian Λ ≤ 0.2/.test(EPS_FIELD_ANCHOR_CORRECTION.scope + EPS_FIELD_ANCHOR_CORRECTION.status)
+    name: 'honest: no Λ consequence, no refereed bound is changed, RH untouched',
+    check: () => /refereed bound is changed/i.test(EPS_FIELD_ANCHOR_CORRECTION.scope + EPS_FIELD_ANCHOR_CORRECTION.status)
       && /No Λ consequence|no Λ consequence/i.test(EPS_FIELD_ANCHOR_CORRECTION.scope),
   },
 ]);

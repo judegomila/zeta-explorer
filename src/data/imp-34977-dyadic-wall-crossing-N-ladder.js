@@ -40,7 +40,7 @@
  * the physical landmarks, but does NOT instantiate the imp-34687a directed-rounding transcendental layer and
  * does NOT discharge the conditional. imp-34714a REMAINS OPEN. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643)
  * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34953-r-margin-dyadic-wall-across-N (counts the ~23 crossings; this module tabulates their locations)
  * @see imp-34930-breach-step-law-verification (recomputes R_margin = N*FP_LO/K; K/FP_LO reused verbatim)
@@ -167,7 +167,7 @@ export const IMP34977_DYADIC_WALL_CROSSING_N_LADDER = {
     'verbatim; does NOT instantiate the imp-34687a directed-rounding layer; SUB-GAP imp-34714a REMAINS OPEN. ' +
     'The C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 ' +
     'K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34953 (counts the ~23 crossings; this module tabulates their N-locations); imp-34930 (recomputes ' +
     'R_margin = N*FP_LO/K; K/FP_LO reused verbatim); imp-34909 (states the unified nStar crossing law); imp-34693 ' +
@@ -214,15 +214,15 @@ export const IMP34977_DYADIC_WALL_CROSSING_N_LADDER_ASSERTIONS = [
       Math.abs(HEADROOM_BELOW_DOUBLINGS + HEADROOM_ABOVE_DOUBLINGS - 1) < 1e-9, // adjacent walls => sum to one doubling
   },
   {
-    // Honesty gate: measurement/surrogate, not rigorous, sub-gap open, no QED, PT SOTA.
+    // Honesty gate: measurement/surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34977-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, PT stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34977_DYADIC_WALL_CROSSING_N_LADDER.isRigorous === false &&
       /imp-34714a/.test(IMP34977_DYADIC_WALL_CROSSING_N_LADDER.subGap) &&
       /REMAINS OPEN/.test(IMP34977_DYADIC_WALL_CROSSING_N_LADDER.subGap) &&
       /NO QED/.test(IMP34977_DYADIC_WALL_CROSSING_N_LADDER.verdict) &&
-      /remains SOTA/.test(IMP34977_DYADIC_WALL_CROSSING_N_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP34977_DYADIC_WALL_CROSSING_N_LADDER.verdict),
   },
 ];
 

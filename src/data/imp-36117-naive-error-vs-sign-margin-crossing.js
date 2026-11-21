@@ -45,7 +45,7 @@
  * evaluates no true H_0; instantiates no interval; verifies no inequality; changes no
  * bound; the C_mb GUE-conditional constant (imp-486) is untouched; the W1 A + B - C
  * certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); no
- * RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA. The oscillatory family is
+ * RH verdict, NO QED. No refereed bound is changed. The oscillatory family is
  * a representative proxy, NOT the actual mollified H_t sum -- "sign margin" means the
  * distance to zero of the compensated sum relative to its own exact reference, nothing
  * stronger.
@@ -61,7 +61,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36075) ----------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI)));
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT
 
@@ -292,8 +292,8 @@ export const IMP36117_NAIVE_ERROR_VS_SIGN_MARGIN_CROSSING = {
     'family, NOT a certified bound. Establishes NO positivity theorem; certifies no W1 bound; ' +
     'evaluates no true H_0; instantiates no interval; verifies no inequality; changes no bound; the ' +
     'W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL ' +
-    '(imp-35725); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    '(imp-35725); C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36094 (naive grows / compensated N-flat); imp-36075 (sign margin = distance to zero, KBN ' +
     'preserves it); imp-36023 (error-magnitude measurement); imp-35973 (single-endpoint combined ' +
@@ -348,7 +348,7 @@ export const IMP36117_NAIVE_ERROR_VS_SIGN_MARGIN_CROSSING_ASSERTIONS = [
   },
   {
     id: 'imp36117-honesty-gate',
-    description: 'Measurement+extrapolation only; no bound change; GREENFIELD; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement+extrapolation only; no bound change; GREENFIELD; NO QED; no refereed bound is changed',
     holds: () =>
       IMP36117_NAIVE_ERROR_VS_SIGN_MARGIN_CROSSING.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -358,7 +358,7 @@ export const IMP36117_NAIVE_ERROR_VS_SIGN_MARGIN_CROSSING_ASSERTIONS = [
       /GREENFIELD/.test(IMP36117_NAIVE_ERROR_VS_SIGN_MARGIN_CROSSING.verdict) &&
       /NOT a certified bound/.test(IMP36117_NAIVE_ERROR_VS_SIGN_MARGIN_CROSSING.verdict) &&
       /NO QED/.test(IMP36117_NAIVE_ERROR_VS_SIGN_MARGIN_CROSSING.verdict) &&
-      /remains SOTA/.test(IMP36117_NAIVE_ERROR_VS_SIGN_MARGIN_CROSSING.verdict),
+      /refereed bound is changed/i.test(IMP36117_NAIVE_ERROR_VS_SIGN_MARGIN_CROSSING.verdict),
   },
 ];
 

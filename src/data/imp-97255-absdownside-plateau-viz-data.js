@@ -12,7 +12,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Every number below is copied verbatim from the imp-97188 baked
  * `IMP97188_LADDER`, `IMP97188_KAPPA_ARITH`, and `IMP97188_VERDICT` (no re-derivation of the
  * abs-value downside coefficient or the arithmetic floor). Changes no bound, establishes no
- * operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * operator positivity, no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-97188-route-m-cotangent-absdownside-plateau-ladder.js (IMP97188_LADDER, IMP97188_KAPPA_ARITH, IMP97188_VERDICT)
  *
@@ -41,7 +41,7 @@ export const IMP97255_MARGIN_BAND = Object.freeze({
 });
 
 export const IMP97255_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every (b, coeff) row and the ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every (b, coeff) row and the ' +
   'kappa_arith reference line are copied verbatim from the imp-97188 baked IMP97188_LADDER / ' +
   'IMP97188_KAPPA_ARITH / IMP97188_VERDICT (no re-derivation of the abs-value downside coefficient); ' +
   'no bound is claimed and no operator positivity is established.';
@@ -80,7 +80,7 @@ const IMP97255_ASSERTIONS = [
     id: 'imp97255-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97255_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97255_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97255_HONEST_BANNER) &&
       /NO QED/.test(IMP97255_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

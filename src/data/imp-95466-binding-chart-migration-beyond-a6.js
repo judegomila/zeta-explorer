@@ -11,7 +11,7 @@
  * the imp-95332 Psi6 interior window keeps controlling the floor or a
  * new binding window appears. Measurement only; recomputes ONLY
  * quantities already proven in imp-95330/95331/95332; changes NO bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95332 / imp-95341 normalization, verbatim). a = ln rho,
  * b = ln r in (0, a), tau = b / a, K = 256 uniform charts I_k =
@@ -173,7 +173,7 @@ export const IMP95466_BINDING_CHART_BEYOND_A6 = {
     "The measurement is meaningful only on a < a*; across it W6 stays " +
     "O(1.3e-1..1.65e-1) and no certificate fires. Recomputes only " +
     "imp-95330/95331/95332 quantities; changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -361,7 +361,7 @@ export const IMP95466_ASSERTIONS = [
     description:
       "the verdict is measurement-only, names the interior retreat, the " +
       "right-edge takeover and the tail-majorant wall, promotes no " +
-      "bound, NO QED, PT stays SOTA",
+      "bound, NO QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(REC.verdict) &&
       /retreat CONTINUES/.test(REC.verdict) &&
@@ -369,7 +369,7 @@ export const IMP95466_ASSERTIONS = [
       /loses validity/.test(REC.verdict) &&
       /changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /measurement only/.test(REC.honestScope),
   },
 ];

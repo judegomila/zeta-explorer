@@ -53,7 +53,7 @@
  * ACCURACY ASSESSMENT ONLY. This guards the curvature bound of the INHERITED imp-3220/imp-3406
  * surrogate crossover map; it changes NO bound. The C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; establishes no operator positivity; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34777-crossover-gpp-cross-band-envelope-collapse (frozen-literal tripwire at 41 pts/band)
  * @see imp-34768-crossover-gppp-global-envelope (121-point live grid; g_triple_prime > 0)
@@ -190,8 +190,8 @@ export const IMP34801_CROSSOVER_GPP_CROSS_BAND_RESOLUTION_MATCHED = {
     '-- the cross-band collapse is a GENUINE property of the map, not a coarse-tabulation artifact. ' +
     'Accuracy assessment only on the INHERITED imp-3220/imp-3406 surrogate map; the C_mb ' +
     'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes ' +
-    'no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34777 (cross-band collapse tripwire vs frozen imp-34757 literals at 41 pts/band); imp-34768 ' +
     '(121-point global grid; g_triple_prime > 0); imp-34757 (per-band B; monotone within each band); ' +
@@ -225,13 +225,13 @@ export const IMP34801_CROSSOVER_GPP_CROSS_BAND_RESOLUTION_MATCHED_ASSERTIONS = [
     holds: () => NO_HIDDEN_INTERIOR_MAX,
   },
   {
-    // Honesty gate: accuracy assessment only, no QED, PT stays SOTA.
+    // Honesty gate: accuracy assessment only, no QED, no refereed bound is changed.
     id: 'imp34801-honesty-gate-no-qed',
-    description: 'Accuracy assessment only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Accuracy assessment only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34801_CROSSOVER_GPP_CROSS_BAND_RESOLUTION_MATCHED.isRigorous === false &&
       /NO QED/.test(IMP34801_CROSSOVER_GPP_CROSS_BAND_RESOLUTION_MATCHED.verdict) &&
-      /remains SOTA/.test(IMP34801_CROSSOVER_GPP_CROSS_BAND_RESOLUTION_MATCHED.verdict),
+      /refereed bound is changed/i.test(IMP34801_CROSSOVER_GPP_CROSS_BAND_RESOLUTION_MATCHED.verdict),
   },
 ];
 

@@ -69,7 +69,7 @@
  *
  *   STATUS: a grouping/index note over four already-completed tickets, not a new derivation. No
  *   bound changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation.js (ROLE 1: interior maximum, turns over past the 10^6 ceiling)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay.js (ROLE 2: per-decade decay-exponent ramp)
@@ -77,7 +77,7 @@
  * @see imp-97723-sigma-fartail-diagnostic-asymptote-one.js (ROLE 4: RvM log-derivative slope, converges to exactly 1)
  *
  * Ticket: imp-97752 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- reference constant carried by convention
@@ -188,7 +188,7 @@ export const IMP97752_SIGMA_FARTAIL_ASYMPTOTIC_COHORT_INDEX = Object.freeze({
     'negative next-order coefficient. No bound moves in any role: interval-rigorous certified reach ' +
     'stays EXACTLY 2a<=0.96, the C_mb GUE-conditional (imp-486) and C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) stay untouched throughout, and no operator positivity is established. RH ' +
-    'open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'open; NO QED. No refereed bound is changed.',
   citation:
     'imp-3406 (interior maximum, turns over at N~9.22e5); imp-33582 (per-decade exponent ramp, ' +
     'threshold crossings); imp-97702 (exact power-law + log residual split, crossover N~3.553e12); ' +
@@ -280,7 +280,7 @@ export const IMP97752_SIGMA_FARTAIL_ASYMPTOTIC_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97752-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () => {
       const idx = IMP97752_SIGMA_FARTAIL_ASYMPTOTIC_COHORT_INDEX;
       return (
@@ -288,7 +288,7 @@ export const IMP97752_SIGMA_FARTAIL_ASYMPTOTIC_COHORT_INDEX_ASSERTIONS = [
         idx.certifiedReach === 0.96 &&
         idx.certifiedReach < idx.ln3 &&
         /NO QED/.test(idx.verdict) &&
-        /remains SOTA/.test(idx.verdict) &&
+        /refereed bound is changed/i.test(idx.verdict) &&
         /2a<=0\.96/.test(idx.verdict)
       );
     },

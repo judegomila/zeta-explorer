@@ -18,7 +18,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (interval-rigorous reach 2a <= 0.96)
  *
  * Ticket: imp-97146 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP97099_VERDICT } from './imp-97099-krein-fineh-3e5-fullstall-measurement.js';
@@ -48,7 +48,7 @@ export const IMP97146_HONEST_BANNER =
   'negative fixed point (worst guarded residual frozen at -0.0043937, t=37.809, nviol=2240, across ' +
   'r103..r107) -- an iteration/point-selection limit, not an arithmetic one. No guard-clearing ' +
   'certificate exists at 2a=1.00; the certified interval-rigorous reach stays exactly 2a <= 0.96. ' +
-  'No bound moves. RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.';
+  'No bound moves. RH open; no refereed bound is changed; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97146_ASSERTIONS = [
@@ -72,9 +72,9 @@ const IMP97146_ASSERTIONS = [
       IMP97146_STALL_STATUS.rhResolved === false &&
       IMP97146_STALL_STATUS.qed === false &&
       /NO QED/.test(IMP97146_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97146_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97146_HONEST_BANNER) &&
       /RH open/.test(IMP97146_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

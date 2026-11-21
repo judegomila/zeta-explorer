@@ -16,7 +16,7 @@
  * @see imp-97689-diag3-additivity-euler-derivation.js (analytic Euler-additivity derivation)
  *
  * Ticket: imp-97845 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97821_DIAG3_SIXTH_LANDMARK_CROSSVALIDATION } from './imp-97821-diag3-sixth-landmark-crossvalidation.js';

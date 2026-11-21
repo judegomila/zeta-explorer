@@ -6,7 +6,7 @@
  * project_route_m_lower_companion_first_moment target kappa ~ 0.696 (measured, stable), determine
  * whether the two normalizations refer to the SAME functional, and assess whether the PROVED
  * kappa_arith clears the threshold the companion (Cauchy-Schwarz) reduction actually needs. Assessment
- * only; no bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * only; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * THE TWO NORMALIZATIONS ARE DIFFERENT FUNCTIONALS (this is the reconciliation).
@@ -69,7 +69,7 @@
  *    arithmetic floor (0.5705) exceeds the measured worst-case cotangent downside (0.14) by ~4x, so
  *    proving the imp-97116 abs bound with any c < 0.5705 yields kappa > 0. kappa > 0 stays MEASURED not
  *    proved; the sole open piece is the cotangent leaf (imp-97116/imp-97097), NOT a numeric shortfall.
- *  - No bound on Lambda moves; T ~ 2.594e7 trace anchor unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ *  - No bound on Lambda moves; T ~ 2.594e7 trace anchor unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (proved kappa_arith floor + eps(b))
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (exact kappa_arith = (3/2)C - 3/8)
@@ -159,12 +159,12 @@ export const IMP97168_VERDICT = Object.freeze({
     'arithmetic constant. The companion reduction requires only kappa>0, not 0.696; the proved arithmetic ' +
     'floor 0.5705 dominates the measured worst-case cotangent downside 0.14 by ~4x, so the sole remaining ' +
     'input is a rigorous cotangent-leaf bound (imp-97116 small-inverse frequency / imp-97097), not any ' +
-    'numeric shortfall. kappa>0 stays MEASURED not proved. No bound moved; T ~ 2.594e7 anchor; PT Lambda ' +
-    '<= 0.2 SOTA; RH open; NO QED.',
+    'numeric shortfall. kappa>0 stays MEASURED not proved. No bound moved; T ~ 2.594e7 anchor; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97168_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reconciliation: kappa_arith=0.5705 (imp-97133) is the ' +
+  'RH open; no refereed bound is changed; NO QED. Reconciliation: kappa_arith=0.5705 (imp-97133) is the ' +
   'ARITHMETIC leaf only; kappa~0.696 (companion target) is the FULL first moment F=F_arith+F_cot, so ' +
   'kappa=kappa_arith+kappa_cot and the 0.1255 gap IS the (positive) cotangent leaf -- no genuine shortfall. ' +
   'The companion needs only kappa>0, not 0.696; the proved arithmetic floor 0.5705 exceeds the measured ' +
@@ -226,7 +226,7 @@ const IMP97168_ASSERTIONS = [
       IMP97168_RECONCILIATION.sameFunctional === false &&
       IMP97168_THRESHOLD_ASSESSMENT.kappaArithAloneClosesKappaPositive === false &&
       /NO QED/.test(IMP97168_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97168_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97168_HONEST_BANNER) &&
       /RH open/.test(IMP97168_HONEST_BANNER),
     why: 'assessment-only reconciliation: kappa_arith is a sub-part of kappa, no genuine shortfall, kappa>0 stays measured not proved -- no bound moved, no rigorous ceiling, no QED.',
   },

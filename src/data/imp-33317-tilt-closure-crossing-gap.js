@@ -63,7 +63,7 @@
  *   establishes NO operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-
  *   SUFFICIENT. The operator-level K_a &gt;= 0 sign-positivity (imp-3066) is
  *   UNTOUCHED. NPHI = 10 kernel truncation inherited; grid-CONVERGENCE stability
- *   only. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA. No QED.
+ *   only. No refereed bound is changed. No QED.
  *
  *   @see imp-33221-model-fidelity-crossing-gap-viz-data.js (n=10..80 tilt/crossing literals extended here)
  *   @see imp-3893-model-fidelity-moment-discrepancy.js (source machinery: T_n, delta_n, offsetFractionOfGap)
@@ -131,7 +131,7 @@ export const IMP33317_TILT_CLOSURE_CROSSING_GAP = Object.freeze({
     '(L_n^true - L_n^model) - delta_n flips sign near n~74 (from +4.29e-2 at n=10 through 0 to -4.92e-4 at n=120). So ' +
     'the model-vs-measurement discrepancy closes almost entirely through the sub-3% tilt, down to a small SIGNED ' +
     'second-order residual, NOT to a clean zero. MEASUREMENT/FIT, RH-EQUIVALENT, necessary-but-not-sufficient; operator ' +
-    'positivity (imp-3066) untouched; NPHI=10 inherited; no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'positivity (imp-3066) untouched; NPHI=10 inherited; no QED; no refereed bound is changed.',
 
   measured: Object.freeze({
     grid: 'n = 10..120, step 5',
@@ -165,7 +165,7 @@ export const IMP33317_TILT_CLOSURE_CROSSING_GAP = Object.freeze({
     necessaryNotSufficient:
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 sign-positivity (imp-3066) remains ' +
       'the lone obstruction, UNTOUCHED. Grid-convergence stability only; no certified error bound; no RH verdict.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -200,7 +200,7 @@ export const IMP33317_TILT_CLOSURE_CROSSING_GAP_ASSERTIONS = [
   {
     id: 'imp33317-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement/fit only, does NOT close to the arithmetic floor (signed residual remains), ' +
-         'operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const m = IMP33317_TILT_CLOSURE_CROSSING_GAP.measured;
       const c = IMP33317_TILT_CLOSURE_CROSSING_GAP.honestCaveat;
@@ -209,7 +209,7 @@ export const IMP33317_TILT_CLOSURE_CROSSING_GAP_ASSERTIONS = [
         m.tiltAccountsForFullCrossingGap === true &&
         c.isProof === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -81,7 +81,7 @@
  * (b) Introduces no new cited input and changes NO bound. (c) F is the same
  * finite-size (80-point) proxy as imp-95693 / imp-95708 / imp-95725. (d) Model
  * seam family only; the imp-95212 envelope port, signed WEIGHT and modulus/phase
- * legs stay OPEN. NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * legs stay OPEN. NO QED; no refereed bound is changed.
  *
  * @see imp-95725-szego-ratio-monotonicity-endpoint (the leading-order theorem + sub-gap)
  * @see imp-95704-rho1-szego-coefficient-delta-scaling (C(delta) = pi^2/(2 delta^2))
@@ -159,7 +159,7 @@ export const IMP95742_SZEGO_REMAINDER_DERIVATIVE_WITNESS = {
     "dR/ddelta <= 0 analytically requires the next-order KMS/Szego edge " +
     "coefficient C2(delta), which the leading Poisson dual does not supply. Below " +
     "ln 1.4 even the witness needs the imp-95743 double-double solver. Changes no " +
-    "bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "bound; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95742"],
 };
 
@@ -375,7 +375,7 @@ export const IMP95742_ASSERTIONS = [
       REF.residualSubGap === "SZEGO-REMAINDER-MONO" &&
       /OBSTRUCTION PINNED/.test(REF.verdict) &&
       /C2\(delta\)/.test(REF.residualSubGapDescription) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95742-closes-self",

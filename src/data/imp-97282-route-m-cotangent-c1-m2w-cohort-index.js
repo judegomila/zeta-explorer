@@ -65,7 +65,7 @@
  *
  *   STATUS: a grouping/index note over five already-completed tickets, not a new derivation. No bound
  *   changes: the whole Route M cotangent-positivity obligation is confirmed to rest on the single
- *   scalar c_1/M2w; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   scalar c_1/M2w; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97097-route-m-cotangent-first-moment-evaluation.js (defines S(b), V(b,a), the operative half)
  * @see imp-97180-route-m-cotangent-absvalue-bulk-firstmoment-obstruction.js (rules out termwise route)
@@ -77,7 +77,7 @@
  * @see project_route_m_lower_companion_first_moment (Route M first-moment program, memory)
  *
  * Ticket: imp-97282 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const KAPPA_ARITH = 0.5704960511308594; // imp-97096, exact
@@ -157,8 +157,8 @@ export const IMP97282_ROUTE_M_COTANGENT_C1_M2W_COHORT_INDEX = Object.freeze({
     'need an order of magnitude further in b and find no drift. Together these five form the ' +
     'c_1/M2w-ONLY family: the entire Route M cotangent-positivity obligation rests on a single open ' +
     'scalar inequality, and every auxiliary quantity feeding it is a measured bounded constant, not a ' +
-    'growing one. Establishes nothing new; moves no bound; RH open; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'growing one. Establishes nothing new; moves no bound; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97180 (termwise obstruction, bulk-carried constant); imp-97203 (Cauchy-Schwarz reduction ' +
     'c_1 <= sqrt(M2w)); imp-97204 (signed half dominated by the absolute constant, |S| <= A); ' +
@@ -218,10 +218,10 @@ export const IMP97282_ROUTE_M_COTANGENT_C1_M2W_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97282-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       /NO QED/.test(IMP97282_ROUTE_M_COTANGENT_C1_M2W_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97282_ROUTE_M_COTANGENT_C1_M2W_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97282_ROUTE_M_COTANGENT_C1_M2W_COHORT_INDEX.verdict) &&
       /RH open/.test(IMP97282_ROUTE_M_COTANGENT_C1_M2W_COHORT_INDEX.verdict),
   },
 ];

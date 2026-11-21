@@ -48,7 +48,7 @@
  *   MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate. Changes NO bound;
  *   recomputes no landmark used in any bound; C_mb GUE-conditional per imp-486 is
  *   UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no
- *   RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-33744-sigma-inflection-vs-half-closed-form (sigma_infl = 1/2 - g_prime/(2 g^2); the single point this ladders)
  * @see imp-34933-inflection-offset-running-vs-fixed-ladder (N-POSITION offset ladder 1e6..1e13)
@@ -209,8 +209,8 @@ export const IMP36177_SIGMA_INFL_OFFSET_DECADE_LADDER = {
     'fades from +12.4% to -1.5% -- so the log-factor-running offset decays toward the pure-power-law limit ' +
     '(sigma_infl -> 1/2) as ~1/(ln N)^2 deeper in the tail. Component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
-    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33744 (sigma_infl = 1/2 - g_prime/(2 g^2) closed form; the single point this ladders); imp-34933 ' +
     '(N-position offset ladder 1e6..1e13); imp-34948 (N-position offset ladder 1e14..1e18; locators reused ' +
@@ -272,13 +272,13 @@ export const IMP36177_SIGMA_INFL_OFFSET_DECADE_LADDER_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp36177-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP36177_SIGMA_INFL_OFFSET_DECADE_LADDER.isRigorous === false &&
       /NO QED/.test(IMP36177_SIGMA_INFL_OFFSET_DECADE_LADDER.verdict) &&
-      /Lambda <= 0\.2 remains SOTA/.test(IMP36177_SIGMA_INFL_OFFSET_DECADE_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP36177_SIGMA_INFL_OFFSET_DECADE_LADDER.verdict),
   },
 ];
 

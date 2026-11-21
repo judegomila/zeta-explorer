@@ -63,7 +63,7 @@
  * estimates (no interval enclosure). It discharges NOTHING: imp-35111a / imp-35174a / imp-35243a (R2) stay OPEN.
  * MEASUREMENT / ASSESSMENT ONLY; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463);
- * changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35331-reentry-band-two-rate-phase-drift (reconstructed xArg under the two-rate law; linear-extrap band)
  * @see imp-35332-reentry-band-drift-analytic-derivation (drift decays like 1/(K log T0 - N_cross) -- why extrap fails)
@@ -249,7 +249,7 @@ export const IMP35259_TWO_RATE_BAND_EDGES_DIRECT_ROOTFIND = {
     'imp-3220/imp-3406 double surrogate, IEEE-754 double precision, point rate estimates; the C_C = (1/8) ' +
     'sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 ' +
     'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35331 (reconstructed xArg under the two-rate law; linear-extrap band, corrected here); imp-35332 ' +
     '(drift decays like 1/(K log T0 - N_cross), why the linear extrapolation undershoots); imp-35243 ' +
@@ -305,13 +305,13 @@ export const IMP35259_TWO_RATE_BAND_EDGES_DIRECT_ROOTFIND_ASSERTIONS = [
       EXTRAP_WIDTH_UNDERSHOOT_FACTOR > 5,
   },
   {
-    // Honesty gate: assessment only, discharges nothing, no QED, PT SOTA, sub-gap stays OPEN.
+    // Honesty gate: assessment only, discharges nothing, no QED, no refereed bound is changed, sub-gap stays OPEN.
     id: 'imp35259-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, R2/imp-35243a OPEN, no QED, Platt-Trudgian stays SOTA',
+    description: 'Assessment only: isRigorous false, R2/imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP35259_TWO_RATE_BAND_EDGES_DIRECT_ROOTFIND.isRigorous === false &&
       /NO QED/.test(IMP35259_TWO_RATE_BAND_EDGES_DIRECT_ROOTFIND.verdict) &&
-      /remains SOTA/.test(IMP35259_TWO_RATE_BAND_EDGES_DIRECT_ROOTFIND.verdict) &&
+      /refereed bound is changed/i.test(IMP35259_TWO_RATE_BAND_EDGES_DIRECT_ROOTFIND.verdict) &&
       /imp-35243a/.test(IMP35259_TWO_RATE_BAND_EDGES_DIRECT_ROOTFIND.residual_sub_gap) &&
       /stay OPEN/.test(IMP35259_TWO_RATE_BAND_EDGES_DIRECT_ROOTFIND.residual_sub_gap),
   },

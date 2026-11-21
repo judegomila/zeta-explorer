@@ -39,7 +39,7 @@
  * Import-light: no zeros bundle, no sibling imports. Per-height n / KS / A2 / A2star /
  * p_AD are baked literals from the offline run; the critical values are re-derived.
  * Measurement only; uses baked offline order statistics; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  * @see imp-96271-worst-excess-evt-gaussianity (the batch-maximum test this extends)
  * @see imp-95562-meansquare-vs-pointwise-gap (finding 2, the claim under test)
  */
@@ -108,7 +108,7 @@ export const IMP96326_ORDER_STATS_GAUSSIANITY = {
     adFailureHeights: adFailures, // [1e4]
   },
   verdict:
-    'MEASURED order statistics of the full per-window (C - E) body on actual zeta zeros: the distribution is Gaussian at accessible heights, with one mild low-height caveat. Kolmogorov-Smirnov passes at ALL six heights (KS < 0.886/sqrt(n) everywhere, KS 0.030-0.085). Anderson-Darling -- which up-weights the tails -- passes at 5 of 6 heights (p_AD 0.29-0.90 for T >= 3e4); the sole failure is the lowest height / smallest batch T = 1e4, n = 75, where A2star = 0.859 gives p_AD = 0.027, a marginal tail-shape deviation. This is the SAME T=1e4 batch imp-96271 singled out at the extreme (the only height whose worst window exceeded the leading sqrt(2 ln n)), so the body test and the maximum test agree: T=1e4 is the one mild small-sample outlier and the body is fully Gaussian for every T >= 3e4. The imp-95562 Gaussian claim is SUPPORTED for the body at T >= 3e4 and marginally qualified (AD p=0.027, KS still passing) at T=1e4. D has an integer count part so the marginal is quasi-discrete and the composite p-values are approximate. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated regardless.',
+    'MEASURED order statistics of the full per-window (C - E) body on actual zeta zeros: the distribution is Gaussian at accessible heights, with one mild low-height caveat. Kolmogorov-Smirnov passes at ALL six heights (KS < 0.886/sqrt(n) everywhere, KS 0.030-0.085). Anderson-Darling -- which up-weights the tails -- passes at 5 of 6 heights (p_AD 0.29-0.90 for T >= 3e4); the sole failure is the lowest height / smallest batch T = 1e4, n = 75, where A2star = 0.859 gives p_AD = 0.027, a marginal tail-shape deviation. This is the SAME T=1e4 batch imp-96271 singled out at the extreme (the only height whose worst window exceeded the leading sqrt(2 ln n)), so the body test and the maximum test agree: T=1e4 is the one mild small-sample outlier and the body is fully Gaussian for every T >= 3e4. The imp-95562 Gaussian claim is SUPPORTED for the body at T >= 3e4 and marginally qualified (AD p=0.027, KS still passing) at T=1e4. D has an integer count part so the marginal is quasi-discrete and the composite p-values are approximate. Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated regardless.',
 };
 
 // --- self-executing internal-consistency assertions (formula/threshold re-derivation) ---
@@ -130,8 +130,8 @@ export const IMP96326_ORDER_STATS_GAUSSIANITY = {
   // honesty gates: measurement, not a bound change
   if (!/NO QED/.test(IMP96326_ORDER_STATS_GAUSSIANITY.verdict))
     throw new Error('imp-96326: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96326_ORDER_STATS_GAUSSIANITY.verdict))
-    throw new Error('imp-96326: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96326_ORDER_STATS_GAUSSIANITY.verdict))
+    throw new Error('imp-96326: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96326_ORDER_STATS_GAUSSIANITY;

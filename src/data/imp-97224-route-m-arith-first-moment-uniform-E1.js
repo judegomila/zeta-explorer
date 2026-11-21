@@ -14,7 +14,7 @@
  *     |E1_tail(b)|  <=  (zeta(2) - 1) / 720 * b  =  (pi^2/6 - 1)/720 * b  =  8.9574...e-4 * b,   for all b >= 2,
  * and the full remainder satisfies |E1(b)| = O(b) with NO 2^omega(b) factor -- MEASURED |E1(b)| <= (1/4) b
  * (attained on the primes, E1(p)/p -> -1/4, |E1|/(b log b) -> 0), orders of magnitude below the imp-97133
- * bound 2^omega(b) b(log b + 2). No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * bound 2^omega(b) b(log b + 2). No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-97133 / imp-97202: C = (log 2pi - gamma)/2, kappa_arith = (3/2)C - 3/8 =
  * 0.5704960511308594, omega(b) = number of distinct primes of b, mu = Moebius, Lambda = von Mangoldt,
@@ -109,7 +109,7 @@
  * Taylor moments, both 2^omega-free) and CK(b) = O(b) is measured, but the exact aggregate constant is not
  * pinned here (distinct from imp-97208, which targets a tighter constant, not 2^omega removal). No bound on
  * Lambda moves; T ~ 2.594e7 trace anchor unchanged; the cotangent first moment (imp-97097) stays the
- * separate open leaf; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * separate open leaf; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97202-route-m-arith-first-moment-uniform-remainder.js (the E0 method ported here; IMP97202_SUBGAP)
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (the 2^omega(b) E1 bound this makes uniform)
@@ -244,7 +244,7 @@ export const IMP97224_VERDICT = Object.freeze({
     'imp-97133 O(b log b) bound; measured |E1(b)| <= (1/4) b, attained on the primes (E1(p)/p -> -1/4). ' +
     'Residual: the fully-explicit closed constant for the polynomial-weighted CK kernel (decay established, ' +
     'exact aggregate not pinned; distinct from imp-97208). kappa_arith unchanged; the cotangent first ' +
-    'moment (imp-97097) stays open. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'moment (imp-97097) stays open. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97224_SUBGAP = Object.freeze({
@@ -262,7 +262,7 @@ export const IMP97224_SUBGAP = Object.freeze({
 });
 
 export const IMP97224_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation closing the uniform-E1 half of a named ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation closing the uniform-E1 half of a named ' +
   'sub-gap: the imp-97202 kernel-moment method ports to the weighted remainder E1, the extra polynomial ' +
   'weight does NOT break the geometric decay (it shifts the moment to order 2), and the genuine ' +
   'transcendental tail satisfies |E1_tail(b)| <= (zeta(2) - 1)/720 * b with NO 2^omega -- so |E1(b)| = O(b) ' +
@@ -365,7 +365,7 @@ const IMP97224_ASSERTIONS = [
       IMP97224_VERDICT.closesResidual === 'IMP97202_SUBGAP uniform-E1 (2^omega-removal half)' &&
       /uniform-E1/.test(IMP97224_SUBGAP.id) &&
       /NO QED/.test(IMP97224_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97224_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97224_HONEST_BANNER) &&
       /RH open/.test(IMP97224_HONEST_BANNER),
     why: 'derivation closing the uniform-E1 (2^omega-removal) half of IMP97202_SUBGAP with an exact closed tail constant, honest that the CK kernel constant is a residual and the cotangent leaf stays open -- no bound moved, no rigorous ceiling, no QED.',
   },

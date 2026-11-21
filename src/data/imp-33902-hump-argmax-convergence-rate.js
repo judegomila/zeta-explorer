@@ -55,8 +55,7 @@
  * surrogate resid_exp(k) is descriptive, not derived; the resid_exp -> continuum-argmax reading is
  * a curve feature, not a derived asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the
  * C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33878-hump-argmax-grid-refinement (downward continuum k* ~ 8.821; rate never measured)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the ladder storing resid_exp(k), reused verbatim)
@@ -269,7 +268,7 @@ export const IMP33902_HUMP_ARGMAX_CONVERGENCE_RATE = {
     'extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive, not derived; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33878 (downward continuum k*~8.821, rate never measured); imp-33810 (the ladder storing ' +
     'resid_exp(k), reused verbatim); imp-33844 (closed-form hump peak, crossover k_cross~9.516); ' +
@@ -308,14 +307,14 @@ export const IMP33902_HUMP_ARGMAX_CONVERGENCE_RATE_ASSERTIONS = [
       GAP_KCROSS_MINUS_LIMIT < 0.9,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, confirms imp-33878, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, confirms imp-33878, no QED, no refereed bound is changed.
     id: 'imp33902-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, confirms imp-33878, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, confirms imp-33878, no QED, no refereed bound is changed',
     holds: () =>
       IMP33902_HUMP_ARGMAX_CONVERGENCE_RATE.isRigorous === false &&
       /CONFIRMS imp-33878/.test(IMP33902_HUMP_ARGMAX_CONVERGENCE_RATE.verdict) &&
       /NO QED/.test(IMP33902_HUMP_ARGMAX_CONVERGENCE_RATE.verdict) &&
-      /remains SOTA/.test(IMP33902_HUMP_ARGMAX_CONVERGENCE_RATE.verdict),
+      /refereed bound is changed/i.test(IMP33902_HUMP_ARGMAX_CONVERGENCE_RATE.verdict),
   },
 ];
 

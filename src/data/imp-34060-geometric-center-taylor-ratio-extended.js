@@ -50,8 +50,7 @@
  * MEASUREMENT/FIT ONLY. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; L1..L4 are finite-difference measurements; S1..S4 reproduce imp-34000/imp-34001;
  * the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34001-geometric-center-taylor-ratio-fit (the 1e12..1e15 rbar = 3.06e-3 + 0.981/L fit)
  * @see imp-34000-geometric-center-fourth-order-taylor-tail (S1..S4 terms, "~25x-per-order" asserted)
@@ -257,7 +256,7 @@ export const IMP34060_GEOMETRIC_CENTER_TAYLOR_RATIO_EXTENDED = {
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; L1..L4 are finite-' +
     'difference measurements; S1..S4 reproduce imp-34000/imp-34001; the C_mb GUE-conditional share per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34001 (1e12..1e15 rbar = 3.06e-3 + 0.981/L fit); imp-34000 (S1..S4 terms, "~25x-per-order" ' +
     'asserted); imp-33947 (third-order S3); imp-33816 (1/(2 log T0) local exponent this ratio tracks); ' +
@@ -301,13 +300,13 @@ export const IMP34060_GEOMETRIC_CENTER_TAYLOR_RATIO_EXTENDED_ASSERTIONS = [
     holds: () => CUT_HEAD_FULL > 23 && CUT_HEAD_FULL < 27 && CUT_TAIL_FULL > 2 * CUT_HEAD_FULL,
   },
   {
-    // Honesty gate: measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp34060-honesty-gate-no-qed',
-    description: 'Measurement/fit only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/fit only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34060_GEOMETRIC_CENTER_TAYLOR_RATIO_EXTENDED.isRigorous === false &&
       /NO QED/.test(IMP34060_GEOMETRIC_CENTER_TAYLOR_RATIO_EXTENDED.verdict) &&
-      /remains SOTA/.test(IMP34060_GEOMETRIC_CENTER_TAYLOR_RATIO_EXTENDED.verdict),
+      /refereed bound is changed/i.test(IMP34060_GEOMETRIC_CENTER_TAYLOR_RATIO_EXTENDED.verdict),
   },
 ];
 

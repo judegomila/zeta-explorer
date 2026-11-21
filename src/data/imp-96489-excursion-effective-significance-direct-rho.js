@@ -62,7 +62,7 @@
  * The correlation model raises the figure and keeps it on the safe side of both the 2-sigma target and
  * the sign-forbidden rho_crit = 0.57443 flip threshold (gap 1.0384 in rho units), so the ~1.9-sigma
  * quote is confirmed as a conservative lower bound. Measurement/reconciliation only; changes no bound;
- * RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96452-excursion-confidence-2sigma-reach (carries z_cons = 1.9234 and the baked rho literal)
  * @see imp-96128-number-variance-two-interval-covariance-exact (the union identity and rho_exact table)
@@ -153,7 +153,7 @@ export const IMP96489_EXCURSION_EFFECTIVE_SIGNIFICANCE_DIRECT_RHO = {
   caveat:
     'rho_exact is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L, not the empirical adjacent-box covariance of the actual Riemann zeros (which would need the zeros bundle). The AR-1 effective-count model is the same imp-96109/imp-96128 model; small NEGATIVE higher-lag correlations (lag-2/lag-3 ~ -0.020/-0.008) make the tiling only approximately AR-1 but push the same safe direction. Measurement/reconciliation only; changes no bound and does not RAISE the headline ~1.9-sigma quote -- it confirms that quote is a conservative floor beneath the effective 3.18.',
   verdict:
-    'Directly evaluating the union-identity rho_exact at the T = 1.5e5 box length L = 495.7794 gives rho_exact = Sigma^2(2L)/(2 Sigma^2(L)) - 1 = -0.4639782 (reproducing the imp-96128 baked -0.46398 to five decimals), whose AR-1 factor f = 2.731192 lifts n_eff from 291 to 794.777 and the effective significance from the conservative z_cons = 1.923422 to z_eff = 3.178708 = sqrt(f) * z_cons. The correlation model raises the figure and keeps it on the safe side of both the 2-sigma target and the sign-forbidden rho_crit = 0.57443 flip threshold (gap 1.0384 in rho units), so the ~1.9-sigma quote is confirmed as a conservative lower bound. Measurement/reconciliation only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Directly evaluating the union-identity rho_exact at the T = 1.5e5 box length L = 495.7794 gives rho_exact = Sigma^2(2L)/(2 Sigma^2(L)) - 1 = -0.4639782 (reproducing the imp-96128 baked -0.46398 to five decimals), whose AR-1 factor f = 2.731192 lifts n_eff from 291 to 794.777 and the effective significance from the conservative z_cons = 1.923422 to z_eff = 3.178708 = sqrt(f) * z_cons. The correlation model raises the figure and keeps it on the safe side of both the 2-sigma target and the sign-forbidden rho_crit = 0.57443 flip threshold (gap 1.0384 in rho units), so the ~1.9-sigma quote is confirmed as a conservative lower bound. Measurement/reconciliation only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -184,8 +184,8 @@ export const IMP96489_EXCURSION_EFFECTIVE_SIGNIFICANCE_DIRECT_RHO = {
   // honesty gates
   if (!/NO QED/.test(IMP96489_EXCURSION_EFFECTIVE_SIGNIFICANCE_DIRECT_RHO.verdict))
     throw new Error('imp-96489: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96489_EXCURSION_EFFECTIVE_SIGNIFICANCE_DIRECT_RHO.verdict))
-    throw new Error('imp-96489: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96489_EXCURSION_EFFECTIVE_SIGNIFICANCE_DIRECT_RHO.verdict))
+    throw new Error('imp-96489: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96489_EXCURSION_EFFECTIVE_SIGNIFICANCE_DIRECT_RHO;

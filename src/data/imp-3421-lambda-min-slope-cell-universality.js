@@ -70,8 +70,7 @@
  *   degree ~4; the imp-3382 extended-precision sub-gap is inherited unchanged).
  *   RH-EQUIVALENT class; no positivity attempted, no reduction, no RH verdict,
  *   no false QED. The off-diagonal endpoint-Hankel operator step (imp-3066)
- *   remains the lone obstruction, UNTOUCHED. Platt-Trudgian Lambda &lt;= 0.2
- *   remains the rigorous SOTA.
+ *   remains the lone obstruction, UNTOUCHED. No refereed bound is changed.
  *
  *   @see imp-3382-rawdiagonal-R-degree-growth-law.js (the single-cell -3.846 slope this re-fits)
  *   @see imp-2686-mupass-construction.js (the physical diagonal m(tau))
@@ -385,7 +384,7 @@ export const IMP3421_LAMBDA_MIN_SLOPE_CELL_UNIVERSALITY = Object.freeze({
       'Characterizing the conditioning slope of the raw diagonal core is a DIAGNOSTIC of why ' +
       'it fails as a passive core; it is necessary-but-NOT-sufficient at operator order. The ' +
       'off-diagonal endpoint-Hankel step (imp-3066) is the lone obstruction, untouched.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -439,7 +438,7 @@ export const IMP3421_LAMBDA_MIN_SLOPE_CELL_UNIVERSALITY_ASSERTIONS = [
   {
     id: 'imp3421-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: MEASUREMENT/DIAGNOSTIC, RH-equivalent, positivity not attempted, ' +
-         'imp-3066 untouched, PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'imp-3066 untouched, no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3421_LAMBDA_MIN_SLOPE_CELL_UNIVERSALITY.honestCaveat;
       return (
@@ -448,7 +447,7 @@ export const IMP3421_LAMBDA_MIN_SLOPE_CELL_UNIVERSALITY_ASSERTIONS = [
         c.isMeasurementDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
         c.imp3066Untouched === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

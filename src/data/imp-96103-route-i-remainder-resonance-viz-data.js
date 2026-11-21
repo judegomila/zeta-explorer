@@ -16,7 +16,7 @@
  * MEASUREMENT / PRESENTATION ONLY. The curve and spike/regular points are direct
  * evaluations of the source module's own exact closed-form deltaS(rho), cross-checked
  * against the baked ROUTE_I_LITERALS.deltaS literals below. Changes no bound, establishes
- * no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open.
+ * no operator positivity, no RH claim; no refereed bound is changed. RH open.
  * NO QED.
  *
  * @see rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js
@@ -70,7 +70,7 @@ export const IMP96103_CURVE = (() => {
 export const IMP96103_SPIKE_LAW = ROUTE_I_LITERALS.deltaS.spikeLaw;
 
 export const IMP96103_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: the delta_S(rho) curve and the spike/regular points are direct evaluations of the source module’s own exact closed-form deltaS(rho) (no re-derivation of the Sonine trace identity, no fresh Galerkin solve); no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Presentation only: the delta_S(rho) curve and the spike/regular points are direct evaluations of the source module’s own exact closed-form deltaS(rho) (no re-derivation of the Sonine trace identity, no fresh Galerkin solve); no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -123,7 +123,7 @@ const IMP96103_ASSERTIONS = [
     id: 'imp96103-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96103_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96103_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96103_HONEST_BANNER) &&
       /NO QED/.test(IMP96103_HONEST_BANNER),
     why: 'every Route A-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

@@ -43,7 +43,7 @@
  *   and the cross-platform libm arithmetic-floor caveat are inherited from imp-33312/imp-33538: the
  *   ceilings are single-lattice arithmetic-floor figures and the robust reading is "the envelope still
  *   bounds below tau=7 and the low-height ceilings are smaller", not the exact ULP digits. No RH
- *   verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33538-tau-uniform-envelope-constant.js (the envelope constant this bounds-tests below tau=7)
  *   @see imp-33312-tau-uniform-jitter-band.js (the height-collapsing band and its fixed neighbourhood)
@@ -207,7 +207,7 @@ const verdict =
       'tau=10~0.00),-SO-THE-LOW-HEIGHTS-SIT-ON-THE-SLACK-SIDE:-THE-SAME-FIXED-NEIGHBOURHOOD-IS-EVEN-MORE-' +
       'RESOLVED-FOR-THEM-(tau*Lo~6.96-FURTHER-ABOVE-tau=5,6),-SO-THE-ARITHMETIC-FLOOR-JITTER-IS-SMALLER-' +
       'NOT-LARGER.-ACCURACY-MEASUREMENT/RULE-DESIGN-ONLY;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-' +
-      'imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33558_ENVELOPE_BELOW_TAU7 = Object.freeze({
@@ -228,7 +228,7 @@ export const IMP33558_ENVELOPE_BELOW_TAU7 = Object.freeze({
     'ceiling climbs monotonically 5<6<7<8 to the tau=8 peak then collapses -- the low heights are MORE ' +
     'resolved by the same fixed neighbourhood, so their arithmetic-floor jitter is smaller, not larger. ' +
     'ACCURACY MEASUREMENT/RULE-DESIGN ONLY, RH-EQUIVALENT, necessary-but-not-sufficient; operator ' +
-    'positivity (imp-3066) untouched; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     machinery: 'identical to imp-33312: A(tau) = int_0^inf Phi(s) Phi(s+tau) ds via graded-GL panels ' +
@@ -311,7 +311,7 @@ export const IMP33558_ENVELOPE_BELOW_TAU7 = Object.freeze({
       'libm arithmetic-floor caveat are all inherited from imp-33312/imp-33538. The low-height ceilings ' +
       'are single-lattice arithmetic-floor figures; the robust reading is "the envelope still bounds below ' +
       'tau=7 and the low-height ceilings are smaller", not the exact ULP digits or the precise ceilings.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -350,7 +350,7 @@ export const IMP33558_ENVELOPE_BELOW_TAU7_ASSERTIONS = [
   {
     id: 'imp33558-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy measurement/rule-design audit only, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33558_ENVELOPE_BELOW_TAU7.honestCaveat;
       return (
@@ -358,7 +358,7 @@ export const IMP33558_ENVELOPE_BELOW_TAU7_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

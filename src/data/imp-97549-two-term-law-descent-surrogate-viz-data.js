@@ -14,7 +14,7 @@
  * every marker is a baked imp-97500 CROSSINGS point. Establishes no
  * operator positivity; changes no bound; the b/4-ceiling lower edge was
  * already REFUTED (imp-97481) and is a dead route; kappa_arith unchanged;
- * Platt-Trudgian Lambda<=0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97500-route-m-window-surrogate-descent-rate-min-b-crossing.js (the two-term law, kernel, and verdict)
  *

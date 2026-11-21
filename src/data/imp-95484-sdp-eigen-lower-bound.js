@@ -85,7 +85,7 @@
  * exact-Gram evaluations. (e) no optimized-diagonal SDP was solved (no SDP solver
  * available); the optimized dual is only DISCUSSED as the route that would be
  * needed. (f) the imp-95397 / obligation (3) actual seam sign pattern is NOT
- * addressed. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * addressed. Changes no bound; NO QED; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD. (1) 1^T G 1 rebuilds from the exact Gram to the
  * baked literal at every grid (round-trip). (2) the ideal spectral bound
@@ -228,7 +228,7 @@ export const IMP95484_SDP_EIGEN_LOWER_BOUND = {
   subGap:
     "OPEN residuals (unchanged from imp-95442). (i) exact theta_floor for N in {64,192,640} -- still UNCOMPUTED; the accessible uniform-diagonal / cheaply-certified SDP dual assessed here does not bracket it (needs an optimized-diagonal SDP solve + verified-Cholesky PSD certificate). (ii) the matching LOWER bound on alternating suboptimality is still MISSING, so the true gap stays one-sided (>= the witness gap). (iii) imp-95397 / obligation (3): the ACTUAL seam alias sign pattern -- STILL OPEN and unchanged.",
   verdict:
-    "MEASUREMENT / ASSESSMENT (PARTIAL, honest): a certified eigenvalue-enclosure (uniform-diagonal) SDP dual does NOT bracket the imp-95442 alternating suboptimality at N in {16,64,192,640}. Even with the exact lambda_min the uniform spectral bound is ~98% below the witness upper bound (relaxation gap intrinsic to the hypercube QP), and the cheap CERTIFIED enclosures (Weyl residual, Gershgorin) are non-positive on the near-singular Gram, so even that weak bound is not certifiable without a high-accuracy verified eigensolve. Bracketing needs the OPTIMIZED-diagonal SDP dual + a verified-Cholesky PSD certificate, out of reach here. theta_floor for N >= 64 stays UNCOMPUTED; nothing derives or moves a bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT / ASSESSMENT (PARTIAL, honest): a certified eigenvalue-enclosure (uniform-diagonal) SDP dual does NOT bracket the imp-95442 alternating suboptimality at N in {16,64,192,640}. Even with the exact lambda_min the uniform spectral bound is ~98% below the witness upper bound (relaxation gap intrinsic to the hypercube QP), and the cheap CERTIFIED enclosures (Weyl residual, Gershgorin) are non-positive on the near-singular Gram, so even that weak bound is not certifiable without a high-accuracy verified eigensolve. Bracketing needs the OPTIMIZED-diagonal SDP dual + a verified-Cholesky PSD certificate, out of reach here. theta_floor for N >= 64 stays UNCOMPUTED; nothing derives or moves a bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "theta(sigma) and 1^T G 1 are EXACT (imp-95375 closed-form Gram). lambda_min values are MEASURED (power-iteration Rayleigh quotients = upper bounds on lambda_min); the ideal spectral bound from them is an ESTIMATE, while the Weyl and Gershgorin variants ARE certified lower bounds and are non-positive at N >= 64. The witness upper bounds are the imp-95442 baked exact-Gram evaluations. No optimized-diagonal SDP was solved (no solver available); it is only discussed as the route that would be needed. The imp-95397 seam sign pattern is not addressed.",
 };
@@ -350,7 +350,7 @@ export const IMP95484_SDP_EIGEN_ASSERTIONS = [
       /UNCOMPUTED/.test(IMP95484_SDP_EIGEN_LOWER_BOUND.subGap) &&
       /STILL OPEN/.test(IMP95484_SDP_EIGEN_LOWER_BOUND.subGap) &&
       /NO QED/.test(IMP95484_SDP_EIGEN_LOWER_BOUND.verdict) &&
-      /remains SOTA/.test(IMP95484_SDP_EIGEN_LOWER_BOUND.verdict),
+      /refereed bound is changed/i.test(IMP95484_SDP_EIGEN_LOWER_BOUND.verdict),
   },
 ];
 

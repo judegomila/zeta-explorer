@@ -49,7 +49,7 @@
  *   inherited upstream. The four reorderings are a PORTABLE PROXY for libm variation, not a survey of
  *   real platforms; a genuinely different libm could shift more, but the band width (~4.3 ULP)
  *   dwarfs the ~1.34 ULP proxy shift, so the band reading has real headroom. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-33296-min-node-lattice-jitter-band.js (the band + the unquantified libm caveat)
  *   @see imp-33249-a-weight-graded-gl-minimal-full-window-1ulp-budget.js (the min-node hit + caveat)
@@ -266,7 +266,7 @@ const verdict =
       'IS-MATERIAL-FOR-THE-SINGLE-HIT-AND-IMMATERIAL-FOR-THE-BAND.-VALIDATES-THE-imp-33296/imp-33249-' +
       'RECOMMENDATION-TO-QUOTE-THE-BAND-AND-PASS-FRACTION-NOT-A-SINGLE-PANEL-COUNT.-ACCURACY-ASSESSMENT-' +
       'ONLY;-PORTABLE-PROXY-FOR-libm-VARIATION-NOT-A-PLATFORM-SURVEY;-mass-feasibility-' +
-      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33314_EVAL_ORDER_ULP_SENSITIVITY = Object.freeze({
@@ -290,7 +290,7 @@ export const IMP33314_EVAL_ORDER_ULP_SENSITIVITY = Object.freeze({
     'material for the single hit and immaterial for the band. This VALIDATES the imp-33296/imp-33249 ' +
     'recommendation to quote the BAND and the pass-fraction, not a single panel count. ACCURACY ASSESSMENT ' +
     'ONLY, RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no new bound; ' +
-    'no QED. PT Lambda <= 0.2 stays SOTA.',
+    'no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s) Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -374,7 +374,7 @@ export const IMP33314_EVAL_ORDER_ULP_SENSITIVITY = Object.freeze({
       'shift more; the measured ~1.34 ULP is a lower-bound-flavoured estimate. The band width (~4.3 ULP) still ' +
       'dwarfs it, so the band reading retains real headroom, but the single-hit fragility conclusion is the ' +
       'robust one.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -425,7 +425,7 @@ export const IMP33314_EVAL_ORDER_ULP_SENSITIVITY_ASSERTIONS = [
   {
     id: 'imp33314-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy assessment only, portable proxy not a platform survey, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33314_EVAL_ORDER_ULP_SENSITIVITY.honestCaveat;
       return (
@@ -433,7 +433,7 @@ export const IMP33314_EVAL_ORDER_ULP_SENSITIVITY_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

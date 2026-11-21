@@ -99,8 +99,7 @@ export default function Imp97630Lambda2FloorSpreadWaterfallViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97600 spread-decomposition literals verbatim (no re-derivation, no
         new computation). No rigorous lower bound on lambda_2 is produced; the floor stays four orders
-        below the required 0.581059; interval-rigorous reach stays 2a&le;0.96; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        below the required 0.581059; interval-rigorous reach stays 2a&le;0.96; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

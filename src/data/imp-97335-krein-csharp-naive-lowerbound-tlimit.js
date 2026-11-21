@@ -35,7 +35,7 @@
  *   positive limit but not a certificate, since N is unconverged and Rayleigh-Ritz gives upper bounds.
  *   The open object is unchanged: SUB-GAP IMP97183_CSHARP_LIMIT_NEEDS_COUPLED_NT_LOWER_BOUND still needs a
  *   single bound controlling the compression defect (N) and the sigma_2 t-tail (T) SIMULTANEOUSLY.
- *   No bound moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   No bound moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97183-krein-csharp-extprec-ladder.js (c_sharp bracketed from above only; T-sweep source; sub-gap owner)
  * @see imp-97256-krein-fejer-riesz-margin-honest-status.js (truncated SOS margin exists iff c <= c_sharp)

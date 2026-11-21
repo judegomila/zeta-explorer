@@ -76,7 +76,7 @@
  * corrected budget (that is a separate compute cell); it measures the LAW and the
  * REQUIRED budget. Model seam family only; the imp-95212 envelope port, signed
  * WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the Lambda program;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. Sun arXiv:2609.04176 unrefereed.
+ * NO QED; no refereed bound is changed. Sun arXiv:2609.04176 unrefereed.
  *
  * SUPERSEDED (endpoint-vs-window). recommendedBudget=800 here is set from the
  * N=1523 endpoint alone. imp-95859 later measured the interior near-degenerate
@@ -175,8 +175,8 @@ export const IMP95838_LN125_SHIFT_BUDGET_SCALING = {
     "new cited input; no numeric change to any certified interval (it does not " +
     "itself re-run the crossing at the corrected budget); model seam family only; " +
     "the imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. " +
-    "Changes no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA.",
+    "Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95838"],
 };
 
@@ -404,7 +404,7 @@ export const IMP95838_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /MEASURED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
 ];
 

@@ -31,7 +31,7 @@
  *   1/720 constant this headword names)
  *
  * Ticket: imp-97695 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 import { IMP97666_DERIVATION } from './imp-97666-route-m-mcm-tail-constant-euler-maclaurin.js';
@@ -61,8 +61,8 @@ const MCM_TAIL_CONSTANT_B4_HEADWORD = Object.freeze({
     '(src/data/imp-97666-route-m-mcm-tail-constant-euler-maclaurin.js), whose self-executing ' +
     'assertions recompute the B_4/B_6 Euler-Maclaurin coefficients and reproduce the baked ' +
     'clean-regime Rexact(m) ladder (m <= 100). Naming / glossary headword only; supplies no new ' +
-    'bound; onset stays omega = 11; MCM refuted; RH open; Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA; NO QED.',
+    'bound; onset stays omega = 11; MCM refuted; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP97695_MCM_TAIL_CONSTANT_B4_GLOSSARY_HEADWORD = Object.freeze({
@@ -79,7 +79,7 @@ export const IMP97695_MCM_TAIL_CONSTANT_B4_GLOSSARY_HEADWORD = Object.freeze({
     'GLOSSARY HEADWORD ONLY (documentation, not a proof). Names the imp-97666 derived MCM tail ' +
     'constant 1/720 = |B_4|/4!, the leading Euler-Maclaurin coefficient of Sum k log k (hyperfactorial ' +
     '/ Glaisher-Kinkelin) fixing the omitted-divisor remainder R(d) ~ +1/(720 d^2). No bound moved; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-97666 (the Euler-Maclaurin derivation of the 1/720 constant this glosses); imp-97647 ' +
     '(the RESULT-2 tail budget that had asserted the same constant).',
@@ -114,11 +114,11 @@ export const IMP97695_MCM_TAIL_CONSTANT_B4_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97695-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97695_MCM_TAIL_CONSTANT_B4_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97695_MCM_TAIL_CONSTANT_B4_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97695_MCM_TAIL_CONSTANT_B4_GLOSSARY_HEADWORD.verdict),
+      /refereed bound is changed/i.test(IMP97695_MCM_TAIL_CONSTANT_B4_GLOSSARY_HEADWORD.verdict),
   },
 ];
 

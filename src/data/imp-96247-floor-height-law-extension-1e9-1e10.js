@@ -34,7 +34,7 @@
 // at the fixed certified kappa_star. No zero is verified, no new T_PT is
 // claimed, the rigorous bound stays E_trunc = 3.06e-5, and C_mb stays
 // GUE-conditional per imp-486. Changes no bound. No positivity, no bridge
-// closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH
+// closure, no RH claim, NO QED. No refereed bound is changed; RH
 // remains OPEN.
 //
 // SYNTAX SAFETY: line comments only; single-quoted strings; no apostrophes
@@ -159,8 +159,8 @@ export const IMP96247_FLOOR_HEIGHT_LAW_EXTENSION = {
     '15.588457 with a 10^{0.5} half-decade on odd exponents dictates. No zero is ' +
     'verified, no new T_PT is claimed, the rigorous bound stays E_trunc = ' +
     '3.06e-5, C_mb stays GUE-conditional per imp-486. Changes no bound; no ' +
-    'bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA; RH OPEN.',
+    'bridge closure, no RH claim, NO QED. No refereed bound is changed' +
+    '; RH OPEN.',
   citation:
     'imp-96232 (floors 1e-5..1e-8 cross-validation); imp-96207 (floors ' +
     '1e-5/1e-6/1e-7); imp-96185 (floors 1e-5/1e-6/1e-8); imp-2322 (forward ' +
@@ -211,9 +211,9 @@ export const IMP96247_FLOOR_HEIGHT_LAW_EXTENSION_ASSERTIONS = [
       MANTISSA_PARITY.every((r) => Math.abs(r.leadingMantissa - r.expectedMantissa) < 1e-3),
   },
   {
-    // Honesty gate: extension only, no QED, PT stays SOTA, changes no bound.
+    // Honesty gate: extension only, no QED, no refereed bound is changed, changes no bound.
     id: 'imp96247-honesty-gate-no-qed',
-    description: 'Extension only: not rigorous, no QED, PT stays SOTA, changes no bound',
+    description: 'Extension only: not rigorous, no QED, no refereed bound is changed, changes no bound',
     holds: () =>
       IMP96247_FLOOR_HEIGHT_LAW_EXTENSION.isRigorous === false &&
       /NO QED/.test(IMP96247_FLOOR_HEIGHT_LAW_EXTENSION.verdict) &&

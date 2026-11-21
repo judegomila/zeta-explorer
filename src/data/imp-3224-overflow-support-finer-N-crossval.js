@@ -8,7 +8,7 @@
  *   coincidence of the single live N.
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   WHAT imp-3199 LEFT AT A SINGLE LIVE N
  *   -------------------------------------
@@ -72,7 +72,7 @@
  *   NOT re-derived. A nonzero overflow measure is necessary-but-NOT-sufficient at
  *   operator order; the off-diagonal endpoint-Hankel operator step (imp-3066) remains
  *   the lone obstruction. RH-equivalent, necessary-not-sufficient. No RH verdict, no
- *   false QED. Platt-Trudgian Lambda &lt;= 0.2 stays the rigorous SOTA.
+ *   false QED. No refereed bound is changed.
  *
  *   @see imp-3199-overflow-fraction-cell-sweep.js (the single-live-N seven-cell sweep)
  *   @see imp-3216-overflow-support-length-closed-form.js (the endpoint interval at N=51200)
@@ -362,7 +362,7 @@ export const IMP3224_OVERFLOW_SUPPORT_FINER_N_CROSSVAL = Object.freeze({
       'A nonzero overflow measure is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -411,7 +411,7 @@ export const IMP3224_OVERFLOW_SUPPORT_FINER_N_CROSSVAL_ASSERTIONS = [
   {
     id: 'imp3224-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC finer-N cross-validation, overflow-support-only (not the absolute deficit ' +
-         'magnitude), necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 stays SOTA. ' +
+         'magnitude), necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed. ' +
          'If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3224_OVERFLOW_SUPPORT_FINER_N_CROSSVAL.honestCaveat;
@@ -420,7 +420,7 @@ export const IMP3224_OVERFLOW_SUPPORT_FINER_N_CROSSVAL_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

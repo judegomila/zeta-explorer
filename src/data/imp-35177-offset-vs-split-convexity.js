@@ -57,7 +57,7 @@
  *   the imp-35132 / imp-34948 locators verbatim. Changes NO bound; recomputes no landmark
  *   used in any bound; C_mb GUE-conditional per imp-486 is UNTOUCHED; establishes no
  *   operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- *   (imp-3463); no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   (imp-3463); no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35042-inflection-crossover-offset-structural (N_star offset = 2 g_prime/g^3, structural)
  * @see imp-35132-split-attribution (the ~0.064 split; C3 definitional attribution, running-g ruled out)
@@ -266,7 +266,7 @@ export const IMP35177_OFFSET_VS_SPLIT_CONVEXITY = {
     'definitional, running-g ruled out) with no contradiction. Component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'RECONCILES imp-35042 (N_star offset = 2 g_prime/g^3, running-rate-convexity driven) with imp-35132 (~0.064 ' +
     'split = definitional, running-g ruled out): g_prime is the common magnitude driver of BOTH the sigmoid and ' +
@@ -327,16 +327,16 @@ export const IMP35177_OFFSET_VS_SPLIT_CONVEXITY_ASSERTIONS = [
       gPrimeCancelsInRatio === true,
   },
   {
-    // Honesty gate: derivation/measurement only, far-tail exponent = 1/2, sub-gap named, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, far-tail exponent = 1/2, sub-gap named, no QED, no refereed bound is changed.
     id: 'imp35177-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, far-tail exponent = 1/2, sub-gap named, no QED, PT stays SOTA',
+    description: 'measurement only: isRigorous false, far-tail exponent = 1/2, sub-gap named, no QED, no refereed bound is changed',
     holds: () =>
       IMP35177_OFFSET_VS_SPLIT_CONVEXITY.isRigorous === false &&
       IMP35177_OFFSET_VS_SPLIT_CONVEXITY.farTailExponent === 0.5 &&
       typeof IMP35177_OFFSET_VS_SPLIT_CONVEXITY.subGap === 'string' &&
       /imp-486/.test(IMP35177_OFFSET_VS_SPLIT_CONVEXITY.subGap) &&
       /NO QED/.test(IMP35177_OFFSET_VS_SPLIT_CONVEXITY.verdict) &&
-      /remains SOTA/.test(IMP35177_OFFSET_VS_SPLIT_CONVEXITY.verdict),
+      /refereed bound is changed/i.test(IMP35177_OFFSET_VS_SPLIT_CONVEXITY.verdict),
   },
 ];
 

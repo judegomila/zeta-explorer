@@ -16,12 +16,12 @@
  * src/data/visualizations-index.js (a complete row: route, title,
  * oneLine, mathBucket, dataModule, paperSourcePath, ticket,
  * pedagogicalStep 165, honestCeiling). Confirmed the page itself carries
- * the mandatory NO QED / Platt-Trudgian Lambda<=0.2 SOTA banner.
+ * the mandatory NO QED / no-refereed-bound-change banner.
  *
  * FINDING: NOT orphaned. The module is fully wired end to end
  * (data module -> page component -> App.jsx route -> visualizations-index
  * row); no new page, route, or index row is needed. AUDIT-ONLY: no bound
- * change; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * change; NO QED; no refereed bound is changed.
  */
 
 const WIRING_CHAIN = {
@@ -45,7 +45,7 @@ export const IMP95696_LEGB_STRADDLE_CONSUMER_AUDIT = {
     '(Imp95587LegBStraddleVsRatioViz.jsx), which is routed in src/App.jsx at ' +
     '"/viz-imp95587-legb-straddle-vs-ratio" and carries a complete matching row in ' +
     'visualizations-index.js (pedagogicalStep 165). No new wiring required. Changes no ' +
-    'bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'bound; NO QED; no refereed bound is changed.',
 };
 
 export const IMP95696_LEGB_STRADDLE_CONSUMER_AUDIT_ASSERTIONS = [
@@ -64,10 +64,10 @@ export const IMP95696_LEGB_STRADDLE_CONSUMER_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-95696-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () =>
       /AUDIT-ONLY/.test(IMP95696_LEGB_STRADDLE_CONSUMER_AUDIT.honest) &&
-      /Lambda<=0.2 remains SOTA/.test(IMP95696_LEGB_STRADDLE_CONSUMER_AUDIT.honest),
+      /refereed bound is changed/i.test(IMP95696_LEGB_STRADDLE_CONSUMER_AUDIT.honest),
   },
 ];
 

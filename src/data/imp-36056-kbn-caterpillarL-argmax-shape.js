@@ -48,7 +48,7 @@
  *
  * Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality;
  * changes no bound; establishes no positivity; C_mb GUE-conditional (imp-486) untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36023-kbn-combined-worst-ladder (KBN floor on the clustered SEQUENTIAL order across the ladder)
  * @see imp-36020-w1-clustered-order-shape-argmax (caterpillarL arg-max ~41.2% of the ceiling; compensation never applied)
@@ -61,7 +61,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36020 / imp-36023) ---------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -331,7 +331,7 @@ export const IMP36056_KBN_CATERPILLARL_ARGMAX_SHAPE = {
     'obstruction stays the ENGINEERING of the certified length-N interval sum (MECHANICAL, imp-35725). Certifies ' +
     'no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; changes no bound; ' +
     'establishes no positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A); C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36023 (KBN floor on the clustered SEQUENTIAL order across the ladder; sequential floor ~1.89e-20 at ' +
     'N ~ 488602); imp-36020 (caterpillarL arg-max ~41.2% of the ceiling, compensation never applied); imp-35973 ' +
@@ -384,9 +384,9 @@ export const IMP36056_KBN_CATERPILLARL_ARGMAX_SHAPE_ASSERTIONS = [
     holds: () => Math.abs(KBN_ERR - KBN_SEQ_IMP36023) / KBN_SEQ_IMP36023 < 0.05,
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp36056-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36056_KBN_CATERPILLARL_ARGMAX_SHAPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -395,7 +395,7 @@ export const IMP36056_KBN_CATERPILLARL_ARGMAX_SHAPE_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP36056_KBN_CATERPILLARL_ARGMAX_SHAPE.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36056_KBN_CATERPILLARL_ARGMAX_SHAPE.verdict) &&
-      /remains SOTA/.test(IMP36056_KBN_CATERPILLARL_ARGMAX_SHAPE.verdict),
+      /refereed bound is changed/i.test(IMP36056_KBN_CATERPILLARL_ARGMAX_SHAPE.verdict),
   },
 ];
 

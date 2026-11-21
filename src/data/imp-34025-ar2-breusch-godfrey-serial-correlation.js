@@ -78,7 +78,7 @@
  * extrapolation, NOT a rigorous asymptotic; the OLS surrogate is descriptive, not derived; the AR(2)
  * conditional OLS rests on only 19 lagged triples and the BG chi-square reference is a small-sample asymptotic
  * on N=21; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33964-ljung-box-portmanteau-test (the sign-changing ACF r_4/r_5 < 0 that defeats AR(1), fit here)
  * @see imp-33921-ar1-residual-rho-reconciliation (the AR(1) rho_AR ~ 0.968 endpoint-inflation this corroborates)
@@ -300,8 +300,8 @@ export const IMP34025_AR2_BREUSCH_GODFREY_SERIAL_CORRELATION = {
     'touches no bound; the AR(2) conditional OLS rests on 19 lagged triples and the BG chi-square reference ' +
     'is a small-sample asymptotic on N=21; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
-    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33964 (the sign-changing ACF r_4/r_5 < 0 that defeats AR(1), fit here); imp-33921 (the AR(1) ' +
     'rho_AR ~ 0.968 endpoint-inflation this corroborates); imp-33858 (the 21 signed residuals and the ' +
@@ -369,13 +369,13 @@ export const IMP34025_AR2_BREUSCH_GODFREY_SERIAL_CORRELATION_ASSERTIONS = [
       BG[3].lm - BG[0].lm < 1.0,
   },
   {
-    // Honesty gate: isRigorous false, no QED, PT SOTA, residual small, imp-3066 untouched.
+    // Honesty gate: isRigorous false, no QED, no refereed bound is changed, residual small, imp-3066 untouched.
     id: 'imp34025-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, 12% multiplicative, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, 12% multiplicative, imp-3066 untouched',
     holds: () =>
       IMP34025_AR2_BREUSCH_GODFREY_SERIAL_CORRELATION.isRigorous === false &&
       /NO QED/.test(IMP34025_AR2_BREUSCH_GODFREY_SERIAL_CORRELATION.verdict) &&
-      /remains SOTA/.test(IMP34025_AR2_BREUSCH_GODFREY_SERIAL_CORRELATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34025_AR2_BREUSCH_GODFREY_SERIAL_CORRELATION.verdict) &&
       /12% multiplicative/.test(IMP34025_AR2_BREUSCH_GODFREY_SERIAL_CORRELATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34025_AR2_BREUSCH_GODFREY_SERIAL_CORRELATION.verdict),
   },

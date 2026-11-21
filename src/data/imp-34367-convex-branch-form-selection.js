@@ -42,8 +42,7 @@
  * MEASUREMENT / FORM-SELECTION PROBE ONLY. A descriptive least-squares ranking of inherited surrogate fits, NOT
  * an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the fits are descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34268-fixed-band-peak-reaccel-convexity-stitch (the convex branch this selects a form for; hosts SUB-GAP-imp-34268-convex-branch-form)
  * @see imp-34346-fixed-band-peak-third-diff-pole-order (sub-unity effective pole order p ~ 0.937 in the third difference; agrees the pole is sub-order-1)
@@ -323,7 +322,7 @@ export const IMP34367_CONVEX_BRANCH_FORM_SELECTION = {
     'least-squares ranking is descriptive, not derived; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34268 (the convex branch this selects a form for; SUB-GAP-imp-34268-convex-branch-form); imp-34346 ' +
     '(sub-unity effective pole order p ~ 0.937 in the third difference); imp-34253 (logarithmic peak); ' +
@@ -379,9 +378,9 @@ export const IMP34367_CONVEX_BRANCH_FORM_SELECTION_ASSERTIONS = [
   },
   {
     // Honesty gate: form-selection only, isRigorous false, imp-34268 sub-gap answered, asymptotic class still open,
-    // no QED, PT SOTA, imp-3066 K_a>=0 & imp-486 C_mb untouched.
+    // no QED, no refereed bound is changed, imp-3066 K_a>=0 & imp-486 C_mb untouched.
     id: 'imp34367-honesty-gate-no-qed',
-    description: 'Form-selection only: isRigorous false, SUB-GAP-imp-34268-convex-branch-form answered, asymptotic class open, no QED, PT SOTA, imp-3066 K_a>=0 & imp-486 C_mb untouched',
+    description: 'Form-selection only: isRigorous false, SUB-GAP-imp-34268-convex-branch-form answered, asymptotic class open, no QED, no refereed bound is changed, imp-3066 K_a>=0 & imp-486 C_mb untouched',
     holds: () =>
       IMP34367_CONVEX_BRANCH_FORM_SELECTION.isRigorous === false &&
       /SUB-GAP-imp-34268-convex-branch-form/.test(IMP34367_CONVEX_BRANCH_FORM_SELECTION.verdict) &&
@@ -389,7 +388,7 @@ export const IMP34367_CONVEX_BRANCH_FORM_SELECTION_ASSERTIONS = [
       /NOT a rigorous asymptotic/.test(IMP34367_CONVEX_BRANCH_FORM_SELECTION.verdict) &&
       /LOCAL best-fit descriptor/.test(IMP34367_CONVEX_BRANCH_FORM_SELECTION.verdict) &&
       /NO QED/.test(IMP34367_CONVEX_BRANCH_FORM_SELECTION.verdict) &&
-      /remains SOTA/.test(IMP34367_CONVEX_BRANCH_FORM_SELECTION.verdict) &&
+      /refereed bound is changed/i.test(IMP34367_CONVEX_BRANCH_FORM_SELECTION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34367_CONVEX_BRANCH_FORM_SELECTION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34367_CONVEX_BRANCH_FORM_SELECTION.verdict),
   },

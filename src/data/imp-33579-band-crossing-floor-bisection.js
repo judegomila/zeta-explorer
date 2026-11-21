@@ -73,7 +73,7 @@
  *   n range, not a bisectable rung -- not the exact per-rung ULP. The NPHI = 10 Phi-series truncation is
  *   inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-33557-band-crossing-min-budget.js (the three-rung bracket this bisects)
  *   @see imp-33537-deep-tail-plateau-spike-recurrence.js (the dense scan bounding the &lt; 64 band validity)
@@ -315,7 +315,7 @@ const verdict =
       'THRESHOLD-INSIDE-[510,596].-LOCAL-FLOOR-SLOPE-~-0.43-ULP/RUNG-NEAR-510,-~+2.9-AT-THE-n~531-SPIKE,-~-1.14-' +
       'NEAR-596.-CONFIRMS+SHARPENS-THE-imp-33557/imp-33537-latticeJitterCaveat:-THE-CROSSING-IS-DEFINED-ONLY-TO-' +
       'THE-ENVELOPE-OVER-A-WIDE-n-RANGE,-NEVER-TO-A-SINGLE-RUNG-n*.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-' +
-      'LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33579_BAND_CROSSING_FLOOR_BISECTION = Object.freeze({
@@ -345,7 +345,7 @@ export const IMP33579_BAND_CROSSING_FLOOR_BISECTION = Object.freeze({
     'BISECTION-ILL-POSED. CONFIRMS and SHARPENS the imp-33557/imp-33537 latticeJitterCaveat -- the crossing is ' +
     'defined only to the envelope over a wide n range, never to a single rung n*. ACCURACY/RULE-DESIGN ' +
     'MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; operator positivity ' +
-    '(imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    '(imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -436,7 +436,7 @@ export const IMP33579_BAND_CROSSING_FLOOR_BISECTION = Object.freeze({
       '(the exact n~531/n~526 crossings and the ~76/~61/~65 ULP values). The robust reading is the QUALITATIVE ' +
       'non-monotone structure -- the crossing is an envelope over a wide n range, not a bisectable rung -- not the ' +
       'exact per-rung ULP. imp-33537/imp-33556 establish the < 64 band crossing at n >= 510 as solver-invariant.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -485,7 +485,7 @@ export const IMP33579_BAND_CROSSING_FLOOR_BISECTION_ASSERTIONS = [
   {
     id: 'imp33579-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33579_BAND_CROSSING_FLOOR_BISECTION.honestCaveat;
       return (
@@ -494,7 +494,7 @@ export const IMP33579_BAND_CROSSING_FLOOR_BISECTION_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

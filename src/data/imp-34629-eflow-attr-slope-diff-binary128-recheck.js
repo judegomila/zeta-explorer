@@ -59,7 +59,7 @@
  *   NOT an RH bound. Descriptive surrogate fit, NOT a rigorous asymptotic; the component model is
  *   the inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is
  *   UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- *   no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34609-eflow-attr-near-far-slope-diff-log-corrected.js (the double-precision ~9.45-sigma baseline)
  *   @see imp-34406-eflow-attr-smooth-nonzero-across-pole.js (the 8 near rungs)
@@ -320,7 +320,7 @@ export const IMP34629_EFLOW_ATTR_SLOPE_DIFF_BINARY128_RECHECK = {
     'not fit-roundoff-limited. Descriptive surrogate fit, NOT a rigorous asymptotic; the component ' +
     'model is the inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED; no refereed bound is changed.',
 };
 
 export const IMP34629_ASSERTIONS = [
@@ -361,13 +361,13 @@ export const IMP34629_ASSERTIONS = [
       IMP34629_FAR_RMS_LOG_RESID_DD < 1e-8,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34629-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34629_EFLOW_ATTR_SLOPE_DIFF_BINARY128_RECHECK.isRigorous === false &&
       /NO QED/.test(IMP34629_EFLOW_ATTR_SLOPE_DIFF_BINARY128_RECHECK.honest) &&
-      /remains SOTA/.test(IMP34629_EFLOW_ATTR_SLOPE_DIFF_BINARY128_RECHECK.honest),
+      /refereed bound is changed/i.test(IMP34629_EFLOW_ATTR_SLOPE_DIFF_BINARY128_RECHECK.honest),
   },
 ];
 

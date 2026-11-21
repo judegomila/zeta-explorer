@@ -10,8 +10,8 @@
  * of the Weibull-3 block-extreme null); no re-fit, no new numerics.
  *
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity,
- * no RH claim; measurement conditional on GUE; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; RH open; NO QED.
+ * no RH claim; measurement conditional on GUE; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96755-gmin-exponent-noise-band.js (source Monte-Carlo bands)
  * @see imp-96683-route-m-conditioning-ceiling-ci-viz-data.js (sibling viz-data leaf convention)
@@ -47,7 +47,7 @@ export const IMP96801_ROWS = Object.freeze(
 export const IMP96801_MOST_SIGNIFICANT = Object.freeze({ ...GMIN_EXPONENT_NOISE_BAND.mostSignificant });
 
 export const IMP96801_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every band edge, ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every band edge, ' +
   'z-score, and observed exponent is reused verbatim from imp-96755 (200,000-trial Monte Carlo ' +
   'of the Weibull-3 block-extreme null); this module only reshapes those baked numbers into a ' +
   'chart-ready row list. No bound is claimed moved and no operator positivity is established; ' +
@@ -93,7 +93,7 @@ const IMP96801_ASSERTIONS = [
     id: 'imp96801-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96801_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96801_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96801_HONEST_BANNER) &&
       /NO QED/.test(IMP96801_HONEST_BANNER),
     why: 'every viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

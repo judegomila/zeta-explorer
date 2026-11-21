@@ -55,8 +55,8 @@ export const IMP95753_CAVEAT_BANNER =
   'placement, not a new measurement. The axis shows the imp-3444 E_coll = E_trunc crossover ' +
   'landing inside the ~6.78-decade UNMEASURED gap between the imp-95710 conservatism top and the ' +
   'imp-95519 window bottom, near the log-midpoint of that gap. Model seam family only; introduces ' +
-  'no new cited input and changes no bound; Platt-Trudgian Lambda <= 0.2 remains the rigorous ' +
-  'SOTA. No QED.';
+  'no new cited input and changes no bound; no refereed bound is changed' +
+  '. No QED.';
 
 export const IMP95753_CROSSOVER_HEIGHT_WINDOW_VIZ_DATA_ASSERTIONS = [
   {

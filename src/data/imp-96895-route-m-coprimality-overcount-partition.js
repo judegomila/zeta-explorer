@@ -57,7 +57,7 @@
  *
  * VERDICT: coprimality over-count contributes ~2.5x, residual sup-type K^2 gap ~1.81x, of the
  * imp-96796 ~4.53x bracket looseness. No bound moved; T = 2.594e7 stays the rigorous anchor;
- * compute (N ~ 9916) binds first; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * compute (N ~ 9916) binds first; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96796-route-m-homogeneous-envelope-s0-upper-bracket.js (the ~4.53x bracket, caveat (3))
  * @see imp-96770-route-m-weighted-cotangent-homogeneous-envelope.js (the all-a readout, K ~ 1.26)
@@ -125,11 +125,11 @@ export const IMP96895_VERDICT = Object.freeze({
     'b/phi(b) = 2.5 for the 2-5-smooth test b = 400/800/1600, NOT the 6/pi^2-flavoured average the ' +
     'ticket anticipated. The tightened bracket 3.18 still exceeds s0 = 1.751 and is still CONDITIONAL ' +
     'on the unproved envelope (E), so no rigorous bound is moved: T = 2.594e7 stays the anchor, ' +
-    'compute N ~ 9916 binds first, PT Lambda <= 0.2 SOTA, RH open; NO QED.',
+    'compute N ~ 9916 binds first, no refereed bound is changed, RH open; NO QED.',
 });
 
 export const IMP96895_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Partition MEASUREMENT only: of the imp-96796 ' +
+  'RH open; no refereed bound is changed; NO QED. Partition MEASUREMENT only: of the imp-96796 ' +
   '~4.53x envelope s0 upper-bracket looseness, a factor ~2.5 is the coprimality over-count (caveat 3, ' +
   '= b/phi(b) for these 2-5-smooth b, NOT 6/pi^2) and the residual sup-type K^2 gap is ~1.81x. ' +
   'Restoring coprimality tightens the bracket 7.94 -> 3.18 but it stays above s0 = 1.751 and ' +
@@ -180,7 +180,7 @@ const IMP96895_ASSERTIONS = [
       IMP96895_VERDICT.anyBoundMoved === false &&
       IMP96895_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP96895_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96895_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96895_HONEST_BANNER) &&
       /RH open/.test(IMP96895_HONEST_BANNER),
     why: 'partition measurement only: coprimality over-count is dominant but the tightened bracket stays conditional on (E), no bound moved, compute binds first, and the honesty markers are present.',
   },

@@ -42,7 +42,7 @@
  * DERIVATION / MEASUREMENT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33744-sigma-inflection-vs-half-closed-form (closed form + frozen-vs-running endpoints)
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade knee N ~ 3.38e9, ~3.3% offset claim)
@@ -198,7 +198,7 @@ export const IMP124834_SIGMA_INFLECTION_OFFSET_VS_LOG_RUNNING_DIAL = {
     'runs and vanishes exactly when frozen, confirming imp-33744 F2 (log-factor, not E_flow). The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33744 (closed form sigma_infl = 1/2 - g_prime/2g^2, frozen-vs-running endpoints); imp-33721 ' +
     '(sub-decade knee N ~ 3.38e9, ~3.3% offset); imp-33582 (sigma=1/2 halving landmark ~3.27e9); ' +
@@ -251,13 +251,13 @@ export const IMP124834_SIGMA_INFLECTION_OFFSET_VS_LOG_RUNNING_DIAL_ASSERTIONS = 
     holds: () => SWEEP.every((s) => Math.abs(s.sigmaInflClosedForm - s.sigmaInfl) < 5e-4),
   },
   {
-    // Honesty gate: measurement/derivation only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement/derivation only, no bound change, no QED, no refereed bound is changed.
     id: 'imp124834-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124834_SIGMA_INFLECTION_OFFSET_VS_LOG_RUNNING_DIAL.isRigorous === false &&
       /NO QED/.test(IMP124834_SIGMA_INFLECTION_OFFSET_VS_LOG_RUNNING_DIAL.verdict) &&
-      /Lambda <= 0\.2 SOTA/.test(IMP124834_SIGMA_INFLECTION_OFFSET_VS_LOG_RUNNING_DIAL.verdict),
+      /refereed bound is changed/i.test(IMP124834_SIGMA_INFLECTION_OFFSET_VS_LOG_RUNNING_DIAL.verdict),
   },
 ];
 

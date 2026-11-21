@@ -70,7 +70,7 @@
  * MEASUREMENT ONLY. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; L1..L5 are finite-difference measurements; the C_mb GUE-conditional share
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34000-geometric-center-fourth-order-taylor-tail (fourth-order term S4, fifth-order tail measured here)
  * @see imp-34001-geometric-center-taylor-ratio-fit (per-order reduction ratio ~c/log T0)
@@ -236,7 +236,7 @@ export const IMP34059_GEOMETRIC_CENTER_FIFTH_ORDER_TAYLOR_TAIL = {
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; L1..L5 are ' +
     'finite-difference measurements; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes ' +
     'no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34000 (fourth-order term S4, fifth-order tail measured here); imp-34001 (per-order ratio ' +
     '~c/log T0); imp-33947 (third-order term S3); imp-33900 (second-order term S2); imp-33879 (leading ' +
@@ -269,13 +269,13 @@ export const IMP34059_GEOMETRIC_CENTER_FIFTH_ORDER_TAYLOR_TAIL_ASSERTIONS = [
     holds: () => RES5_REL_MAX > 1e-6 && RES5_REL_MAX < 1e-4,
   },
   {
-    // Honesty gate: measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp34059-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34059_GEOMETRIC_CENTER_FIFTH_ORDER_TAYLOR_TAIL.isRigorous === false &&
       /NO QED/.test(IMP34059_GEOMETRIC_CENTER_FIFTH_ORDER_TAYLOR_TAIL.verdict) &&
-      /remains SOTA/.test(IMP34059_GEOMETRIC_CENTER_FIFTH_ORDER_TAYLOR_TAIL.verdict),
+      /refereed bound is changed/i.test(IMP34059_GEOMETRIC_CENTER_FIFTH_ORDER_TAYLOR_TAIL.verdict),
   },
 ];
 

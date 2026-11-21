@@ -13,7 +13,7 @@
  *
  * @see rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js (source module: ROUTE_K)
  *
- * Ticket: imp-96060 (ux, low). RH-equivalent; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * Ticket: imp-96060 (ux, low). RH-equivalent; no refereed bound is changed; NO QED.
  */
 
 // [T, I(T), J_1(T) = (T/2) log(M_1/T), loss = J_1/|I|]

@@ -10,8 +10,8 @@
  * Cholesky numerics).
  *
  * MEASUREMENT / PRESENTATION ONLY. Changes no bound, establishes no
- * operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. RH open. NO QED.
+ * operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96094-route-m-burnol-ratio-dense-ladder.js (source ladder)
  * @see imp-96075-route-m-vasyunin-dn-ladder-viz-data.js (sibling viz leaf
@@ -77,7 +77,7 @@ const IMP96120_ASSERTIONS = [
     id: 'imp96120-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96120_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96120_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96120_HONEST_BANNER) &&
       /NO QED/.test(IMP96120_HONEST_BANNER) &&
       IMP96120_VERDICT_SUMMARY.monotone === false,
     why: 'the honest banner carries the RH-open / PT-Lambda / NO-QED markers required of every Route A-M viz surface, and the copied verdict correctly records the ladder as non-monotone.',

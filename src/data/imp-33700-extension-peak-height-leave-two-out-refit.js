@@ -65,8 +65,7 @@
  *   the imp-33680 collapse does not replicate, neither confirming nor denying a trend -- not the exact
  *   coefficients. The NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2
- *   remains the SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33679-cluster-peak-envelope-height-1200-1600.js (the four-peak plateau this refits robustly)
  *   @see imp-33680-cluster-peak-height-leave-two-out-refit.js (the [400,1200] leave-two-out this mirrors)
@@ -189,7 +188,7 @@ const verdict =
       'TALLEST-ARE-ORDINARY-PLATEAU-MEMBERS-NOT-TREND-CARRYING-OUTLIERS-AND-THERE-IS-NO-TWO-POINT-ARTIFACT-TO-' +
       'REPLICATE.-THE-imp-33680-COLLAPSE-TEST-IS-UNDERPOWERED-ON-n=4.-CONSISTENT-WITH-THE-imp-33679-SATURATION-' +
       'READING-AND-THE-imp-33660-latticeJitterCaveat.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-JITTERY-LATTICE-' +
-      'FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33700_EXTENSION_PEAK_HEIGHT_LEAVE_TWO_OUT_REFIT = Object.freeze({
@@ -216,7 +215,7 @@ export const IMP33700_EXTENSION_PEAK_HEIGHT_LEAVE_TWO_OUT_REFIT = Object.freeze(
     'plateau members, not trend-carrying outliers; there is no two-point artifact to replicate and no growth to ' +
     'confirm; the imp-33680 collapse test is UNDERPOWERED on n = 4. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, ' +
     'necessary-but-not-sufficient; jittery lattice floor; operator positivity (imp-3066) untouched; no QED. ' +
-    'PT Lambda <= 0.2 SOTA.',
+    'No refereed bound is changed.',
 
   method: Object.freeze({
     source: 'the EXACT four imp-33679 measured.peakNs / measured.peakHeights (frozen import; no re-derivation)',
@@ -320,7 +319,7 @@ export const IMP33700_EXTENSION_PEAK_HEIGHT_LEAVE_TWO_OUT_REFIT = Object.freeze(
       'the two-point leave-two-out slope ~+0.01593, the survival ratio ~1.07, and the six-pair jackknife range. The ' +
       'robust reading is the QUALITATIVE conclusion -- the leave-two-out is degenerate on four peaks and the ' +
       'imp-33680 collapse does not replicate, neither confirming nor denying a trend -- not the exact coefficients.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -370,7 +369,7 @@ export const IMP33700_EXTENSION_PEAK_HEIGHT_LEAVE_TWO_OUT_REFIT_ASSERTIONS = [
   {
     id: 'imp33700-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33700_EXTENSION_PEAK_HEIGHT_LEAVE_TWO_OUT_REFIT.honestCaveat;
       return (
@@ -379,7 +378,7 @@ export const IMP33700_EXTENSION_PEAK_HEIGHT_LEAVE_TWO_OUT_REFIT_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

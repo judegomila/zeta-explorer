@@ -87,7 +87,7 @@
  *   certified error bound -- it removes the quadrature-rule worry, not the kernel floor.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH
- *   verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA. imp-3849,
+ *   verdict, no QED. No refereed bound is changed. imp-3849,
  *   imp-3868 and imp-3731 assertions are LEFT INTACT -- this is an independent
  *   re-derivation alongside them.
  *
@@ -490,7 +490,7 @@ export const IMP3895_SADDLE_CROSSING_CLENSHAW_CURTIS_THIRD_SOLVER = Object.freez
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -589,7 +589,7 @@ export const IMP3895_SADDLE_CROSSING_CLENSHAW_CURTIS_THIRD_SOLVER_ASSERTIONS = [
     id: 'imp3895-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: third-solver confirmation only, shared kernel truncation not a certified ' +
          'bound, mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) untouched, ' +
-         'PT 0.2 SOTA, and imp-3849/imp-3868/imp-3731 assertions left intact.',
+         'no refereed bound is changed, and imp-3849/imp-3868/imp-3731 assertions left intact.',
     holds: () => {
       const c = IMP3895_SADDLE_CROSSING_CLENSHAW_CURTIS_THIRD_SOLVER.honestCaveat;
       return (
@@ -601,7 +601,7 @@ export const IMP3895_SADDLE_CROSSING_CLENSHAW_CURTIS_THIRD_SOLVER_ASSERTIONS = [
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
         c.leavesImp3849Imp3868AndImp3731AssertionsIntact === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

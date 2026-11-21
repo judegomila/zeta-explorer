@@ -27,7 +27,7 @@
  * grep for honest-status modules by filename, per imp-36209's finding that inline-only corrections
  * are not reliably discoverable). Read-only record; changes no bound; establishes no operator
  * positivity; no RH verdict; NO QED. MCM stays VERIFIED at omega<=6 (measured, not proved) and is
- * FALSE from omega=11 per imp-97432; Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * FALSE from omega=11 per imp-97432; no refereed bound is changed.
  *
  * @see imp-97519-route-m-mcm-baseterm-043-crossing-spotcheck.js (the direct-kernel spot-check this note records)
  * @see imp-97499-route-m-mcm-baseterm-scaled-approach-K0.js (the original RESULT 3 crossing prediction)
@@ -75,8 +75,8 @@ export const IMP97592_BASETERM_CROSSING_HONEST_STATUS = {
     `${M0}/ln x to 64 digits, and the drift toward K0=1/24 is 1/ln x not power-law (residual ratio ` +
     `${RESIDUAL_RATIO_14_TO_31} = ln-ratio exactly). MCM stays VERIFIED at omega<=${MCM_VERIFIED_UP_TO_OMEGA} ` +
     `(measured, not proved) and is FALSE from omega=${MCM_REFUTED_FROM_OMEGA} (imp-97432). Changes no ` +
-    'bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97519-route-m-mcm-baseterm-043-crossing-spotcheck.js (IMP97519_VERDICT, the source finding ' +
     'this note records); imp-97499-route-m-mcm-baseterm-scaled-approach-K0.js (the original RESULT 3 ' +
@@ -103,7 +103,7 @@ export const IMP97592_BASETERM_CROSSING_HONEST_STATUS_ASSERTIONS = [
   },
   {
     id: 'imp97592-mcm-status-and-no-fix-honesty-gate',
-    description: 'MCM stays verified<=6/refuted-from-11, no bound moved, no fix, no QED, PT stays SOTA',
+    description: 'MCM stays verified<=6/refuted-from-11, no bound moved, no fix, no QED, no refereed bound is changed',
     holds: () =>
       IMP97592_BASETERM_CROSSING_HONEST_STATUS.mcmVerifiedUpToOmega === 6 &&
       IMP97592_BASETERM_CROSSING_HONEST_STATUS.mcmRefutedFromOmega === 11 &&
@@ -111,7 +111,7 @@ export const IMP97592_BASETERM_CROSSING_HONEST_STATUS_ASSERTIONS = [
       IMP97592_BASETERM_CROSSING_HONEST_STATUS.fixApplied === false &&
       IMP97592_BASETERM_CROSSING_HONEST_STATUS.isRigorous === false &&
       /NO QED/.test(IMP97592_BASETERM_CROSSING_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(IMP97592_BASETERM_CROSSING_HONEST_STATUS.verdict),
+      /refereed bound is changed/i.test(IMP97592_BASETERM_CROSSING_HONEST_STATUS.verdict),
   },
 ];
 

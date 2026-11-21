@@ -73,7 +73,7 @@
  * WARRANTED relabeling -- the scale is correct, and its correctness is exactly
  * why it does not reopen the program. The imp-95519 zero-side no-go STANDS.
  *
- * Assess/derive only. No bound changes; NO QED; PT Lambda <= 0.2 remains SOTA;
+ * Assess/derive only. No bound changes; NO QED; no refereed bound is changed;
  * RH open. Import-light: no zeros bundle, no sibling imports; all literals
  * re-derived from the imp-95519/imp-95534 closed forms.
  */
@@ -157,7 +157,7 @@ export const IMP95692_CONDUCTOR_NORMALIZATION_WARRANTED_DECISION = Object.freeze
   ],
 
   netVerdict:
-    'WARRANTED, AND STILL A RELABELING. The analytic-conductor scale log(p T/2 pi) IS the mathematically-warranted normalization here (the section-3 import makes L(s, chi mod p) density the correct comparison; the zeta scale log T is a category error), so the alpha > 1 gating is a genuine normalization artifact and legitimately moves inside |alpha| <= 1. But precisely because the scale is honest, it relocates the dominant mass to the boundary alpha_C = 1 (the exact conductor identity u_{1,p-1} = p T/2 pi) rather than removing the pair-correlation dependency: the operative obstruction was never the numeric range but the mean-square-vs-pointwise gap and the GRH-height deficit, both scale-invariant, plus the boundary degeneracy the honest scale exposes. imp-95534 lever 2 is upgraded from MOVABLE-but-only-relabel ambivalence to a decided verdict: WARRANTED relabeling. The imp-95519 zero-side no-go STANDS; only its framing sharpens. No bound changes; NO QED; PT Lambda <= 0.2 remains SOTA; RH open.',
+    'WARRANTED, AND STILL A RELABELING. The analytic-conductor scale log(p T/2 pi) IS the mathematically-warranted normalization here (the section-3 import makes L(s, chi mod p) density the correct comparison; the zeta scale log T is a category error), so the alpha > 1 gating is a genuine normalization artifact and legitimately moves inside |alpha| <= 1. But precisely because the scale is honest, it relocates the dominant mass to the boundary alpha_C = 1 (the exact conductor identity u_{1,p-1} = p T/2 pi) rather than removing the pair-correlation dependency: the operative obstruction was never the numeric range but the mean-square-vs-pointwise gap and the GRH-height deficit, both scale-invariant, plus the boundary degeneracy the honest scale exposes. imp-95534 lever 2 is upgraded from MOVABLE-but-only-relabel ambivalence to a decided verdict: WARRANTED relabeling. The imp-95519 zero-side no-go STANDS; only its framing sharpens. No bound changes; NO QED; no refereed bound is changed; RH open.',
 
   figures: {
     conductorMatchRel: CONDUCTOR_MATCH_REL,
@@ -219,11 +219,11 @@ export const IMP95692_ASSERTIONS = Object.freeze([
   },
   {
     id: 'imp95692-honesty-gate',
-    description: 'decision only: promotes no bound, NO QED, PT stays SOTA, RH open',
+    description: 'decision only: promotes no bound, NO QED, no refereed bound is changed, RH open',
     holds: () =>
       DEC.promotesBound === false &&
       /NO QED/.test(DEC.netVerdict) &&
-      /remains SOTA/.test(DEC.netVerdict) &&
+      /refereed bound is changed/i.test(DEC.netVerdict) &&
       /RH open/.test(DEC.netVerdict),
   },
 ]);

@@ -50,7 +50,7 @@
  * MEASUREMENT / CROSS-CHECK ONLY. Descriptive cross-check on the inherited component model, NOT a
  * rigorous asymptotic; conditional-share diagnostic, NOT an RH bound. C_mb stays GUE-conditional
  * (imp-486); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33988-f3-landmark-law-recompute-newton-crosscheck (the E1/E2/E3 recompute and measured e3_vs_e2)
  * @see imp-33949 (log T0 * gap -> 1/2 from below; the finite-log-T0 shortfall of the leading law)
@@ -195,7 +195,7 @@ export const IMP34046_E2_E3_OFFSET_IMP33949_SHORTFALL_CROSSCHECK = {
     'no new mechanism. Descriptive cross-check on the inherited imp-3220/imp-3406 component model, NOT ' +
     'a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33988 (E1/E2/E3 landmark recompute, measured e3_vs_e2); imp-33949 (log T0 * gap -> 1/2 from ' +
     'below); imp-33816 (F3 landmarks, gap ~ 1/(2 log T0)); imp-33859 (log-space crossing); imp-3463 ' +
@@ -235,14 +235,14 @@ export const IMP34046_E2_E3_OFFSET_IMP33949_SHORTFALL_CROSSCHECK_ASSERTIONS = [
       ANCHORS[1].measured_e3_vs_e2_decades === IMP33988_F3_LANDMARK_LAW_RECOMPUTE_NEWTON_CROSSCHECK.agreement.finite_logT0_offset_decades_0_1pct,
   },
   {
-    // Honesty gate: measurement/cross-check only, no bound changed, imp-3066 untouched, no QED, PT SOTA.
+    // Honesty gate: measurement/cross-check only, no bound changed, imp-3066 untouched, no QED, no refereed bound is changed.
     id: 'imp34046-honesty-gate-no-qed',
-    description: 'Measurement/cross-check only: not rigorous, imp-3066 K_a >= 0 untouched, no QED, PT stays SOTA',
+    description: 'Measurement/cross-check only: not rigorous, imp-3066 K_a >= 0 untouched, no QED, no refereed bound is changed',
     holds: () =>
       IMP34046_E2_E3_OFFSET_IMP33949_SHORTFALL_CROSSCHECK.isRigorous === false &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34046_E2_E3_OFFSET_IMP33949_SHORTFALL_CROSSCHECK.verdict) &&
       /NO QED/.test(IMP34046_E2_E3_OFFSET_IMP33949_SHORTFALL_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP34046_E2_E3_OFFSET_IMP33949_SHORTFALL_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP34046_E2_E3_OFFSET_IMP33949_SHORTFALL_CROSSCHECK.verdict),
   },
 ];
 

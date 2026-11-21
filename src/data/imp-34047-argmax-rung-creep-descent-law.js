@@ -64,8 +64,7 @@
  * drift readings are all untouched). The component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the OLS descent fit and its extrapolation are descriptive,
  * not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (F4 there tracks this module's argmax-creep
  *   law un-locking at kEnd = 19.0 on the refined 0.25 grid)
@@ -214,7 +213,7 @@ export const IMP34047_ARGMAX_RUNG_CREEP_DESCENT_LAW = {
     'are descriptive, not derived; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-33987 (the F3 argmax creep 7.00 -> 6.50 fit here; fixedBandRows imported verbatim); imp-34040 ' +
     '(the kEnd = 14..17 argmax-locked-at-6.50 measurement that adjudicates the extrapolation; ' +
@@ -273,16 +272,16 @@ export const IMP34047_ARGMAX_RUNG_CREEP_DESCENT_LAW_ASSERTIONS = [
       PEAK_STABILIZES === true,
   },
   {
-    // Honesty gate: measurement only, peak stabilizes (not migrating), isRigorous false, no QED, PT SOTA,
+    // Honesty gate: measurement only, peak stabilizes (not migrating), isRigorous false, no QED, no refereed bound is changed,
     // imp-3066 untouched.
     id: 'imp34047-honesty-gate-no-qed',
-    description: 'Measurement only: peak stabilizes, isRigorous false, no QED, imp-3066 untouched, PT SOTA',
+    description: 'Measurement only: peak stabilizes, isRigorous false, no QED, imp-3066 untouched, no refereed bound is changed',
     holds: () =>
       IMP34047_ARGMAX_RUNG_CREEP_DESCENT_LAW.peakLocationStabilizes === true &&
       IMP34047_ARGMAX_RUNG_CREEP_DESCENT_LAW.isRigorous === false &&
       /NO QED/.test(IMP34047_ARGMAX_RUNG_CREEP_DESCENT_LAW.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34047_ARGMAX_RUNG_CREEP_DESCENT_LAW.verdict) &&
-      /remains SOTA/.test(IMP34047_ARGMAX_RUNG_CREEP_DESCENT_LAW.verdict),
+      /refereed bound is changed/i.test(IMP34047_ARGMAX_RUNG_CREEP_DESCENT_LAW.verdict),
   },
 ];
 

@@ -35,7 +35,7 @@
  * surrogate crossover map, NOT a rigorous asymptotic. Treats C_mb as a free knob to locate the gap zero; does
  * NOT tighten or discharge the GUE conditional (imp-486); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays
- * 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34824-inflection-crossover-gap-cmb-sweep (the coarse C_mb sweep and cmbZeroGap ~ 0.51160)
  * @see imp-34800-ncross-three-way-crossvalidation-banach-krawczyk-inflection (the +2.95% R3-vs-R1/R2 residual)
@@ -238,7 +238,7 @@ export const IMP34838_CMB_ZERO_GAP_PRECISE_ROOT_AND_ELASTICITY = {
     'landmark; treats C_mb as a free knob; does NOT tighten or discharge the GUE conditional (imp-486); the ' +
     'C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
     'imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   subGap:
     'CLOSES the coarse imp-34824 bracket: the gap zero is C_mb* ~ 0.5115957 (two-method agreement < 1e-9), ' +
     'with a local elasticity ~6.8x steeper than at the GUE bound. What remains OPEN (deferred, not attempted ' +
@@ -277,16 +277,16 @@ export const IMP34838_CMB_ZERO_GAP_PRECISE_ROOT_AND_ELASTICITY_ASSERTIONS = [
       STEEPENING_RATIO < 10,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap named, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap named, no QED, no refereed bound is changed.
     id: 'imp34838-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap named, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap named, no QED, no refereed bound is changed',
     holds: () =>
       IMP34838_CMB_ZERO_GAP_PRECISE_ROOT_AND_ELASTICITY.isRigorous === false &&
       IMP34838_CMB_ZERO_GAP_PRECISE_ROOT_AND_ELASTICITY.farTailExponent === 0.5 &&
       typeof IMP34838_CMB_ZERO_GAP_PRECISE_ROOT_AND_ELASTICITY.subGap === 'string' &&
       /imp-486/.test(IMP34838_CMB_ZERO_GAP_PRECISE_ROOT_AND_ELASTICITY.subGap) &&
       /NO QED/.test(IMP34838_CMB_ZERO_GAP_PRECISE_ROOT_AND_ELASTICITY.verdict) &&
-      /remains SOTA/.test(IMP34838_CMB_ZERO_GAP_PRECISE_ROOT_AND_ELASTICITY.verdict),
+      /refereed bound is changed/i.test(IMP34838_CMB_ZERO_GAP_PRECISE_ROOT_AND_ELASTICITY.verdict),
   },
 ];
 

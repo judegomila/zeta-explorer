@@ -25,7 +25,7 @@
  * @see imp-97380-route-m-interior-second-moment-log2b-honest-status.js (the structural log^2 b decision this is consistent with)
  *
  * Ticket: imp-97420 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 import IMP97397_DEFAULT, { IMP97397_VERDICT, IMP97397_DIAGNOSTIC } from './imp-97397-route-m-collinearity-independent-decorrelation.js';
@@ -54,8 +54,8 @@ export const IMP97420_HONEST_BANNER =
   '0.973274 / condition 35.75) all FAIL to separate the sqrt(b) vs log^2 b sub-leading forms -- ' +
   'the collinearity is STRUCTURAL, not a ladder-length or basis artifact. This corroborates ' +
   'imp-97319 (longer-ladder numerical route already closed) and is consistent with the separate ' +
-  'imp-97349 structural decision (log^2 b). No coefficient pinned; no bound moved; PT Lambda <= ' +
-  '0.2 remains SOTA; RH open; NO QED.';
+  'imp-97349 structural decision (log^2 b). No coefficient pinned; no bound moved; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97420_ASSERTIONS = [
@@ -85,9 +85,9 @@ const IMP97420_ASSERTIONS = [
       IMP97420_STATUS.rhResolved === false &&
       IMP97420_STATUS.qed === false &&
       /NO QED/.test(IMP97420_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97420_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97420_HONEST_BANNER) &&
       /RH open/.test(IMP97420_HONEST_BANNER),
-    why: 'documentation only: structural-collinearity recorded, no coefficient pinned, no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: structural-collinearity recorded, no coefficient pinned, no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

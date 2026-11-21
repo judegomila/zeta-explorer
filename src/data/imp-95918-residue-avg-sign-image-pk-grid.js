@@ -135,7 +135,7 @@ export const IMP95918_RESIDUE_AVG_PK_GRID = {
   obstruction:
     "UNCHANGED from imp-95898: the residue mean is NOT the physical per-window theta -- it drops the von Mangoldt x Fresnel-Airy weight A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p). The gap remains the kernel-weighted residue bias against uniform (the imp-95212 Fresnel-Airy envelope port), STILL OPEN. This module measures the exact residue-mean object only.",
   verdict:
-    "MEASUREMENT (honest): across a wider (p,k) grid the exact imp-95898 residue-mean sign image obeys a clean two-line power law -- diagonal fraction tr(G)/S ~ 1/(p-1) and hence <theta_C> ~ 1/(p-1)^2 (measured within 1.4% over p=3..23) -- sharpening the imp-95898 STEP 3 qualitative 'roughly the diagonal fraction of S'. Changes no numeric bound; the imp-95212 kernel-weighted residue-bias port is untouched and STILL OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT (honest): across a wider (p,k) grid the exact imp-95898 residue-mean sign image obeys a clean two-line power law -- diagonal fraction tr(G)/S ~ 1/(p-1) and hence <theta_C> ~ 1/(p-1)^2 (measured within 1.4% over p=3..23) -- sharpening the imp-95898 STEP 3 qualitative 'roughly the diagonal fraction of S'. Changes no numeric bound; the imp-95212 kernel-weighted residue-bias port is untouched and STILL OPEN; NO QED; no refereed bound is changed.",
   rigorScope:
     "The Gram closed form, the character-orthogonality average, and <theta_C> = (p tr(G) - S)/((p-1) S) are EXACT (inherited from imp-95898; the 4 original windows reproduce to <1e-5). The 1/(p-1) and 1/(p-1)^2 fits are EMPIRICAL leading-order regularities measured on this grid (product diagnostics drift slowly upward with p), not proved asymptotics. The residue mean is NOT the physical theta. Changes no bound; NO QED.",
 };
@@ -213,13 +213,13 @@ export const IMP95918_ASSERTIONS = [
   {
     id: "imp95918-verdict-honesty",
     description:
-      "the verdict carries the honest scope: MEASUREMENT only, a two-line power law (1/(p-1) diagonal, 1/(p-1)^2 sign image), the imp-95212 port STILL OPEN, no bound, NO QED, SOTA preserved",
+      "the verdict carries the honest scope: MEASUREMENT only, a two-line power law (1/(p-1) diagonal, 1/(p-1)^2 sign image), the imp-95212 port STILL OPEN, no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(IMP95918_RESIDUE_AVG_PK_GRID.verdict) &&
       /1\/\(p-1\)\^2/.test(IMP95918_RESIDUE_AVG_PK_GRID.verdict) &&
       /STILL OPEN/.test(IMP95918_RESIDUE_AVG_PK_GRID.obstruction) &&
       /NO QED/.test(IMP95918_RESIDUE_AVG_PK_GRID.verdict) &&
-      /remains SOTA/.test(IMP95918_RESIDUE_AVG_PK_GRID.verdict),
+      /refereed bound is changed/i.test(IMP95918_RESIDUE_AVG_PK_GRID.verdict),
   },
 ];
 

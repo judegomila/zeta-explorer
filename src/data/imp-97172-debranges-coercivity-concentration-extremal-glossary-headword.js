@@ -38,7 +38,7 @@
  *
  *   STATUS: glossary headword restating an already-committed scoping result, not a new
  *   computation or a positivity theorem. Establishes no coercivity constant; moves no bound;
- *   interval-rigorous reach stays 2a <= 0.96. NO QED. Platt-Trudgian Lambda <= 0.2 SOTA; RH open.
+ *   interval-rigorous reach stays 2a <= 0.96. NO QED. No refereed bound is changed; RH open.
  *
  * @see imp-97137-krein-debranges-coercivity-scope.js (source: the de Branges scoping and the
  *   pointwise-budget-vs-integrated-constant distinction this glosses)
@@ -46,7 +46,7 @@
  *   Beurling-Selberg/prolate tools supply the missing concentration constant -- they do not)
  *
  * Ticket: imp-97172 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The concentration-extremal headword, baked verbatim (no re-import).
@@ -79,7 +79,7 @@ const DEBRANGES_COERCIVITY_CONCENTRATION_EXTREMAL_HEADWORD = Object.freeze({
     'Restates the already-committed imp-97137 scoping result (de Branges realisation of route B) ' +
     'and the imp-97161 follow-on assessment (Beurling-Selberg/prolate tools do not supply the ' +
     'missing concentration constant); no new numerical computation. Establishes no coercivity ' +
-    'constant; interval-rigorous reach unchanged at 2a <= 0.96; PT Lambda <= 0.2 remains SOTA; RH ' +
+    'constant; interval-rigorous reach unchanged at 2a <= 0.96; no refereed bound is changed; RH ' +
     'open; NO QED.',
 });
 
@@ -102,7 +102,7 @@ export const IMP97172_DEBRANGES_COERCIVITY_CONCENTRATION_EXTREMAL_GLOSSARY_HEADW
     'lambda_min(P_a M_{sigma_2} P_a) itself -- a genuinely different (and unsolved) extremal ' +
     'problem from the pointwise ceiling. Readers should not treat the finite pointwise budget as ' +
     'supplying or bounding the coercivity constant. Establishes nothing new; moves no bound; ' +
-    'interval-rigorous reach stays 2a <= 0.96; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'interval-rigorous reach stays 2a <= 0.96; NO QED. No refereed bound is changed.',
   citation:
     'imp-97137 (the de Branges coercivity scoping and pointwise-budget-vs-integrated-constant ' +
     'distinction this glosses); imp-97161 (assessment that standard concentration tools do not ' +
@@ -130,11 +130,11 @@ export const IMP97172_DEBRANGES_COERCIVITY_CONCENTRATION_EXTREMAL_GLOSSARY_HEADW
   },
   {
     id: 'imp97172-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97172_DEBRANGES_COERCIVITY_CONCENTRATION_EXTREMAL_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97172_DEBRANGES_COERCIVITY_CONCENTRATION_EXTREMAL_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97172_DEBRANGES_COERCIVITY_CONCENTRATION_EXTREMAL_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97172_DEBRANGES_COERCIVITY_CONCENTRATION_EXTREMAL_GLOSSARY_HEADWORD.verdict) &&
       IMP97172_DEBRANGES_COERCIVITY_CONCENTRATION_EXTREMAL_GLOSSARY_HEADWORD.glosses === 'imp-97137',
   },
 ];

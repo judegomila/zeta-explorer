@@ -51,7 +51,7 @@
  * MEASURED reach -- each is a projection of an anchored power law past the last measured rung (1e7 for
  * imp-96568, 5e7 for imp-96690) while the signal keeps shrinking logarithmically. The reconciliation
  * moves no bound, establishes no operator positivity, and does not touch the ~1.9-sigma excursion
- * confidence. RH open; PT Lambda <= 0.2 remains SOTA.
+ * confidence. RH open; no refereed bound is changed.
  *
  * VERDICT. Cross-tabulating the three basis-C corroboration-reach figures shows they are ONE crossover
  * floor(L) = signal(L) at three successively better-measured above-anchor exponents: p = 1.0 (imp-96531
@@ -61,8 +61,8 @@
  * ~1.5-order span is the reach sensitivity to the exponent over p in [1, 2.42]. The best current
  * projection is imp-96690 L* ~ 8.1e7 (most rungs, directly measured OLS exponent), still an upper
  * estimate its accelerating local exponents suggest could tighten further. Reconciliation only;
- * theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96531-basis-c-crossover-measured-floor (L-linear re-anchored L* ~ 2.86e9, p = 1)
  * @see imp-96568-basis-c-intermediate-rung-floor-ladder (two-rung power-law L* ~ 1.90e8, p ~ 1.81)
@@ -236,12 +236,12 @@ export const IMP96711_BASIS_C_CORROBORATION_REACH_CROSS_TAB = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values, and each floor is a double-precision quadrature/cancellation artifact of the direct integral. None of the three L* is a MEASURED reach -- each projects an anchored power law past the last measured rung while the signal shrinks logarithmically. Changes no bound, establishes no operator positivity, does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'Cross-tabulating the three basis-C corroboration-reach figures shows they are ONE crossover floor(L) = signal(L) at three successively better-measured above-anchor exponents: p = 1.0 (imp-96531 L-linear, single anchor rung) -> L* ~ 2.86e9; p ~ 1.81 (imp-96568 two ppp-pinned rungs) -> L* ~ 1.90e8; p ~ 2.42 (imp-96690 five-rung log-log OLS) -> L* ~ 8.1e7. L*(p) is monotone decreasing (steeper floor, earlier crossover), so the refinement history is a monotone tightening, not a contradiction; the ~1.5-order span is the reach sensitivity to the exponent over p in [1, 2.42]. The best current projection is imp-96690 L* ~ 8.1e7 (most rungs, directly measured OLS exponent), still an upper estimate its accelerating local exponents suggest could tighten further. Reconciliation only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Cross-tabulating the three basis-C corroboration-reach figures shows they are ONE crossover floor(L) = signal(L) at three successively better-measured above-anchor exponents: p = 1.0 (imp-96531 L-linear, single anchor rung) -> L* ~ 2.86e9; p ~ 1.81 (imp-96568 two ppp-pinned rungs) -> L* ~ 1.90e8; p ~ 2.42 (imp-96690 five-rung log-log OLS) -> L* ~ 8.1e7. L*(p) is monotone decreasing (steeper floor, earlier crossover), so the refinement history is a monotone tightening, not a contradiction; the ~1.5-order span is the reach sensitivity to the exponent over p in [1, 2.42]. The best current projection is imp-96690 L* ~ 8.1e7 (most rungs, directly measured OLS exponent), still an upper estimate its accelerating local exponents suggest could tighten further. Reconciliation only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for any consumer surface.
 export const IMP96711_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reconciliation only: rho is the '
+  'RH open; no refereed bound is changed; NO QED. Reconciliation only: rho is the '
   + 'theoretical GUE two-interval correlation, not computed from real zeros. The three '
   + 'basis-C corroboration-reach figures (L* ~ 2.86e9 / 1.90e8 / 8.1e7) are ONE crossover '
   + 'floor(L) = signal(L) at three above-anchor exponents (p = 1.0 / 1.81 / 2.42); L*(p) is '
@@ -278,11 +278,11 @@ export const IMP96711_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96711_BASIS_C_CORROBORATION_REACH_CROSS_TAB.verdict))
     throw new Error('imp-96711: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96711_BASIS_C_CORROBORATION_REACH_CROSS_TAB.verdict))
-    throw new Error('imp-96711: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96711_BASIS_C_CORROBORATION_REACH_CROSS_TAB.verdict))
+    throw new Error('imp-96711: verdict dropped the no-refereed-bound-change banner');
   if (!/imp-96690/.test(IMP96711_BASIS_C_CORROBORATION_REACH_CROSS_TAB.source))
     throw new Error('imp-96711: source dropped the imp-96690 reference');
-  if (!(/RH open/.test(IMP96711_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96711_HONEST_BANNER) && /NO QED/.test(IMP96711_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96711_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96711_HONEST_BANNER) && /NO QED/.test(IMP96711_HONEST_BANNER)))
     throw new Error('imp-96711: IMP96711_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

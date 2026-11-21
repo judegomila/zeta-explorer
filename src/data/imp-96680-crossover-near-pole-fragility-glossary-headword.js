@@ -36,14 +36,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96654 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96654-gmin-crossover-sensitivity-oscillation.js (source: the sensitivity analysis this glosses)
  * @see imp-96637-gmin-fit-gue-crossover.js (the point-estimate crossover N* = 2.09e6)
  * @see imp-96616 (measured small-gaps power fit A N^b, A=2.1147, b=-0.3953, that feeds the crossover)
  *
  * Ticket: imp-96680 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The near-pole fragility headword, baked verbatim (no re-import).
@@ -78,8 +78,8 @@ const CROSSOVER_NEAR_POLE_FRAGILITY_HEADWORD = Object.freeze({
     'cube-root small-gaps law throughout. Does not change the imp-96616 consequence ' +
     '(beating the 1/log^2 surrogate still needs that unproved law); it shows the N* ' +
     'crossover figure specifically is a soft, near-singular readout rather than a ' +
-    'localized scale. Changes no bound; establishes no operator positivity; PT ' +
-    'Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'localized scale. Changes no bound; establishes no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96680_CROSSOVER_NEAR_POLE_FRAGILITY_GLOSSARY_HEADWORD = Object.freeze({
@@ -98,7 +98,7 @@ export const IMP96680_CROSSOVER_NEAR_POLE_FRAGILITY_GLOSSARY_HEADWORD = Object.f
     'b = -1/3, so N* is essentially unlocalized by the data -- the +/-1 SE band spans ' +
     '~4.73 decades ([5.53e4, 2.96e9]) and the 95% band spans ~19.31 decades ' +
     '([4.62e3, 9.34e22]). Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96654 (the sensitivity analysis this glosses); imp-96637 (the point-estimate ' +
     'crossover N* = 2.09e6); imp-96616 (the measured small-gaps power fit A N^b feeding it).',
@@ -124,11 +124,11 @@ export const IMP96680_CROSSOVER_NEAR_POLE_FRAGILITY_GLOSSARY_HEADWORD_ASSERTIONS
   },
   {
     id: 'imp96680-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96680_CROSSOVER_NEAR_POLE_FRAGILITY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96680_CROSSOVER_NEAR_POLE_FRAGILITY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96680_CROSSOVER_NEAR_POLE_FRAGILITY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96680_CROSSOVER_NEAR_POLE_FRAGILITY_GLOSSARY_HEADWORD.verdict) &&
       IMP96680_CROSSOVER_NEAR_POLE_FRAGILITY_GLOSSARY_HEADWORD.glosses === 'imp-96654',
   },
 ];

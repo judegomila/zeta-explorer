@@ -40,8 +40,7 @@
  * MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate; reuses the imp-35266/imp-35766/imp-34996
  * machinery verbatim (identical K, delta, S_inf, aOf). The imp-34714a machine certificate REMAINS OPEN;
  * F(m) = 0 stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional per
- * imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35766-krawczyk-cancellation-ratio-beyond-band (B3 flagged the float-cancellation artifact past N~1e18)
  * @see imp-35266-krawczyk-headroom-surplus-decomposition (the 2:1 split -dFP/dG ~ 2.00042)
@@ -201,7 +200,7 @@ export const IMP35810_CANCELLATION_ONSET_HEIGHT = {
     'Measurement only on the inherited imp-3220/imp-3406 surrogate; reuses the imp-35266/imp-35766/imp-34996 ' +
     'machinery (identical K, delta, S_inf, aOf); the C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per ' +
     'imp-486 are UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35766 (B3 float-cancellation artifact past N~1e18); imp-35266 (2:1 split -dFP/dG ~ 2.00042); ' +
     'imp-34996 (S_inf = 1/(2 delta) floor); imp-34693 (admissible seed band); imp-2642 (C_C 1/8 ansatz); ' +
@@ -238,15 +237,15 @@ export const IMP35810_CANCELLATION_ONSET_HEIGHT_ASSERTIONS = [
     holds: () => SCAN[SCAN.length - 1].depart > PT.depart && PT.depart < TOL,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35810-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35810_CANCELLATION_ONSET_HEIGHT.isRigorous === false &&
       /imp-34714a/.test(IMP35810_CANCELLATION_ONSET_HEIGHT.subGap) &&
       /REMAINS OPEN/.test(IMP35810_CANCELLATION_ONSET_HEIGHT.subGap) &&
       /NO QED/.test(IMP35810_CANCELLATION_ONSET_HEIGHT.verdict) &&
-      /remains SOTA/.test(IMP35810_CANCELLATION_ONSET_HEIGHT.verdict),
+      /refereed bound is changed/i.test(IMP35810_CANCELLATION_ONSET_HEIGHT.verdict),
   },
 ];
 

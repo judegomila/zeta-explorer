@@ -61,7 +61,7 @@
  * ~0 (a good centre, a failed cap). The max anchor loses uniform conservatism at only its own
  * argmax (T = 1.5e5, -0.0495 / -10.7%) and stays conservative at the other five, so it is the
  * strictly better out-of-sample cap -- an out-of-sample vindication of the imp-95722 max-anchor
- * choice. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA;
+ * choice. Measurement only; changes no bound; NO QED; no refereed bound is changed;
  * the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96049-number-variance-mean-anchor-six-height-residual-band (the in-sample mean-anchor band this tests)
@@ -158,7 +158,7 @@ export const IMP96070_NUMBER_VARIANCE_MEAN_ANCHOR_LOO_OUT_OF_SAMPLE_RESIDUAL = {
   caveat:
     'LOO over six points is a low-resolution out-of-sample proxy, not a genuine new held-out measurement: each refit anchor is built from only five offsets and carries the same six-point sampling noise as the fit. A true out-of-sample test needs measured sd(C - E) at heights outside {1e4, 3e4, 7e4, 1.5e5, 3e5, 5e5} (e.g. new Odlyzko windows at T = 5e4, 1e6), which the repo does not have. Changes NO Lambda bound: it tests the generalization of the imp-96049 mean anchor and confirms the dead-zone r_cap < 1 headline must continue to rest on the out-of-sample-safer max anchor.',
   verdict:
-    'Leave-one-out cross-validation shows the imp-96049 mean offset anchor does NOT generalize as an upper bound: 3 of 6 held-out heights fall below the refit envelope, deepest -0.0885 (-19.1%) at T = 1.5e5 (deeper than the in-sample -0.0737), while its signed-mean stays ~0 (a good centre, a failed cap). The max anchor loses uniform conservatism at only its own argmax (T = 1.5e5, -0.0495 / -10.7%) and stays conservative at the other five, so it is the strictly better out-of-sample cap -- an out-of-sample vindication of the imp-95722 max-anchor choice. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Leave-one-out cross-validation shows the imp-96049 mean offset anchor does NOT generalize as an upper bound: 3 of 6 held-out heights fall below the refit envelope, deepest -0.0885 (-19.1%) at T = 1.5e5 (deeper than the in-sample -0.0737), while its signed-mean stays ~0 (a good centre, a failed cap). The max anchor loses uniform conservatism at only its own argmax (T = 1.5e5, -0.0495 / -10.7%) and stays conservative at the other five, so it is the strictly better out-of-sample cap -- an out-of-sample vindication of the imp-95722 max-anchor choice. Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -187,8 +187,8 @@ export const IMP96070_NUMBER_VARIANCE_MEAN_ANCHOR_LOO_OUT_OF_SAMPLE_RESIDUAL = {
   // honesty gates
   if (!/NO QED/.test(IMP96070_NUMBER_VARIANCE_MEAN_ANCHOR_LOO_OUT_OF_SAMPLE_RESIDUAL.verdict))
     throw new Error('imp-96070: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96070_NUMBER_VARIANCE_MEAN_ANCHOR_LOO_OUT_OF_SAMPLE_RESIDUAL.verdict))
-    throw new Error('imp-96070: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96070_NUMBER_VARIANCE_MEAN_ANCHOR_LOO_OUT_OF_SAMPLE_RESIDUAL.verdict))
+    throw new Error('imp-96070: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96070_NUMBER_VARIANCE_MEAN_ANCHOR_LOO_OUT_OF_SAMPLE_RESIDUAL;

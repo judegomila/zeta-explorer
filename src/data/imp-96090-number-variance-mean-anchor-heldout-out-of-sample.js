@@ -45,7 +45,7 @@
  * imp-96049 max offset anchor caps ALL of them (tightest +3.0% at T = 5e4) while the mean
  * anchor breaches at T = 5e4 (-13.7%), a true out-of-sample vindication of the max anchor
  * that resolves the imp-96070 in-sample caveat with real new data rather than a LOO proxy.
- * Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA;
+ * Measurement only; changes no bound; NO QED; no refereed bound is changed;
  * the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96070-number-variance-mean-anchor-loo-out-of-sample-residual (the LOO proxy this replaces with real held-out data)
@@ -162,7 +162,7 @@ export const IMP96090_NUMBER_VARIANCE_MEAN_ANCHOR_HELDOUT_OUT_OF_SAMPLE = {
   caveat:
     'Five held-out heights over ~1.3 decades (2e4 .. 4e5) is a genuine but low-resolution out-of-sample test, and all five stay ~6.8 decades below the imp-95519 window bottom T = 3.0e12: the +3.0% tightest max-anchor margin is measured inside the accessible window, not extrapolated to the bottom (the imp-95710 window-reach sub-gap). Heights >= 6e5 were excluded because their +30% window is truncated by the top of the 10^6-ordinate table. Changes NO Lambda bound.',
   verdict:
-    'Measured at five brand-new held-out heights {2e4, 5e4, 1e5, 2e5, 4e5} the imp-96049 max offset anchor caps ALL of them (tightest +3.0% at T = 5e4) while the mean anchor breaches at T = 5e4 (-13.7%), a true out-of-sample vindication of the max anchor that resolves the imp-96070 in-sample caveat with real new data rather than a LOO proxy. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Measured at five brand-new held-out heights {2e4, 5e4, 1e5, 2e5, 4e5} the imp-96049 max offset anchor caps ALL of them (tightest +3.0% at T = 5e4) while the mean anchor breaches at T = 5e4 (-13.7%), a true out-of-sample vindication of the max anchor that resolves the imp-96070 in-sample caveat with real new data rather than a LOO proxy. Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -193,8 +193,8 @@ export const IMP96090_NUMBER_VARIANCE_MEAN_ANCHOR_HELDOUT_OUT_OF_SAMPLE = {
   // honesty gates
   if (!/NO QED/.test(IMP96090_NUMBER_VARIANCE_MEAN_ANCHOR_HELDOUT_OUT_OF_SAMPLE.verdict))
     throw new Error('imp-96090: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96090_NUMBER_VARIANCE_MEAN_ANCHOR_HELDOUT_OUT_OF_SAMPLE.verdict))
-    throw new Error('imp-96090: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96090_NUMBER_VARIANCE_MEAN_ANCHOR_HELDOUT_OUT_OF_SAMPLE.verdict))
+    throw new Error('imp-96090: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96090_NUMBER_VARIANCE_MEAN_ANCHOR_HELDOUT_OUT_OF_SAMPLE;

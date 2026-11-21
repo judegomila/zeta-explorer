@@ -51,7 +51,7 @@
  * (both need the ANALYTIC N-uniform tracking of the renormalized quantity through the fold-modulus back-
  * conversion, not a finite-ladder inequality), establishes no operator positivity, changes no bound. The
  * G6a_shock_lipschitz obligation stays OPEN; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED;
- * C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed.
  *
  * @see imp-33766-h4-independent-discharge-scoping (H4 does not separate from H3, a-fortiori direction)
  * @see imp-33786-h3-joint-curvature-input-scoping (the single H3 input that discharges both rows)
@@ -188,8 +188,8 @@ export const IMP35076_H3_A_FORTIORI_DISCHARGES_H4_VERIFICATION = {
     'the operative strip height. It does NOT discharge H3 or H4 (both need the ANALYTIC N-uniform tracking of ' +
     'the renormalized quantity through the fold-modulus back-conversion, not a finite-ladder inequality), ' +
     'establishes no operator positivity, changes no bound. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 ' +
-    'UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP35076_H3_A_FORTIORI_ASSERTIONS = [
@@ -229,17 +229,17 @@ export const IMP35076_H3_A_FORTIORI_ASSERTIONS = [
       Math.abs(IMP35076_H3_A_FORTIORI_DISCHARGES_H4_VERIFICATION.marginRatioClosedForm - 2 / 3) < 1e-12,
   },
   {
-    // Honesty gate: verification only; does NOT discharge H4/H3, G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: verification only; does NOT discharge H4/H3, G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35076-honesty-gate-no-qed',
     description:
-      'Verification only: a-fortiori inequality confirmed but does not discharge H4/H3, G6a OPEN, no QED, PT SOTA, imp-3066 untouched',
+      'Verification only: a-fortiori inequality confirmed but does not discharge H4/H3, G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35076_H3_A_FORTIORI_DISCHARGES_H4_VERIFICATION.isRigorous === false &&
       IMP35076_H3_A_FORTIORI_DISCHARGES_H4_VERIFICATION.dischargesH4OrH3 === false &&
       IMP35076_H3_A_FORTIORI_DISCHARGES_H4_VERIFICATION.aFortioriDirectionConfirmed === true &&
       /NO QED/.test(IMP35076_H3_A_FORTIORI_DISCHARGES_H4_VERIFICATION.verdict) &&
       /STAYS OPEN/.test(IMP35076_H3_A_FORTIORI_DISCHARGES_H4_VERIFICATION.verdict) &&
-      /remains the\s+rigorous SOTA|rigorous\s+SOTA/.test(IMP35076_H3_A_FORTIORI_DISCHARGES_H4_VERIFICATION.verdict) &&
+      /refereed bound is changed/i.test(IMP35076_H3_A_FORTIORI_DISCHARGES_H4_VERIFICATION.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0\s+UNTOUCHED/.test(
         IMP35076_H3_A_FORTIORI_DISCHARGES_H4_VERIFICATION.verdict,
       ),

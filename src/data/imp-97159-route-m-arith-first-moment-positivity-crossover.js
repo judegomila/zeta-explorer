@@ -8,8 +8,8 @@
  * This is the first explicit b-range on which imp-97133s absolute lower bound is non-vacuous with a
  * single, stated threshold. Derivation only: it establishes positivity of the explicit lower bound on
  * its stated range; it does NOT establish kappa > 0 in the mean-square companion sense
- * (see [[project_route_m_lower_companion_first_moment]]); no bound on Lambda moves; PT Lambda <= 0.2
- * remains SOTA; RH open; NO QED.
+ * (see [[project_route_m_lower_companion_first_moment]]); no bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * Notation as imp-97133/imp-97096: C = (log 2pi - gamma)/2, kappa_arith = (3/2) C - 3/8 =
  * 0.5704960511308594..., omega(b) = number of distinct primes of b, phi = Euler totient, and
@@ -85,7 +85,7 @@
  * arithmetic first-moment lower bound on its stated range; it is NOT kappa > 0 in the mean-square lower
  * companion (that first-moment vs mean-square distinction is [[project_route_m_lower_companion_first_moment]]).
  * The cotangent first moment (imp-97097) stays the separate open leaf. No bound on Lambda moves; T ~ 2.594e7
- * trace anchor unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * trace anchor unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (the eps(b) this crossover is derived from)
  * @see imp-97096-route-m-arith-first-moment-evaluation.js (exact kappa_arith)
@@ -163,12 +163,12 @@ export const IMP97159_VERDICT = Object.freeze({
     'SHARP smallest b0 is 511: the last exceedance is eps(510)=0.577 and [511,573] is exceedance-free. Hence ' +
     'F_arith(b) >= (kappa_arith - eps(b)) phi(b) b has a strictly-positive coefficient for all b >= 511. This ' +
     'is positivity of the EXPLICIT arithmetic first moment on its stated range, NOT kappa>0 in the mean-square ' +
-    'companion; the cotangent first moment (imp-97097) stays open. No bound moved; T ~ 2.594e7 anchor; PT ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'companion; the cotangent first moment (imp-97097) stays open. No bound moved; T ~ 2.594e7 anchor; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97159_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation: the imp-97133 explicit remainder eps(b) = ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation: the imp-97133 explicit remainder eps(b) = ' +
   '(1/2) 2^omega(b)(log b+3)/phi(b) is < kappa_arith for ALL b >= 574 (finite proof via the primorial ' +
   'envelope) and sharply for all b >= 511 (last exceedance eps(510)=0.577), so the Route M first-moment ' +
   'lower bound F_arith(b) >= (kappa_arith - eps(b)) phi(b) b has a strictly-positive coefficient there. This ' +
@@ -261,7 +261,7 @@ const IMP97159_ASSERTIONS = [
       IMP97159_VERDICT.positivityIsFirstMomentNotMeanSquare === true &&
       /NOT kappa>0 in the mean-square/.test(IMP97159_VERDICT.conclusion) &&
       /NO QED/.test(IMP97159_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97159_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97159_HONEST_BANNER) &&
       /RH open/.test(IMP97159_HONEST_BANNER),
     why: 'derivation locating a positivity crossover for the EXPLICIT first-moment lower bound (b0_envelope=574 rigorous, b0_exact=511 sharp), honest that this is first-moment not mean-square positivity -- no bound moved, no rigorous ceiling, no QED.',
   },

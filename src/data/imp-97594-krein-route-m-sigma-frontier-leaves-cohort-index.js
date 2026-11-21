@@ -68,7 +68,7 @@
  *
  *   STATUS: a grouping/index note over five already-completed tickets, not a new derivation. No
  *   bound changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-97518-krein-tail-endpoint-asymptotic-closed-form.js (closed-form far-profile tail)
  * @see imp-97538-krein-route2-kbig560-720-deep-floor.js (Route-2 Kbig={560,640,720}; tightens to -310.692227)
@@ -78,7 +78,7 @@
  * @see imp-97527-krein-route-m-frontier-leaves-cohort-index.js (predecessor meta index: imp-97495..97502)
  *
  * Ticket: imp-97594 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- the binding 2a for the Krein sub-cohort
@@ -175,8 +175,8 @@ export const IMP97594_KREIN_ROUTE_M_SIGMA_FRONTIER_LEAVES_COHORT_INDEX = Object.
     'tabulates the four sigma(N) landmarks as one cross-validated object, with the halving landmark matching ' +
     'the imp-33723 closed form to ~0.4%. No bound moves in any group: interval-rigorous certified reach stays ' +
     'EXACTLY 2a<=0.96, MCM stays verified-not-proved, kappa_smooth stays upper-bounded not pinned, and no ' +
-    'coercivity constant or positive lambda_2 lower bound results. RH open; NO QED. Platt-Trudgian Lambda <= ' +
-    '0.2 remains SOTA.',
+    'coercivity constant or positive lambda_2 lower bound results. RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97518 (closed-form far-profile tail); imp-97538 (Route-2 Kbig={560,640,720}; tightens to ' +
     '-310.692227); imp-97519 (direct-kernel 0.043 crossing spot-check); imp-97563 (reciprocity split, ' +
@@ -240,13 +240,13 @@ export const IMP97594_KREIN_ROUTE_M_SIGMA_FRONTIER_LEAVES_COHORT_INDEX_ASSERTION
   },
   {
     id: 'imp97594-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97594_KREIN_ROUTE_M_SIGMA_FRONTIER_LEAVES_COHORT_INDEX.anyBoundMoved === false &&
       IMP97594_KREIN_ROUTE_M_SIGMA_FRONTIER_LEAVES_COHORT_INDEX.certifiedReach === 0.96 &&
       IMP97594_KREIN_ROUTE_M_SIGMA_FRONTIER_LEAVES_COHORT_INDEX.certifiedReach < IMP97594_KREIN_ROUTE_M_SIGMA_FRONTIER_LEAVES_COHORT_INDEX.ln3 &&
       /NO QED/.test(IMP97594_KREIN_ROUTE_M_SIGMA_FRONTIER_LEAVES_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97594_KREIN_ROUTE_M_SIGMA_FRONTIER_LEAVES_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97594_KREIN_ROUTE_M_SIGMA_FRONTIER_LEAVES_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP97594_KREIN_ROUTE_M_SIGMA_FRONTIER_LEAVES_COHORT_INDEX.verdict),
   },
 ];

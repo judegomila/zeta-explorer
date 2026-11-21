@@ -43,7 +43,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34947-conjugate-pair-argument-theta-cross-check (the per-window theta_k table this trend-tests)
  * @see imp-34932-sigma-knee-extended-order-domb-sykes (the sign-cycle theta = 40.0 deg the limit reconciles)
@@ -202,8 +202,8 @@ export const IMP35067_RECURRENCE_ANGLE_K_TREND_VS_NOISE = {
     'finite-k transient rather than only sign-count quantization. The pair geometry (off-axis ~40 deg, R ~ O(1e2)) is ' +
     'unchanged. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap:
     'CLOSES the imp-34947 open thread (the deep band was summarised as a static spread, never trend-tested): theta_k ' +
     'is now shown to rise monotonically with k toward an extrapolated ~40.1 deg limit. What stays OPEN (deferred, not ' +
@@ -256,15 +256,15 @@ export const IMP35067_RECURRENCE_ANGLE_K_TREND_VS_NOISE_ASSERTIONS = [
       LIMIT_RECONCILES_SIGN_CYCLE === true,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35067-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP35067_RECURRENCE_ANGLE_K_TREND_VS_NOISE.isRigorous === false &&
       IMP35067_RECURRENCE_ANGLE_K_TREND_VS_NOISE.farTailExponent === 0.5 &&
       typeof IMP35067_RECURRENCE_ANGLE_K_TREND_VS_NOISE.subGap === 'string' &&
       /NO QED/.test(IMP35067_RECURRENCE_ANGLE_K_TREND_VS_NOISE.verdict) &&
-      /remains SOTA/.test(IMP35067_RECURRENCE_ANGLE_K_TREND_VS_NOISE.verdict),
+      /refereed bound is changed/i.test(IMP35067_RECURRENCE_ANGLE_K_TREND_VS_NOISE.verdict),
   },
 ];
 

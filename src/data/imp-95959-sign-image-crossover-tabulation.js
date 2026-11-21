@@ -9,7 +9,7 @@
  * imp-95918 grid only reached p=3..23, where p*eps_p < 0.014. This extends the
  * exact imp-95898/imp-95918 two-sided-exponential Gram machinery (verbatim, no
  * quadrature, no n-loop) an order of magnitude further in p. Measurement only;
- * changes NO bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes NO bound; NO QED; no refereed bound is changed.
  *
  * SETUP (verbatim from imp-95898 / imp-95918 / imp-95944). A seam window (p,k)
  * carries p-1 alias packets h=1..p-1 at depth d_h = k - h/p; packet h is a two-
@@ -154,7 +154,7 @@ export const IMP95959_SIGN_IMAGE_CROSSOVER = {
   obstruction:
     "UNCHANGED from imp-95898/imp-95918/imp-95944: the residue mean is NOT the physical per-window theta -- it drops the von Mangoldt x Fresnel-Airy weight A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p). The imp-95212 Fresnel-Airy envelope port is untouched and STILL OPEN. This module tabulates the exact residue-mean object only.",
   verdict:
-    "MEASUREMENT (honest): tabulating the exact imp-95944 identity <theta_C>*(p-1)^2 = 1 + p*eps_p across primes 3..3011 at k=6 PINS the 1/(p-1)^2 -> eps_inf/p crossover at p_cross ~ 1512 (the p*eps_p = 1 bracket 1511->1523), matching the imp-95944 prediction 1/eps_inf(6) ~ 1511 to <0.1%, with the scaled image ~ 2.00 there and eps_p plateauing to the measured eps_inf(6) ~ 6.62e-4 from below. Changes no numeric bound; the imp-95212 kernel-weighted residue-bias port is untouched and STILL OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT (honest): tabulating the exact imp-95944 identity <theta_C>*(p-1)^2 = 1 + p*eps_p across primes 3..3011 at k=6 PINS the 1/(p-1)^2 -> eps_inf/p crossover at p_cross ~ 1512 (the p*eps_p = 1 bracket 1511->1523), matching the imp-95944 prediction 1/eps_inf(6) ~ 1511 to <0.1%, with the scaled image ~ 2.00 there and eps_p plateauing to the measured eps_inf(6) ~ 6.62e-4 from below. Changes no numeric bound; the imp-95212 kernel-weighted residue-bias port is untouched and STILL OPEN; NO QED; no refereed bound is changed.",
   rigorScope:
     "The Gram closed form, the character average, and <theta_C> = (p tr - S)/((p-1) S) are EXACT (imp-95898). The identity <theta_C>*(p-1)^2 = 1 + p*eps_p is EXACT (imp-95944, verified 1e-12 here). eps_inf(6) ~ 6.62e-4 is a measured saturating plateau; p_cross ~ 1512 is read off the tabulated p*eps_p = 1 bracket. The residue mean is NOT the physical theta. Measurement only; changes no bound; NO QED.",
 };
@@ -240,13 +240,13 @@ export const IMP95959_ASSERTIONS = [
   {
     id: "imp95959-verdict-honesty",
     description:
-      "the verdict carries the honest scope: MEASUREMENT only, the p_cross ~ 1512 crossover matching 1/eps_inf, the imp-95212 port STILL OPEN, no bound, NO QED, SOTA preserved",
+      "the verdict carries the honest scope: MEASUREMENT only, the p_cross ~ 1512 crossover matching 1/eps_inf, the imp-95212 port STILL OPEN, no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(IMP95959_SIGN_IMAGE_CROSSOVER.verdict) &&
       /crossover/.test(IMP95959_SIGN_IMAGE_CROSSOVER.verdict) &&
       /STILL OPEN/.test(IMP95959_SIGN_IMAGE_CROSSOVER.obstruction) &&
       /NO QED/.test(IMP95959_SIGN_IMAGE_CROSSOVER.verdict) &&
-      /remains SOTA/.test(IMP95959_SIGN_IMAGE_CROSSOVER.verdict),
+      /refereed bound is changed/i.test(IMP95959_SIGN_IMAGE_CROSSOVER.verdict),
   },
 ];
 

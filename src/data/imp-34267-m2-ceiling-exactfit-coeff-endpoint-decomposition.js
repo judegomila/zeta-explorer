@@ -48,8 +48,8 @@
  *
  * Derivation/measurement within the inherited imp-3406/imp-33810 component model only; the component
  * model is NOT a rigorous asymptotic; no bound changes; establishes no operator positivity; C_mb
- * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2
- * remains SOTA. NO QED.
+ * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no refereed bound is changed
+ * . NO QED.
  *
  * @see imp-34189-m2-ceiling-next-order-window-width-correction (named the +90 exact-fit coeff, decomposed here)
  * @see imp-34127-m2-residual-signchange-ceiling-closed-form (leading denominator coeff +17)
@@ -296,7 +296,7 @@ export const IMP34267_M2_CEILING_EXACTFIT_COEFF_ENDPOINT_DECOMPOSITION = {
     '21.281; quote the ceiling from the bisection) stands. The inherited component model is NOT a rigorous ' +
     'asymptotic; this is descriptive within the model only; changes no bound; establishes no operator ' +
     'positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34189 (named the +90 exact-fit coeff, decomposed here); imp-34127 (leading coeff +17); imp-34023 ' +
     '(bisected kEnd* ~ 21.281); imp-34211 (closed form reproduces only the leading integer); imp-33773 ' +

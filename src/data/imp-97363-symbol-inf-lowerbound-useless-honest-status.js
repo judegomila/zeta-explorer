@@ -20,15 +20,15 @@
  *
  * WHAT REMAINS OPEN (unaffected by this closure): c_sharp itself -- bracketed from above only, no
  * proven positive lower bound (imp-97183/imp-97206, extrapolates to a measured ~0.582 but N unconverged).
- * No bound on Lambda moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; RH open; NO QED.
+ * No bound on Lambda moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97335-krein-csharp-naive-lowerbound-tlimit.js (source of every verdict flag below)
  * @see imp-97183-csharp-extprec-ladder.js (c_sharp bracketed from above only -- the surviving open object)
  * @see imp-97161-krein-concentration-lower-bound-assessment.js (c_sharp = lambda_min(P_a M_sigma2 P_a) definition)
  *
  * Ticket: imp-97363 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97335_DEFAULT, { IMP97335_NAIVE_SYMBOL_INF, IMP97335_BINDING_2A } from './imp-97335-krein-csharp-naive-lowerbound-tlimit.js';
@@ -56,7 +56,7 @@ export const IMP97363_HONEST_BANNER =
   'positivity and is USELESS as a lever. This confirms the band-limit psi in PW_a is essential: the plain ' +
   'Gershgorin/Rayleigh symbol argument is a closed door for c_sharp positivity, and any future lower-bound ' +
   'attempt must use band-limit-aware methods. No bound on Lambda moves; interval-rigorous reach stays ' +
-  '2a <= 0.96; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  '2a <= 0.96; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97363_ASSERTIONS = [
@@ -82,10 +82,10 @@ const IMP97363_ASSERTIONS = [
       IMP97363_STATUS.rhResolved === false &&
       IMP97363_STATUS.qed === false &&
       /NO QED/.test(IMP97363_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97363_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97363_HONEST_BANNER) &&
       /RH open/.test(IMP97363_HONEST_BANNER) &&
       /USELESS/.test(IMP97363_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

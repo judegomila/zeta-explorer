@@ -36,7 +36,7 @@
  * HEURISTIC: resolution law Δ_Λ(γ) = 1/Σ 2ν/(ν² + γ²) ~ 1 for detection; horizon T_p ~ (2.2·C_p)^{p/(p−1)} for ν_k = k^p (≈ 1e8 at
  *  p = 1.2, crosses 3e12 near p ≈ 1.13); reaching the verified height with geometric lattices needs h ~ 1e-11 and margins ~ e^{−π²/h}.
  *
- * PT Λ ≤ 0.2 stands; no bound changes; RH open; NO QED. Import-free. ROUTE_13_ASSERTIONS recompute the Poisson symbol minimum, the
+ * No refereed bound is changed; no bound changes; RH open; NO QED. Import-free. ROUTE_13_ASSERTIONS recompute the Poisson symbol minimum, the
  * tail and IMS arithmetic, max|G″|, the horizon inequality, the T·h ≈ 7 scaling and the Blaschke/Müntz sums live.
  */
 
@@ -84,7 +84,7 @@ export const ROUTE_13 = Object.freeze({
   verdict: 'Lacunary Weil positivity is Carathéodory/Stieltjes interpolation of ξ′/ξ on a Blaschke node set (indeterminate, A6 made precise). For Λ = {4^k} it is a '
     + 'certified unconditional theorem (λ_min ≥ 3.6346e-4), with a finite horizon (80 in the double-zero model, conditional on float constants and a heuristic '
     + 'boundary term), and it survives the backward flow (ε_0 ≈ 364 for q = 4), i.e. it is soft in the SL2 sense. On separated lattices the loophole carries no '
-    + 'zero information beyond the verified height; near the Müntz threshold it is open (heuristic). No bound changes. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'zero information beyond the verified height; near the Müntz threshold it is open (heuristic). No bound changes. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_13;
@@ -136,7 +136,7 @@ export const ROUTE_13_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r13-honest-scope',
-    holds: () => R.status === 'done' && /open \(heuristic\)/.test(R.verdict) && /No bound changes/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict)
+    holds: () => R.status === 'done' && /open \(heuristic\)/.test(R.verdict) && /No bound changes/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict)
       && /NO QED/.test(R.verdict) && /bounded-type/.test(R.refereeKilled[0]),
     why: 'Near-threshold regime graded open/heuristic; complete-Λ ⇒ RH contrast conditional; no Λ change; no QED.',
   },

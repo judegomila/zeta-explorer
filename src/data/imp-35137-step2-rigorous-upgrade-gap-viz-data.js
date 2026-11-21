@@ -18,7 +18,7 @@
  *   Ticket: imp-35137 (ux, medium). Visualization-DATA only; none of the
  *   three obligations is closed; discharging all three would change no
  *   Lambda bound on its own (Step 2 feeds the E(N) bridge constants, not
- *   the headline inequality); Platt-Trudgian Lambda<=0.2 remains SOTA; NO QED.
+ *   the headline inequality); no refereed bound is changed; NO QED.
  */
 
 export const IMP35137_OBLIGATIONS = Object.freeze([

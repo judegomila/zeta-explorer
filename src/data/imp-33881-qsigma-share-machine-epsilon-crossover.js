@@ -55,7 +55,7 @@
  * MEASUREMENT / DERIVATION ONLY. The component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33854-log-saturation-exponent-reconciliation (identity I2 residual = |q| sigma; "~1e44" remark)
  * @see imp-33816-sigma-exponent-asymptote-approach-rate (gap_sigma ~ 1/(2 log T0))
@@ -197,7 +197,7 @@ export const IMP33881_QSIGMA_SHARE_MACHINE_EPSILON_CROSSOVER = {
     'returns log10 N* = 40.863, matching the bisection to 0.01 dex. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'share per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33854 (identity I2 residual = |q| sigma, "~1e44" remark); imp-33816 (gap_sigma ~ 1/(2 log ' +
     'T0)); imp-33620 (E_coll exponent -> -1/2 from above); imp-486 (C_mb GUE-conditional); imp-2631 ' +
@@ -236,13 +236,13 @@ export const IMP33881_QSIGMA_SHARE_MACHINE_EPSILON_CROSSOVER_ASSERTIONS = [
     holds: () => Math.abs(D_STAR_CF - D_STAR) < 0.02,
   },
   {
-    // Honesty gate: measurement/derivation only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement/derivation only, no QED, no refereed bound is changed.
     id: 'imp33881-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement/derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33881_QSIGMA_SHARE_MACHINE_EPSILON_CROSSOVER.isRigorous === false &&
       /NO QED/.test(IMP33881_QSIGMA_SHARE_MACHINE_EPSILON_CROSSOVER.verdict) &&
-      /remains SOTA/.test(IMP33881_QSIGMA_SHARE_MACHINE_EPSILON_CROSSOVER.verdict),
+      /refereed bound is changed/i.test(IMP33881_QSIGMA_SHARE_MACHINE_EPSILON_CROSSOVER.verdict),
   },
 ];
 

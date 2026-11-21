@@ -42,7 +42,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96709 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96709-route-m-drift-vif-block-bootstrap.js (source: the block-bootstrap measurement this glosses)
  * @see imp-96692-route-m-reach-drift-covariance-inflation.js (the three bracketed model-based VIF estimates this reconciles)
@@ -50,7 +50,7 @@
  * @see imp-96487-route-m-burnol-ratio-asymptotic-remainder-model.js (the 21-rung ladder, source data)
  *
  * Ticket: imp-96786 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The drift-VIF block-bootstrap headword, baked verbatim (no re-import).
@@ -88,8 +88,8 @@ const DRIFT_VIF_BLOCK_BOOTSTRAP_HEADWORD = Object.freeze({
     '(a lower-leaning one, per the imp-96709 sub-gap), not a pin. The qualitative ' +
     'conclusion (VIF > 1, reach inflated, gap floor tightened below the SE-of-mean ' +
     '1.74) is unchanged; the quantitative AR(1)-primary reading is superseded as too ' +
-    'aggressive. Changes no bound; establishes no operator positivity; PT Lambda <= ' +
-    '0.2 remains SOTA; RH open; NO QED.',
+    'aggressive. Changes no bound; establishes no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96786_DRIFT_VIF_BLOCK_BOOTSTRAP_GLOSSARY_HEADWORD = Object.freeze({
@@ -113,8 +113,8 @@ export const IMP96786_DRIFT_VIF_BLOCK_BOOTSTRAP_GLOSSARY_HEADWORD = Object.freez
     '~0.5 orders) than the imp-96692 AR(1) reading (~11.6x, ~1.06 orders); the ' +
     'qualitative conclusion (VIF > 1, gap-resolution floor tightened, ratio(N) -> 1 ' +
     'stays out of wall-feasible reach) is unchanged. Establishes nothing; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96709 (the block-bootstrap measurement this glosses); imp-96692 (the three ' +
     'bracketed model-based VIF estimates); imp-96569 (SE-of-mean reach baseline); ' +
@@ -144,11 +144,11 @@ export const IMP96786_DRIFT_VIF_BLOCK_BOOTSTRAP_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96786-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96786_DRIFT_VIF_BLOCK_BOOTSTRAP_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96786_DRIFT_VIF_BLOCK_BOOTSTRAP_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96786_DRIFT_VIF_BLOCK_BOOTSTRAP_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96786_DRIFT_VIF_BLOCK_BOOTSTRAP_GLOSSARY_HEADWORD.verdict) &&
       IMP96786_DRIFT_VIF_BLOCK_BOOTSTRAP_GLOSSARY_HEADWORD.glosses === 'imp-96709',
   },
 ];

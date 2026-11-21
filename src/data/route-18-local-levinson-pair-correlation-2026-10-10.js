@@ -32,7 +32,7 @@
  * suffice" holds for typical and close-pair sites only, not every site. The profile form is already B1's statement and C1 already gives
  * Λ ≈ 0.132 for the neutral Palm profile; new here are c* = 0.882 and the window-resolution requirement.
  *
- * No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_18_ASSERTIONS recompute the seam spacing, lattice 1- and
+ * No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_18_ASSERTIONS recompute the seam spacing, lattice 1- and
  * 2-slot mirror counts (closed forms), p_req, the lattice profile descent and c*, the GUE Palm count and deficit 2 by quadrature, the
  * GUE descent, the window tiers and δ thresholds, and the Clausen damping factors live.
  */
@@ -93,7 +93,7 @@ export const ROUTE_18 = Object.freeze({
     + 'unconditional tiers (structural observation, not a theorem). The constant-p form of H_desc-mirror is out of reach at every window length; the profile '
     + 'form needs no deficit worse than ≈ 12% (c* = 0.882) at every site, which a count certificate supplies only loss-free at ≈ 2 (lattice) to 4 (GUE mean) '
     + 'spacings — one-by-one zero checking. The measured certificate (κ_W ≈ 0.29–0.35; 16–48 spacings for every window to 1e6) misses by ≈ 3× in κ and '
-    + '5–16× in length, and the frozen-model profile criterion already fails at worst-case sites (C2). Nothing interval-certified. PT Lambda <= 0.2 stands; '
+    + '5–16× in length, and the frozen-model profile criterion already fails at worst-case sites (C2). Nothing interval-certified. No refereed bound is changed; '
     + 'RH open; NO QED.',
 });
 
@@ -168,7 +168,7 @@ export const ROUTE_18_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r18-honest-scope',
-    holds: () => R.status === 'done' && /not a theorem/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict)
+    holds: () => R.status === 'done' && /not a theorem/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict)
       && /no bound moves/.test(R.verdict) && /Nothing interval-certified/.test(R.verdict),
     why: 'Structural observation, not a non-implication theorem; frozen-model measurements; no Λ change; no QED.',
   },

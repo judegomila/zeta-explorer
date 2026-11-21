@@ -41,14 +41,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96616 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96616-gmin-ratio-extreme-gap-decay.js (source: the measurement this glosses)
  * @see rh-bridge-supercritical-fluid-shock-scaling-2026-09-24 Q1 (names the fold-law lever
  *   this ratio decides: |t_c(N)| = g_min(N)^2/8 vs the 1-point-density surrogate)
  *
  * Ticket: imp-96639 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The GUE-envelope-tracking headword, baked verbatim (no re-import).
@@ -85,7 +85,7 @@ const GMIN_RATIO_GUE_ENVELOPE_HEADWORD = Object.freeze({
   verificationStatus:
     'Numerical measurement over 2,001,052 Odlyzko zeros (quantifies the target exponent ' +
     'and its GUE consistency), not a proof of the small-gaps law. Changes no bound; ' +
-    'establishes no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'establishes no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96639_GMIN_RATIO_GUE_ENVELOPE_GLOSSARY_HEADWORD = Object.freeze({
@@ -111,7 +111,7 @@ export const IMP96639_GMIN_RATIO_GUE_ENVELOPE_GLOSSARY_HEADWORD = Object.freeze(
     'asymptotic theorem), so beating the 1/log^2 surrogate envelope exponent still requires ' +
     'an unconditional small-gaps theorem -- the pair-correlation wall is RELOCATED onto this ' +
     'specific exponent, not removed. Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96616 (the measurement and finding this glosses); ' +
     'rh-bridge-supercritical-fluid-shock-scaling-2026-09-24 Q1 (names the fold-law lever ' +
@@ -138,11 +138,11 @@ export const IMP96639_GMIN_RATIO_GUE_ENVELOPE_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96639-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96639_GMIN_RATIO_GUE_ENVELOPE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96639_GMIN_RATIO_GUE_ENVELOPE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96639_GMIN_RATIO_GUE_ENVELOPE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96639_GMIN_RATIO_GUE_ENVELOPE_GLOSSARY_HEADWORD.verdict) &&
       IMP96639_GMIN_RATIO_GUE_ENVELOPE_GLOSSARY_HEADWORD.glosses === 'imp-96616',
   },
 ];

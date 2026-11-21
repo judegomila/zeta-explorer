@@ -11,8 +11,8 @@
  * PRESENTATION ONLY. Every value here is reused verbatim from imp-96591
  * (itself a re-analysis of the imp-96428 fit and the imp-96563 rounding-shift
  * formula); only the log10 reshape and marker packaging are new. Changes no
- * bound, establishes no operator positivity, no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * bound, establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96591-route-m-lammin-cert-limit-crossover-measurement.js (source ladder + crossover)
  * @see imp-96563-route-m-lammin-rigorous-lower-bound-assessment.js (IMP96563_CERT_LIMIT_N origin)
@@ -104,7 +104,7 @@ const IMP96606_ASSERTIONS = [
     id: 'imp96606-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96606_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96606_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96606_HONEST_BANNER) &&
       /NO QED/.test(IMP96606_HONEST_BANNER),
     why: 'every Route M lam_min viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

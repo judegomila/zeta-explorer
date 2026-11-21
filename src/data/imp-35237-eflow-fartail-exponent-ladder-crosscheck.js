@@ -47,7 +47,7 @@
  * more anchors, nothing more. The component model is the imp-3220/imp-3406 extrapolation,
  * NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35222-eflow-fartail-exponent-standalone-crosscheck (the two-anchor cross-check this extends)
  * @see imp-35198-eflow-fartail-exponent-logn-correction (the derivation being cross-checked)
@@ -146,8 +146,8 @@ export const IMP35237_EFLOW_FARTAIL_EXPONENT_LADDER_CROSSCHECK = {
     '~0.012 at N = 1e6 to ~0.004 at N = 1e16 (leading) -- so the agreement is not an accident of ' +
     'the endpoints. Changes no bound; component model is the imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional ' +
-    'per imp-486 UNTOUCHED; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'per imp-486 UNTOUCHED; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35222 (two-anchor independent cross-check, extended here); imp-35198 (leading +3/log N ' +
     'derivation); imp-35135 (measured far-tail E_flow exponent drift); imp-486 (C_mb ' +
@@ -209,13 +209,13 @@ export const IMP35237_EFLOW_FARTAIL_EXPONENT_LADDER_CROSSCHECK_ASSERTIONS = [
       ANCHORS.every((a, i) => i === 0 || a.leading < ANCHORS[i - 1].leading),
   },
   {
-    // Honesty gate: cross-check only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: cross-check only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35237-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Cross-check only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35237_EFLOW_FARTAIL_EXPONENT_LADDER_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP35237_EFLOW_FARTAIL_EXPONENT_LADDER_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP35237_EFLOW_FARTAIL_EXPONENT_LADDER_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP35237_EFLOW_FARTAIL_EXPONENT_LADDER_CROSSCHECK.verdict),
   },
 ];
 

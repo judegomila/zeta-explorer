@@ -64,8 +64,8 @@
  * enclosure) and (iii) GUE throughout; obstruction (ii) (the one-sided finite-L correction sign) is
  * now DISCHARGED by the two-sided envelope and no longer blocks. Assessment + derivation only;
  * conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN,
- * GRH-flavored); changes NO unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; the zero-side route stays PCC/GRH-gated.
+ * GRH-flavored); changes NO unconditional bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96812-boxsine-onesided-sign-assessment (horn A/B this routes around with the two-sided envelope)
  * @see imp-96628-boxsine-lagcorr-ibp-envelope (the certified two-sided C(k)/L^2 envelope used here)
@@ -148,12 +148,12 @@ export const IMP96853_VIF_TWOSIDED_ENVELOPE_PARTITION_ASSESSMENT = {
   conditionality:
     'Conditional on the GUE sine kernel / Montgomery pair correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored). Changes NO unconditional bound.',
   verdict:
-    'The VIF-upper-bound route is NOT closed. The literal sign-partition the ticket proposes is unavailable (certifying the per-lag sign class is exactly imp-96812 horn B), but it is unnecessary: the imp-96628 TWO-SIDED envelope |DeltaCov_k(L)| <= C(k)/L^2 bounds rho_k(L) <= rho_k(inf) + C(k)/(L^2 Sigma^2) for EVERY lag k >= 2 regardless of the sign of DeltaCov_k, absorbing the wrong-sign (positive-DeltaCov) lags k = 3,4,5 into a slack term that summed over the whole Bartlett window is only 5.65e-8 -- a factor ~7.5e-7 of the rho_1-only head VIF_HEAD = 0.075232 and ~1.0e-5 of the actual finite-window value VIF_ACTUAL = 0.005463, so the positive-lag contributions do NOT overwhelm the budget. This yields a rigorous CONDITIONAL upper bound VIF_291 <= 0.005463 (z >= 26.02), essentially the actual finite-window value (the envelope shifts z by ~1.3e-4). Crucially this SIDESTEPS BOTH horns of imp-96812: horn A (no uniform one-sided sign) is irrelevant because the two-sided envelope needs no one-sidedness, and horn B (per-lag sign uncertifiable) is irrelevant because no partition is needed -- the envelope covers both signs at once. The residual obstruction MIGRATES to the two items imp-96593 already isolated as NOT DeltaCov-sign: (i) an interval-certified Sigma^2(L) (here the 6-digit GUE match 0.974834, not yet an enclosure) and (iii) GUE throughout; obstruction (ii) (the one-sided finite-L correction sign) is now DISCHARGED by the two-sided envelope and no longer blocks. Assessment + derivation only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The VIF-upper-bound route is NOT closed. The literal sign-partition the ticket proposes is unavailable (certifying the per-lag sign class is exactly imp-96812 horn B), but it is unnecessary: the imp-96628 TWO-SIDED envelope |DeltaCov_k(L)| <= C(k)/L^2 bounds rho_k(L) <= rho_k(inf) + C(k)/(L^2 Sigma^2) for EVERY lag k >= 2 regardless of the sign of DeltaCov_k, absorbing the wrong-sign (positive-DeltaCov) lags k = 3,4,5 into a slack term that summed over the whole Bartlett window is only 5.65e-8 -- a factor ~7.5e-7 of the rho_1-only head VIF_HEAD = 0.075232 and ~1.0e-5 of the actual finite-window value VIF_ACTUAL = 0.005463, so the positive-lag contributions do NOT overwhelm the budget. This yields a rigorous CONDITIONAL upper bound VIF_291 <= 0.005463 (z >= 26.02), essentially the actual finite-window value (the envelope shifts z by ~1.3e-4). Crucially this SIDESTEPS BOTH horns of imp-96812: horn A (no uniform one-sided sign) is irrelevant because the two-sided envelope needs no one-sidedness, and horn B (per-lag sign uncertifiable) is irrelevant because no partition is needed -- the envelope covers both signs at once. The residual obstruction MIGRATES to the two items imp-96593 already isolated as NOT DeltaCov-sign: (i) an interval-certified Sigma^2(L) (here the 6-digit GUE match 0.974834, not yet an enclosure) and (iii) GUE throughout; obstruction (ii) (the one-sided finite-L correction sign) is now DISCHARGED by the two-sided envelope and no longer blocks. Assessment + derivation only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes no unconditional bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 / imp-96593 / imp-96628 / imp-96812 convention).
 export const IMP96853_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment + derivation: the VIF-upper-bound route is '
+  'RH open; no refereed bound is changed; NO QED. Assessment + derivation: the VIF-upper-bound route is '
   + 'NOT closed. The literal per-lag sign-partition is unavailable (imp-96812 horn B) but unnecessary -- '
   + 'the imp-96628 TWO-SIDED envelope |DeltaCov_k| <= C(k)/L^2 bounds every lag k >= 2 regardless of sign, '
   + 'so rho_k(L) <= rho_k(inf) + C(k)/(L^2 Sigma^2) and the wrong-sign (positive-DeltaCov) lags k = 3,4,5 '
@@ -204,11 +204,11 @@ export const IMP96853_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96853_VIF_TWOSIDED_ENVELOPE_PARTITION_ASSESSMENT.verdict))
     throw new Error('imp-96853: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96853_VIF_TWOSIDED_ENVELOPE_PARTITION_ASSESSMENT.verdict))
-    throw new Error('imp-96853: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96853_VIF_TWOSIDED_ENVELOPE_PARTITION_ASSESSMENT.verdict))
+    throw new Error('imp-96853: verdict dropped the no-refereed-bound-change banner');
   if (!/[Cc]onditional/.test(IMP96853_VIF_TWOSIDED_ENVELOPE_PARTITION_ASSESSMENT.verdict))
     throw new Error('imp-96853: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96853_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96853_HONEST_BANNER) && /NO QED/.test(IMP96853_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96853_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96853_HONEST_BANNER) && /NO QED/.test(IMP96853_HONEST_BANNER)))
     throw new Error('imp-96853: IMP96853_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

@@ -57,8 +57,8 @@
  *   LOCK ONLY -- no new mathematics, no QED. The global asymmetric multi-body
  *   isolation constant c_glob remains OPEN; every located smooth onset is only an
  *   UPPER bound. The Theorem-C basin constant 0.72 is the load-bearing lower
- *   reference (margin ~0.18 to every located onset). Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA. No false QED.
+ *   reference (margin ~0.18 to every located onset). No refereed bound is changed
+ *   . No false QED.
  *
  *   @see sg1c-asym-onset-bracket-ledger-2026-06-30.js  (the ledger with selectorArtifacts)
  *   @see sg1c-mingap-selector-discontinuity-2026-06-30.js  (imp-3173 diagnostic of imp-3045)
@@ -102,7 +102,7 @@ export const IMP3249_SELECTOR_ARTIFACT_CGLO_GUARD = Object.freeze({
     isReductionBelowRH: false,
     isLockOnly: true,
     cglobStatus: 'OPEN -- every located smooth onset is only an UPPER bound; no proven lower bound below basin 0.72',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -175,7 +175,7 @@ export const IMP3249_SELECTOR_ARTIFACT_CGLO_GUARD_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isLockOnly === true &&
         /OPEN/.test(c.cglobStatus) &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

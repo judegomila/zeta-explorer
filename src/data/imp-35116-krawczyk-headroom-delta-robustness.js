@@ -34,8 +34,7 @@
  * rests on the SAME gamma(n)/k eps surrogate models of the imp-34687a directed-rounding layer, not the layer
  * itself. F(m) = 0 remains a double-precision artifact and the machine certificate imp-34714a REMAINS OPEN.
  * C_C = 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
- * K_a >= 0 untouched; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * K_a >= 0 untouched; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34996-krawczyk-headroom-safety-factor-asymptote (the S_inf = 1/(2 delta) = 2500 floor at delta = 2e-4)
  * @see imp-35110-krawczyk-headroom-small-n-edge (the small-N edge of the same headroom; sub-100x is out-of-band)
@@ -182,7 +181,7 @@ export const IMP35116_KRAWCZYK_HEADROOM_DELTA_ROBUSTNESS = {
     'inherited imp-3220/imp-3406 surrogate crossover map; reproduces the imp-34996 2500 floor at delta = 2e-4; ' +
     'the C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 ' +
     'K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34996 (S_inf = 1/(2 delta) = 2500 floor at delta = 2e-4); imp-35110 (small-N edge of the same ' +
     'headroom); imp-34929 (closed-form dS/dN < 0, strictly decreasing S); imp-34799 ((H2)-margin ceiling ' +
@@ -222,15 +221,15 @@ export const IMP35116_KRAWCZYK_HEADROOM_DELTA_ROBUSTNESS_ASSERTIONS = [
       Math.abs(S_INF_AT_ACTUAL - 2500) < 1e-9,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35116-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35116_KRAWCZYK_HEADROOM_DELTA_ROBUSTNESS.isRigorous === false &&
       /imp-34714a/.test(IMP35116_KRAWCZYK_HEADROOM_DELTA_ROBUSTNESS.subGap) &&
       /REMAINS OPEN/.test(IMP35116_KRAWCZYK_HEADROOM_DELTA_ROBUSTNESS.subGap) &&
       /NO QED/.test(IMP35116_KRAWCZYK_HEADROOM_DELTA_ROBUSTNESS.verdict) &&
-      /remains SOTA/.test(IMP35116_KRAWCZYK_HEADROOM_DELTA_ROBUSTNESS.verdict),
+      /refereed bound is changed/i.test(IMP35116_KRAWCZYK_HEADROOM_DELTA_ROBUSTNESS.verdict),
   },
 ];
 

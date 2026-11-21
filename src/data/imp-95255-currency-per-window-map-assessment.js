@@ -119,8 +119,7 @@
  * (3) envelope-shape / seam-to-chain-gate (gammaSL) map UNCHANGED and now
  * carries the additional obligation of transcribing per-window SIGN data if
  * theta is to be used; (4) paper constants UNCHANGED. Import-light (no zeros
- * bundle, no sibling imports). Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bundle, no sibling imports). Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // -- width-law port constants (illustrative (c, v); assessment is c,v-free) --
@@ -209,7 +208,7 @@ export const IMP95255_CURRENCY_PER_WINDOW_MAP_ASSESSMENT = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. Obligation ledger: (1) per-window Q extraction UNCHANGED (y_min rides the same Q as x_min); (2) PHASE-CERT depth argument (y_min) is portable, its phase content (theta) is BLOCKED at the transcription not the certificate; (3) envelope-shape / seam-to-chain-gate (gammaSL) map UNCHANGED and now also owes per-window SIGN data if theta is to be used; (4) paper constants UNCHANGED.",
   verdict:
-    "ASSESSMENT (split verdict, honest): the imp-95233 HONEST LIMITS (c) lumping of y_min and theta as jointly unmapped is REFINED. y_min MAPS -- it is a per-window geometry quantity inheriting the imp-95220 width-law port and the imp-95222 isolation group Q that already carries x_min (x_min <= y_min <= 2 x_min exact; measured y_min/x_min -> 1 on the ported grids), so PHASE-CERT is depth-portable exactly as FA-2 is. theta is OBSTRUCTED -- a scale-invariant per-window SIGN functional that is trivially 1 on the fixed-amplitude family the paper specifies and has no image under the geometry+modulus transcription, which carries no per-window sign pattern; a phase-priced per-window bound therefore needs new transcribed sign data (obligation (3)), not a better certificate. Nothing derives or moves a bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT (split verdict, honest): the imp-95233 HONEST LIMITS (c) lumping of y_min and theta as jointly unmapped is REFINED. y_min MAPS -- it is a per-window geometry quantity inheriting the imp-95220 width-law port and the imp-95222 isolation group Q that already carries x_min (x_min <= y_min <= 2 x_min exact; measured y_min/x_min -> 1 on the ported grids), so PHASE-CERT is depth-portable exactly as FA-2 is. theta is OBSTRUCTED -- a scale-invariant per-window SIGN functional that is trivially 1 on the fixed-amplitude family the paper specifies and has no image under the geometry+modulus transcription, which carries no per-window sign pattern; a phase-priced per-window bound therefore needs new transcribed sign data (obligation (3)), not a better certificate. Nothing derives or moves a bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "LEG 1 FA-2 bracket x_min <= y_min <= 2 x_min is exact (imp-95222 THEOREM FA-2, consumed); the tighter y_min/x_min ratios are MEASURED from the width-law port geometry (exact arithmetic, no quadrature) and the collapse toward 1 is observed on four grids, not proved as a limit law. LEG 2 theta = 1 on the fixed-amplitude family is confirmed by quadrature to 1e-9; the obstruction is a structural statement about the transcription (geometry+modulus, no sign data), an identified wall, not an impossibility theorem. x(D/2) = 1/Q is exact. All quadrature is cross-check only.",
 };
@@ -300,7 +299,7 @@ export const IMP95255_MAP_ASSESSMENT_ASSERTIONS = [
       /theta is OBSTRUCTED/.test(IMP95255_CURRENCY_PER_WINDOW_MAP_ASSESSMENT.verdict) &&
       /STILL OPEN/.test(IMP95255_CURRENCY_PER_WINDOW_MAP_ASSESSMENT.subGap) &&
       /NO QED/.test(IMP95255_CURRENCY_PER_WINDOW_MAP_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP95255_CURRENCY_PER_WINDOW_MAP_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP95255_CURRENCY_PER_WINDOW_MAP_ASSESSMENT.verdict),
   },
 ];
 

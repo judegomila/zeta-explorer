@@ -46,14 +46,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96151 F1/F2 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96151-sigma-closed-form-crossover-fartail-reproduction (source: the F1/F2 finding this glosses)
  * @see imp-3220-en-bridge-fidelity-frontier (the U-shape interior peak, ~0.9494 at N~9.22e5)
  * @see imp-33582 (the far-tail post-peak decay-exponent ramp measured out to 1e12)
  *
  * Ticket: imp-96276 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The half-reproduction headword, baked verbatim (no re-import).
@@ -79,7 +79,7 @@ const CLOSED_FORM_HALF_REPRODUCES_USHAPE_HEADWORD = Object.freeze({
   verificationStatus:
     'Measurement-only attribution, not a bound move. Cleanly assigns the imp-3220 peak to ' +
     'the E_flow term rather than to the collapse/truncation competition sigma_CF isolates. ' +
-    'Changes no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Changes no bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96276_CLOSED_FORM_HALF_REPRODUCES_USHAPE_GLOSSARY_HEADWORD = Object.freeze({
@@ -98,7 +98,7 @@ export const IMP96276_CLOSED_FORM_HALF_REPRODUCES_USHAPE_GLOSSARY_HEADWORD = Obj
     '(4-decimal match, gap < 4.60e-4 out to 1e100) but does NOT reproduce the imp-3220 ' +
     'U-shape interior peak (~0.9494 at N~9.22e5) -- sigma_CF is strictly monotone decreasing ' +
     'over [1e2,1e12], carrying only the post-peak arm. Establishes nothing; instantiates no ' +
-    'interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96151 (the F1/F2 finding this glosses); imp-3220 (the U-shape interior peak); ' +
     'imp-33582 (the far-tail decay-exponent ramp); imp-33723 (the crossover fixed point ' +
@@ -125,11 +125,11 @@ export const IMP96276_CLOSED_FORM_HALF_REPRODUCES_USHAPE_GLOSSARY_HEADWORD_ASSER
   },
   {
     id: 'imp96276-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96276_CLOSED_FORM_HALF_REPRODUCES_USHAPE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96276_CLOSED_FORM_HALF_REPRODUCES_USHAPE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96276_CLOSED_FORM_HALF_REPRODUCES_USHAPE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96276_CLOSED_FORM_HALF_REPRODUCES_USHAPE_GLOSSARY_HEADWORD.verdict) &&
       IMP96276_CLOSED_FORM_HALF_REPRODUCES_USHAPE_GLOSSARY_HEADWORD.glosses === 'imp-96151',
   },
 ];

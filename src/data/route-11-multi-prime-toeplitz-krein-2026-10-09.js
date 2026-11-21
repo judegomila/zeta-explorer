@@ -38,7 +38,7 @@
  *  extrapolation to 2a = 7.764 gives margins near 10^−11000 and T ≈ 2π·e^70. DH analogy: dag3-dhblindln3 certified the RH-false F_DH
  *  positive on 2a ≤ ln 11, so positivity at these supports probably does not encode the Euler product.
  *
- * PT Λ ≤ 0.2 stands; localises no zero; RH open; NO QED. Import-free. ROUTE_11_ASSERTIONS recompute the crude floors Σβ_n, nesting,
+ * No refereed bound is changed; localises no zero; RH open; NO QED. Import-free. ROUTE_11_ASSERTIONS recompute the crude floors Σβ_n, nesting,
  * the floor condition 2θ′(T) > F, the decay fit, the λ₁ corollary and the Ritz-above-certificate ordering live.
  */
 
@@ -101,7 +101,7 @@ export const ROUTE_11 = Object.freeze({
   verdict: 'Bounded question answered: pole-free Weil positivity of ζ is Arb-certified with no zero input past ln 3 to ln 4 and ln 5 (and ln 6) cleanly, and to ln 11 '
     + 'conditional on the torus-floor tiling patch; margins 10^(−4.8·e^{2a}) are near-sharp (Ritz within ≈ 2×), so the method stops near ln 11–ln 13 in practice. '
     + 'All of this lies inside the verified-height range, localises no zero and moves no Λ bound; internal referee only; novelty against the small-support '
-    + 'literature unchecked. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'literature unchecked. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_11;
@@ -159,7 +159,7 @@ export const ROUTE_11_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r11-honest-scope',
-    holds: () => R.status === 'done' && /conditional/.test(R.verdict) && /moves no Λ bound/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict)
+    holds: () => R.status === 'done' && /conditional/.test(R.verdict) && /moves no Λ bound/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict)
       && /NO QED/.test(R.verdict) && R.certificates.filter((x) => x.e2a >= 7).every((x) => x.tier.startsWith('COND')) && /tile/.test(R.refereeKilled[0]),
     why: 'ln 7 … ln 11 graded conditional on the tiling patch; no Λ change; no QED.',
   },

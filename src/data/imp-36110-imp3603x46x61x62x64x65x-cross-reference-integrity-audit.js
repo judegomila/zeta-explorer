@@ -36,8 +36,7 @@
  *
  * SCOPE. Assessment/audit only. No source file was modified as a result of this check (none
  * needed correction). Changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; C_mb GUE-conditional per imp-486 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * untouched; C_mb GUE-conditional per imp-486 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35186-cross-reference-integrity-audit (audit method template)
  * @see imp-36127-imp3603x-3606x-cross-reference-integrity-audit.js (sibling audit, covers imp-36030..imp-36062 of this cohort)
@@ -89,8 +88,8 @@ export const IMP36110_CROSS_REFERENCE_INTEGRITY_AUDIT = {
     'improvement-queue.js / improvements.js. Combined with the imp-36127 result for the remaining ' +
     'five cohort members, the full imp-36033/36034/36046/36061/36062/36064/36065 cohort is clean. ' +
     'Changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; C_mb ' +
-    'GUE-conditional per imp-486 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'GUE-conditional per imp-486 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35186 (cross-reference integrity audit method); imp-36127 (sibling audit, same method, ' +
     'covers imp-36030..imp-36062); imp-36064, imp-35968/imp-36065 (the newly audited members).',
@@ -117,11 +116,11 @@ export const IMP36110_CROSS_REFERENCE_INTEGRITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp36110-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36110_CROSS_REFERENCE_INTEGRITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP36110_CROSS_REFERENCE_INTEGRITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP36110_CROSS_REFERENCE_INTEGRITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP36110_CROSS_REFERENCE_INTEGRITY_AUDIT.verdict),
   },
 ];
 

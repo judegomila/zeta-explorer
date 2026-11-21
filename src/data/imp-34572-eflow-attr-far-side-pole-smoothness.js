@@ -53,7 +53,7 @@
  *   imp-34169 machinery. Descriptive surrogate, NOT a rigorous asymptotic; the component
  *   model is the inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per
  *   imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- *   K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34406-eflow-attr-smooth-nonzero-across-pole.js (near-side bracket k=21.00..21.50, F2 premise)
  *   @see imp-34570-eflow-attr-power-law-fit-eflow-slope-check.js (power law p*ln10=-2.1586, E_flow slope -2.1618)
@@ -160,7 +160,7 @@ export const IMP34572_EFLOW_ATTR_FAR_SIDE_POLE_SMOOTHNESS = {
     'now measured on both sides. Descriptive surrogate, NOT a rigorous asymptotic; the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed.',
 };
 
 export const IMP34572_ASSERTIONS = [
@@ -231,13 +231,13 @@ export const IMP34572_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34572-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34572_EFLOW_ATTR_FAR_SIDE_POLE_SMOOTHNESS.isRigorous === false &&
       /NO QED/.test(IMP34572_EFLOW_ATTR_FAR_SIDE_POLE_SMOOTHNESS.honest) &&
-      /remains SOTA/.test(IMP34572_EFLOW_ATTR_FAR_SIDE_POLE_SMOOTHNESS.honest),
+      /refereed bound is changed/i.test(IMP34572_EFLOW_ATTR_FAR_SIDE_POLE_SMOOTHNESS.honest),
   },
 ];
 

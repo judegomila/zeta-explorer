@@ -18,8 +18,7 @@
  *
  * PRESENTATION ONLY. Simulation-derived values (synthetic q4+q5 two-tone plus
  * matched noise); no new zeros, no Gram build, no bound changes, no operator
- * positivity established; RH open; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity established; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96248-route-m-conductor-resolvability-curve.js (baked curve, verdict, sub-gap; imp-96277 viz page)
  *
@@ -69,7 +68,7 @@ export const IMP96277_VERDICT = Object.freeze({
 });
 
 export const IMP96277_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every span, twoTonePref, reliableSep, '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every span, twoTonePref, reliableSep, '
   + 'relAmpErr and cond value is copied verbatim from the imp-96248 baked resolvability curve; only the N '
   + 'estimate (N = 250 * exp(span), imp-96248 own ladder relation) is computed here for the axis label, no '
   + 'new Monte-Carlo run. Synthetic q4+q5 two-tone simulation only; no new zeros, no Gram build, no bound '
@@ -122,8 +121,8 @@ const IMP96277_ASSERTIONS = [
   },
   {
     id: 'imp96277-honest-banner-present',
-    holds: () => /RH open/.test(IMP96277_HONEST_BANNER) && /NO QED/.test(IMP96277_HONEST_BANNER) && /SOTA/.test(IMP96277_HONEST_BANNER),
-    why: 'honesty gate: presentation only, no RH claim, PT stays SOTA.',
+    holds: () => /RH open/.test(IMP96277_HONEST_BANNER) && /NO QED/.test(IMP96277_HONEST_BANNER) && /refereed bound is changed/i.test(IMP96277_HONEST_BANNER),
+    why: 'honesty gate: presentation only, no RH claim, no refereed bound is changed.',
   },
 ];
 

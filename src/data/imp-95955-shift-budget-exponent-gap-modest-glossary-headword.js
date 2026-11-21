@@ -36,7 +36,7 @@
  *   imp-95885 finding that the fitted (C, p) pair is delta-LOCAL (calibrated at
  *   ln 1.25), not a cross-delta predictor -- see imp-95904 for that headword. It
  *   establishes nothing, fits no new curve. Changes no bound of the Lambda
- *   program; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   program; NO QED. No refereed bound is changed.
  *
  * @see imp-95838-ln125-shift-budget-scaling (source: the measured VERDICT this glosses)
  * @see imp-95820-shift-invert-dd-toeplitz-crossing (the "far slower" characterization refined here)
@@ -44,7 +44,7 @@
  * @see imp-95859-ln125-window-shift-budget (worst window cell, supersedes the endpoint budget)
  *
  * Ticket: imp-95955 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The shift-budget exponent-gap-modest headword, baked verbatim (no re-import).
@@ -96,7 +96,7 @@ export const IMP95955_SHIFT_BUDGET_EXPONENT_GAP_MODEST_GLOSSARY_HEADWORD = Objec
     'so "far slower" overstates the exponent gap. The dominant practical cure is a ' +
     '~10-12x smaller absolute constant plus PD-validity (retries=0), not a dramatically ' +
     'lower exponent. Establishes nothing; fits no new curve; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95838 (ln1.25 shift-invert budget scaling measurement, source VERDICT); ' +
     'imp-95820 (shift-invert DD-Toeplitz crossing solver, origin of the "far slower" ' +
@@ -125,11 +125,11 @@ export const IMP95955_SHIFT_BUDGET_EXPONENT_GAP_MODEST_GLOSSARY_HEADWORD_ASSERTI
   },
   {
     id: 'imp95955-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, correct glosses/scopes pointers.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, correct glosses/scopes pointers.',
     holds: () =>
       IMP95955_SHIFT_BUDGET_EXPONENT_GAP_MODEST_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95955_SHIFT_BUDGET_EXPONENT_GAP_MODEST_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95955_SHIFT_BUDGET_EXPONENT_GAP_MODEST_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95955_SHIFT_BUDGET_EXPONENT_GAP_MODEST_GLOSSARY_HEADWORD.verdict) &&
       IMP95955_SHIFT_BUDGET_EXPONENT_GAP_MODEST_GLOSSARY_HEADWORD.glosses === 'imp-95838' &&
       IMP95955_SHIFT_BUDGET_EXPONENT_GAP_MODEST_GLOSSARY_HEADWORD.scopes === 'imp-95820',
   },

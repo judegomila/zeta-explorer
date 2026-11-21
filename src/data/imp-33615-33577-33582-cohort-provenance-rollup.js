@@ -3,7 +3,7 @@
  * @fileoverview imp-33615 -- META provenance roll-up cataloguing the imp-33577/imp-33578/imp-33579/
  * imp-33580/imp-33581/imp-33582 deep-tail cohort (six modules) by EVIDENCE CLASS and confirming each
  * module carries the mandatory honest banner: no-QED, the imp-3066 K_a >= 0 operator-positivity
- * invariant untouched, and Platt-Trudgian Lambda <= 0.2 SOTA, following the imp-3886/imp-33247/
+ * invariant untouched, and no refereed bound is changed, following the imp-3886/imp-33247/
  * imp-33268/imp-33287/imp-33307 audit pattern.
  *
  * METHOD (read-only, performed at author time). Each module's @fileoverview/detail block was read
@@ -22,7 +22,7 @@
  *   - "sigma post-peak finer-grid decay": re-fits a per-decade local exponent ladder on a finer grid
  *     to test whether a claimed decay rate is a fixed constant or itself accelerating.
  * The honest-banner check greps each module for the mandatory phrases (no QED, imp-3066 K_a >= 0
- * untouched, Platt-Trudgian Lambda <= 0.2 SOTA) and for the Polymath15 G6a_shock_lipschitz/H2 bridge
+ * untouched, no refereed bound is changed) and for the Polymath15 G6a_shock_lipschitz/H2 bridge
  * status line.
  *
  * RESULT (audited 2026-07-04). All six modules carry the full honest banner and all six state the
@@ -57,7 +57,7 @@ export const IMP_33615_33577_33582_COHORT_PROVENANCE_ROLLUP = {
     'blocks; classify by evidence class (cross-solver band budget / low-height reference-libm ' +
     'envelope / band-crossing floor bisection / graded-mapped-CC uniform-abscissa artifact / dd ' +
     'libm self-error sweep / sigma post-peak finer-grid decay); grep for the mandatory honest-' +
-    'banner phrases (no QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 SOTA) plus ' +
+    'banner phrases (no QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed) plus ' +
     'the explicit G6a/H2 bridge status.',
   modules: [
     {
@@ -140,8 +140,8 @@ export const IMP_33615_33577_33582_COHORT_PROVENANCE_ROLLUP = {
     'candidates if a dedicated entry is later wanted.',
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
-    'itself. imp-3066 K_a >= 0 positivity untouched across all six. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA. No QED.',
+    'itself. imp-3066 K_a >= 0 positivity untouched across all six. No refereed bound is changed' +
+    '. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -170,7 +170,7 @@ const IMP_33615_ASSERTIONS = [
         (x) => x.noQED === true && x.untouchedInvariant === 'imp-3066 K_a >= 0' && x.plattTrudgianSOTA === true
       ) && IMP_33615_33577_33582_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 6,
     why: 'Every module in the cohort must state no-QED, the imp-3066 K_a >= 0 untouched invariant, ' +
-      'and Platt-Trudgian Lambda <= 0.2 SOTA -- grep-verified against the source files.',
+      'and no refereed bound is changed -- grep-verified against the source files.',
   },
   {
     id: 'imp33615-zero-bridge-touching-consistent-not-referenced',
@@ -196,11 +196,11 @@ const IMP_33615_ASSERTIONS = [
   {
     id: 'imp33615-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33615_33577_33582_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33615_33577_33582_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33615_33577_33582_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33615_33577_33582_COHORT_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

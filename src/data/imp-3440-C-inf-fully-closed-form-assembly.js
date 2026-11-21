@@ -288,7 +288,7 @@ export const IMP3440_C_INF_FULLY_CLOSED_FORM_ASSEMBLY = Object.freeze({
     'is a real symbolic identity capturing C_inf to ~1%, but its last ~0.8% is the finite-operator-minus-symbol ' +
     'Szego gap plus the O(1/U) tail that Richardson resolves and the symbol sup does not. Assessment only; ' +
     'RH-equivalent; the imp-3066 K_a >= 0 magnitude is the lone obstruction, UNTOUCHED. NO RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -370,7 +370,7 @@ export const IMP3440_C_INF_FULLY_CLOSED_FORM_ASSEMBLY = Object.freeze({
       'The closed-form assembly is diagnostic; the imp-3066 off-diagonal endpoint-Hankel operator magnitude ' +
       'remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -408,7 +408,7 @@ export const IMP3440_C_INF_FULLY_CLOSED_FORM_ASSEMBLY_ASSERTIONS = [
     id: 'imp3440-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- a real fully-closed-form symbolic identity, but reproducing the ' +
       'headline only to ~0.8% (not 1e-4), a named residual obstruction (Szego symbol-vs-operator gap), positivity ' +
-      'not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3440_C_INF_FULLY_CLOSED_FORM_ASSEMBLY.honestCaveat;
       return (
@@ -418,7 +418,7 @@ export const IMP3440_C_INF_FULLY_CLOSED_FORM_ASSEMBLY_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.closedFormExistsButNot1e4Accurate === 'string' &&
         typeof c.residualObstruction === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -72,7 +72,7 @@
  *     ~(0.9016, 0.9028). No new bound is claimed.
  *   - Both the closed-form landmark and the numerical onset sit far above the
  *     Theorem-C basin 0.72 (margin > 0.15), so the basin-conditional C_Lip is
- *     unaffected. Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA.
+ *     unaffected. No refereed bound is changed.
  *
  * @see sg1c-asym-isolation-closed-form-2026-06-30 (imp-3170 c_asym = psi(g+1) root)
  * @see sg1c-asym-global-infimum-reconcile-2026-06-30 (imp-3172 Config B numeric 0.9015828)
@@ -160,7 +160,7 @@ export const SG1C_ASYM_MINGAP_CONFIGB_CLOSEDFORM = {
     + 'but it is SELECTOR-INADMISSIBLE and below the open bracket, so it gives no new bound; the genuine numerical '
     + 'onset 0.9015828 has no single-digamma closed form (boundary-constrained two-parameter root). Global asymmetric '
     + 'multi-body constant stays OPEN, bracketed ~(0.9016, 0.9028). Both values sit far above the Theorem-C basin 0.72 '
-    + '(margin > 0.15) so the basin-conditional C_Lip is unaffected; PT Lambda <= 0.2 stays the rigorous SOTA.',
+    + '(margin > 0.15) so the basin-conditional C_Lip is unaffected; no refereed bound is changed.',
 };
 
 export const SG1C_ASYM_MINGAP_CONFIGB_CLOSEDFORM_ASSERTIONS = [
@@ -198,11 +198,11 @@ export const SG1C_ASYM_MINGAP_CONFIGB_CLOSEDFORM_ASSERTIONS = [
   },
   {
     id: 'sg1c-configB-cf-honest-assessment-not-bound',
-    description: 'explicitly an ASSESSMENT (closed form for the idealized family only), the numerical 0.9015828 has no single-digamma closed form, the global constant stays OPEN, basin 0.72 unaffected, PT 0.2 stays SOTA',
+    description: 'explicitly an ASSESSMENT (closed form for the idealized family only), the numerical 0.9015828 has no single-digamma closed form, the global constant stays OPEN, basin 0.72 unaffected, no refereed bound is changed',
     holds: () => SG1C_ASYM_MINGAP_CONFIGB_CLOSEDFORM.closedFormReachable === true
       && /no single-digamma closed form/.test(SG1C_ASYM_MINGAP_CONFIGB_CLOSEDFORM.honest)
       && /stays OPEN/.test(SG1C_ASYM_MINGAP_CONFIGB_CLOSEDFORM.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(SG1C_ASYM_MINGAP_CONFIGB_CLOSEDFORM.honest),
+      && /refereed bound is changed/i.test(SG1C_ASYM_MINGAP_CONFIGB_CLOSEDFORM.honest),
   },
 ];
 

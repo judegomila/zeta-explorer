@@ -64,7 +64,7 @@
  * coprime density factor). The imp-96796 envelope constant 5 K^2 ~ 7.94 brackets BOTH from above
  * (ratios 4.53 and 10.44), so its above-bracket verdict is robust to this resolution. This is a
  * MEASUREMENT: no rigorous bound moves, the envelope (E) stays unproved, T = 2.594e7 stays the anchor,
- * compute N ~ 9916 binds first, PT Lambda <= 0.2 remains SOTA, RH open; NO QED.
+ * compute N ~ 9916 binds first, no refereed bound is changed, RH open; NO QED.
  *
  * @see imp-96796-route-m-homogeneous-envelope-s0-upper-bracket.js (caveat (2) recorded this gap)
  * @see imp-96750-route-m-interior-second-moment-upper-bound-reduction.js (s0 ~ 1.75 window means)
@@ -143,12 +143,12 @@ export const IMP96892_VERDICT = Object.freeze({
     'highly-composite b (phi/b ~ 0.26, b divisible by 2.3.5: b=180 -> 0.70, b=240 -> 0.72), a low-phi ' +
     'undersample; the ratio 1.751/0.76 = 2.30 is exactly the coprime-density factor 0.6079/0.264. The ' +
     'imp-96796 envelope constant 5 K^2 ~ 7.94 brackets both from above, so its above-bracket verdict ' +
-    'is robust. Measurement only; no bound moved; T=2.594e7 anchor; compute N~9916 binds first; PT ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'is robust. Measurement only; no bound moved; T=2.594e7 anchor; compute N~9916 binds first; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96892_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reconciliation MEASUREMENT only: the ~2.3x s0 gap ' +
+  'RH open; no refereed bound is changed; NO QED. Reconciliation MEASUREMENT only: the ~2.3x s0 gap ' +
   '(imp-96770 inline 0.76 vs imp-96750 window-mean 1.75) is a b-SAMPLING artifact of ONE oscillatory ' +
   'Q(b)/b -- checkpoint-anchored (T(250)=11.757622, border I(1,10000)=5.7355). Q(b)/b ~ (phi(b)/b)*Phi ' +
   'with Phi ~ 2.8: imp-96750 s0 ~ 1.75 is the correct b-average ((6/pi^2)*Phi), imp-96770 0.76 is a ' +
@@ -198,7 +198,7 @@ const IMP96892_ASSERTIONS = [
       IMP96892_VERDICT.anyBoundMoved === false &&
       IMP96892_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP96892_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96892_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96892_HONEST_BANNER) &&
       /RH open/.test(IMP96892_HONEST_BANNER),
     why: 'reconciliation measurement only: imp-96750 1.75 is the correct b-average, imp-96770 0.76 is a low-phi undersample, the gap is the coprime-density factor, the envelope bracket is robust, no bound moved, and the honesty markers are present.',
   },

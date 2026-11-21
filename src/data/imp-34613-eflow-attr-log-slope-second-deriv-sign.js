@@ -58,7 +58,7 @@
  *   component surrogate under the imp-34570 F3 E_N-flat regime; NOT a rigorous asymptotic of the
  *   true residual; the C_mb GUE-conditional per imp-486 is UNTOUCHED; establishes no operator
  *   positivity; imp-3066 K_a >= 0 untouched; changes no bound; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34586-eflow-attr-fp-floor-far-side-ladder.js (F2: observed convex second difference + monotone-steepening log-slope this derives the sign of)
  *   @see imp-34570-eflow-attr-power-law-fit-eflow-slope-check.js (F3: E_trunc-flat E_N regime; power-law slope -2.1586)
@@ -176,7 +176,7 @@ export const IMP34613_EFLOW_ATTR_LOG_SLOPE_SECOND_DERIV_SIGN = {
     'closed form for all N > e^3 (log) / N > 538 (raw), NOT accidents of the narrow window. This is ' +
     'NOT a rigorous asymptotic of the true residual; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; changes no bound; ' +
-    'no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED; no refereed bound is changed.',
 };
 
 export const IMP34613_ASSERTIONS = [
@@ -226,13 +226,13 @@ export const IMP34613_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: surrogate derivation only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: surrogate derivation only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34613-honesty-gate-no-qed',
-    description: 'Surrogate derivation only: isRigorous false, no QED, PT SOTA, C_mb/K_a untouched',
+    description: 'Surrogate derivation only: isRigorous false, no QED, no refereed bound is changed, C_mb/K_a untouched',
     holds: () =>
       IMP34613_EFLOW_ATTR_LOG_SLOPE_SECOND_DERIV_SIGN.isRigorous === false &&
       /NO QED/.test(IMP34613_EFLOW_ATTR_LOG_SLOPE_SECOND_DERIV_SIGN.honest) &&
-      /remains SOTA/.test(IMP34613_EFLOW_ATTR_LOG_SLOPE_SECOND_DERIV_SIGN.honest) &&
+      /refereed bound is changed/i.test(IMP34613_EFLOW_ATTR_LOG_SLOPE_SECOND_DERIV_SIGN.honest) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34613_EFLOW_ATTR_LOG_SLOPE_SECOND_DERIV_SIGN.honest),
   },
 ];

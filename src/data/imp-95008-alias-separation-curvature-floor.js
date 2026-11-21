@@ -121,7 +121,7 @@
  * for Lemma A, explicit interval sweeps for Proposition C, the finite sum
  * and its brackets for Theorem D); they are not the claim. Import-light (no
  * heavy bundle). Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 const P = 97; // the telescope prime
@@ -285,7 +285,7 @@ export const IMP95008_ALIAS_SEPARATION_CURVATURE_FLOOR = {
     "Lemmas A and B are unconditional exact arithmetic/algebra of the stationary-point family stated on the page; Proposition C is conditional on the packet-width hypothesis; Theorem D is conditional on the curvature normalization. Numerics are cross-checks, not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS SUB-LEMMAS + conditional closed form: the shifted-denominator set is exactly (1/p)-separated with curvature floor 1/p, the fold-overlap worry of imp-95008 residual (a) is INVERTED (disjointness improves toward the fold; overlap lives at the high-curvature end with an explicit dyadic bracket), and under the quadratic-Fresnel curvature normalization the named scalar has the N-free closed-form majorant 2 p^(-4/3) sum j^(-2/3) ~ 0.03811 at p = 97 (5.65x below the floor-only cap). The paper-phase curvature normalization, the packet-width constants, the high-curvature ceiling, and the l2-to-pointwise step remain open. Changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS SUB-LEMMAS + conditional closed form: the shifted-denominator set is exactly (1/p)-separated with curvature floor 1/p, the fold-overlap worry of imp-95008 residual (a) is INVERTED (disjointness improves toward the fold; overlap lives at the high-curvature end with an explicit dyadic bracket), and under the quadratic-Fresnel curvature normalization the named scalar has the N-free closed-form majorant 2 p^(-4/3) sum j^(-2/3) ~ 0.03811 at p = 97 (5.65x below the floor-only cap). The paper-phase curvature normalization, the packet-width constants, the high-curvature ceiling, and the l2-to-pointwise step remain open. Changes no bound; NO QED. No refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -388,12 +388,12 @@ export const IMP95008_ALIAS_SEPARATION_CURVATURE_FLOOR_ASSERTIONS = [
   },
   {
     id: "imp95008b-honesty-gate-no-qed",
-    description: "promotes no bound, names the open residuals (paper-phase normalization, packet width, ceiling D, duality step), NO QED, PT stays SOTA",
+    description: "promotes no bound, names the open residuals (paper-phase normalization, packet width, ceiling D, duality step), NO QED, no refereed bound is changed",
     holds: () =>
       IMP95008_ALIAS_SEPARATION_CURVATURE_FLOOR.promotesBound === false &&
       IMP95008_ALIAS_SEPARATION_CURVATURE_FLOOR.namedResiduals.length === 4 &&
       /NO QED/.test(IMP95008_ALIAS_SEPARATION_CURVATURE_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP95008_ALIAS_SEPARATION_CURVATURE_FLOOR.verdict),
+      /refereed bound is changed/i.test(IMP95008_ALIAS_SEPARATION_CURVATURE_FLOOR.verdict),
   },
 ];
 

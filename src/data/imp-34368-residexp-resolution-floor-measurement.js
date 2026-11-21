@@ -43,8 +43,7 @@
  * an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34228-doubling-map-double-precision-anchor-floor (the deep-ladder module that named this sub-gap)
  * @see imp-34168-doubling-map-highprecision-kstar-floor (the 10-sig-fig stored anchor 8.8210915879)
@@ -320,8 +319,8 @@ export const IMP34368_RESIDEXP_RESOLUTION_FLOOR_MEASUREMENT = {
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34228 (the deep-ladder module that named this sub-gap); imp-34168 (the stored 10-sig-fig anchor ' +
     '8.8210915879); imp-33878 (source of k*~8.821092 and the resid_exp model, reused verbatim); imp-33810 ' +
@@ -381,14 +380,14 @@ export const IMP34368_RESIDEXP_RESOLUTION_FLOOR_MEASUREMENT_ASSERTIONS = [
       DERIV_VS_LIVE_GAP < FLOOR_PREDICTED,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, resolves the named sub-gap, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, resolves the named sub-gap, no QED, no refereed bound is changed.
     id: 'imp34368-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, RESOLVES the named sub-gap, no QED, PT Lambda<=0.2 SOTA, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, RESOLVES the named sub-gap, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34368_RESIDEXP_RESOLUTION_FLOOR_MEASUREMENT.isRigorous === false &&
       /RESOLVES SUB-GAP-imp-34228-residexp-resolution-floor/.test(IMP34368_RESIDEXP_RESOLUTION_FLOOR_MEASUREMENT.verdict) &&
       /NO QED/.test(IMP34368_RESIDEXP_RESOLUTION_FLOOR_MEASUREMENT.verdict) &&
-      /remains\s+SOTA/.test(IMP34368_RESIDEXP_RESOLUTION_FLOOR_MEASUREMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP34368_RESIDEXP_RESOLUTION_FLOOR_MEASUREMENT.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34368_RESIDEXP_RESOLUTION_FLOOR_MEASUREMENT.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34368_RESIDEXP_RESOLUTION_FLOOR_MEASUREMENT.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34368_RESIDEXP_RESOLUTION_FLOOR_MEASUREMENT.verdict),

@@ -15,7 +15,7 @@
  *   OR a Cauchy estimate on a 2D neighbourhood (route II), both mechanical but genuinely NEW.
  *
  *   Ticket: imp-36005 (content, low). Note only; re-reads nothing new; changes no bound;
- *   C_mb GUE-conditional (imp-486) untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   C_mb GUE-conditional (imp-486) untouched; no refereed bound is changed; NO QED.
  *
  *   @see imp-35832-i2-derivative-bound-from-i1-enclosure-scope.js (source module this note restates)
  *   @see imp-35777-i2-logderivative-panel-cap-scope (I2 cap sup|f prime/f| <= B/delta; B = sup|H_t prime|)
@@ -83,7 +83,7 @@ export const IMP36005_I2_DERIVATIVE_BOUND_NEW_INGREDIENT_HONEST_STATUS = Object.
     certifiesI2Cap: false,
     changesAnyBound: false,
     reDerivesAnything: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -95,7 +95,7 @@ export const IMP36005_I2_DERIVATIVE_BOUND_NEW_INGREDIENT_HONEST_STATUS = Object.
     'C_t implies nothing about |E prime|), so B needs a genuinely NEW ingredient: either a ' +
     'separate derivative-error cap C_t prime (route I) or a Cauchy estimate on a 2D neighbourhood ' +
     '(route II). Restatement only; changes no bound; C_mb GUE-conditional (imp-486) untouched; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
 });
 
 export const IMP36005_I2_DERIVATIVE_BOUND_NEW_INGREDIENT_HONEST_STATUS_ASSERTIONS = [
@@ -139,11 +139,11 @@ export const IMP36005_I2_DERIVATIVE_BOUND_NEW_INGREDIENT_HONEST_STATUS_ASSERTION
       IMP36005_I2_DERIVATIVE_BOUND_NEW_INGREDIENT_HONEST_STATUS.honestCaveat.certifiesDerivativeBoundB === false &&
       IMP36005_I2_DERIVATIVE_BOUND_NEW_INGREDIENT_HONEST_STATUS.honestCaveat.certifiesI2Cap === false &&
       IMP36005_I2_DERIVATIVE_BOUND_NEW_INGREDIENT_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36005_I2_DERIVATIVE_BOUND_NEW_INGREDIENT_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36005_I2_DERIVATIVE_BOUND_NEW_INGREDIENT_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36005-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP36005_I2_DERIVATIVE_BOUND_NEW_INGREDIENT_HONEST_STATUS.verdict),
   },
 ];

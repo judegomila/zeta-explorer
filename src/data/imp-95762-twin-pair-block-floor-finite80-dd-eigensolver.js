@@ -6,7 +6,7 @@
  *
  * GRADE: independent numerical cross-validation of an already-established
  * interior quantity. Imports no heavy bundle; no imports at all. Changes NO
- * Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda bound; NO QED; no refereed bound is changed.
  *
  * WHAT imp-95744 LEFT OPEN. imp-95744 resolved the infinite-lattice infimum
  * F_inf at all five below-precision cells with a cancellation-free theta = 0
@@ -88,8 +88,7 @@
  * converged outputs are baked here, with the assertions re-deriving only the
  * cheap dual F_inf and checking the baked ratios. (c) Model seam family only;
  * the imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay OPEN.
- * Changes NO bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * Changes NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95744-twin-pair-block-floor-belowprec-dd-resolve (the dual F_inf + the named sub-gap this closes)
  * @see imp-95723-twin-pair-block-floor-full-grid-bias (the finite-80 float64 table with the below-prec cells)
@@ -174,7 +173,7 @@ export const IMP95762_TWIN_PAIR_BLOCK_FLOOR_FINITE80_DD_EIGENSOLVER = {
     "numerical cross-validation of an established interior mechanism; no new cited " +
     "input. Model seam family only; imp-95212 envelope port, signed WEIGHT, " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   closesTickets: ["imp-95762"],
 };
 
@@ -316,7 +315,7 @@ export const IMP95762_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /FINITE-80 DD SYMMETRIC EIGENSOLVER PORTED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95762-closes-self",

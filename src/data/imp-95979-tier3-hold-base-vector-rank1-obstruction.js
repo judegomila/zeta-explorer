@@ -65,7 +65,7 @@
  * per-family-resolvable. Assessment/derivation only; changes no bound; NO QED.
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound; NO
- * Lambda movement; PT Lambda<=0.2 SOTA; NO QED. Import-light: bakes the two closed-form base moments and
+ * Lambda movement; no refereed bound is changed; NO QED. Import-light: bakes the two closed-form base moments and
  * checks the rank-1 kernel identity ARITHMETICALLY at import (no quadrature).
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3, eqs (6.11)-(6.26). SCRATCH: tmp/imp-95979-verify.mjs
@@ -110,7 +110,7 @@ export const TIER3_HOLD_BASE_VECTOR_RANK1_OBSTRUCTION = Object.freeze({
     + 'the m-free imp-95901 Dc laws. Even fully pinned, the base term stays NOT per-family-resolvable: the '
     + 'base cell precedes every family locus, so it is the single SHARED integration constant, not a family '
     + 'sum -- the per-family attribution provably stops at the accumulated slope (imp-95965). G '
-    + 'irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26)',
   builtOn:
@@ -203,7 +203,7 @@ export const TIER3_HOLD_BASE_VECTOR_RANK1_OBSTRUCTION = Object.freeze({
     + 'the imp-95965 HOLD form and does not depend on the numeric values beyond M0, M1 being nonzero. The '
     + 'external second relation (candidates a/b) is LOCATED, not evaluated -- the base-cell absolute '
     + 'coefficients are not computed. Catalan G irrationality OPEN; Sun single-author, unrefereed; NO '
-    + 'Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const TIER3_HOLD_BASE_VECTOR_RANK1_OBSTRUCTION_ASSERTIONS = Object.freeze([
@@ -247,7 +247,7 @@ export const TIER3_HOLD_BASE_VECTOR_RANK1_OBSTRUCTION_ASSERTIONS = Object.freeze
         && /candidate \(c\) refuted/.test(v.outcome)
         && /external base-cell boundary condition/.test(v.remainingObstruction)
         && /G irrationality OPEN/.test(s)
-        && /PT Lambda<=0.2 SOTA/.test(s)
+        && /refereed bound is changed/i.test(s)
         && /NO QED/.test(s);
     },
   },

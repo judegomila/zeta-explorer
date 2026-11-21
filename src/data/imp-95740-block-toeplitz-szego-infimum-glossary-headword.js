@@ -33,14 +33,14 @@
  *   A glossary-style lookup restating the imp-95707 infinite-lattice-limit derivation and
  *   the bias figures for quick reference. It establishes nothing, instantiates no
  *   interval, closes no sub-gap, moves no bound. imp-2519 no-overclaim guard preserved;
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-95707-twin-pair-block-toeplitz-interior-limit (source: the infinite-lattice limit and bias this glosses)
  * @see imp-95693-twin-pair-block-floor-second-delta (the finite-80 proxy table this quantifies)
  * @see imp-95689-rho1-szego-dual-convergence-rate (the rho = 1 endpoint exact limit)
  *
  * Ticket: imp-95740 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The block-Toeplitz Szego infimum headword, baked verbatim (no re-import).
@@ -94,7 +94,7 @@ export const IMP95740_BLOCK_TOEPLITZ_SZEGO_INFIMUM_GLOSSARY_HEADWORD = Object.fr
     'cancellation-free via the Poisson dual, and the finite-80 proxy table overestimates ' +
     'that infimum by a strictly positive bias decaying monotonically from +5.65pct ' +
     '(rho = 1) to +0.017pct (rho = 20). Establishes nothing; instantiates no interval; ' +
-    'moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95707 (block-Toeplitz Szego infimum derivation and bias measurement); ' +
     'imp-95693 (finite-80 proxy table this quantifies); imp-95689 (rho = 1 exact limit); ' +
@@ -121,11 +121,11 @@ export const IMP95740_BLOCK_TOEPLITZ_SZEGO_INFIMUM_GLOSSARY_HEADWORD_ASSERTIONS 
   },
   {
     id: 'imp95740-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95740_BLOCK_TOEPLITZ_SZEGO_INFIMUM_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95740_BLOCK_TOEPLITZ_SZEGO_INFIMUM_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95740_BLOCK_TOEPLITZ_SZEGO_INFIMUM_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95740_BLOCK_TOEPLITZ_SZEGO_INFIMUM_GLOSSARY_HEADWORD.verdict) &&
       IMP95740_BLOCK_TOEPLITZ_SZEGO_INFIMUM_GLOSSARY_HEADWORD.glosses === 'imp-95707' &&
       IMP95740_BLOCK_TOEPLITZ_SZEGO_INFIMUM_GLOSSARY_HEADWORD.scopes === 'imp-95693',
   },

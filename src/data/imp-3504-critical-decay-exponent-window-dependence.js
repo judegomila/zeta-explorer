@@ -55,7 +55,7 @@
  * k* = 1/2 is a different (asymptotic, window-free) transition and is unaffected.
  *
  * MEASUREMENT / CERTIFICATION ONLY. Frontier-direction, RH-equivalent. No positivity, no
- * bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bridge closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-3486-critical-decay-exponent (located k_c = 0.1966894 at the fixed N = 1e2 window)
  * @see imp-3465-nmax-height-dependent-floor (height-dependent floor + power-family sweep)
@@ -253,7 +253,7 @@ export const IMP3504_CRITICAL_DECAY_EXPONENT_WINDOW_DEPENDENCE = {
     'imp-3465s physical-floor dissolution verdict is window-robust. This discharges the ' +
     'imp-3486 honest caveat for the physical question while confirming k_c itself is not a ' +
     'window-free constant. No positivity, no bridge closure, no RH claim, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-3486 (located k_c = 0.1966894 at the fixed N = 1e2 window; flagged window-dependence); ' +
     'imp-3465 (height-dependent floor, power-family sweep, k* = 1/2 limit flip); imp-3406 ' +
@@ -297,13 +297,13 @@ export const IMP3504_CRITICAL_DECAY_EXPONENT_WINDOW_DEPENDENCE_ASSERTIONS = [
     holds: () => SWEEP.every((r) => r.inghamAbove === true),
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA, not rigorous.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed, not rigorous.
     id: 'imp3504-honesty-gate-no-qed',
-    description: 'Measurement only: window-dependence measured not removed, no QED, PT stays SOTA',
+    description: 'Measurement only: window-dependence measured not removed, no QED, no refereed bound is changed',
     holds: () =>
       IMP3504_CRITICAL_DECAY_EXPONENT_WINDOW_DEPENDENCE.isRigorous === false &&
       /NO QED/.test(IMP3504_CRITICAL_DECAY_EXPONENT_WINDOW_DEPENDENCE.verdict) &&
-      /remains SOTA/.test(IMP3504_CRITICAL_DECAY_EXPONENT_WINDOW_DEPENDENCE.verdict),
+      /refereed bound is changed/i.test(IMP3504_CRITICAL_DECAY_EXPONENT_WINDOW_DEPENDENCE.verdict),
   },
 ];
 

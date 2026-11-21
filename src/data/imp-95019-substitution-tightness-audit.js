@@ -46,8 +46,7 @@
  * CONCLUSION: imp-95019 routes the lane to the WITNESS lift for the
  * continuous family (the lane that matters for the paper limit); the only
  * ceiling-side per-pair lever is the fixed-97 grid drop, which is partial and
- * unapplied. This changes NO bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * unapplied. This changes NO bound; NO QED; no refereed bound is changed.
  *
  * Import-light (short closed-form copy identical to the sibling chain; plus a
  * cross-check import of the imp-95008 verdict literals). NO heavy bundle.
@@ -249,7 +248,7 @@ export const IMP95019_SUBSTITUTION_TIGHTNESS_AUDIT = {
     "Classification/routing step. The continuous-family sup = envE(b,j) and the fixed-97 grid ratios are the imp-95008 continuation-twenty results (Theorem CA is two one-variable monotonicities + an exponent identity; Corollary R2 is exhaustive grid enumeration). This module INDEPENDENTLY reproduces envE(0,2), the corner-sequence witness, and the grid sups, cross-checks them against the sibling baked literals, and evaluates the imp-95019 decision thresholds. No bound is moved; the fixed-97 lever is quantified, not applied.",
   promotesBound: false,
   verdict:
-    "ROUTING (no bracket move): imp-95019 decision rule executed at the dominant cells (0,2) and (2,2). Continuous family (paper limit): corner-sequence ratio -> 1 >= 0.95 => WITNESS-side; the 1.4044 non-parity residual is aggregation/witness-side ((b2) block-mass AM-GM, (b3) sup_b routing, joint multi-cell non-attainment). Fixed-97 lane: dominant-cell ratio 0.8258 strictly between the 0.70 and 0.95 branches => a PARTIAL fixed-97-lane-only lever, quantified NOT applied. Independently reproduces and cross-checks the imp-95008 continuation-twenty literals (envE(0,2)=3.9197920255561178e-5, grid ratios 0.8258 / 0.4738). Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ROUTING (no bracket move): imp-95019 decision rule executed at the dominant cells (0,2) and (2,2). Continuous family (paper limit): corner-sequence ratio -> 1 >= 0.95 => WITNESS-side; the 1.4044 non-parity residual is aggregation/witness-side ((b2) block-mass AM-GM, (b3) sup_b routing, joint multi-cell non-attainment). Fixed-97 lane: dominant-cell ratio 0.8258 strictly between the 0.70 and 0.95 branches => a PARTIAL fixed-97-lane-only lever, quantified NOT applied. Independently reproduces and cross-checks the imp-95008 continuation-twenty literals (envE(0,2)=3.9197920255561178e-5, grid ratios 0.8258 / 0.4738). Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -293,12 +292,12 @@ export const IMP95019_STA_ASSERTIONS = [
   {
     id: "imp95019-sta-honesty-gate",
     description:
-      "verdict is a routing/no-go step: promotes no bound, names the surviving aggregation residuals, quantifies the unapplied fixed-97 lever, NO QED, PT stays SOTA",
+      "verdict is a routing/no-go step: promotes no bound, names the surviving aggregation residuals, quantifies the unapplied fixed-97 lever, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95019_SUBSTITUTION_TIGHTNESS_AUDIT.promotesBound === false &&
       IMP95019_SUBSTITUTION_TIGHTNESS_AUDIT.openResiduals.length === 4 &&
       /NO QED/.test(IMP95019_SUBSTITUTION_TIGHTNESS_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP95019_SUBSTITUTION_TIGHTNESS_AUDIT.verdict) &&
+      /refereed bound is changed/i.test(IMP95019_SUBSTITUTION_TIGHTNESS_AUDIT.verdict) &&
       /no bracket move/.test(IMP95019_SUBSTITUTION_TIGHTNESS_AUDIT.verdict) &&
       /WITNESS-side/.test(IMP95019_SUBSTITUTION_TIGHTNESS_AUDIT.verdict) &&
       /NOT applied/.test(IMP95019_SUBSTITUTION_TIGHTNESS_AUDIT.verdict),

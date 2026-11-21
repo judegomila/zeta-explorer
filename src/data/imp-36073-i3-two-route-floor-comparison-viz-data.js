@@ -71,7 +71,7 @@ export const IMP36073_I3_TWO_ROUTE_FLOOR_COMPARISON_VIZ_DATA = {
     'VIZ-DATA ONLY -- baked literals reproducing the imp-36011 reconciliation exactly; adds no new ' +
     'derivation and changes no bound. Both routes remain PROXIES for the true H_t = A + B - C on ' +
     'dR at T_PT = 3e12; certifies no delta > 0; I3 stays GREENFIELD (imp-35727). NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP36073_VIZ_ASSERTIONS = [
@@ -112,12 +112,12 @@ export const IMP36073_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp36073-honesty-gate-no-qed',
-    description: 'honest status references viz-data-only, greenfield, no bound change, NO QED, SOTA',
+    description: 'honest status references viz-data-only, greenfield, no bound change, NO QED, no refereed bound is changed',
     holds: () =>
       /VIZ-DATA ONLY/.test(IMP36073_I3_TWO_ROUTE_FLOOR_COMPARISON_VIZ_DATA.honest) &&
       /GREENFIELD/.test(IMP36073_I3_TWO_ROUTE_FLOOR_COMPARISON_VIZ_DATA.honest) &&
       /NO QED/.test(IMP36073_I3_TWO_ROUTE_FLOOR_COMPARISON_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP36073_I3_TWO_ROUTE_FLOOR_COMPARISON_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP36073_I3_TWO_ROUTE_FLOOR_COMPARISON_VIZ_DATA.honest),
   },
 ];
 

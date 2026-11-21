@@ -54,7 +54,7 @@
  * corroboration crossover to L* ~ 1e9 (well below the imp-96444 L-linear band [~1.38e12, ~1.76e12]) while the
  * PT-anchor headroom survives (~3 decades). The narrowed band is therefore a model-dependent projection
  * spanning ~1e9..1.8e12, not a tight reach. Cross-validation / extrapolation numerics only; theoretical GUE
- * quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the
+ * quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the
  * zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96444-basis-c-floor-slope-dejitter (the ~1.30 median-sweep exponent this tests for convergence)
@@ -242,7 +242,7 @@ export const IMP96469_BASIS_C_FLOOR_EXPONENT_TRAJECTORY = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values. Both the L-linear and the power-law floor extrapolations are calibrated only on accessible L (<= 1920); the direct integral is never evaluated near L ~ 1e9-1e12, so every crossover L* is a projected reach, not a measured one, and the power-law L* ~ 1e9 is if anything MORE fragile since it extrapolates a roundoff-noise slope across many decades. The finding is negative and honest: the free exponent does not approach 1.0, so the imp-96444 narrowed band is one model choice, not a validated bound. Changes no bound, establishes no operator positivity, does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'Pushing the imp-96444 de-jittered basis-C floor estimator to a denser high-ppp grid ({640..2560}) and higher accessible L (L_max 960 -> 1920) drives the free log-log exponent UP from ~1.30 to ~1.43-1.53, NOT down toward the L-linear 1.0: the roundoff floor is genuinely super-linear (~L^1.4-1.5) on the reachable range, so the L-linear floor model is not validated. Re-bisecting under the measured power-law floor moves the corroboration crossover to L* ~ 1e9 (well below the imp-96444 L-linear band [~1.38e12, ~1.76e12]) while the PT-anchor headroom survives (~3 decades). The narrowed band is a model-dependent projection spanning ~1e9..1.8e12, not a tight reach. Cross-validation / extrapolation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Pushing the imp-96444 de-jittered basis-C floor estimator to a denser high-ppp grid ({640..2560}) and higher accessible L (L_max 960 -> 1920) drives the free log-log exponent UP from ~1.30 to ~1.43-1.53, NOT down toward the L-linear 1.0: the roundoff floor is genuinely super-linear (~L^1.4-1.5) on the reachable range, so the L-linear floor model is not validated. Re-bisecting under the measured power-law floor moves the corroboration crossover to L* ~ 1e9 (well below the imp-96444 L-linear band [~1.38e12, ~1.76e12]) while the PT-anchor headroom survives (~3 decades). The narrowed band is a model-dependent projection spanning ~1e9..1.8e12, not a tight reach. Cross-validation / extrapolation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (exponent trajectory) ---
@@ -281,8 +281,8 @@ export const IMP96469_BASIS_C_FLOOR_EXPONENT_TRAJECTORY = {
   // honesty gates
   if (!/NO QED/.test(IMP96469_BASIS_C_FLOOR_EXPONENT_TRAJECTORY.verdict))
     throw new Error('imp-96469: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96469_BASIS_C_FLOOR_EXPONENT_TRAJECTORY.verdict))
-    throw new Error('imp-96469: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96469_BASIS_C_FLOOR_EXPONENT_TRAJECTORY.verdict))
+    throw new Error('imp-96469: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96469_BASIS_C_FLOOR_EXPONENT_TRAJECTORY;

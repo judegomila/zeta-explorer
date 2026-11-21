@@ -64,7 +64,7 @@
  * extrapolated 1/eps ceiling interval ~2.9x (3.78e7-4.30e7 -> 3.78e7-3.96e7). All ceilings
  * remain in the ~4e7 band, above the rigorous lower ceiling 2.59e7 and ~3800-4000x above the
  * compute ceiling 9916. No bound is moved, no operator positivity is established, no RH claim
- * is made. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * is made. No refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96570-route-m-conditioning-ceiling-crossvalidation.js (five-rung cond# fit tightened here)
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (lam_max power-iteration ladder, N<=6000)
@@ -213,8 +213,8 @@ export const IMP96649_VERDICT = Object.freeze({
     '~2.9x (3.78e7-4.30e7 -> 3.78e7-3.96e7). All ceilings stay in the ~4e7 band, above the ' +
     'rigorous trace lower ceiling 2.59e7 and ~3800-4000x above the compute ceiling 9916. ' +
     'Measured lam_max runs ~0.7-1.1% BELOW the imp-96443 log-fit extrapolation (mildly ' +
-    'conservative on the ceiling). No bound moved; no operator positivity; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'conservative on the ceiling). No bound moved; no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 // Honest residual sub-gap.
@@ -233,7 +233,7 @@ export const IMP96649_SUBGAP = Object.freeze({
 });
 
 export const IMP96649_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: every lam_max / lam_min ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: every lam_max / lam_min ' +
   'value is a reproducible power-/inverse-power iteration on the same exact Vasyunin Gram as ' +
   'imp-96105 / imp-96443 (tmp/imp-96649-extend-rungs.py, NMAX=9000, ~1019 s), the N=6000 rung ' +
   'reproduces the committed lam_max to 12 digits, and the cond# power fit / ceiling re-solve are ' +
@@ -288,7 +288,7 @@ const IMP96649_ASSERTIONS = [
     holds: () =>
       IMP96649_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96649_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96649_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96649_HONEST_BANNER) &&
       /RH open/.test(IMP96649_HONEST_BANNER) &&
       /inherits-lammin-extrapolation/.test(IMP96649_SUBGAP.id),
     why: 'measurement only: no bound moved, the honesty markers are present, and the residual sub-gap (fit tightened, extrapolation still non-rigorous; new-rung lam_min agrees with imp-96325 to <1.5%) is recorded.',

@@ -61,7 +61,7 @@
  *   Ticket: imp-34284 (numerical, medium). DESCRIPTIVE SURROGATE ONLY, presentation /
  *   no-bound-change; the component model is the inherited imp-3220/imp-3406 extrapolation,
  *   NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
- *   K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 untouched; NO QED; no refereed bound is changed.
  *
  *   @see imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data (raw ratio pole this replaces)
  *   @see imp-33810-eflow-resid-ratio-N-ladder (resid_over_eflow = the reciprocal, on k=6..11; R3/R4 eflow>0)
@@ -193,7 +193,7 @@ export const IMP34284_EFLOW_RESID_RECIPROCAL_SURROGATE_POLE_FREE = {
     'descriptive re-parameterisation only: the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34237 (raw ratio pole this replaces); imp-33810 (resid_over_eflow reciprocal on k=6..11, ' +
     'R3/R4 eflow_attr > 0); imp-34023 (bisected kEnd* ~ 21.281); imp-34127 (closed-form ceiling); ' +
@@ -261,13 +261,13 @@ export const IMP34284_EFLOW_RESID_RECIPROCAL_SURROGATE_POLE_FREE_ASSERTIONS = [
       IMP34284_MAGNITUDE_SURROGATE.every((r) => Number.isFinite(r.bounded) && r.bounded > 0),
   },
   {
-    // Honesty gate: descriptive surrogate only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: descriptive surrogate only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34284-honesty-gate-no-qed',
-    description: 'Measurement/surrogate only: isRigorous false, NO QED, Platt-Trudgian SOTA',
+    description: 'Measurement/surrogate only: isRigorous false, NO QED, no refereed bound is changed',
     holds: () =>
       IMP34284_EFLOW_RESID_RECIPROCAL_SURROGATE_POLE_FREE.isRigorous === false &&
       /NO QED/.test(IMP34284_EFLOW_RESID_RECIPROCAL_SURROGATE_POLE_FREE.verdict) &&
-      /remains SOTA/.test(IMP34284_EFLOW_RESID_RECIPROCAL_SURROGATE_POLE_FREE.verdict),
+      /refereed bound is changed/i.test(IMP34284_EFLOW_RESID_RECIPROCAL_SURROGATE_POLE_FREE.verdict),
   },
 ];
 

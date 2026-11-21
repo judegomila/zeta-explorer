@@ -42,7 +42,7 @@
  *   PURE CROSS-VALIDATION of two degree-0 scalars. Neither quantity is an operator
  *   step; this neither proves nor weakens RH. The off-diagonal endpoint-Hankel
  *   operator step (imp-3066) remains the lone obstruction and is untouched. Lock
- *   only, no QED. Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false
+ *   only, no QED. No refereed bound is changed. No false
  *   QED.
  *
  *   @see imp-3126-regular-mass-vs-c-shock-coincidence.js (the coincidence verdict)
@@ -133,7 +133,7 @@ export const IMP3152_C_SHOCK_COINCIDENCE_DIVERGENCE_LOCK = Object.freeze({
     operatorStepUntouched:
       'Pure cross-validation of two degree-0 scalars; the off-diagonal endpoint-Hankel ' +
       'operator step (imp-3066) remains the lone obstruction and is NOT addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -194,7 +194,7 @@ export const IMP3152_C_SHOCK_COINCIDENCE_DIVERGENCE_LOCK_ASSERTIONS = [
     id: 'imp3152-verdict-stays-coincidence-not-structural',
     why: 'VERDICT LOCK: the imp-3126 verdict must stay COINCIDENCE (isCoincidence true, ' +
          'isStructural false) and pure cross-validation -- not a proof, not a reduction below RH, ' +
-         'operator step untouched, PT 0.2 SOTA. Blocks any future edit from upgrading the ' +
+         'operator step untouched, no refereed bound is changed. Blocks any future edit from upgrading the ' +
          'near-miss into a claimed shared closed form or RH-relevant link.',
     holds: () => {
       const c = IMP3152_C_SHOCK_COINCIDENCE_DIVERGENCE_LOCK.honestCaveat;
@@ -206,7 +206,7 @@ export const IMP3152_C_SHOCK_COINCIDENCE_DIVERGENCE_LOCK_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isCrossValidationOnly === true &&
         c.locksCoincidenceVerdict === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

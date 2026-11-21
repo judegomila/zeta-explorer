@@ -39,7 +39,7 @@
  * structurally expected (below ln 2 it is trivial for any Dirichlet series with a(1) = 1 and the same gamma factor;
  * support a only registers off-line zeros up to height ~e^{2a}). What is new is the quantified radius, the certified
  * negative witness, the c(2) interval and the hybrid attribution. The ζ analogy is a heuristic, labelled as such.
- * No bound on Λ moves; PT Lambda <= 0.2 stands; NO QED.
+ * No bound on Λ moves; no refereed bound is changed; NO QED.
  *
  * Scripts: tmp/tlb-2-zeros-validate.py, tmp/tlb-2-weil.py, tmp/tlb-2-certify.py, tmp/tlb-2-refine.py,
  * tmp/tlb-2-verify-coeffs.py, tmp/tlb-2-exactfull.py, tmp/tlb-2-attrib.py, tmp/tlb-2-lowerbound.py,
@@ -109,7 +109,7 @@ export const TLB_DH_BLIND = Object.freeze({
     'SUCCESS with scope corrections: at conductor 5, Weil positivity at support 2a ≤ 0.783 is PROVED Euler-blind (the RH-false '
     + 'same-bridge F_DH passes it); up to 2a ≤ ln 3 this is MEASURED with margin 0.21; the first certified failure is at a = 1.72, '
     + 'caused by the off-line zero 0.8085+85.699i. Quantifies the known qualitative DH remark in NS-RIGID (d) and Route C. The ζ '
-    + 'transfer is an analogy. No new Lambda bound. PT Lambda <= 0.2 stands. NO QED.',
+    + 'transfer is an analogy. No new Lambda bound. No refereed bound is changed. NO QED.',
   twinLadderLink: {
     glossaryTerm: 'Davenport–Heilbronn twin (same-bridge, no-cascade)',
     reading:
@@ -404,7 +404,7 @@ export const TLB_DH_BLIND_ASSERTIONS = Object.freeze([
     id: 'tlb2-honest-scope',
     holds: () => {
       const m = TLB_DH_BLIND;
-      return /PT Lambda <= 0\.2 stands/.test(m.verdict) && /NO QED/.test(m.verdict) && /NO QED/.test(m.status)
+      return /refereed bound is changed/i.test(m.verdict) && /NO QED/.test(m.verdict) && /NO QED/.test(m.status)
         && /measured evidence only/.test(m.status) && /No new Lambda bound/.test(m.verdict) && /NS-RIGID/.test(m.decision.novelty)
         && !/DECIDED/.test(m.status);
     },

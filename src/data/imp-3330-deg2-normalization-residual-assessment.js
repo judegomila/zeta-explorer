@@ -57,7 +57,7 @@
  *
  *   DIAGNOSTIC, RH-EQUIVALENT, necessary-but-NOT-sufficient. No positivity, no reduction, no RH
  *   verdict. The imp-3066 off-diagonal endpoint-Hankel operator step remains the lone
- *   obstruction, untouched. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA. No false QED.
+ *   obstruction, untouched. No refereed bound is changed. No false QED.
  *
  *   @see imp-3218-deg2-deficit-normalization-factor.js (derives R ~= 4pi, flags the 1.7% residual)
  *   @see imp-3154-genuine-deg2-deficit-degree-sweep.js (the self-computing ~1.19e-7 deficit, N=200)
@@ -235,7 +235,7 @@ export const IMP3330_DEG2_NORMALIZATION_RESIDUAL_ASSESSMENT = Object.freeze({
       'A strictly-positive deg-2 occupation deficit (in either convention) is necessary-but-NOT-sufficient at ' +
       'operator order; the off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -281,7 +281,7 @@ export const IMP3330_DEG2_NORMALIZATION_RESIDUAL_ASSESSMENT_ASSERTIONS = [
   {
     id: 'imp3330-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: residual is grid convention not precision, sharpens imp-3218, second sub-convention ' +
-         'open, necessary-but-not-sufficient at operator order, positivity not attempted, PT 0.2 stays SOTA.',
+         'open, necessary-but-not-sufficient at operator order, positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3330_DEG2_NORMALIZATION_RESIDUAL_ASSESSMENT.honestCaveat;
       return (
@@ -292,7 +292,7 @@ export const IMP3330_DEG2_NORMALIZATION_RESIDUAL_ASSESSMENT_ASSERTIONS = [
         c.residualIsGridConventionNotPrecision === true &&
         c.secondSubConventionRemainsOpen === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

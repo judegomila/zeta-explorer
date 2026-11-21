@@ -18,7 +18,7 @@
  * chart-ready series.
  *
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity,
- * no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no RH claim; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96569-route-m-window-reach-projection.js (source: gap floor + reach projection)
  * @see imp-96601-route-m-reach-verdict-glossary-headword.js (glossary restatement of the verdict)
@@ -123,7 +123,7 @@ const IMP96702_ASSERTIONS = [
     id: 'imp96702-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96702_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96702_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96702_HONEST_BANNER) &&
       /NO QED/.test(IMP96702_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

@@ -6,7 +6,7 @@
  * agree with the imp-96224 raw-R2 sign reversal or whether the floor law is rescued once
  * parameter parity and LOO are accounted for.
  * Import-light (literals baked, no zeros bundle); holds() assertions; self-executing.
- * Measurement / model-selection only. NOT a bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * Measurement / model-selection only. NOT a bound; no refereed bound is changed; RH open; NO QED.
  *
  * ORIGIN. imp-96224 extended the worst-support rho(32,T) census to gamma_4000 (T~4506) and
  * re-fit both laws, reporting the reciprocal-log vs log-linear R2 gap had reversed sign to
@@ -56,7 +56,7 @@
  * trending to zero (the no-floor form), NOT with a settled positive asymptote.
  * UNCHANGED: the SIGN of the on-line margin stays strictly positive (0.3791 at gamma_4000, no
  * crossing) and the true uniform-in-T obstruction stays OFF the line (Weil-positivity strength).
- * Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * Changes no bound; no refereed bound is changed; RH open; NO QED.
  */
 
 export const ROUTE_BD_MARGIN_FLOOR_MODEL_SELECTION = Object.freeze({
@@ -71,7 +71,7 @@ export const ROUTE_BD_MARGIN_FLOOR_MODEL_SELECTION = Object.freeze({
     + 'penalized criteria reduce to the RSS ranking (they cannot reverse it); the ONE independent test is LOO/PRESS, and '
     + 'it too favours log-linear (PRESS 0.003907 vs 0.010055, R2pred 0.98729 vs 0.96728). The floor law is NOT rescued '
     + 'once parameter parity and cross-validation are accounted for. Uses the baked column, no new zeros. '
-    + 'Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED',
+    + 'Changes no bound; no refereed bound is changed; RH open; NO QED',
 
   method: {
     column: 'full baked imp-96224 column = imp-96148 seven-point + imp-96167 gamma_500 + imp-96186 gamma_1000 '
@@ -169,7 +169,7 @@ export const ROUTE_BD_MARGIN_FLOOR_MODEL_SELECTION = Object.freeze({
     + 'holds up under formal model-selection and is consistent with the fitted floor trending to zero. The SIGN of the '
     + 'on-line margin is unchanged (strictly positive, no crossing) and the uniform-in-T obstruction stays off the '
     + 'line. Measurement / model-selection only; uses the baked column, no new zeros. Changes no bound; '
-    + 'PT Lambda<=0.2 SOTA; RH open; NO QED.',
+    + 'no refereed bound is changed; RH open; NO QED.',
 
   subGap: {
     name: 'model-selection is relative, not a proof of the floor value',
@@ -246,7 +246,7 @@ export const ROUTE_BD_MARGIN_FLOOR_MODEL_SELECTION_ASSERTIONS = Object.freeze([
     name: 'honest status: measurement/model-selection only, no bound change, no QED',
     holds: () => /MEASURED/.test(D.status)
       && /Changes no bound/.test(D.status)
-      && /PT Lambda<=0.2 SOTA/.test(D.status)
+      && /refereed bound is changed/i.test(D.status)
       && /RH open/.test(D.status)
       && /NO QED/.test(D.status),
   },

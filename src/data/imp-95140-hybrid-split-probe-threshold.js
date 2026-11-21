@@ -135,8 +135,7 @@
  * ~0.24493 measured only). (c) Parity-pure only. (d) The constant lies
  * above the OLD frame root: the lemma buys certification margin, not
  * frame reach - stated plainly above. (e) Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD (in-run refutations preserved so
  * successors do not repeat them). (1) Pricing <R, C2> by the 3-piece MS
@@ -818,7 +817,7 @@ export const IMP95140_HYBRID_SPLIT_PROBE_THRESHOLD = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM HS is unconditional given the sibling-chain witness conventions: Corollary PH is the exact bilinearity of the Gram form plus carried lemmas only (Lemma PP pairing, Cauchy-Schwarz, Lemma DL with the identical alpha-coupled staircase, Gram cross positivity for the sub-foot norm cap, the sharp imp-95134 cluster cap at facing gap 8 and the 3-piece Lemma MS row for the in-ramp piece, the clamp-general Lemma TS budget on the neighbor side); the spectral frame, parity split, head/tail reductions, and the adaptive per-term-corner + shifted Collatz-Wielandt certificate are carried from imp-95136..95139, library-free through the two alternating-series constants U >= exp(-mu) >= L with explicit float slacks, terminating with zero unresolved cells. The batteries and scans are CROSS-CHECKS; the theorem is the displayed corollary + carried chain. Scope: parity-pure, model-family constants; 12251/50000 is certified, not the sharp threshold (sandwich [0.23, 0.24502]; float landmarks 0.2321 and ~0.24493 measured only); the constant lies above the old frame root - the lemma gain is certification margin, stated plainly; 49/200 measured certification-infeasible even with the hybrid form; the ramp-interior-linearization leg stays OPEN under the displacement-credit residual; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM HS is unconditional given the sibling-chain witness conventions: Corollary PH is the exact bilinearity of the Gram form plus carried lemmas only (Lemma PP pairing, Cauchy-Schwarz, Lemma DL with the identical alpha-coupled staircase, Gram cross positivity for the sub-foot norm cap, the sharp imp-95134 cluster cap at facing gap 8 and the 3-piece Lemma MS row for the in-ramp piece, the clamp-general Lemma TS budget on the neighbor side); the spectral frame, parity split, head/tail reductions, and the adaptive per-term-corner + shifted Collatz-Wielandt certificate are carried from imp-95136..95139, library-free through the two alternating-series constants U >= exp(-mu) >= L with explicit float slacks, terminating with zero unresolved cells. The batteries and scans are CROSS-CHECKS; the theorem is the displayed corollary + carried chain. Scope: parity-pure, model-family constants; 12251/50000 is certified, not the sharp threshold (sandwich [0.23, 0.24502]; float landmarks 0.2321 and ~0.24493 measured only); the constant lies above the old frame root - the lemma gain is certification margin, stated plainly; 49/200 measured certification-infeasible even with the hybrid form; the ramp-interior-linearization leg stays OPEN under the displacement-credit residual; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -977,11 +976,11 @@ export const IMP95140_HYBRID_SPLIT_PROBE_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95140-hs-honesty-gate",
     description:
-      "the verdict is scoped: parity-pure, model family, 12251/50000 certified not sharp, the constant lies above the old frame root (joint lemma+certification gain, stated plainly), 49/200 still certification-infeasible, the ramp-interior-linearization leg stays OPEN under the displacement-credit residual, parent sub-gap stays OPEN; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: parity-pure, model family, 12251/50000 certified not sharp, the constant lies above the old frame root (joint lemma+certification gain, stated plainly), 49/200 still certification-infeasible, the ramp-interior-linearization leg stays OPEN under the displacement-credit residual, parent sub-gap stays OPEN; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95140_HYBRID_SPLIT_PROBE_THRESHOLD.promotesBound === false &&
       /NO QED/.test(IMP95140_HYBRID_SPLIT_PROBE_THRESHOLD.rigorScope) &&
-      /remains SOTA/.test(IMP95140_HYBRID_SPLIT_PROBE_THRESHOLD.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95140_HYBRID_SPLIT_PROBE_THRESHOLD.rigorScope) &&
       /stays OPEN/.test(IMP95140_HYBRID_SPLIT_PROBE_THRESHOLD.rigorScope) &&
       /certification-infeasible/.test(IMP95140_HYBRID_SPLIT_PROBE_THRESHOLD.rigorScope) &&
       /above the old frame root/.test(IMP95140_HYBRID_SPLIT_PROBE_THRESHOLD.rigorScope) &&

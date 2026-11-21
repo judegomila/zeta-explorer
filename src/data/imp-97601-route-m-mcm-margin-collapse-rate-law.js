@@ -58,8 +58,8 @@
  * asymptotically constant (B_inf ~ 0.296789) while the prefactor decays like e^{-gamma}/(p_omega log p_omega).
  * The gap to the -e^{-gamma}/12 limit closes only logarithmically, gap ~ 0.166635/log p_omega, so the margin
  * reaches the -0.0458 limit at no finite order (within 1e-3 needs p_omega ~ 1e72). MCM stays refuted from
- * omega=11; the b/4 ceiling is untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2
- * SOTA; RH open; NO QED.
+ * omega=11; the b/4 ceiling is untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97583-route-m-mcm-onset-omega11-primorial.js (RESULT 3: the ~2.1e-3/order observation, revised here)
  * @see imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (surrogate closed form + primorial limit; kernel)
@@ -154,12 +154,12 @@ export const IMP97601_VERDICT = Object.freeze({
     'Pi_omega/p_{omega+1} decays like e^{-gamma}/(p_omega log p_omega). The gap to the -e^{-gamma}/12 limit ' +
     'closes only logarithmically, gap ~ 0.166635/log p_omega (matches to <0.02% out to p ~ 2e6), so the ' +
     'margin reaches the -0.0458 limit at NO finite order (within 1e-3 needs p_omega ~ 1e72). MCM stays ' +
-    'refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97601_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation/measurement of the Route M MCM margin-collapse ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation/measurement of the Route M MCM margin-collapse ' +
   'rate: the per-order surrogate decrement is dS(omega) = -(Pi_omega/p_{omega+1})(A_omega + c*log p_{omega+1}) ' +
   '(exact, matches the direct difference to 1e-15; equals dT since Rcorr flat). The imp-97583 ' +
   '"roughly-constant ~2.1e-3/order" is revised -- the rate DRIFTS DOWNWARD (decays): the bracket is ' +
@@ -256,7 +256,7 @@ const IMP97601_ASSERTIONS = [
       IMP97601_VERDICT.anyBoundMoved === false &&
       IMP97601_VERDICT.qed === false &&
       /NO QED/.test(IMP97601_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97601_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97601_HONEST_BANNER) &&
       /RH open/.test(IMP97601_HONEST_BANNER),
     why: 'measurement/derivation only -- collapse rate drifts (decays), gap closes logarithmically, no finite-order arrival; MCM refuted from omega=11; no bound moved, no QED.',
   },

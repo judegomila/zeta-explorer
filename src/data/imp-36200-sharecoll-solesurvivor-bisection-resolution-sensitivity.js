@@ -56,7 +56,7 @@
  * re-derives no sub-term model; derives no remainder; discharges nothing; changes no bound;
  * establishes no operator positivity; E_trunc = 3.06e-5 (imp-2631) and
  * C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643, GUE-conditional, imp-486) are UNTOUCHED;
- * imp-35337a stays OPEN; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-35337a stays OPEN; no RH verdict, NO QED; no refereed bound is changed.
  *
  * @see imp-36097-e-share-threshold-crossings-viz-data.js (source of the shareColl < 1% crossing)
  * @see imp-35971-etrunc-sole-survivor-height.js (source of the sole-survivor height)
@@ -70,7 +70,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // EXACT imp-3406 / imp-33582 sub-terms (identical to imp-35971 / imp-36097; no fresh model).
 const TWO_PI = 2 * Math.PI;
@@ -211,7 +211,7 @@ export const IMP36200_SHARECOLL_SOLESURVIVOR_BISECTION_RESOLUTION_SENSITIVITY = 
     dischargesAnything: false,
     changesAnyBound: false,
     L_PT,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -225,7 +225,7 @@ export const IMP36200_SHARECOLL_SOLESURVIVOR_BISECTION_RESOLUTION_SENSITIVITY = 
     'imp-3406 / imp-33582 sub-terms; re-derives no sub-term model; derives no remainder; discharges ' +
     'nothing; changes no bound; E_trunc = 3.06e-5 (imp-2631) and C_C = (1/8) sqrt(3 pi) (imp-2642 / ' +
     'imp-2643, GUE-conditional, imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 });
 
 export const IMP36200_SHARECOLL_SOLESURVIVOR_BISECTION_RESOLUTION_SENSITIVITY_ASSERTIONS = [
@@ -303,19 +303,19 @@ export const IMP36200_SHARECOLL_SOLESURVIVOR_BISECTION_RESOLUTION_SENSITIVITY_AS
   },
   {
     id: 'imp36200-honesty-gate',
-    why: 'Measurement only: must not claim a proof, rigor, unconditionality, or a bound change; PT stays SOTA.',
+    why: 'Measurement only: must not claim a proof, rigor, unconditionality, or a bound change; no refereed bound is changed.',
     holds: () =>
       IMP36200_SHARECOLL_SOLESURVIVOR_BISECTION_RESOLUTION_SENSITIVITY.honestCaveat.isProof === false &&
       IMP36200_SHARECOLL_SOLESURVIVOR_BISECTION_RESOLUTION_SENSITIVITY.honestCaveat.isRigorous === false &&
       IMP36200_SHARECOLL_SOLESURVIVOR_BISECTION_RESOLUTION_SENSITIVITY.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36200_SHARECOLL_SOLESURVIVOR_BISECTION_RESOLUTION_SENSITIVITY.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36200_SHARECOLL_SOLESURVIVOR_BISECTION_RESOLUTION_SENSITIVITY.honestCaveat.sota),
   },
   {
     id: 'imp36200-verdict-no-qed',
-    why: 'The verdict must record NO QED and the standing SOTA caveat.',
+    why: 'The verdict must record NO QED and the standing no-refereed-bound-change caveat.',
     holds: () =>
       /NO QED/.test(IMP36200_SHARECOLL_SOLESURVIVOR_BISECTION_RESOLUTION_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP36200_SHARECOLL_SOLESURVIVOR_BISECTION_RESOLUTION_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP36200_SHARECOLL_SOLESURVIVOR_BISECTION_RESOLUTION_SENSITIVITY.verdict),
   },
 ];
 

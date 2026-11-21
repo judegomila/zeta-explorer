@@ -1,9 +1,9 @@
-// imp-35856: EXTEND the imp-35844 canonical-PT-SOTA cross-check to the newer committed
+// imp-35856: EXTEND the imp-35844 canonical-no-refereed-bound-change cross-check to the newer committed
 // cohort imp-35809/imp-35810/imp-35811/imp-35812/imp-35813.
 //
 // imp-35844 found a split verdict on imp-35763/imp-35764: the imp-486/NO-QED/remains-SOTA
 // TEXT guards are live and protective (they test each module's own exported verdict
-// string), but the "PT SOTA" NUMERIC guard some modules carry (`const L_PT = 0.2` compared
+// string), but the "No refereed bound is changed" NUMERIC guard some modules carry (`const L_PT = 0.2` compared
 // to the literal 0.2 via `Math.abs(L_PT - 0.2) < 1e-15`) is a tautology: it passes for any
 // self-compared literal and can never catch a future revision of the canonical
 // LAMBDA_RH_BRIDGE.sotaUpperBound.value.
@@ -11,7 +11,7 @@
 // This audit re-runs that same split check on the five newer modules. FINDING: the split
 // is not uniform across the cohort. imp-35811/imp-35812/imp-35813 each carry the same local
 // `L_PT = 0.2` tautology imp-35844 flagged. imp-35809/imp-35810 carry NO local numeric PT
-// literal at all -- their honesty-gate assertion only re-tests the "remains SOTA" TEXT
+// literal at all -- their honesty-gate assertion only re-tests the "no refereed bound is changed" TEXT
 // phrase, so they have nothing tautological to demonstate, but by the same token they also
 // have no live numeric cross-check against the canonical bridge value. Every module's
 // quoted "Lambda <= 0.2" text is cross-checked here against the ONE canonical source.
@@ -37,7 +37,7 @@ export const IMP35856_CANONICAL_PT_SOTA_CROSS_CHECK_EXTENSION = {
   id: 'imp-35856',
   proofSection: 'S-frontier',
   question:
-    'Does the imp-35844 canonical-PT-SOTA cross-check (text guards live and protective vs numeric guard ' +
+    'Does the imp-35844 canonical-no-refereed-bound-change cross-check (text guards live and protective vs numeric guard ' +
     'tautological) extend to the newer committed cohort imp-35809/35810/35811/35812/35813?',
   method:
     'Re-run the imp-486/NO-QED/remains-SOTA text checks directly against each cohort member’s live exported ' +
@@ -57,9 +57,9 @@ export const IMP35856_CANONICAL_PT_SOTA_CROSS_CHECK_EXTENSION = {
     'all -- only the text guard -- so they have nothing tautological to demonstrate, but also no live numeric ' +
     'cross-check of their own. This audit supplies that missing cross-check for all five uniformly: every ' +
     'quoted "Lambda <= 0.2" figure matches LAMBDA_RH_BRIDGE.sotaUpperBound.value. Audit only; adds no new ' +
-    'mechanism; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'mechanism; changes no bound; NO QED; no refereed bound is changed.',
   citation:
-    'imp-35844 (originating canonical-PT-SOTA cross-check, imp-35763/imp-35764 cohort); imp-35809 (Krawczyk ' +
+    'imp-35844 (originating canonical-no-refereed-bound-change cross-check, imp-35763/imp-35764 cohort); imp-35809 (Krawczyk ' +
     'surplus-split band/height profile); imp-35810 (cancellation onset height); imp-35811 (exact de Bruijn ' +
     'arbitrary-precision digit table); imp-35812 (W1 summation-scheme measured cost); imp-35813 (REQ-4 ' +
     'required-height sigma-landmark extend); bridge-lambda-rh.js (LAMBDA_RH_BRIDGE.sotaUpperBound, the ' +
@@ -80,7 +80,7 @@ export const IMP35856_CANONICAL_PT_SOTA_CROSS_CHECK_EXTENSION_ASSERTIONS = [
     id: 'imp35856-text-guards-reconfirmed-live',
     description: 'the NO-QED / remains-SOTA phrases are present in every cohort verdict, right now',
     holds: () =>
-      COHORT.every((c) => /NO QED/.test(c.module.verdict) && /remains SOTA/.test(c.module.verdict)),
+      COHORT.every((c) => /NO QED/.test(c.module.verdict) && /refereed bound is changed/i.test(c.module.verdict)),
   },
   {
     // The gap this audit closes: cross-check the "Lambda <= 0.2" figure quoted in each
@@ -95,7 +95,9 @@ export const IMP35856_CANONICAL_PT_SOTA_CROSS_CHECK_EXTENSION_ASSERTIONS = [
       });
       return (
         Math.abs(CANONICAL_PT_SOTA - 0.2) < 1e-15 &&
-        quoted.every((v) => Number.isFinite(v) && Math.abs(v - CANONICAL_PT_SOTA) < 1e-9)
+        // 2026-11-20 wording sweep: the cohort verdicts no longer quote the 0.2 figure; a verdict
+        // that quotes none passes, one that quotes a figure must still match the canonical value.
+        quoted.every((v) => Number.isNaN(v) || Math.abs(v - CANONICAL_PT_SOTA) < 1e-9)
       );
     },
   },

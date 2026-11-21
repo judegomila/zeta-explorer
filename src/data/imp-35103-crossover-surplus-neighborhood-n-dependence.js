@@ -55,8 +55,8 @@
  * and introduces no new mathematical claim. The component model is NOT a rigorous
  * asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched
  * here); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0
- * untouched; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2
- * remains the SOTA unconditional bound. E_flow is the benign mesoscopic-Gronwall
+ * untouched; establishes no operator positivity; no refereed bound is changed
+ * . E_flow is the benign mesoscopic-Gronwall
  * term (imp-2845); it does NOT touch the divergent C_Lip collision-Gronwall.
  *
  * @see imp-33848 (roadmap: sigma(N_cross) = 1/(2 + E_flow/E_trunc), surplus is the E_flow/E_trunc term)
@@ -212,8 +212,8 @@ export const IMP35103_CROSSOVER_SURPLUS_NEIGHBOURHOOD_N_DEPENDENCE = {
     'Measurement/derivation only within the inherited imp-3220/imp-3406 extrapolation component model; ' +
     'NO QED. The component model is NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED (E_coll untouched); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 ' +
-    'untouched; establishes no operator positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains ' +
-    'the SOTA unconditional bound. E_flow is the benign mesoscopic-Gronwall term (imp-2845); it does NOT ' +
+    'untouched; establishes no operator positivity; changes no bound; no refereed bound is changed' +
+    '. E_flow is the benign mesoscopic-Gronwall term (imp-2845); it does NOT ' +
     'touch the divergent C_Lip collision-Gronwall.',
   citation:
     'imp-33848 (roadmap: sigma(N_cross) = 1/(2 + E_flow/E_trunc)); imp-34174 (threshold-family surplus ' +
@@ -258,14 +258,14 @@ export const IMP35103_CROSSOVER_SURPLUS_NEIGHBOURHOOD_N_DEPENDENCE_ASSERTIONS = 
     holds: () => R_REL_VARIATION > 0 && R_REL_VARIATION < 0.1 && DLNR_DLNN < 0 && Math.abs(DLNR_DLNN) < 1,
   },
   {
-    // Honesty gate: measurement only, isRigorous literal false, C_mb clause named, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous literal false, C_mb clause named, no QED, no refereed bound is changed.
     id: 'imp35103-honesty-gate-isrigorous-and-cmb-clause',
-    description: 'isRigorous literal false; honestScope names C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; PT SOTA',
+    description: 'isRigorous literal false; honestScope names C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35103_CROSSOVER_SURPLUS_NEIGHBOURHOOD_N_DEPENDENCE.isRigorous === false &&
       /C_mb GUE-conditional per imp-486 is\s+UNTOUCHED/.test(IMP35103_CROSSOVER_SURPLUS_NEIGHBOURHOOD_N_DEPENDENCE.honestScope) &&
       /NO QED/.test(IMP35103_CROSSOVER_SURPLUS_NEIGHBOURHOOD_N_DEPENDENCE.honestScope) &&
-      /remains\s+the SOTA/.test(IMP35103_CROSSOVER_SURPLUS_NEIGHBOURHOOD_N_DEPENDENCE.honestScope),
+      /refereed bound is changed/i.test(IMP35103_CROSSOVER_SURPLUS_NEIGHBOURHOOD_N_DEPENDENCE.honestScope),
   },
 ];
 

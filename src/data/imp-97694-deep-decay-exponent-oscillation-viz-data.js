@@ -47,7 +47,7 @@ export const IMP97694_SUMMARY = Object.freeze({
   verdict:
     'Presentation only: every local exponent, residual ratio, and average exponent is reused verbatim from '
     + 'imp-97659 (a measurement, not a derivation); no new computation. Changes no bound; MCM stays refuted '
-    + 'from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'from omega=11; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

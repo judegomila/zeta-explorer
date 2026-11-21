@@ -62,7 +62,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642/imp-2643);
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (halving-landmark closed form, thr = 1/2)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (sigma < 0.1 crossing N ~ 3.21e11, bisected)
@@ -223,7 +223,7 @@ export const IMP33743_SIGMA_FARTAIL_CROSSOVER_CLOSED_FORM = {
     'with NO discretization contribution. Component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33723 (halving-landmark closed form, thr = 1/2); imp-33582 (F2/F3: sigma < 0.1 crossing ' +
     'N ~ 3.21e11, bisected); imp-33601 (exact identity sigma=1/2 <=> E_coll=E_trunc+E_flow); ' +
@@ -263,13 +263,13 @@ export const IMP33743_SIGMA_FARTAIL_CROSSOVER_CLOSED_FORM_ASSERTIONS = [
     holds: () => WITH_FLOW_VS_EMP < 1e-9 && R_FLOW_TRUNC > 0 && R_FLOW_TRUNC < 1e-3,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp33743-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33743_SIGMA_FARTAIL_CROSSOVER_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP33743_SIGMA_FARTAIL_CROSSOVER_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP33743_SIGMA_FARTAIL_CROSSOVER_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP33743_SIGMA_FARTAIL_CROSSOVER_CLOSED_FORM.verdict),
   },
 ];
 

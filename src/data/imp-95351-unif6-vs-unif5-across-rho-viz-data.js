@@ -28,7 +28,7 @@
  * arithmetic imp-95332 uses (K = 256 charts, N = 12 tail terms, verbatim).
  * Follows the imp-95349 / imp-95350 import-light viz-data pattern.
  * MEASUREMENT / PRESENTATION ONLY. Changes no bound, establishes no operator
- * positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ * positivity, no RH claim; no refereed bound is changed. NO QED.
  *
  * @see imp-95332-chart-tail-pencil-floor.js (COROLLARY PEN-UNIF6, functions
  *   w5Scan / w6Scan, record fields aUnif6RhoE6 / aUnif5RhoE6Ref / aUnif6Rho2)

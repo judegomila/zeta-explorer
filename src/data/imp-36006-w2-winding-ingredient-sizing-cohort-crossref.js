@@ -19,7 +19,7 @@
  *   TOPOLOGY riding for free on I1/I2/I3 (imp-35805). No ingredient is discharged.
  *
  *   Ticket: imp-36006 (content, low). Note only; changes no bound; C_mb GUE-conditional
- *   (imp-486) untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   (imp-486) untouched; no refereed bound is changed; NO QED.
  *
  * @see imp-35727-w2-certified-winding-count-ingredients-scope (SCOPE: names I1-I5, all GREENFIELD)
  * @see imp-35757-i2-panel-width-count-scope (I2 sizing 1: smooth Riemann-Siegel mean rate, LOWER bound)
@@ -111,7 +111,7 @@ export const IMP36006_W2_WINDING_INGREDIENT_SIZING_COHORT_CROSSREF = Object.free
     changesAnyBound: false,
     dischargesAnyObligation: false,
     portsAnyRoute: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -120,7 +120,7 @@ export const IMP36006_W2_WINDING_INGREDIENT_SIZING_COHORT_CROSSREF = Object.free
     'two routes), imp-35804 (I4), and imp-35805 (I5) -- as one S-frontier W2 greenfield map, distinct from the ' +
     'W1 summation-robustness cluster (imp-35987). Every sizing narrows HOW its ingredient would be certified ' +
     'while confirming it stays GREENFIELD; none discharges an obligation or ports a route. Changes no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
 });
 
 export const IMP36006_W2_WINDING_INGREDIENT_SIZING_COHORT_CROSSREF_ASSERTIONS = [
@@ -173,14 +173,14 @@ export const IMP36006_W2_WINDING_INGREDIENT_SIZING_COHORT_CROSSREF_ASSERTIONS = 
       IMP36006_W2_WINDING_INGREDIENT_SIZING_COHORT_CROSSREF.honestCaveat.dischargesAnyObligation === false &&
       IMP36006_W2_WINDING_INGREDIENT_SIZING_COHORT_CROSSREF.honestCaveat.portsAnyRoute === false &&
       IMP36006_W2_WINDING_INGREDIENT_SIZING_COHORT_CROSSREF.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36006_W2_WINDING_INGREDIENT_SIZING_COHORT_CROSSREF.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36006_W2_WINDING_INGREDIENT_SIZING_COHORT_CROSSREF.honestCaveat.sota),
   },
   {
     id: 'imp36006-verdict-no-qed',
-    why: 'The verdict must record NO QED and the Platt-Trudgian SOTA floor, matching every source module.',
+    why: 'The verdict must record NO QED and the no-refereed-bound-change floor, matching every source module.',
     holds: () =>
       /NO QED/.test(IMP36006_W2_WINDING_INGREDIENT_SIZING_COHORT_CROSSREF.verdict) &&
-      /remains SOTA/.test(IMP36006_W2_WINDING_INGREDIENT_SIZING_COHORT_CROSSREF.verdict),
+      /refereed bound is changed/i.test(IMP36006_W2_WINDING_INGREDIENT_SIZING_COHORT_CROSSREF.verdict),
   },
 ];
 

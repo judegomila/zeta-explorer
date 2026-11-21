@@ -7,8 +7,8 @@
  * visible at a glance across the three imp-97520 sigma landmarks L2/L3/L4.
  *
  * PRESENTATION ONLY. Reuses the frozen IMP97623_ADDITIVITY_RESIDUAL_MULTI_LANDMARK_CROSSCHECK
- * literals verbatim -- no re-derivation, no new computation. No bound moves; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * literals verbatim -- no re-derivation, no new computation. No bound moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97623-additivity-residual-multi-landmark-crosscheck.js (IMP97623_ADDITIVITY_RESIDUAL_MULTI_LANDMARK_CROSSCHECK)
  */
@@ -78,7 +78,7 @@ const IMP97654_VIZ_DATA_ASSERTIONS = [
     holds: () =>
       IMP97623_ADDITIVITY_RESIDUAL_MULTI_LANDMARK_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP97623_ADDITIVITY_RESIDUAL_MULTI_LANDMARK_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP97623_ADDITIVITY_RESIDUAL_MULTI_LANDMARK_CROSSCHECK.verdict) &&
+      /refereed bound is changed/i.test(IMP97623_ADDITIVITY_RESIDUAL_MULTI_LANDMARK_CROSSCHECK.verdict) &&
       typeof IMP97654_SUMMARY.reading === 'string',
   },
 ];

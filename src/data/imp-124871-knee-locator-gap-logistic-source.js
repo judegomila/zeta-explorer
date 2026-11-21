@@ -83,7 +83,7 @@
  * DERIVATION / CHARACTERIZATION ONLY. Conditional-share ramp diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124847-knee-locator-gap-thirdgrid-stencil-form (gap ~0.0335 stencil-FORM-stable, source unexplained there)
  * @see imp-124826-knee-locator-gap-grid-refinement (resolution ladder: gap ~0.0335 refinement-stable)
@@ -340,7 +340,7 @@ export const IMP124871_KNEE_LOCATOR_GAP_LOGISTIC_SOURCE = {
     'definition-dependence as a real structural feature of the logistic ramp, not a stencil/grid artifact. ' +
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124847 (gap ~0.0335 stencil-FORM-stable, source unexplained); imp-124826 (resolution ladder: gap ' +
     '~0.0335 refinement-stable); imp-124814 (R3: the -2.1064 vs -2.0729 locator gap); imp-97822 (two-floor ' +
@@ -408,13 +408,13 @@ export const IMP124871_KNEE_LOCATOR_GAP_LOGISTIC_SOURCE_ASSERTIONS = [
       Math.abs(L_RUN_SHARE + FLOW_SHARE - 100) < 1,
   },
   {
-    // Honesty gate: derivation only, no QED, PT SOTA.
+    // Honesty gate: derivation only, no QED, no refereed bound is changed.
     id: 'imp124871-honesty-gate-no-qed',
-    description: 'Derivation only: logistic-sourced ~0.0335 gap, no QED, PT stays SOTA',
+    description: 'Derivation only: logistic-sourced ~0.0335 gap, no QED, no refereed bound is changed',
     holds: () =>
       IMP124871_KNEE_LOCATOR_GAP_LOGISTIC_SOURCE.isRigorous === false &&
       /NO QED/.test(IMP124871_KNEE_LOCATOR_GAP_LOGISTIC_SOURCE.verdict) &&
-      /remains SOTA/.test(IMP124871_KNEE_LOCATOR_GAP_LOGISTIC_SOURCE.verdict),
+      /refereed bound is changed/i.test(IMP124871_KNEE_LOCATOR_GAP_LOGISTIC_SOURCE.verdict),
   },
 ];
 

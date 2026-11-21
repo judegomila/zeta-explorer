@@ -45,7 +45,7 @@
  * conditional (C_mb GUE-conditional per imp-486). The component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35037-pinned-vs-free-exponent-gap-diagnosis (global quadratic convexity c ~ 0.0273 this cross-checks pointwise + reports as a direct second derivative)
  * @see imp-34950-eflow-crossing-strength-cmb-exponent-structural (F1 pinned/free gap + F2 local-slope band this quantifies)
@@ -329,7 +329,7 @@ export const IMP35038_EFLOW_CROSSING_STRENGTH_CMB_LOGLOG_CURVATURE = {
     'GUE-conditional per imp-486). The component model is the inherited imp-3220/imp-3406 extrapolation, NOT ' +
     'a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS imp-35038: the second derivative d^2 ln s*/d(ln C_mb)^2 of the imp-34925/imp-34950 crossing- ' +
     'strength power law is POSITIVE (2 b2 ~ +0.0545 global, pointwise [0.0477, 0.0600] positive everywhere) ' +
@@ -387,16 +387,16 @@ export const IMP35038_EFLOW_CROSSING_STRENGTH_CMB_LOGLOG_CURVATURE_ASSERTIONS = 
       Math.abs(GAP_MEASURED - 4.08e-3) < 5e-4,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed.
     id: 'imp35038-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed',
     holds: () =>
       IMP35038_EFLOW_CROSSING_STRENGTH_CMB_LOGLOG_CURVATURE.isRigorous === false &&
       IMP35038_EFLOW_CROSSING_STRENGTH_CMB_LOGLOG_CURVATURE.farTailExponent === 0.5 &&
       typeof IMP35038_EFLOW_CROSSING_STRENGTH_CMB_LOGLOG_CURVATURE.subGap === 'string' &&
       /imp-486/.test(IMP35038_EFLOW_CROSSING_STRENGTH_CMB_LOGLOG_CURVATURE.subGap) &&
       /NO QED/.test(IMP35038_EFLOW_CROSSING_STRENGTH_CMB_LOGLOG_CURVATURE.verdict) &&
-      /remains SOTA/.test(IMP35038_EFLOW_CROSSING_STRENGTH_CMB_LOGLOG_CURVATURE.verdict),
+      /refereed bound is changed/i.test(IMP35038_EFLOW_CROSSING_STRENGTH_CMB_LOGLOG_CURVATURE.verdict),
   },
 ];
 

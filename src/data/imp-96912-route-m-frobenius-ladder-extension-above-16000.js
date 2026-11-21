@@ -71,7 +71,7 @@
  * extrapolation the spread is dominated by the far gap, not the local shape, and the quadratic --
  * though locally best -- still turns over unphysically (N~4.12e9) before the ceiling. F stays a
  * model-dependent fit strictly above the rigorous trace ceiling T~2.594e7; no rigorous ceiling is
- * posted; T is unaffected; no bound moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * posted; T is unaffected; no bound moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96890-route-m-frobenius-concave-norm-ceiling-refit.js (the 18-rung concave refit; the +1.37%/+8.36% ambiguity)
  * @see imp-96792-route-m-frobenius-ladder-direct-vs-fit-gap.js (fit over-predicts; norm concave)
@@ -289,7 +289,7 @@ export const IMP96912_VERDICT = Object.freeze({
     'spread is set by that far gap, not the local shape; the quadratic, though locally best, still ' +
     'turns over unphysically at N~4.12e9 before the ceiling. F stays a model-dependent fit strictly ' +
     'above the rigorous trace ceiling T~2.594e7; no rigorous ceiling is posted; T is unaffected; no ' +
-    'bound moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'bound moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96912_SUBGAP = Object.freeze({
@@ -305,7 +305,7 @@ export const IMP96912_SUBGAP = Object.freeze({
 });
 
 export const IMP96912_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Fit/measurement only: 6 additional exact ' +
+  'RH open; no refereed bound is changed; NO QED. Fit/measurement only: 6 additional exact ' +
   'Vasyunin-Gram ||G||_F rungs (N=17000..24000) on the identical exact V-table + coprime-kernel ' +
   'construction (validated to machine precision at N=8000), with the imp-96890 line/quad/+d/N ' +
   'models scored out-of-sample and refit over the extended 24-rung ladder and the cond#=1/eps ' +
@@ -363,7 +363,7 @@ const IMP96912_ASSERTIONS = [
       IMP96912_VERDICT.outOfSampleFavoursQuadratic === true &&
       IMP96912_VERDICT.ceilingAmbiguityBarelyNarrows === true &&
       /NO QED/.test(IMP96912_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96912_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96912_HONEST_BANNER) &&
       /RH open/.test(IMP96912_HONEST_BANNER) &&
       /not-the-far-F-ceiling/.test(IMP96912_SUBGAP.id),
     why: 'fit/measurement only: no rigorous ceiling is posted, no bound moves, the new rungs favour the quadratic locally while the far F-ceiling ambiguity persists, and the honesty markers plus the local-shape-not-far-ceiling sub-gap are present.',

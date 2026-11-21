@@ -18,7 +18,7 @@
  * both fully covered AND convention-consistent.
  *
  * This is a read-only audit: it changes no bound, establishes no operator positivity, imp-3066
- * K_a >= 0 stays untouched, no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 stays untouched, no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33827, imp-33807, imp-33733 (the precedent honesty-gate audits this mirrors)
  * @see imp-33873 (the heavy-import-safety audit of the same three-module cohort)
@@ -75,13 +75,13 @@ export const IMP33874_COHORT_HONESTY_GATE_AUDIT = Object.freeze({
     'COHORT-FULLY-COVERED, CONVENTION-CONSISTENT: 3 of 3 modules have an executable honesty ' +
     'tripwire (0 uncovered), and all 3 of 3 use the literal `isRigorous:false` field named in the ' +
     'ticket title -- no convention split like the imp-33827 cohort. No bound changed; imp-3066 ' +
-    'K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'K_a >= 0 untouched; NO QED; no refereed bound is changed.',
 
   honest:
     'AUDIT-ONLY -- reports the honesty-gate tripwire coverage found by reading each of the three ' +
     'modules; does not modify any module and does not change scripts/run-assertions.mjs wiring ' +
-    '(that question is the separate imp-33875 ticket). Platt-Trudgian Lambda <= 0.2 stays the ' +
-    'rigorous SOTA.',
+    '(that question is the separate imp-33875 ticket). No refereed bound is changed' +
+    '.',
 });
 
 export const IMP33874_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
@@ -104,11 +104,11 @@ export const IMP33874_COHORT_HONESTY_GATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-33874-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP33874_COHORT_HONESTY_GATE_AUDIT.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(IMP33874_COHORT_HONESTY_GATE_AUDIT.honest)
+      && /refereed bound is changed/i.test(IMP33874_COHORT_HONESTY_GATE_AUDIT.honest)
       && /NO QED/.test(IMP33874_COHORT_HONESTY_GATE_AUDIT.verdict)
-      && /Lambda <= 0.2 remains the rigorous SOTA/.test(IMP33874_COHORT_HONESTY_GATE_AUDIT.verdict),
+      && /refereed bound is changed/i.test(IMP33874_COHORT_HONESTY_GATE_AUDIT.verdict),
   },
 ];
 

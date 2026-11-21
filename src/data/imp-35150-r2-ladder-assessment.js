@@ -166,7 +166,7 @@ export const IMP_35150_R2_LADDER_ASSESSMENT = {
     doesNotAchieve:
       'Does NOT certify R2 at N >= 500; does NOT extend the C_mb certificate ' +
       'past the flow-reference set; does NOT remove the imp-486 GUE conditional; ' +
-      'changes NO Lambda bound. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'changes NO Lambda bound. No refereed bound is changed.',
   },
 };
 
@@ -217,6 +217,6 @@ export const IMP_35150_R2_LADDER_ASSESSMENT_ASSERTIONS = [
     why:
       'This ticket is measurement/certification only: it must never assert a ' +
       'QED or a bound change. C_mb stays GUE-conditional (imp-486); ' +
-      'Lambda <= 0.2 stays SOTA.',
+      'no refereed bound is changed.',
   },
 ];

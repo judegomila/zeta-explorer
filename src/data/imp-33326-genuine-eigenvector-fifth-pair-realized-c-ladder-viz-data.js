@@ -17,7 +17,7 @@
  * @see imp-33272-fifth-pair-extended-precision-crossval.js (the surrogate range this ladder is tested against)
  *
  * Ticket: imp-33326 (ux, low). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP33326_LADDER = [

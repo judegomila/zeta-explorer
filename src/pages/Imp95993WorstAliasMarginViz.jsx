@@ -180,7 +180,7 @@ export default function Imp95993WorstAliasMarginViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page rendering the frozen
         imp-95962 measurement verbatim (no re-derivation). Supplies no new bound, establishes no
-        operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
+        operator positivity, no RH claim.
         NO QED.
       </div>
     </div>

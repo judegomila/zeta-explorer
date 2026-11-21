@@ -74,7 +74,7 @@
  *
  *   STATUS: a grouping/index note over five already-completed tickets (one ticket-list id
  *   corrected), not a new derivation. No bound changes: T < F ordering unaffected; RH open;
- *   NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96890-route-m-frobenius-concave-norm-ceiling-refit.js (18-rung concave fits; +d/N picked on physical grounds)
  * @see imp-96912-route-m-frobenius-holdout-model-discriminator.js (near-field holdout; quadratic wins every split)
@@ -85,7 +85,7 @@
  * @see imp-97081-route-m-farfield-ceiling-interior-anchor-discriminator.js (later ticket, further far-field discriminator attempt)
  *
  * Ticket: imp-97086 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const ROUTE_M_TRACE_CEILING_T = 2.594e7;
@@ -180,7 +180,7 @@ export const IMP97086_FROBENIUS_HOLDOUT_COHORT_INDEX = Object.freeze({
     'not re-cite the near-field holdout win as resolving the far-field ceiling, and should not ' +
     're-run the imp-96972 narrowing-rate sweep expecting a materially tighter band from a ' +
     'modestly larger N0. Establishes nothing new; moves no bound; RH open; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96890 (concave ceiling refit); imp-96912 (holdout discriminator + ladder extension); ' +
     'imp-96981 (viz-data leaf); imp-96982 (glossary headword); imp-96972 (narrowing-rate ' +
@@ -230,11 +230,11 @@ export const IMP97086_FROBENIUS_HOLDOUT_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97086-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97086_FROBENIUS_HOLDOUT_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97086_FROBENIUS_HOLDOUT_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97086_FROBENIUS_HOLDOUT_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97086_FROBENIUS_HOLDOUT_COHORT_INDEX.verdict),
   },
 ];
 

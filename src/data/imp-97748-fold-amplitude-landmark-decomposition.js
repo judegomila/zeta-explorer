@@ -36,7 +36,7 @@
  * imp-3220/imp-3406 extrapolation surrogate, NOT a rigorous asymptotic; C_mb GUE-conditional per
  * imp-486 UNTOUCHED; C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; E_trunc pinned 3.06e-5
  * unchanged; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97725-fold-amplitude-analytic-pin (the K = sqrt(S/(2 phi_xx)) pin, peak-local, L1 only)
  * @see imp-97520-sigma-conditional-share-landmark-ladder (the L1..L4 landmark N values, reused verbatim)
@@ -147,8 +147,8 @@ export const IMP97748_FOLD_AMPLITUDE_LANDMARK_DECOMPOSITION = {
     'decomposition only, not an extended fold law. Same inherited imp-3220/imp-3406 extrapolation ' +
     'surrogate, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) UNTOUCHED; E_trunc pinned 3.06e-5 unchanged; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97725 (the K = sqrt(S/(2 phi_xx)) pin, peak-local); imp-97520 (L1..L4 landmark N values, ' +
     'reused verbatim); imp-97735 (phi_xx walked along a deep height ladder); imp-97757 (S vs phi_xx ' +
@@ -186,11 +186,11 @@ export const IMP97748_FOLD_AMPLITUDE_LANDMARK_DECOMPOSITION_ASSERTIONS = [
   },
   {
     id: 'imp97748-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97748_FOLD_AMPLITUDE_LANDMARK_DECOMPOSITION.isRigorous === false &&
       /NO QED/.test(IMP97748_FOLD_AMPLITUDE_LANDMARK_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP97748_FOLD_AMPLITUDE_LANDMARK_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP97748_FOLD_AMPLITUDE_LANDMARK_DECOMPOSITION.verdict),
   },
 ];
 

@@ -70,7 +70,7 @@
  * CONSISTENCY CHECK ONLY on the inherited imp-3220/imp-3406 surrogate crossover map; NOT a rigorous
  * asymptotic and NOT an RH bound. C_C = 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional
  * per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34817-krawczyk-op-budget-contraction-gap (the contraction-validity op ceiling n_op* this converts)
  * @see imp-34818-krawczyk-deltastar-vs-directed-rounding-floor (the delta* / floor = 1 + 1/(4k) budget and n_op = 2 FP_LO k bridge)
@@ -249,7 +249,7 @@ export const IMP34843_KRAWCZYK_N_OP_STAR_VS_DELTASTAR_FLOOR_CROSSCHECK = {
     'artifact. Consistency check only on the inherited imp-3220/imp-3406 surrogate crossover map; the C_C ' +
     '1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 ' +
     'untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34817 (contraction-validity op ceiling n_op* = G/((1+G) eps) ~ 2.20e15); imp-34818 (delta* vs ' +
     'directed-rounding floor = 1 + 1/(4k) and the n_op = 2 FP_LO k bridge); imp-34799 (gamma(n_op) model + ' +
@@ -325,15 +325,15 @@ export const IMP34843_KRAWCZYK_N_OP_STAR_VS_DELTASTAR_FLOOR_CROSSCHECK_ASSERTION
       Math.abs(FULL_IMAGE_REL_AT_STAR / REL_IMAGE_AT_STAR_PUBLISHED - 1) < 1e-4,
   },
   {
-    // Honesty gate: consistency check / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: consistency check / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34843-honesty-gate-no-qed',
-    description: 'n_op* vs delta*-floor cross-check: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'n_op* vs delta*-floor cross-check: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34843_KRAWCZYK_N_OP_STAR_VS_DELTASTAR_FLOOR_CROSSCHECK.isRigorous === false &&
       /imp-34714a/.test(IMP34843_KRAWCZYK_N_OP_STAR_VS_DELTASTAR_FLOOR_CROSSCHECK.subGap) &&
       /REMAINS OPEN/.test(IMP34843_KRAWCZYK_N_OP_STAR_VS_DELTASTAR_FLOOR_CROSSCHECK.subGap) &&
       /NO QED/.test(IMP34843_KRAWCZYK_N_OP_STAR_VS_DELTASTAR_FLOOR_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP34843_KRAWCZYK_N_OP_STAR_VS_DELTASTAR_FLOOR_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP34843_KRAWCZYK_N_OP_STAR_VS_DELTASTAR_FLOOR_CROSSCHECK.verdict),
   },
 ];
 

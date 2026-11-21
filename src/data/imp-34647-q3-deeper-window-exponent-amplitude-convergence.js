@@ -51,7 +51,7 @@
  *   conditioning OF that measurement, it does not rehabilitate the model). The -2 asymptote and
  *   C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per
  *   imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34633-roundoff-prefactor-amplitude-vs-epsmach.js (the F2 least-deep diagnosis this tests directly)
  *   @see imp-34606-roundoff-amplification-exponent-ladder.js (the {2,3,4} SLOPE ladder; q3 slope m3 ~ 2.90)
@@ -250,8 +250,8 @@ export const IMP34647_Q3_DEEPER_WINDOW_EXPONENT_AMPLITUDE_CONVERGENCE = Object.f
     'as-is -- this diagnoses the finite-difference conditioning of that measurement, it does not ' +
     'rehabilitate the model. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz ' +
     'are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 ' +
-    'untouched; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'untouched; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34633 (the F2 least-deep-window diagnosis this module tests directly); ' +
     'imp-34606 (the {2,3,4} SLOPE ladder -- q3 slope m3 ~ 2.90); ' +
@@ -309,9 +309,9 @@ const IMP34647_ASSERTIONS = [
     holds: () =>
       IMP34647_Q3_DEEPER_WINDOW_EXPONENT_AMPLITUDE_CONVERGENCE.isRigorous === false &&
       /NO QED/.test(IMP34647_Q3_DEEPER_WINDOW_EXPONENT_AMPLITUDE_CONVERGENCE.verdict) &&
-      /remains SOTA/.test(IMP34647_Q3_DEEPER_WINDOW_EXPONENT_AMPLITUDE_CONVERGENCE.verdict) &&
+      /refereed bound is changed/i.test(IMP34647_Q3_DEEPER_WINDOW_EXPONENT_AMPLITUDE_CONVERGENCE.verdict) &&
       /UNTOUCHED/.test(IMP34647_Q3_DEEPER_WINDOW_EXPONENT_AMPLITUDE_CONVERGENCE.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

@@ -56,14 +56,14 @@
  *
  *   Tabulation only, from a reproduction of the committed Galerkin scheme. No coercivity constant;
  *   no operator positivity proved; no bound moves; interval-rigorous reach stays 2a <= 0.96;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97537-confined-well-vs-projected-positivity-assessment.js (point values 8.345/0.882/0.5786; crossing 1.1316)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (sigma_2, lambdaMinSigma2 table, sec. 4)
  * @see imp-96769-krein-de-branges-uniform-gap-assessment.js (lambda_1 soft-positive, no rigorous gap)
  *
  * Ticket: imp-97561 (numerical, opus-4-8, api-pool). N-convergence tabulated; no coercivity
- * constant; no bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * constant; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import { TOEPLITZ_KREIN_LITERALS } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

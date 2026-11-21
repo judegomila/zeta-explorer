@@ -43,7 +43,7 @@
  * machinery (identical K, delta, N_cross, rungs). The imp-34714a machine certificate REMAINS OPEN; F(m) = 0
  * stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional per imp-486
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent 1/2 per imp-3463 untouched; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35241-krawczyk-headroom-band-profile (profiled S only on the widest k = 10 rung; band-top ~2555.18)
  * @see imp-34996-krawczyk-headroom-safety-factor-asymptote (S_inf = 1/(2 delta) large-N floor)
@@ -184,8 +184,8 @@ export const IMP35303_KRAWCZYK_HEADROOM_BAND_WIDTH_KRUNG = {
     'Measurement only on the inherited imp-3220/imp-3406 surrogate; reproduces the imp-35241/imp-35176/imp-34996 ' +
     'machinery (identical K, delta, N_cross, rungs); the C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional ' +
     'per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent 1/2 per imp-3463 untouched; ' +
-    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35241 (profiled S only on the widest k = 10 rung; band-top S ~ 2555.18); imp-34996 (S_inf = 1/(2 delta) ' +
     'large-N floor); imp-34929 (closed-form dS/dN < 0; strictly decreasing S); imp-35176 (physical-branch min ' +
@@ -227,15 +227,15 @@ export const IMP35303_KRAWCZYK_HEADROOM_BAND_WIDTH_KRUNG_ASSERTIONS = [
       RUNG_LADDER_TIGHTENING < S_TOP_WIDEST - S_INF,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35303-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35303_KRAWCZYK_HEADROOM_BAND_WIDTH_KRUNG.isRigorous === false &&
       /imp-34714a/.test(IMP35303_KRAWCZYK_HEADROOM_BAND_WIDTH_KRUNG.subGap) &&
       /REMAINS OPEN/.test(IMP35303_KRAWCZYK_HEADROOM_BAND_WIDTH_KRUNG.subGap) &&
       /NO QED/.test(IMP35303_KRAWCZYK_HEADROOM_BAND_WIDTH_KRUNG.verdict) &&
-      /remains SOTA/.test(IMP35303_KRAWCZYK_HEADROOM_BAND_WIDTH_KRUNG.verdict),
+      /refereed bound is changed/i.test(IMP35303_KRAWCZYK_HEADROOM_BAND_WIDTH_KRUNG.verdict),
   },
 ];
 

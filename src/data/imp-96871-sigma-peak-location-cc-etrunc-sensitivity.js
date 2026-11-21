@@ -62,8 +62,7 @@
  * mirror image of the HEIGHT sensitivity where C_C is the larger lever (+0.048) and
  * E_trunc the smaller (-0.019). No bound changes: N_max is only the extrapolation anchor,
  * and C_mb / C_C stay GUE-conditional (imp-486). Measurement/sensitivity only; no
- * positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-96851-sigma-peak-share-cc-etrunc-joint-sensitivity (HEIGHT joint cross-term)
  * @see imp-96831-sigma-peak-share-cc-sensitivity (HEIGHT C_C partial +0.048)
@@ -195,7 +194,7 @@ export const IMP96871_SIGMA_PEAK_LOCATION_CC_ETRUNC_SENSITIVITY = {
     'C_C is the larger lever (+0.048) and E_trunc the smaller (-0.019). No bound changes: ' +
     'N_max is only the extrapolation anchor and C_mb / C_C stay GUE-conditional (imp-486). ' +
     'Measurement/sensitivity only; no positivity, no bridge closure, no RH claim, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   isRigorous: false,
   citation:
     'imp-96851 (HEIGHT joint cross-term); imp-96831 (HEIGHT C_C partial +0.048); imp-96794 ' +
@@ -247,14 +246,14 @@ export const IMP96871_SIGMA_PEAK_LOCATION_CC_ETRUNC_SENSITIVITY_ASSERTIONS = [
       bandMinCorner.etFactor === 4.0,
   },
   {
-    // Honesty gate: measurement/assessment only, orthogonal-levers verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement/assessment only, orthogonal-levers verdict, no QED, no refereed bound is changed.
     id: 'imp96871-honesty-gate-no-qed',
-    description: 'Assessment only: orthogonal-levers verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: orthogonal-levers verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP96871_SIGMA_PEAK_LOCATION_CC_ETRUNC_SENSITIVITY.isRigorous === false &&
       /ORTHOGONAL LEVERS/.test(IMP96871_SIGMA_PEAK_LOCATION_CC_ETRUNC_SENSITIVITY.verdict) &&
       /NO QED/.test(IMP96871_SIGMA_PEAK_LOCATION_CC_ETRUNC_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP96871_SIGMA_PEAK_LOCATION_CC_ETRUNC_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP96871_SIGMA_PEAK_LOCATION_CC_ETRUNC_SENSITIVITY.verdict),
   },
 ];
 

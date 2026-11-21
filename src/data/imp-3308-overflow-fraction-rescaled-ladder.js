@@ -7,7 +7,7 @@
  *   imp-3216 underflow-truncated measurement.
  *
  *   ASSESSMENT / DIAGNOSTIC ONLY. No new positivity, no RH verdict, not a
- *   reduction. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   reduction. No refereed bound is changed.
  *
  *   THE GAP THIS CLOSES (imp-3216 / imp-3306)
  *   -----------------------------------------
@@ -73,8 +73,7 @@
  *   arithmetic-independent measurement past the horizon; it re-derives no absolute
  *   deficit magnitude. A nonzero overflow fraction is necessary-but-NOT-sufficient
  *   at operator order; the off-diagonal endpoint-Hankel operator step (imp-3066)
- *   remains the lone obstruction. No RH verdict. No false QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 stays SOTA.
+ *   remains the lone obstruction. No RH verdict. No false QED. No refereed bound is changed.
  *
  *   @see imp-3216-overflow-support-length-closed-form.js (the underflow-horizon finding)
  *   @see imp-3306-overflow-fraction-anchor-underflow-reconcile.js (the anchor reconcile it measures)
@@ -413,7 +412,7 @@ export const IMP3308_OVERFLOW_FRACTION_RESCALED_LADDER = Object.freeze({
       'A nonzero overflow fraction is necessary-but-NOT-sufficient at operator order; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -466,7 +465,7 @@ export const IMP3308_OVERFLOW_FRACTION_RESCALED_LADDER_ASSERTIONS = [
     id: 'imp3308-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: DIAGNOSTIC that CONFIRMS the imp-3216 / imp-3306 reading by measurement, ' +
          'overflow-support geometry only, necessary-but-not-sufficient at operator order, positivity not ' +
-         'attempted, PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'attempted, no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3308_OVERFLOW_FRACTION_RESCALED_LADDER.honestCaveat;
       return (
@@ -474,7 +473,7 @@ export const IMP3308_OVERFLOW_FRACTION_RESCALED_LADDER_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

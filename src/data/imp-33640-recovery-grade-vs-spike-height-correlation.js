@@ -68,7 +68,7 @@
  *   the LOWEST recovery grade, so envelope height does not predict the drift -- not the exact correlation
  *   coefficient. The NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility is NECESSARY-
  *   BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step,
- *   imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33622-grade-recovery-rung-uniformity.js (the recovery-grade drift 4/6/4 this correlates)
  *   @see imp-33621-band-clearing-cluster-decay-and-tail-scan.js (the cluster peak-envelope decay 76.1/65.3/64.1)
@@ -298,7 +298,7 @@ const verdict =
       'NATURAL-CLUSTER-ENVELOPE-READING.-THE-DRIFT-IS-DRIVEN-BY-A-RUNG-LOCAL-LATTICE-JITTER-PROPERTY-(WHETHER-THE-' +
       'grade-4-FLOOR-AT-THE-EXACT-RUNG-POKES-ABOVE-64),-NOT-BY-CLUSTER-PEAK-AMPLITUDE.-ACCURACY/RULE-DESIGN-' +
       'MEASUREMENT-ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-' +
-      'NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33640_RECOVERY_GRADE_VS_SPIKE_HEIGHT = Object.freeze({
@@ -327,7 +327,7 @@ export const IMP33640_RECOVERY_GRADE_VS_SPIKE_HEIGHT = Object.freeze({
     'the definition, and FAILS under the natural cluster-envelope reading. The drift is a rung-local lattice-jitter ' +
     'property, not a cluster-peak-amplitude law. VERDICT: RECOVERY-GRADE-DRIFT-NOT-PREDICTED-BY-ENVELOPE-SPIKE-HEIGHT. ' +
     'ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor; operator ' +
-    'positivity (imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    'positivity (imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^7 phiKernel(s)phiKernel(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -416,7 +416,7 @@ export const IMP33640_RECOVERY_GRADE_VS_SPIKE_HEIGHT = Object.freeze({
       'can shift the few-ULP measurements, so the robust reading is the QUALITATIVE sign -- the tallest ENVELOPE ' +
       'cluster has the LOWEST recovery grade, so envelope height does not predict the drift -- not the exact ' +
       'correlation coefficient. The drift is rung-local, not a cluster-peak-amplitude law.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -460,7 +460,7 @@ export const IMP33640_RECOVERY_GRADE_VS_SPIKE_HEIGHT_ASSERTIONS = [
   {
     id: 'imp33640-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33640_RECOVERY_GRADE_VS_SPIKE_HEIGHT.honestCaveat;
       return (
@@ -469,7 +469,7 @@ export const IMP33640_RECOVERY_GRADE_VS_SPIKE_HEIGHT_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

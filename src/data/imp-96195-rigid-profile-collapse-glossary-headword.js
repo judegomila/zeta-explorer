@@ -41,21 +41,20 @@
  *
  *   STATUS: a PARTIAL / reduction, not a QED. Shrinks (I) from a sup over an infinite-dimensional
  *   top box to one scalar boundary-matching condition. Nothing here diagonalizes A_S23, moves a
- *   Lambda bound, or a verified height. RH open; PT Lambda <= 0.2 stands; NO QED.
+ *   Lambda bound, or a verified height. RH open; no refereed bound is changed; NO QED.
  *
  *   WHAT THIS IS AND IS NOT
  *   ------------------------
  *   A glossary-style lookup restating the imp-96164 rigid-profile-collapse derivation for quick
  *   reference. It establishes nothing, instantiates no interval, closes no sub-gap on its own
- *   (SG-96164-boundary remains open), moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   (SG-96164-boundary remains open), moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96164-route-i-mixed-group-no-modulus1-overdetermination (source: the collapse this glosses)
  * @see imp-96143-route-i-mixed-ladder-23-prolate-spectrum-summability (the residual (I) this attacks)
  * @see rh-route-i-sonine-excess-semilocal-port-2026-09-23 (the single-prime p=2 relation g(v)=2g(2v))
  *
  * Ticket: imp-96195 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The rigid-profile-collapse headword, baked verbatim (no re-import).
@@ -93,7 +92,7 @@ const RIGID_PROFILE_COLLAPSE_HEADWORD = Object.freeze({
     'C = 0. The p=2 top confined state 0.9999731 < 1 numerically suggests the v = 1/2 boundary ' +
     'condition is not met at unit modulus, but the exact enclosure remains blocked by the ' +
     'Zygmund edge behaviour (sub-gap SG-96164-boundary open). Changes no bound; nothing ' +
-    'diagonalizes A_S23; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'diagonalizes A_S23; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96195_RIGID_PROFILE_COLLAPSE_GLOSSARY_HEADWORD = Object.freeze({
@@ -113,7 +112,7 @@ export const IMP96195_RIGID_PROFILE_COLLAPSE_GLOSSARY_HEADWORD = Object.freeze({
     'tail-interior eigenfunction to the single rigid profile g(v) = C/v, collapsing an ' +
     'infinite-dimensional Zygmund modulation family to one scalar boundary condition ' +
     'SG-96164-boundary. Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96164 (the rigid-profile-collapse derivation this glosses); imp-96143 (the residual (I) ' +
     'this attacks); rh-route-i-sonine-excess-semilocal-port-2026-09-23 (the single-prime p=2 ' +
@@ -140,11 +139,11 @@ export const IMP96195_RIGID_PROFILE_COLLAPSE_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96195-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96195_RIGID_PROFILE_COLLAPSE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96195_RIGID_PROFILE_COLLAPSE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96195_RIGID_PROFILE_COLLAPSE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96195_RIGID_PROFILE_COLLAPSE_GLOSSARY_HEADWORD.verdict) &&
       IMP96195_RIGID_PROFILE_COLLAPSE_GLOSSARY_HEADWORD.glosses === 'imp-96164',
   },
 ];

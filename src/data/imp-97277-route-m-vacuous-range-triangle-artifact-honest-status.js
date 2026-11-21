@@ -22,7 +22,7 @@
  * new and moves no bound. Positivity here is of the EXPLICIT arithmetic first moment F_arith(b), NOT
  * kappa > 0 in the mean-square lower companion ([[project_route_m_lower_companion_first_moment]]); the
  * cotangent first moment (imp-97097) stays open. No bound on Lambda moves; T ~ 2.594e7 trace anchor
- * unchanged; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * unchanged; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97211-route-m-positivity-crossover-measured-vs-worstcase.js (source of every verdict flag below)
  * @see imp-97159-route-m-arith-first-moment-positivity-crossover.js (the worst-case crossover b0=511 this collapses)
@@ -30,7 +30,7 @@
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (the exact identity + worst-case eps)
  *
  * Ticket: imp-97277 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97211_DEFAULT, { IMP97211_CROSSOVER, IMP97211_VERDICT } from './imp-97211-route-m-positivity-crossover-measured-vs-worstcase.js';
@@ -60,7 +60,7 @@ export const IMP97277_HONEST_BANNER =
   'never reaches kappa_arith (max 0.2017 at b=2, margin 0.369). The small highly-composite moduli that ' +
   'pin the worst-case threshold are exactly where the measurement found the deepest mu-cancellation ' +
   '(worst/measured ratio ~4e4..3e5x). Measurement only; proves no uniform bound (imp-97133 residual); ' +
-  'no bound moved; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'no bound moved; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97277_ASSERTIONS = [
@@ -94,9 +94,9 @@ const IMP97277_ASSERTIONS = [
       IMP97277_STATUS.qed === false &&
       IMP97277_STATUS.provesUniformBound === false &&
       /NO QED/.test(IMP97277_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97277_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97277_HONEST_BANNER) &&
       /RH open/.test(IMP97277_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no uniform bound proved, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: no bound claimed moved, no uniform bound proved, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

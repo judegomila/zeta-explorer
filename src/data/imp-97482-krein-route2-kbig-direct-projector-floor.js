@@ -40,8 +40,8 @@
  *   best-reachable Route-2 lower bound on lambda_2 SATURATES at a finite negative floor in the tightened
  *   bracket [-313.8, -308.7] (directly measured to Kbig=260, not merely extrapolated), still four orders
  *   below the required 0.581059, so the m=1 enclosure stays UNUSABLE at 2a=ln3. Measurement only; no rigorous
- *   lower bound on lambda_2; no operator positivity; no bound on Lambda moves; Platt-Trudgian Lambda<=0.2
- *   SOTA; interval-rigorous reach stays 2a<=0.96; RH open; NO QED.
+ *   lower bound on lambda_2; no operator positivity; no bound on Lambda moves; no refereed bound is changed
+ *   ; interval-rigorous reach stays 2a<=0.96; RH open; NO QED.
  *   RESIDUAL IMP97482_ROUTE2_FLOOR_STILL_EXTRAPOLATED_BELOW_KBIG260 (the -308.7 edge is directly built; the
  *   -313.8..-309.8 limit still rests on two extrapolators; Kbig>260 build would pin it exactly).
  *

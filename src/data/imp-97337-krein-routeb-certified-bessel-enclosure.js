@@ -64,7 +64,7 @@
  * far-tail majorant now need NO interval spherical-Bessel primitive -- while R1/R2 stay the named residuals.
  *
  * Rayleigh floors stay UPPER bounds on the true lambda_min; establishes NO operator positivity; interval-
- * rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97184-krein-routeb-panel-enclosure-execution.js (sampled-subgrid sup; the step this certifies)
  * @see imp-97260-krein-routeb-panel-enclosure-honest-status.js (names IMP97184_INTERVAL_BESSEL_ENCLOSURE)

@@ -53,7 +53,7 @@
  * the sine-kernel cluster function reproduces the same correlation to 6 decimals at accessible L. The
  * -0.4818 value and its 0.0182 deviation from -1/2 are confirmed by a method that does NOT use the
  * union identity or the asymptotic-only number variance. Cross-validation only; theoretical GUE
- * quantity, not real zeros; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the
+ * quantity, not real zeros; changes no bound; NO QED; no refereed bound is changed; the
  * zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96312-covariance-cross-validation-pt-anchor (the within-family self-consistency check this extends)
@@ -212,7 +212,7 @@ export const IMP96350_COVARIANCE_OUTOFFAMILY_CROSSVALIDATION = {
   caveat:
     'rho_exact is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L(T); at T=3e12 there are no computed Riemann zeros, so this cross-validates two independent closed-form/quadrature evaluations of the same envelope, not a measurement of actual zeros. It changes no bound and does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'The imp-96267 rho_exact = -0.4817670 at the Platt-Trudgian verified height 3e12 (deviation 0.0182330) SURVIVES an out-of-family cross-validation: the exact Dyson-Mehta number variance (with the oscillatory Ci/Si/cos corrections the module ratio drops) gives rho_exact = -0.48176701986, differing from the asymptotic module value by only 2.52e-10, and a direct pair-correlation double integral of the sine-kernel cluster function reproduces the same correlation to 6 decimals at accessible L. The -0.4818 value and its 0.0182 deviation from -1/2 are confirmed by a method that does NOT use the union identity or the asymptotic-only number variance. Cross-validation only; theoretical GUE quantity, not real zeros; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The imp-96267 rho_exact = -0.4817670 at the Platt-Trudgian verified height 3e12 (deviation 0.0182330) SURVIVES an out-of-family cross-validation: the exact Dyson-Mehta number variance (with the oscillatory Ci/Si/cos corrections the module ratio drops) gives rho_exact = -0.48176701986, differing from the asymptotic module value by only 2.52e-10, and a direct pair-correlation double integral of the sine-kernel cluster function reproduces the same correlation to 6 decimals at accessible L. The -0.4818 value and its 0.0182 deviation from -1/2 are confirmed by a method that does NOT use the union identity or the asymptotic-only number variance. Cross-validation only; theoretical GUE quantity, not real zeros; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -244,8 +244,8 @@ export const IMP96350_COVARIANCE_OUTOFFAMILY_CROSSVALIDATION = {
   // honesty gates
   if (!/NO QED/.test(IMP96350_COVARIANCE_OUTOFFAMILY_CROSSVALIDATION.verdict))
     throw new Error('imp-96350: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96350_COVARIANCE_OUTOFFAMILY_CROSSVALIDATION.verdict))
-    throw new Error('imp-96350: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96350_COVARIANCE_OUTOFFAMILY_CROSSVALIDATION.verdict))
+    throw new Error('imp-96350: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96350_COVARIANCE_OUTOFFAMILY_CROSSVALIDATION;

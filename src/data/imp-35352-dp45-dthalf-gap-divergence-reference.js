@@ -60,7 +60,7 @@
  * SCOPE: MEASUREMENT / DIAGNOSTIC ONLY. Does NOT advance the R2 ladder (stays at
  * N=1000 per imp-35221); does NOT change the imp-35324 verdict or its baked
  * references; does NOT extend the C_mb certificate; does NOT remove the imp-486
- * GUE conditional; changes NO bound. Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ * GUE conditional; changes NO bound. No refereed bound is changed.
  * NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2" and "2/diff" prose.
@@ -180,7 +180,7 @@ export const IMP_35352_DP45_DTHALF_GAP_DIVERGENCE_REFERENCE = {
       'Does NOT advance the R2 ladder (stays N=1000 per imp-35221); does NOT ' +
       'change the imp-35324 verdict or baked references; does NOT extend the C_mb ' +
       'certificate; does NOT remove the imp-486 GUE conditional; changes NO ' +
-      'Lambda bound. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+      'Lambda bound. No refereed bound is changed.',
     residualId: 'imp-35324-sub-n2000-marginal-clearance (unchanged)',
   },
 };
@@ -251,6 +251,6 @@ export const IMP_35352_DP45_DTHALF_GAP_DIVERGENCE_REFERENCE_ASSERTIONS = [
     why:
       'Diagnostic measurement only: never a QED or a bound change; does not touch ' +
       'the imp-35324 verdict, the R2 ladder (stays N=1000), or the imp-486 GUE ' +
-      'conditional. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+      'conditional. No refereed bound is changed.',
   },
 ];

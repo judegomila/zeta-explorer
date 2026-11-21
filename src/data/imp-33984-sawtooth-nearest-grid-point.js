@@ -53,7 +53,7 @@
  * asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33942-hump-argmax-gap-step-proportionality (established the sawtooth residue, reused verbatim)
  * @see imp-33878-hump-argmax-grid-refinement (the grid ladder and continuum argmax k*, reused verbatim)
@@ -175,8 +175,8 @@ export const IMP33984_SAWTOOTH_NEAREST_GRID_POINT = {
     'is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate ' +
     'resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33942 (established the sawtooth residue min(frac,1-frac)*step, reused verbatim); imp-33878 ' +
     '(the grid-refinement ladder and continuum argmax k*~8.821092, reused verbatim); imp-33983 ' +
@@ -218,13 +218,13 @@ export const IMP33984_SAWTOOTH_NEAREST_GRID_POINT_ASSERTIONS = [
     holds: () => RUNGS.every((r) => r.matchesLadderGap),
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp33984-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33984_SAWTOOTH_NEAREST_GRID_POINT.isRigorous === false &&
       /NO QED/.test(IMP33984_SAWTOOTH_NEAREST_GRID_POINT.verdict) &&
-      /remains SOTA/.test(IMP33984_SAWTOOTH_NEAREST_GRID_POINT.verdict),
+      /refereed bound is changed/i.test(IMP33984_SAWTOOTH_NEAREST_GRID_POINT.verdict),
   },
 ];
 

@@ -63,7 +63,7 @@
  *   establishes NO operator positivity. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0 sign-positivity
  *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no
- *   QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   QED. No refereed bound is changed.
  *
  *   @see imp-3670-fit-bias-decay-rate-vs-lnsq.js (the n=3..18 ladder + named residual)
  *   @see imp-3646-remainder-tail-moment-ratio-asymptotics.js (the saddle law + (ln n)^2/n^3 rate)
@@ -403,7 +403,7 @@ export const IMP3685_FIT_BIAS_SADDLE_PLATEAU_N40 = Object.freeze({
     didNotAttemptPositivity: true,
     closesSubGap: CLOSED_SUBGAP,
     openSubGap: OPEN_SUBGAP,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -468,7 +468,7 @@ export const IMP3685_FIT_BIAS_SADDLE_PLATEAU_N40_ASSERTIONS = [
   {
     id: 'imp3685-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement only, mass-feasibility necessary-but-not-sufficient, operator positivity ' +
-         '(imp-3066) untouched, PT 0.2 stays SOTA.',
+         '(imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3685_FIT_BIAS_SADDLE_PLATEAU_N40.honestCaveat;
       return (
@@ -476,7 +476,7 @@ export const IMP3685_FIT_BIAS_SADDLE_PLATEAU_N40_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

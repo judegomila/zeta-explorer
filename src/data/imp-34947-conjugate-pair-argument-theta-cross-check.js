@@ -40,7 +40,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the inherited
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34932-sigma-knee-extended-order-domb-sykes (analytic delta ladder + the sign-cycle theta ~ 40 deg this cross-checks)
  * @see imp-34900-sigma-knee-analytic-derivative-domb-sykes (analytic kernel, radius R ~ 89.6)
@@ -277,7 +277,7 @@ export const IMP34947_CONJUGATE_PAIR_ARGUMENT_THETA_CROSS_CHECK = {
     'independent magnitude-based estimator. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT ' +
     'a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
     'operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   subGap:
     'CLOSES the imp-34932 open thread (theta inferred only from a sign COUNT, never measured or cross-checked): the ' +
     'conjugate-pair argument is now measured two independent ways that agree to ~2.4%. What stays OPEN (deferred, not ' +
@@ -331,15 +331,15 @@ export const IMP34947_CONJUGATE_PAIR_ARGUMENT_THETA_CROSS_CHECK_ASSERTIONS = [
       R_RECURRENCE_MEDIAN > 0.5 * IMP34932_SIGMA_KNEE_EXTENDED_ORDER_DOMB_SYKES.radiusExtrapolated,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34947-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34947_CONJUGATE_PAIR_ARGUMENT_THETA_CROSS_CHECK.isRigorous === false &&
       IMP34947_CONJUGATE_PAIR_ARGUMENT_THETA_CROSS_CHECK.farTailExponent === 0.5 &&
       typeof IMP34947_CONJUGATE_PAIR_ARGUMENT_THETA_CROSS_CHECK.subGap === 'string' &&
       /NO QED/.test(IMP34947_CONJUGATE_PAIR_ARGUMENT_THETA_CROSS_CHECK.verdict) &&
-      /remains SOTA/.test(IMP34947_CONJUGATE_PAIR_ARGUMENT_THETA_CROSS_CHECK.verdict),
+      /refereed bound is changed/i.test(IMP34947_CONJUGATE_PAIR_ARGUMENT_THETA_CROSS_CHECK.verdict),
   },
 ];
 

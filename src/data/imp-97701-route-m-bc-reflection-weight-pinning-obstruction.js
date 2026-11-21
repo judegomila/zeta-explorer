@@ -80,7 +80,7 @@
  *   cancels -- a dichotomy that only the exact reflection index can decide (RESULT 3). No value is pinned
  *   for W_refl, kappaK, kappaK_period, kappaK_pole, or kappa_smooth. The rigorous anchor stays the trace
  *   ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity;
- *   PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (carried forward from imp-97617 / imp-97681, now two-part and quantified):
  *   imp-97701-bc-reflection-weight-two-part-obstruction -- pinning the reflection weight W_refl (and
@@ -170,7 +170,7 @@ export const IMP97701_VERDICT = Object.freeze({
     'factor): |W_refl| must sit ~13x below a generic O(1) Pochhammer weight, OR the pole term cancels -- ' +
     'a dichotomy only the exact reflection index can decide, converging both routes on one obstruction ' +
     '(RESULT 3). No value is pinned for W_refl, kappaK, or kappa_smooth. The rigorous anchor stays ' +
-    'T = 2.594e7; compute binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; ' +
+    'T = 2.594e7; compute binds first by >2600x; no operator positivity; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
@@ -190,7 +190,7 @@ export const IMP97701_SUBGAP = Object.freeze({
 });
 
 export const IMP97701_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Pinning attempt only: both routes to pin the ' +
+  'RH open; no refereed bound is changed; NO QED. Pinning attempt only: both routes to pin the ' +
   'reflection weight W_refl fail -- analytically the exact BC reflection index is uncomputed, ' +
   'numerically the kappa_smooth aggregate is a two-coefficient difference that cannot isolate W_refl. ' +
   'The cap band [-0.24/pi, +0.24/pi] straddles 0, so the consistency test discriminates nothing, and ' +
@@ -251,7 +251,7 @@ const IMP97701_ASSERTIONS = [
       IMP97701_VERDICT.anyBoundMoved === false &&
       IMP97701_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97701_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97701_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97701_HONEST_BANNER) &&
       /RH open/.test(IMP97701_HONEST_BANNER) &&
       /two-part-obstruction/.test(IMP97701_SUBGAP.id),
   },

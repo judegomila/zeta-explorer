@@ -51,7 +51,7 @@
  * of Sun's Section 9 from primary source nor a certification of it.
  *
  * Catalan constant G irrationality remains OPEN; Sun arXiv:2609.04176 single-author
- * and unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.
+ * and unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.
  *
  * NO heavy imports. All figures baked as literals / recomputed from the ledger.
  */
@@ -93,7 +93,7 @@ export const SUN_S9_SIGNFIX_RHO_MARGIN_ASSESSMENT = Object.freeze({
   status:
     'ASSESSMENT — interior optimum SURVIVES (rho*~1/56, delta_0~0.03730, -3.68%); '
     + '"4.01x hardening" DESTROYED (Sun literal rho=1/20 margin goes NEGATIVE); '
-    + 'model-based; G irrationality OPEN; Sun unrefereed; PT Lambda<=0.2 SOTA; NO QED',
+    + 'model-based; G irrationality OPEN; Sun unrefereed; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   correctionInterpretation:
     'wrong-sign B-squared = the (9.4) quadratic 4rho - 2rho^2 should read 4rho + 2rho^2; '
@@ -156,9 +156,9 @@ export const SUN_S9_SIGNFIX_RHO_MARGIN_ASSERTIONS = Object.freeze([
     },
   },
   {
-    name: 'honest: assessment only, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: assessment only, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () => /G irrationality OPEN/.test(SUN_S9_SIGNFIX_RHO_MARGIN_ASSESSMENT.status)
-      && /PT Lambda<=0.2 SOTA/.test(SUN_S9_SIGNFIX_RHO_MARGIN_ASSESSMENT.status)
+      && /refereed bound is changed/i.test(SUN_S9_SIGNFIX_RHO_MARGIN_ASSESSMENT.status)
       && /NO QED/.test(SUN_S9_SIGNFIX_RHO_MARGIN_ASSESSMENT.status),
   },
 ]);

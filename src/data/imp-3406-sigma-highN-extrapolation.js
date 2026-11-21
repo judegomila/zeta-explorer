@@ -59,7 +59,7 @@
  * evidence of an unbounded-widening frontier.
  *
  * ASSESSMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3220-en-bridge-fidelity-frontier (U-shaped sigma(N) decade ladder, widest at 10^6)
  * @see imp-3323-sigma-argmin-locator (interior MIN pinned at N ~ 97.80, same formulas)
@@ -190,8 +190,8 @@ export const IMP3406_SIGMA_HIGHN_EXTRAPOLATION = {
     'sqrt(log T0/N) vanishes while the constant truncation floor E_trunc = 3.06e-5 ' +
     'persists. The share neither keeps widening nor plateaus below 1; the ' +
     'empirical-vs-analytic gap has essentially peaked at the assembly ceiling. No ' +
-    'positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3220 (U-shaped sigma(N) decade ladder, widest at 10^6); imp-3323 (interior ' +
     'min pinned N ~ 97.80); imp-3324 (share saturates toward 1); imp-2642 (C_H = 1/8 ' +
@@ -253,14 +253,14 @@ export const IMP3406_SIGMA_HIGHN_EXTRAPOLATION_ASSERTIONS = [
   },
   {
     // Honesty gate: extrapolation/assessment only, turnover verdict stated, no QED,
-    // PT stays SOTA, no monotone-widening or RH claim.
+    // no refereed bound is changed, no monotone-widening or RH claim.
     id: 'imp3406-honesty-gate-no-qed',
-    description: 'Assessment only: turnover verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: turnover verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP3406_SIGMA_HIGHN_EXTRAPOLATION.isRigorous === false &&
       /TURNS OVER/.test(IMP3406_SIGMA_HIGHN_EXTRAPOLATION.verdictDirection) &&
       /NO QED/.test(IMP3406_SIGMA_HIGHN_EXTRAPOLATION.verdict) &&
-      /remains SOTA/.test(IMP3406_SIGMA_HIGHN_EXTRAPOLATION.verdict),
+      /refereed bound is changed/i.test(IMP3406_SIGMA_HIGHN_EXTRAPOLATION.verdict),
   },
 ];
 

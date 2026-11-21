@@ -26,7 +26,7 @@
  *
  *   Ticket: imp-35446 (ux, low). Presentation only of already-established measurements;
  *   adds no new Lambda bound. C_mb GUE-conditional per imp-486 UNTOUCHED. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  */
 
 // -- shallow ladder (imp-35400/imp-35279/imp-35280): swap share vs remnant share --

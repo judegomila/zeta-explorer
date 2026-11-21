@@ -53,7 +53,7 @@ export const IMP33976_MODEL_CUSP_ONSET_FAMILY_HONEST_BANNER = Object.freeze({
     'back-conversion. None of the four re-derives the m_prime -> C_ren map that the H4 ' +
     'minimal-input condition (imp-33766) actually requires. H4 is NOT discharged by this family. ' +
     'G6a_shock_lipschitz STAYS OPEN. No positivity result changes; imp-3066 K_a >= 0 stays ' +
-    'UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'UNTOUCHED. NO QED. No refereed bound is changed.',
 
   allIsRigorousFalse: ALL_ISRIGOROUS_FALSE,
   allDischargesH4False: ALL_DISCHARGES_H4_FALSE,
@@ -90,7 +90,7 @@ export const IMP33976_MODEL_CUSP_ONSET_FAMILY_HONEST_BANNER_ASSERTIONS = [
       && /H4 is NOT discharged/.test(IMP33976_MODEL_CUSP_ONSET_FAMILY_HONEST_BANNER.banner)
       && /G6a_shock_lipschitz STAYS OPEN/.test(IMP33976_MODEL_CUSP_ONSET_FAMILY_HONEST_BANNER.banner)
       && /NO QED/.test(IMP33976_MODEL_CUSP_ONSET_FAMILY_HONEST_BANNER.banner)
-      && /Lambda <= 0.2 remains the rigorous SOTA/.test(IMP33976_MODEL_CUSP_ONSET_FAMILY_HONEST_BANNER.banner),
+      && /refereed bound is changed/i.test(IMP33976_MODEL_CUSP_ONSET_FAMILY_HONEST_BANNER.banner),
   },
 ];
 

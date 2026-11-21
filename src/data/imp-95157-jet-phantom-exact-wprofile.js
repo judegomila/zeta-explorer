@@ -105,7 +105,7 @@
  * [0.2320723, 0.24502] and the k <= 4 ladder floor 47/200 carried
  * UNCHANGED. Float discipline carried: 1e-9 relative inflation nudges,
  * Cholesky pivot tolerance 1e-12. Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * Import-light; zero imports; all assertions deterministic, ~5 s.
  */
@@ -602,7 +602,7 @@ export const IMP95157_JET_PHANTOM_EXACT_WPROFILE = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // --------------------------------------------------------------------------

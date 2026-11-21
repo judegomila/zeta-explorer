@@ -72,7 +72,7 @@
  * yet proven m-independent".
  *
  * Catalan G irrationality OPEN; Sun preprint single-author, unrefereed; changes no bound;
- * NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports.
  */
 
 const KAPPA_PRECISE = 2.5106978912403926; // c_odd(1/20)/rho^2 = 0.006276744728100982 * 400
@@ -109,8 +109,8 @@ export const SUN_PROP63_SECOND_ANCHOR_OBSTRUCTION = Object.freeze({
     + 'EXACT +4.000000000 additive offset (J_raw(1/20)+4 = kappa to 1e-10), localized to the '
     + '(6.17)->(6.21) telescoping (a regularized -2/(n+v) harmonic constant), NOT the cell certificate. '
     + 'Conditional c_odd(1/19)=0.006954762801 (offset-hypothesis-gated, NOT certified) sits 1.14e-5 '
-    + 'below the pure-rho^2 null. G irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 '
-    + 'SOTA; NO QED',
+    + 'below the pure-rho^2 null. G irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed'
+    + '; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'tmp/sun-catalan/paper.txt Section 6, Proposition 6.3, eqs (6.1)-(6.25)',
   builtOn:
@@ -161,7 +161,7 @@ export const SUN_PROP63_SECOND_ANCHOR_OBSTRUCTION = Object.freeze({
     + 'CONDITIONAL (offset-hypothesis-gated, double-precision, NOT interval-certified) c_odd(1/19). The '
     + '+4 offset is verified only at m=20; c_odd(1/19) is not a certified second anchor until the '
     + 'regularized telescoping constant is derived and shown m-independent. Catalan G irrationality '
-    + 'OPEN; Sun single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'OPEN; Sun single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const SUN_PROP63_SECOND_ANCHOR_OBSTRUCTION_ASSERTIONS = Object.freeze([
@@ -206,7 +206,7 @@ export const SUN_PROP63_SECOND_ANCHOR_OBSTRUCTION_ASSERTIONS = Object.freeze([
     holds: () =>
       SUN_PROP63_SECOND_ANCHOR_OBSTRUCTION.conditionalSecondAnchor.certified === false
       && /telescoping constant/.test(SUN_PROP63_SECOND_ANCHOR_OBSTRUCTION.obstruction.namedSubGap)
-      && /PT Lambda<=0.2 SOTA/.test(SUN_PROP63_SECOND_ANCHOR_OBSTRUCTION.status)
+      && /refereed bound is changed/i.test(SUN_PROP63_SECOND_ANCHOR_OBSTRUCTION.status)
       && /NO QED/.test(SUN_PROP63_SECOND_ANCHOR_OBSTRUCTION.status),
   },
 ]);

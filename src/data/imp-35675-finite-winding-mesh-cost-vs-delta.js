@@ -12,8 +12,7 @@
  *
  * MEASUREMENT ONLY. The finite winding piece (B1) stays finite / mechanical; the
  * semi-infinite analytic tail lemma (B2 / work-item W3) stays NON-finite. Discharges
- * nothing; ports nothing; changes no bound; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * nothing; ports nothing; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * PART A -- THE RECTANGLE AND ITS BOUNDARY MESH
  * -----------------------------------------------------------------------------
@@ -74,7 +73,7 @@ const LOCAL_DENSITY_AT_TPT = Math.log(T_PT / TWO_PI) / TWO_PI; // ~4.279 zeros/u
 const OVERSAMPLE = 3; // boundary samples per local zero spacing (no missed half-turn)
 const MESH_PER_UNIT = OVERSAMPLE * LOCAL_DENSITY_AT_TPT; // ~12.84 mesh points/unit arc length
 const H_BAND = 1; // fixed order-unity half-height of the transition band [-h, h]; Delta-INDEPENDENT
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 
 // Boundary-evaluation and enclosed-zero model (Part A).
 const horizontalEvals = (delta) => 2 * delta * MESH_PER_UNIT; // two long sides, length Delta each
@@ -148,7 +147,7 @@ export const IMP35675_FINITE_WINDING_MESH_COST_VS_DELTA = {
     'decays monotonically toward 6 as the fixed vertical overhead amortizes. This confirms the imp-35653 ' +
     '"set by the log of the height, not the height" claim quantitatively for B1, and touches nothing in ' +
     'the NON-finite tail lemma B2 / W3. Measurement only; ports nothing; discharges nothing; changes no ' +
-    'bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35653 (Part C derives MESH_PER_UNIT ~ 12.84; names B1/B2, W1..W4); imp-35674 (the non-finite ' +
     'tail lemma B2 / W3); imp-35419 (the S_barrier statement / P2 option-a); Polymath15 2019 ' +
@@ -202,15 +201,15 @@ export const IMP35675_FINITE_WINDING_MESH_COST_VS_DELTA_ASSERTIONS = [
     },
   },
   {
-    // Part C + honesty gate: measures B1 only; B2/W3 stays non-finite; no discharge, no QED, PT SOTA.
+    // Part C + honesty gate: measures B1 only; B2/W3 stays non-finite; no discharge, no QED, no refereed bound is changed.
     id: 'imp35675-honesty-gate-b1-only-no-qed',
-    description: 'Measures finite B1 only; B2/W3 stays non-finite; measurement only, no QED, PT SOTA',
+    description: 'Measures finite B1 only; B2/W3 stays non-finite; measurement only, no QED, no refereed bound is changed',
     holds: () =>
       IMP35675_FINITE_WINDING_MESH_COST_VS_DELTA.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /semi-infinite for every finite Delta/.test(IMP35675_FINITE_WINDING_MESH_COST_VS_DELTA.whatItDoesNotShow) &&
       /NO QED/.test(IMP35675_FINITE_WINDING_MESH_COST_VS_DELTA.verdict) &&
-      /remains SOTA/.test(IMP35675_FINITE_WINDING_MESH_COST_VS_DELTA.verdict),
+      /refereed bound is changed/i.test(IMP35675_FINITE_WINDING_MESH_COST_VS_DELTA.verdict),
   },
 ];
 

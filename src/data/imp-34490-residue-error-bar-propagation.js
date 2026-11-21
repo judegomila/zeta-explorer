@@ -70,7 +70,7 @@
  *   raw-vs-curvature-corrected systematic. PROPAGATION / measurement only on the self-contained
  *   band; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  *   asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no
- *   bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   bound; NO QED; no refereed bound is changed.
  *
  *   @see imp-34449-residue-curvature-error-bar-extended-rungs.js (the measured bar this propagates)
  *   @see imp-34310-eflow-over-resid-pole-residue-simple-pole.js (simple-pole classification; E_star)
@@ -190,7 +190,7 @@ export const IMP34490_RESIDUE_ERROR_BAR_PROPAGATION = {
     'not statistical-bar-dominated. PROPAGATION on the self-contained band, NOT the inherited pipeline; ' +
     'the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   citation:
     'imp-34449 (measured bar R = -1.756e-8 +/- 0.019e-8); imp-34310 (raw-ratio residue, simple-pole ' +
     'classification, E_star); imp-34398 (R=E_star/m; two-readings-of-one-monomial verdict); imp-34454 ' +
@@ -241,13 +241,13 @@ export const IMP34490_RESIDUE_ERROR_BAR_PROPAGATION_ASSERTIONS = [
       IMP34490_M_FROM_R_MIN < IMP34454_M_BAND[0], // -2.576e-7 < -2.510e-7 (steeper, no overlap)
   },
   {
-    // Honesty gate: propagation/measurement only, isRigorous false, no QED, K_a >= 0 untouched, PT SOTA.
+    // Honesty gate: propagation/measurement only, isRigorous false, no QED, K_a >= 0 untouched, no refereed bound is changed.
     id: 'imp34490-honesty-gate-no-qed',
-    description: 'propagation/measurement only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; PT SOTA',
+    description: 'propagation/measurement only; isRigorous false; NO QED; imp-3066 K_a>=0 untouched; no refereed bound is changed',
     holds: () =>
       IMP34490_RESIDUE_ERROR_BAR_PROPAGATION.isRigorous === false &&
       /NO QED/.test(IMP34490_RESIDUE_ERROR_BAR_PROPAGATION.verdict) &&
-      /remains SOTA/.test(IMP34490_RESIDUE_ERROR_BAR_PROPAGATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34490_RESIDUE_ERROR_BAR_PROPAGATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34490_RESIDUE_ERROR_BAR_PROPAGATION.verdict),
   },
 ];

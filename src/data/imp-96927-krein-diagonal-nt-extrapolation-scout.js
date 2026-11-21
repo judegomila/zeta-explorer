@@ -47,7 +47,7 @@
  * not a constant c -- confirming and sharpening imp-96911 IMP96911_ETA_DRIFT_IS_COUPLED_NT_NOT_A_
  * STANDALONE_NBIG_RATE. SUB-GAP IMP96927_DIAGONAL_CANCELLATION_IS_LOCAL_NOT_A_FIXED_SLOPE.
  * Ritz value is an UPPER bound (this floor is an upper estimate, not a certified LB); interval-
- * rigorous certificate reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * rigorous certificate reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96911-krein-eta-nconvergence-scout.js (the coupled (N,T) eta drift this leaf tries to cancel diagonally)
  * @see imp-96827-krein-tresidual-envelope-extrapolation.js (the open t-truncation (N,T) rate the floor couples to)

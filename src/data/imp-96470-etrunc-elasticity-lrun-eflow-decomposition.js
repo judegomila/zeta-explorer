@@ -60,8 +60,7 @@
  * inherited imp-3220/imp-3406 component model, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; C_H isRigorousUpperBound stays
  * false (imp-2642/imp-2701); changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * Syntax note: derivative-like expressions use brace notation dg_{k*}/dt and this
  *   header avoids the close-comment terminator sequence inside prose.
@@ -214,8 +213,8 @@ export const IMP96470_ETRUNC_ELASTICITY_LRUN_EFLOW_DECOMPOSITION = Object.freeze
     'baseline reproduces -2/ln10 exactly, confirming clean isolation. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; C_H isRigorousUpperBound stays false (imp-2642/imp-2701); changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96451 (F2 measured -0.911 vs -0.8686 excess attributed to L-running but not isolated); imp-96427 ' +
     '(same component model, solver-path noise ~1e-13); imp-96351 (baseline knee at log10 N* ~ 9.529); ' +
@@ -259,11 +258,11 @@ const IMP96470_ASSERTIONS = [
   },
   {
     id: 'imp96470-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP96470_ETRUNC_ELASTICITY_LRUN_EFLOW_DECOMPOSITION.isRigorous === false &&
       /NO QED/.test(IMP96470_ETRUNC_ELASTICITY_LRUN_EFLOW_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP96470_ETRUNC_ELASTICITY_LRUN_EFLOW_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP96470_ETRUNC_ELASTICITY_LRUN_EFLOW_DECOMPOSITION.verdict),
   },
 ];
 

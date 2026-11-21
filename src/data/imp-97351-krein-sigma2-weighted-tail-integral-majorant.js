@@ -65,7 +65,7 @@
  *   normalization-by-(pi B) step stays the residual, named IMP97351_TRIAL_NORMALIZATION_B.
  *
  * Rayleigh floors stay UPPER bounds on the true lambda_min; establishes NO operator positivity; interval-
- * rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97337-krein-routeb-certified-bessel-enclosure.js (|g|-enclosure + C_far; the R2 source)
  * @see imp-96888-krein-tresidual-rayleigh-permode-bound.js (Rayleigh reduction; IMP96888_RAYLEIGH_TAIL_MAJORANT; B)

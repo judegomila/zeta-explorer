@@ -9,7 +9,7 @@
  * about +0.8, giving Re s_B ~ 1.4. This module ASSESSES which imp-95519
  * conclusions actually depend on that abscissa, re-derives the zero-side under
  * Re s_B ~ 1.4, and confirms the prime-side and section 5(i) closures are
- * abscissa-independent. Report only: no bound changes, PT Lambda <= 0.2 stands,
+ * abscissa-independent. Report only: no bound changes, no refereed bound is changed,
  * RH open, NO QED.
  *
  * WHERE sigma_B ENTERS THE SUMMAND. In the localized barrier sum
@@ -71,7 +71,7 @@
  * So the last-lever no-go STANDS under both abscissa readings; only the zero-side
  * FRAMING must be stated abscissa-conditionally, and sB_of_x (imp-95013) must be
  * pinned before any sharp zero-side alpha/PCC claim is made. No bound; NO QED;
- * PT Lambda <= 0.2 remains SOTA; RH open.
+ * no refereed bound is changed; RH open.
  *
  * Import-light: no zeros bundle, no sibling imports. All literals re-derived.
  */
@@ -162,7 +162,7 @@ export const IMP95542_SIGMAB_SENSITIVITY = Object.freeze({
   },
 
   netVerdict:
-    'The imp-95519 zero-side verdict as written (pair-correlation-gated, half-strip sigma > 0.59045) is CONDITIONAL on sigma_B < 1. Under Re s_B ~ 1.4 the zero side is unconditionally controlled and that obstruction dissolves; but this does NOT reopen the sub-0.14 contract, because the abscissa-invariant prime-side no-go and the section 5(i) small-prime closure each still bind. The last-lever no-go STANDS under both abscissa readings; only the zero-side FRAMING must be stated abscissa-conditionally, and sB_of_x (imp-95013) must be pinned before any sharp zero-side alpha/PCC claim. No bound changes; NO QED; PT Lambda <= 0.2 remains SOTA; RH open.',
+    'The imp-95519 zero-side verdict as written (pair-correlation-gated, half-strip sigma > 0.59045) is CONDITIONAL on sigma_B < 1. Under Re s_B ~ 1.4 the zero side is unconditionally controlled and that obstruction dissolves; but this does NOT reopen the sub-0.14 contract, because the abscissa-invariant prime-side no-go and the section 5(i) small-prime closure each still bind. The last-lever no-go STANDS under both abscissa readings; only the zero-side FRAMING must be stated abscissa-conditionally, and sB_of_x (imp-95013) must be pinned before any sharp zero-side alpha/PCC claim. No bound changes; NO QED; no refereed bound is changed; RH open.',
 
   promotesBound: false,
   isRigorous: true,
@@ -198,11 +198,11 @@ export const IMP95542_SIGMAB_SENSITIVITY_ASSERTIONS = Object.freeze([
   },
   {
     id: 'imp95542-honesty-gate-no-qed',
-    description: 'assessment only: promotes no bound, NO QED, PT stays SOTA',
+    description: 'assessment only: promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95542_SIGMAB_SENSITIVITY.promotesBound === false &&
       /NO QED/.test(IMP95542_SIGMAB_SENSITIVITY.netVerdict) &&
-      /remains SOTA/.test(IMP95542_SIGMAB_SENSITIVITY.netVerdict),
+      /refereed bound is changed/i.test(IMP95542_SIGMAB_SENSITIVITY.netVerdict),
   },
 ]);
 

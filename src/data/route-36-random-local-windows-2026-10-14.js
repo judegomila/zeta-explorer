@@ -33,8 +33,8 @@
  * HEURISTIC: λ ≈ −D²/2 (relative 1e-4) so random short windows are an inefficient Lehmer search; no barrier-difficulty signal; Gram/Rosser
  *  trends match the qualitative literature trend (not checked).
  *
- * Verdict: mapping run, no anomaly. Nothing moves Λ (best Lehmer bound 1.195× route 22's, superseded by Rodgers–Tao Λ ≥ 0). PT Lambda <= 0.2
- * stands; RH open; NO QED. Import-free. ROUTE_36_ASSERTIONS recompute live: corrected Rosser bookkeeping, zero totals, Gram fraction, the
+ * Verdict: mapping run, no anomaly. Nothing moves Λ (best Lehmer bound 1.195× route 22's, superseded by Rodgers–Tao Λ ≥ 0). No refereed bound is changed
+ * ; RH open; NO QED. Import-free. ROUTE_36_ASSERTIONS recompute live: corrected Rosser bookkeeping, zero totals, Gram fraction, the
  * closest-pair normalised gap δ, D²G and λ ≈ −D²/2, the Lehmer ratios, the Trudgian margin formula sign, and the corrected margin ranges.
  */
 
@@ -78,7 +78,7 @@ export const ROUTE_36 = Object.freeze({
   verdict: 'Mapping run, no anomaly. 146,768 zeros in 16 random windows from 1e13 to 3e19 are certified simple and on the line on the patched Platt '
     + 'lemmas plus a direct-integral Turing test (no Gram-block criterion); 33 RS certificates up to 2e16 confirm the anomalies independently. Gram '
     + 'and Rosser behaviour drift slowly with height, |S| ≤ 2.36, spacings match GUE. The best Lehmer value λ ≥ −3.56e-6 is 1.195× route 22\'s and '
-    + 'irrelevant given Rodgers–Tao Λ ≥ 0; no barrier signal either way. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'irrelevant given Rodgers–Tao Λ ≥ 0; no barrier signal either way. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_36;
@@ -120,7 +120,7 @@ export const ROUTE_36_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r36-honest-scope',
-    holds: () => R.status === 'done' && /no anomaly/.test(R.verdict) && /Rodgers–Tao/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict)
+    holds: () => R.status === 'done' && /no anomaly/.test(R.verdict) && /Rodgers–Tao/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict)
       && /NO QED/.test(R.verdict) && R.refereeKilled.length === 7,
     why: 'Mapping result; Lehmer value superseded by Rodgers–Tao; no Λ change; no QED.',
   },

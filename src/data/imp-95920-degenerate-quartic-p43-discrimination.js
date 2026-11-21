@@ -7,7 +7,7 @@
  * GRADE: numerical assessment / model discrimination on an already-established
  * interior model-seam quantity. Import-light (no heavy bundle, no imports at
  * all; recomputes everything from the baked imp-95803 ladder). Changes NO Lambda
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  *
  * BACKGROUND. The imp-95848 (imp-95824) Kac-Murdock-Szego / Widom / Parter
  * finite-section edge law gives, for a NON-DEGENERATE quadratic symbol minimum
@@ -70,7 +70,7 @@
  * but that residual is entirely WITHIN [1.98, 2.8], far from 4/3, so it does not
  * reopen the degenerate alternative. (d) Model seam family only; the imp-95212
  * envelope port, signed WEIGHT and modulus/phase legs stay OPEN. Changes NO bound
- * of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95848-kms-widom-edge-law-glossary-headword (the p=2 vs p=4/3 edge law and its discriminating alternative)
  * @see imp-95803-twin-pair-deep-corner-bias-exponent-limit (the converged deep-corner exponent ladder this discriminates)
@@ -157,8 +157,8 @@ export const IMP95920_DEGENERATE_QUARTIC_P43_DISCRIMINATION = {
     "within [1.98, 2.8], far from 4/3, so it does not reopen the degenerate " +
     "alternative. Assessment only; no cited input imported. Model seam family " +
     "only; the imp-95212 envelope port, signed WEIGHT and modulus/phase legs stay " +
-    "OPEN. Changes no bound of the Lambda program; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "OPEN. Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
   closesTickets: ["imp-95920"],
 };
 
@@ -322,12 +322,12 @@ export const IMP95920_ASSERTIONS = [
     id: "imp95920-not-a-bound",
     description:
       "this is a numerical-assessment / discrimination module; it moves no Lambda " +
-      "bound and proves no QED, and it keeps the PT SOTA line",
+      "bound and proves no QED, and it keeps the no-refereed-bound-change line",
     holds: () =>
       REF.boundChange === false &&
       REF.qed === false &&
       /NO QED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95920-closes-self",

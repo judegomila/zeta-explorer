@@ -50,7 +50,7 @@
  * NOT an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation; the C_C = (1/8)
  * sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34798-iters-to-floor-log-law-higher-N (parent: dense higher-N re-measure, bounded +/-1 off-by-one)
  * @see imp-34775-iters-to-floor-log-law (grandparent: derives the closed-form log law, ceil rounding floor)
@@ -236,7 +236,7 @@ export const IMP34845_ITERS_TO_FLOOR_INTERVAL_CEIL = {
     'double precision; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34798 (parent: dense higher-N re-measure, bounded +/-1 off-by-one, no-interval-enclosure caveat); ' +
     'imp-34775 (grandparent: derives the closed-form log law and the ceil rounding floor); imp-34693/imp-34693a ' +
@@ -281,13 +281,13 @@ export const IMP34845_ITERS_TO_FLOOR_INTERVAL_CEIL_ASSERTIONS = [
       TOTAL_OFF_BY_ONE === 31,
   },
   {
-    // Honesty gate: interval-ceil measurement of a surrogate count, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: interval-ceil measurement of a surrogate count, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34845-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34845_ITERS_TO_FLOOR_INTERVAL_CEIL.isRigorous === false &&
       /NO QED/.test(IMP34845_ITERS_TO_FLOOR_INTERVAL_CEIL.verdict) &&
-      /remains SOTA/.test(IMP34845_ITERS_TO_FLOOR_INTERVAL_CEIL.verdict),
+      /refereed bound is changed/i.test(IMP34845_ITERS_TO_FLOOR_INTERVAL_CEIL.verdict),
   },
 ];
 

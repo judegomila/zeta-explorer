@@ -41,7 +41,7 @@
  * geometrically in dps at the measured kappa), matching the imp-96993 ~1.19x point-slack.
  *
  * DERIVATION / MEASUREMENT ONLY. Establishes no operator positivity, moves no bound; the
- * interval-rigorous certificate reach stays 2a<=0.96. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * interval-rigorous certificate reach stays 2a<=0.96. No refereed bound is changed.
  * RH open. NO QED.
  *
  * @see imp-96993-rayleigh-tail-interval-enclosure.js (IMP96993_SPECFUN_INTERVAL: the conditional enclosure)

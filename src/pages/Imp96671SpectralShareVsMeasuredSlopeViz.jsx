@@ -151,8 +151,7 @@ export default function Imp96671SpectralShareVsMeasuredSlopeViz() {
         imp-96652-route-m-lammax-sigmoid-onset-spectral-derivation.js; the measured points and the
         exact-share reference curve are baked literals reused verbatim from the same module (no
         live import, no new numerics). This does not close IMP96562_SUBGAP: no closed form for the
-        0.3526 coefficient is produced, no bound moved, no operator positivity established.
-        Platt-Trudgian Lambda &lt;= 0.2 remains SOTA. RH open. NO QED.
+        0.3526 coefficient is produced, no bound moved, no operator positivity established. RH open. NO QED.
       </div>
     </div>
   );

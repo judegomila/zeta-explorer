@@ -25,7 +25,7 @@
  *   @see src/data/imp-36181-step5-obligation-chain-cross-reference.js (prior six-item overview; this audit re-checks integrity after imp-36173, not a duplicate)
  *
  *   Ticket: imp-36249 (content, medium). Audit only; changes no bound; NO QED;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no refereed bound is changed.
  */
 
 import { SOTA_LAMBDA_CLAIM } from './sota-lambda-claim.js';
@@ -86,7 +86,7 @@ export const IMP36249_B1B2B3_CAVEAT_INTEGRITY_AUDIT = Object.freeze({
     'three conditionalBookkeeping items (B1, B2, B3) remain closed:false with ' +
     'their original blockedOn links intact. The imp-36173 non-drift declaration ' +
     '(b2Executed:false, upgradesAnyStatusString:false) is consistent with those ' +
-    'blocked items. Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'blocked items. No refereed bound is changed; NO QED.',
 
   honestCaveat: Object.freeze({
     isProof: false,
@@ -98,7 +98,7 @@ export const IMP36249_B1B2B3_CAVEAT_INTEGRITY_AUDIT = Object.freeze({
       'Read-only integrity audit cross-checking the imp-36173 non-drift declaration against the actual ' +
       'SOTA_LAMBDA_CLAIM and lambda-roadmap.js Step-5 conditionalBookkeeping source records. Imports both ' +
       'verbatim; derives nothing new; every B item stays BLOCKED; respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -154,7 +154,7 @@ export const IMP36249_B1B2B3_CAVEAT_INTEGRITY_AUDIT_ASSERTIONS = [
         h.dischargesAnyBItem === false &&
         h.derivesAnythingNew === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

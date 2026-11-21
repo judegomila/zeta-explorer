@@ -51,8 +51,7 @@
  *
  *   SCOPE: statistics only, on an upper-bound slack diagnostic, not a bound.
  *   Establishes no operator positivity; imp-3066 K_a>=0 UNTOUCHED; changes no
- *   Lambda bound; RH-EQUIVALENT; NO QED. Platt-Trudgian Lambda <= 0.2 remains the
- *   rigorous SOTA.
+ *   Lambda bound; RH-EQUIVALENT; NO QED. No refereed bound is changed.
  */
 
 // -- baseline OLS slope, recomputed here to anchor the resamples (matches imp-33586) --
@@ -195,8 +194,8 @@ const IMP33624_ASSERTIONS = [
       IMP33624_OVERCHARGE_FRACTION_SLOPE_BOOTSTRAP.status === 'measurement',
     why:
       'Honesty guard: this brackets an existing slack diagnostic statistically, claims ' +
-      'no new Lambda bound, leaves imp-3066 untouched, and Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'no new Lambda bound, leaves imp-3066 untouched, and no refereed bound is changed' +
+      '.',
   },
 ];
 

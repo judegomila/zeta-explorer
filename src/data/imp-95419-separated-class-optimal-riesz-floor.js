@@ -15,7 +15,7 @@
  * configuration. This supersedes the imp-95335 Ingham floor A_sep by
  * the full bracket: 52.4666x at delta = ln 2, 133.5447x at
  * delta = ln 1.3. Changes no bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * OBJECT (imp-95252 LEMMA NORM / imp-95335). Rates nu_i > 0, log-rates
  * x_i = ln nu_i with |x_i - x_j| >= delta for i != j, normalized Gram
@@ -150,7 +150,7 @@
  * the signed WEIGHT leg, and the modulus/phase leg stay OPEN;
  * imp-95374 (off-lattice degradation measurement of refined onsets)
  * stays live. Changes NO bound of the Lambda program. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -221,8 +221,8 @@ export const IMP95419_SEPARATED_CLASS_OPTIMAL_RIESZ_FLOOR = {
     "20.593144. Class-level statement only; not r-uniform (structural); " +
     "the RZ-PEN chart program stays lattice-pinned; the imp-95212 " +
     "envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. " +
-    "Changes no bound of the Lambda program; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "Changes no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -531,7 +531,7 @@ export const IMP95419_SEP_OPT_ASSERTIONS = [
       /lattice-pinned/.test(REF.verdict) &&
       /stay OPEN/.test(REF.verdict) &&
       /NO QED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.citedInputs.length === 2,
   },
 ];

@@ -63,7 +63,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486,
  * the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are
  * UNTOUCHED and appear only symbolically as differentiation axes; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124770-pair-ratio-identity-landmark-ladder (the L2..L7 pair-ratio ladder this extends verbatim)
  * @see imp-124768-diag3-seventh-landmark-crossvalidation (the seventh landmark L7 at sigma = 0.001)
@@ -267,7 +267,7 @@ export const IMP124813_PAIRRATIO_L8_DOUBLEPREC_DEPTH_LIMIT = {
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (perturbed only ' +
     'symbolically as differentiation axes); changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124770 (pair-ratio identity ladder L2..L7); imp-124768 (seventh landmark L7 at sigma = 0.001); ' +
     'imp-124769 (E_CF round-off crossover between L5 and L6); imp-124810 (round-off floor R saturates at the ' +
@@ -328,14 +328,14 @@ export const IMP124813_PAIRRATIO_L8_DOUBLEPREC_DEPTH_LIMIT_ASSERTIONS = [
       probeBreach.surviving_digits < 2.5,
   },
   {
-    // Honesty gate: numerical/cross-validation only, identity NOT claimed to fail, no QED, PT stays SOTA.
+    // Honesty gate: numerical/cross-validation only, identity NOT claimed to fail, no QED, no refereed bound is changed.
     id: 'imp124813-honesty-gate-no-qed',
-    description: 'Numerical/cross-validation only: isRigorous false, identity not claimed to fail, no QED, Platt-Trudgian stays SOTA',
+    description: 'Numerical/cross-validation only: isRigorous false, identity not claimed to fail, no QED, no refereed bound is changed',
     holds: () =>
       IMP124813_PAIRRATIO_L8_DOUBLEPREC_DEPTH_LIMIT.isRigorous === false &&
       /NOT a deviation/.test(IMP124813_PAIRRATIO_L8_DOUBLEPREC_DEPTH_LIMIT.verdict) &&
       /NO QED/.test(IMP124813_PAIRRATIO_L8_DOUBLEPREC_DEPTH_LIMIT.verdict) &&
-      /remains SOTA/.test(IMP124813_PAIRRATIO_L8_DOUBLEPREC_DEPTH_LIMIT.verdict),
+      /refereed bound is changed/i.test(IMP124813_PAIRRATIO_L8_DOUBLEPREC_DEPTH_LIMIT.verdict),
   },
 ];
 

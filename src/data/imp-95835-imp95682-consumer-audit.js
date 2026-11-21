@@ -26,7 +26,7 @@
  * (data module -> page component -> App.jsx route ->
  * visualizations-index row -> VisualizationsIndexPage listing); no new
  * page, route, or index row is needed. AUDIT-ONLY: no bound change;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const WIRING_CHAIN = {
@@ -52,7 +52,7 @@ export const IMP95835_IMP95682_CONSUMER_AUDIT = {
     '"/viz-imp95682-twin-pair-block-floor-rho", carries a complete matching row in ' +
     'visualizations-index.js (pedagogicalStep 176), and is browsable via ' +
     'VisualizationsIndexPage.jsx. No new wiring required. Changes no bound; NO QED; ' +
-    'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'no refereed bound is changed.',
 };
 
 export const IMP95835_IMP95682_CONSUMER_AUDIT_ASSERTIONS = [
@@ -71,10 +71,10 @@ export const IMP95835_IMP95682_CONSUMER_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-95835-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () =>
       /AUDIT-ONLY/.test(IMP95835_IMP95682_CONSUMER_AUDIT.honest) &&
-      /Lambda<=0.2 remains SOTA/.test(IMP95835_IMP95682_CONSUMER_AUDIT.honest),
+      /refereed bound is changed/i.test(IMP95835_IMP95682_CONSUMER_AUDIT.honest),
   },
 ];
 

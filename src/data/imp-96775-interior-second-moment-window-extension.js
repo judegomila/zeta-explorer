@@ -36,7 +36,7 @@
  * NOT a diverging drift. No bound is moved: s is still MEASURED (a bounded window, not a
  * closed-form value), the slope constant stays the imp-96667 Bettin-Conrey cotangent
  * second-moment obstruction, and compute (N~9916, imp-96352) still binds first by >3800x.
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * No refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): boundedness of the increment window is MEASURED to M=12000,
  * not proved by a closed-form upper bound on s; the upper-constant lemma target is
@@ -113,7 +113,7 @@ export const IMP96775_VERDICT = Object.freeze({
     'reproduces the committed imp-96708 value exactly. This supports the upper-constant lemma ' +
     'target (a finite, bounded slope constant s). No bound moved: s is still MEASURED (a bounded ' +
     'window, not closed form) and stays the imp-96667 Bettin-Conrey cotangent obstruction; ' +
-    'compute (N~9916) binds first by >3800x. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'compute (N~9916) binds first by >3800x. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96775_SUBGAP = Object.freeze({
@@ -127,7 +127,7 @@ export const IMP96775_SUBGAP = Object.freeze({
 });
 
 export const IMP96775_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the interior coprime ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the interior coprime ' +
   'second-moment cutoff sum T(M) was extended from the committed imp-96708 M=4000 out to ' +
   'M=12000 (tmp/imp-96775-interior-window-extend.py, exact Vasyunin closed form, no Gram, ' +
   'no eigensolve), reproducing the imp-96708 M=4000 value exactly. The per-decade increment ' +
@@ -179,7 +179,7 @@ const IMP96775_ASSERTIONS = [
       IMP96775_VERDICT.anyBoundMoved === false &&
       IMP96775_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP96775_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96775_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96775_HONEST_BANNER) &&
       /RH open/.test(IMP96775_HONEST_BANNER) &&
       /measured-not-upper-bounded/.test(IMP96775_SUBGAP.id),
     why: 'measurement only: the window stays bounded and supports the upper-constant lemma target, but boundedness is measured (not a closed-form upper bound), no bound moved, and the honesty markers plus the residual sub-gap are present.',

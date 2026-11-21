@@ -21,8 +21,7 @@
  * imp-35451/imp-35557 arm-asymmetry cross-reference note to Imp35561PeakHeightMapSensitivityViz")
  * already discharged this exact requirement before imp-35621 reached the sonnet queue. This
  * module records the duplicate-ticket finding so the completed status is auditable. Changes
- * no bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see src/pages/Imp35561PeakHeightMapSensitivityViz.jsx (the page carrying the note)
  * @see imp-35569-sigma-peak-page-honest-status-audit.js (identified the FINDING-2 gap)
@@ -61,8 +60,8 @@ export const IMP35621_ARM_ASYMMETRY_NOTE_ALREADY_SATISFIED_AUDIT = {
   verdict:
     'AUDIT ONLY (not rigorous, not a measurement of a mathematical quantity). imp-35621 duplicates ' +
     'work already completed by imp-35603; no further page edit needed. Changes no bound; ' +
-    'establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35569 (named the FINDING-2 content gap); imp-35603 (git commit that already closed the ' +
     'gap); imp-35606 (registration audit corroborating the imp-35603 fix); imp-35451/imp-35557 ' +
@@ -95,11 +94,11 @@ export const IMP35621_ARM_ASYMMETRY_NOTE_ALREADY_SATISFIED_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35621-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35621_ARM_ASYMMETRY_NOTE_ALREADY_SATISFIED_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35621_ARM_ASYMMETRY_NOTE_ALREADY_SATISFIED_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35621_ARM_ASYMMETRY_NOTE_ALREADY_SATISFIED_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35621_ARM_ASYMMETRY_NOTE_ALREADY_SATISFIED_AUDIT.verdict),
   },
 ];
 

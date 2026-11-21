@@ -60,7 +60,7 @@
  *   it must be a milder, shape-tuned core with far stronger lag-cutoff
  *   sensitivity at moderate (~0.8) domination than additive Fejer mass supplies.
  *   The residual is thereby bounded, not closed. RH-equivalent residual
- *   untouched; no positivity, no reduction; Platt-Trudgian Lambda &lt;= 0.2 SOTA.
+ *   untouched; no positivity, no reduction; no refereed bound is changed.
  *
  *   @see imp-3214-mupass-symmetric-normalization-port.js (named this residual; ported the functional calculus)
  *   @see imp-3202-mupass-bridge-lag-cutoff-sweep.js (the lag-cutoff capture sweep)
@@ -400,7 +400,7 @@ export const IMP3310_MUPASS_PASSIVE_CORE_ASSEMBLY_RECIPE = Object.freeze({
       'Reconstructing the general symmetric-normalization evaluator, ruling out band-truncated cores, and bounding ' +
       'the recipe class does NOT construct the exact passive-core assembly or attempt the K_a >= 0 positivity, which ' +
       'remains the RH-equivalent obstruction.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -455,7 +455,7 @@ export const IMP3310_MUPASS_PASSIVE_CORE_ASSEMBLY_RECIPE_ASSERTIONS = [
   {
     id: 'imp3310-honest-no-qed-no-scalar-reproduction',
     why: 'Mandatory honesty: evaluator reconstructed and recipe class bounded, but the exact 0.876/0.711 recipe is ' +
-         'NOT reproduced (still out-of-repo); ASSESSMENT only, RH-equivalent, positivity not attempted, PT 0.2 SOTA.',
+         'NOT reproduced (still out-of-repo); ASSESSMENT only, RH-equivalent, positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3310_MUPASS_PASSIVE_CORE_ASSEMBLY_RECIPE.honestCaveat;
       return (
@@ -467,7 +467,7 @@ export const IMP3310_MUPASS_PASSIVE_CORE_ASSEMBLY_RECIPE_ASSERTIONS = [
         c.reproducesVerdictScalarValues === false &&
         c.coreAssemblyRecipeStillOutOfRepo === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

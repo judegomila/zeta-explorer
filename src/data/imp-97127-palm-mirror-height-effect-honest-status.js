@@ -26,7 +26,7 @@
  * @see rh-bridge-mirror-descent-2026-09-25.js (theorem B1, p_req = 4.3743, binding y0 = 0.165 window)
  *
  * Ticket: imp-97127 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 export const IMP97127_HEIGHT_EFFECT_STATUS = Object.freeze({
@@ -47,7 +47,7 @@ export const IMP97127_HEIGHT_EFFECT_STATUS = Object.freeze({
 });
 
 export const IMP97127_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. The imp-97101 neutral rigid-lattice Palm ' +
+  'RH open; no refereed bound is changed; NO QED. The imp-97101 neutral rigid-lattice Palm ' +
   '2-slot mirror-count parity crossing at ln N* = 18.394 (N* = 9.73e7, surplus p_req/count = ' +
   '1.0) is a HEIGHT effect, NOT a relaxation at the binding y0 = 0.165 window: the count grows ' +
   'nearly linearly in ln N (slope ~0.395) and its fraction of the asymptotic mean ln N/2 stays ' +
@@ -84,12 +84,12 @@ const IMP97127_ASSERTIONS = [
     holds: () =>
       IMP97127_HEIGHT_EFFECT_STATUS.anyBoundMoved === false &&
       /NO QED/.test(IMP97127_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97127_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97127_HONEST_BANNER) &&
       /RH open/.test(IMP97127_HONEST_BANNER) &&
       /HEIGHT effect/.test(IMP97127_HONEST_BANNER) &&
       /NOT a relaxation/.test(IMP97127_HONEST_BANNER),
     why:
-      'Documentation only: no bound claimed moved, no QED, PT SOTA line present, and the ' +
+      'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, and the ' +
       'height-effect-not-relaxation verdict stated explicitly.',
   },
 ];

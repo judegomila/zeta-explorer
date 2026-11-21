@@ -52,8 +52,8 @@
  * Levinson-Durbin recursion and the 400x400 CMV diagonalisation, which is outside this
  * import-light data leaf. What is established is that WHERE the Route L table exposes node
  * angles (the first 12), they match the in-repo verified ordinates to ~1e-13, strictly better
- * than claimed. Cross-validation only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; Route L stays NOT-A-LEVER (its RH content is exactly the resolved zeros, its
+ * than claimed. Cross-validation only; changes no bound; NO QED; no refereed bound is changed
+ * ; Route L stays NOT-A-LEVER (its RH content is exactly the resolved zeros, its
  * completeness is Weil positivity, and it imports no external arithmetic input).
  *
  * @see rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23 (ROUTE_L.a20 -- the CMV operator + nodes400 table)
@@ -158,10 +158,10 @@ export const IMP96051_ROUTE_L_CMV_ZERO_CROSSVAL = {
     // [N, independently measured resolved-among-first-40, ROUTE_L.a20.resolvedFirst40 reference]
     curve: [[50, 11, 11], [100, 21, 21], [150, 26, 26], [200, 28, 28], [300, 33, 33], [400, 39, 39]],
     invariants: { lambda1: 26.661980955994005, lambda1ClosedDiff: 7.21e-89, c0: 53.32396191198801, minOneMinusAbsAlpha: 0.0308849, maxAbsAlpha: 0.9691151161, ordersReached: 399, pdFail: false },
-    verdict: 'CONFIRMED: the independently re-derived resolved-count curve matches resolvedFirst40 at every rung (11/21/26/28/33/39); the 39-zeros-at-N=400 reach claim is reproduced from scratch. Cross-validation only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    verdict: 'CONFIRMED: the independently re-derived resolved-count curve matches resolvedFirst40 at every rung (11/21/26/28/33/39); the 39-zeros-at-N=400 reach claim is reproduced from scratch. Cross-validation only; changes no bound; NO QED; no refereed bound is changed.',
   },
   verdict:
-    'CROSS-VALIDATED: the Route L a = 20 CMV truncation reproduces the first 12 verified zeta ordinates through the Cayley map theta = pi - 2*atan(gamma/20) to max angle error 4.82e-13 (mean 1.97e-13), CONFIRMING and beating the claimed 1e-12; the z_rho backward map recovers the ordinates to 2.05e-11 (printing-limited) and the weights 4a^2/(a^2+gamma^2) reproduce to 7.79e-9 relative. The table own node - theta column (1.77e-11) is inflated ~40x by 12-digit theta_k printing, so the correction is favourable. Sub-gap SG-96051-reach: the 39-zero reach claim is not independently re-derived here. Cross-validation only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; Route L stays NOT-A-LEVER (RH content = resolved zeros, completeness = Weil positivity, no external arithmetic input).',
+    'CROSS-VALIDATED: the Route L a = 20 CMV truncation reproduces the first 12 verified zeta ordinates through the Cayley map theta = pi - 2*atan(gamma/20) to max angle error 4.82e-13 (mean 1.97e-13), CONFIRMING and beating the claimed 1e-12; the z_rho backward map recovers the ordinates to 2.05e-11 (printing-limited) and the weights 4a^2/(a^2+gamma^2) reproduce to 7.79e-9 relative. The table own node - theta column (1.77e-11) is inflated ~40x by 12-digit theta_k printing, so the correction is favourable. Sub-gap SG-96051-reach: the 39-zero reach claim is not independently re-derived here. Cross-validation only; changes no bound; NO QED; no refereed bound is changed; Route L stays NOT-A-LEVER (RH content = resolved zeros, completeness = Weil positivity, no external arithmetic input).',
 };
 
 // --- self-executing internal-consistency assertions (map re-derivation + baked-literal reproduction only) ---
@@ -195,8 +195,8 @@ export const IMP96051_ROUTE_L_CMV_ZERO_CROSSVAL = {
   // honesty gates
   if (!/NO QED/.test(IMP96051_ROUTE_L_CMV_ZERO_CROSSVAL.verdict))
     throw new Error('imp-96051: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96051_ROUTE_L_CMV_ZERO_CROSSVAL.verdict))
-    throw new Error('imp-96051: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96051_ROUTE_L_CMV_ZERO_CROSSVAL.verdict))
+    throw new Error('imp-96051: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96051_ROUTE_L_CMV_ZERO_CROSSVAL;

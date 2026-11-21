@@ -217,7 +217,7 @@ export const SESSIONS = [
         status: 'all completed by engine',
       },
       {
-        phase: 'Honest-SOTA banners',
+        phase: 'Honest-no-refereed-bound-change banners',
         ids: ['imp-2898', 'imp-2893', 'imp-2941', 'imp-2930', 'imp-2929', 'imp-2943', 'imp-2935'],
         summary:
           'dismissable HonestCeilingBanner on 6 overclaim-risk pages; RelatedLinks on 6 dead-end hub pages; honest-ceiling/scope banners on /supercritical, /calabi-yau, /control, /esy-rigidity-empirical, /odd-zeta',
@@ -283,8 +283,8 @@ export const SESSIONS = [
     engineStateEnd:
       'Seam chain advanced to leg 25. imp-95249 delivered THEOREM SPLIT-2 + THEOREM ANG-PENCIL + LEMMA ANG-DET + COROLLARY IN-OCT, the first coalescence-uniform certificate for a single tight in-octave pair. imp-95250 delivered LEMMA LOO + THEOREM SPLIT-LOO + COROLLARY EV-OCT + COROLLARY EV-OCT-UNIF, extending that to a twin pair in every octave at unbounded octave count (m-uniform). Neither changes the Λ headline; both are NO QED and explicitly scoped as model-family certificates, not paper-transferred bounds.',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'Both legs work inside the model-family signed-seam obligation ledger (Cauchy-kernel pencil Lambda(V,d) = lambda_max(D G D, G)); they do not touch the program Λ bound or any verified-height input.',
       note:
@@ -347,8 +347,8 @@ export const SESSIONS = [
     engineStateEnd:
       'imp-35259 bisects the two-rate phase directly (for x_two = 11 + W reentry and x_two = 12 exit, p in {1,2,3}) instead of extrapolating. The single-rate control root-finder reproduces the imp-35111 band edges exactly, confirming the locator is faithful. R2 / imp-35243a stay OPEN; this is measurement/assessment only.',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-35259 measures reentry-band edges on the inherited imp-3220/imp-3406 double surrogate; it does not touch the program Λ bound or any verified-height input.',
       note: 'Assessment only, isRigorous false, NO QED.',
@@ -393,8 +393,8 @@ export const SESSIONS = [
     engineStateEnd:
       'Frozen row (eq. 8): t0 = 24727519/200000000 = 0.123637595, y0 = 1809/10000 = 0.1809, verified-height anchor X = 6000000185827, target t0 + y0^2/2 = 7/50 = 0.14. The anchor cell at N=690988 is proven (|E97(x)| < 0.2141254901198318 < Rex = 0.2796881955526244146..., reserve 0.0655627054327926), but uniform coverage of the open family 690988 <= N <= 54799999 is not: a raw-tiling atlas at anchor width would need > 7.20e26 cells, so that route stays open. The 0.1399 row (y* = 33/200 = 0.165, t* = 10103/80000, target 1399/10000 = 0.1399) was assessed as ROW_01399_DECISION = UNPARK-INDEPENDENT: it is reached via two new, uncertified hypotheses (a rectangular slab H_tau(u+iv) != 0 on [X, X+1] x [y*, 1] x [0, t*], and a directed final-time tail H_{t*}(x+iv) != 0 for x >= X+1) instead of the Gate-2 residual cocycle, so it does not presuppose the open-family question and should be tracked on its own lane rather than blocked on or resolved by it.',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'Both the Gate-2 frozen-spec transcription and the 0.1399-row disposition are bookkeeping/assessment on the twin-ladder permutation architecture; neither touches the program Λ bound or any verified-height input.',
       note: 'Documentation only, isRigorous false, NO QED.',
@@ -439,8 +439,8 @@ export const SESSIONS = [
     engineStateEnd:
       'imp-95017 re-derives the floor machinery (cross-rate kernel K, exact excess E, far mass M, sharp-MAJ legality h, tail Tx) through a code path that shares no helper with the sibling modules -- a different three-piece antiderivative decomposition plus independent Simpson quadrature for K, and an independent full-line Gram quadrature for E. The BASE four-packet floors (theta = 10 headline 0.092871808411129783, fixed-97 0.0012038255978826329) reproduce to rel < 1e-6 (measured 1.2e-10 and 1.3e-14), and the closed-form excess matches the Gram quadrature to rel 5.2e-7, so floorMultiRate carries no coding bug in E, M, K, or h.',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-95017 re-audits the referee-unverified floor side of the twin-ladder permutation architecture far bracket; it changes no bound and does not touch the program Λ bound or any verified-height input.',
       note: 'Independent re-audit only, isRigorous true (for the machinery re-derivation), NO QED.',
@@ -485,8 +485,8 @@ export const SESSIONS = [
     engineStateEnd:
       'imp-95026 parameterizes the far coefficient cFar = 2(sup_b OmegaE_b)/Tx(2) over (sigma, theta, beta, isolation Q) and scans a neighborhood around the model point. FINDING 0: the packet amplitude A_d cancels out of cFar entirely (it enters only the mass M on the other side of the roll-up inequality), so of the five named paper constants only four (sigma, theta, beta, Q) drive the ledger. FINDING 1: quadrature reproduces the model closed-form ceiling to rel 2.8e-6 and maps the levers -- s = sigma+theta and Q are dominant, beta is weak (~6 percent over 0.25..0.5). FINDING 2: the ledger TRANSFERS, staying strictly below 4 across the whole scanned neighborhood (worst 0.8924623374689161 at theta=2). FINDING 3: it DEGRADES about 3x in the low-theta regime. FINDING 4: the EXACT-substitution proof underlying the ceiling BREAKS below s = sigma+theta = 2.948383274238082, where the Lemma RM corner guard fails and the argument falls back to the (weaker) eighteenth window envelope.',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-95026 is a sensitivity map of the far-bracket ceiling ledger over the four undetermined paper-packet constants; it instantiates no paper number and changes no bound.',
       note: 'Measurement/derivation assessment, NO QED.',
@@ -531,8 +531,8 @@ export const SESSIONS = [
     engineStateEnd:
       'imp-95045 finds the binary is INCOMPLETE. FINDING 1: the tail-truncation currency Tx(2) cancels identically between ceiling and floor and contributes exactly 1.000x -- ruled out as a gap source. FINDING 2: the DOMINANT contributor, ~67% of the log-gap, is the achieved-side parity AM-GM factor 2 (||x+y||^2 <= 2(||x||^2+||y||^2) applied across even/odd block color classes) -- a THIRD category outside the ticket binary, present only on the ceiling side and declared uniformly unrecoverable by the eleventh continuation. FINDING 3: the residual sub-sqrt(2) factor 1.4044169154874944x is, within the MODEL family (where MAJ equals the true decay by construction), witness-floor-side -- the exhibited witness realizes only 71.2% of the parity-halved ceiling, with MAJ-internal substitution slack bounded at <= 0.4 percent. The paper-packet split of (i) vs (ii) is deferred to the open packet-envelope constants.',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-95045 is an attribution audit of the headline far-bracket gap; it derives or changes no floor, ceiling, or bound literal.',
       note: 'Attribution assessment, NO QED.',
@@ -577,8 +577,8 @@ export const SESSIONS = [
     engineStateEnd:
       'imp-95073 cross-checks the committed midpoint evaluator against an independent adaptive-Simpson reference split at the integrand corners u=0 and u=T (tol 1e-12). FINDING 0: at the model point the reference reproduces the exact closed form to relative 7.5e-9, three orders tighter than the midpoint 2.8e-6, validating it as an independent yardstick. FINDING 1: across the integer-s thetaScan the midpoint error is uniformly bounded by ~1.3e-5 (1.81e-6 at s=9, 2.82e-6 at s=11, 4.10e-6 at s=13, 5.68e-6 at s=15, 1.23e-5 at s=21) but GROWS monotonically with s, so the model-point 2.8e-6 is a mid-range figure, not a uniform bound. FINDING 2: the worst error ~1.3e-5 is far below every margin the imp-95026 transfer verdict turns on, so the qualitative conclusions (transfers / degrades ~3x / breaks below s*=2.9484) are unaffected.',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-95073 bounds the quadrature error of an already-committed sensitivity map (imp-95026); it derives or changes no floor, ceiling, or bound literal.',
       note: 'Measurement/error-control assessment, NO QED.',
@@ -623,8 +623,8 @@ export const SESSIONS = [
     engineStateEnd:
       'imp-95075 derives the central-difference sensitivity dcFar/dQ = 0.3816620268743663 at the model point Q0 = 2^(-2/3) = 0.6299605249474366 (cFar0 = 0.2717400426244421), giving a dimensionless elasticity of 0.8847868296486842 -- a strong, near-proportional lever comparable to s = sigma + theta and far stronger than beta (~6 percent over 0.25..0.5, imp-95026 Finding 1). It further finds cFar(Q) is CONCAVE (secant slope falls monotonically from ~0.44 near c=0.5 to ~0.17 near c=2), so the local linear model over-predicts the ceiling above the model point (6.49 percent over at Q(c=1.5): 0.39195604802558137 predicted vs 0.36807989528190543 actual), making the derivative a conservative upper estimate in the direction that matters for transfer risk. The Q-indexed isolationScan spans Q in [0.315, 1.260] with cFar rising monotonically 0.137 -> 0.421, all far below the pre-seventeenth 4; even the conservative linear model needs Q ~ 10.4 (c ~ 16.5) to reach cFar = 4.',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-95075 derives a local sensitivity and re-indexes an already-committed sensitivity map (imp-95026); it instantiates no paper number and changes no bound.',
       note: 'Measurement/derivation assessment, NO QED.',
@@ -669,8 +669,8 @@ export const SESSIONS = [
     engineStateEnd:
       'imp-95076 re-derives the same claim on a fully independent code path: composite Simpson quadrature (instead of the imp-95026 midpoint rule) with amplitude threaded as an explicit argument. FINDING A: the Simpson evaluator reproduces the model closed-form ceiling at the model point to relative 2.18e-4 (0.2716816410981926 vs 0.2717408057586117), confirming cFar is not an artifact of the midpoint code path. FINDING B: scanning amplitude A in {0.5, 1, 2, 3, 7} returns a bit-identical cFar = 0.2716816410981926 at every value -- none of the SHAPE functionals (cornerV, rhoCap, the decay exponent s = sigma+theta, phiTail) consume A. FINDING C: the mass M(A) = A^2 sum_b r_b rescales exactly as A^2 for any positive radii (M(A)/A^2 = 4.241406839130188 constant to machine precision on representative radii). FINDING D: the assembled ceiling term 2(sup_b OmegaE_b) M divided by A^2 is likewise constant (0.0003327244461629), so of the five named paper constants only four (sigma, theta, beta, isolation Q) drive the far-bracket ledger; A_d rescales the mass side only.',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-95076 independently corroborates an already-committed structural claim (imp-95026 Finding 0) on a separate quadrature path; it instantiates no paper number and changes no bound.',
       note: 'Measurement/verification assessment, NO QED.',
@@ -715,8 +715,8 @@ export const SESSIONS = [
     engineStateEnd:
       'imp-95077 fills in that interior, tabulating cFar and the ledger factor 4/cFar for every integer theta in {2, ..., 10} at sigma = 1 with the identical imp-95026 quadrature machinery (midpoint rule, N = 200000, pad = 120). cFar decreases monotonically 0.8925 -> 0.2717 across theta = 2 -> 10 while the ledger factor 4/cFar rises monotonically 4.482 -> 14.720, a 3.284x span; the two endpoints reproduce the imp-95026 baked anchors bit-for-bit, which is the built-in cross-check. Roughly half of the total ledger loss is spent over theta in [2, 6], concentrating the "~3x margin shrink" of Finding 3 in the low-theta band, and every scanned row still clears the pre-seventeenth 4 (worst row theta = 2 beats it by 4.48x).',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-95077 tabulates an already-committed sensitivity claim (imp-95026 Finding 3) row by row; it instantiates no paper constant and changes no bound.',
       note: 'Measurement-log entry, NO QED.',
@@ -761,8 +761,8 @@ export const SESSIONS = [
     engineStateEnd:
       'imp-95252 answers that question POSITIVELY on the dyadic twin-lattice skeleton via LEMMA TOEP (the normalized lattice Gram is block-Toeplitz, so c* Gtilde c is a quadratic form in the Fourier symbol F(theta), giving lambda_min(Gtilde_m) >= inf_theta lambda_min(F(theta)) for every m, with a matching Fejer-average Szegoe ceiling showing no m-uniform constant can exceed the symbol infimum) plus LEMMA POISSON (closed-form symbol via Poisson summation of the sech kernel). THEOREM RZ-LAT and THEOREM RZ-TWIN give closed-form m-uniform constants A_lat and A_twin, and COROLLARY RZ-BLOCK converts this to the block-norm bound ||F||^2 >= A_blk sum_k ||F_k||^2 with A_blk = A_twin/(1 + sech(b/2)). COROLLARY SPLIT-RZ then replaces the SPLIT-LOO linear-in-m collar with a single m-independent certificate, dropping the every-octave onset from 27.035582 (imp-95250 EV-OCT-UNIF) to 15.981584 at r = 1.3. The r-uniformity of the underlying symbol-PENCIL infimum is named as the surviving open residual: a coefficient-norm collapse witness (c = (1, -1), lambda_min -> 0 as r -> 1) proves m-uniformity and coalescence-uniformity cannot coexist in that currency, so whether the block-norm pencil infimum stays bounded away from zero uniformly in r is the exact open quadratic recorded in the module.',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-95252 proves an m-uniform Riesz-basis lower bound and onset improvement for a model-family seam-chain certificate on the dyadic twin lattice; it instantiates no paper number and changes no bound.',
       note: 'Structural closure of an open sub-question, NO QED.',
@@ -809,8 +809,8 @@ export const SESSIONS = [
       'imp-95214 realizes that lever as a second (chirp) level: each class-sum series S_c(x) = sum amp_n e^{i nu_n x} is split into 64 exact-double frequency bins, each a carrier e^{i nu*_b x} times a derotated envelope of measured bandwidth <= 0.0499 (scan-confirmed at 0.997 of the rigorous rate bound). ONE O(N) Arb super-pass builds degree-33 envelope Taylor models with exact per-(class,bin) Lagrange remainders (budget 5e-15), certifying a 97.32 x-unit super-span (31 level-1 panels per pass, vs 1). Each level-1 degree-80 panel model is then reconstructed by exact ball Taylor shift + rotation + real carrier convolution, with two certified remainders per class (envelope Lagrange 4.585e-15; carrier k-tail 2.722e-12), feeding the UNCHANGED tpanel_eval (same cell criterion, alias/E97 ledgers, telescope gate, Tier-P fallback), so containment is preserved by construction. Validation is all green: selfcheck2 (max coefficient deviation 1.084e-19), panels2 (50 random panels, 0 failures), validate2 (30 seeded points, 30/30 containment), dd cross-validation (deviations identical to the level-1 suite), and a 100-u hardest-stretch VERDICT MATCH against level 1 with identical per-side cell counts and all four certified sups agreeing to <= 3.71e-12. Measured price on the same 400-u protocol as imp-95213: 0.0525 CPU-s/x-unit versus level 1'
         + "'s 0.9408, i.e. a measured 17.9x full-window speedup (21.1 CPU-days vs 378.2) -- the identified 10-100x lever lands at ~18x, inside the band but nowhere near its top. Ball-ops (1.55e14) fall 6.5x below level 1 but remain honestly 14x ABOVE the 1.1e13 two-level design estimate: with the panel-pass lever now amortized 31x and no longer dominant (32% of cost), cells (37%) and reconstruction (31%) are the new floor, a gap the module records as out of reach of further panel-pass batching. Neither the full-window run nor any bound promotion has been launched; imp-95214 is a build-and-price record, not a certification.",
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-95214 builds, validates, and prices a faster second-level W1-CERT certifier and re-certifies a 100-u sub-range matching level 1 verdict-for-verdict; it does not run the full certification window and promotes no bound.',
       note: 'Build/validation/price record only, NO QED.',
@@ -857,8 +857,8 @@ export const SESSIONS = [
       'imp-95212 closes both. O5 (site coverage) is CERTIFIED under three independent lanes -- an exact-rational lane (Fraction + Machin pi + isqrt brackets, reproduced in-build with 60-digit BigInt fixed-point arithmetic), an mpmath.iv 400-bit interval lane, and an Arb/FLINT 400-bit ball-arithmetic lane -- all agreeing to the recorded 12-dp precision that x_*(0.1808) sits strictly interior to W_690988, with left/right margins > 5.377e6 and > 1.198e7 respectively (a rightward shift from the sealed anchor of exactly 1.211784562e-3, correcting the ledger'
         + "'s double-precision estimate of ~1.208e-3, immaterial at this margin scale). O3 (E_max budget) is CERTIFIED-INTERVAL (mpmath.iv, 320 bits, directed rounding) by re-running the sealed Prop-4.10 chain with y replaced by the full interval hull [0.1808, sqrt(271/400)]: inclusion isotonicity gives uniformity in y with no monotonicity-in-y appeal, all 12 sealed gates re-pass on the hull, and the thawed budget E_max' = 2.43878668361931290e-7 (a certified 4.4471% growth over the sealed 2.33494905212337849e-7, matching the single-factor model exp(dy/4 log0) to 1e-6) sits 257,170x below the stage-2 sharp floor 0.062718178029 at y = 0.1808.",
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-95212 closes two of the six y-thaw obligation-ledger rows under the repository toolchain; it instantiates no paper constant and changes no bound.',
       note: 'Structural closure of two open sub-questions, NO QED.',
@@ -904,8 +904,8 @@ export const SESSIONS = [
     engineStateEnd:
       'imp-95231 reduces the claim to a scalar sign via LEMMA RI: differentiating the defining quadratic L^2 - S L + P^2 = 0 in r shows sign(dLambda_2/dr) = sign(h h_r Lambda_2 - x P (Lambda_2 - P)), which is trivially nonpositive wherever h_r <= 0 (in particular for all x >= 1, on all r >= 1). THEOREM COAL-DESC then proves the coalescence boundary r -> 1+ rigorously in closed form: dLambda_2/dr = -x e^(-2x) phi(x) / sqrt(1+x^2) with phi(x) = 2x(x^2-x+1) + sqrt(1+x^2)(2x^2-2x+1) - 1 >= 2x^3 >= 0 (proven termwise), so coalLaw(x) is a strict local-max boundary value for every x > 0 -- exactly the numerically tightest point of the reduced inequality (ratio LHS/RHS -> 1 as r -> 1, x -> 0). This closes the r = 1 boundary and, via the h_r <= 0 argument, the whole tail r >= r_star(x) and all x >= 1. The named residual is the interior bump 0 < x < 1, 1 < r < r_star(x) where h_r > 0: RI holds there on every scanned grid (min slack 2.6e-14, max ratio 0.99995, no counterexample) but is not yet reduced to a closed-form sign.',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-95231 gives a partial analytic proof of a model-family N = 2 coalescence-dominance observation reused by the seam-chain corollaries; it instantiates no paper number and changes no bound.',
       note: 'Partial closure with a clearly named open residual, NO QED.',
@@ -951,8 +951,8 @@ export const SESSIONS = [
     engineStateEnd:
       'The nineteenth continuation (imp-95008-exact-pair-correlation-ceiling.js) closes (b) and (c) together by discarding the window/Cauchy-Schwarz apparatus entirely. LEMMA CC (layer-cake separation monotonicity, unconditional, all T >= 0) shows the envelope-pair integral I(T, rho) is nonincreasing in T with no window or exponent loss. LEMMA RM (width-ratio monotonicity, unconditional, one-page calculus) shows I(T, rho) is nondecreasing in rho on (0, 1] once T >= Ystar(s) := (2s - 1)^(1/(s-1)) - 1; at s = 11, Ystar = 0.3558821066938467, below V(0,2) = 2^(1/3), so it covers every substituted pair in the roll-up. LEMMA PF gives an exact elementary closed form (partial fractions: rational terms plus one logarithm) for the envelope-pair integral at integer s, replacing the prior window-based approximation. THEOREM Y-EXACT (conditional only on MAJ(sigma, theta)) then substitutes the Lemma X separation floor and Lemma RHO width-ratio cap directly into this exact value via LEMMA CC then LEMMA RM, so the per-pair bound is sharp at the substituted point with zero remaining inequality slack. At theta = 10 (floors untouched): dominant-corner per-pair envelope 1.1159760370515937e-4 -> 3.9197920255561178e-5 (factor 2.8470286938074612, exactly the eighteenth measured corner slack); far ceiling 0.7741509917026236 -> 0.2717408057586117; headline gap 8.001968970787363 -> 2.8088338309749887; fixed-97 gap 642.1998717107592 -> 225.42360917596611.',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-95008 (nineteenth continuation) closes two named achieved-side residuals on a model-family far-bracket ceiling; it instantiates no paper constant and changes no bound.',
       note: 'Achieved-side ceiling sharpening within the model family, NO QED.',
@@ -999,8 +999,8 @@ export const SESSIONS = [
     engineStateEnd:
       'Five successive legs close that gap currency by currency, each proven to dominate the previous floor unconditionally. RZ-PEN2 (imp-95328, LEMMA S-MONO) keeps the trace weights w_0^2 = theta^2 pointwise instead of capped, splitting the theta-range into a near chart and a far chart via an explicit split point t; gain 13.326x at rho = 2, looseness 25.3 - 91.7x -> 4.6 - 6.7x. RZ-PEN3 (imp-95329, LEMMA BCAP + LEMMA ACAP) replaces the quadratic 1 - cos(w tau) <= w^2 tau^2 / 2 step and the alpha <= 2 f_a step with two closed-form caps whose branches cross exactly at c* = 1 + a^2 / (2 w^2); gain 6.073x at rho = e^6, looseness 37.8 - 65.2x -> 6.2 - 10.7x. RZ-PEN4 (imp-95330, LEMMA G-MONO) replaces the two-chart split by a uniform K = 256-chart cover of [0, pi] via a ratio-monotone substitution; gain 5.7648x at rho = 2 (floor now 1.029 - 1.037x of the exact infimum there, near-exhausted) but only 1.1458x at rho = e^6 (still 5.4 - 9.8x loose). RZ-PEN5 (imp-95331, LEMMA ROOT-MONO + LEMMA W-SPLIT) splits the two side weights w_{-1} and w_{+1} into separately-capped chart terms and replaces det/tr by the exact smaller quadratic root; gain 1.5389x at rho = e^6 (looseness 9.32x -> 6.09x at r = 2), while independently REFUTING the imp-95330 attribution that the exact-root step alone could gain up to 1.66x -- standalone it gains at most 1.006x, because the root and trace legs are coupled through the discriminant B^2 - A C. RZ-PEN6 (imp-95332, LEMMA TAIL-CHART) replaces the theta-uniform |n| >= 2 tail majorant c3n with a per-chart cap c3nChart, charging the tail terms at their exact chart endpoints; gain 1.2025x at rho = e^6, r = 2 (looseness 6.085 -> 5.060), with the per-chart cap measured within 0.3 percent of the true t3-weighted tail (max truth/cap 0.9978) -- the tail currency is EXHAUSTED. Every-octave onsets (dyadic skeleton, r in (1, 1.3], every m) drop 15.689897 -> 14.302669 (RZ-PEN2) -> 14.242145 (RZ-PEN3) -> 13.297836 (RZ-PEN4), then hold UNCHANGED at 13.297836 through RZ-PEN5 and RZ-PEN6 since the certificate anchor rho = 2 sits below the rho ~ 6.5 activation crossover where those two legs bind.',
     lambdaHeadline: {
-      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
-      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      start: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (unchanged)',
       provenance:
         'imp-95328 through imp-95332 sharpen a model-family symbol-pencil floor inside the RZ-PEN seam chain; they instantiate no paper constant and change no bound.',
       note: 'Achieved-side floor sharpening within the model family, NO QED.',

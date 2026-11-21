@@ -64,7 +64,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
  * positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34970-ecoll-log-slope-band-and-reconciliation (the verbatim parts() model reused here)
  * @see imp-33601-sigma-half-vs-crossover-eflow-offset (sigma=1/2 <=> E_coll = E_trunc + E_flow)
@@ -195,7 +195,7 @@ export const IMP35105_E_COMPONENT_DECOMPOSITION_TABLE = {
     'N_cross ~3.28e9, E_trunc the terminal floor. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34970 (the verbatim parts() component model); imp-33601 (sigma=1/2 <=> E_coll = E_trunc + E_flow); ' +
     'imp-35018 (N_half/N_cross/N_star locators); imp-33582 (interior peak N ~9.22e5); imp-33723 (N_cross Banach ' +
@@ -254,13 +254,13 @@ export const IMP35105_E_COMPONENT_DECOMPOSITION_TABLE_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35105-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35105_E_COMPONENT_DECOMPOSITION_TABLE.isRigorous === false &&
       /NO QED/.test(IMP35105_E_COMPONENT_DECOMPOSITION_TABLE.verdict) &&
-      /remains SOTA/.test(IMP35105_E_COMPONENT_DECOMPOSITION_TABLE.verdict),
+      /refereed bound is changed/i.test(IMP35105_E_COMPONENT_DECOMPOSITION_TABLE.verdict),
   },
 ];
 

@@ -26,4 +26,4 @@ export const IMP96399_OVERSTATEMENT = Object.freeze({
 });
 
 export const IMP96399_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every reach figure is copied verbatim from imp-96352 (corrected cost model) and imp-96230 (BUILD-only budget); no new cost measurement is made here. Changes no bound, establishes no operator positivity.';
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every reach figure is copied verbatim from imp-96352 (corrected cost model) and imp-96230 (BUILD-only budget); no new cost measurement is made here. Changes no bound, establishes no operator positivity.';

@@ -34,7 +34,7 @@
  * the same ceiling, NOT an RH bound. Reuses the imp-3406/imp-33810 sub-terms verbatim; the inherited
  * imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the crossing is descriptive within that
  * model only; changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486
- * untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34127-m2-residual-signchange-ceiling-closed-form (the closed-form kEnd_cf ~ 21.00 measured here)
  * @see imp-34150-m2-residual-crossing-direct-bisection-crossval (the direct-bisection root 21.28094743 measured here)
@@ -218,7 +218,7 @@ export const IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP = {
     'The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the crossing is ' +
     'descriptive within that model only; changes no bound; establishes no operator positivity; C_mb ' +
     'GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34127 (the closed-form kEnd_cf ~ 21.00 measured here); imp-34150 (the direct-bisection root ' +
     '21.28094743 measured here); imp-34189 (the O((eD)^2) gap does not close with the next term); ' +
@@ -273,13 +273,13 @@ export const IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP_ASSERTIONS = [
       ) < 1e-6 && /imp-34278/.test(IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP.canonicalStatus.canonicalSource),
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34211-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP.isRigorous === false &&
       /NO QED/.test(IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP.verdict) &&
-      /remains SOTA/.test(IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP.verdict) &&
+      /refereed bound is changed/i.test(IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34211_CLOSEDFORM_VS_BISECTION_KEND_GAP.verdict),
   },
 ];

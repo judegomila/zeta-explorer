@@ -72,7 +72,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34066-centred-window-collapses-exponent-lead (C2: ~10x-per-threshold residual shrink, 1% and 0.1% only)
  * @see imp-34125-centre-vs-pointwise-residual-decay-fit (fits residual ~ +16.8/(log T0), ladder held short of log T0 ~ 4000)
@@ -280,7 +280,7 @@ export const IMP34132_CENTRE_VS_POINTWISE_CROSSING_TABLE_001PCT = {
     'extended-precision sub-gap. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34066 (C2 ~10x-per-threshold residual shrink, 1% and 0.1% only); imp-34125 (fits residual ' +
     '~ +16.8/(log T0), ladder held short of log T0 ~ 4000); imp-33816 (POINTWISE gap law ~1/(2 log ' +
@@ -334,14 +334,14 @@ export const IMP34132_CENTRE_VS_POINTWISE_CROSSING_TABLE_001PCT_ASSERTIONS = [
       LAW_RESID_0_01 > 0,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34132-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP34132_CENTRE_VS_POINTWISE_CROSSING_TABLE_001PCT.isRigorous === false &&
       IMP34132_CENTRE_VS_POINTWISE_CROSSING_TABLE_001PCT.farTailExponent === 0.5 &&
       /NO QED/.test(IMP34132_CENTRE_VS_POINTWISE_CROSSING_TABLE_001PCT.verdict) &&
-      /remains SOTA/.test(IMP34132_CENTRE_VS_POINTWISE_CROSSING_TABLE_001PCT.verdict),
+      /refereed bound is changed/i.test(IMP34132_CENTRE_VS_POINTWISE_CROSSING_TABLE_001PCT.verdict),
   },
 ];
 

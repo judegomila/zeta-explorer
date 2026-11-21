@@ -27,7 +27,7 @@
  * imp-124776 gap-keyed leaf); only signed differences, ratios and a log-log slope are formed here -- no new
  * kernel computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation surrogate,
  * NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes
- * no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-124776-kernel-decade-ratio-vs-gap-viz-data.js (gap-keyed ratio tables, source of the frozen rows)
  * @see imp-97823-kernel-decade-growth-sqrt10.js (root measurement: |K| ~ sqrt(10) per decade, both arms)
@@ -151,7 +151,7 @@ export const IMP124852_SUMMARY = Object.freeze({
     + 'ratio tables (via imp-124776) by signed differences and a log-log slope, no new kernel computation. '
     + 'Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation surrogate, NOT a rigorous '
     + 'asymptotic; the C_mb GUE-conditional per imp-486 is untouched; changes no bound; establishes no operator '
-    + 'positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------
@@ -213,12 +213,12 @@ const IMP124852_OFFSET_ASSERTIONS = [
   },
   {
     id: 'imp124852-honesty-gate-no-qed',
-    description: 'isRigorous is false and the verdict restates no-bound-moved / NO-QED / SOTA honesty markers',
+    description: 'isRigorous is false and the verdict restates no-bound-moved / NO-QED / no-refereed-bound-change honesty markers',
     holds: () =>
       IMP124852_SUMMARY.isRigorous === false
       && /no bound/.test(IMP124852_SUMMARY.verdict)
       && /NO QED/.test(IMP124852_SUMMARY.verdict)
-      && /remains SOTA/.test(IMP124852_SUMMARY.verdict),
+      && /refereed bound is changed/i.test(IMP124852_SUMMARY.verdict),
   },
 ];
 

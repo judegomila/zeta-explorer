@@ -69,7 +69,7 @@
  *   establishes NO operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-
  *   SUFFICIENT (imp-3481); the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
  *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3621-outer-simpson-truncation-moments-m5-m10.js (the M_5..M_10 bound this extends)
  *   @see imp-3618-remainder-tail-exponent-ladder-n78.js (the M_11..M_14 exponent-ladder inputs bounded here)
@@ -327,7 +327,7 @@ export const IMP3644_OUTER_SIMPSON_TRUNCATION_MOMENTS_M11_M14 = Object.freeze({
       'Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT (imp-3481). The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -382,7 +382,7 @@ export const IMP3644_OUTER_SIMPSON_TRUNCATION_MOMENTS_M11_M14_ASSERTIONS = [
   {
     id: 'imp3644-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: cross-validation/measurement only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3644_OUTER_SIMPSON_TRUNCATION_MOMENTS_M11_M14.honestCaveat;
       return (
@@ -390,7 +390,7 @@ export const IMP3644_OUTER_SIMPSON_TRUNCATION_MOMENTS_M11_M14_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

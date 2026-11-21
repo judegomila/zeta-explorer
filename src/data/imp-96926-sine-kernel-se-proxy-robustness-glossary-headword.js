@@ -48,7 +48,7 @@
  * @see imp-96680-crossover-near-pole-fragility-glossary-headword.js (near-pole fragility headword)
  *
  * Ticket: imp-96926 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The sine-kernel SE proxy-robustness headword, baked verbatim (no re-import).
@@ -78,7 +78,7 @@ const SINE_KERNEL_SE_PROXY_ROBUSTNESS_HEADWORD = Object.freeze({
     'itself reproduced by tmp/imp-96810-sine-kernel-se.py (scipy eigvalsh_tridiagonal, ' +
     '~336 s, 80 realizations). Theoretical exact GUE, not real zeros. Glossary headword only; ' +
     'resolves no new interval; establishes no operator or zero-side result; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP96926_SINE_KERNEL_SE_PROXY_ROBUSTNESS_GLOSSARY_HEADWORD = Object.freeze({
@@ -100,7 +100,7 @@ export const IMP96926_SINE_KERNEL_SE_PROXY_ROBUSTNESS_GLOSSARY_HEADWORD = Object
     'over the imp-96654 OLS SE is proxy-robust, and the exact-GUE exponent stays within ~0.06 SD ' +
     'of the cube-root pole c = -1/3. No bound moved; theoretical GUE, not real zeros; the ' +
     'imp-96616 consequence (beating 1/log^2 needs the unproved GUE cube-root law) is unchanged; ' +
-    'RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH open; NO QED; no refereed bound is changed.',
   citation:
     'imp-96810 (the sine-kernel correlated-SE measurement this glosses); imp-96774 (iid-proxy ' +
     'SD 0.0568 / 2.75x inflation / the sub-gap closed here); imp-96654 (OLS SE = 0.0206); ' +
@@ -127,12 +127,12 @@ export const IMP96926_SINE_KERNEL_SE_PROXY_ROBUSTNESS_GLOSSARY_HEADWORD_ASSERTIO
   },
   {
     id: 'imp96926-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, sub-gap closure named, no QED, PT SOTA ' +
+    why: 'Documentation only: no bound claimed moved, sub-gap closure named, no QED, no-refereed-bound-change ' +
       'line present.',
     holds: () =>
       IMP96926_SINE_KERNEL_SE_PROXY_ROBUSTNESS_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96926_SINE_KERNEL_SE_PROXY_ROBUSTNESS_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96926_SINE_KERNEL_SE_PROXY_ROBUSTNESS_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96926_SINE_KERNEL_SE_PROXY_ROBUSTNESS_GLOSSARY_HEADWORD.verdict) &&
       IMP96926_SINE_KERNEL_SE_PROXY_ROBUSTNESS_GLOSSARY_HEADWORD.glosses === 'imp-96810' &&
       IMP96926_SINE_KERNEL_SE_PROXY_ROBUSTNESS_GLOSSARY_HEADWORD.closesSubGapOf === 'imp-96774',
   },

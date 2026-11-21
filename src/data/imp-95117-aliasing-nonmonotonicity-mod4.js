@@ -59,7 +59,7 @@
  * Import-light: a self-contained closed-form copy identical to the imp-95090
  * sibling chain, cross-checked against the imp-95008 continuation-twenty baked
  * corner literal. NO heavy bundle. Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // -- shared conventions (independent copy, identical to the sibling chain) -----
@@ -269,7 +269,7 @@ export const IMP95117_ALIASING_NONMONOTONICITY_MOD4 = {
     "Measurement + elementary number-theoretic derivation. The realized sups are exact finite enumerations over the p-grid admissible pairs; envE(0,2) is reproduced by an independent closed-form copy and cross-checked against the imp-95008 continuation-twenty baked literal 3.9197920255561178e-5 to rel 1e-12, and the fixed-97 shortfall against imp-95090s 0.17415257650513827 to rel 1e-9. The divisibility <-> exact-hit equivalence is verified over the whole sweep. The characterization moves no bound; envE remains a valid per-pair upper bound.",
   promotesBound: false,
   verdict:
-    "DERIVATION/MEASUREMENT (no bracket move): the imp-95090 grid-corner attainment shortfall at cell (0,2) obeys shortfall(p) ~ C(p mod 4)/p, four interleaved O(1/p) branches whose constant is set by the residue of p modulo 4 = 2^(b+j) - the number-theoretic condition is DIVISIBILITY: a grid point hits the dyadic corner coordinate 2^-k exactly iff 2^k | p, so the aliasing dips are precisely p = 0 mod 4 (both 1/2 and 1/4 are grid points) with dip-floor constant C_0 ~ 14.0, versus C_1 ~ 18.2 (the imp-95090 prime ladder, internally monotone), C_2 ~ 35.5, C_3 ~ 39.5 (worst envelope). The non-monotonicity of Finding (4) is the mod-4 phase: p=95 -> 96 -> 97 gives 0.3551 -> 0.1360 -> 0.1742. Independently reproduces the imp-95008 corner literal and the imp-95090 fixed-97 shortfall. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "DERIVATION/MEASUREMENT (no bracket move): the imp-95090 grid-corner attainment shortfall at cell (0,2) obeys shortfall(p) ~ C(p mod 4)/p, four interleaved O(1/p) branches whose constant is set by the residue of p modulo 4 = 2^(b+j) - the number-theoretic condition is DIVISIBILITY: a grid point hits the dyadic corner coordinate 2^-k exactly iff 2^k | p, so the aliasing dips are precisely p = 0 mod 4 (both 1/2 and 1/4 are grid points) with dip-floor constant C_0 ~ 14.0, versus C_1 ~ 18.2 (the imp-95090 prime ladder, internally monotone), C_2 ~ 35.5, C_3 ~ 39.5 (worst envelope). The non-monotonicity of Finding (4) is the mod-4 phase: p=95 -> 96 -> 97 gives 0.3551 -> 0.1360 -> 0.1742. Independently reproduces the imp-95008 corner literal and the imp-95090 fixed-97 shortfall. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) ---------------------------
@@ -325,12 +325,12 @@ export const IMP95117_ALIASING_ASSERTIONS = [
   {
     id: "imp95117-honesty-gate",
     description:
-      "verdict is a measurement/derivation step: promotes no bound, NO QED, PT stays SOTA, names the divisibility mechanism and residuals",
+      "verdict is a measurement/derivation step: promotes no bound, NO QED, no refereed bound is changed, names the divisibility mechanism and residuals",
     holds: () =>
       IMP95117_ALIASING_NONMONOTONICITY_MOD4.promotesBound === false &&
       IMP95117_ALIASING_NONMONOTONICITY_MOD4.openResiduals.length === 2 &&
       /NO QED/.test(IMP95117_ALIASING_NONMONOTONICITY_MOD4.verdict) &&
-      /remains SOTA/.test(IMP95117_ALIASING_NONMONOTONICITY_MOD4.verdict) &&
+      /refereed bound is changed/i.test(IMP95117_ALIASING_NONMONOTONICITY_MOD4.verdict) &&
       /no bracket move/.test(IMP95117_ALIASING_NONMONOTONICITY_MOD4.verdict) &&
       /DIVISIBILITY/.test(IMP95117_ALIASING_NONMONOTONICITY_MOD4.verdict),
   },

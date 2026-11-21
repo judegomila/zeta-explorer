@@ -28,7 +28,7 @@ export const IMP35905_FRONTIER_MEASUREMENT_COHORT_IMPORT_GUARD = {
     IMP35854_W1_SUMMATION_KAPPA_SWEEP.id,
     IMP35855_RCLEAN_INTERVAL_DE_CANCELLATION.id,
   ],
-  verdict: 'all four cohort modules import cleanly and their self-executing assertions pass; now covered by a permanent regression guard. Verification only, changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.',
+  verdict: 'all four cohort modules import cleanly and their self-executing assertions pass; now covered by a permanent regression guard. Verification only, changes no bound; NO QED; no refereed bound is changed.',
 };
 
 const EXPECTED_IDS = ['imp-35852', 'imp-35853', 'imp-35854', 'imp-35855'];

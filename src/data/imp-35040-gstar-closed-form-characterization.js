@@ -40,7 +40,7 @@
  * MEASUREMENT/DERIVATION ONLY on the inherited imp-3220/imp-3406 surrogate. Assesses a
  * fit constant; changes NO bound; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * far-tail exponent stays 1/2 (imp-3463); establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34924-eflow-pinned-product-derivation (proved Gap(s,m)=G(m s), pinned g*)
  * @see imp-34956 W0 (reproduced g* to 10 digits, landmark-window-independent)
@@ -94,7 +94,7 @@ export const IMP35040_GSTAR_CLOSED_FORM_CHARACTERIZATION = {
     'exp(-1/4) at the 3rd). The tidy neighbours are numerical coincidences, not the ' +
     'value. Measurement/derivation only on the inherited surrogate; changes no bound; ' +
     'C_mb GUE-conditional per imp-486 UNTOUCHED; far-tail exponent 1/2 per imp-3463; ' +
-    'no operator positivity; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; NO QED. No refereed bound is changed.',
   subGap:
     'A finite elementary-candidate battery cannot PROVE transcendence; it only ' +
     'establishes that g* has no SIMPLE closed form to 10 digits. A rigorous ' +
@@ -133,6 +133,6 @@ export const IMP35040_GSTAR_CLOSED_FORM_CHARACTERIZATION_ASSERTIONS = [
       IMP35040_GSTAR_CLOSED_FORM_CHARACTERIZATION.farTailExponent === 0.5 &&
       typeof IMP35040_GSTAR_CLOSED_FORM_CHARACTERIZATION.subGap === 'string' &&
       /NO QED/.test(IMP35040_GSTAR_CLOSED_FORM_CHARACTERIZATION.verdict) &&
-      /SOTA/.test(IMP35040_GSTAR_CLOSED_FORM_CHARACTERIZATION.verdict),
+      /refereed bound is changed/i.test(IMP35040_GSTAR_CLOSED_FORM_CHARACTERIZATION.verdict),
   },
 ];

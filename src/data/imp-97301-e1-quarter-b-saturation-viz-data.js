@@ -15,8 +15,8 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Every (b, omega, q) row below is copied verbatim from the
  * imp-97269 baked IMP97269_CLASS_TABLE (no re-derivation of the O(b) E1 kernel). Changes no
- * bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. RH open. NO QED.
+ * bound, establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-97269-route-m-e1-quarter-b-class-uniformity-crosscheck.js (IMP97269_CLASS_TABLE, IMP97269_HONEST_BANNER)
  *
@@ -58,7 +58,7 @@ export const IMP97301_SUMMARY = Object.freeze({
 });
 
 export const IMP97301_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every (b, omega, q) row is ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every (b, omega, q) row is ' +
   'copied verbatim from the imp-97269 baked IMP97269_CLASS_TABLE (no re-derivation of the O(b) E1 ' +
   'kernel); no bound is claimed and no operator positivity is established.';
 
@@ -116,7 +116,7 @@ const IMP97301_ASSERTIONS = [
     id: 'imp97301-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97301_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97301_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97301_HONEST_BANNER) &&
       /NO QED/.test(IMP97301_HONEST_BANNER),
     why: 'every Route-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

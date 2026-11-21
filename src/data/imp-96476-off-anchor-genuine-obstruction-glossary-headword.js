@@ -41,7 +41,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96450 verdict for quick reference.
  *   It establishes nothing, instantiates no interval, closes no sub-gap, moves no
- *   bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96450-two-param-reciprocal-log-off-anchor-residual (source: the measurement this glosses)
  * @see imp-96345-route-bd-offline-margin-envelope (the one-parameter line + original below-line residual)
@@ -49,7 +49,7 @@
  * @see imp-96377-off-anchor-residual-scatter-viz-data (per-point sign tags)
  *
  * Ticket: imp-96476 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The off-anchor genuine-obstruction headword, baked verbatim
@@ -91,8 +91,8 @@ const OFF_ANCHOR_GENUINE_OBSTRUCTION_HEADWORD = Object.freeze({
     'Measurement classification (accuracy audit of an extrapolation-model choice), ' +
     'not a rigorous derivation of the uniform-in-T behaviour. Changes no bound; ' +
     'the true uniform-in-T obstruction (a uniform off-line LP, Weil-positivity ' +
-    'strength) stays inaccessible to this on-line construction; Platt-Trudgian ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'strength) stays inaccessible to this on-line construction; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96476_OFF_ANCHOR_GENUINE_OBSTRUCTION_GLOSSARY_HEADWORD = Object.freeze({
@@ -113,8 +113,8 @@ export const IMP96476_OFF_ANCHOR_GENUINE_OBSTRUCTION_GLOSSARY_HEADWORD = Object.
     'it (off-anchor RMS 0.037482 -> 0.061374, +64%; sign bias 23/27 -> 27/27 ' +
     'below). So the below-line structure is a genuine off-anchor obstruction, not ' +
     'a missing-curvature artifact of the linear-in-1/lnT model. Establishes ' +
-    'nothing; instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'nothing; instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96450 (the two-parameter refit and off-anchor residual growth this ' +
     'glosses, +64% RMS growth, sign bias 23/27 -> 27/27 below); imp-96345 (the ' +
@@ -144,11 +144,11 @@ export const IMP96476_OFF_ANCHOR_GENUINE_OBSTRUCTION_GLOSSARY_HEADWORD_ASSERTION
   },
   {
     id: 'imp96476-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96476_OFF_ANCHOR_GENUINE_OBSTRUCTION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96476_OFF_ANCHOR_GENUINE_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96476_OFF_ANCHOR_GENUINE_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96476_OFF_ANCHOR_GENUINE_OBSTRUCTION_GLOSSARY_HEADWORD.verdict) &&
       IMP96476_OFF_ANCHOR_GENUINE_OBSTRUCTION_GLOSSARY_HEADWORD.glosses === 'imp-96450',
   },
 ];

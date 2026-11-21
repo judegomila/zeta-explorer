@@ -31,7 +31,7 @@
  * Referee kills: the original D3 relocation used a quartic Q_0, a double root, giving an ACAUSAL pole of S at (1+ρ₁)/2 (|S| 12.1 → 1211.6 →
  * 121160 at distance 1e-4 → 1e-8) that the grid skipped; "admissible bridge deformations never move ρ/2" is false (U = φ_δ/φ is unimodular,
  * U(s)U(1−s) = 1, U(1) > 0, φU inner, but U has a pole at (1+ρ₁)/2 and moves ρ₁/2), so the bridge-vs-Euler split is a bookkeeping convention,
- * not a theorem. No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_25_ASSERTIONS recompute live: the bridge
+ * not a theorem. No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_25_ASSERTIONS recompute live: the bridge
  * compensation |χ(2it)||c_∞| = 1 and √tanh(πt), the residue 3/π, the Gamma-shift ε = −1 unitarity defect |(3/2−s)/s|, the corrected relocation
  * Re s, the flow resonance geometry and the causality-break interpolation, and the winding split and shares.
  */
@@ -89,7 +89,7 @@ export const ROUTE_25 = Object.freeze({
     + 'Unitarity, the functional relation, the positive residue at s = 1 and (inside the strip) the inner property all survive moving resonances off '
     + 'Re s = ¼ (de Bruijn flow; corrected rational relocation), so φ-level scattering axioms are RH-blind; causality detects only zeros with Re w ≥ 1 '
     + '(ζ(1+it) ≠ 0 level). The bridge-vs-Euler split of φ is a bookkeeping convention, not a theorem. Numerics are mpmath, not interval-certified. '
-    + 'No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'No Λ bound moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_25;
@@ -142,7 +142,7 @@ export const ROUTE_25_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r25-honest-scope',
-    holds: () => R.status === 'done' && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && /bookkeeping convention/.test(R.verdict)
+    holds: () => R.status === 'done' && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && /bookkeeping convention/.test(R.verdict)
       && !/ANY deformation of the bridge/.test(R.headline) && R.refereeKilled.length === 7 && /not interval-certified/.test(R.verdict),
     why: 'Bridge/Euler split recorded as a convention (referee); no "any bridge deformation" claim; no certification claimed; no Λ change; no QED.',
   },

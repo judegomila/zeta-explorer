@@ -35,7 +35,7 @@
  *   degenerate ladder this decomposition resolves)
  *
  * Ticket: imp-97385 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The Ihat / Q-split headword, baked verbatim (no re-import).
@@ -66,8 +66,8 @@ const DIAGONAL_SKELETON_Q_SPLIT_HEADWORD = Object.freeze({
     '(src/data/imp-97349-route-m-diagonal-remainder-profile-separation.js), which cites the imp-97330 ' +
     'skeleton form. Naming / glossary headword only; the exact log^2 b coefficient stays UNPINNED ' +
     '(IMP97349_SUBGAP: needs coprimality divisor weighting + a rigorous bound on the Vasyunin ' +
-    'cotangent residual second moment, imp-97116 input); no bound moved; RH open; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA; NO QED.',
+    'cotangent residual second moment, imp-97116 input); no bound moved; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP97385_DIAGONAL_SKELETON_Q_SPLIT_GLOSSARY_HEADWORD = Object.freeze({
@@ -86,7 +86,7 @@ export const IMP97385_DIAGONAL_SKELETON_Q_SPLIT_GLOSSARY_HEADWORD = Object.freez
     'skeleton Ihat = (a/2) log(b/a) + a(C+1/2) and the imp-97349 split Q = Qhat + Qcross + Qrr: Qhat ' +
     'elementary and log-polynomial (~99.6% of Q, no b^(1/2) term, exact log^2 b coefficient derived), ' +
     'Qcross/Qrr arithmetic and LINEAR in b (feed s0). No bound moved; the exact log^2 b coefficient ' +
-    'stays unpinned (IMP97349_SUBGAP); NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'stays unpinned (IMP97349_SUBGAP); NO QED. No refereed bound is changed.',
   citation:
     'imp-97349 (the Q = Qhat + Qcross + Qrr split and the log^2 b decision this glosses); imp-97330 ' +
     '(the skeleton Ihat source); imp-97292 (the b^(1/2)-vs-log^2 b degenerate ladder this resolves).',
@@ -112,12 +112,12 @@ export const IMP97385_DIAGONAL_SKELETON_Q_SPLIT_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97385-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, sub-gap left open, no QED, PT SOTA line ' +
+    why: 'Documentation only: no bound claimed moved, sub-gap left open, no QED, no-refereed-bound-change line ' +
       'present.',
     holds: () =>
       IMP97385_DIAGONAL_SKELETON_Q_SPLIT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97385_DIAGONAL_SKELETON_Q_SPLIT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97385_DIAGONAL_SKELETON_Q_SPLIT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97385_DIAGONAL_SKELETON_Q_SPLIT_GLOSSARY_HEADWORD.verdict) &&
       IMP97385_DIAGONAL_SKELETON_Q_SPLIT_GLOSSARY_HEADWORD.glosses === 'imp-97349',
   },
 ];

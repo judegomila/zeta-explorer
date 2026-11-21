@@ -50,7 +50,7 @@
  * MEASUREMENT / REGRESSION reusing the imp-35970 slack literals. Certifies no W1 bound;
  * evaluates no true H_0; instantiates no interval; verifies no inequality; changes no bound;
  * establishes no positivity; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35970-w1-pairwise-apriori-depth-bound-slack (source: per-shape slack vs depth)
  * @see imp-35893-w1-summation-pairwise-tree-shape (the tree-SHAPE sweep + measured errors)
@@ -61,7 +61,7 @@
 import { IMP35970_W1_PAIRWISE_APRIORI_DEPTH_BOUND_SLACK } from './imp-35970-w1-pairwise-apriori-depth-bound-slack.js';
 
 const SOURCE = IMP35970_W1_PAIRWISE_APRIORI_DEPTH_BOUND_SLACK;
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this regression
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this regression
 
 // Ordinary least squares of y on x; returns slope, intercept and R^2 (coefficient of determination).
 function ols(xs, ys) {
@@ -207,8 +207,8 @@ export const IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT = {
     'once the non-constant floor is controlled for, and imp-35970 "linearly in d" is refined to "sub-linearly, ' +
     'exponent ~0.75". Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no ' +
     'inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT stays ' +
-    'GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35970 (source a-priori-vs-measured slack table); imp-35893 (tree-SHAPE sweep + measured errors); ' +
     'imp-35952 (measured error is an N-independent floor at fixed shape); imp-35974 (complementary ceiling-ratio ' +
@@ -270,16 +270,16 @@ export const IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT_ASSERTIONS = [
       NO_R_FIT.r2 > FULL_FIT.r2,
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp36018-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /SUB-linear/.test(IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT.conclusion.claimRefinedToSubLinear) &&
       /GREENFIELD/.test(IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT.verdict) &&
-      /remains SOTA/.test(IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT.verdict),
+      /refereed bound is changed/i.test(IMP36018_W1_PAIRWISE_SLACK_DEPTH_SCALING_EXPONENT.verdict),
   },
 ];
 

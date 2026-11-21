@@ -48,7 +48,7 @@ export const IMP96136_CAVEAT_BANNER =
   'is inherited across a DENSE family of log^2 cusps -- an obstruction, not a rescue (the ' +
   'compact-Toeplitz foothold is lost through cusp density and order). corr23 continuity through ' +
   'the cusp is ASSUMED by analogy with p = 2, not proved. Changes no bound, establishes no ' +
-  'operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.';
+  'operator positivity, no RH claim; no refereed bound is changed; NO QED.';
 
 export const IMP96136_ASSERTIONS = [
   {
@@ -92,7 +92,7 @@ export const IMP96136_ASSERTIONS = [
       /obstruction, not a rescue/.test(IMP96136_CAVEAT_BANNER) &&
       /ASSUMED by analogy/.test(IMP96136_CAVEAT_BANNER) &&
       /NO QED/.test(IMP96136_CAVEAT_BANNER) &&
-      /Lambda <= 0.2 remains SOTA/.test(IMP96136_CAVEAT_BANNER) &&
+      /refereed bound is changed/i.test(IMP96136_CAVEAT_BANNER) &&
       /OBSTRUCTION not a rescue/.test(IMP_96110_P3_CUSP_ALLOCATION.status),
   },
 ];

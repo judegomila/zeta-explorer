@@ -48,7 +48,7 @@
  * case is separated from the certified case by a continuous margin loss rather than a threshold event.
  * SUB-GAP IMP96948_MARGIN_COLLAPSE_IS_SMOOTH_FRONT_LOADED_NO_KNEE_AT_LN3.
  * Ritz value is an UPPER bound (floor is an upper estimate, not a certified LB); interval-rigorous
- * certificate reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * certificate reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96938-krein-drift-calibration-096.js (the two-endpoint calibration this leaf fills in)
  * @see imp-96911-krein-eta-nconvergence-scout.js (the ln3-only coupled-(N,T) drift)

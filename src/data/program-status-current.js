@@ -76,7 +76,7 @@ export const PROGRAM_STATUS = [
     value: 'Λ ≤ 0.1758354 and Λ ≤ 0.1787854',
     statement:
       'Λ ≤ 0.1787854 and Λ ≤ 0.1758354 are computer-assisted candidates of this project for an unconditional bound. ' +
-      'Neither is refereed and neither is established. 0.1758354 is the smaller of the two. The smaller values listed ' +
+      'Neither is refereed and neither is established. 0.1787854 was reviewed by Dan Romik and is publicly posted (judegomila.com/posts/riemann-lambda-0.1787854). 0.1758354 is the smaller of the two. The smaller values listed ' +
       'here (0.116091 and the route-P value) depend on D. J. Raymond’s unrefereed chain, and 0.116091 also on the ' +
       'half-plane Re s > 7/8.',
     route: '/lambda-01758354-candidate',
@@ -103,10 +103,10 @@ export const PROGRAM_STATUS = [
     label: 'Package and contract values',
     value: '0.17759432 and 0.14 are not bounds',
     statement:
-      '0.17759432 is the value of the y-thaw package, with obligations O1, O2, O4 and O6 open; it is not a bound. ' +
+      '0.17759432 is the value of the y-thaw package. The package has six obligations O1–O6; 2 are closed (O3, O5) and 4 are open (O1, O2, O4, O6), per the record of 2026-09-22. It is not a bound. ' +
       'Λ ≤ 0.14 is a completion contract with one open family; it is not a bound.',
     route: '/permutation-architecture',
-    sources: ['src/data/graded-results.js', 'src/data/frontier-dag.js'],
+    sources: ['src/data/graded-results.js', 'src/data/frontier-dag.js', 'src/data/imp-95140-ythaw-obligation-ledger.js', 'formalization/y-thaw-01775943/SHARP_WEIGHT_NATIVE_BINDING.md', 'formalization/lean-aristotle/sharp_mass_monotonicity/ARISTOTLE_SUMMARY.md'],
   },
   {
     id: 'lambda-third-party-0107965',

@@ -48,7 +48,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. Re-derives the DRIFT of a gap
  * argmax imp-96272 already located; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8
  * ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96272-closed-form-fartail-gap-argmax (argmaxDecadeK=10, value 4.5973e-4, monotone decay)
  * @see imp-96151-sigma-closed-form-crossover-fartail-reproduction (source sigma_full / sigma_CF)
@@ -128,8 +128,8 @@ export const IMP96348_FARTAIL_GAP_ARGMAX_DRIFT = {
     'premise of a slowly diverging argmax location is refuted. Re-derives the DRIFT of a gap argmax ' +
     'imp-96272 already located; the C_mb GUE-conditional per imp-486 stays GUE-conditional and ' +
     'UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96272 (argmaxDecadeK=10, maxRelGap 4.5973e-4, monotone decay); imp-96151 (closed-form ' +
     'crossover share model sigma_full / sigma_CF); imp-96176 (maxRelGap ~4.60e-4 scalar); imp-33723 ' +
@@ -181,13 +181,13 @@ export const IMP96348_FARTAIL_GAP_ARGMAX_DRIFT_ASSERTIONS = [
     holds: () => IMP96348_FARTAIL_GAP_ARGMAX_DRIFT.isMigratingFeature === false,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp96348-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT Lambda <= 0.2 stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96348_FARTAIL_GAP_ARGMAX_DRIFT.isRigorous === false &&
       /NO QED/.test(IMP96348_FARTAIL_GAP_ARGMAX_DRIFT.verdict) &&
-      /remains SOTA/.test(IMP96348_FARTAIL_GAP_ARGMAX_DRIFT.verdict),
+      /refereed bound is changed/i.test(IMP96348_FARTAIL_GAP_ARGMAX_DRIFT.verdict),
   },
 ];
 

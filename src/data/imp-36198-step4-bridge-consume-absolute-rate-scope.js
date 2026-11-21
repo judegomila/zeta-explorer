@@ -75,7 +75,7 @@
  * SCOPING / ASSESSMENT ONLY. Discharges no obligation; supplies no anchor; pins
  * no rate; consumes no r(N); verifies no inequality; establishes no positivity;
  * respects the imp-2519 no-overclaim guard; C_mb GUE-conditional (imp-486)
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see src/data/lambda-polymath15-bridge.js (imp-345 G6_polymath15_bridge: master |Lambda-(-t_c(N))| <= E(N), E_flow exp(C_G|t_c(N)|), tcAssumedBound=0.01 placeholder)
  * @see src/data/imp-36164-perN-translation-storyline-cross-reference.js (flags "the E(N) bridge's ability to consume any Route-B rate absolutely" STILL OPEN)
@@ -87,7 +87,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36194) -----------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scope
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scope
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 ordinate count anchor at T_PT
 
@@ -188,7 +188,7 @@ export const IMP36198_STEP4_BRIDGE_CONSUME_ABSOLUTE_RATE_SCOPE = {
     'not supply r(N). Consuming r(N) is NECESSARY but NOT SUFFICIENT -- it bounds -(t_c(N)), never E(N). ' +
     'Discharges no obligation; supplies no anchor; pins no rate; consumes no r(N); verifies no inequality; ' +
     'establishes no positivity; moves NO Lambda bound; imp-2519 no-overclaim guard preserved; C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'lambda-polymath15-bridge.js (imp-345 G6_polymath15_bridge: master |Lambda-(-t_c(N))| <= E(N), E_flow ' +
     'exp(C_G|t_c(N)|), tcAssumedBound=0.01 placeholder, C_G illustrative); imp-36164 (flags "the E(N) bridge\'s ' +
@@ -257,16 +257,16 @@ export const IMP36198_STEP4_BRIDGE_CONSUME_ABSOLUTE_RATE_SCOPE_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: scoping only; necessary-not-sufficient; no bound moved; no QED; PT SOTA.
+    // Honesty gate: scoping only; necessary-not-sufficient; no bound moved; no QED; no refereed bound is changed.
     id: 'imp36198-honesty-gate',
-    description: 'Scoping only; consuming r(N) necessary-not-sufficient; changes no bound; no QED; PT SOTA',
+    description: 'Scoping only; consuming r(N) necessary-not-sufficient; changes no bound; no QED; no refereed bound is changed',
     holds: () =>
       IMP36198_STEP4_BRIDGE_CONSUME_ABSOLUTE_RATE_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /NECESSARY not SUFFICIENT/.test(IMP36198_STEP4_BRIDGE_CONSUME_ABSOLUTE_RATE_SCOPE.ingredients.B4_constantGateOrthogonality) &&
       /moves NO Lambda bound/.test(IMP36198_STEP4_BRIDGE_CONSUME_ABSOLUTE_RATE_SCOPE.conclusion.noBoundMovesOnItsOwn) &&
       /NO QED/.test(IMP36198_STEP4_BRIDGE_CONSUME_ABSOLUTE_RATE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP36198_STEP4_BRIDGE_CONSUME_ABSOLUTE_RATE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP36198_STEP4_BRIDGE_CONSUME_ABSOLUTE_RATE_SCOPE.verdict),
   },
 ];
 

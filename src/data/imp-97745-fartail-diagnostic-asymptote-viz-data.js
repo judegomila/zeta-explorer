@@ -49,7 +49,7 @@ export const IMP97745_SUMMARY = Object.freeze({
     'Presentation only: every diagnostic value, overlay value, and crossing height is reused ' +
     'verbatim from imp-97723 (a measurement / closed-form derivation, not a new computation). ' +
     'Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a ' +
-    'rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; ' +
+    'rigorous asymptotic. Changes no bound; no refereed bound is changed; RH open; ' +
     'NO QED.',
 });
 

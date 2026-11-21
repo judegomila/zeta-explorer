@@ -42,7 +42,7 @@
  *
  * Derivation/measurement within the inherited imp-3406/imp-33810 component model only; the component
  * model is NOT a rigorous asymptotic; no bound changes; C_mb GUE-conditional per imp-486 untouched;
- * imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ * imp-3066 K_a >= 0 untouched; no refereed bound is changed. NO QED.
  *
  * @see imp-34127-m2-residual-signchange-ceiling-closed-form (the leading closed form extended here)
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (bisected kEnd* ~ 21.281)
@@ -278,7 +278,7 @@ export const IMP34189_M2_CEILING_NEXT_ORDER_WINDOW_WIDTH_CORRECTION = {
     'non-convergent expansion, best quoted directly from the bisection. The inherited component model ' +
     'is NOT a rigorous asymptotic; this is descriptive within the model only; changes no bound; ' +
     'establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34127 (leading closed form kEnd* ~ 21.00, extended here); imp-34023 (bisected kEnd* ~ 21.281); ' +
     'imp-33773 (the M2 residual whose sign change caps the surrogate); imp-33810 (the quarter-decade ' +

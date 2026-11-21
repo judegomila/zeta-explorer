@@ -50,7 +50,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * swept as a sensitivity knob (in imp-34955) but its pinned value is UNTOUCHED; changes no bound; establishes
  * no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34955-sigma-knee-crossing-cmb-sensitivity (the C_mb sweep whose eps-bands this propagates the radius band through)
  * @see imp-34882-sigma-knee-domb-sykes-radius (Domb-Sykes/Neville radius R ~ 91, range [79,106])
@@ -174,7 +174,7 @@ export const IMP35070_CROSSING_RADIUS_BAND_PROPAGATION = {
     'is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per ' +
     'imp-486 is swept but its pinned value UNTOUCHED; changes no bound; establishes no operator positivity; ' +
     'imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   subGap:
     'ANSWERS the imp-34955 propagation flag: with the [79,106] radius uncertainty propagated, the 25% crossing ' +
     'coincidence is GENUINE at the band level (full containment) but spans only ~38.6% of the radius band and is ' +
@@ -254,15 +254,15 @@ export const IMP35070_CROSSING_RADIUS_BAND_PROPAGATION_ASSERTIONS = [
       PROP_5_ANALYTIC.fractionOfEpsBandInsideRadius < 0.2,
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35070-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP35070_CROSSING_RADIUS_BAND_PROPAGATION.isRigorous === false &&
       IMP35070_CROSSING_RADIUS_BAND_PROPAGATION.farTailExponent === 0.5 &&
       typeof IMP35070_CROSSING_RADIUS_BAND_PROPAGATION.subGap === 'string' &&
       /NO QED/.test(IMP35070_CROSSING_RADIUS_BAND_PROPAGATION.verdict) &&
-      /remains SOTA/.test(IMP35070_CROSSING_RADIUS_BAND_PROPAGATION.verdict),
+      /refereed bound is changed/i.test(IMP35070_CROSSING_RADIUS_BAND_PROPAGATION.verdict),
   },
 ];
 

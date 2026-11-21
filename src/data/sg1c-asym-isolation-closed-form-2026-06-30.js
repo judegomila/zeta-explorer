@@ -63,7 +63,7 @@
  *   - The closure is BASIN-CONDITIONAL: it gives a Lipschitz constant only on
  *     the isolation basin; the basin restriction itself rests on the isolation
  *     sign law, which is RH-hard off-basin. This is NOT an unconditional beat.
- *   - Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA.
+ *   - no refereed bound is changed.
  *
  * @see sg1c-isolation-infimum-asym-scan-2026-06-30 (the imp-3045 numerical bracket this closes)
  * @see sg1c-theta-trap-theorems (Lemma R2-T onset 1; R2-T2 symmetric c*)
@@ -120,7 +120,7 @@ export const SG1C_ASYM_ISOLATION_CLOSED_FORM = {
   scanDiscontinuityValue: SCAN_DISCONTINUITY,   // imp-3045 reported ~0.9032; drho/ds(there) > 0
   scanWasHigh: asymOnsetDrho(SCAN_DISCONTINUITY) > 0,
   status: 'CLOSED-FORM (transcendental) closure of the imp-3045 asymmetric multi-body onset; algebraic d_1 side + irreducible digamma lattice tail; 0.72 basin preserved',
-  honest: 'TRANSCENDENTAL closed form (digamma root), NOT algebraic; closes the identified worst-case class onset, NOT proven to be the GLOBAL infimum; BASIN-CONDITIONAL only; PT Lambda <= 0.2 stays the rigorous SOTA. NO false QED.',
+  honest: 'TRANSCENDENTAL closed form (digamma root), NOT algebraic; closes the identified worst-case class onset, NOT proven to be the GLOBAL infimum; BASIN-CONDITIONAL only; no refereed bound is changed. NO false QED.',
   openSubGap: 'whether the L=1 opposite-lattice class is the GLOBAL asymmetric infimum (vs merely the imp-3045 numerically-worst) remains open; that step is what would upgrade this transcendental onset to the certified global isolation constant.',
 };
 
@@ -159,10 +159,10 @@ export const SG1C_ASYM_ISOLATION_CLOSED_FORM_ASSERTIONS = [
   },
   {
     id: 'sg1c-asym-cf-honest-transcendental-not-beat',
-    description: 'explicitly TRANSCENDENTAL (not algebraic), basin-conditional, not the proven global infimum, and PT 0.2 stays SOTA',
+    description: 'explicitly TRANSCENDENTAL (not algebraic), basin-conditional, not the proven global infimum, and no refereed bound is changed',
     holds: () => /TRANSCENDENTAL closed form/.test(SG1C_ASYM_ISOLATION_CLOSED_FORM.honest)
       && /BASIN-CONDITIONAL only/.test(SG1C_ASYM_ISOLATION_CLOSED_FORM.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(SG1C_ASYM_ISOLATION_CLOSED_FORM.honest),
+      && /refereed bound is changed/i.test(SG1C_ASYM_ISOLATION_CLOSED_FORM.honest),
   },
 ];
 

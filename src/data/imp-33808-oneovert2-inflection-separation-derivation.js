@@ -72,7 +72,7 @@
  * DERIVATION / MEASUREMENT ONLY. Conditional-share curvature diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33771-inflection-closed-form-vs-d2-zero-crosscheck (the ~1.5% offset asserted O(1/t^2))
  * @see imp-33744-sigma-inflection-vs-half-closed-form (closed form sigma_I = 1/2 - g_prime/(2 g^2))
@@ -299,7 +299,7 @@ export const IMP33808_ONEOVERT2_INFLECTION_SEPARATION_DERIVATION = {
     'scheme artifact on top -- NOT extra physics. The component model is the inherited imp-3220/' +
     'imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33771 (~1.5% offset asserted O(1/t^2)); imp-33744 (closed form sigma_I = 1/2 - ' +
     'g_prime/(2 g^2)); imp-33721 (direct sub-decade D2-zero knee N* ~ 3.38e9); imp-486 (C_mb ' +
@@ -360,13 +360,13 @@ export const IMP33808_ONEOVERT2_INFLECTION_SEPARATION_DERIVATION_ASSERTIONS = [
       Math.floor(Math.log10(N_SIGMOID)) === Math.floor(Math.log10(N_RAMP)),
   },
   {
-    // Honesty gate: derivation/measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp33808-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Derivation/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33808_ONEOVERT2_INFLECTION_SEPARATION_DERIVATION.isRigorous === false &&
       /NO QED/.test(IMP33808_ONEOVERT2_INFLECTION_SEPARATION_DERIVATION.verdict) &&
-      /Lambda <= 0\.2 remains SOTA/.test(IMP33808_ONEOVERT2_INFLECTION_SEPARATION_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP33808_ONEOVERT2_INFLECTION_SEPARATION_DERIVATION.verdict),
   },
 ];
 

@@ -51,7 +51,7 @@
  *   (3) the headline asymptotic consumes the Holder rate (no silent upgrade), so the
  *       3.06e-5 claim carries NO inflated-decay overclaim.
  * No module is found to silently use the faster Lipschitz rate where only Holder is
- * justified. Platt-Trudgian Lambda <= 0.2 stays SOTA; this changes no bound.
+ * justified. No refereed bound is changed; this changes no bound.
  *
  * @see polymath15-lemma52-shock-holder (imp-366 Holder closure; eCollRateComparison)
  * @see koksma-hlawka-2nd-moment-deviation-bound (imp-1149: N^{-3/2} on t_c deviation)
@@ -63,7 +63,7 @@ import { POLYMATH15_LEMMA_52 } from './polymath15-lemma52-shock-holder.js';
 import { KOKSMA_HLAWKA_2ND_MOMENT } from './koksma-hlawka-2nd-moment-deviation-bound.js';
 import { ASYMPTOTIC_LAMBDA_BOUND_2026_05_20 } from './asymptotic-lambda-bound-2026-05-20.js';
 
-const PT_BOUND = 0.2; // Platt-Trudgian 2021 SOTA unconditional Lambda upper bound.
+const PT_BOUND = 0.2; // Platt-Trudgian 2021 bound upper bound.
 
 // Decay-exponent helpers (rate in the form C * (log N)^j / N^alpha; we compare alpha).
 // E_coll rates carry the log inside: O((log N / N)^{1/2}) ~ N^{-1/2}, O(log N / N) ~ N^{-1}.
@@ -180,8 +180,8 @@ export const IMP2694_ECOLL_RATE_RECONCILIATION = {
     'The three rates do not conflict: N^{-3/2} bounds a DIFFERENT quantity (t_c deviation), and the ' +
     'binding E_coll rate is the JUSTIFIED Holder N^{-1/2}. The headline asymptotic uses exactly that ' +
     'rate (1/sqrt(N) decay), so there is NO silent Holder->Lipschitz upgrade and NO inflated-decay ' +
-    'overclaim in the Lambda <= 3.06e-5 headline. Audit only — changes no bound. Platt-Trudgian ' +
-    'Lambda <= 0.2 stays SOTA.',
+    'overclaim in the Lambda <= 3.06e-5 headline. Audit only — changes no bound. No refereed bound is changed' +
+    '.',
   citation:
     'imp-366 polymath15-lemma52-shock-holder (Holder closure); imp-1149 koksma-hlawka-2nd-moment ' +
     '(N^{-3/2} on t_c deviation); imp-1261 asymptotic-lambda-bound-2026-05-20 (headline, 1/sqrt(N) E_coll)',
@@ -229,7 +229,7 @@ export const IMP2694_ECOLL_RATE_RECONCILIATION_ASSERTIONS = [
       IMP2694_ECOLL_RATE_RECONCILIATION.changesAnyBound === false &&
       /NONE/.test(IMP2694_ECOLL_RATE_RECONCILIATION.resolution.overclaimFlags) &&
       /RECONCILED-NO-OVERCLAIM/.test(IMP2694_ECOLL_RATE_RECONCILIATION.status) &&
-      /stays SOTA/.test(IMP2694_ECOLL_RATE_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP2694_ECOLL_RATE_RECONCILIATION.verdict),
   },
 ];
 

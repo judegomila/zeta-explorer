@@ -172,7 +172,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are not
  * the claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -490,7 +490,7 @@ export const IMP95008_WIDTH_PINNED_THREE_WINDOW_CEILING = {
     "Lemma RHO is dyadic-annulus arithmetic on the same grid as Lemmas G and X; Lemma 3W is three window-restricted Cauchy-Schwarz applications with exact one-sided integrals plus the exact product expansion (1+x_1)(1+x_2) = 1 + x_1 + x_2 + x_1 x_2 floored termwise; Lemma O-3W is one-variable calculus; Theorem Y-RHO is the eleventh/seventeenth roll-up with the min-envelope substituted through the Lemma X floors and Lemma RHO caps via the stated monotonicity (proved termwise, checked on grids). The new ceiling is an ACHIEVED upper bound in the Theorem K bracket class {cNear <= 2, Tstar <= Tx(2)}; optimality is NOT claimed (the parity factor 2, the measured ~2.85x corner slack, and the asymptotic half-exponent remain as named slack). Witness floors are carried literals of the fifteenth/sixteenth continuations; the headline floor is re-derived in-module. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step executing seventeenth-continuation residual (b) at the dominant corner: NEW Lemma RHO pins the cross-block width ratio to rho < 2^(-(j-1) beta) (unconditional grid geometry, previously unpriced), NEW Lemma 3W replaces the single pointwise product inequality by a three-window interpolation (one-sided Cauchy-Schwarz outer windows at nearly full separation; middle window retaining the discarded product term x_1 x_2), and NEW Theorem Y-RHO re-runs the parity roll-up with the width-pinned min-envelope. Reference theta = 10: corner envelope 4.242760651223351e-4 -> 1.1159760370515937e-4 (factor 3.8018384896800432), far ceiling 2.9469476400572421 -> 0.7741509917026236, headline far-bracket gap 30.460961526910332 -> 8.001968970787363, fixed-97 gap 2444.6515171682004 -> 642.1998717107592, floors untouched. Honest limits stated: the asymptotic half-exponent survives (outer windows), the measured corner slack is ~2.85x, and the sup has a near-tie at b = 0. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step executing seventeenth-continuation residual (b) at the dominant corner: NEW Lemma RHO pins the cross-block width ratio to rho < 2^(-(j-1) beta) (unconditional grid geometry, previously unpriced), NEW Lemma 3W replaces the single pointwise product inequality by a three-window interpolation (one-sided Cauchy-Schwarz outer windows at nearly full separation; middle window retaining the discarded product term x_1 x_2), and NEW Theorem Y-RHO re-runs the parity roll-up with the width-pinned min-envelope. Reference theta = 10: corner envelope 4.242760651223351e-4 -> 1.1159760370515937e-4 (factor 3.8018384896800432), far ceiling 2.9469476400572421 -> 0.7741509917026236, headline far-bracket gap 30.460961526910332 -> 8.001968970787363, fixed-97 gap 2444.6515171682004 -> 642.1998717107592, floors untouched. Honest limits stated: the asymptotic half-exponent survives (outer windows), the measured corner slack is ~2.85x, and the sup has a near-tie at b = 0. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -669,12 +669,12 @@ export const IMP95008_WP3W_ASSERTIONS = [
   {
     id: "imp95008-wp3w-honesty-gate",
     description:
-      "the verdict states the ceiling move with floors untouched, names the surviving slack (parity factor 2, measured ~2.85x corner slack, asymptotic half-exponent, b = 0 near-tie), promotes no bound, NO QED, PT stays SOTA; ceiling optimality is NOT claimed in scope",
+      "the verdict states the ceiling move with floors untouched, names the surviving slack (parity factor 2, measured ~2.85x corner slack, asymptotic half-exponent, b = 0 near-tie), promotes no bound, NO QED, no refereed bound is changed; ceiling optimality is NOT claimed in scope",
     holds: () =>
       IMP95008_WIDTH_PINNED_THREE_WINDOW_CEILING.promotesBound === false &&
       IMP95008_WIDTH_PINNED_THREE_WINDOW_CEILING.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_WIDTH_PINNED_THREE_WINDOW_CEILING.verdict) &&
-      /remains SOTA/.test(IMP95008_WIDTH_PINNED_THREE_WINDOW_CEILING.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_WIDTH_PINNED_THREE_WINDOW_CEILING.verdict) &&
       /floors untouched/.test(IMP95008_WIDTH_PINNED_THREE_WINDOW_CEILING.verdict) &&
       /asymptotic half-exponent survives/.test(IMP95008_WIDTH_PINNED_THREE_WINDOW_CEILING.verdict) &&
       /near-tie at b = 0/.test(IMP95008_WIDTH_PINNED_THREE_WINDOW_CEILING.verdict) &&

@@ -97,7 +97,7 @@ export const R3_SYNTHESIS = Object.freeze({
     + 'b145 PT value 0.147273668782792, which needs no r2 floor and no outer lemma. Route-P Λ ≤ 0.1448843462793 < 0.145 remains conditional on the '
     + 'weak outer lemma (WOL-C) for 626 of 630 band-path entries, which is NOT PROVED. BB1/BB2 are now proved as written and internally refereed; '
     + 'the 7.8e12 window is certified by Route 2; c_n monotonicity is closed. Every value below 0.2 is still conditional on G0-c/d/d′, the AF '
-    + 'expository gaps and Lemma B.1–B.3 (written, unrefereed). Nothing is proved unconditionally below 0.2. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'expository gaps and Lemma B.1–B.3 (written, unrefereed). Nothing is proved unconditionally below 0.2. No refereed bound is changed. RH open. NO QED.',
 });
 
 const S = R3_SYNTHESIS;
@@ -152,7 +152,7 @@ export const R3_SYNTHESIS_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r3-syn-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(S.verdict) && /NO QED/.test(S.verdict) && /NOT PROVED/.test(S.verdict)
+    holds: () => /refereed bound is changed/i.test(S.verdict) && /NO QED/.test(S.verdict) && /NOT PROVED/.test(S.verdict)
       && /Nothing is proved unconditionally below 0\.2/.test(S.verdict) && /NO QED/.test(S.status),
     why: 'No bound below 0.2 is proved; RH open.',
   },

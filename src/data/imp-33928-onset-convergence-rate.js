@@ -51,8 +51,7 @@
  * onset residual as a RATE; it does NOT re-derive the m_prime -> C_ren map off-axis and an off-axis
  * finite-window onset at fixed |z_0| = eps is NOT the uniform ANALYTIC tracking of C_ren that H4 needs
  * (imp-33766). H4 is NOT discharged; G6a_shock_lipschitz STAYS OPEN. No positivity; imp-3066
- * off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains the
- * rigorous SOTA.
+ * off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-33883-off-axis-onset-angle-robustness (cross-check (b): single-eps convergence at eps = 1e-4)
  * @see imp-33853-cren-gap-coefficient-closed-form (DERIVED C_PS and 4/3 at the on-axis point z_0 = i eps)
@@ -272,8 +271,8 @@ export const IMP33928_ONSET_CONVERGENCE_RATE = {
     'the tail representation. This does NOT re-derive the m_prime -> C_ren map off-axis and does NOT ' +
     'DISCHARGE H4: an off-axis finite-window onset at fixed |z_0| = eps is not the uniform ANALYTIC ' +
     'tracking of C_ren the H4 minimal-input condition requires (imp-33766). No positivity; imp-3066 ' +
-    'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP33928_ONSET_CONVERGENCE_RATE_ASSERTIONS = [
@@ -313,15 +312,15 @@ export const IMP33928_ONSET_CONVERGENCE_RATE_ASSERTIONS = [
     holds: () => IMP33928_ONSET_CONVERGENCE_RATE.directRouteFailsToResolveRate === true,
   },
   {
-    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33928-honesty-gate-no-qed',
-    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33928_ONSET_CONVERGENCE_RATE.isRigorous === false &&
       IMP33928_ONSET_CONVERGENCE_RATE.dischargesH4 === false &&
       /NO QED/.test(IMP33928_ONSET_CONVERGENCE_RATE.verdict) &&
       /STAYS OPEN/.test(IMP33928_ONSET_CONVERGENCE_RATE.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33928_ONSET_CONVERGENCE_RATE.verdict) &&
+      /refereed bound is changed/i.test(IMP33928_ONSET_CONVERGENCE_RATE.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP33928_ONSET_CONVERGENCE_RATE.verdict,
       ),

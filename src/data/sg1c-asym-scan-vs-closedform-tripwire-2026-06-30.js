@@ -33,7 +33,7 @@
  *
  * LOCK ONLY -- no new math, no QED. The global-infimum sub-gap (whether the
  * L=1 opposite-lattice class is the global asymmetric infimum) stays open, and
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * no refereed bound is changed.
  *
  * @see sg1c-isolation-infimum-asym-scan-2026-06-30 (imp-3045, the live numerical scan)
  * @see sg1c-asym-isolation-closed-form-2026-06-30 (imp-3170, the live closed form)
@@ -65,7 +65,7 @@ export const SG1C_ASYM_SCAN_VS_CLOSEDFORM_TRIPWIRE = {
   basinMarginRounded: 0.1828,
   basinMarginMatchesLiveExport: Math.abs(BASIN_MARGIN - CF_MARGIN_EXPORT) < 1e-12,
   status: 'cross-module lock: imp-3045 scan onset sits at-or-above the imp-3170 closed-form c_asym (scan was high, not low), and the basin margin c_asym-0.72=0.1828 is strictly positive and matches the live export, so the basin-conditional C_Lip never depended on the open global constant',
-  honest: 'LOCK ONLY -- guards the corrected scan-vs-closed-form ordering and the basin margin; no new math, no QED. The global-infimum sub-gap stays open; PT Lambda <= 0.2 stays the rigorous SOTA.',
+  honest: 'LOCK ONLY -- guards the corrected scan-vs-closed-form ordering and the basin margin; no new math, no QED. The global-infimum sub-gap stays open; no refereed bound is changed.',
 };
 
 export const SG1C_ASYM_SCAN_VS_CLOSEDFORM_TRIPWIRE_ASSERTIONS = [
@@ -91,10 +91,10 @@ export const SG1C_ASYM_SCAN_VS_CLOSEDFORM_TRIPWIRE_ASSERTIONS = [
   },
   {
     id: 'sg1c-scan-vs-cf-lock-honest',
-    description: 'explicitly a LOCK ONLY (no new math, no QED), the global-infimum sub-gap stays open, and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly a LOCK ONLY (no new math, no QED), the global-infimum sub-gap stays open, and no refereed bound is changed',
     holds: () => /LOCK ONLY/.test(SG1C_ASYM_SCAN_VS_CLOSEDFORM_TRIPWIRE.honest)
       && /global-infimum sub-gap stays open/.test(SG1C_ASYM_SCAN_VS_CLOSEDFORM_TRIPWIRE.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(SG1C_ASYM_SCAN_VS_CLOSEDFORM_TRIPWIRE.honest),
+      && /refereed bound is changed/i.test(SG1C_ASYM_SCAN_VS_CLOSEDFORM_TRIPWIRE.honest),
   },
 ];
 

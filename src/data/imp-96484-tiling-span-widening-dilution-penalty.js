@@ -60,7 +60,7 @@
  * lines needs the per-window residual profile at the interior neighbouring heights (1.05e5 -> 2.025e5),
  * i.e. recomputing sd(C - E) over the interior zeros bundle at fine tiling; that is not available
  * import-light here, so the outer windows are modelled at the smooth envelope (zero excess deficit).
- * Measurement/fit only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA;
+ * Measurement/fit only; changes no bound; RH open; NO QED; no refereed bound is changed;
  * the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96452-excursion-confidence-2sigma-reach (asserts span-widening dilutes; this quantifies it)
@@ -182,7 +182,7 @@ export const IMP96484_TILING_SPAN_WIDENING_DILUTION_PENALTY = {
     dilutionDropPct, // ~5.2%: z_dilute FALLS by ~5.2% over +/-30% -> +/-35%
   },
   verdict:
-    'MEASURED. Under the localized-dip dilution model (B) -- physically justified because the dip is SIGNIFICANT precisely as a localized departure from a smooth envelope that already fits the neighbouring-height trend -- widening the tiling span does NOT lift z toward 2-sigma; it LOWERS z monotonically, from 1.9234 at +/-30% to 1.8232 at +/-35% (a ~5.2% drop), moving AWAY from 2-sigma. The per-window dip depth relErr falls as ~1/n_w (the total below-envelope deficit is fixed, carried by the 291 central windows) while the chi-square noise floor sqrt(2/n_w) shrinks only as ~1/sqrt(n_w), so signal-to-noise degrades as ~1/sqrt(n_w). Only the RESAMPLE hypothesis (A) -- which assumes the neighbouring heights carry the FULL ~16% dip, a claim the smooth envelope contradicts -- reaches 2-sigma, and even then only at the boundary s ~ 0.3246 (n_w = 315). The true z(s) lies between the (A) upper and (B) lower lines; any nonzero dilution places it below (A), so span-widening cannot clear 2-sigma without the unjustified zero-dilution assumption. imp-96452 is confirmed and now QUANTIFIED. SUB-GAP: the exact z(s) between the two lines needs the per-window residual profile at the interior neighbouring heights (1.05e5 -> 2.025e5), i.e. recomputing sd(C - E) over the interior zeros bundle at fine tiling -- not available import-light, so outer windows are modelled at the smooth envelope. Measurement/fit only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'MEASURED. Under the localized-dip dilution model (B) -- physically justified because the dip is SIGNIFICANT precisely as a localized departure from a smooth envelope that already fits the neighbouring-height trend -- widening the tiling span does NOT lift z toward 2-sigma; it LOWERS z monotonically, from 1.9234 at +/-30% to 1.8232 at +/-35% (a ~5.2% drop), moving AWAY from 2-sigma. The per-window dip depth relErr falls as ~1/n_w (the total below-envelope deficit is fixed, carried by the 291 central windows) while the chi-square noise floor sqrt(2/n_w) shrinks only as ~1/sqrt(n_w), so signal-to-noise degrades as ~1/sqrt(n_w). Only the RESAMPLE hypothesis (A) -- which assumes the neighbouring heights carry the FULL ~16% dip, a claim the smooth envelope contradicts -- reaches 2-sigma, and even then only at the boundary s ~ 0.3246 (n_w = 315). The true z(s) lies between the (A) upper and (B) lower lines; any nonzero dilution places it below (A), so span-widening cannot clear 2-sigma without the unjustified zero-dilution assumption. imp-96452 is confirmed and now QUANTIFIED. SUB-GAP: the exact z(s) between the two lines needs the per-window residual profile at the interior neighbouring heights (1.05e5 -> 2.025e5), i.e. recomputing sd(C - E) over the interior zeros bundle at fine tiling -- not available import-light, so outer windows are modelled at the smooth envelope. Measurement/fit only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -219,8 +219,8 @@ export const IMP96484_TILING_SPAN_WIDENING_DILUTION_PENALTY = {
   // honesty gates
   if (!/NO QED/.test(IMP96484_TILING_SPAN_WIDENING_DILUTION_PENALTY.verdict))
     throw new Error('imp-96484: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96484_TILING_SPAN_WIDENING_DILUTION_PENALTY.verdict))
-    throw new Error('imp-96484: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96484_TILING_SPAN_WIDENING_DILUTION_PENALTY.verdict))
+    throw new Error('imp-96484: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96484_TILING_SPAN_WIDENING_DILUTION_PENALTY;

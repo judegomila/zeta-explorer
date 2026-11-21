@@ -47,7 +47,7 @@
  *
  * The numerics below CROSS-CHECK the statements; they are not the claim.
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── parameterized ceiling machinery (identical shape to imp-95026/imp-95075) ──
@@ -167,7 +167,7 @@ export const IMP95091_BETA_LEVER_FAR_CEILING_SENSITIVITY = {
     "MEASUREMENT/DERIVATION. dcFar/dbeta = -0.08145863168834006 is a central difference (beta in {1/3 - 0.02, 1/3 + 0.02}) on the imp-95026 parameterized quadrature at the model point; the elasticity, the beta scan, and the convexity under-prediction (1.70 percent at beta = 0.5) are computed directly and cross-checked against the baked imp-95026 betaScan literals (reproduced exactly). No paper constant is instantiated (the paper text is not carried here), so no transferred ceiling is CLAIMED - only the beta-lever sensitivity and its place on the scan. NO QED.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT/DERIVATION of the beta (decay-exponent) lever for the imp-95008 far-bracket ceiling, the companion to the imp-95075 isolation-Q derivation. dcFar/dbeta = -0.08145863168834006 at beta0 = 1/3 (elasticity -0.09992225277955546: a WEAK lever, roughly nine times weaker than the isolation group Q at ~0.88, and cFar shrinks as beta grows). cFar(beta) is strictly DECREASING and CONVEX over [0.25,0.5] (secant slopes rise -0.10821 -> -0.04477), so the local linear model UNDER-predicts above the model point (by 1.70 percent at beta = 0.5). The beta scan spans cFar in [0.2626, 0.2801] - all near 0.27 and three orders under the pre-seventeenth 4 - so the decay exponent does NOT threaten the below-4 transfer, it barely moves the margin. This isolates the imp-95026 Finding 1 beta ~6 percent figure (range -6.24 percent over 0.25..0.5) with its own derivation. SUB-GAP: the paper beta is not pinned in this repo, so this places the MODEL beta on the scan, not a paper number. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT/DERIVATION of the beta (decay-exponent) lever for the imp-95008 far-bracket ceiling, the companion to the imp-95075 isolation-Q derivation. dcFar/dbeta = -0.08145863168834006 at beta0 = 1/3 (elasticity -0.09992225277955546: a WEAK lever, roughly nine times weaker than the isolation group Q at ~0.88, and cFar shrinks as beta grows). cFar(beta) is strictly DECREASING and CONVEX over [0.25,0.5] (secant slopes rise -0.10821 -> -0.04477), so the local linear model UNDER-predicts above the model point (by 1.70 percent at beta = 0.5). The beta scan spans cFar in [0.2626, 0.2801] - all near 0.27 and three orders under the pre-seventeenth 4 - so the decay exponent does NOT threaten the below-4 transfer, it barely moves the margin. This isolates the imp-95026 Finding 1 beta ~6 percent figure (range -6.24 percent over 0.25..0.5) with its own derivation. SUB-GAP: the paper beta is not pinned in this repo, so this places the MODEL beta on the scan, not a paper number. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -250,12 +250,12 @@ export const IMP95091_BETA_LEVER_ASSERTIONS = [
   {
     id: "imp95091-honesty-gate",
     description:
-      "the verdict names the sub-gap (paper beta not pinned; places the MODEL beta on the scan), records the derivative, the weak-lever comparison to Q, and the convexity, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (paper beta not pinned; places the MODEL beta on the scan), records the derivative, the weak-lever comparison to Q, and the convexity, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95091_BETA_LEVER_FAR_CEILING_SENSITIVITY.promotesBound === false &&
       IMP95091_BETA_LEVER_FAR_CEILING_SENSITIVITY.openResiduals.length === 2 &&
       /NO QED/.test(IMP95091_BETA_LEVER_FAR_CEILING_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP95091_BETA_LEVER_FAR_CEILING_SENSITIVITY.verdict) &&
+      /refereed bound is changed/i.test(IMP95091_BETA_LEVER_FAR_CEILING_SENSITIVITY.verdict) &&
       /CONVEX/.test(IMP95091_BETA_LEVER_FAR_CEILING_SENSITIVITY.verdict) &&
       /WEAK/.test(IMP95091_BETA_LEVER_FAR_CEILING_SENSITIVITY.verdict) &&
       /SUB-GAP/.test(IMP95091_BETA_LEVER_FAR_CEILING_SENSITIVITY.verdict),

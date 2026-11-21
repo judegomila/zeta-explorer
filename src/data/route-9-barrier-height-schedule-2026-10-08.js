@@ -28,7 +28,7 @@
  * NOT ADDITIVE (referee correction to the next step): the sets enter the consumer as extra options (best rate per substep), so the
  *  route-9 gain cannot be added to route 3 / route 5 gains; a stacked value needs one joint consumer run plus E1–E8.
  *
- * PT Λ ≤ 0.2 stands; RH open; NO QED. Import-free. ROUTE_9_ASSERTIONS recompute the exact gains, the ordering of the certified
+ * No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_9_ASSERTIONS recompute the exact gains, the ordering of the certified
  * points, the W4 multiplier curve (knots, PLAN crossings, range) and the H2 range of the heights used.
  */
 
@@ -88,7 +88,7 @@ export const ROUTE_9 = Object.freeze({
   verdict: 'The barrier height schedule is a real but small certified lever: one extra optimised height set lowers the PT-height route-P value from '
     + '0.145694083872924 to 0.145637425999752 (exact gain 5.6657873172e-5); all used certified height sets give 0.145630653648379 (gain 6.343e-5). '
     + 'Both pass E1–E8 against the shared ledger; G0-d refereed on the new sets; table layers single-implementation. The gain is an option union, not '
-    + 'additive with routes 3 and 5. Λ < 0.145 is not certified. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'additive with routes 3 and 5. Λ < 0.145 is not certified. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_9;
@@ -134,7 +134,7 @@ export const ROUTE_9_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r9-honest-scope',
-    holds: () => R.status === 'done' && /not additive/.test(R.verdict) && /not certified/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict)
+    holds: () => R.status === 'done' && /not additive/.test(R.verdict) && /not certified/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict)
       && /NO QED/.test(R.verdict) && R.values.r2Transport.grade === 'HEURISTIC' && /additively/.test(R.refereeKilled[3]),
     why: 'Λ < 0.145 not certified; option union not additive; r2 transport graded heuristic; no QED.',
   },

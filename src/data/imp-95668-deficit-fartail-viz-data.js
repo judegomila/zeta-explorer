@@ -41,7 +41,7 @@ export const IMP95668_CAVEAT_BANNER =
   'excess D(N) = 1/2 + (ln(u/2pi)-1)/(2u), itself built on the inherited imp-3220/imp-3406 ' +
   'component model (NOT a rigorous asymptotic). The measured imp-95614 X4 plateau is not a ' +
   'distinct constant -- it is the finite-N head of the exact 1/2 limit. Introduces no new ' +
-  'cited input and changes no bound; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. ' +
+  'cited input and changes no bound; no refereed bound is changed. ' +
   'No QED.';
 
 export const IMP95668_DEFICIT_FARTAIL_VIZ_DATA_ASSERTIONS = [

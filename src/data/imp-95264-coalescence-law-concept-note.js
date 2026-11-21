@@ -69,7 +69,7 @@
  *   majorant, not this pair law)
  *
  * Ticket: imp-95264 (content, low). Documentation only; establishes no new
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95227/95231).
@@ -122,7 +122,7 @@ export const IMP95264_COALESCENCE_LAW_CONCEPT_NOTE = Object.freeze({
     'makes it r-uniform and reusable as a depth-only numerator by ' +
     'imp-95249 and imp-95250, and that it is pair-only (N-fold extension ' +
     'is the imp-95251 named residual). Establishes nothing new; fires no ' +
-    'certificate; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'certificate; no refereed bound is changed.',
   citation:
     'imp-95227-two-rate-coalescence-dominance-theorem.js (THEOREM ' +
     'COAL-DOM); imp-95231-coalescence-ratio-monotonicity.js (THEOREM ' +
@@ -172,12 +172,11 @@ export const IMP95264_COALESCENCE_LAW_CONCEPT_NOTE_ASSERTIONS = [
   {
     id: 'imp95264-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present.',
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95264_COALESCENCE_LAW_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
-      /remains SOTA/.test(IMP95264_COALESCENCE_LAW_CONCEPT_NOTE.verdict) &&
+      /refereed bound is changed/i.test(IMP95264_COALESCENCE_LAW_CONCEPT_NOTE.verdict) &&
       IMP95264_COALESCENCE_LAW_CONCEPT_NOTE.glosses === 'imp-95227' &&
       IMP95264_COALESCENCE_LAW_CONCEPT_NOTE.scopes ===
         'coalescence law coalLaw(y) = e^(-2y)(1 + 2y^2 + 2y sqrt(1+y^2))',

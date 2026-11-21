@@ -68,7 +68,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. SUB-GAP: the curvature sub-term S_curv (~77% of the
+ * No refereed bound is changed. SUB-GAP: the curvature sub-term S_curv (~77% of the
  * slope) is pinned as a residual keyed to h/g, NOT reduced to a standalone algebraic closed form.
  *
  * @see imp-97781-knee-crossover-eflow-sensitivity (measured knee E_flow slope -1.77 pp/amp, "~1000x")
@@ -254,7 +254,7 @@ export const IMP97804_KNEE_EFLOW_LINEAR_EXPANSION = {
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97781 (measured knee E_flow slope -1.77 pp/amp, "~1000x"); imp-33744 (closed-form-expansion ' +
     'precedent sigma_infl = 1/2 - g_prime/(2 g^2)); imp-33721 (sub-decade knee log10 N* ~ 9.529); ' +
@@ -307,14 +307,14 @@ export const IMP97804_KNEE_EFLOW_LINEAR_EXPANSION_ASSERTIONS = [
     holds: () => AMPLIFICATION > 5 && AMPLIFICATION < 20,
   },
   {
-    // Honesty gate: derivation/measurement only, named sub-gap, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, named sub-gap, no QED, no refereed bound is changed.
     id: 'imp97804-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, sub-gap named, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, sub-gap named, no QED, no refereed bound is changed',
     holds: () =>
       IMP97804_KNEE_EFLOW_LINEAR_EXPANSION.isRigorous === false &&
       /NOT reduced to a standalone/.test(IMP97804_KNEE_EFLOW_LINEAR_EXPANSION.subGap) &&
       /NO QED/.test(IMP97804_KNEE_EFLOW_LINEAR_EXPANSION.verdict) &&
-      /remains SOTA/.test(IMP97804_KNEE_EFLOW_LINEAR_EXPANSION.verdict),
+      /refereed bound is changed/i.test(IMP97804_KNEE_EFLOW_LINEAR_EXPANSION.verdict),
   },
 ];
 

@@ -67,7 +67,7 @@
  *   crossing and characterizes a moment-ratio undershoot; it establishes NO operator positivity.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict,
- *   no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA. The imp-3713 residual
+ *   no QED. No refereed bound is changed. The imp-3713 residual
  *   sg-3713-saddle-ratio-overshoots-unity-at-finite-n is RESOLVED at measurement grade (n* pinned
  *   to ~1e-9 grid-stability, undershoot depth and turnaround measured); any REMAINING uncertainty
  *   is the shared kernel-truncation/quadrature-order floor common to the whole moment ladder, not
@@ -372,7 +372,7 @@ export const IMP3731_SADDLE_RATIO_CROSSING_EXTENDED_PRECISION = Object.freeze({
       'value, not a rigorous error bound.',
     didNotAttemptPositivity: true,
     openSubGap: OPEN_SUBGAP,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -453,7 +453,7 @@ export const IMP3731_SADDLE_RATIO_CROSSING_EXTENDED_PRECISION_ASSERTIONS = [
   {
     id: 'imp3731-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement only, grid-stability not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3731_SADDLE_RATIO_CROSSING_EXTENDED_PRECISION.honestCaveat;
       return (
@@ -462,7 +462,7 @@ export const IMP3731_SADDLE_RATIO_CROSSING_EXTENDED_PRECISION_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
         typeof c.gridStabilityNotCertifiedBound === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

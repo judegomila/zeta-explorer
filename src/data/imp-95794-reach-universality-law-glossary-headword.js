@@ -54,7 +54,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95761 reach-universality localization
  *   for quick reference. It establishes nothing, instantiates no interval, closes no
- *   sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-95761-szego-coefficient-larger-grid-subpct (source: the reach-universality
  *   sweep and crossing prediction this glosses)
@@ -63,7 +63,7 @@
  * @see imp-95786-reach-universality-crossval (a later cross-validation of the same law)
  *
  * Ticket: imp-95794 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The reach-universality law headword, baked verbatim (no re-import).
@@ -114,7 +114,7 @@ export const IMP95794_REACH_UNIVERSALITY_LAW_GLOSSARY_HEADWORD = Object.freeze({
     'predicting N_max ~ 250/delta for any delta. Demonstrated at ln1.5/ln1.45, ' +
     'predicted (not confirmed) at smaller delta pending a Toeplitz-structured DD ' +
     'lambda_min. Establishes nothing; instantiates no interval; moves no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-95761 (the reach-universality sweep and crossing prediction this glosses); ' +
     'imp-95775 (the closed-form C(delta) = pi^2/(2 delta^2) scaling law the reach ' +
@@ -142,11 +142,11 @@ export const IMP95794_REACH_UNIVERSALITY_LAW_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95794-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95794_REACH_UNIVERSALITY_LAW_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95794_REACH_UNIVERSALITY_LAW_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95794_REACH_UNIVERSALITY_LAW_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95794_REACH_UNIVERSALITY_LAW_GLOSSARY_HEADWORD.verdict) &&
       IMP95794_REACH_UNIVERSALITY_LAW_GLOSSARY_HEADWORD.glosses === 'imp-95761',
   },
 ];

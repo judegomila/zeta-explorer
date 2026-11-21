@@ -58,7 +58,7 @@
  * (Finding 3a) and the floor tracking the imp-96827 T-ladder (Finding 3b). Route C-shift-invert and
  * Route B therefore share ONE open (N,T) truncation wall. SUB-GAP IMP96889_SHIFTINVERT_REEXPRESSES_NT_RATE.
  * Provisional beta is a Ritz value, NOT a certified bound (Ritz gives upper bounds on lambda);
- * interval-rigorous certificate reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * interval-rigorous certificate reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96875-krein-katotemple-residual-scout.js (DIRECT residual diverges; predicted this bounded reformulation collapses to Route B)
  * @see imp-96827-krein-tresidual-envelope-extrapolation.js (the open t-truncation (N,T) rate the floor here tracks: plateau ~0.5805 +/- 8e-4)

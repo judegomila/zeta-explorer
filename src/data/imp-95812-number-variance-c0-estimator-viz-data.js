@@ -47,7 +47,7 @@ export const IMP95812_VERDICT = SRC.verdict;
 export const IMP95812_CAVEAT_BANNER =
   'Presentation only: re-plots the frozen imp-95787 estimator-bias table verbatim (no ' +
   're-derivation, no fresh term); measure/assess only. Changes no bound of the Lambda ' +
-  'program; no operator positivity established; no RH claim; Platt-Trudgian ' +
-  'Lambda <= 0.2 remains SOTA; NO QED.';
+  'program; no operator positivity established; no RH claim; no refereed bound is changed' +
+  '; NO QED.';
 
 export default IMP95812_OFFSET_ROWS;

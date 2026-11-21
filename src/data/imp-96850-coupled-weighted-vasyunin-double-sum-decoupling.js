@@ -14,7 +14,7 @@
  * estimate as the ticket asks: it uses reciprocity to decouple the cross terms, derives the
  * growth law and its constant modulo a single scalar, and names precisely what survives L1-L2.
  *
- * No unconditional bound is proved; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * No unconditional bound is proved; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * STEP 1 -- RECIPROCITY DECOUPLING (resolves imp-96830 obstruction 2a, the COUPLING).
@@ -89,7 +89,7 @@
  * an EXACT reduction to one classical totient sum times one single-denominator weighted second
  * moment beta, with the growth law c = 2 beta (6/pi^2) log N derived and numerically confirmed.
  * The lone surviving gap is a closed form (or rigorous asymptotic) for beta. No bound moved; no
- * operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96830-uniform-cotangent-second-moment-literature-assessment.js (isolated the residual)
  * @see imp-96828-coprime-core-vasyunin-second-moment-growth.js (measured T(N) ~ 3.542 log N)
@@ -232,7 +232,7 @@ export const IMP96850_HONEST_BANNER =
   + 'c ~ 3.542, matching imp-96828 and structurally refuting the (log N)^2 target. The lone '
   + 'surviving gap is a closed form for beta, the 1/a^2-weighted coprime-averaged Vasyunin second '
   + 'moment (~73% of it cotangent-fluctuation variance, unwritten in L1-L2). No bound moved. '
-  + 'PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  + 'No refereed bound is changed; RH open; NO QED.';
 
 export const IMP96850_SUBGAP = Object.freeze({
   id: 'imp-96850-single-scalar-beta-weighted-coprime-vasyunin-second-moment',
@@ -304,7 +304,7 @@ const IMP96850_ASSERTIONS = [
       IMP96850_VERDICT.anyBoundMoved === false &&
       IMP96850_VERDICT.growthLawDerivedModuloBeta === true &&
       /NO QED/.test(IMP96850_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96850_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96850_HONEST_BANNER) &&
       /RH open/.test(IMP96850_HONEST_BANNER) &&
       /single-scalar-beta/.test(IMP96850_SUBGAP.id),
     why: 'derivation + measurement only: no bound moved, growth law derived only modulo beta, honesty markers present, and the single-scalar sub-gap is recorded.',

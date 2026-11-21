@@ -58,8 +58,7 @@
  *
  * MEASUREMENT / SENSITIVITY ONLY. Integration + box-min re-evaluation on the inherited imp-3220/imp-3406
  * model, NOT a rigorous asymptotic. The C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @reproduce tmp/imp-95705-scratch.mjs integrates reach(alpha) via a 4e5-panel midpoint rule on
  *   int rho/(T - alpha*T0)^2 dT over [T0, 1e4 T0] (imp-1134 numericalSOff_midpointDenominator) divided by
@@ -167,7 +166,7 @@ export const IMP95705_CF_INTEGRATED_REACH_MEASURED = {
     'wedge -- the sub-gap is the multiplier, not its sign. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95691 (pinned CF_BAND_HI to the geometric mean of the ASSERTED 1.2-1.4x reach); imp-95674 ' +
     '(assembled the C_F provenance band; left CF_BAND_HI unpinned); imp-95660 (exact box-min gap model; ' +
@@ -219,13 +218,13 @@ export const IMP95705_CF_INTEGRATED_REACH_MEASURED_ASSERTIONS = [
       WEDGE_CORNER.eTrunc_mult === 1.5,
   },
   {
-    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, PT SOTA.
+    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, no refereed bound is changed.
     id: 'imp95705-honesty-gate-no-qed',
-    description: 'Sensitivity/measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Sensitivity/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP95705_CF_INTEGRATED_REACH_MEASURED.isRigorous === false &&
       /NO QED/.test(IMP95705_CF_INTEGRATED_REACH_MEASURED.verdict) &&
-      /remains SOTA/.test(IMP95705_CF_INTEGRATED_REACH_MEASURED.verdict),
+      /refereed bound is changed/i.test(IMP95705_CF_INTEGRATED_REACH_MEASURED.verdict),
   },
 ];
 

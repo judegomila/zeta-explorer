@@ -11,7 +11,7 @@
  * flow-heavy rung -- and the exact D = 0), states WHY the discriminator is structurally incapable of closing
  * it, and documents what a rigorous D = 0 would require beyond the discriminator. Formalization/documentation
  * only; conditional-share diagnostic context; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no
- * bound; establishes no operator positivity; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; establishes no operator positivity; NO QED. No refereed bound is changed.
  *
  * THE RESIDUAL OBJECT
  * -------------------
@@ -62,7 +62,7 @@
  * C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the
  * imp-398 C_F prefactor are UNTOUCHED and appear here only as the source of the anchor literals; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-124836-invariant-product-discriminator-general-test (the discriminator + D_min this leaf residualizes)
  * @see imp-124808-extprec-pairratio-two-axis (mpmath dps=100 proof that the identity drift D = 0)
@@ -159,7 +159,7 @@ export const IMP124876_DMIN_VS_EXACT_D0_RESIDUAL = {
     'Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz, the pinned E_trunc 3.06e-5 and the imp-398 C_F ' +
     'prefactor are UNTOUCHED (used only as anchor literals); changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124836 (the discriminator and D_min this leaf residualizes); imp-124808 (mpmath dps=100 proof D = 0); ' +
     'imp-124828 (extended precision failure regime); imp-124811 (the ad-hoc P = D*|X| + R discriminator); ' +
@@ -211,13 +211,13 @@ export const IMP124876_DMIN_VS_EXACT_D0_RESIDUAL_ASSERTIONS = [
       typeof IMP124876_DMIN_VS_EXACT_D0_RESIDUAL.whatRigorousD0Requires.R2_certified_extprec === 'string',
   },
   {
-    // Honesty gate: formalization/documentation only, no QED, PT stays SOTA, no bound moved.
+    // Honesty gate: formalization/documentation only, no QED, no refereed bound is changed, no bound moved.
     id: 'imp124876-honesty-gate-no-qed',
-    description: 'Formalization/documentation only: isRigorous false, no QED, Platt-Trudgian stays SOTA, changes no bound',
+    description: 'Formalization/documentation only: isRigorous false, no QED, no refereed bound is changed, changes no bound',
     holds: () =>
       IMP124876_DMIN_VS_EXACT_D0_RESIDUAL.isRigorous === false &&
       /NO QED/.test(IMP124876_DMIN_VS_EXACT_D0_RESIDUAL.verdict) &&
-      /remains SOTA/.test(IMP124876_DMIN_VS_EXACT_D0_RESIDUAL.verdict) &&
+      /refereed bound is changed/i.test(IMP124876_DMIN_VS_EXACT_D0_RESIDUAL.verdict) &&
       /changes no bound/.test(IMP124876_DMIN_VS_EXACT_D0_RESIDUAL.verdict),
   },
 ];

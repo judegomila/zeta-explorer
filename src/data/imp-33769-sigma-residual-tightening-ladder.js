@@ -69,7 +69,7 @@
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED
  * (imp-2642/imp-2643); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0
- * untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33743-sigma-fartail-crossover-closed-form (D2: the single ~54x halving-to-sub-0.1 pair extended here)
  * @see imp-33751-sigma-deep-tail-001-etrunc-floor-sensitivity (the sigma < 0.01 sub-0.01 landmark reused as the third rung)
@@ -227,7 +227,7 @@ export const IMP33769_SIGMA_RESIDUAL_TIGHTENING_LADDER = {
     'Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-33743 (D2: single ~54x halving-to-sub-0.1 residual pair, extended here); imp-33751 ' +
     '(sigma < 0.01 sub-0.01 landmark reused as the third rung); imp-33723 (halving closed form); ' +
@@ -295,13 +295,13 @@ export const IMP33769_SIGMA_RESIDUAL_TIGHTENING_LADDER_ASSERTIONS = [
     holds: () => LANDMARKS.every((l) => l.with_flow_vs_empirical_rel < 1e-9),
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp33769-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33769_SIGMA_RESIDUAL_TIGHTENING_LADDER.isRigorous === false &&
       /NO QED/.test(IMP33769_SIGMA_RESIDUAL_TIGHTENING_LADDER.verdict) &&
-      /remains SOTA/.test(IMP33769_SIGMA_RESIDUAL_TIGHTENING_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP33769_SIGMA_RESIDUAL_TIGHTENING_LADDER.verdict),
   },
 ];
 

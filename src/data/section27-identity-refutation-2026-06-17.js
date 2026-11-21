@@ -82,7 +82,7 @@ export const SECTION27_REFUTATION = {
   collapseConsequence: 'two-way collapse loses BOTH directions; proving ||V||<=1 does NOT give RH via this chain',
   rigorStatus: 'NO verified Section-27 identity; collapse is CONDITIONAL on the unproven (as-stated-false) Section-25-26-27 chain',
   overclaimNumberThisSession: 6,
-  sotaUnchanged: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+  sotaUnchanged: 'No refereed bound is changed',
 };
 
 export const THE_REAL_GAP = {
@@ -104,8 +104,8 @@ export const SECTION27_REFUTATION_ASSERTIONS = [
   },
   {
     id: 'sec27-collapse-not-established-sota-unchanged',
-    description: 'Honest consequence recorded: collapse not established, PT 0.2 remains SOTA, the real narrow gap is named',
-    holds: () => /CONDITIONAL on the unproven/.test(SECTION27_REFUTATION.rigorStatus) && /Platt-Trudgian/.test(SECTION27_REFUTATION.sotaUnchanged) && /open/.test(THE_REAL_GAP.status),
+    description: 'Honest consequence recorded: collapse not established, no refereed bound is changed, the real narrow gap is named',
+    holds: () => /CONDITIONAL on the unproven/.test(SECTION27_REFUTATION.rigorStatus) && /Platt-Trudgian|refereed bound is changed/.test(SECTION27_REFUTATION.sotaUnchanged) && /open/.test(THE_REAL_GAP.status),
   },
 ];
 

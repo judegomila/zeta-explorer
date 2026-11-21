@@ -31,8 +31,7 @@
  * the identical baked constants would be redundant duplication. This module records the
  * duplicate-ticket finding so the completed status is auditable. Changes no bound;
  * establishes no operator positivity; the imp-35243a certificate stays OPEN; C_mb
- * GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see src/data/imp-35559-r1t-reentry-band-decade-gap-assertion.js (the run-assertions guard already pinning the gaps)
  * @see src/data/imp-35559-r1t-reentry-band-decade-gap-quantification.js (source of every baked gap literal)
@@ -82,7 +81,7 @@ export const IMP35613_REENTRY_BAND_DECADE_GAP_GUARD_ALREADY_SATISFIED_AUDIT = {
     'run-assertions guard already added by imp-35599; no further module needed. ' +
     'Changes no bound; establishes no operator positivity; the imp-35243a certificate ' +
     'stays OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35559 (the tabulated per-endpoint reentry-band decade gaps); imp-35537 (R1t ' +
     'closure scope, route (ii) infeasible); imp-35243 (D2, imp-35243a certificate, stays ' +
@@ -125,14 +124,14 @@ export const IMP35613_REENTRY_BAND_DECADE_GAP_GUARD_ALREADY_SATISFIED_AUDIT_ASSE
   {
     id: 'imp35613-honesty-gate-no-qed',
     description:
-      'Audit only: no bound changed, no operator positivity, imp-35243a OPEN, no RH verdict, no QED, PT stays SOTA',
+      'Audit only: no bound changed, no operator positivity, imp-35243a OPEN, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35613_REENTRY_BAND_DECADE_GAP_GUARD_ALREADY_SATISFIED_AUDIT.isRigorous === false &&
       /imp-35243a certificate\s+stays OPEN/.test(
         IMP35613_REENTRY_BAND_DECADE_GAP_GUARD_ALREADY_SATISFIED_AUDIT.verdict
       ) &&
       /NO QED/.test(IMP35613_REENTRY_BAND_DECADE_GAP_GUARD_ALREADY_SATISFIED_AUDIT.verdict) &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP35613_REENTRY_BAND_DECADE_GAP_GUARD_ALREADY_SATISFIED_AUDIT.verdict
       ),
   },

@@ -75,7 +75,7 @@
  * assembles analytically. This upgrades the imp-35244 measurement to a derivation but does NOT certify a
  * uniform modulus, does NOT discharge O3 or G6a, establishes no operator positivity, changes no bound.
  * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35244-rho-eps52-coefficient-measurement (measured the empty slot to 4 sig figs; derived here exactly)
  * @see imp-35216-rho-prefactor-closed-form-assessment (source of the mis-paired 2/5 symmetric-integrand tail)
@@ -243,7 +243,7 @@ export const IMP35265_EPS52_CANCELLATION_EXACT_IDENTITY = {
     '= -8/(3 A_1) = -8 sqrt(2)/(3 pi) = -1.20042. This upgrades the imp-35244 measurement to a derivation ' +
     'but does NOT certify a uniform modulus, does NOT discharge O3 or G6a, establishes no operator ' +
     'positivity, changes no bound. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains ' +
-    'GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'GUE-conditional (imp-486); NO QED. No refereed bound is changed.',
 };
 
 export const IMP35265_EPS52_CANCELLATION_ASSERTIONS = [
@@ -297,16 +297,16 @@ export const IMP35265_EPS52_CANCELLATION_ASSERTIONS = [
       Math.abs(K_SEVEN_HALVES - -1.2004217587) < 1e-6,
   },
   {
-    // Honesty gate: derivation only; does NOT discharge O3/G6a, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: derivation only; does NOT discharge O3/G6a, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35265-honesty-gate-no-qed',
     description:
-      'Derivation only: exact identity pinned but O3/G6a NOT discharged, no QED, PT SOTA, imp-3066 untouched',
+      'Derivation only: exact identity pinned but O3/G6a NOT discharged, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35265_EPS52_CANCELLATION_EXACT_IDENTITY.isRigorous === false &&
       IMP35265_EPS52_CANCELLATION_EXACT_IDENTITY.dischargesO3orG6a === false &&
       /NO QED/.test(IMP35265_EPS52_CANCELLATION_EXACT_IDENTITY.verdict) &&
       /STAYS OPEN/.test(IMP35265_EPS52_CANCELLATION_EXACT_IDENTITY.verdict) &&
-      /rigorous SOTA/.test(IMP35265_EPS52_CANCELLATION_EXACT_IDENTITY.verdict) &&
+      /refereed bound is changed/i.test(IMP35265_EPS52_CANCELLATION_EXACT_IDENTITY.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35265_EPS52_CANCELLATION_EXACT_IDENTITY.verdict,
       ),

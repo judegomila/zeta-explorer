@@ -56,8 +56,8 @@
  *    arbitrary-precision W_inf ~ 2.03e-6 (heuristic, within a factor ~1.3; the
  *    fitted p, A are only float64-range leading values).
  *
- * SCOPE / HONESTY. Report only; changes NO bound; NO QED; RH OPEN; PT Lambda
- * <= 0.2 stands. The fit uses the imp-95557 float64-resolvable rows only
+ * SCOPE / HONESTY. Report only; changes NO bound; NO QED; RH OPEN; no refereed bound is changed
+ * . The fit uses the imp-95557 float64-resolvable rows only
  * (mu_S(0) > ~1e-9); the exponent p ~ 0.71 and prefactor A ~ 12.1 are the leading
  * values on that range, NOT certified constants -- extending them is the separate
  * imp-95576 arbitrary-precision axis. New sub-gap SPREAD-LAW-FORM: with three
@@ -165,7 +165,7 @@ export const IMP95577_W_DECAY_SPREAD_LAW = Object.freeze({
   reconciliation: 'The spread law also predicts imp-95576 crossing-vs-plateau: the total residual log-drop sum_m c_step ~ A*sum s_m^(-p) DIVERGES for polynomial spread (arithmetic s_m~m => W->0 => crosses at n=8) and CONVERGES for geometric spread (dyadic s_m~2^m => W plateaus at W_inf>0 => never crosses). Extrapolating from W(8)=2.79e-6 gives a residual drop ~0.62 and W_inf ~ 1.5e-6, same order as the imp-95576 arbitrary-precision plateau ~2.03e-6 (heuristic, factor ~1.3).',
   scope: 'Report only; changes NO bound. The fit uses the imp-95557 float64-resolvable rows (mu_S(0) > ~1e-9); p ~ 0.71 and A ~ 12.1 are leading values on that range, not certified constants. Extending them is the separate imp-95576 arbitrary-precision axis.',
   subgap: 'SPREAD-LAW-FORM: with three families the two-parameter power law is well-fit (R^2 ~ 0.99) but finite-size corrections and the true large-s_new exponent are under-determined; a denser bank of geometric ratios r and Arb-precision c_step would pin the functional form.',
-  verdict: 'The W(S) decay exponent IS predictable from a node-spread metric: the per-step exponent follows a single power law c_step ~ 12.1*s_new^(-0.71) (pooled R^2 ~ 0.99) in the newest-node log-position, unifying the imp-95557 per-family exponents and the imp-95576 crossing/plateau dichotomy. Residual sub-gap SPREAD-LAW-FORM. Changes no bound; RH OPEN; PT Lambda <= 0.2 stands; NO QED.',
+  verdict: 'The W(S) decay exponent IS predictable from a node-spread metric: the per-step exponent follows a single power law c_step ~ 12.1*s_new^(-0.71) (pooled R^2 ~ 0.99) in the newest-node log-position, unifying the imp-95557 per-family exponents and the imp-95576 crossing/plateau dichotomy. Residual sub-gap SPREAD-LAW-FORM. Changes no bound; RH OPEN; no refereed bound is changed; NO QED.',
 });
 
 const relEq = (x, lit, tol) => Math.abs(x - lit) <= tol * Math.max(Math.abs(lit), 1e-300);
@@ -225,7 +225,7 @@ export const IMP95577_ASSERTIONS = [
     holds: () => /Report only; changes NO bound/.test(IMP95577_W_DECAY_SPREAD_LAW.scope)
       && /SPREAD-LAW-FORM/.test(IMP95577_W_DECAY_SPREAD_LAW.subgap)
       && /RH OPEN/.test(IMP95577_W_DECAY_SPREAD_LAW.verdict)
-      && /PT Lambda <= 0.2 stands/.test(IMP95577_W_DECAY_SPREAD_LAW.verdict)
+      && /refereed bound is changed/i.test(IMP95577_W_DECAY_SPREAD_LAW.verdict)
       && /NO QED/.test(IMP95577_W_DECAY_SPREAD_LAW.verdict),
   },
 ];

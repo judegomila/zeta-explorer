@@ -44,8 +44,7 @@
  *   PURE CROSS-VALIDATION LOCK of the overflow-support upper-endpoint
  *   interpretation only. Not a proof, not a new positivity result, not an RH
  *   reduction. The off-diagonal endpoint-Hankel operator step (imp-3066)
- *   remains the lone obstruction. Platt-Trudgian Lambda &lt;= 0.2 remains the
- *   rigorous SOTA.
+ *   remains the lone obstruction. No refereed bound is changed.
  *
  *   @see imp-3216-overflow-support-length-closed-form.js (the finding this locks)
  *   @see imp-3211-overflow-fraction-converged-lock.js (the lock pattern mirrored)
@@ -124,7 +123,7 @@ export const IMP3312_UNDERFLOW_HORIZON_LOCK = Object.freeze({
     necessaryNotSufficient:
       'A nonzero overflow fraction is necessary-but-NOT-sufficient at operator order; the ' +
       'off-diagonal endpoint-Hankel step (imp-3066) remains the lone obstruction.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -174,7 +173,7 @@ export const IMP3312_UNDERFLOW_HORIZON_LOCK_ASSERTIONS = [
         c.isProof === false &&
         c.isReductionBelowRH === false &&
         c.isLockOnly === true &&
-        /Platt-Trudgian/.test(c.sota) &&
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota) &&
         c216.isProof === false &&
         c216.isReductionBelowRH === false
       );

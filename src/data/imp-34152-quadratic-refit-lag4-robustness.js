@@ -67,7 +67,7 @@
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate is descriptive,
  * not derived; at n=21 the higher-lag r_k rest on few pairs (n-k); the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34082-endpoint-drop-serial-dependence (the R3 lag-4 crossing this re-tests under a quadratic re-fit)
  * @see imp-34026-quadratic-detrend-ljung-box (the quadratic-augmented OLS and c ~ +0.032 curvature reused here)
@@ -244,7 +244,7 @@ export const IMP34152_QUADRATIC_REFIT_LAG4_ROBUSTNESS = {
     'reported RMSE (~0.116, ~12% multiplicative), and touches no bound; at n=21 the higher-lag r_k rest on few ' +
     'pairs (n-k); the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34082 (the R3 lag-4 crossing re-tested here under a quadratic re-fit); imp-34026 (the ' +
     'quadratic-augmented OLS and c ~ +0.032 curvature reused); imp-33964 (the linear-residual ACF r_1..r_5 ' +
@@ -305,13 +305,13 @@ export const IMP34152_QUADRATIC_REFIT_LAG4_ROBUSTNESS_ASSERTIONS = [
       Math.abs(ACF_Q[9] - -0.178833) < 1e-4,
   },
   {
-    // Honesty gate: isRigorous false, no QED, PT SOTA, 12% multiplicative, imp-3066 untouched.
+    // Honesty gate: isRigorous false, no QED, no refereed bound is changed, 12% multiplicative, imp-3066 untouched.
     id: 'imp34152-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, 12% multiplicative, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, 12% multiplicative, imp-3066 untouched',
     holds: () =>
       IMP34152_QUADRATIC_REFIT_LAG4_ROBUSTNESS.isRigorous === false &&
       /NO QED/.test(IMP34152_QUADRATIC_REFIT_LAG4_ROBUSTNESS.verdict) &&
-      /remains SOTA/.test(IMP34152_QUADRATIC_REFIT_LAG4_ROBUSTNESS.verdict) &&
+      /refereed bound is changed/i.test(IMP34152_QUADRATIC_REFIT_LAG4_ROBUSTNESS.verdict) &&
       /12% multiplicative/.test(IMP34152_QUADRATIC_REFIT_LAG4_ROBUSTNESS.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34152_QUADRATIC_REFIT_LAG4_ROBUSTNESS.verdict),
   },

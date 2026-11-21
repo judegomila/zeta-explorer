@@ -68,7 +68,7 @@
  * at a fourth delta, e.g. a DD u_fit extraction at ln 1.5 where today only a C-fit
  * crossing exists). (c) Model seam family only; the imp-95212 envelope port, signed
  * WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO
- * QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176 unrefereed.
+ * QED; no refereed bound is changed; Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95902-conditioning-vs-reach-cross-delta (the interplay reading + this sub-gap)
  * @see imp-95895-ln125-ufit-interval (the ln 1.25 u_fit cell + the interplay flag)
@@ -149,7 +149,7 @@ export const IMP95922_UFIT_REACH_CONDITIONING_TWO_FACTOR = {
     "sample (needs a u_fit interval at a fourth delta, e.g. a DD u_fit extraction at " +
     "ln 1.5). Model seam family only; the imp-95212 envelope port, signed WEIGHT, and " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; changes no " +
-    "numeric interval value; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "numeric interval value; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95922"],
 };
 
@@ -326,7 +326,7 @@ export const IMP95922_ASSERTIONS = [
       REF.qed === false &&
       REF.intervalUnchanged === true &&
       /BUILT and TESTED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.closesTickets.includes("imp-95922"),
   },
 ];

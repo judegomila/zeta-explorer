@@ -10,7 +10,7 @@
  *   (imp-96911) is evidence for a uniform floor, and names the missing object precisely.
  *
  *   Scoping/assessment only. Produces NO uniform certificate; changes no bound; interval-rigorous
- *   reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ *   reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.
  *
  * THE CENTRAL LOGICAL FACT (why the numerics cannot close the gap by themselves). Every committed
  *   floor number is a Rayleigh-Ritz / Ritz value on a FINITE trial space, and a Rayleigh-Ritz minimum

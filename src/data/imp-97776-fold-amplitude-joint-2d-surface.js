@@ -69,7 +69,7 @@
  * C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED (bare E_coll prefactor); E_trunc base
  * pin 3.06e-5 unchanged (only rescaled as a perturbation); no bound moves; establishes
  * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-97757-fold-amplitude-axis-crosstab (the two 1D axes laid side by side; this leaf crosses them)
  * @see imp-97743-fold-amplitude-etrunc-floor-sensitivity (floor axis K ~ E_trunc^(+0.221))
@@ -280,7 +280,7 @@ export const IMP97776_FOLD_AMPLITUDE_JOINT_2D_SURFACE = {
     '/ measurement only on the inherited imp-3220/imp-3406 extrapolation surrogate, NOT a rigorous asymptotic; C_mb ' +
     'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; E_trunc base pin 3.06e-5 ' +
     'unchanged (only rescaled); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97757 (the two 1D axes laid side by side; this leaf crosses them); imp-97743 (floor axis K ~ E_trunc^(+0.221)); ' +
     'imp-97735 (height axis K denominator phi_xx drift); imp-97725 (the K pin at the surface center); imp-97662 ' +
@@ -331,15 +331,15 @@ export const IMP97776_FOLD_AMPLITUDE_JOINT_2D_SURFACE_ASSERTIONS = [
     holds: () => K_SURF_FACTOR > 1.5,
   },
   {
-    // Honesty gate: measurement only, sub-gap sharpened, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, sub-gap sharpened, no QED, no refereed bound is changed.
     id: 'imp97776-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no-stationary-ridge verdict, sub-gap, no QED, PT SOTA',
+    description: 'measurement only: isRigorous false, no-stationary-ridge verdict, sub-gap, no QED, no refereed bound is changed',
     holds: () =>
       IMP97776_FOLD_AMPLITUDE_JOINT_2D_SURFACE.isRigorous === false &&
       /NO STATIONARY RIDGE \/ SADDLE/.test(IMP97776_FOLD_AMPLITUDE_JOINT_2D_SURFACE.verdict) &&
       /SUB-GAP/.test(IMP97776_FOLD_AMPLITUDE_JOINT_2D_SURFACE.verdict) &&
       /NO QED/.test(IMP97776_FOLD_AMPLITUDE_JOINT_2D_SURFACE.verdict) &&
-      /remains SOTA/.test(IMP97776_FOLD_AMPLITUDE_JOINT_2D_SURFACE.verdict),
+      /refereed bound is changed/i.test(IMP97776_FOLD_AMPLITUDE_JOINT_2D_SURFACE.verdict),
   },
 ];
 

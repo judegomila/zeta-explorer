@@ -80,7 +80,7 @@ export const IMP33781_CAVEAT_BANNER =
   `(N ~+${(IMP33781_CLOSED_FORM_MARKER.offsetAboveHalving * 100).toFixed(1)}% above halving), and once E_flow ` +
   `is restored the full exponent-ramp knee (imp-33721) widens that to ~${IMP33781_FULL_MODEL_OFFSET_PCT}% above ` +
   'halving. Derivation only: isRigorous false, no QED; RH-equivalent K_a >= 0 sign-positivity ' +
-  'untouched; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.';
+  'untouched; no refereed bound is changed.';
 
 export const IMP33781_SIGMA_INFLECTION_CLOSED_FORM_VIZ_DATA_ASSERTIONS = [
   {

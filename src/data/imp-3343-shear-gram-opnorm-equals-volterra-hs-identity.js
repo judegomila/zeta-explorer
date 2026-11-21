@@ -89,7 +89,7 @@
  *   same continuum quantity -- yes, exactly) and does NOT touch the binding RH-
  *   equivalent K_a >= 0 residual (the imp-3066 off-diagonal endpoint-Hankel step),
  *   which remains the lone obstruction. No positivity, no reduction, no RH verdict,
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  *   @see imp-3252-shear-gram-mineig-symmetric-spectrum-n-scaling.js (H*mu operator norm ladder)
  *   @see imp-3256-vhs-crossval.js (||V||_HS per-N cross-validation)
@@ -226,7 +226,7 @@ export const IMP3343_SHEAR_GRAM_OPNORM_EQUALS_VOLTERRA_HS_IDENTITY = Object.free
     'imp-1267 anchor 1.8984785338e-4. The published ~0.2% gap is a resolution mismatch ' +
     '(imp-3252 N<=800 vs imp-3256 N<=8000), NOT a norm difference; the shared continuum ' +
     'limit lands inside the imp-3267 band [1.895e-4, 1.905e-4]. Diagnostic, RH-equivalent; ' +
-    'the imp-3066 K_a >= 0 step is untouched. NO QED; PT Lambda <= 0.2 SOTA.',
+    'the imp-3066 K_a >= 0 step is untouched. NO QED; no refereed bound is changed.',
 
   identity: Object.freeze({
     statement: '||V||_HS = ||Gshear||_op = mu (continuum, and discrete at matched nodes)',
@@ -272,7 +272,7 @@ export const IMP3343_SHEAR_GRAM_OPNORM_EQUALS_VOLTERRA_HS_IDENTITY = Object.free
     isDiagnostic: true,
     scope: 'numerical + algebraic cross-validation, RH-EQUIVALENT, necessary-not-sufficient',
     residualOpen: 'operator-positivity K_a >= 0 (imp-3066 off-diagonal endpoint-Hankel step, untouched)',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     decides:
       'a bookkeeping question -- the imp-3252 operator norm and the imp-3256 Volterra HS norm are ' +
       'the SAME continuum quantity (exact identity), not a leading-order accident; no RH verdict.',
@@ -326,8 +326,8 @@ export const IMP3343_SHEAR_GRAM_OPNORM_EQUALS_VOLTERRA_HS_IDENTITY_ASSERTIONS = 
     id: 'imp3343-honest-scope-no-qed',
     why:
       'MANDATORY HONESTY GATE: diagnostic numerical + algebraic cross-validation only, RH-EQUIVALENT, ' +
-      'not a proof or reduction; the imp-3066 K_a >= 0 residual stays open and Platt-Trudgian ' +
-      'Lambda <= 0.2 stays SOTA. Any flip is over-claiming.',
+      'not a proof or reduction; the imp-3066 K_a >= 0 residual stays open and no refereed bound is changed' +
+      '. Any flip is over-claiming.',
     holds: () => {
       const h = IMP3343_SHEAR_GRAM_OPNORM_EQUALS_VOLTERRA_HS_IDENTITY.honestScope;
       return (
@@ -335,7 +335,7 @@ export const IMP3343_SHEAR_GRAM_OPNORM_EQUALS_VOLTERRA_HS_IDENTITY_ASSERTIONS = 
         h.isReductionBelowRH === false &&
         h.rhEquivalent === true &&
         h.scope.includes('RH-EQUIVALENT') &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

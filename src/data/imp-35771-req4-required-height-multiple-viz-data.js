@@ -19,7 +19,7 @@
  *
  * Ticket: imp-35771 (ux, low). Presentation only, RH-free; C_mb GUE-conditional
  * (imp-486) untouched; imp-35337a stays OPEN; changes no bound; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  */
 
 import { IMP35722_REQ4_REQUIRED_HEIGHT_LANDMARK_LADDER } from './imp-35722-req4-required-height-landmark-ladder.js';

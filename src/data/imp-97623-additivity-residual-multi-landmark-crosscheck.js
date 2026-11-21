@@ -62,8 +62,7 @@
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) and the pinned E_trunc 3.06e-5 are
  * UNTOUCHED and are perturbed here only as sensitivity probes, not re-pinned; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97603-sigma-landmark-joint-cross-elasticity (the halving-crossover additivity residual ~2e-8)
  * @see imp-97565-crossover-cc-sensitivity-landmark-shift (C_C-axis elasticity of N_half ~ +2.10235)
@@ -191,7 +190,7 @@ export const IMP97623_ADDITIVITY_RESIDUAL_MULTI_LANDMARK_CROSSCHECK = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643) and the pinned E_trunc 3.06e-5 are UNTOUCHED (perturbed ' +
     'only as probes, not re-pinned); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97603 (halving-crossover additivity residual ~2e-8); imp-97565 (C_C-axis elasticity); ' +
     'imp-97584 (E_trunc-axis elasticity); imp-97520 (four-landmark ladder L1..L4); ' +
@@ -251,13 +250,13 @@ export const IMP97623_ADDITIVITY_RESIDUAL_MULTI_LANDMARK_CROSSCHECK_ASSERTIONS =
     },
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp97623-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97623_ADDITIVITY_RESIDUAL_MULTI_LANDMARK_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP97623_ADDITIVITY_RESIDUAL_MULTI_LANDMARK_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP97623_ADDITIVITY_RESIDUAL_MULTI_LANDMARK_CROSSCHECK.verdict),
+      /refereed bound is changed/i.test(IMP97623_ADDITIVITY_RESIDUAL_MULTI_LANDMARK_CROSSCHECK.verdict),
   },
 ];
 

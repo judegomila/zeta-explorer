@@ -58,7 +58,7 @@
  * metric, NOT a rigorous asymptotic; the linearisation "share ~ relative negligibility error" is a
  * leading-order estimate, not a derived bound; changes no bound; establishes no operator positivity; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34189-m2-ceiling-next-order-window-width-correction (the E_flow-negligible premise bounded here)
  * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (the kEnd = 17.0 .. 19.5 window and eflow_over_resid metric)
@@ -221,8 +221,8 @@ export const IMP34273_EFLOW_RESID_SHARE_NEGLIGIBILITY_BOUND = {
     'imp-34196/imp-34189 ceiling analysis actually reads it. The eflow_over_resid attribution is the ' +
     'inherited component-model metric, NOT a rigorous asymptotic; the linearisation share ~ relative ' +
     'error is leading-order; changes no bound; establishes no operator positivity; C_mb GUE-conditional ' +
-    'per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34189 (the E_flow-negligible premise bounded here); imp-34196 (the kEnd = 17.0 .. 19.5 window ' +
     'and eflow_over_resid metric reused verbatim); imp-34023 (the resid_exp pole k* ~ 21.281); imp-33810 ' +
@@ -270,14 +270,14 @@ export const IMP34273_EFLOW_RESID_SHARE_NEGLIGIBILITY_BOUND_ASSERTIONS = [
       POLE_APPROACH[POLE_APPROACH.length - 1].residExp < 1e-8, // essentially on the imp-34023 zero
   },
   {
-    // Honesty gate: measurement/bound only, isRigorous false, no QED, PT SOTA, C_mb / imp-3066 untouched.
+    // Honesty gate: measurement/bound only, isRigorous false, no QED, no refereed bound is changed, C_mb / imp-3066 untouched.
     id: 'imp34273-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, C_mb GUE-conditional / imp-3066 K_a>=0 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, C_mb GUE-conditional / imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34273_EFLOW_RESID_SHARE_NEGLIGIBILITY_BOUND.isRigorous === false &&
       /NOT a rigorous asymptotic/.test(IMP34273_EFLOW_RESID_SHARE_NEGLIGIBILITY_BOUND.verdict) &&
       /NO QED/.test(IMP34273_EFLOW_RESID_SHARE_NEGLIGIBILITY_BOUND.verdict) &&
-      /remains SOTA/.test(IMP34273_EFLOW_RESID_SHARE_NEGLIGIBILITY_BOUND.verdict) &&
+      /refereed bound is changed/i.test(IMP34273_EFLOW_RESID_SHARE_NEGLIGIBILITY_BOUND.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34273_EFLOW_RESID_SHARE_NEGLIGIBILITY_BOUND.verdict) &&
       /C_mb GUE-conditional[\s\S]*UNTOUCHED/i.test(IMP34273_EFLOW_RESID_SHARE_NEGLIGIBILITY_BOUND.verdict),
   },

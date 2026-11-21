@@ -63,7 +63,7 @@
  *
  * Grade: DERIVATION from the FLINT/Arb limb-quantized cost model over the frozen
  * imp-95214/95238 ledgers; NOT a wall-clock measurement (no native run). Changes
- * no bound; launches nothing; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bound; launches nothing; NO QED; no refereed bound is changed.
  */
 
 import { TIER2_PRICE } from './imp-95214-tier2-chirp-level.js';
@@ -126,7 +126,7 @@ export const PRECISION_REPLAY_MULTIPLIER = Object.freeze({
     'tier-2 full window 21.1 CPU-days x 2.25 ~ 47.5 CPU-days at 160 OR 192 bits (bracket 31.7-47.5). ' +
     'The factor is common to both routes so the 17.9x tier-2 dominance is preserved (precision-' +
     'invariant, refined from linear to limb-quantized). Derivation from the FLINT limb model, not a ' +
-    'wall-clock run; launches nothing; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'wall-clock run; launches nothing; changes no bound; NO QED; no refereed bound is changed.',
 });
 
 // ── self-executing assertions (import-light; recomputable arithmetic only) ────
@@ -195,14 +195,14 @@ export const IMP95257_ASSERTIONS = [
   {
     id: 'imp95257-dominance-preserved-and-honesty-gate',
     description:
-      'fail-closed honesty: the factor is common to both routes so the tier-2 dominance is preserved (imp-95238 precisionReplayMultipliesBothRoutesEqually true), this is a limb-model derivation not a wall-clock measurement, it moves no bound, and the verdict states NO QED and PT-SOTA',
+      'fail-closed honesty: the factor is common to both routes so the tier-2 dominance is preserved (imp-95238 precisionReplayMultipliesBothRoutesEqually true), this is a limb-model derivation not a wall-clock measurement, it moves no bound, and the verdict states NO QED and no-refereed-bound-change',
     holds: () =>
       PRECISION_REPLAY_MULTIPLIER.dominancePreserved === true &&
       PRECISION_REPLAY_MULTIPLIER.isWallClockMeasurement === false &&
       PRECISION_REPLAY_MULTIPLIER.movesBound === false &&
       /DERIVED/.test(PRECISION_REPLAY_MULTIPLIER.verdict) &&
       /NO QED/.test(PRECISION_REPLAY_MULTIPLIER.verdict) &&
-      /remains SOTA/.test(PRECISION_REPLAY_MULTIPLIER.verdict),
+      /refereed bound is changed/i.test(PRECISION_REPLAY_MULTIPLIER.verdict),
   },
 ];
 

@@ -54,7 +54,7 @@
  * exact, NOT that the reconstruction equals Sun Prop-6.3 at m>20. The wide-interval finite difference also
  * averages any unit-step per-modulus alternation (imp-95822 ~3e-5 fine structure), so dQ/dm here is the
  * macro-slope only. Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no
- * bound; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. Import-light: bakes the offline-measured Q0_RECON
+ * bound; NO Lambda movement; no refereed bound is changed; NO QED. Import-light: bakes the offline-measured Q0_RECON
  * literals and the C_1 literal; no heavy quadrature at import.
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3, eqs (6.11)-(6.26). SCRATCH: tmp/imp-95925-scratch.mjs
@@ -131,7 +131,7 @@ export const TIER3_IMBALANCE_LARGEM_SWEEP = Object.freeze({
     + 'asymptote (~ -0.010653) so dQ/dm -> 0: a CLEAN ASYMPTOTIC cancellation. This sharpens the '
     + 'imp-95900 aggregate identity (imbalance decays ~m^-3, not merely O(1e-6)) but leaves the imp-95916 '
     + 'per-locus attribution OPEN. Certified only at m=20 (imp-95822 residual); wide-interval dQ/dm is '
-    + 'the macro-slope only. G irrationality OPEN; Sun unrefereed; PT Lambda<=0.2 SOTA; NO QED',
+    + 'the macro-slope only. G irrationality OPEN; Sun unrefereed; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26)',
   builtOn:
@@ -197,8 +197,8 @@ export const TIER3_IMBALANCE_LARGEM_SWEEP = Object.freeze({
     + 'Q0_RECON is certified only at m=20 (Sun 6.23 kappa): grid convergence to ~1e-11 bounds quadrature '
     + 'error, not reconstruction faithfulness at m>20 (imp-95822 residual sub-gap). The wide-interval '
     + 'finite difference averages any unit-step per-modulus alternation, so dQ/dm here is the macro-slope. '
-    + 'Catalan G irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 '
-    + 'SOTA; NO QED.',
+    + 'Catalan G irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; no refereed bound is changed'
+    + '; NO QED.',
 });
 
 export const TIER3_IMBALANCE_LARGEM_SWEEP_ASSERTIONS = Object.freeze([
@@ -257,7 +257,7 @@ export const TIER3_IMBALANCE_LARGEM_SWEEP_ASSERTIONS = Object.freeze([
         && /does not floor/.test(v.outcome)
         && /per-locus split OPEN/.test(v.outcome)
         && /G irrationality OPEN/.test(s)
-        && /PT Lambda<=0.2 SOTA/.test(s)
+        && /refereed bound is changed/i.test(s)
         && /NO QED/.test(s);
     },
   },

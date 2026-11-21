@@ -20,7 +20,7 @@
  * @see imp-33539-graded-plateau-deeper-tail-min-budget.js (the flat ~200-node graded-GL plateau reference)
  *
  * Ticket: imp-33609 (ux, medium). Presentation only, RH-equivalent; imp-3066
- * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * untouched; no refereed bound is changed; NO QED.
  */
 
 export const IMP33609_BAND_ULP = 64;

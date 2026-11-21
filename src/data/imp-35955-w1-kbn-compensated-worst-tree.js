@@ -27,8 +27,7 @@
  *
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no
  * interval; verifies no inequality; changes no bound; establishes no positivity;
- * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * MEASURED at N = 488602 (normalized by Sum|t_k| ~ 889.18):
  *   shape          depth   uncompensated   KBN-compensated   compensation gain
@@ -62,7 +61,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35893) ---------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -347,7 +346,7 @@ export const IMP35955_W1_KBN_COMPENSATED_WORST_TREE = {
     'length-N interval sum (MECHANICAL, imp-35725). Certifies no W1 bound; evaluates no true H_0; ' +
     'instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; the W1 ' +
     'A + B - C certificate at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35893 (uncompensated tree-SHAPE sweep this compensates; caterpillarR worst); imp-35852 ' +
     '(term-ORDER stress); imp-35812 (fixed term family + balanced pairwise baseline); imp-35761 (pairwise ' +
@@ -403,9 +402,9 @@ export const IMP35955_W1_KBN_COMPENSATED_WORST_TREE_ASSERTIONS = [
       Math.abs(CATERPILLAR_R.kbnNormErr - BALANCED.kbnNormErr) / BALANCED.kbnNormErr < 1e-9,
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp35955-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35955_W1_KBN_COMPENSATED_WORST_TREE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -414,7 +413,7 @@ export const IMP35955_W1_KBN_COMPENSATED_WORST_TREE_ASSERTIONS = [
       ) &&
       /GREENFIELD/.test(IMP35955_W1_KBN_COMPENSATED_WORST_TREE.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35955_W1_KBN_COMPENSATED_WORST_TREE.verdict) &&
-      /remains SOTA/.test(IMP35955_W1_KBN_COMPENSATED_WORST_TREE.verdict),
+      /refereed bound is changed/i.test(IMP35955_W1_KBN_COMPENSATED_WORST_TREE.verdict),
   },
 ];
 

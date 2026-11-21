@@ -16,7 +16,7 @@
  * @see imp-97781-knee-crossover-eflow-sensitivity.js (the "~1000x" F3 heuristic this note corrects)
  *
  * Ticket: imp-124779 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda
- * moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97805_KNEE_EFLOW_AMPLIFICATION_RATIO } from './imp-97805-knee-eflow-amplification-ratio.js';

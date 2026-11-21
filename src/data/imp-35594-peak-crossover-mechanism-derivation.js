@@ -78,7 +78,7 @@
  * asymptotic. Surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; C_C ansatz
  * (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35574-peak-location-height-map-damping (the prose F2 mechanism derived here)
  * @see imp-35458-crossover-height-map-sensitivity (the ~18x crossover damping reproduced)
@@ -215,7 +215,7 @@ export const IMP35594_PEAK_CROSSOVER_MECHANISM_DERIVATION = {
     '(imp-35337a) UNTOUCHED; C_C ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) ' +
     'UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per ' +
     'imp-3463; discharges nothing; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35574 (F2 prose mechanism derived here); imp-35458 (crossover damping ~18x reproduced); ' +
     'imp-35536 (peak sigma_max robustness + N_max drift); imp-35337 (interior-peak locator); ' +
@@ -260,13 +260,13 @@ export const IMP35594_PEAK_CROSSOVER_MECHANISM_DERIVATION_ASSERTIONS = [
       CROSSOVER_VS_PEAK_DAMPING > 10,
   },
   {
-    // Honesty gate: derivation only, no QED, PT stays SOTA.
+    // Honesty gate: derivation only, no QED, no refereed bound is changed.
     id: 'imp35594-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35594_PEAK_CROSSOVER_MECHANISM_DERIVATION.isRigorous === false &&
       /NO QED/.test(IMP35594_PEAK_CROSSOVER_MECHANISM_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP35594_PEAK_CROSSOVER_MECHANISM_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP35594_PEAK_CROSSOVER_MECHANISM_DERIVATION.verdict),
   },
 ];
 

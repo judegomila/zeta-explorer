@@ -63,7 +63,7 @@
  * everywhere, and the baked constants reproduce. Measurement/verification
  * only. Changes no bound, no onset, no floor; the imp-95212 envelope
  * port, signed WEIGHT, and modulus/phase legs stay OPEN; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * HONEST SCOPE. This verifies the NUMERICAL claims of imp-95420 (the two
  * forms are equal, the enclosures bracket, the constants are right) at
@@ -115,7 +115,7 @@ export const IMP95422_HP_FORM_ENCLOSURE_VERIFICATION = {
     "all five baked constants reproduce. Independent-engine measurement " +
     "only; re-derives no proof and adds no theorem; changes no bound; the " +
     "envelope port, signed WEIGHT, and modulus/phase legs stay OPEN; " +
-    "NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -369,7 +369,7 @@ export const IMP95422_HP_ASSERTIONS = [
       /changes no bound/.test(REF.verdict) &&
       /stay OPEN/.test(REF.verdict) &&
       /NO QED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.verifies === "imp-95420 THEOREM P-POS + LEMMA P-JAC",
   },
 ];

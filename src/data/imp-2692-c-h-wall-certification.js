@@ -93,7 +93,7 @@ export const IMP_2692_C_H_WALL = {
     'diverges (pillar a), the microscopic e-fold grows ~N (pillar b), and 1/8 is a ' +
     'leading-order estimate not an upper bound (pillar c). The ONLY surviving ' +
     'non-Gronwall escape is the imp-2662 C_Theta sub-gap (pillar d), genuinely OPEN. ' +
-    'NO rigorous beat claimed. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'NO rigorous beat claimed. No refereed bound is changed.',
   rankedNumberOneObstruction: true,
   // (a) divergent integral with explicit closed form and a divergence ladder.
   pillarA_divergentIntegral: {
@@ -132,7 +132,7 @@ export const IMP_2692_C_H_WALL = {
     'This is a status record, not a hardness proof. "Wall" means the imp-366 Gronwall ' +
     'route to C_H is closed and only the imp-2662 C_Theta sub-gap survives. A non-Gronwall ' +
     'microscopic gap-stability modulus valid up to the collision time would reopen the route. ' +
-    'Until then C_H is unproven and Platt-Trudgian Lambda <= 0.2 remains rigorous SOTA.',
+    'Until then C_H is unproven and no refereed bound is changed.',
 };
 
 // One assertion array any future "C_H discharged" edit must defeat. All pass

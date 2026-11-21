@@ -14,8 +14,8 @@
  *
  * PRESENTATION ONLY. Reuses the imp-97441 table and verdict verbatim; no
  * re-solve. Establishes no operator positivity; changes no bound; the
- * rigorous anchor stays T = 2.594e7; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; RH open; NO QED.
+ * rigorous anchor stays T = 2.594e7; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97441-route-m-crossover-fraction-tolerance-table.js (the x*(eps) table, b-independence, curvature fit)
  * @see imp-97419-route-m-uniform-profile-crossover-scale.js (the two-tolerance predecessor measurement)

@@ -12,8 +12,7 @@
  * ch-wall-frontier-verdict-2026-06-26 RH-HARD-CONFIRMED). So E(N) → 0 is GATED on the
  * RH-hard C_H, NOT unconditional. This module's own constants block already flags
  * C_H_HOLDER.isRigorous = false; the "unconditional" prose contradicted it. The
- * status:'closed' field below means EXPONENT-closed ONLY. Platt-Trudgian Lambda <= 0.2
- * remains the rigorous SOTA.
+ * status:'closed' field below means EXPONENT-closed ONLY. No refereed bound is changed.
  *
  * **Exports:**
  *  - `G6A_SHOCK_LIPSCHITZ_CLOSURE` — structured proof record for sub-gap G6a:
@@ -355,8 +354,8 @@ export const G6A_SHOCK_LIPSCHITZ_CLOSURE = {
     'RH-HARD-CONFIRMED), so E(N) → 0 is GATED on C_H, NOT unconditional. CORRECTED ' +
     '2026-07-02: the prior "E(N) → 0 UNCONDITIONAL ... without any open conjecture" was an ' +
     'overclaim contradicting this module\'s own C_H_HOLDER.isRigorous=false. The bridge ' +
-    'upgrades to Lambda <= E(N) ONLY once C_H is made N-uniform; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'upgrades to Lambda <= E(N) ONLY once C_H is made N-uniform; no refereed bound is changed' +
+    '.',
   ecollAtLadder: LADDER_ROWS,
   allRowsFinitePositive: ALL_ROWS_FINITE,
   rowsStrictlyDecreasing: ROWS_STRICTLY_DECREASING,
@@ -474,7 +473,7 @@ export const POLYMATH15_LEMMA_52 = {
 // NO FALSE QED: even though the all-ones ansatz gives a numerical E(N) ~ 0.187
 // < 0.2 at N*=1e4 (rows below), that is an ANSATZ estimate, not a theorem — it is
 // contingent on C_T = C_F = C_H = 1, and C_H specifically is the placeholder this
-// ticket could NOT discharge. Platt-Trudgian Lambda <= 0.2 remains rigorous SOTA.
+// ticket could NOT discharge. No refereed bound is changed.
 
 const N_STAR_IMP2640 = 10000;
 
@@ -527,7 +526,7 @@ export const C_H_DISCHARGE_ATTEMPT_IMP2640 = (() => {
     honestNote:
       'The all-ones-ansatz E(N) ~ ' + eTotalAnsatz.toFixed(4) + ' < 0.2 at N*=1e4 is an ' +
       'ESTIMATE contingent on the unproven placeholders C_T = C_F = C_H = 1, not a theorem. ' +
-      'C_H is the one this ticket could not discharge. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+      'C_H is the one this ticket could not discharge. No refereed bound is changed.',
   };
 })();
 
@@ -632,7 +631,7 @@ export const C_H_QUADRATIC_TANGENCY_UPPER_BOUND_CHECK_IMP2642 = (() => {
     },
     impactOnBeat:
       'C_C = (1/8) * sqrt(3 pi) is an ANSATZ value, not a rigorous E_coll constant. The ' +
-      'finite-height beat does not follow from C_H = 1/8. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+      'finite-height beat does not follow from C_H = 1/8. No refereed bound is changed.',
   };
 })();
 
@@ -693,8 +692,8 @@ export const C_H_QUADRATIC_TANGENCY_UPPER_BOUND_CHECK_IMP2642 = (() => {
 //     cond-Drest := an N-uniform lower bound on the first-collision discriminant
 //                   cofactor D_rest(t_c), equivalently inf_N 8 |dDisc/ds|_{s=t_c}.
 // This is a more tractable-looking (still RH-hard) reformulation of the modulus
-// obstruction. NO FALSE QED: no rigorous Lambda < 0.2 is claimed; Platt-Trudgian
-// Lambda <= 0.2 remains SOTA.
+// obstruction. NO FALSE QED: no rigorous Lambda < 0.2 is claimed; no refereed bound is changed
+// .
 
 export const C_H_DISCRIMINANT_REGULARIZATION_IMP2672 = (() => {
   // Self-contained finite-N heat-discriminant machinery (no heavy imports; the
@@ -790,7 +789,7 @@ export const C_H_DISCRIMINANT_REGULARIZATION_IMP2672 = (() => {
     },
     honestNote:
       'The discriminant route is a SHARPER reformulation of the modulus obstruction than imp-2640 (it removes the ' +
-      'local collision singularity), but it is not a beat: cond-Drest is RH-hard. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+      'local collision singularity), but it is not a beat: cond-Drest is RH-hard. No refereed bound is changed.',
   };
 })();
 

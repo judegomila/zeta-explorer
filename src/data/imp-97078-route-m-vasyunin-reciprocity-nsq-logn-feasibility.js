@@ -10,7 +10,7 @@
  * prescribe recomputing the V-table from scratch OR via an O(N^2 logN) Vasyunin-
  * reciprocity rewrite, verified against the committed IMP96912_LADDER rungs. This
  * ticket ASSESSES and PROTOTYPES that rewrite. Measurement/assessment only; no
- * rigorous ceiling is posted; no bound moves; PT Lambda <= 0.2 remains SOTA; NO QED.
+ * rigorous ceiling is posted; no bound moves; no refereed bound is changed; NO QED.
  *
  * THE CONSTRUCTION (identical to imp-96105/imp-96912; base module
  * rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js):
@@ -83,8 +83,8 @@
  * is machine-precision only for x<=0.25 (err 3.6e-10) and degrades near x=1/2 (err 5.0e-6),
  * capping the prototype ladder at ~3e-6. That evaluator (Bettin-Conrey Cor. 1 poly(log)
  * period-function computation) plus the exact recursion delivers the full-precision
- * O(N^2 logN) extension. No rigorous ceiling is posted; no bound moves; PT Lambda <= 0.2
- * remains SOTA; RH open; NO QED.
+ * O(N^2 logN) extension. No rigorous ceiling is posted; no bound moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js (base: recursion, depthRows, R expansion)
  * @see imp-96912-route-m-frobenius-ladder-extension-above-16000.js (IMP96912_LADDER; the O(N^3) sub-gap this addresses)
@@ -150,7 +150,7 @@ export const IMP97078_VERDICT = Object.freeze({
     'the O(N^3) direct V-table. The recursion is exact (V_desc(exactR) vs V_direct 6.9e-10), the direct ' +
     'pipeline reproduces the committed rungs N=250/500/1000 to 2.7e-15/8.0e-15/1.6e-13, and the measured ' +
     'timing crossover (descent 9.5x faster at N=1000, gap doubling per octave) confirms both complexity ' +
-    'classes. No rigorous ceiling is posted; no bound moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'classes. No rigorous ceiling is posted; no bound moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97078_SUBGAP = Object.freeze({
@@ -165,7 +165,7 @@ export const IMP97078_SUBGAP = Object.freeze({
 });
 
 export const IMP97078_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment/measurement only: the reciprocity rewrite ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment/measurement only: the reciprocity rewrite ' +
   'is O(N^2 logN) with an exact per-entry recursion; the direct pipeline reproduces the committed ' +
   'IMP96912_LADDER rungs to machine precision; the descent reproduces them to 3.3e-6 with a crude R and ' +
   'the residual is entirely the R evaluator (the named sub-gap). No rigorous ceiling is posted and no ' +
@@ -218,7 +218,7 @@ const IMP97078_ASSERTIONS = [
       IMP97078_VERDICT.achievedComplexity === 'O(N^2 logN)' &&
       /machine-precision-period-function/.test(IMP97078_SUBGAP.id) &&
       /RH open/.test(IMP97078_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97078_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97078_HONEST_BANNER) &&
       /NO QED/.test(IMP97078_HONEST_BANNER),
     why: 'assessment only: feasibility and O(N^2 logN) are recorded with an explicit period-function-R sub-gap and the RH-open / PT-Lambda / NO-QED honesty markers; no bound is claimed moved.',
   },

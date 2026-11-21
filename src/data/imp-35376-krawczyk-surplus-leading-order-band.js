@@ -41,7 +41,7 @@
  * machinery (identical K, delta, N_cross, band, headroom form). The imp-34714a machine certificate REMAINS
  * OPEN; F(m) = 0 stays a double-precision artifact; C_C = 1/8 (imp-2642/2643) UNTOUCHED; C_mb GUE-conditional
  * per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent 1/2 per imp-3463 untouched; establishes
- * no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35266-krawczyk-headroom-surplus-decomposition (D3 leading-order S_inf.a/2, checked only at band-top)
  * @see imp-35241-krawczyk-headroom-band-profile (band-top S ~ 2555.18, surplus ~55.18 above the 2500 floor)
@@ -186,7 +186,7 @@ export const IMP35376_KRAWCZYK_SURPLUS_LEADING_ORDER_BAND = {
     'surrogate; reproduces the imp-35266/imp-35241/imp-34996 machinery (identical K, delta, N_cross, band); the ' +
     'C_C 1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 ' +
     'untouched; far-tail exponent 1/2 per imp-3463 untouched; changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35266 (D3 leading-order S_inf . a/2 checked only at the band-top); imp-35241 (band-top S ~ 2555.18, ' +
     'surplus ~55.18 above the 2500 floor); imp-34996 (S_inf = 1/(2 delta) floor; 2G/(1+G) -> 1 large-N); ' +
@@ -227,15 +227,15 @@ export const IMP35376_KRAWCZYK_SURPLUS_LEADING_ORDER_BAND_ASSERTIONS = [
       TOP_GAP_SMALLEST === true,
   },
   {
-    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement / surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp35376-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35376_KRAWCZYK_SURPLUS_LEADING_ORDER_BAND.isRigorous === false &&
       /imp-34714a/.test(IMP35376_KRAWCZYK_SURPLUS_LEADING_ORDER_BAND.subGap) &&
       /REMAINS OPEN/.test(IMP35376_KRAWCZYK_SURPLUS_LEADING_ORDER_BAND.subGap) &&
       /NO QED/.test(IMP35376_KRAWCZYK_SURPLUS_LEADING_ORDER_BAND.verdict) &&
-      /remains SOTA/.test(IMP35376_KRAWCZYK_SURPLUS_LEADING_ORDER_BAND.verdict),
+      /refereed bound is changed/i.test(IMP35376_KRAWCZYK_SURPLUS_LEADING_ORDER_BAND.verdict),
   },
 ];
 

@@ -14,7 +14,7 @@
  * ASSESSMENT / DELIVERY-FEASIBILITY SCOPING ONLY. Establishes no positivity; certifies no
  * non-vanishing; lower-bounds no inf|H_t prime| numerically; evaluates no derivative on any
  * edge; builds no enclosure; fixes no Delta or h; changes no bound; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * WHAT THE imp-35725 ENCLOSURE ACTUALLY DELIVERS (the UNDIFFERENTIATED margin M)
  * -----------------------------------------------------------------------------
@@ -75,7 +75,7 @@
  * no coefficients; budgets no C_t prime numerically; evaluates no A_t prime / B_t prime /
  * C_t prime; produces no numeric M_prime; verifies no M_prime > 0; certifies no
  * non-vanishing; establishes no positivity; changes no bound; C_mb GUE-conditional
- * (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35799-i3-long-edge-derivative-floor-scope (derives the object M_prime; names SG-1/SG-2)
  * @see imp-35803-i1-interval-enclosure-per-edge-scope (I1b = differentiated F_prime = imp-35799 SG-1)
@@ -90,7 +90,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35799 / imp-35803 / imp-35725) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 const N_AT_TPT = Math.floor(Math.sqrt(T_PT / (4 * Math.PI))); // ~488602 retained terms (imp-35674 Part D)
 
 // Winding / derivative log-scale w(T) = (1/2) log(T / 2 pi) (imp-35757 / imp-35777).
@@ -171,7 +171,7 @@ export const IMP35808_I3_LONG_EDGE_DERIVATIVE_DELIVERY_SCOPE = {
     'placement) is a SEPARATE positivity requirement, not a delivery question. Builds no enclosure; adds no ' +
     'coefficients; budgets no C_t prime; evaluates no derivative; produces no numeric M_prime; verifies no M_prime > 0; ' +
     'certifies no non-vanishing; establishes no positivity; changes no bound; C_mb GUE-conditional (imp-486) untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35799 (object M_prime; SG-1/SG-2); imp-35803 (I1b = differentiated F_prime = SG-1); imp-35778 (delta_long >= ' +
     'inf|H_t prime| . h); imp-35725 (undifferentiated margin M, cap C_t = E_A+E_B+E_{C_0}); imp-35761 (interval-sum ' +
@@ -237,9 +237,9 @@ export const IMP35808_I3_LONG_EDGE_DERIVATIVE_DELIVERY_SCOPE_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: assessment only, no positivity, no numeric floor, no QED, PT SOTA.
+    // Honesty gate: assessment only, no positivity, no numeric floor, no QED, no refereed bound is changed.
     id: 'imp35808-honesty-gate-no-qed',
-    description: 'Assessment only; builds no enclosure; establishes no positivity; produces no numeric M_prime; changes no bound; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Assessment only; builds no enclosure; establishes no positivity; produces no numeric M_prime; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35808_I3_LONG_EDGE_DERIVATIVE_DELIVERY_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -247,7 +247,7 @@ export const IMP35808_I3_LONG_EDGE_DERIVATIVE_DELIVERY_SCOPE_ASSERTIONS = [
       /Builds no enclosure/.test(IMP35808_I3_LONG_EDGE_DERIVATIVE_DELIVERY_SCOPE.verdict) &&
       /verifies no M_prime > 0/.test(IMP35808_I3_LONG_EDGE_DERIVATIVE_DELIVERY_SCOPE.verdict) &&
       /NO QED/.test(IMP35808_I3_LONG_EDGE_DERIVATIVE_DELIVERY_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35808_I3_LONG_EDGE_DERIVATIVE_DELIVERY_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35808_I3_LONG_EDGE_DERIVATIVE_DELIVERY_SCOPE.verdict),
   },
 ];
 

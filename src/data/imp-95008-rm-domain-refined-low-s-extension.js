@@ -115,8 +115,7 @@
  *
  * The numerics below CROSS-CHECK the analytic statements; they are not
  * the claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -280,7 +279,7 @@ export const IMP95008_RM_DOMAIN_REFINED_LOW_S = {
     "Lemma RM-D is the nineteenth Lemma RM proof with a single changed inequality (the split-point lower bound Y >= T/rhoMax on the restricted domain); its validity therefore reduces to the already-recorded Lemma RM proof plus the elementary observations that the PhiInt criterion is monotone in Y and that Ystar(s) > y0(s) (scanned; min gap 0.2864 on s in [1.05, 12]). Corollary LT is an exact algebraic evaluation of the guard ratio (the beta exponent cancellation beta + (j-1)beta - j beta = 0) plus monotonicity of 2^(b(1-beta))(2^(j-1)-1) in b and j. The break literals s* and s** are bisection roots of the strictly decreasing Ystar; s** is where the SUFFICIENT criterion at the binding corner fails, and is explicitly NOT claimed sharp for the underlying monotonicity (the s = 2.5 full-domain probe shows it is not). The recovered-factor numbers are quadrature measurements (cross-checks), not claims. No ledger, floor, or ceiling literal changes.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step (proof-domain extension, ceiling side, no numeric ledger change): NEW Lemma RM-D relaxes the nineteenth width-ratio monotonicity guard from T >= Ystar(s) on (0,1] to T >= Ystar(s) rhoMax on (0, rhoMax], which is all Theorem Y-EXACT ever uses (rhoMax = rhoCap(j)); the per-pair guard ratio V(b,j)/rhoCap(j) = 2^(b(1-beta))(2^(j-1)-1)/Q is beta-cancelling and corner-minimized at exactly 1/Q, so the uniform corner guard relaxes from Ystar(s) <= 2^(-beta)/Q to Ystar(s) <= 1/Q. Consequence at reference constants: the EXACT-proof break boundary drops s* = 2.9483832742380818 -> s** = 2.4095981617415205, the imp-95026 Finding-4 BREAKS band shrinks to s < 2.4096, the likely-paper s = 3 margin grows 14.73x (0.0239 -> 0.3513, retiring the holds-but-barely risk at that point), and the recovered band gains the sharp-within-MAJ pair bound (~1.22-1.23x over the window fallback at the corner). HONEST LIMIT: s** is a proof-coverage boundary, NOT a sharpness boundary (the s = 2.5 probe is monotone on all of (0,1]); paper constants remain unpinned; below s** the window fallback remains; floors, ceilings and all headline literals untouched. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step (proof-domain extension, ceiling side, no numeric ledger change): NEW Lemma RM-D relaxes the nineteenth width-ratio monotonicity guard from T >= Ystar(s) on (0,1] to T >= Ystar(s) rhoMax on (0, rhoMax], which is all Theorem Y-EXACT ever uses (rhoMax = rhoCap(j)); the per-pair guard ratio V(b,j)/rhoCap(j) = 2^(b(1-beta))(2^(j-1)-1)/Q is beta-cancelling and corner-minimized at exactly 1/Q, so the uniform corner guard relaxes from Ystar(s) <= 2^(-beta)/Q to Ystar(s) <= 1/Q. Consequence at reference constants: the EXACT-proof break boundary drops s* = 2.9483832742380818 -> s** = 2.4095981617415205, the imp-95026 Finding-4 BREAKS band shrinks to s < 2.4096, the likely-paper s = 3 margin grows 14.73x (0.0239 -> 0.3513, retiring the holds-but-barely risk at that point), and the recovered band gains the sharp-within-MAJ pair bound (~1.22-1.23x over the window fallback at the corner). HONEST LIMIT: s** is a proof-coverage boundary, NOT a sharpness boundary (the s = 2.5 probe is monotone on all of (0,1]); paper constants remain unpinned; below s** the window fallback remains; floors, ceilings and all headline literals untouched. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -441,12 +440,12 @@ export const IMP95008_RMD_ASSERTIONS = [
   {
     id: "imp95008-rmd-honesty-gate",
     description:
-      "the verdict states the step changes no ledger number, names the proof-coverage (not sharpness) status of s**, keeps the paper constants open, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict states the step changes no ledger number, names the proof-coverage (not sharpness) status of s**, keeps the paper constants open, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95008_RM_DOMAIN_REFINED_LOW_S.promotesBound === false &&
       IMP95008_RM_DOMAIN_REFINED_LOW_S.openResiduals.length === 4 &&
       /NO QED/.test(IMP95008_RM_DOMAIN_REFINED_LOW_S.verdict) &&
-      /remains SOTA/.test(IMP95008_RM_DOMAIN_REFINED_LOW_S.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_RM_DOMAIN_REFINED_LOW_S.verdict) &&
       /NOT a sharpness boundary/.test(IMP95008_RM_DOMAIN_REFINED_LOW_S.verdict) &&
       /headline literals untouched/.test(IMP95008_RM_DOMAIN_REFINED_LOW_S.verdict) &&
       /HONEST LIMIT/.test(IMP95008_RM_DOMAIN_REFINED_LOW_S.verdict) &&

@@ -64,8 +64,7 @@
  * balance is used (halving = crossover), so the offsets are the surrogate log-running
  * part only; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34948-inflection-offset-far-tail-ladder-extension (the far-tail ladder cross-validated here)
  * @see imp-34933-inflection-offset-running-vs-fixed-ladder (source of the reused bisection locators)
@@ -269,7 +268,7 @@ export const IMP35073_FAR_TAIL_LOCATOR_SECOND_PATH_CROSSVALIDATION = {
     'extrapolation, NOT a rigorous asymptotic; the E_flow-negligible balance is used (halving = crossover); ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-34948 (the far-tail inflection-offset ladder cross-validated here); imp-34933 (source of the reused ' +
     'bisection locators); imp-34107 (the second-path cross-check pattern this mirrors); imp-33744 ' +
@@ -313,14 +312,14 @@ export const IMP35073_FAR_TAIL_LOCATOR_SECOND_PATH_CROSSVALIDATION_ASSERTIONS = 
       MAX_OFFSET_REL < OFFSET_TOL,
   },
   {
-    // Honesty gate: cross-check only, isRigorous false, PERFORMS the imp-34948 recomputation, no QED, PT SOTA.
+    // Honesty gate: cross-check only, isRigorous false, PERFORMS the imp-34948 recomputation, no QED, no refereed bound is changed.
     id: 'imp35073-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, PERFORMS the imp-34948 far-tail recomputation, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Cross-check only: isRigorous false, PERFORMS the imp-34948 far-tail recomputation, no QED, no refereed bound is changed',
     holds: () =>
       IMP35073_FAR_TAIL_LOCATOR_SECOND_PATH_CROSSVALIDATION.isRigorous === false &&
       /PERFORMS the independent far-tail recomputation imp-34948/.test(IMP35073_FAR_TAIL_LOCATOR_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /NO\s+QED/.test(IMP35073_FAR_TAIL_LOCATOR_SECOND_PATH_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP35073_FAR_TAIL_LOCATOR_SECOND_PATH_CROSSVALIDATION.verdict) &&
+      /refereed bound is changed/i.test(IMP35073_FAR_TAIL_LOCATOR_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP35073_FAR_TAIL_LOCATOR_SECOND_PATH_CROSSVALIDATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP35073_FAR_TAIL_LOCATOR_SECOND_PATH_CROSSVALIDATION.verdict),
   },

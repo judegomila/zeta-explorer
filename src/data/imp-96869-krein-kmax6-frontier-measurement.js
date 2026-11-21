@@ -57,7 +57,7 @@
  *
  * Measurement only; interval-rigorous reach stays exactly 2a <= 0.96 (no verified certificate produced
  * past it); the operator floor is a Rayleigh UPPER bound (no operator positivity established); RH open;
- * Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96845-krein-kmax5-frontier-measurement.js (parent: kmax=5 frontier 1.06-1.08, walled at 1.08; SUB-GAP: does the frontier keep moving right?)
  * @see imp-96834-krein-certificate-degree-margin-assessment.js (grandparent: structural monotone-right claim 2a*(degree))

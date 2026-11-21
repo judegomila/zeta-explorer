@@ -21,8 +21,8 @@
  *
  * SCOPE — NO Λ MOVEMENT. This discharges the ANALYTIC obstruction of an internal transfer-leg
  * certificate only. E(N) < 0.2 still bottlenecks on the E_trunc/E_flow ansatz (C_T=C_F=1),
- * which bind on verified zero height (PT-floor audit). Platt–Trudgian Λ ≤ 0.2 remains the
- * rigorous SOTA. RH is untouched. NO QED. And it is "certified computation + proof architecture":
+ * which bind on verified zero height (PT-floor audit). No refereed bound is changed
+ * . RH is untouched. NO QED. And it is "certified computation + proof architecture":
  * three routine real-variable steps are numerically verified but not yet WRITTEN as lemmas
  * (see writeupObligations) — until they are, E_field is "bounded-by-table", not formally discharged.
  *
@@ -33,7 +33,7 @@ export const DISPLACEMENT_LEG_DISCHARGE = Object.freeze({
   id: 'imp-95518-displacement-leg-discharge',
   title: 'The displacement leg of the C_Lip→D_rest field-channel discharge (double-verified)',
   status: 'ANALYTIC OBSTRUCTION DISSOLVED (certified computation + proof architecture); '
-    + 'PARTIAL as a written proof; NO Λ movement; PT Λ≤0.2 stands',
+    + 'PARTIAL as a written proof; NO Λ movement; no refereed bound is changed',
 
   reduction:
     'Telescoping identity: for each omitted y, −2/(x_{l+1}−y) + 2/(x_l−y) = 2g_l/((x_l−y)(x_{l+1}−y)). '
@@ -90,7 +90,7 @@ export const DISPLACEMENT_LEG_DISCHARGE = Object.freeze({
     + 'OUTWARD (+1.7e-3 vs 4.3e-3 inward budget), K_top decreases, ordering preserved.',
 
   discharges: 'imp-34427-sub-edge-no-collision → POSITIVE at the re-anchors; the last ANALYTIC obstruction of the imp-33226 E_field transfer leg (E_field = W(eps′) ≈ 5e-7).',
-  doesNotDischarge: 'E(N) < 0.2 — bottlenecked by E_trunc/E_flow (C_T=C_F=1), which bind on verified zero height. No sub-0.2 claim; PT Λ≤0.2 stands; RH open.',
+  doesNotDischarge: 'E(N) < 0.2 — bottlenecked by E_trunc/E_flow (C_T=C_F=1), which bind on verified zero height. No sub-0.2 claim; no refereed bound is changed; RH open.',
 });
 
 export const DISPLACEMENT_LEG_DISCHARGE_ASSERTIONS = Object.freeze([
@@ -114,8 +114,8 @@ export const DISPLACEMENT_LEG_DISCHARGE_ASSERTIONS = Object.freeze([
       && /PARTIAL as a written proof/.test(DISPLACEMENT_LEG_DISCHARGE.status),
   },
   {
-    name: 'honest: no Λ movement, PT stands, RH open',
-    check: () => /PT Λ≤0.2 stands/.test(DISPLACEMENT_LEG_DISCHARGE.status)
+    name: 'honest: no Λ movement, no refereed bound is changed, RH open',
+    check: () => /refereed bound is changed/i.test(DISPLACEMENT_LEG_DISCHARGE.status)
       && /No sub-0\.2 claim|PT Λ≤0\.2 stands/.test(DISPLACEMENT_LEG_DISCHARGE.doesNotDischarge),
   },
   {

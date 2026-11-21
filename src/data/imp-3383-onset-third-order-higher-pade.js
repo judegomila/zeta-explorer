@@ -63,7 +63,7 @@
  *   radii of a rational reconstruction of the imp-3064 scalar signature; it neither
  *   proves nor weakens RH. The off-diagonal endpoint-Hankel operator step (imp-3066)
  *   remains the lone obstruction and is untouched. Measurement only, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3325-onset-pade-resummation.js (imp-3325: the [1/1] Pade, radius ~0.2734)
  *   @see imp-3222-onset-decay-second-order-coefficient.js (imp-3222: A2 ~ -2.59666)
@@ -288,7 +288,7 @@ export const IMP3383_ONSET_THIRD_ORDER_HIGHER_PADE = Object.freeze({
       'Derives a scalar onset coefficient (plus a bonus A4) and measures Pade accuracy radii of a ' +
       'rational reconstruction of the imp-3064 degree-0 scalar signature; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction and is NOT addressed.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -361,7 +361,7 @@ export const IMP3383_ONSET_THIRD_ORDER_HIGHER_PADE_ASSERTIONS = [
     id: 'imp3383-honest-rh-equivalent-not-a-reduction',
     why: 'Mandatory honesty: this is a coefficient derivation + Pade accuracy-radius measurement, ' +
          'RH-EQUIVALENT, structural/diagnostic, leaves the operator step untouched, is not a proof, ' +
-         'not a reduction below RH, and PT 0.2 stays SOTA. If any of these flip the module over-claims.',
+         'not a reduction below RH, and no refereed bound is changed. If any of these flip the module over-claims.',
     holds: () => {
       const c = IMP3383_ONSET_THIRD_ORDER_HIGHER_PADE.honestCaveat;
       return (
@@ -370,7 +370,7 @@ export const IMP3383_ONSET_THIRD_ORDER_HIGHER_PADE_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.isStructuralDiagnostic === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

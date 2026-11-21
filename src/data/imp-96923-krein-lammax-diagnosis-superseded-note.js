@@ -25,7 +25,7 @@
  * tail integral (1/(pi B)) int_{|t|>T} sigma_2(t) |v0.Phi(t)|^2 dt). Reconciliation only: no new (N,T) solve,
  * no residual constant computed here; the Rayleigh floor stays an UPPER bound on the true lambda_min;
  * establishes NO operator positivity; IMP96749_UNIFORM_N_GAP_UNSETTLED stays open; interval-rigorous reach
- * stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * stays 2a <= 0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96876-krein-tresidual-crossval-measurement.js (superseded diagnosis; IMP96876_TRACE_VACUOUS)
  * @see imp-96888-krein-tresidual-rayleigh-permode-bound.js (refutation + operative mechanism; IMP96888_RAYLEIGH_TAIL_MAJORANT)

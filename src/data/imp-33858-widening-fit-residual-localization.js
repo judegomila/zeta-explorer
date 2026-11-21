@@ -51,7 +51,7 @@
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the OLS surrogate is descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33843-eflow-resid-widening-form-fit (the aggregate RMSE ~0.116 log-linear fit localized here)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the 21-rung ladder whose residual shape is tabulated)
@@ -186,7 +186,7 @@ export const IMP33858_WIDENING_FIT_RESIDUAL_LOCALIZATION = {
     'not derived; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33843 (the aggregate RMSE ~0.116 log-linear fit localized here); imp-33810 (the 21-rung ' +
     'ladder); imp-28895 (the ~918x widening component derivation); imp-33773 (M2 refutation the ' +
@@ -231,14 +231,14 @@ export const IMP33858_WIDENING_FIT_RESIDUAL_LOCALIZATION_ASSERTIONS = [
       TAIL_MEAN > 0,
   },
   {
-    // (R3) Honesty gate: small residual, isRigorous false, does not overturn the verdict, no QED, PT SOTA.
+    // (R3) Honesty gate: small residual, isRigorous false, does not overturn the verdict, no QED, no refereed bound is changed.
     id: 'imp33858-honesty-gate-no-qed',
-    description: 'Measurement only: residual small (<0.3), isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: residual small (<0.3), isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       Math.abs(PEAK.resid) < 0.3 &&
       IMP33858_WIDENING_FIT_RESIDUAL_LOCALIZATION.isRigorous === false &&
       /NO QED/.test(IMP33858_WIDENING_FIT_RESIDUAL_LOCALIZATION.verdict) &&
-      /remains SOTA/.test(IMP33858_WIDENING_FIT_RESIDUAL_LOCALIZATION.verdict),
+      /refereed bound is changed/i.test(IMP33858_WIDENING_FIT_RESIDUAL_LOCALIZATION.verdict),
   },
 ];
 

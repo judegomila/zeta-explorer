@@ -48,7 +48,7 @@
  * certificate at T_PT stays GREENFIELD (imp-35681 Part A). MEASUREMENT ONLY; certifies no W1
  * bound; evaluates no true H_0; instantiates no interval; verifies no inequality; changes no
  * bound; establishes no positivity; the C_mb GUE-conditional constant (imp-486) is untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36062-kbn-kahan-separation-onset (noted the single kappa dip 361.5 lt 362.8; keyed onset to N)
  * @see imp-36099-kbn-kahan-ratio-scaling-fit (the KBN/Kahan ratio itself is rounding-noise, no clean law)
@@ -61,7 +61,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-36062) ----------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI)));
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 retained terms per mollified sum at T_PT
 
@@ -300,7 +300,7 @@ export const IMP36116_KAPPA_MONOTONICITY_LADDER = {
     'binding constraint anywhere; the obstruction stays the ENGINEERING of the certified length-N interval sum ' +
     '(MECHANICAL, imp-35725). Certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no ' +
     'inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT stays GREENFIELD; ' +
-    'C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36062 (noted the single kappa dip 361.5 lt 362.8; keyed the onset to N); imp-36099 (the KBN/Kahan ratio is ' +
     'rounding-noise, no clean law); imp-36023 (per-N kappa + KBN/Kahan floor on the clustered worst order); imp-35852 ' +
@@ -362,7 +362,7 @@ export const IMP36116_KAPPA_MONOTONICITY_LADDER_ASSERTIONS = [
   },
   {
     id: 'imp36116-honesty-gate',
-    description: 'Measurement only; kappa non-monotone; precision non-binding; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; kappa non-monotone; precision non-binding; no QED; no refereed bound is changed',
     holds: () =>
       IMP36116_KAPPA_MONOTONICITY_LADDER.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -370,7 +370,7 @@ export const IMP36116_KAPPA_MONOTONICITY_LADDER_ASSERTIONS = [
       /NOT the binding constraint/.test(IMP36116_KAPPA_MONOTONICITY_LADDER.reading.precisionNotBinding) &&
       /GREENFIELD/.test(IMP36116_KAPPA_MONOTONICITY_LADDER.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP36116_KAPPA_MONOTONICITY_LADDER.verdict) &&
-      /remains SOTA/.test(IMP36116_KAPPA_MONOTONICITY_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP36116_KAPPA_MONOTONICITY_LADDER.verdict),
   },
 ];
 

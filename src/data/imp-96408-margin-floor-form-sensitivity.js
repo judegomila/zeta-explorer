@@ -49,7 +49,7 @@
  *
  * GRADE: documentation/measurement only. Import-light (column + cheap refits
  * baked/recomputed inline; no heavy bundle). Changes no Lambda bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-96265-margin-floor-loo-stability (the sign conclusion under test)
  * @see imp-96173-route-bd-margin-decay-fits-table (the reciprocal-log fit)
@@ -130,7 +130,7 @@ export const IMP_96408_MARGIN_FLOOR_FORM_SENSITIVITY = {
   note:
     'documentation/measurement only; import-light (column + cheap refits inline, '
     + 'stretched-exp min-SSE baked from tmp scan); changes no Lambda bound; '
-    + 'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    + 'NO QED; no refereed bound is changed',
   closesTickets: ['imp-96408'],
 };
 

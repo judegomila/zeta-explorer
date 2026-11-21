@@ -14,7 +14,7 @@
  *
  * PRESENTATION ONLY. Changes no bound; establishes no operator positivity;
  * the floor is a Rayleigh-Ritz UPPER bound; interval-rigorous certificate
- * reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open;
+ * reach stays 2a<=0.96; no refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-96917-krein-tladder-plateau-viz-data.js (source ladder + verdict)
@@ -71,8 +71,8 @@ export const IMP96939_HONEST_BANNER =
   'Presentation only: the T-ladder floor is a Rayleigh-Ritz UPPER bound, not an operator positivity ' +
   'proof. The 2a=ln3 floor plateaus strictly positive as T->inf at every N, and the residual left ' +
   'beyond T=3200 is small (0.1-0.5% of the floor) but GROWS with N, confirming the imp-96814 deficit ' +
-  'was a genuine lower bound. Interval-rigorous certificate reach stays 2a<=0.96; PT Lambda <= 0.2 ' +
-  'remains SOTA; RH open; NO QED.';
+  'was a genuine lower bound. Interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // plain validation object (no self-executing throw; imp-96294/imp-96819 convention -- a viz-data
 // leaf must stay inert in the browser so a stale reading cannot blank a lazy-loaded page). Checked
@@ -97,7 +97,7 @@ export const IMP96939_VALIDATION = Object.freeze({
     IMP96917_VERDICT.qed === false,
   honestBannerPresent:
     /RH open/.test(IMP96939_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP96939_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96939_HONEST_BANNER) &&
     /NO QED/.test(IMP96939_HONEST_BANNER),
 });
 

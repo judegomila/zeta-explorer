@@ -150,7 +150,7 @@ export default function Imp95143VacuitySaturationCorridorViz() {
         constants.satSlope literals verbatim (no new computation, no bound claim). The open corridor
         between the two frontiers is recorded, not resolved, on both sides; the weight-priced and
         modulus/phase signed legs remain open; the paper packets stay uncertified. Changes no bound,
-        establishes no operator positivity, no RH claim; Platt-Trudgian Lambda &le; 0.2 remains SOTA;
+        establishes no operator positivity, no RH claim;
         NO QED.
       </div>
     </div>

@@ -41,7 +41,7 @@
  * effectiveHeightForN mapping unchanged; derives no remainder; discharges nothing; changes
  * no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643),
  * E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a
- * stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (stated monotone post-peak decay; never measured the exponent)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (source sigma model; interior peak N ~ 9.22e5)
@@ -53,7 +53,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // EXACT imp-3406 / imp-33582 sub-terms (identical to imp-35950; no fresh model).
 const TWO_PI = 2 * Math.PI;
@@ -176,8 +176,8 @@ export const IMP35992_SIGMA_FARTAIL_LOGLOG_SLOPE = {
     'sub-terms and the effectiveHeightForN mapping unchanged; derives no remainder; discharges ' +
     'nothing; changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) ' +
     '(imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are ' +
-    'UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3406 (stated monotone post-peak decay; never measured the exponent); imp-33582 ' +
     '(sigma-decay model; interior peak N ~ 9.22e5); imp-35950 (same surrogate; sigma = 0.5 ' +
@@ -229,7 +229,7 @@ export const IMP35992_SIGMA_FARTAIL_LOGLOG_SLOPE_ASSERTIONS = [
       Math.abs(FAR.bend - 1 / (2 * FAR.logT0)) < 5e-3, // bend ~ 1/(2 log T0)
   },
   {
-    // (7) honesty gate: measurement only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, PT SOTA, NO QED.
+    // (7) honesty gate: measurement only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp35992-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -241,7 +241,7 @@ export const IMP35992_SIGMA_FARTAIL_LOGLOG_SLOPE_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

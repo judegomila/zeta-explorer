@@ -62,7 +62,7 @@ export const R3_FLINT2 = Object.freeze({
     + 'and independently reproduced: exactly 16,071 zeros in (T1, T2] ⊇ [x_L/2, x_R/2], all simple and on the line. FLINT’s Platt grid bounds are sound at '
     + 'the pilot parameters with the wrap patch and the π-corrected A.3; its Gram-block Turing criterion (Brent Thm 3.2 / Trudgian Cor 2.3) does not follow '
     + 'from the integral bound (≥ 10 unit blocks per side needed at 7.8e12, FLINT uses 6), so anchors certified only by FLINT’s own logic, including '
-    + 'the 1.65X window, are not certified. Internal audit, no external referee. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'the 1.65X window, are not certified. Internal audit, no external referee. No refereed bound is changed. RH open. NO QED.',
   nextStep: 'Lehman 1970 Thm 4 + external referee for §3.3; re-certify the 1.65X window by Route 2; audit or independently re-implement zeta_rs; check PT21’s Turing step against the GAP.',
 });
 
@@ -108,7 +108,7 @@ export const R3_FLINT2_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r3-flint2-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(F.verdict) && /NO QED/.test(F.verdict) && F.trustBase.some((x) => /unaudited/.test(x)) && /no external referee/.test(F.verdict),
+    holds: () => /refereed bound is changed/i.test(F.verdict) && /NO QED/.test(F.verdict) && F.trustBase.some((x) => /unaudited/.test(x)) && /no external referee/.test(F.verdict),
     why: 'Window certificate rests on unaudited zeta_rs; internal audit only.',
   },
 ]);

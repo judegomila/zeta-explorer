@@ -49,8 +49,8 @@
  * global-in-MEASURE control, and the bracket forces no single metric.
  *
  * CONSEQUENCE: the finite-N route stays an ESTIMATE (rigorous-modulo cond-CH=O(1));
- * cond-CH stays in the closure. No new rigorous route; PLATT-TRUDGIAN Lambda <= 0.2
- * REMAINS SOTA; no false QED. Net: the wall is now precisely located (multi-body
+ * cond-CH stays in the closure. No new rigorous route; no refereed bound is changed
+ * ; no false QED. Net: the wall is now precisely located (multi-body
  * isolation / D_rest, metric-invariant) and the prior "metric is fundamental"
  * framing is corrected to "metric incidental / re-architecturable but futile."
  *
@@ -67,7 +67,7 @@ export const ECONN_METRIC_REARCH = {
   trueWall: 'metric-invariant multi-body ISOLATION / repulsion: a uniform lower bound on the product of non-colliding gaps D_rest(t_c); RH-hard off-basin, deterministic on the real-zero basin',
   namedResidual: 'the MULTI-BODY (asymmetric) closure of the sg1c R2-T isolation constant c in [0.72,1) (single-shell c*~0.9319 closed by imp-3005; multi-body scanned ~0.943, not closed) -- the SAME deterministic target the C_H frontier converged on',
   bracketCorrection: 'the E(N) bracket is a SCALAR additive triangle inequality; E_trunc/E_flow use the height-tail (NOT W_1), only E_coll uses W_1 -- the chain already mixes global-in-height and global-in-measure',
-  sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; finite-N route stays an ESTIMATE (cond-CH=O(1)); no new route; no false QED',
+  sota: 'No refereed bound is changed; finite-N route stays an ESTIMATE (cond-CH=O(1)); no new route; no false QED',
 };
 
 export const ECONN_METRIC_REARCH_ASSERTIONS = [
@@ -83,8 +83,8 @@ export const ECONN_METRIC_REARCH_ASSERTIONS = [
   },
   {
     id: 'econn-sota-unchanged-no-qed',
-    description: 'PT 0.2 remains SOTA; finite-N route stays ESTIMATE; no new rigorous route',
-    holds: () => /Platt-Trudgian Lambda <= 0.2 remains/.test(ECONN_METRIC_REARCH.sota) && /no new route/.test(ECONN_METRIC_REARCH.sota),
+    description: 'No refereed bound is changed; finite-N route stays ESTIMATE; no new rigorous route',
+    holds: () => /refereed bound is changed/i.test(ECONN_METRIC_REARCH.sota) && /no new route/.test(ECONN_METRIC_REARCH.sota),
   },
 ];
 

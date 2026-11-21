@@ -25,7 +25,7 @@
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound. Consistent
  *   with imp-95863: the only in-repo lever above gamma_1e6 is the imp-95722 analytic r_cap
  *   envelope, not a bigger ordinate table. imp-2519 no-overclaim guard preserved; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-95947-crossover-ordinate-count-reach-assessment (source reach/windowed estimate)
  * @see imp-95750-number-variance-deadzone-measurement-reach (F2 dead-zone: ~2.4% reached, ~3.36-decade gap)
@@ -33,7 +33,7 @@
  * @see imp-95722 (analytic r_cap envelope, the only in-repo high-T lever above gamma_1e6)
  *
  * Ticket: imp-95990 (content, small). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The crossover ordinate-count reach headword, baked verbatim (no re-import).
@@ -73,7 +73,7 @@ export const IMP95990_CROSSOVER_ORDINATE_COUNT_REACH_GLOSSARY_HEADWORD = Object.
     '(gamma_1e6 = 6.003e5) -- ~26..35 GB, reachable only by an external Odlyzko/Gourdon-scale ' +
     'table, never the 16.7 MB in-repo bundle. The analytic r_cap envelope (imp-95722) remains ' +
     'the only in-repo lever above gamma_1e6. Establishes nothing; instantiates no interval; ' +
-    'moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95947 (crossover ordinate-count reach estimate); imp-95750 (dead-zone ~2.4% reached, ' +
     '~3.36-decade gap); imp-95863 (complementary ordinate-table reach ledger); imp-95801 (in-repo ' +
@@ -102,12 +102,12 @@ export const IMP95990_CROSSOVER_ORDINATE_COUNT_REACH_GLOSSARY_HEADWORD_ASSERTION
   },
   {
     id: 'imp95990-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, source ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, source ' +
       'ticket id recorded.',
     holds: () =>
       IMP95990_CROSSOVER_ORDINATE_COUNT_REACH_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95990_CROSSOVER_ORDINATE_COUNT_REACH_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95990_CROSSOVER_ORDINATE_COUNT_REACH_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95990_CROSSOVER_ORDINATE_COUNT_REACH_GLOSSARY_HEADWORD.verdict) &&
       /imp-95947/.test(IMP95990_CROSSOVER_ORDINATE_COUNT_REACH_GLOSSARY_HEADWORD.glosses),
   },
 ];

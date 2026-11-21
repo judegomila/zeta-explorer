@@ -44,8 +44,7 @@
  * value way to sharpen it.
  *
  * GRADE: documentation/measurement only. Import-light (all literals baked, no
- * heavy bundle). Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * heavy bundle). Changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * @see imp-96265-margin-floor-loo-stability (LOO/LTO leverage ranking under test)
  * @see imp-96173-route-bd-margin-decay-fits-table (the fit)
@@ -163,7 +162,7 @@ export const IMP_96289_MARGIN_FLOOR_T60_ANCHOR_SENSITIVITY = {
     + 'the cheapest way to sharpen the loose 0.14256 magnitude',
   note:
     'documentation/measurement only; import-light baked literals; changes no '
-    + 'Lambda bound; Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    + 'Lambda bound; no refereed bound is changed',
   closesTickets: ['imp-96289'],
 };
 

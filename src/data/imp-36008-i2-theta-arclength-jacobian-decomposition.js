@@ -13,7 +13,7 @@
  *
  * ASSESSMENT / MEASUREMENT ONLY. Certifies no cap; instantiates no interval
  * enclosure; counts no zeros; changes no bound; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * THE TWO PROXIES (recap)
  * -----------------------------------------------------------------------------
@@ -79,7 +79,7 @@
  * H_t = A + B - C on dR, and route A is the SMOOTH mean rate (a certified cap needs
  * an interval UPPER bound on the LOCAL rate). This module instantiates no interval
  * enclosure, certifies no cap, counts no zeros, fixes no Delta or h, changes no
- * bound; I2 stays GREENFIELD. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; I2 stays GREENFIELD. NO QED. No refereed bound is changed.
  *
  * @see imp-35993-i2-panel-proxy-reconciliation-per-unit-height (per-unit-height reconciliation via Omega; residual 4/3 under the mean-gap map)
  * @see imp-35951-i2-i3-sizing-from-imp33923-sampled-proxy (route B slope |s|=3/2, flagged the not-one-to-one-comparable gap)
@@ -91,7 +91,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35757 / imp-35951 / imp-35993) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this derivation
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this derivation
 const HALF_TURN = Math.PI; // the I2 cap threshold: |Delta arg f| < pi per panel
 
 // Route A (imp-35757): smooth along-line Riemann-Siegel mean winding rate.
@@ -212,7 +212,7 @@ export const IMP36008_I2_THETA_ARCLENGTH_JACOBIAN_DECOMPOSITION = {
     'height map rescales R linearly in lambda. BOTH remain PROXIES on the off-axis model cusp, NOT the true ' +
     'H_t = A + B - C on dR, and route A is the SMOOTH mean rate (a certificate needs an interval UPPER bound on the ' +
     'LOCAL rate). Instantiates no interval enclosure; certifies no cap; counts no zeros; fixes no Delta or h; ' +
-    'changes no bound; I2 stays GREENFIELD; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'changes no bound; I2 stays GREENFIELD; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35993 (per-unit-height reconciliation via Omega, residual 4/3 under the mean-gap map); imp-35951 (route B ' +
     'slope |s|=3/2, flagged the not-one-to-one-comparable gap); imp-35757 (route A smooth Riemann-Siegel mean rate ' +
@@ -268,9 +268,9 @@ export const IMP36008_I2_THETA_ARCLENGTH_JACOBIAN_DECOMPOSITION_ASSERTIONS = [
       Math.abs(residualAt(3e13) - 4 / 3) < 1e-12,
   },
   {
-    // Honesty gate: measurement only; J_geo exact geometry but lambda imported; both proxies; no cert; PT SOTA.
+    // Honesty gate: measurement only; J_geo exact geometry but lambda imported; both proxies; no cert; no refereed bound is changed.
     id: 'imp36008-honesty-gate-no-qed',
-    description: 'Measurement only; J_geo=1 exact geometry, lambda IMPORTED (4/3 only under mean-gap); PROXIES on the model cusp; certifies no cap; I2 GREENFIELD; NO QED; PT Lambda <= 0.2 SOTA',
+    description: 'Measurement only; J_geo=1 exact geometry, lambda IMPORTED (4/3 only under mean-gap); PROXIES on the model cusp; certifies no cap; I2 GREENFIELD; NO QED; no refereed bound is changed',
     holds: () =>
       IMP36008_I2_THETA_ARCLENGTH_JACOBIAN_DECOMPOSITION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -280,7 +280,7 @@ export const IMP36008_I2_THETA_ARCLENGTH_JACOBIAN_DECOMPOSITION_ASSERTIONS = [
       /certifies no cap/.test(IMP36008_I2_THETA_ARCLENGTH_JACOBIAN_DECOMPOSITION.verdict) &&
       /I2 stays GREENFIELD/.test(IMP36008_I2_THETA_ARCLENGTH_JACOBIAN_DECOMPOSITION.verdict) &&
       /NO QED/.test(IMP36008_I2_THETA_ARCLENGTH_JACOBIAN_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP36008_I2_THETA_ARCLENGTH_JACOBIAN_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP36008_I2_THETA_ARCLENGTH_JACOBIAN_DECOMPOSITION.verdict),
   },
 ];
 

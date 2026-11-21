@@ -67,7 +67,7 @@
  * observation is NOT upgraded to a theorem. No conflict with imp-95224
  * COROLLARY DC-NOGO, which forbids only COUNT-UNIFORM depth-only bounds; this
  * is a fixed-count (N = 2) statement. Changes no bound of the Lambda program;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -108,7 +108,7 @@ export const IMP95134_RATIO_MONOTONICITY_REDUCTION = {
   verdict:
     "candidate REDUCED to one scalar inequality and confirmed numerically " +
     "with saturation at coalescence; analytic proof OPEN (named residual); " +
-    "changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "changes no bound; NO QED; no refereed bound is changed",
 };
 
 // ---------------------------------------------------------------------------
@@ -211,7 +211,7 @@ export const IMP95134_RATIO_MONOTONICITY_ASSERTIONS = [
     id: "imp95134-verdict-honesty",
     description:
       "the record carries the honest scope: analytic proof OPEN, grid " +
-      "observation NOT upgraded, DC-NOGO consistency, no QED, SOTA unchanged",
+      "observation NOT upgraded, DC-NOGO consistency, no QED, no refereed bound is changed",
     holds: () =>
       /OPEN/.test(IMP95134_RATIO_MONOTONICITY_REDUCTION.residual) &&
       /NOT upgraded to theorem/.test(
@@ -219,7 +219,7 @@ export const IMP95134_RATIO_MONOTONICITY_ASSERTIONS = [
       ) &&
       /DC-NOGO/.test(IMP95134_RATIO_MONOTONICITY_REDUCTION.dcNogoConsistency) &&
       /NO QED/.test(IMP95134_RATIO_MONOTONICITY_REDUCTION.verdict) &&
-      /remains SOTA/.test(IMP95134_RATIO_MONOTONICITY_REDUCTION.verdict),
+      /refereed bound is changed/i.test(IMP95134_RATIO_MONOTONICITY_REDUCTION.verdict),
   },
 ];
 

@@ -65,7 +65,7 @@
  *   Hankel cross-term gap imp-3066 isolated. Closing imp-3066 requires bounding
  *   ||D^{-1/2} A D^{-1/2}||, which the scalar ceiling does not touch. Assessment
  *   only; does NOT attempt K_a >= 0 positivity; no reduction; no RH verdict.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. No false QED.
+ *   No refereed bound is changed. No false QED.
  *
  *   @see imp-3288-analytic-ceiling-lemma.js (the scalar-core L2 ceiling + operator-order corollary)
  *   @see imp-3066-offdiagonal-hankel-obstruction.js (the diagonal-normalized endpoint-Hankel step)
@@ -234,8 +234,8 @@ export const IMP3331_CEILING_LIFT_PER_N_DEFICIT_ASSESSMENT = Object.freeze({
     '(min eig ~ -33.6 at DEG=4) and ||R|| = ||D^{-1/2} A D^{-1/2}|| STRICTLY exceeds tanh(a*U) (~4.6, worsening ' +
     'with DEG). The scalar ceiling is NECESSARY (it pins the full-Gram generalized Rayleigh sup, = imp-3326 ' +
     'Reading 1) but NOT SUFFICIENT: structurally DISCONNECTED from the endpoint-Hankel obstruction, which lives ' +
-    'one normalization removed. Assessment only; does NOT attempt K_a >= 0; no reduction; no RH verdict; PT ' +
-    'Lambda <= 0.2 stays SOTA.',
+    'one normalization removed. Assessment only; does NOT attempt K_a >= 0; no reduction; no RH verdict; no refereed bound is changed' +
+    '.',
 
   construction: Object.freeze({
     basis: 'phi_j(tau) = (tau/U)^j, j = 0..DEG (the imp-3066 rescaled monomial truncation)',
@@ -303,7 +303,7 @@ export const IMP3331_CEILING_LIFT_PER_N_DEFICIT_ASSESSMENT = Object.freeze({
       'The lift EXISTS (tanh(a*U) B - A PSD) but ONLY for the FULL passive Gram B; against the passive DIAGONAL ' +
       'D = diag(B) the imp-3066 endpoint-Hankel step uses, the deficit is indefinite and ||R|| > tanh(a*U). ' +
       'Necessary-not-sufficient; structurally disconnected. Does NOT attempt K_a >= 0; no reduction; no RH verdict.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -351,7 +351,7 @@ export const IMP3331_CEILING_LIFT_PER_N_DEFICIT_ASSESSMENT_ASSERTIONS = [
     id: 'imp3331-honest-necessary-not-sufficient-no-qed',
     why: 'Mandatory honesty: an ASSESSMENT (not a proof of RH), verdict = lift exists for the full Gram but ' +
          'does NOT feed the imp-3066 diagonal-normalized endpoint-Hankel step (necessary-not-sufficient), ' +
-         'RH-equivalent, does NOT touch K_a >= 0, carries NO RH verdict, PT 0.2 stays SOTA. If any flip the ' +
+         'RH-equivalent, does NOT touch K_a >= 0, carries NO RH verdict, no refereed bound is changed. If any flip the ' +
          'module is over-claiming.',
     holds: () => {
       const c = IMP3331_CEILING_LIFT_PER_N_DEFICIT_ASSESSMENT.honestCaveat;
@@ -364,7 +364,7 @@ export const IMP3331_CEILING_LIFT_PER_N_DEFICIT_ASSESSMENT_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.touchesOperatorPositivityResidual === false &&
         c.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

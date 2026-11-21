@@ -56,8 +56,7 @@
  * onset residual jointly as a RATE; it does NOT re-derive the m_prime -> C_ren map off-axis/off-exponent
  * and a joint finite-window onset at fixed |z_0| = eps is NOT the uniform ANALYTIC tracking of C_ren that
  * H4 needs (imp-33766). H4 is NOT discharged; G6a_shock_lipschitz STAYS OPEN. No positivity; imp-3066
- * off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains the
- * rigorous SOTA.
+ * off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-33924-joint-cusp-angle-onset-robustness-map (cross-check (b): single-eps convergence at eps = 1e-4)
  * @see imp-33928-onset-convergence-rate (the anchor alpha = 1/2 rate, theta sweep only)
@@ -268,7 +267,7 @@ export const IMP33961_JOINT_ONSET_CONVERGENCE_RATE = {
     'does NOT re-derive the m_prime -> C_ren map off-axis/off-exponent and does NOT DISCHARGE H4: a joint ' +
     'finite-window onset at fixed |z_0| = eps is not the uniform ANALYTIC tracking of C_ren the H4 ' +
     'minimal-input condition requires (imp-33766). No positivity; imp-3066 off-diagonal endpoint-Hankel ' +
-    'K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed.',
 };
 
 export const IMP33961_JOINT_ONSET_CONVERGENCE_RATE_ASSERTIONS = [
@@ -316,15 +315,15 @@ export const IMP33961_JOINT_ONSET_CONVERGENCE_RATE_ASSERTIONS = [
       IMP33961_JOINT_ONSET_CONVERGENCE_RATE.anchorReproducesImp33928 === true,
   },
   {
-    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33961-honesty-gate-no-qed',
-    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33961_JOINT_ONSET_CONVERGENCE_RATE.isRigorous === false &&
       IMP33961_JOINT_ONSET_CONVERGENCE_RATE.dischargesH4 === false &&
       /NO QED/.test(IMP33961_JOINT_ONSET_CONVERGENCE_RATE.verdict) &&
       /STAYS OPEN/.test(IMP33961_JOINT_ONSET_CONVERGENCE_RATE.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33961_JOINT_ONSET_CONVERGENCE_RATE.verdict) &&
+      /refereed bound is changed/i.test(IMP33961_JOINT_ONSET_CONVERGENCE_RATE.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP33961_JOINT_ONSET_CONVERGENCE_RATE.verdict,
       ),

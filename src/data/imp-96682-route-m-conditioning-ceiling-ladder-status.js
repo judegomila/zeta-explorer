@@ -49,7 +49,7 @@
  * on both fitted subsets, with one tight spot: the dense-subset 95% lower
  * edge (2.76e7) sits only ~6.5% above the rigorous trace ceiling (2.594e7).
  * No bound is moved anywhere in this reconciliation; no operator positivity
- * is established; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * is established; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96352-route-m-vasyunin-solve-cost-model.js (compute ceiling 9916)
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (rigorous trace lower ceiling)
@@ -158,7 +158,7 @@ export const IMP96682_VERDICT = Object.freeze({
     '(imp-96656, 95% CI) and its full uncertainty band still clears the rigorous trace ' +
     'ceiling, with the dense-subset lower edge the only tight spot (~6.5% margin). Compute ' +
     'binds first by >=1500x at every rigor level in the ladder. No bound moved anywhere in ' +
-    'this reconciliation; no operator positivity established; PT Lambda <= 0.2 remains SOTA; ' +
+    'this reconciliation; no operator positivity established; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
@@ -183,7 +183,7 @@ export const IMP96682_ROUTE_INDEPENDENCE_NOTE = Object.freeze({
 });
 
 export const IMP96682_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reconciliation status object only: every ' +
+  'RH open; no refereed bound is changed; NO QED. Reconciliation status object only: every ' +
   'ceiling value is imported unchanged from its source module (imp-96352, imp-96548 via ' +
   'imp-96648, imp-96443, imp-96570, imp-96656); no Gram was rebuilt, no bound is claimed moved ' +
   'and no operator positivity is established. The rigor level differs by rung -- the compute ' +
@@ -231,7 +231,7 @@ const IMP96682_ASSERTIONS = [
     holds: () =>
       IMP96682_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96682_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96682_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96682_HONEST_BANNER) &&
       /RH open/.test(IMP96682_HONEST_BANNER),
     why: 'reconciliation only: no bound moved, and the honesty markers are present in the banner.',
   },

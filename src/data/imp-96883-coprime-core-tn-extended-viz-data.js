@@ -15,7 +15,7 @@
  *
  * PRESENTATION ONLY. Proves no growth law; establishes no operator
  * positivity; interval-rigorous certificate reach stays 2a<=0.96;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96849-coprime-core-vasyunin-second-moment-ladder-extension.js (source ladder + fits)
  * @see imp-96858-coprime-core-tn-growth-viz-data.js (sibling viz-data leaf for the pre-extension ladder)
@@ -60,7 +60,7 @@ export const IMP96883_HONEST_BANNER =
   'linear-in-log fit into chart-ready rows, no re-fit and no new numbers. The fit curve ' +
   'T ~ 3.544 log N - 1.437 tracks the measured ladder to rms 0.0024; the local exponent keeps ' +
   'falling (1.0534 at N=4000 down to 1.0496 at N=8000, i.e. below 1.05), trending away from the ' +
-  'conjectured quadratic exponent 2, not toward it. Proves no growth law; PT Lambda <= 0.2 SOTA; ' +
+  'conjectured quadratic exponent 2, not toward it. Proves no growth law; no refereed bound is changed; ' +
   'RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
@@ -99,7 +99,7 @@ const IMP96883_ASSERTIONS = [
     id: 'imp96883-honesty-markers-present',
     holds: () =>
       /RH open/.test(IMP96883_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96883_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96883_HONEST_BANNER) &&
       /NO QED/.test(IMP96883_HONEST_BANNER),
     why: 'the viz leaf must carry the RH-open / PT-Lambda / NO-QED honesty markers, matching every sibling finding module.',
   },

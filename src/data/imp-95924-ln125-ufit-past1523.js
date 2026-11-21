@@ -76,7 +76,7 @@
  * numeric change to any prior certified interval (ln 1.2 imp-95881 / imp-95896 /
  * imp-95919, ln 1.25 imp-95895, ln 1.3 imp-95767). Model seam family only; the imp-95212
  * envelope port, signed WEIGHT, and modulus / phase legs stay OPEN. Changes NO bound of
- * the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. Sun
+ * the Lambda program; NO QED; no refereed bound is changed. Sun
  * arXiv:2609.04176 unrefereed.
  *
  * @see imp-95895-ln125-ufit-interval (the eight-point ln1.25 grid extended here)
@@ -178,7 +178,7 @@ export const IMP95924_LN125_UFIT_PAST1523 = {
     "changes no prior numeric interval (ln 1.2 imp-95881/95896/95919, ln 1.25 imp-95895, " +
     "ln 1.3 imp-95767 unchanged); model seam family only; the imp-95212 envelope port, " +
     "signed WEIGHT, and modulus / phase legs stay OPEN. Changes no bound of the Lambda " +
-    "program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. Sun arXiv:2609.04176 " +
+    "program; NO QED; no refereed bound is changed. Sun arXiv:2609.04176 " +
     "unrefereed.",
   closesTickets: ["imp-95924"],
 };
@@ -449,7 +449,7 @@ export const IMP95924_ASSERTIONS = [
       REF.qed === false &&
       REF.subGap === "imp-95924-sub-ln125-floor-past-reach-759" &&
       /DECIDED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.closesTickets.includes("imp-95924"),
   },
 ];

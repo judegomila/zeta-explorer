@@ -44,7 +44,7 @@
  * @see rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js (ROUTE_L.detector.rows, a20.nodes400, a20.c0)
  *
  * Ticket: imp-96165 (numerical, medium). Measurement/fit only; changes NO bound; RH open;
- * Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED. The sub-gap is ADVANCED, not closed.
+ * no refereed bound is changed; NO QED. The sub-gap is ADVANCED, not closed.
  */
 
 // (1) Per-delta detector power-law fits N_det = A * gamma^b over the five detected zero indices
@@ -96,6 +96,6 @@ export const IMP96165_VERDICT =
   + 'N_res(gamma_k) = k * c0 / W(gamma_k) (c0 = 53.324, atom weights 4a^2/(a^2+gamma^2)) matches measured N_det '
   + 'within ~7 percent in the mid-band (k = 6, 10) but over-predicts at low index (+67/+31 percent) and under-predicts '
   + 'at k = 20 (-35 percent): directionally right, not tight. Sub-gap ADVANCED, not closed. '
-  + 'Measurement/fit only; RH open; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.';
+  + 'Measurement/fit only; RH open; no refereed bound is changed; NO QED.';
 
 export const IMP96165_SCRIPTS = Object.freeze(['tmp/imp-96165-scratch.mjs']);

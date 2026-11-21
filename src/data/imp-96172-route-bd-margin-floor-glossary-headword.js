@@ -45,14 +45,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96148 Route B/D verdict for quick
  *   reference. It establishes nothing, instantiates no interval, closes no sub-gap,
- *   moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96148-route-bd-online-margin-decay-law (source: the decay-law derivation this glosses)
  * @see imp-96020-lp-signed-force-feasibility (LP setup and rho(N,T) grid origin)
  * @see imp-96167-route-bd-online-margin-floor-extended (independent height extension confirming imp-96148)
  *
  * Ticket: imp-96172 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The Route B/D margin-floor relocation headword, baked verbatim (no re-import).
@@ -82,7 +82,7 @@ const ROUTE_BD_MARGIN_FLOOR_HEADWORD = Object.freeze({
     'Test 2 found no coefficient set has a universal confining sign -- a ' +
     'Weil-positivity-strength statement out of reach of the on-line construction. ' +
     'Independently confirmed at higher height by imp-96167 (R2 gap widens further in ' +
-    'favour of the floor law). Changes no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'favour of the floor law). Changes no bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96172_ROUTE_BD_MARGIN_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
@@ -104,7 +104,7 @@ export const IMP96172_ROUTE_BD_MARGIN_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
     'artifact), so the on-line construction stays feasible at every height and the ' +
     'genuine uniform-in-T obstruction lives OFF the line as a Weil-positivity-strength ' +
     'statement. Establishes nothing; instantiates no interval; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96148 (the decay-law derivation this glosses); imp-96020 (LP setup and ' +
     'rho(N,T) grid origin); imp-96167 (independent height-extension confirmation).',
@@ -130,11 +130,11 @@ export const IMP96172_ROUTE_BD_MARGIN_FLOOR_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96172-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96172_ROUTE_BD_MARGIN_FLOOR_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96172_ROUTE_BD_MARGIN_FLOOR_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96172_ROUTE_BD_MARGIN_FLOOR_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96172_ROUTE_BD_MARGIN_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       IMP96172_ROUTE_BD_MARGIN_FLOOR_GLOSSARY_HEADWORD.glosses === 'imp-96148',
   },
 ];

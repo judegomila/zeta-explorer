@@ -64,7 +64,7 @@
  * slack carries no extrapolable trend, so the gap r_cap(T) - r(T) stays unquantified and
  * the only rigorous statement remains the imp-95766 one-sided bound r(T) in (0, r_cap(T)].
  * Assessment only; adds no cited input; changes no bound; NO QED; the zero-side route
- * stays PCC/GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays PCC/GRH-gated; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. The six sd(C - E) values are the same
  * measured literals imp-95710/imp-95722/imp-95766 baked (imp-95562 over the 10^6 Odlyzko
@@ -182,8 +182,8 @@ export const IMP95783_RTRUE_VS_RCAP_GAP_DEADZONE = {
     'r(T) can be formed, and the non-monotone finite-height slack carries no extrapolable trend, so ' +
     'the gap r_cap(T) - r(T) stays unquantified and the only rigorous statement remains the ' +
     'imp-95766 one-sided bound r(T) in (0, r_cap(T)]. Measures the sub-ceiling regime only; adds no ' +
-    'cited input; changes no bound; NO QED; the zero-side route stays PCC/GRH-gated; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'cited input; changes no bound; NO QED; the zero-side route stays PCC/GRH-gated; no refereed bound is changed' +
+    '.',
   citation:
     'imp-95766 (derived envelope r_cap, offset C0, true r in (0, r_cap]); imp-95750 (ceiling ' +
     'gamma_1e6 = 6.003e5, no higher in-repo ordinates); imp-95722 (r_cap, C0 anchor); imp-95519 ' +
@@ -215,8 +215,8 @@ export const IMP95783_RTRUE_VS_RCAP_GAP_DEADZONE = {
     throw new Error('imp-95783: isRigorous must be false');
   if (!/NO QED/.test(IMP95783_RTRUE_VS_RCAP_GAP_DEADZONE.verdict))
     throw new Error('imp-95783: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95783_RTRUE_VS_RCAP_GAP_DEADZONE.verdict))
-    throw new Error('imp-95783: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95783_RTRUE_VS_RCAP_GAP_DEADZONE.verdict))
+    throw new Error('imp-95783: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95783_RTRUE_VS_RCAP_GAP_DEADZONE;

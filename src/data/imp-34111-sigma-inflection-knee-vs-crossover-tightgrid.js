@@ -62,7 +62,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33721-sigma-ramp-inflection-subdecade (sub-decade knee N* ~ 3.38e9 by interpolation over [1e9,1e11])
  * @see imp-33723-sigma-half-vs-crossover-closed-form (closed-form crossover N_cross ~ 3.280294e9)
@@ -293,8 +293,8 @@ export const IMP34111_SIGMA_INFLECTION_KNEE_VS_CROSSOVER_TIGHTGRID = {
     'truncation floor E_trunc overtakes the vanishing GUE-conditional E_coll. Component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 and the C_C 1/8 ansatz (imp-2642) are UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33721 (sub-decade knee N* ~ 3.38e9 by interpolation over [1e9,1e11]); imp-33723 (closed-form ' +
     'crossover N_cross = (C_C/E_trunc)^2 log T0(N_cross) ~ 3.280294e9); imp-33767 ' +
@@ -346,13 +346,13 @@ export const IMP34111_SIGMA_INFLECTION_KNEE_VS_CROSSOVER_TIGHTGRID_ASSERTIONS = 
     holds: () => CROSS_METHOD_REL < 1e-3,
   },
   {
-    // Honesty gate: measurement/fit only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/fit only, no QED, no refereed bound is changed.
     id: 'imp34111-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34111_SIGMA_INFLECTION_KNEE_VS_CROSSOVER_TIGHTGRID.isRigorous === false &&
       /NO QED/.test(IMP34111_SIGMA_INFLECTION_KNEE_VS_CROSSOVER_TIGHTGRID.verdict) &&
-      /remains SOTA/.test(IMP34111_SIGMA_INFLECTION_KNEE_VS_CROSSOVER_TIGHTGRID.verdict),
+      /refereed bound is changed/i.test(IMP34111_SIGMA_INFLECTION_KNEE_VS_CROSSOVER_TIGHTGRID.verdict),
   },
 ];
 

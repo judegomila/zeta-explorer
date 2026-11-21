@@ -56,8 +56,7 @@
  *   extrapolation hundreds of decades past the imp-34711-validated 1e100 window that certifies nothing
  *   about the true q3. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are
  *   UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched;
- *   changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA.
+ *   changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34754-dp-star-probe-band-ratio-deep-tail.js (the 9-point crossover landmark being swept)
  *   @see imp-34753-q3-far-tail-third-stencil-convergence.js (the three stencils + prefactor amplitudes)
@@ -262,7 +261,7 @@ export const IMP34773_CROSSOVER_N_STENCIL_ORDER_SPREAD = Object.freeze({
     'crossover shift is a property of the inherited model, not an independent physical claim. The -2 ' +
     'asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb ' +
     'GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; ' +
-    'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34754 (the 9-point crossover landmark log10 N ~ 374.6/630.1 being swept); imp-34753 (the three ' +
     'stencils + roundoff amplitudes 1.625/2.033/2.318 across order 4/6/8); imp-34711 (dp-star(N) ~ ' +
@@ -326,10 +325,10 @@ const IMP34773_ASSERTIONS = [
     holds: () =>
       IMP34773_CROSSOVER_N_STENCIL_ORDER_SPREAD.isRigorous === false &&
       /NO QED/.test(IMP34773_CROSSOVER_N_STENCIL_ORDER_SPREAD.verdict) &&
-      /remains SOTA/.test(IMP34773_CROSSOVER_N_STENCIL_ORDER_SPREAD.verdict) &&
+      /refereed bound is changed/i.test(IMP34773_CROSSOVER_N_STENCIL_ORDER_SPREAD.verdict) &&
       /UNTOUCHED/.test(IMP34773_CROSSOVER_N_STENCIL_ORDER_SPREAD.verdict) &&
       /extrapolation/.test(IMP34773_CROSSOVER_N_STENCIL_ORDER_SPREAD.verdict),
-    why: 'Honesty gate: measurement only, crossover is an extrapolation, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, crossover is an extrapolation, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

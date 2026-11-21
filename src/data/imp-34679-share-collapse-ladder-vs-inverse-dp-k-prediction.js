@@ -56,7 +56,7 @@
  *   regime, it does not rehabilitate it. The -2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714,
  *   C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066
  *   K_a >= 0 untouched; the inherited surrogate is NOT rigorous; no operator positivity; no RH verdict,
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  *   @see imp-34651-q2-q4-share-roundoff-valley-spread.js (F3 collapse-factor ladder q2/q3/q4 ~8.4/10.8/27.7x, ordered)
  *   @see imp-34606-roundoff-amplification-exponent-ladder.js (clean {2,3,4} 1/dp^k exponent ladder via log-log fit)
@@ -247,8 +247,8 @@ export const IMP34679_SHARE_COLLAPSE_LADDER_VS_INVERSE_DP_K = Object.freeze({
     'trustworthy) is inherited as-is -- this cross-checks that regime, it does not rehabilitate it. The ' +
     '-2 asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb ' +
     'GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; the inherited surrogate ' +
-    'is NOT rigorous; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'is NOT rigorous; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34651 (F3 collapse-factor ladder q2/q3/q4 ~8.4/10.8/27.7x, ordering only -- quantified here); ' +
     'imp-34606 (clean {2,3,4} 1/dp^k roundoff-amplification exponent ladder via log-log fit); imp-34633 ' +
@@ -284,9 +284,9 @@ const IMP34679_ASSERTIONS = [
     holds: () =>
       IMP34679_SHARE_COLLAPSE_LADDER_VS_INVERSE_DP_K.isRigorous === false &&
       /NO QED/.test(IMP34679_SHARE_COLLAPSE_LADDER_VS_INVERSE_DP_K.verdict) &&
-      /remains SOTA/.test(IMP34679_SHARE_COLLAPSE_LADDER_VS_INVERSE_DP_K.verdict) &&
+      /refereed bound is changed/i.test(IMP34679_SHARE_COLLAPSE_LADDER_VS_INVERSE_DP_K.verdict) &&
       /UNTOUCHED/.test(IMP34679_SHARE_COLLAPSE_LADDER_VS_INVERSE_DP_K.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

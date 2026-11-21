@@ -41,7 +41,7 @@
  *   - The GLOBAL multi-body isolation constant stays OPEN in (0.927, 0.943); only
  *     the symmetric single-shell c* and the single-neighbour c = 1 are closed in
  *     form. The basin cap survives that gap purely by the 0.72 separation.
- *   - Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA; the finite-N*=1e4 beat
+ *   - no refereed bound is changed; the finite-N*=1e4 beat
  *     stays an ESTIMATE (cond-C_H = O(1) stays in the closure).
  *
  * @see sg1c-theta-trap-theorems (Lemma R2-T2 c*, imp-3005; SG1C_R2T2_SHELL_CROSSCHECK, imp-3008)
@@ -74,7 +74,7 @@ export const CH_LIP_BASIN_CONDITIONAL = {
   cThetaStatus: 'bounded + vanishing on the basin (subdominant to the gap channel); off-basin it diverges as dTheta/W_1 ~ 1/g0',
   cLipBasinFinite: true,
   status: 'BASIN-CONDITIONAL-LIPSCHITZ (C_Lip finite on the isolated-pair basin)',
-  honest: 'NOT a global-W_1 beat: off-basin C_Lip still diverges and the linear-N norm-mismatch is untouched. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; finite-N*=1e4 beat stays an ESTIMATE. NO false QED.',
+  honest: 'NOT a global-W_1 beat: off-basin C_Lip still diverges and the linear-N norm-mismatch is untouched. No refereed bound is changed; finite-N*=1e4 beat stays an ESTIMATE. NO false QED.',
 };
 
 export const CH_LIP_BASIN_ASSERTIONS = [
@@ -95,10 +95,10 @@ export const CH_LIP_BASIN_ASSERTIONS = [
   },
   {
     id: 'ch-lip-basin-finite-not-global-beat',
-    description: 'C_Lip is finite ON the basin (basin-conditional Lipschitz), but this is explicitly NOT a global-W_1 beat and PT 0.2 stays SOTA',
+    description: 'C_Lip is finite ON the basin (basin-conditional Lipschitz), but this is explicitly NOT a global-W_1 beat and no refereed bound is changed',
     holds: () => CH_LIP_BASIN_CONDITIONAL.cLipBasinFinite === true
       && /NOT a global-W_1 beat/.test(CH_LIP_BASIN_CONDITIONAL.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(CH_LIP_BASIN_CONDITIONAL.honest),
+      && /refereed bound is changed/i.test(CH_LIP_BASIN_CONDITIONAL.honest),
   },
   {
     id: 'ch-lip-basin-separation-invariant-baked',
@@ -182,8 +182,8 @@ for (const a of BASIN_MARGIN_ASSERTIONS) {
 // nominal-to-ceiling band of the conservative trapped C_Lip_basin gap channel is
 // bounded explicitly. The function is strictly increasing and convex in theta on
 // [0,1/4] (1/(1-theta) is), so the band is exactly [GAP_NOMINAL, GAP_CEILING] with
-// the worst case at the trap ceiling Theta = 1/4. ESTIMATE only; Platt-Trudgian
-// Lambda <= 0.2 stays the rigorous SOTA, and this does NOT close the global
+// the worst case at the trap ceiling Theta = 1/4. ESTIMATE only; no refereed bound is changed
+// , and this does NOT close the global
 // constant or convert the basin cap into a global-W_1 beat.
 const GAP_CHANNEL_THETA_GRID = [0, 0.05, 0.1, 0.15, 0.2, 0.25];
 const GAP_CHANNEL_SWEEP = GAP_CHANNEL_THETA_GRID.map((theta) => ({
@@ -207,7 +207,7 @@ export const GAP_CHANNEL_SWEEP_TABLE = {
   bandHigh: GAP_CEILING,                                         // 1.257e-2 trapped ceiling (Theta = 1/4)
   bandWidthAbs: GAP_CHANNEL_BAND_WIDTH,                          // 3.14e-3 absolute spread
   bandWidthRel: GAP_CHANNEL_BAND_REL,                            // 0.3333 = exactly 1/3 inflation across the trap
-  honest: 'gapChannel is strictly increasing and convex on [0,1/4], so the full nominal-to-ceiling band is [GAP_NOMINAL, GAP_CEILING] with the worst case at the trap ceiling Theta=1/4. This is an ESTIMATE tabulation only -- it does NOT close the global constant nor convert the basin-conditional cap into a global-W_1 beat; Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA.',
+  honest: 'gapChannel is strictly increasing and convex on [0,1/4], so the full nominal-to-ceiling band is [GAP_NOMINAL, GAP_CEILING] with the worst case at the trap ceiling Theta=1/4. This is an ESTIMATE tabulation only -- it does NOT close the global constant nor convert the basin-conditional cap into a global-W_1 beat; no refereed bound is changed.',
 };
 
 export const GAP_CHANNEL_SWEEP_ASSERTIONS = [
@@ -261,7 +261,7 @@ for (const a of GAP_CHANNEL_SWEEP_ASSERTIONS) {
 //     acts in the PER-PAIR channel only and is orthogonal to this global averaging,
 //     so it leaves the O(N) growth in place: global C_Lip still diverges as N grows.
 // NET: the basin removes the 1/(1-Theta) blowup ONLY, not the linear-N dilution.
-// Scope clarification only -- NO QED, NOT a global-W_1 beat; PT Lambda <= 0.2 SOTA.
+// Scope clarification only -- NO QED, NOT a global-W_1 beat; no refereed bound is changed.
 const N_AST_DECOMP = 1e4;                                       // operative finite height N*
 const THETA_FACTOR_OFFBASIN_LO = 11.97;                        // verdict off-basin Theta-channel value
 const THETA_FACTOR_OFFBASIN_HI = 95.78;                        // ... after g0 halves (dTheta/W_1 ~ 1/g0)
@@ -290,7 +290,7 @@ export const CH_LIP_DIVERGENCE_DECOMPOSITION = {
   },
   basinRemoves: 'the Theta channel 1/(1-Theta) ONLY (bounded by 4/3 on the basin)',
   basinDoesNotRemove: 'the linear-N dilution factor (global C_Lip ~ N still diverges as N -> infinity)',
-  honest: 'Scope clarification only: the basin reconditioning removes the 1/(1-Theta) Theta-channel blowup but NOT the O(N) norm-mismatch. NO QED; this is NOT a global-W_1 beat. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA and the finite-N*=1e4 beat stays an ESTIMATE.',
+  honest: 'Scope clarification only: the basin reconditioning removes the 1/(1-Theta) Theta-channel blowup but NOT the O(N) norm-mismatch. NO QED; this is NOT a global-W_1 beat. No refereed bound is changed and the finite-N*=1e4 beat stays an ESTIMATE.',
 };
 
 export const CH_LIP_DIVERGENCE_ASSERTIONS = [
@@ -315,9 +315,9 @@ export const CH_LIP_DIVERGENCE_ASSERTIONS = [
   },
   {
     id: 'ch-lip-decomp-scope-only-no-false-qed',
-    description: 'the decomposition is scope-only: NOT a global-W_1 beat and PT Lambda <= 0.2 stays SOTA',
+    description: 'the decomposition is scope-only: NOT a global-W_1 beat and no refereed bound is changed',
     holds: () => /NOT a global-W_1 beat/.test(CH_LIP_DIVERGENCE_DECOMPOSITION.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(CH_LIP_DIVERGENCE_DECOMPOSITION.honest),
+      && /refereed bound is changed/i.test(CH_LIP_DIVERGENCE_DECOMPOSITION.honest),
   },
 ];
 
@@ -337,7 +337,7 @@ for (const a of CH_LIP_DIVERGENCE_ASSERTIONS) {
 // We tabulate phi and its analytic derivative across [0,1/4] so the removed-channel
 // factor is pinned and a silent edit to thetaFactor or THETA_TRAP cannot drift the
 // 4/3 ceiling unnoticed. Confirms a documented bound on the channel the basin removes;
-// does NOT touch the surviving O(N) norm-mismatch dilution; NO QED. PT Lambda <= 0.2 SOTA.
+// does NOT touch the surviving O(N) norm-mismatch dilution; NO QED. No refereed bound is changed.
 const thetaFactorDeriv = (theta) => 1 / ((1 - theta) * (1 - theta));   // dphi/dTheta = 1/(1-Theta)^2 > 0
 const THETA_CEILING_GRID = [0, 1 / 16, 1 / 8, 3 / 16, 1 / 4];          // [0, 1/4] including the exact trap endpoint
 const THETA_CEILING_SWEEP = THETA_CEILING_GRID.map((theta) => ({
@@ -359,7 +359,7 @@ export const THETA_CHANNEL_CEILING = {
   grid: THETA_CEILING_GRID,
   sweep: THETA_CEILING_SWEEP,
   supremumOnInterval: thetaFactor(THETA_TRAP),                        // attained at the right endpoint = 4/3
-  honest: 'Elementary ceiling certificate only: 1/(1-Theta) is strictly increasing on [0,1/4] (derivative 1/(1-Theta)^2 > 0) and equals exactly 4/3 at the Theta=1/4 trap, so its supremum on the trap interval is 4/3. This pins the channel the basin reconditioning removes; it does NOT touch the surviving O(N) norm-mismatch dilution and is NOT a global-W_1 beat. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA.',
+  honest: 'Elementary ceiling certificate only: 1/(1-Theta) is strictly increasing on [0,1/4] (derivative 1/(1-Theta)^2 > 0) and equals exactly 4/3 at the Theta=1/4 trap, so its supremum on the trap interval is 4/3. This pins the channel the basin reconditioning removes; it does NOT touch the surviving O(N) norm-mismatch dilution and is NOT a global-W_1 beat. No refereed bound is changed.',
 };
 
 export const THETA_CHANNEL_CEILING_ASSERTIONS = [
@@ -390,9 +390,9 @@ export const THETA_CHANNEL_CEILING_ASSERTIONS = [
   },
   {
     id: 'theta-ceiling-no-false-qed',
-    description: 'the certificate pins the removed channel only: NOT a global-W_1 beat and PT Lambda <= 0.2 stays SOTA',
+    description: 'the certificate pins the removed channel only: NOT a global-W_1 beat and no refereed bound is changed',
     holds: () => /NOT a global-W_1 beat/.test(THETA_CHANNEL_CEILING.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(THETA_CHANNEL_CEILING.honest),
+      && /refereed bound is changed/i.test(THETA_CHANNEL_CEILING.honest),
   },
 ];
 
@@ -422,7 +422,7 @@ for (const a of THETA_CHANNEL_CEILING_ASSERTIONS) {
 //       a strictly basin (rho < 2/3) phenomenon, not something that survives even
 //       marginally off the basin.
 // This QUANTIFIES the basin safety boundary against the gap channel; it does NOT
-// close the off-basin divergence and is NOT a global-W_1 beat. PT Lambda <= 0.2 SOTA.
+// close the off-basin divergence and is NOT a global-W_1 beat. No refereed bound is changed.
 const OFF_BASIN_PRODUCT = 16 / 27;                                   // g0 * dTheta/dW_1, certified flat (imp-3067)
 const cThetaOffBasin = (g0) => OFF_BASIN_PRODUCT / g0;              // off-basin C_Theta = (16/27)/g0, N = 1
 const G0_CROSS_NOMINAL = OFF_BASIN_PRODUCT / GAP_NOMINAL;           // 64/(27 g_min) ~ 62.88, vs gap channel g_min/4
@@ -446,7 +446,7 @@ export const CTHETA_GAP_CROSSOVER = {
   crossoverGapAsMultipleOfGmin: CROSS_TO_OPERATIVE,              // ~1668: g0* is this many times the operative g_min
   subdominantClaimHoldsAtGmin: CTHETA_OFFBASIN_AT_GMIN < GAP_NOMINAL, // false: off-basin C_Theta dominates at g_min
   conclusion: 'OFF the basin the subdominant claim fails for every g0 below g0* = 64/(27 g_min) ~ 62.88; at the operative minimal gap g_min(1e4) = 0.0377 the off-basin C_Theta ~ 15.72 already EXCEEDS the gap channel ~9.42e-3 by ~1668x. The crossover gap is ~1668x larger than the operative gap, and since gaps shrink with height the off-basin C_Theta only moves deeper into dominance -- so C_Theta being subdominant is a strictly basin (rho < 2/3) phenomenon.',
-  honest: 'Quantifies WHERE off-basin C_Theta overtakes the gap channel (the basin safety boundary); it does NOT close the off-basin divergence and is NOT a global-W_1 beat. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA and the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
+  honest: 'Quantifies WHERE off-basin C_Theta overtakes the gap channel (the basin safety boundary); it does NOT close the off-basin divergence and is NOT a global-W_1 beat. No refereed bound is changed and the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
 };
 
 export const CTHETA_GAP_CROSSOVER_ASSERTIONS = [
@@ -479,10 +479,10 @@ export const CTHETA_GAP_CROSSOVER_ASSERTIONS = [
   },
   {
     id: 'ctheta-crossover-no-false-qed',
-    description: 'the crossover derivation quantifies the basin safety boundary only: it does NOT close the off-basin divergence, is NOT a global-W_1 beat, and PT Lambda <= 0.2 stays SOTA',
+    description: 'the crossover derivation quantifies the basin safety boundary only: it does NOT close the off-basin divergence, is NOT a global-W_1 beat, and no refereed bound is changed',
     holds: () => /does NOT close the off-basin divergence/.test(CTHETA_GAP_CROSSOVER.honest)
       && /NOT a global-W_1 beat/.test(CTHETA_GAP_CROSSOVER.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(CTHETA_GAP_CROSSOVER.honest),
+      && /refereed bound is changed/i.test(CTHETA_GAP_CROSSOVER.honest),
   },
 ];
 

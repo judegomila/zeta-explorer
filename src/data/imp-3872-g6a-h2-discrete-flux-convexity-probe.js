@@ -59,7 +59,7 @@
  * than the y -> 0 microscopic continuum. So H2 stays UNWRITTEN as a certificate, the K4 route stays
  * WHOLLY NEW (consistent with imp-3714 / imp-3727 / imp-3846), and G6a_shock_lipschitz stays OPEN.
  * Scoping / measurement only; no positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal
- * endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3846-g6a-k4-caustic-regularity-toolkit-assessment (names H2 as the dependency-chain root this probes)
  * @see imp-3727-g6a-k4-entropy-solution-regularity-scoping (the H1..H6 hypothesis map; H2 = convex flux)
@@ -321,8 +321,8 @@ export const IMP3872_G6A_H2_DISCRETE_FLUX_CONVEXITY_PROBE = {
     'than the microscopic y -> 0 continuum, so H2 stays UNWRITTEN as a certificate, the K4 route stays ' +
     'WHOLLY NEW (consistent with imp-3714 / imp-3727 / imp-3846) and G6a_shock_lipschitz stays OPEN. ' +
     'Scoping / measurement only; no positivity, no bridge closure, no RH claim, NO QED. imp-3066 ' +
-    'off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3846 (names H2 as the dependency-chain root probed here); imp-3727 (H1..H6 hypothesis map; H2 = ' +
     'genuine nonlinearity / convex flux); imp-3642 (attractive-CM RK4 flow, seed and integrator reused); ' +
@@ -368,16 +368,16 @@ export const IMP3872_G6A_H2_DISCRETE_FLUX_CONVEXITY_PROBE_ASSERTIONS = [
       Math.abs(ROWS[ROWS.length - 1].logGamma - LOG_CROSSOVER) < 1e-6,
   },
   {
-    // Honesty gate: probe not certificate -- H2 unwritten, K4 wholly new, G6a open, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: probe not certificate -- H2 unwritten, K4 wholly new, G6a open, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3872-honesty-gate-no-qed',
-    description: 'PROBE not certificate: H2 unwritten, K4 wholly new, G6a open, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'PROBE not certificate: H2 unwritten, K4 wholly new, G6a open, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3872_G6A_H2_DISCRETE_FLUX_CONVEXITY_PROBE.isRigorous === false &&
       IMP3872_G6A_H2_DISCRETE_FLUX_CONVEXITY_PROBE.h2StillUnwritten === true &&
       IMP3872_G6A_H2_DISCRETE_FLUX_CONVEXITY_PROBE.k4ConfirmedWhollyNew === true &&
       IMP3872_G6A_H2_DISCRETE_FLUX_CONVEXITY_PROBE.g6aStillOpen === true &&
       /NO QED/.test(IMP3872_G6A_H2_DISCRETE_FLUX_CONVEXITY_PROBE.verdict) &&
-      /remains the\s+rigorous SOTA/.test(IMP3872_G6A_H2_DISCRETE_FLUX_CONVEXITY_PROBE.verdict) &&
+      /refereed bound is changed/i.test(IMP3872_G6A_H2_DISCRETE_FLUX_CONVEXITY_PROBE.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3872_G6A_H2_DISCRETE_FLUX_CONVEXITY_PROBE.verdict),
   },
 ];

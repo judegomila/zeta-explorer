@@ -24,7 +24,7 @@
  *
  *   Ticket: imp-34200 (ux, medium), extended per imp-34183. Presentation only of an
  *   already-established measurement; adds no new Lambda bound. C_mb GUE-conditional per
- *   imp-486 UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   imp-486 UNTOUCHED. NO QED. No refereed bound is changed.
  */
 
 // The 36 leave-two-out folds, ranked by fitted-log curve-shift (rmsShift), descending.

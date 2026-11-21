@@ -47,7 +47,7 @@ export const R5_P47_FAR = Object.freeze({
   verdict: 'NOT PROVED: WOL-C at margin 0.0223 holds for 0 of the 372 P47 floors. The suggested near-box + far-region monotonicity route was '
     + 'not completed (per-coordinate monotonicity measured false at one entry; far-box Taylor bounds measured too loose). A global separable '
     + 'cone majorant certifies 198 P47 floors at margins 0.0753-0.8765, admitted by Lemma 1 at their margin. Sub-0.145 needs every P47 margin '
-    + 'at about 0.0436 or less. Lambda < 0.145 is NOT certified. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'at about 0.0436 or less. Lambda < 0.145 is NOT certified. No refereed bound is changed. RH open. NO QED.',
 });
 
 const W = R5_P47_FAR;
@@ -75,7 +75,7 @@ export const R5_P47_FAR_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r5-p47far-honest',
-    holds: () => /NO QED/.test(W.status) && /not completed/.test(W.verdict) && /PT Lambda <= 0\.2 stands/.test(W.verdict) && /SUPERSEDED/.test(W.values.claimedCert.note),
+    holds: () => /NO QED/.test(W.status) && /not completed/.test(W.verdict) && /refereed bound is changed/i.test(W.verdict) && /SUPERSEDED/.test(W.values.claimedCert.note),
     why: 'The monotonicity route is not completed; no WOL-C at P47; no QED.',
   },
 ]);

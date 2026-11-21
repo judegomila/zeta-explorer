@@ -78,7 +78,7 @@
  * neighbours the deep-arm landmark is floor-sensitive (~483x swing over the 20x floor
  * sweep), exact only at the pinned floor 3.06e-5. Measurement/sensitivity only; C_mb
  * stays GUE-conditional (imp-486); no bound changes, no positivity, no bridge closure,
- * no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-96916-sigma-quarter-crossing-etrunc-elasticity (ladder {0.75,0.5,0.25,0.1}; this module extends it to sigma=0.01)
  * @see imp-96813-sigma-decay-landmark-etrunc-sensitivity (flank landmarks 0.5/0.1 and their ~ -2.09 elasticities)
@@ -226,8 +226,8 @@ export const IMP96931_SIGMA_DEEP_DECAY_CROSSING_ETRUNC_ELASTICITY = {
     '(log T0 climbs 25.2 -> 30.0 across the arm). Like its neighbours the deep-arm landmark is ' +
     'floor-sensitive (~483x swing over the 20x floor sweep), exact only at the pinned floor ' +
     '3.06e-5. Measurement/sensitivity only; C_mb stays GUE-conditional (imp-486); no bound ' +
-    'changes, no positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'changes, no positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed' +
+    '.',
   isRigorous: false,
   citation:
     'imp-96916 (ladder {0.75,0.5,0.25,0.1}, monotone toward -2, sigma=0.25 intermediate); ' +
@@ -309,15 +309,15 @@ export const IMP96931_SIGMA_DEEP_DECAY_CROSSING_ETRUNC_ELASTICITY_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/assessment only, monotone-continuing verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement/assessment only, monotone-continuing verdict, no QED, no refereed bound is changed.
     id: 'imp96931-honesty-gate-no-qed',
-    description: 'Assessment only: monotone-continuing / excess-persists verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: monotone-continuing / excess-persists verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP96931_SIGMA_DEEP_DECAY_CROSSING_ETRUNC_ELASTICITY.isRigorous === false &&
       /CONTINUING/.test(IMP96931_SIGMA_DEEP_DECAY_CROSSING_ETRUNC_ELASTICITY.verdict) &&
       /PERSISTS/.test(IMP96931_SIGMA_DEEP_DECAY_CROSSING_ETRUNC_ELASTICITY.verdict) &&
       /NO QED/.test(IMP96931_SIGMA_DEEP_DECAY_CROSSING_ETRUNC_ELASTICITY.verdict) &&
-      /remains SOTA/.test(IMP96931_SIGMA_DEEP_DECAY_CROSSING_ETRUNC_ELASTICITY.verdict),
+      /refereed bound is changed/i.test(IMP96931_SIGMA_DEEP_DECAY_CROSSING_ETRUNC_ELASTICITY.verdict),
   },
 ];
 

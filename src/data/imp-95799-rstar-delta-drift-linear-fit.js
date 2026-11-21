@@ -77,7 +77,7 @@
  * imp-95799-dd-crossing-needs-converged-eigensolver, refining imp-95779's grid-cost
  * sub-gap. (c) Model seam family only; the imp-95212 envelope port, signed WEIGHT and
  * modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-95786-reach-universality-crossval (the R* drift residual fit here)
  * @see imp-95779-on2-dd-toeplitz-lambda-min-ln12 (the O(N^2) DD solver + its ln1.2 under-convergence precedent)
@@ -173,7 +173,7 @@ export const IMP95799_RSTAR_DELTA_DRIFT_LINEAR_FIT = {
     "at fixed reach), so the DD-side crossing is a SOLVER-CONVERGENCE bottleneck, not a failure " +
     "of the law -- new named sub-gap imp-95799-dd-crossing-needs-converged-eigensolver. Model " +
     "seam family only; the imp-95212 envelope port, signed WEIGHT and modulus/phase legs stay " +
-    "OPEN. Changes no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "OPEN. Changes no bound of the Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95799"],
 };
 
@@ -285,7 +285,7 @@ export const IMP95799_ASSERTIONS = [
     holds: () =>
       REF.boundChange === false &&
       REF.qed === false &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.subGap === "imp-95799-dd-crossing-needs-converged-eigensolver" &&
       REF.closesTickets.includes("imp-95799"),
   },

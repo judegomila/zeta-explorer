@@ -43,8 +43,8 @@
  * conservatism retained at the window bottom -- is robust: the whole interval stays below
  * 0.28, an order of magnitude of headroom below the GUE asymptote 1. Sensitivity
  * assessment only; the Selberg leading log log cap is unconditional; the detailed
- * saturation shape stays PCC/GRH-gated; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * saturation shape stays PCC/GRH-gated; changes no bound; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * Import-light: no zeros bundle, no sibling imports. The six sd(C - E) values and their
  * window counts nWindows are the imp-95562 measured literals over the 10^6 Odlyzko
@@ -135,7 +135,7 @@ export const IMP95748_NUMBER_VARIANCE_RATIO_C0_SENSITIVITY = {
     conservatismRobust: rCapHi < 1, // whole interval below the GUE asymptote 1
   },
   verdict:
-    'SENSITIVITY of imp-95722 r_cap(3.0e12) to the heuristic offset C0. The six imp-95710 windowed variances carry a Gaussian sampling slack SE(s^2) = s^2 sqrt(2/(nWindows-1)) (imp-95562 D is Gaussian-tailed), giving a two-sided envelope offset C0 in [0.2963, 0.3712] about the central 0.3337 (argmax at the noisy T = 1.5e5 bump). Propagated to the window bottom, r_cap(3.0e12) in [0.2404, 0.2793] about 0.2599 -- so the exact 0.26 VALUE is offset-sensitive at the ~+/-7.5% level and should be read as an interval, matching imp-95722 finding 3. The QUALITATIVE conservatism r_cap < 1 is ROBUST: the whole interval, upper end 0.2793 included, sits far below the GUE asymptote 1, so no admissible C0 within the imp-95562 sampling slack threatens the window-bottom conservatism. Sensitivity assessment only; the Selberg leading log log cap is unconditional; detailed saturation PCC/GRH-gated; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'SENSITIVITY of imp-95722 r_cap(3.0e12) to the heuristic offset C0. The six imp-95710 windowed variances carry a Gaussian sampling slack SE(s^2) = s^2 sqrt(2/(nWindows-1)) (imp-95562 D is Gaussian-tailed), giving a two-sided envelope offset C0 in [0.2963, 0.3712] about the central 0.3337 (argmax at the noisy T = 1.5e5 bump). Propagated to the window bottom, r_cap(3.0e12) in [0.2404, 0.2793] about 0.2599 -- so the exact 0.26 VALUE is offset-sensitive at the ~+/-7.5% level and should be read as an interval, matching imp-95722 finding 3. The QUALITATIVE conservatism r_cap < 1 is ROBUST: the whole interval, upper end 0.2793 included, sits far below the GUE asymptote 1, so no admissible C0 within the imp-95562 sampling slack threatens the window-bottom conservatism. Sensitivity assessment only; the Selberg leading log log cap is unconditional; detailed saturation PCC/GRH-gated; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -160,8 +160,8 @@ export const IMP95748_NUMBER_VARIANCE_RATIO_C0_SENSITIVITY = {
   // honesty gates
   if (!/NO QED/.test(IMP95748_NUMBER_VARIANCE_RATIO_C0_SENSITIVITY.verdict))
     throw new Error('imp-95748: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95748_NUMBER_VARIANCE_RATIO_C0_SENSITIVITY.verdict))
-    throw new Error('imp-95748: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95748_NUMBER_VARIANCE_RATIO_C0_SENSITIVITY.verdict))
+    throw new Error('imp-95748: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95748_NUMBER_VARIANCE_RATIO_C0_SENSITIVITY;

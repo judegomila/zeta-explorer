@@ -67,7 +67,7 @@
  * No ceiling is moved and the "compute binds first" verdict stands.
  *
  * Accuracy cross-check only. Changes no bound, establishes no operator positivity,
- * makes no RH claim. Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * makes no RH claim. No refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (the ceilings cross-validated here)
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (measured lam_max ladder)
@@ -174,7 +174,7 @@ export const IMP96570_VERDICT = Object.freeze({
     'ceiling 2.59e7. The exponent q ~ 1.96-1.98 is consistent with the lam_min exponent ' +
     'p=1.918. All ceilings sit >= 2600x above the imp-96352 compute ceiling N ~ 9916, so ' +
     '"compute binds first" holds independently. No bound moved; no operator positivity; ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 // Honest residual: the cross-check inherits the same non-rigorous lam_min power-law
@@ -194,7 +194,7 @@ export const IMP96570_SUBGAP = Object.freeze({
 });
 
 export const IMP96570_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-check only: every lam_max / lam_min ' +
+  'RH open; no refereed bound is changed; NO QED. Cross-check only: every lam_max / lam_min ' +
   'value is a reproducible numeric already committed in imp-96443 / imp-96105; the cond# power ' +
   'fit and ceiling re-solve are pure re-analysis (tmp/imp-96570-scratch.mjs); no Gram was ' +
   'rebuilt, no bound is claimed moved and no operator positivity is established.';
@@ -248,7 +248,7 @@ const IMP96570_ASSERTIONS = [
       IMP96570_VERDICT.anyBoundMoved === false &&
       IMP96570_VERDICT.crossValidated === true &&
       /NO QED/.test(IMP96570_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96570_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96570_HONEST_BANNER) &&
       /RH open/.test(IMP96570_HONEST_BANNER) &&
       /inherits-lammin-extrapolation/.test(IMP96570_SUBGAP.id),
     why: 'cross-check only: no bound moved, the cross-validation is recorded, the honesty markers and the residual sub-gap (inherits the non-rigorous lam_min extrapolation) are present.',

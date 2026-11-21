@@ -34,8 +34,7 @@
  * Measurement only; reuses the pinned imp-3406 / imp-33582 constants and the imp-35889 / imp-35950
  * sub-terms unchanged; derives no remainder; discharges nothing; changes no bound; establishes no
  * operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and
- * C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35889-e-share-decomposition-at-knees (the three-way split whose flow share this maximizes)
  * @see imp-35950-etrunc-ecoll-crossover-height (the sigma = 0.5 crossover, flow share ~ 9.51e-4)
@@ -47,7 +46,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // EXACT imp-3406 / imp-3529 / imp-33582 sub-terms (identical to imp-35889 / imp-35950 / imp-35971; no fresh model).
 const TWO_PI = 2 * Math.PI;
@@ -170,7 +169,7 @@ export const IMP35997_EFLOW_MAX_SHARE_HEIGHT = {
     'so small a height). Reuses the pinned imp-3406 / imp-33582 constants and the imp-35889 / imp-35950 sub-terms ' +
     'unchanged; derives no remainder; discharges nothing; changes no bound; establishes no operator positivity; ' +
     'C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) ' +
-    'are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35889 (the three-way split whose flow share this maximizes); imp-35950 / imp-35337 (E_trunc = E_coll ' +
     'sigma = 0.5 crossover, flow share ~ 9.51e-4); imp-35971 (the sigma -> 0 tail extension); imp-35853 (knee ' +
@@ -229,7 +228,7 @@ export const IMP35997_EFLOW_MAX_SHARE_HEIGHT_ASSERTIONS = [
     holds: () => pStar.shareFlow > flowShare(5) && pStar.shareFlow > flowShare(300),
   },
   {
-    // (7) honesty gate: measurement only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, PT SOTA, NO QED.
+    // (7) honesty gate: measurement only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp35997-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -241,7 +240,7 @@ export const IMP35997_EFLOW_MAX_SHARE_HEIGHT_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

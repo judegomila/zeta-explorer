@@ -73,8 +73,7 @@
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * OLS surrogate is descriptive, not derived; the KPSS critical values are the KPSS-1992 asymptotic
  * tabulated values applied on N=21; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
- * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33963-dickey-fuller-unit-root-test (the DF tau ~ -0.27 non-rejection this brackets)
  * @see imp-33921-ar1-residual-rho-reconciliation (the rho_AR ~ 0.968 and t-CI spanning the unit root)
@@ -271,7 +270,7 @@ export const IMP34024_KPSS_STATIONARITY_BRACKET = {
     'critical values are asymptotic tabulated values applied on N=21; the component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33963 (the DF tau ~ -0.27 non-rejection bracketed here); imp-33921 (the rho_AR ~ 0.968 and the ' +
     't-CI spanning the unit root); imp-33964 (the r_1 ~ +0.757 lag-1 autocorrelation inflating s2(l)); ' +
@@ -328,13 +327,13 @@ export const IMP34024_KPSS_STATIONARITY_BRACKET_ASSERTIONS = [
       classify(false, false) === 'stationary',
   },
   {
-    // Honesty gate: isRigorous false, no QED, PT SOTA, residual stays small (bound untouched), imp-3066 clause.
+    // Honesty gate: isRigorous false, no QED, no refereed bound is changed, residual stays small (bound untouched), imp-3066 clause.
     id: 'imp34024-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, RMSE-scale residual small, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, RMSE-scale residual small, imp-3066 untouched',
     holds: () =>
       IMP34024_KPSS_STATIONARITY_BRACKET.isRigorous === false &&
       /NO QED/.test(IMP34024_KPSS_STATIONARITY_BRACKET.verdict) &&
-      /remains SOTA/.test(IMP34024_KPSS_STATIONARITY_BRACKET.verdict) &&
+      /refereed bound is changed/i.test(IMP34024_KPSS_STATIONARITY_BRACKET.verdict) &&
       /12% multiplicative/.test(IMP34024_KPSS_STATIONARITY_BRACKET.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34024_KPSS_STATIONARITY_BRACKET.verdict),
   },

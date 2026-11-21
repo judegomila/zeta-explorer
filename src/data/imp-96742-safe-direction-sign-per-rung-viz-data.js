@@ -10,8 +10,8 @@
  *
  * PRESENTATION ONLY. Every row (L, dSig, safe) is reused verbatim from
  * imp-96714; no new measurement, no recomputation from the zeros. Changes no
- * bound, establishes no operator positivity, no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * bound, establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96714-safe-direction-per-rung-verification.js (source finding + all baked numbers)
  * @see imp-96721-sigma2-emp-vs-gue-viz-data.js (sibling viz-data leaf, same convention)
@@ -37,7 +37,7 @@ export const IMP96742_FAIL_RUNGS = IMP96714_SAFE_DIRECTION_PER_RUNG.failRungs;
 export const IMP96742_HONEST_BANNER =
   'Presentation only: every d_sig(L) value is reused verbatim from imp-96714 (itself a pure ' +
   'arithmetic reshape of the imp-96695 baked rhoEmp/rhoGue table); no new measurement, no ' +
-  'recomputation from the zeros, moves no bound. Platt-Trudgian Lambda <= 0.2 remains SOTA. ' +
+  'recomputation from the zeros, moves no bound. No refereed bound is changed. ' +
   'RH open. NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
@@ -65,7 +65,7 @@ const IMP96742_ASSERTIONS = [
     id: 'imp96742-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96742_HONEST_BANNER) &&
-      /PT Lambda <= 0.2|Platt-Trudgian Lambda <= 0.2/.test(IMP96742_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|Platt-Trudgian Lambda <= 0.2|refereed bound is changed/.test(IMP96742_HONEST_BANNER) &&
       /NO QED/.test(IMP96742_HONEST_BANNER),
     why: 'every Route M / basis-C viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

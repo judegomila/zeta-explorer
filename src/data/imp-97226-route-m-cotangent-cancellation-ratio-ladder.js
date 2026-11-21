@@ -5,7 +5,7 @@
  * cancellation ladder |S(b)| / A(b) (measured ~0.54 stable only to b=2003 by the parent) to
  * substantially larger b, to test whether the ~46% cancellation the ABSOLUTE-value route discards
  * PERSISTS or DRIFTS, and whether S(b)/(phi(b) b) stays flat and negative. Measurement only; no
- * bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * bound moved; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * SETUP (as imp-97097 / imp-97180 / imp-97204).
@@ -47,7 +47,7 @@
  * STAYS OPEN: the direct signed bound itself is NOT proved -- it requires the SIGNED Bettin-Conrey
  * mean value Sum_a c_0(h_a/a) over the inverse line (no absolute value, no square), which stays
  * non-elementary (imp-97204 obstruction). The ratio ~0.540 is MEASURED, not certified. No rigorous
- * ceiling is produced. No bound on Lambda moves. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * ceiling is produced. No bound on Lambda moves. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97204-route-m-cotangent-signed-firstmoment-lower-bound.js (parent: |S| <= A, |S|/A ~ 0.54 to b=2003)
  * @see imp-97180-route-m-cotangent-absvalue-bulk-firstmoment-obstruction.js (absolute A(b), c ~ 0.145)
@@ -130,12 +130,12 @@ export const IMP97226_VERDICT = Object.freeze({
     'signed bound would deliver a stable ~1.85x sharper constant (c_s ~ 0.0795 vs c ~ 0.147) at every ' +
     'measured scale. That sharpening is NOT needed for positivity (the absolute program dominates via ' +
     '|S| <= A, imp-97204); it requires the SIGNED Bettin-Conrey mean value over the inverse line, still ' +
-    'non-elementary. The ratio ~0.540 is MEASURED, not certified. No bound on Lambda moves. PT Lambda ' +
-    '<= 0.2 SOTA; RH open; NO QED.',
+    'non-elementary. The ratio ~0.540 is MEASURED, not certified. No bound on Lambda moves. No refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97226_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the imp-97204 signed-vs-absolute ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the imp-97204 signed-vs-absolute ' +
   'cancellation ratio |S(b)| / A(b) stays a persistent ~0.540 constant (no drift) out to b=24001, and ' +
   'S(b)/(phi b b) stays flat and negative ~-0.0795. The ~46% cancellation the absolute route discards ' +
   'persists, so a direct signed bound would be a stable ~1.85x sharper (c_s ~ 0.0795 vs c ~ 0.147); it ' +
@@ -199,7 +199,7 @@ const IMP97226_ASSERTIONS = [
       IMP97226_VERDICT.qed === false &&
       IMP97226_MEASURED.drifts === false &&
       /NO QED/.test(IMP97226_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97226_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97226_HONEST_BANNER) &&
       /RH open/.test(IMP97226_HONEST_BANNER),
     why: 'measurement only: the cancellation ratio persists ~0.540 with no drift and the signed half stays flat/negative; the direct signed bound stays unproved (non-elementary), no bound moved, honesty markers present.',
   },

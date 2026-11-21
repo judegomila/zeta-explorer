@@ -14,8 +14,7 @@
  * from IMP96493_EXCURSION_2SIGMA_INTERIOR_SCAN (imp-96493). The only new arithmetic here is
  * merging the reference point into the plotted series and deriving each point's marker
  * category (clean interior candidate / clipped-ceiling / reference). Changes no bound;
- * establishes no operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA.
+ * establishes no operator positivity; RH open; NO QED; no refereed bound is changed.
  *
  * @see imp-96493-excursion-2sigma-interior-scan.js (the source object this reshapes)
  * @see imp-96452-excursion-confidence-2sigma-reach (names lever b, the T=1.5e5 reference)
@@ -60,7 +59,7 @@ export const IMP96514_LANDMARKS = Object.freeze({
 });
 
 export const IMP96514_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every Tc, z, relErr, '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every Tc, z, relErr, '
   + 'nW, isDip and clipped value plotted here is copied verbatim from the imp-96493 baked '
   + 'scan object; the only new step is merging the T=1.5e5 reference point into the series '
   + 'and labelling each point clean-interior-dip / clipped-ceiling / above-envelope-interior. '

@@ -16,8 +16,7 @@
  * imp-95429 used, so the two legs are composed on a common protocol and the
  * TRUE combined onset -- the depth at which EITHER certificate fires, i.e. the
  * min of the two architectures -- is quantified rather than each leg being read
- * in isolation. MEASUREMENT ONLY; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * in isolation. MEASUREMENT ONLY; changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT. Two valid upper-bound certificates on the SAME model every-octave
  * Lambda coexist off the geometric dyadic skeleton:
@@ -90,8 +89,7 @@
  * The imp-95429 +-25% RZ-PEN total inherits that module near-float-noise floor
  * status (min floor 4.69e-16); the SPLIT-LOO onset there is pure-arithmetic and
  * exact. (f) gammaSL obligation (3), signed WEIGHT / modulus-phase legs and the
- * imp-95212 envelope port all remain OPEN. NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-95212 envelope port all remain OPEN. NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -181,7 +179,7 @@ export const IMP95445_TOTAL_OFFLATTICE_ONSET_BLASCHKE_COMPOSITION = {
     "combined firing depth by 0.25..7.48 depth units (~2%..32%): the Blaschke " +
     "fence degrades gently (shift +0.59..+4.19, no cliff) where the RZ-PEN " +
     "floor collapses in near-collision draws. Changes no bound; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -348,12 +346,12 @@ export const IMP95445_ASSERTIONS = [
     description:
       "the verdict and scope carry the honest labels: MEASUREMENT, no " +
       "off-lattice floor/onset theorem, changes no bound, open legs named, " +
-      "no QED, PT SOTA",
+      "no QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(REC.verdict) &&
       /Changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /measurement of two model certificates/i.test(REC.honestScope) &&
       /remain OPEN/.test(REC.honestScope) &&
       /NO off-lattice floor or onset theorem/i.test(REC.honestScope),

@@ -60,7 +60,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS
  * surrogate is descriptive, not derived; the imp-33843 log-linear-vs-power-law verdict is UNTOUCHED; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33940-interior-residual-boundary-stability (the 9 penultimate-rung peaks scored here)
  * @see imp-33941-endpoint-peak-growth-model-selection (the identical scoring applied to the endpoint peak)
@@ -225,7 +225,7 @@ export const IMP33980_PENULTIMATE_RUNG_GROWTH_MODEL_SELECTION = {
     'UNTOUCHED. Both forms are descriptive, not derived; the OLS surrogate is descriptive, not derived; ' +
     'the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33940 (the 9 penultimate-rung peaks scored here); imp-33941 (the identical scoring applied to ' +
     'the endpoint peak); imp-33917 (the endpoint boundary sweep); imp-33843 (the log-linear OLS whose ' +
@@ -280,14 +280,14 @@ export const IMP33980_PENULTIMATE_RUNG_GROWTH_MODEL_SELECTION_ASSERTIONS = [
   },
   {
     // Honesty gate: model-selection verdict, isRigorous false, same form as endpoint, imp-33843 verdict
-    // untouched, no QED, PT SOTA.
+    // untouched, no QED, no refereed bound is changed.
     id: 'imp33980-honesty-gate-no-qed',
-    description: 'Measurement only: log-favored not decisive, isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: log-favored not decisive, isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33980_PENULTIMATE_RUNG_GROWTH_MODEL_SELECTION.isRigorous === false &&
       IMP33980_PENULTIMATE_RUNG_GROWTH_MODEL_SELECTION.selection.strength === 'positive-not-decisive' &&
       /NO QED/.test(IMP33980_PENULTIMATE_RUNG_GROWTH_MODEL_SELECTION.verdict) &&
-      /remains SOTA/.test(IMP33980_PENULTIMATE_RUNG_GROWTH_MODEL_SELECTION.verdict),
+      /refereed bound is changed/i.test(IMP33980_PENULTIMATE_RUNG_GROWTH_MODEL_SELECTION.verdict),
   },
 ];
 

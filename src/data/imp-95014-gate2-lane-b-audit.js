@@ -48,7 +48,7 @@
  *   arithmetic C_E,17.
  *
  * Changes no bound; does NOT promote Lambda <= 0.14; promotes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 // -- anchored constants (mirrored from imp-95011 so Lane B is code-independent) --
@@ -219,7 +219,7 @@ export const IMP95014_GATE2_LANE_B_AUDIT = {
     'The two-forms comparison logic, the AGREEMENT_TOL gate, and the subsample+anchor cell plan are exact and reusable; the audited numbers are the imp-95011 surrogate carrier, not arithmetic measurements of C_E,17.',
   promotesBound: false,
   verdict:
-    'HONEST PARTIAL: builds the Gate-2 Lane B two-forms audit harness (independent Gram-form evaluator + crossCheck MOVE 6 gate at <1e-9 on a ~2 percent subsample plus the anchor cell) and shows it passes on the imp-95011 surrogate carrier, giving the offline Arb prec-128 job a verbatim template. The real float-vs-Arb comparison on the arithmetic C_E,17 remains UNMEASURED (offline/native, sub-gap imp-95014-sub-arb-prec128-lane). Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'HONEST PARTIAL: builds the Gate-2 Lane B two-forms audit harness (independent Gram-form evaluator + crossCheck MOVE 6 gate at <1e-9 on a ~2 percent subsample plus the anchor cell) and shows it passes on the imp-95011 surrogate carrier, giving the offline Arb prec-128 job a verbatim template. The real float-vs-Arb comparison on the arithmetic C_E,17 remains UNMEASURED (offline/native, sub-gap imp-95014-sub-arb-prec128-lane). Changes no bound; NO QED; no refereed bound is changed.',
 };
 
 // -- assertions (self-executing; throw on violation) --------------------------
@@ -268,13 +268,13 @@ export const IMP95014_GATE2_LANE_B_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp95014-honesty-gate-no-qed',
-    description: 'harness-only honest partial: promotes no bound, names the offline Arb prec-128 sub-gap, NO QED, PT stays SOTA',
+    description: 'harness-only honest partial: promotes no bound, names the offline Arb prec-128 sub-gap, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95014_GATE2_LANE_B_AUDIT.promotesBound === false &&
       IMP95014_GATE2_LANE_B_AUDIT.isRigorous === false &&
       IMP95014_GATE2_LANE_B_AUDIT.namedSubGap === 'imp-95014-sub-arb-prec128-lane' &&
       /NO QED/.test(IMP95014_GATE2_LANE_B_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP95014_GATE2_LANE_B_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP95014_GATE2_LANE_B_AUDIT.verdict),
   },
 ];
 

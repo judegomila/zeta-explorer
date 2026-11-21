@@ -77,7 +77,7 @@
  *
  *   STATUS: a grouping/index note over five already-completed tickets, not a new derivation. No
  *   bound changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-97294-krein-bessel-z4-coherent-jfreq-majorant.js (coherent per-order regrouping; 3.84x tighter uniform constant)
  * @see imp-97312-krein-bessel-z4-pointwise-single-constant.js (pointwise single constant; slack collapses to ~1.00044x)
@@ -88,7 +88,7 @@
  * @see imp-97100-krein-rayleigh-tail-interval-majorant-assessment.js (Route B combined phase-preserving panel program this cohort serves)
  *
  * Ticket: imp-97366 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- interval-rigorous certified reach stays 2a<=0.96 > ln3
@@ -174,8 +174,8 @@ export const IMP97366_KREIN_ROUTEB_REMAINDER_DONE_OBSTRUCTIONB_OPEN_COHORT_INDEX
     'by this whole cohort. Future work on this thread should treat the remainder-envelope work as ' +
     'closed and should not re-attempt inverting the same 8-sparse trial expecting a different ' +
     'committed v0; the live residual is the untried 94-dim relaxation against its own tail-control ' +
-    'gap. Establishes nothing new; moves no bound; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'gap. Establishes nothing new; moves no bound; RH open; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97294 (coherent per-order regrouping); imp-97312 (pointwise single constant); imp-97331 ' +
     '(interval-certified tail constant); imp-97337 (certified panel enclosure + far-tail majorant); ' +
@@ -220,11 +220,11 @@ export const IMP97366_KREIN_ROUTEB_REMAINDER_DONE_OBSTRUCTIONB_OPEN_COHORT_INDEX
   },
   {
     id: 'imp97366-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97366_KREIN_ROUTEB_REMAINDER_DONE_OBSTRUCTIONB_OPEN_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97366_KREIN_ROUTEB_REMAINDER_DONE_OBSTRUCTIONB_OPEN_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97366_KREIN_ROUTEB_REMAINDER_DONE_OBSTRUCTIONB_OPEN_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP97366_KREIN_ROUTEB_REMAINDER_DONE_OBSTRUCTIONB_OPEN_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP97366_KREIN_ROUTEB_REMAINDER_DONE_OBSTRUCTIONB_OPEN_COHORT_INDEX.verdict),
   },
 ];

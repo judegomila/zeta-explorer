@@ -5,8 +5,8 @@
  * Bettin-Conrey R = (i/2)psi(x) reciprocity evaluator uniform on (0,1/2], to drive the
  * imp-97078 Vasyunin-reciprocity descent from its 3.3e-6 cap toward float64 machine
  * precision (the piece that would unblock exact Frobenius ladder rungs past N=16000).
- * Measurement/assessment only; no rigorous ceiling is posted; no bound moves; PT Lambda
- * <= 0.2 remains SOTA; RH open; NO QED.
+ * Measurement/assessment only; no rigorous ceiling is posted; no bound moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * BACKGROUND (imp-97078 IMP97078_SUBGAP, verbatim target): the reciprocity + Euclid
  * descent recursion is EXACT to float64 (6.9e-10 with exact R), and the direct pipeline
@@ -118,7 +118,7 @@ export const IMP97093_SUBGAP = Object.freeze({
 });
 
 export const IMP97093_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment/measurement only: the imp-97078 ~3.3e-6 ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment/measurement only: the imp-97078 ~3.3e-6 ' +
   'descent cap is the exp(-2pi/x) resurgence floor of the DIVERGENT asymptotic R series (max exp(-4pi) ~ ' +
   '3.5e-6 at x=1/2), not a term-count issue; the reciprocity remainder is transcendental (no closed form); ' +
   'with exact R the descent reaches float64 machine precision (1.2e-12); the remaining piece is a CONVERGENT ' +
@@ -157,7 +157,7 @@ const IMP97093_ASSERTIONS = [
       /convergent-period-function/.test(IMP97093_SUBGAP.id) &&
       /Stokes/.test(IMP97093_SUBGAP.statement) &&
       /RH open/.test(IMP97093_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97093_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97093_HONEST_BANNER) &&
       /NO QED/.test(IMP97093_HONEST_BANNER),
     why: 'assessment only: the resurgence-floor diagnosis and the refined convergent-period-function sub-gap are recorded with the RH-open / PT-Lambda / NO-QED honesty markers; no bound is claimed moved.',
   },

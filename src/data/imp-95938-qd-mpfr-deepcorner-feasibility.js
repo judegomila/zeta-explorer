@@ -86,7 +86,7 @@
  * numeric change to the imp-95767 certified interval (that interval is at ln 1.3; this is
  * the ln 1.2 companion). Model seam family only; the imp-95212 envelope port, signed
  * WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the Lambda program;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. Sun arXiv:2609.04176 unrefereed.
+ * NO QED; no refereed bound is changed. Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95919-ln12-past5200-dd-floor (the DD floor + residual this assesses)
  * @see imp-95896-ln12-past2800-ufit-tightening (the 14-point N<=5200 grid at the floor)
@@ -208,7 +208,7 @@ export const IMP95938_QD_MPFR_DEEPCORNER_FEASIBILITY = {
     "existing audit grid; no new cited input; no numeric change to the imp-95767 certified " +
     "interval; model seam family only; the imp-95212 envelope port, signed WEIGHT, and " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   closesTickets: ["imp-95938"],
 };
 
@@ -351,7 +351,7 @@ export const IMP95938_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /ASSESSED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.closesTickets.includes("imp-95938"),
   },
 ];

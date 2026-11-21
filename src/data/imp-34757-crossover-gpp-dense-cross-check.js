@@ -45,7 +45,7 @@
  * ACCURACY CHECK ONLY. This guards the curvature bound of the INHERITED imp-3220/imp-3406
  * surrogate crossover map; it changes NO bound. The C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34731-crossover-map-second-derivative-bound (5-probe check on [1e9,1e10]; closed form)
  * @see imp-34750-crossover-gpp-postpeak-perdecade-bound (per-decade B ladder across [1e9,1e12])
@@ -183,8 +183,8 @@ export const IMP34757_CROSSOVER_GPP_DENSE_CROSS_CHECK = {
     'standing accuracy tripwire on the curvature bound -- no new mathematics beyond imp-34731 / ' +
     'imp-34750. Accuracy check only on the INHERITED imp-3220/imp-3406 surrogate map; the C_mb ' +
     'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes ' +
-    'no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34731 (5-probe closed-form-vs-central-difference check on [1e9,1e10]; closed form); ' +
     'imp-34750 (per-decade B ladder across [1e9,1e12]); imp-33723 (fixed point N = K log T0(N)); ' +
@@ -215,13 +215,13 @@ export const IMP34757_CROSSOVER_GPP_DENSE_CROSS_CHECK_ASSERTIONS = [
     holds: () => Math.abs(BAND_ROWS[0].B / 1.480193e-10 - 1) < 1e-3,
   },
   {
-    // Honesty gate: accuracy check only, no QED, PT stays SOTA.
+    // Honesty gate: accuracy check only, no QED, no refereed bound is changed.
     id: 'imp34757-honesty-gate-no-qed',
-    description: 'Accuracy check only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Accuracy check only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34757_CROSSOVER_GPP_DENSE_CROSS_CHECK.isRigorous === false &&
       /NO QED/.test(IMP34757_CROSSOVER_GPP_DENSE_CROSS_CHECK.verdict) &&
-      /remains SOTA/.test(IMP34757_CROSSOVER_GPP_DENSE_CROSS_CHECK.verdict),
+      /refereed bound is changed/i.test(IMP34757_CROSSOVER_GPP_DENSE_CROSS_CHECK.verdict),
   },
 ];
 

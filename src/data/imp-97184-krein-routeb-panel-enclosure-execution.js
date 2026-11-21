@@ -50,7 +50,7 @@
  * claimed. The [Tfar, oo) far tail (Route C) is out of scope (negligible at these T, but not enclosed here).
  * Rayleigh floors stay UPPER bounds on true lambda_min; establishes NO operator positivity;
  * IMP96888_RAYLEIGH_TAIL_MAJORANT / IMP96749_UNIFORM_N_GAP_UNSETTLED stay open; interval-rigorous reach stays
- * 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * THE RESIDUAL (named). SUB-GAP IMP97184_INTERVAL_BESSEL_ENCLOSURE (refines IMP97100_PHASE_CANCELLATION_TRIAL):
  * the remaining step to a RIGOROUS majorant is replacing the sampled per-panel supremum with a certified

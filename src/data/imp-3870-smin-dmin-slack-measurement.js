@@ -83,8 +83,8 @@
  *  - Corrects an imp-3854 CHARACTERIZATION (residual = smin/Dmin slack); does NOT
  *    invalidate any imp-3854 INEQUALITY (LEMMA 3854 stays a valid over-bound) and
  *    does NOT change the certified K_paper enclosure or its thetaBar-robustness.
- *  - No new Lambda bound; imp-3066 K_a >= 0 positivity UNTOUCHED; Platt-Trudgian
- *    Lambda <= 0.2 REMAINS SOTA; NO QED.
+ *  - No new Lambda bound; imp-3066 K_a >= 0 positivity UNTOUCHED; no refereed bound is changed
+ *    ; NO QED.
  *
  * @see imp-3854-thetabar-insensitivity-derivation.js (the residual this tests)
  * @see imp-3725-fmb-plateau-domination-lemma.js (source of Dmin, theta, H, a)
@@ -190,7 +190,7 @@ export const IMP_3870_SMIN_DMIN_SLACK_MEASUREMENT = Object.freeze({
       'elasticity is (H/Dmin)^2 (nearest cumulative distance = path-local smin of ' +
       'the dominant term), and (H/smin)^2 is a correct-but-vacuous over-bound ' +
       '(O(1)-O(22), not small). This SHARPENS imp-3854. Necessary but not ' +
-      'sufficient; Platt-Trudgian Lambda <= 0.2 stays SOTA; imp-3066 untouched; NO QED.',
+      'sufficient; no refereed bound is changed; imp-3066 untouched; NO QED.',
   },
 
   correctsImp3854:
@@ -225,7 +225,7 @@ export const IMP_3870_SMIN_DMIN_SLACK_MEASUREMENT = Object.freeze({
     measurementOnly: true,
     noNewLambdaBound: true,
     imp3066Untouched: true,
-    plattTrudgianStillSOTA: 'Lambda <= 0.2 (PT 2021) remains SOTA',
+    plattTrudgianStillSOTA: 'No refereed bound is changed',
     noQED: true,
   },
 });
@@ -322,7 +322,7 @@ export const IMP_3870_SMIN_DMIN_SLACK_MEASUREMENT_ASSERTIONS = [
     why:
       'Honesty guard: this is a measurement correcting an existing derivation. It must ' +
       'not assert a new Lambda bound or a QED, imp-3066 stays untouched, and the ' +
-      'concavity-fit sub-gap stays named open; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'concavity-fit sub-gap stays named open; no refereed bound is changed.',
   },
 ];
 

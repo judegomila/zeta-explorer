@@ -58,7 +58,7 @@
  * MEASUREMENT / SENSITIVITY ONLY. Conditional-share diagnostic, NOT an RH bound. Uses the inherited
  * imp-3406/imp-97723 component model and the imp-33708 floor swap, NOT a rigorous asymptotic; C_mb
  * stays GUE-conditional per imp-486; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97777-fartail-diagnostic-local-minimum-pin (the companion local-minimum pin)
  * @see imp-97759-fartail-crossing-etrunc-floor-sensitivity-crossover (notes the hump, never pinned)
@@ -220,7 +220,7 @@ export const IMP97782_FARTAIL_DIAGNOSTIC_HUMP_PEAK_PIN = {
     'not matter, at the hump (sigma near 1) it matters most. Measurement only; uses the inherited ' +
     'imp-3406/imp-97723 model and the imp-33708 floor swap, NOT a rigorous asymptotic; C_mb stays ' +
     'GUE-conditional (imp-486); changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97777 (companion local-minimum pin); imp-97759 (notes the hump, never pinned); imp-97723 ' +
     '(full diagnostic closed form); imp-33708 (0.5x..5x E_trunc floor swap); imp-486 (C_mb ' +
@@ -280,13 +280,13 @@ export const IMP97782_FARTAIL_DIAGNOSTIC_HUMP_PEAK_PIN_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/sensitivity only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/sensitivity only, no QED, no refereed bound is changed.
     id: 'imp97782-honesty-gate-no-qed',
-    description: 'Measurement/sensitivity only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement/sensitivity only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP97782_FARTAIL_DIAGNOSTIC_HUMP_PEAK_PIN.isRigorous === false &&
       /NO QED/.test(IMP97782_FARTAIL_DIAGNOSTIC_HUMP_PEAK_PIN.verdict) &&
-      /remains SOTA/.test(IMP97782_FARTAIL_DIAGNOSTIC_HUMP_PEAK_PIN.verdict),
+      /refereed bound is changed/i.test(IMP97782_FARTAIL_DIAGNOSTIC_HUMP_PEAK_PIN.verdict),
   },
 ];
 

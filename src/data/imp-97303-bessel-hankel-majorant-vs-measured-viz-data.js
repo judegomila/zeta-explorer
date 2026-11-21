@@ -20,8 +20,8 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Confirms the majorant is valid (C(Z0) sits above both measured
  * curves at every rung) and quantifies the triangle-inequality looseness as a ratio C(Z0)/measured.
- * Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2
- * remains SOTA. RH open. NO QED.
+ * Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-97263-krein-analytic-bessel-z4-remainder-majorant.js (IMP97263_COMBINATION_MAJORANT, the analytic majorant)
  * @see imp-97134-krein-annihilating-rational-trial-execution.js (IMP97134_DECAY, the measured trial ladder)
@@ -58,7 +58,7 @@ export const IMP97303_MEASURED = Object.freeze({
 });
 
 export const IMP97303_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: the majorant curve C(Z0) is ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: the majorant curve C(Z0) is ' +
   'copied verbatim from imp-97263 and the measured |g(z)| z^4 curves are copied verbatim from the ' +
   'imp-97134 annihilating-trial ladder (no re-evaluation of any spherical-Bessel function). The ' +
   'majorant is a valid but loose triangle-inequality bound: no bound is claimed and no operator ' +
@@ -95,7 +95,7 @@ const IMP97303_ASSERTIONS = [
     id: 'imp97303-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97303_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97303_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97303_HONEST_BANNER) &&
       /NO QED/.test(IMP97303_HONEST_BANNER),
     why: 'every Krein-route viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

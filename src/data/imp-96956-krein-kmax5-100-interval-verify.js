@@ -59,7 +59,7 @@
  *
  * Verification attempt only; interval-rigorous certified reach stays exactly 2a <= 0.96 (this attempt
  * produced NO verified certificate past it); the operator floor is a Rayleigh UPPER bound (no operator
- * positivity established); RH open; Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * positivity established); RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96845-krein-kmax5-frontier-measurement.js (parent: double-precision frontier band; SUB-GAP IMP96845_KMAX5_NEAR_FEASIBLE_UNVERIFIED -- iterates near-feasible not interval-verified)
  * @see imp-96868-krein-kmax5-extprec-frontier.js (sibling: wall band tightened to (1.06,1.07); binding residual precision-invariant)

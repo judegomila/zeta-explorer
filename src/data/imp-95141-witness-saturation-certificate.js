@@ -98,7 +98,7 @@
  * landmarks, measured only. (c) Parity-pure only. (d) Witness-side step:
  * no ceiling lemma, no progress on displacement credit itself.
  * (e) Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD. (1) In-class membership stress-tested: grid
  * extremality and block membership are integer arithmetic (asserted);
@@ -390,7 +390,7 @@ export const IMP95141_WITNESS_SATURATION_CERTIFICATE = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM WS is unconditional: the witness is exhibited (grid extremality and block membership are integer arithmetic, blocks all even - parity-pure), the certificate is three truncated alternating-series lower bounds (N = 19, all arguments <= 3.249 < 21, mathematical remainder sign fixed, an explicit 1e-12 slack absorbing double rounding) against an exact integer diagonal with margin floor 1666.9 >> float-summation error, and the exact kernel evaluation confirms it by an independent route. COROLLARY FR is unconditional given the carried Lemma RC (imp-95131): the mixed-rate reduction is entrywise domination with nonnegative amplitudes, the caps are N = 20 even-truncation upper bounds plus explicit slack, and the Collatz-Wielandt max-ratio bound is valid for ANY positive test vector, so the baked vector needs no certification. The batteries and scans are CROSS-CHECKS; the statements are the certificates. Scope: parity-pure model family only; the sandwich upper end 12251/50000 is THEOREM HS, carried not re-proved; the family bracket does not determine the class threshold (family-scoped exhaustion, structurally different families not excluded - measured only); float landmarks 0.2320685, 0.2320720, ~0.24493 measured only; witness-side step - the imp-95140-subgap-displacement-credit leg stays OPEN and untouched; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM WS is unconditional: the witness is exhibited (grid extremality and block membership are integer arithmetic, blocks all even - parity-pure), the certificate is three truncated alternating-series lower bounds (N = 19, all arguments <= 3.249 < 21, mathematical remainder sign fixed, an explicit 1e-12 slack absorbing double rounding) against an exact integer diagonal with margin floor 1666.9 >> float-summation error, and the exact kernel evaluation confirms it by an independent route. COROLLARY FR is unconditional given the carried Lemma RC (imp-95131): the mixed-rate reduction is entrywise domination with nonnegative amplitudes, the caps are N = 20 even-truncation upper bounds plus explicit slack, and the Collatz-Wielandt max-ratio bound is valid for ANY positive test vector, so the baked vector needs no certification. The batteries and scans are CROSS-CHECKS; the statements are the certificates. Scope: parity-pure model family only; the sandwich upper end 12251/50000 is THEOREM HS, carried not re-proved; the family bracket does not determine the class threshold (family-scoped exhaustion, structurally different families not excluded - measured only); float landmarks 0.2320685, 0.2320720, ~0.24493 measured only; witness-side step - the imp-95140-subgap-displacement-credit leg stays OPEN and untouched; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -541,11 +541,11 @@ export const IMP95141_WITNESS_SATURATION_CERTIFICATE_ASSERTIONS = [
   {
     id: "imp95141-honesty-gate",
     description:
-      "the verdict is scoped: parity-pure model family, witness-side certification step (attribution stated plainly), family bracket family-scoped not class-scoped, float landmarks measured only, displacement-credit leg stays OPEN and untouched, parent sub-gap stays OPEN; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: parity-pure model family, witness-side certification step (attribution stated plainly), family bracket family-scoped not class-scoped, float landmarks measured only, displacement-credit leg stays OPEN and untouched, parent sub-gap stays OPEN; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95141_WITNESS_SATURATION_CERTIFICATE.promotesBound === false &&
       /NO QED/.test(IMP95141_WITNESS_SATURATION_CERTIFICATE.rigorScope) &&
-      /remains SOTA/.test(IMP95141_WITNESS_SATURATION_CERTIFICATE.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95141_WITNESS_SATURATION_CERTIFICATE.rigorScope) &&
       /stays OPEN and untouched/.test(IMP95141_WITNESS_SATURATION_CERTIFICATE.rigorScope) &&
       /measured only/.test(IMP95141_WITNESS_SATURATION_CERTIFICATE.rigorScope) &&
       /family-scoped/.test(IMP95141_WITNESS_SATURATION_CERTIFICATE.rigorScope) &&

@@ -46,7 +46,7 @@
  * two-sided bracket r_lo(T) <= r(T) <= r_cap(T) can be formed even below the ceiling, and
  * the imp-95766 one-sided bound r(T) in (0, r_cap(T)] stands unchanged. Assessment only;
  * does NOT extend into the dead zone; adds no cited input; changes no bound; NO QED; the
- * zero-side route stays PCC/GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * zero-side route stays PCC/GRH-gated; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. The six sd(C - E) values are the same
  * measured literals imp-95710/imp-95722/imp-95766/imp-95783 baked (imp-95562 over the 10^6
@@ -156,7 +156,7 @@ export const IMP95805_SLACK_EXCLUDE_C0_ARTIFACT_MONOTONICITY = {
     'Hence no two-sided bracket r_lo(T) <= r(T) <= r_cap(T) can be formed even below the ceiling, and the ' +
     'imp-95766 one-sided bound r(T) in (0, r_cap(T)] stands unchanged. Assessment only; does NOT extend ' +
     'into the dead zone; adds no cited input; changes no bound; NO QED; the zero-side route stays ' +
-    'PCC/GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'PCC/GRH-gated; no refereed bound is changed.',
   citation:
     'imp-95783 (six-height slack, C0 artifact, non-monotone); imp-95766 (derived envelope r_cap, offset ' +
     'C0, r in (0, r_cap]); imp-95750 (ceiling gamma_1e6 = 6.003e5); imp-95562 (six measured sd(C - E)).',
@@ -191,8 +191,8 @@ export const IMP95805_SLACK_EXCLUDE_C0_ARTIFACT_MONOTONICITY = {
     throw new Error('imp-95805: isRigorous must be false');
   if (!/NO QED/.test(IMP95805_SLACK_EXCLUDE_C0_ARTIFACT_MONOTONICITY.verdict))
     throw new Error('imp-95805: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95805_SLACK_EXCLUDE_C0_ARTIFACT_MONOTONICITY.verdict))
-    throw new Error('imp-95805: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95805_SLACK_EXCLUDE_C0_ARTIFACT_MONOTONICITY.verdict))
+    throw new Error('imp-95805: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95805_SLACK_EXCLUDE_C0_ARTIFACT_MONOTONICITY;

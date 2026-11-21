@@ -52,7 +52,7 @@
  * fixed feature of the conditional share.
  *
  * MEASUREMENT / EXTRAPOLATION ONLY. RH-equivalent diagnostic. No positivity, no bridge
- * closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (interior MAX pinned at N_max ~ 9.22e5, fixed floor)
  * @see imp-3220-en-bridge-fidelity-frontier (U-shaped sigma(N) decade ladder)
@@ -191,7 +191,7 @@ export const IMP3443_NMAX_ETRUNC_SENSITIVITY = {
     '(1/E_trunc)^1.376 (R^2 ~ 0.99992), super-linear in 1/E_trunc, with local ' +
     'derivative dN_max/dE_trunc ~ -4.14e10 (elasticity ~ -1.373). The imp-3406 N_max ~ ' +
     '9.22e5 is therefore a floor-value artifact, not a robust landmark. No positivity, ' +
-    'no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no bridge closure, no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-3406 (interior MAX pinned N_max ~ 9.22e5, fixed floor); imp-3220 (U-shaped ' +
     'sigma(N) decade ladder); imp-3323 (interior min pinned N ~ 97.80); imp-2631 ' +
@@ -240,14 +240,14 @@ export const IMP3443_NMAX_ETRUNC_SENSITIVITY_ASSERTIONS = [
   },
   {
     // Honesty gate: measurement/assessment only, sensitivity verdict stated, no QED,
-    // PT stays SOTA, no rigorous or RH claim.
+    // no refereed bound is changed, no rigorous or RH claim.
     id: 'imp3443-honesty-gate-no-qed',
-    description: 'Measurement only: sensitivity verdict, no QED, PT stays SOTA',
+    description: 'Measurement only: sensitivity verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP3443_NMAX_ETRUNC_SENSITIVITY.isRigorous === false &&
       /STRONGLY SENSITIVE/.test(IMP3443_NMAX_ETRUNC_SENSITIVITY.verdictDirection) &&
       /NO QED/.test(IMP3443_NMAX_ETRUNC_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP3443_NMAX_ETRUNC_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP3443_NMAX_ETRUNC_SENSITIVITY.verdict),
   },
 ];
 

@@ -71,7 +71,7 @@
  *   bound, does NOT re-certify the pairing (imp-3668), does NOT establish the
  *   fifth-pair amplitude LAW sigma_4, does NOT construct the missing magnitude, and
  *   does NOT attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. NO RH verdict,
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  *   @see imp-3851-fifth-pair-spread-n2200-resolved.js (the three-nonzero-point sample this resolves the next rung of)
  *   @see imp-3733-fifth-pair-spread-n1800-resolved.js (the two-nonzero-point sample)
@@ -81,8 +81,7 @@
  *   Ticket: imp-33209 (numerical, low). Adds the N=2400 resolved nonzero rung to the
  *   fifth-pair spread sample, resolving what imp-3851 left a bound, and sharpens the
  *   few-ULP-floor discrimination via a plateau/dip and an essentially-zero top local
- *   exponent. imp-3066 UNTOUCHED. RH-EQUIVALENT. NO QED. Platt-Trudgian Lambda <= 0.2
- *   stays SOTA.
+ *   exponent. imp-3066 UNTOUCHED. RH-EQUIVALENT. NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -208,7 +207,7 @@ export const IMP33209_FIFTH_PAIR_SPREAD_N2400_RESOLVED = Object.freeze({
     'essentially-zero top exponent) but do NOT pin a resolved exponent to few-percent accuracy (the N-dependence is ' +
     'consistent with zero, not measured to be zero); adds NO new Lambda bound; does NOT re-certify the pairing ' +
     '(imp-3668), does NOT establish the sigma_4 amplitude LAW, does NOT construct the missing magnitude, does NOT ' +
-    'attempt imp-3066 K_a>=0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'attempt imp-3066 K_a>=0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     spreadQuantity: 'worstPairSpread(N) = |lambda_9 - lambda_10| / lambda_9 of the imp-3668 dense Gram top-10 (fifth adjacent pair)',
@@ -314,7 +313,7 @@ export const IMP33209_FIFTH_PAIR_SPREAD_N2400_RESOLVED = Object.freeze({
       'amplitude reported is a raw pairing-certified input, NOT the fifth-pair AMPLITUDE LAW sigma_4=lambda_9/lambda_1 ' +
       '(the distinct pending Lanczos ticket).',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -367,7 +366,7 @@ export const IMP33209_FIFTH_PAIR_SPREAD_N2400_RESOLVED_ASSERTIONS = [
     id: 'imp33209-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only, resolves what imp-3851 left a bound and adds one rung to a still-floor-' +
       'level four-nonzero-point sample -- rules out a coherent power law but fits no exponent, adds no Lambda bound, ' +
-      'and re-certifies nothing; positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'and re-certifies nothing; positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP33209_FIFTH_PAIR_SPREAD_N2400_RESOLVED.honestCaveat;
       return (
@@ -378,7 +377,7 @@ export const IMP33209_FIFTH_PAIR_SPREAD_N2400_RESOLVED_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.stillFloorLevelSample === 'string' &&
         typeof c.pairingNotAmplitudeLaw === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

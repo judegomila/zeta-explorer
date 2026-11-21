@@ -55,7 +55,7 @@
  * uniform feature of every held-out height; the endpoint heights carry a single adversarial
  * window each that exhausts the max-anchor margin. The imp-96090 CANONICAL-window cap holds
  * at all four heights with comfortable margin, so no bound moves. Measurement only; changes
- * no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route
+ * no bound; RH open; NO QED; no refereed bound is changed; the zero-side route
  * stays PCC/GRH-gated. Heights stay ~6.8 decades below the imp-95519 window bottom
  * T = 3.0e12 (imp-95710 window-reach sub-gap unchanged).
  *
@@ -249,7 +249,7 @@ export const IMP96132_MAX_ANCHOR_WINDOW_ROBUSTNESS_FOUR_HEIGHTS = {
   subGap:
     'imp-96132-endpoint-window-breach: the endpoint heights 2e4 and 4e5 each carry one adversarial extreme window that exhausts the max-anchor robustness margin. A bootstrap of the per-window sd(C-E) noise (cf. imp-96133) would decide whether the two shallow breaches are significant or estimator noise.',
   verdict:
-    'Extending the imp-96112 window sweep to the other four imp-96090 held-out heights, the max-anchor cap sign is NOT uniformly positive: it caps 46 of 48 configs, breaching at T=2e4 (coarse k=2, -0.47%) and marginally at T=4e5 (fine k=0.5, -0.0019%), while the interior heights 1e5 and 2e5 stay uniformly positive like 5e4. The clean 5e4 window robustness is a property of the interior heights, not a uniform feature of every held-out height; the endpoint heights carry a single adversarial window each. The imp-96090 canonical-window cap holds at all four heights with comfortable margin, so no bound moves. Measurement only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Extending the imp-96112 window sweep to the other four imp-96090 held-out heights, the max-anchor cap sign is NOT uniformly positive: it caps 46 of 48 configs, breaching at T=2e4 (coarse k=2, -0.47%) and marginally at T=4e5 (fine k=0.5, -0.0019%), while the interior heights 1e5 and 2e5 stay uniformly positive like 5e4. The clean 5e4 window robustness is a property of the interior heights, not a uniform feature of every held-out height; the endpoint heights carry a single adversarial window each. The imp-96090 canonical-window cap holds at all four heights with comfortable margin, so no bound moves. Measurement only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -301,8 +301,8 @@ export const IMP96132_MAX_ANCHOR_WINDOW_ROBUSTNESS_FOUR_HEIGHTS = {
     throw new Error('imp-96132: verdict dropped the NO QED banner');
   if (!/RH open/.test(IMP96132_MAX_ANCHOR_WINDOW_ROBUSTNESS_FOUR_HEIGHTS.verdict))
     throw new Error('imp-96132: verdict dropped the RH open banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96132_MAX_ANCHOR_WINDOW_ROBUSTNESS_FOUR_HEIGHTS.verdict))
-    throw new Error('imp-96132: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96132_MAX_ANCHOR_WINDOW_ROBUSTNESS_FOUR_HEIGHTS.verdict))
+    throw new Error('imp-96132: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96132_MAX_ANCHOR_WINDOW_ROBUSTNESS_FOUR_HEIGHTS;

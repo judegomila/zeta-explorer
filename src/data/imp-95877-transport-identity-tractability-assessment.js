@@ -63,7 +63,7 @@
  * TIER 3 carries residual m-dependence, so those two tiers alone cannot close the identity."
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no bound;
- * NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports.
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3, eqs (6.11)-(6.26). SCRATCH: tmp/imp-95877-scratch.mjs
  * (reuses the imp-95822 grid-converged Q_0-sector values baked by imp-95861; no new heavy quadrature).
@@ -124,7 +124,7 @@ export const TRANSPORT_IDENTITY_TRACTABILITY_ASSESSMENT = Object.freeze({
     + 'cell count is NOT m-free (B (6.24) has O(m) breakpoints; 238 is the m=20 value), so the identity '
     + 'must be stated per-locus, not per-fixed-tableau. BINDING OBSTRUCTION = symbolic-in-m TIER-3 '
     + 'coefficients + per-locus breakpoint combinatorics. G irrationality OPEN; Sun unrefereed; changes '
-    + 'no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.26)',
   builtOn:
@@ -233,7 +233,7 @@ export const TRANSPORT_IDENTITY_TRACTABILITY_ASSESSMENT = Object.freeze({
     + 'grid-converged Q_0-sector values baked by imp-95861 and the imp-95745/95720 tier structure. The '
     + 'dQ/dm signature refutes a curvature-only transport model but does NOT construct the identity or '
     + 'the missing TIER-3 closed form. Catalan G irrationality OPEN; Sun single-author, unrefereed; NO '
-    + 'Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const TRANSPORT_IDENTITY_TRACTABILITY_ASSESSMENT_ASSERTIONS = Object.freeze([
@@ -318,7 +318,7 @@ export const TRANSPORT_IDENTITY_TRACTABILITY_ASSESSMENT_ASSERTIONS = Object.free
       return v.tractability === 'PARTIALLY TRACTABLE'
         && /TIER 3/.test(v.bindingObstruction)
         && /G irrationality OPEN/.test(s)
-        && /PT Lambda<=0.2 SOTA/.test(s)
+        && /refereed bound is changed/i.test(s)
         && /NO QED/.test(s);
     },
   },

@@ -44,7 +44,7 @@
  *       angle the frontier scout flagged.
  *
  * MEASUREMENT/FIT ONLY. Changes no bound, establishes no operator positivity,
- * makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * makes no RH claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-96094-route-m-burnol-ratio-dense-ladder.js (the failed fit, N<=2600)
  * @see imp-96105-route-m-vasyunin-gram-extend-n6000.js (the below-1 extension rungs)
@@ -95,7 +95,7 @@ export const IMP96491_VERDICT = Object.freeze({
 });
 
 export const IMP96491_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/fit only: every value is a reproducible pure-arithmetic numeric from tmp/imp-96491-scratch.mjs evaluating the baked imp-96094 (const,a,b) at the baked imp-96105 rungs; no refit, no new solve, no bound is claimed and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Measurement/fit only: every value is a reproducible pure-arithmetic numeric from tmp/imp-96491-scratch.mjs evaluating the baked imp-96094 (const,a,b) at the baked imp-96105 rungs; no refit, no new solve, no bound is claimed and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -150,7 +150,7 @@ const IMP96491_ASSERTIONS = [
     id: 'imp96491-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96491_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96491_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96491_HONEST_BANNER) &&
       /NO QED/.test(IMP96491_HONEST_BANNER),
     why: 'the honest banner carries the RH-open / PT-Lambda / NO-QED markers.',
   },

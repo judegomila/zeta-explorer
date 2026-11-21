@@ -49,8 +49,8 @@
  *   unknown) -- an instantaneous rate, not a flow theorem, and it gives no Lambda bound.
  *
  *   STATUS: the lemma and the conditional theorem are proved; the theorem's hypothesis
- *   remains open and unhelped. No new Lambda bound. NO QED. Platt-Trudgian
- *   Lambda <= 0.2 SOTA; RH open.
+ *   remains open and unhelped. No new Lambda bound. NO QED. No refereed bound is changed
+ *   ; RH open.
  *
  * @see rh-bridge-mirror-descent-2026-09-25.js (source: pair lemma A1, conditional
  *   theorem B1, and the Palm-baseline surplus reconciliation this glosses)
@@ -58,7 +58,7 @@
  *   theorem's H_desc-mirror hypothesis is implied by)
  *
  * Ticket: imp-97061 (content, medium, sonnet-4-6). Documentation only; establishes
- * nothing new; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing new; NO QED; no refereed bound is changed.
  */
 
 // The mirror pair-lemma + conditional flow-descent headword, baked verbatim (no re-import).
@@ -98,7 +98,7 @@ const MIRROR_PAIR_LEMMA_FLOW_DESCENT_HEADWORD = Object.freeze({
     'grid/random-checked by >= 2 referees across three investigations and four ' +
     'adversarial referee passes (rh-bridge-mirror-descent-2026-09-25, 12 baked ' +
     'assertions). Documentation only here; establishes nothing beyond the source ' +
-    'module; no bound moved; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'module; no bound moved; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97061_MIRROR_PAIR_LEMMA_FLOW_DESCENT_GLOSSARY_HEADWORD = Object.freeze({
@@ -122,7 +122,7 @@ export const IMP97061_MIRROR_PAIR_LEMMA_FLOW_DESCENT_GLOSSARY_HEADWORD = Object.
     'Palm baseline the hypothesis demands a local surplus (~1.73x neutral at the seam), ' +
     'not a relaxation of H_desc -- so neither result gives a new Lambda bound. ' +
     'Establishes nothing beyond the source module; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'rh-bridge-mirror-descent-2026-09-25 (source proof of the pair lemma A1 and the ' +
     'conditional theorem B1, and the Palm-baseline surplus reconciliation this ' +
@@ -150,12 +150,12 @@ export const IMP97061_MIRROR_PAIR_LEMMA_FLOW_DESCENT_GLOSSARY_HEADWORD_ASSERTION
   },
   {
     id: 'imp97061-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, ' +
       'glosses the correct source module.',
     holds: () =>
       IMP97061_MIRROR_PAIR_LEMMA_FLOW_DESCENT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97061_MIRROR_PAIR_LEMMA_FLOW_DESCENT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97061_MIRROR_PAIR_LEMMA_FLOW_DESCENT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97061_MIRROR_PAIR_LEMMA_FLOW_DESCENT_GLOSSARY_HEADWORD.verdict) &&
       IMP97061_MIRROR_PAIR_LEMMA_FLOW_DESCENT_GLOSSARY_HEADWORD.glosses ===
         'rh-bridge-mirror-descent-2026-09-25',
   },

@@ -18,7 +18,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Every (lnN, palm2, frac) and (target, lnN) value below is
  * copied verbatim from the imp-97189 baked IMP97189_EXTENDED_LADDER table (no re-derivation of
  * the Palm 2-slot mirror kernel). Changes no bound, establishes no operator positivity, no RH
- * claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * claim; no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-97189-palm-mirror-frac-of-mean-extended-ladder.js (IMP97189_EXTENDED_LADDER, IMP97189_HONEST_BANNER)
  *
@@ -50,7 +50,7 @@ export const IMP97300_REFERENCE_POINTS = Object.freeze({
 });
 
 export const IMP97300_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every (lnN, palm2, frac) and ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every (lnN, palm2, frac) and ' +
   '(target, lnN) row is copied verbatim from the imp-97189 baked IMP97189_EXTENDED_LADDER table (no ' +
   're-derivation of the Palm 2-slot mirror kernel); no bound is claimed and no operator positivity ' +
   'is established.';
@@ -147,7 +147,7 @@ const IMP97300_ASSERTIONS = [
     id: 'imp97300-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97300_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97300_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97300_HONEST_BANNER) &&
       /NO QED/.test(IMP97300_HONEST_BANNER),
     why: 'every Route-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

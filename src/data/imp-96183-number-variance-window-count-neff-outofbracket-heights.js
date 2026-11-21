@@ -51,7 +51,7 @@
  * imp-96170 "n_w not measured" caveat. The imp-96090 max-anchor out-of-sample capping margin persists at
  * both fresh heights: +25.4% at 8e4 over a fully-populated symmetric window (genuine out-of-sample) and
  * +26.1% at 6e5 over a truncated lower-half window (span-truncation flagged). Measurement only; changes no
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96170-number-variance-two-interval-covariance-outofbracket-heights (f and the flip-gap this completes)
  * @see imp-96090-number-variance-mean-anchor-heldout-out-of-sample (the five measured n_w and the max anchor)
@@ -199,7 +199,7 @@ export const IMP96183_NUMBER_VARIANCE_WINDOW_COUNT_NEFF_OUTOFBRACKET_HEIGHTS = {
   caveat:
     'n_w is exact tiling geometry and n_eff = n_w * f is exact once f is the imp-96170 exact GUE census value. The 8e4 capping test is a genuine symmetric-span out-of-sample measurement (all 212 windows populated, span [56000, 104000] inside gamma_max). The 6e5 capping test is NOT: its +/-30% span [420000, 780000] is truncated at gamma_max = 600269.677, so the reported residual rests on a one-sided lower-half 291-window sample; the full symmetric-span n_w = 582 capping test at 6e5 needs ordinates above 600269.677, beyond the 10^6 Odlyzko bundle (the imp-95710 window-reach sub-gap in miniature). Changes no bound; does not raise the imp-96128 ~1.9-sigma confidence (set by the excursion depth, not by n_eff).',
   verdict:
-    'n_w = 212 (8e4) / 582 (6e5) from the exact tiling geometry (validated against all five imp-96090 measured counts 106/168/237/336/475) completes n_eff = n_w * f = 576.84 (8e4) / 1601.10 (6e5), closing the imp-96170 "n_w not measured" caveat. The imp-96090 max-anchor out-of-sample capping margin persists at both fresh heights: +25.4% at 8e4 over a fully-populated symmetric window (genuine out-of-sample) and +26.1% at 6e5 over a truncated lower-half window (span-truncation flagged as the named residual). Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'n_w = 212 (8e4) / 582 (6e5) from the exact tiling geometry (validated against all five imp-96090 measured counts 106/168/237/336/475) completes n_eff = n_w * f = 576.84 (8e4) / 1601.10 (6e5), closing the imp-96170 "n_w not measured" caveat. The imp-96090 max-anchor out-of-sample capping margin persists at both fresh heights: +25.4% at 8e4 over a fully-populated symmetric window (genuine out-of-sample) and +26.1% at 6e5 over a truncated lower-half window (span-truncation flagged as the named residual). Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -231,8 +231,8 @@ export const IMP96183_NUMBER_VARIANCE_WINDOW_COUNT_NEFF_OUTOFBRACKET_HEIGHTS = {
   // honesty gates
   if (!/NO QED/.test(IMP96183_NUMBER_VARIANCE_WINDOW_COUNT_NEFF_OUTOFBRACKET_HEIGHTS.verdict))
     throw new Error('imp-96183: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96183_NUMBER_VARIANCE_WINDOW_COUNT_NEFF_OUTOFBRACKET_HEIGHTS.verdict))
-    throw new Error('imp-96183: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96183_NUMBER_VARIANCE_WINDOW_COUNT_NEFF_OUTOFBRACKET_HEIGHTS.verdict))
+    throw new Error('imp-96183: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96183_NUMBER_VARIANCE_WINDOW_COUNT_NEFF_OUTOFBRACKET_HEIGHTS;

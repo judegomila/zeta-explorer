@@ -42,8 +42,8 @@
  *
  * MEASUREMENT/TABULATION ONLY. Every value here is an exact re-tabulation of the
  * imp-96832 baked ACF and VIF constants -- no new statistic is estimated, no bound
- * is moved, no operator positivity is established. Platt-Trudgian Lambda <= 0.2
- * remains SOTA. RH open. NO QED. Inherits the imp-96832 sub-gap: the high-lag ACF
+ * is moved, no operator positivity is established. No refereed bound is changed
+ * . RH open. NO QED. Inherits the imp-96832 sub-gap: the high-lag ACF
  * terms (lags 3+) come from only 21 non-uniformly-spaced rungs and carry large
  * sampling noise, so only the ROBUST direction (AR(1) over-counts a positive
  * geometric tail; the truncated block-bootstrap ~1.70 is the defensible reading) is
@@ -171,7 +171,7 @@ export const IMP97039_GAP_DECOMPOSITION = Object.freeze({
 });
 
 export const IMP97039_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy/tabulation only: every ' +
+  'RH open; no refereed bound is changed; NO QED. Accuracy/tabulation only: every ' +
   'value re-tabulates the imp-96832 baked 21-rung ladder ACF and the imp-96692/imp-96709 ' +
   'VIF constants -- no new statistic is estimated and no bound is moved. Inherits the ' +
   'imp-96832 sub-gap: the high-lag ACF terms come from only 21 non-uniformly-spaced rungs ' +
@@ -278,7 +278,7 @@ const IMP97039_ASSERTIONS = [
     id: 'imp97039-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP97039_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97039_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97039_HONEST_BANNER) &&
       /NO QED/.test(IMP97039_HONEST_BANNER) &&
       /sampling noise/.test(IMP97039_HONEST_BANNER) &&
       IMP97039_SUBGAP.status === 'open',

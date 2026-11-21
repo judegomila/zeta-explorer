@@ -68,7 +68,7 @@
  *
  * SCOPE: MEASUREMENT ONLY. Does NOT advance the R2 ladder; does NOT extend the
  * C_mb certificate; does NOT remove the imp-486 GUE conditional; changes NO
- * bound. Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ * bound. No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2" and "2/diff" prose.
  *
@@ -187,7 +187,7 @@ export const IMP_35353_R2_N3000_N4000_FINER_GRID_REFERENCE = {
     doesNotAchieve:
       'Does NOT advance the R2 ladder past N=1000; does NOT extend the C_mb ' +
       'certificate; does NOT remove the imp-486 GUE conditional; changes NO ' +
-      'Lambda bound. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'Lambda bound. No refereed bound is changed.',
     subGap:
       'imp-35353-sub-n4000-dp45-dthalf-stepover: re-run the N=4000 DP45 dt/2 ' +
       'reference on a still-finer base grid (tauC/8000 or tauC/16000) or with ' +
@@ -268,6 +268,6 @@ export const IMP_35353_R2_N3000_N4000_FINER_GRID_REFERENCE_ASSERTIONS = [
       'Measurement only: never a QED or a bound change. The N=4000 step-over ' +
       'REINFORCES keeping the R2 ladder largest-N-robustly-certified at 1000 ' +
       '(NOT advanced); a named sub-gap is recorded. C_mb stays GUE-conditional ' +
-      '(imp-486); Lambda <= 0.2 stays SOTA.',
+      '(imp-486); no refereed bound is changed.',
   },
 ];

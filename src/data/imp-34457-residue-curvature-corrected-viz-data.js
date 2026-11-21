@@ -22,7 +22,7 @@
  *   Ticket: imp-34457 (ux, medium). Presentation only of an already-established measurement;
  *   adds no new Lambda bound. Component model is the inherited surrogate diagnostic, NOT
  *   rigorous; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED;
- *   Platt-Trudgian Lambda<=0.2 remains the SOTA unconditional bound.
+ *   no refereed bound is changed.
  */
 
 // -- the three baked imp-34237 rungs feeding both the linear secant and the quadratic fit --

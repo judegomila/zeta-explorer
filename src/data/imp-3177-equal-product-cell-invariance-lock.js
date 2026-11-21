@@ -48,7 +48,7 @@
  *   strictly-positive residual gap; it neither claims the cover holds nor that it
  *   fails, and carries NO RH verdict. The off-diagonal endpoint-Hankel operator step
  *   (imp-3066) remains the lone obstruction and is untouched. Lock only, no QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false QED.
+ *   No refereed bound is changed. No false QED.
  *
  *   @see imp-3146-residual-gap-limit-aU-grid.js (the equal-product-cell grid sweep)
  *   @see imp-3147-residual-gap-saturation-lock.js (companion saturating-gap lock at the headline cell)
@@ -303,7 +303,7 @@ export const IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK = Object.freeze({
       'Locks an invariance of a saturating, strictly-positive residual gap of the representative ' +
       'monomial truncation; the off-diagonal endpoint-Hankel operator step (imp-3066) remains the ' +
       'lone obstruction and is NOT addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -375,7 +375,7 @@ export const IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK_ASSERTIONS = [
     id: 'imp3177-honest-rh-equivalent-not-a-verdict',
     why: 'Mandatory honesty: this is an invariance LOCK, RH-EQUIVALENT, representative truncation ' +
          'diagnostic, leaves the operator step untouched, did not attempt positivity, is not a proof, ' +
-         'not a reduction below RH, and PT 0.2 stays SOTA. If any flip the module is over-claiming.',
+         'not a reduction below RH, and no refereed bound is changed. If any flip the module is over-claiming.',
     holds: () => {
       const c = IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK.honestCaveat;
       return (
@@ -386,7 +386,7 @@ export const IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK_ASSERTIONS = [
         c.isRepresentativeTruncationNotTheSection26Gram === true &&
         c.didNotAttemptPositivity === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

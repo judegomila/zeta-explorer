@@ -9,7 +9,7 @@
  * (one-sign-change weight against a squared generalized-Vandermonde
  * density). CONF-DOM for K >= 3 stays OPEN -- this module changes its
  * FORM, not its status. Derivation + cross-check numerics; changes no
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95502/95503/95504 normalization). Distinct positive rates
  * P = {p_1 < ... < p_K}, E_P = span{e^(-p t)} in L2(0, inf), mean-time
@@ -365,7 +365,7 @@ export const IMP95505_DET_SLICE_REDUCTION_CONFDOM = {
     "degenerate, so margin-based certificates are impossible. CONF-DOM " +
     "for K >= 3 remains OPEN; nothing is closed by this module. Changes " +
     "no bound; does NOT promote any Lambda claim; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -585,11 +585,11 @@ export const IMP95505_ASSERTIONS = [
     id: "imp95505-honesty-gate",
     description:
       "the verdict names the executed residual, keeps K >= 3 OPEN, " +
-      "promotes no bound, NO QED, PT stays SOTA",
+      "promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95505_DET_SLICE_REDUCTION_CONFDOM.promotesBound === false &&
       /NO QED/.test(IMP95505_DET_SLICE_REDUCTION_CONFDOM.verdict) &&
-      /remains SOTA/.test(IMP95505_DET_SLICE_REDUCTION_CONFDOM.verdict) &&
+      /refereed bound is changed/i.test(IMP95505_DET_SLICE_REDUCTION_CONFDOM.verdict) &&
       /ii-next5/.test(IMP95505_DET_SLICE_REDUCTION_CONFDOM.title) &&
       /OPEN for K >= 3/.test(IMP95505_DET_SLICE_REDUCTION_CONFDOM.confDomStatus) &&
       /remains OPEN/.test(IMP95505_DET_SLICE_REDUCTION_CONFDOM.verdict),

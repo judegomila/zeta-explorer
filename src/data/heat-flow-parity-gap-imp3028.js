@@ -44,7 +44,7 @@
  *   - The certified finite-height Lambda claim rests on the interval-RK4
  *     brackets and Platt-Trudgian Lambda <= 0.2, never on this leg.
  *
- * PT Lambda <= 0.2 stays SOTA. This is a diagnostic magnitude, not a bound.
+ * No refereed bound is changed. This is a diagnostic magnitude, not a bound.
  */
 
 export const HEAT_FLOW_PARITY_GAP_IMP3028 = {
@@ -56,7 +56,7 @@ export const HEAT_FLOW_PARITY_GAP_IMP3028 = {
   subtitle:
     'Actual full N-body Dyson-surrogate collision time is ~0.47-0.49x the ' +
     'initial-slope estimate (2-body limit: exactly 1/2). The linearization is ' +
-    'an UPPER bound, not a lower bound. Diagnostic only; PT Lambda <= 0.2 SOTA.',
+    'an UPPER bound, not a lower bound. Diagnostic only; no refereed bound is changed.',
 
   convention: 'factor-2 backward-Dyson (dg_k/dtau = -2*sum 1/(g_k-g_j))',
 

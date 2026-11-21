@@ -90,7 +90,7 @@
  * imp-486 is UNTOUCHED and is a SEPARATE conditional from R3; the imp-2631 fixed strip is
  * UNTOUCHED; C_C 1/8 ansatz (imp-2642) UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no
  * operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35100-surrogate-total-E-fartail-floor (E(N) floors at constant E_trunc; names this route)
  * @see imp-2631-honest-truncation-route-assessment (E_trunc = (2e/kappa) T_v^{-kappa}; fixed strip)
@@ -295,7 +295,7 @@ export const IMP35149_VANISHING_ETRUNC_STRIP_SCOPE = {
     'SCOPING ONLY: discharges NONE of R1..R5; changes no bound; the imp-2631 fixed strip is ' +
     'UNTOUCHED; C_C 1/8 ansatz (imp-2642) UNTOUCHED; imp-3066 K_a >= 0 untouched; establishes no ' +
     'operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35100 (E(N) floors at constant E_trunc; names this route); imp-2631 (E_trunc = ' +
     '(2e/kappa) T_v^{-kappa}, fixed strip); imp-2622 (thin moving strip kappa -> 0, blow-up, ' +
@@ -332,14 +332,14 @@ export const IMP35149_VANISHING_ETRUNC_STRIP_SCOPE_ASSERTIONS = [
       /OPEN/.test(OBLIGATIONS.find((r) => r.id === 'R3').status),
   },
   {
-    // Honesty gate: scoping only, no QED, PT stays SOTA, imp-486 GUE conditional untouched.
+    // Honesty gate: scoping only, no QED, no refereed bound is changed, imp-486 GUE conditional untouched.
     id: 'imp35149-honesty-gate-no-qed',
-    description: 'Scoping only: isRigorous false, no QED, GUE-conditional noted, PT stays SOTA',
+    description: 'Scoping only: isRigorous false, no QED, GUE-conditional noted, no refereed bound is changed',
     holds: () =>
       IMP35149_VANISHING_ETRUNC_STRIP_SCOPE.isRigorous === false &&
       /NO QED/.test(IMP35149_VANISHING_ETRUNC_STRIP_SCOPE.verdict) &&
       /imp-486/.test(IMP35149_VANISHING_ETRUNC_STRIP_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35149_VANISHING_ETRUNC_STRIP_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35149_VANISHING_ETRUNC_STRIP_SCOPE.verdict),
   },
 ];
 

@@ -57,7 +57,7 @@
  * eps_meas has no rigorous uniform upper bound -- proving one is the imp-97133 uniform-O(1/b) residual).
  * The positivity remains of the EXPLICIT arithmetic first moment, NOT kappa > 0 in the mean-square lower
  * companion ([[project_route_m_lower_companion_first_moment]]); the cotangent first moment (imp-97097)
- * stays open. No bound on Lambda moves; T ~ 2.594e7 trace anchor unchanged; PT Lambda <= 0.2 SOTA; RH
+ * stays open. No bound on Lambda moves; T ~ 2.594e7 trace anchor unchanged; no refereed bound is changed; RH
  * open; NO QED.
  *
  * @see imp-97159-route-m-arith-first-moment-positivity-crossover.js (the worst-case crossover this checks)
@@ -145,11 +145,11 @@ export const IMP97211_VERDICT = Object.freeze({
     'they clear kappa by orders in reality. This is a consistency check; it PROVES no uniform bound (that is ' +
     'the imp-97133 residual) and moves nothing. Positivity is of the EXPLICIT first moment, NOT kappa>0 in the ' +
     'mean-square companion; the cotangent first moment (imp-97097) stays open. No bound moved; T ~ 2.594e7 ' +
-    'anchor; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'anchor; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97211_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-validation combining two leaves: the imp-97159 ' +
+  'RH open; no refereed bound is changed; NO QED. Cross-validation combining two leaves: the imp-97159 ' +
   'worst-case positivity crossover b0 = 511 collapses to b0 = 2 when the imp-97158 measured remainder ratio ' +
   'eps_meas(b) = (1/2)|b E0 - E1|/(phi b) is used -- eps_meas never reaches kappa_arith (max 0.2017 at b=2), ' +
   'so the finite vacuous range [2,510] is a 2^omega triangle-bound artifact. Measurement only; proves no ' +
@@ -217,7 +217,7 @@ const IMP97211_ASSERTIONS = [
       IMP97211_VERDICT.positivityIsFirstMomentNotMeanSquare === true &&
       /NOT kappa>0 in the mean-square/.test(IMP97211_VERDICT.conclusion) &&
       /NO QED/.test(IMP97211_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97211_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97211_HONEST_BANNER) &&
       /RH open/.test(IMP97211_HONEST_BANNER),
     why: 'cross-validation combining two leaves (worst-case b0=511 vs measured b0=2), honest that it proves no uniform bound and moves nothing, and that the positivity is first-moment not mean-square -- no bound moved, no rigorous ceiling, no QED.',
   },

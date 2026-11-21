@@ -11,7 +11,7 @@
  * ONLY ingredient the two theorems share is the Weil/Guinand explicit formula
  * itself, which is upstream of both and is not part of either theorem's claim.
  * Hence RES-T can be, and is here, extracted as a lemma with no reference to the
- * native span. RH remains OPEN; PT Lambda <= 0.2 stands; NO QED.
+ * native span. RH remains OPEN; no refereed bound is changed; NO QED.
  *
  * ---------------------------------------------------------------------------
  * LEMMA RES-T (standalone). Fix T > 0. Let f be a real even test function with
@@ -110,8 +110,8 @@
  * zero-density-lambda-inert-2026-07-09.js lever 4).
  *
  * Import-free: literals for the imp-95530 / imp-95520 cross-values are baked and
- * the closed forms are recomputed. Changes no bound; NO QED; PT Lambda <= 0.2
- * remains SOTA; RH open.
+ * the closed forms are recomputed. Changes no bound; NO QED; no refereed bound is changed
+ * ; RH open.
  */
 
 // sinc(x) = sin(x)/x on the real axis; S(x) = sinh(x/2)/(x/2) is its value on the
@@ -208,7 +208,7 @@ export const IMP95533_RES_T_STANDALONE_LEMMA = Object.freeze({
   verdict:
     'YES: RES-T is a self-contained lemma independent of the NS-RIGID dichotomy; the imp-95520 Class II "O(e^T/H^4) / consequence '
     + 'of verified height for all fixed T" reading is corrected to "consequence of verified height only for T < T_X". Changes no '
-    + 'bound; NO QED; PT Lambda <= 0.2 stands; RH open.',
+    + 'bound; NO QED; no refereed bound is changed; RH open.',
 });
 
 const relEq = (x, lit, tol) => Math.abs(x - lit) <= tol * Math.max(Math.abs(lit), 1e-300);
@@ -268,7 +268,7 @@ export const IMP95533_ASSERTIONS = [
       && /T < T_X/.test(IMP95533_RES_T_STANDALONE_LEMMA.classIICorrection)
       && /pointwise Hilbert-transform wall/.test(IMP95533_RES_T_STANDALONE_LEMMA.residual)
       && /RH open/.test(IMP95533_RES_T_STANDALONE_LEMMA.verdict)
-      && /PT Lambda <= 0.2 stands/.test(IMP95533_RES_T_STANDALONE_LEMMA.verdict)
+      && /refereed bound is changed/i.test(IMP95533_RES_T_STANDALONE_LEMMA.verdict)
       && /NO QED/.test(IMP95533_RES_T_STANDALONE_LEMMA.verdict),
   },
 ];

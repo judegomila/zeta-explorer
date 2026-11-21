@@ -64,7 +64,7 @@
  *   thin fit basis by construction (a caveat the ticket demands). The NPHI = 10 Phi-series truncation
  *   is inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level
  *   K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict,
- *   no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   no QED. No refereed bound is changed.
  *
  *   @see imp-33537-deep-tail-plateau-spike-recurrence.js (the dense-scan worst-window ULP series fit here)
  *   @see imp-33316-graded-plateau-deep-tail-node-budget.js (the coarse-grid constant-band reading imp-33537 corrected)
@@ -218,7 +218,7 @@ const verdict =
       'COMPARABLE-TO-THE-DEPTH-TREND.-FOUR-JITTERY-LATTICE-POINTS-IS-A-THIN-FIT-BASIS;-THE-ROBUST-READING-IS-THE-' +
       'QUALITATIVE-WEAK-POSITIVE-NON-MONOTONE-TREND,-NOT-THE-EXACT-EXPONENT.-ACCURACY/RULE-DESIGN-MEASUREMENT-ONLY;-' +
       'JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-' +
-      'PT-Lambda<=0.2-STAYS-SOTA'
+      'NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33555_DEEP_TAIL_JITTER_ENVELOPE_GROWTH_LAW = Object.freeze({
@@ -245,7 +245,7 @@ export const IMP33555_DEEP_TAIL_JITTER_ENVELOPE_GROWTH_LAW = Object.freeze({
     'empirical ceiling ~79 ULP), NOT a fittable power law; per-window scatter is comparable to the depth trend. ' +
     'ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery lattice floor (four ' +
     'points is a thin basis; the robust reading is qualitative); operator positivity (imp-3066) untouched; no QED. ' +
-    'PT Lambda &lt;= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s)Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -334,7 +334,7 @@ export const IMP33555_DEEP_TAIL_JITTER_ENVELOPE_GROWTH_LAW = Object.freeze({
       'The worst-window ULP is a jittery arithmetic-floor lattice property (imp-33249/imp-33277/imp-33296/imp-33537): ' +
       'the exact per-rung ULP and which rung attains the window worst can shift under cross-platform libm exp/pow ' +
       'variation, so the fitted exponent and residual are themselves jittery.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -389,7 +389,7 @@ export const IMP33555_DEEP_TAIL_JITTER_ENVELOPE_GROWTH_LAW_ASSERTIONS = [
   {
     id: 'imp33555-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, quantifies the imp-33537 ' +
-         'envelope without a clean law, thin jittery basis flagged, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'envelope without a clean law, thin jittery basis flagged, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33555_DEEP_TAIL_JITTER_ENVELOPE_GROWTH_LAW.honestCaveat;
       return (
@@ -399,7 +399,7 @@ export const IMP33555_DEEP_TAIL_JITTER_ENVELOPE_GROWTH_LAW_ASSERTIONS = [
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
         /thin fit basis/.test(c.thinFitBasisCaveat) &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

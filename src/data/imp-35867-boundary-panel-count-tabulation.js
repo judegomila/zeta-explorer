@@ -14,8 +14,7 @@
  * MEASUREMENT ON THE SHARED NORMALISED OOM MODEL ONLY (imp-35777 / imp-35778 / imp-35800 /
  * imp-35806). Evaluates no true |H_t| or |H_t prime| on any edge; fixes no Delta or h for any
  * real rectangle; certifies no cap; certifies no delta > 0; establishes no positivity; I3 remains
- * GREENFIELD downstream of W1; changes no bound; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * GREENFIELD downstream of W1; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * WHAT IS TABULATED
  * -----------------------------------------------------------------------------
@@ -49,7 +48,7 @@
  * true |H_t| or |H_t prime|; lower-bounds no inf|H_t prime|; fixes no Delta or h for any real
  * rectangle; certifies no cap; certifies no delta > 0; establishes no positivity; I3 stays
  * GREENFIELD downstream of W1; changes no bound; C_mb GUE-conditional (imp-486) untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35806-i2-i3-coupled-placement-derivation (N_total(Delta,h); derived corner (m g, 1/w), budget 2m+4/pi)
  * @see imp-35800-i3-two-knob-floor-balance-point (floor-saturation corner h = 1/w, Delta = integer gaps)
@@ -61,7 +60,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35806 verbatim) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 
 // Winding / derivative log-scale w(T) = (1/2) log(T / 2 pi) (imp-35757 / imp-35777 / imp-35806).
 const windingRate = (T) => 0.5 * Math.log(T / (2 * Math.PI));
@@ -153,7 +152,7 @@ export const IMP35867_BOUNDARY_PANEL_COUNT_TABULATION = {
     'are normalised panel COUNTS, not certified counts of any real rectangle. Evaluates no true |H_t| or ' +
     '|H_t prime|; lower-bounds no inf|H_t prime|; fixes no Delta or h for any real rectangle; certifies no cap; ' +
     'certifies no delta > 0; establishes no positivity; I3 stays GREENFIELD downstream of W1; changes no bound; ' +
-    'C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35806 (joint budget N_total(Delta,h); derived corner (m g, 1/w), budget 2m+4/pi); imp-35800 (floor-only ' +
     'argmax: saturation corner h = 1/w); imp-35778 (delta = min(delta_short, delta_long)); imp-35777 (per-panel cap ' +
@@ -238,9 +237,9 @@ export const IMP35867_BOUNDARY_PANEL_COUNT_TABULATION_ASSERTIONS = [
       Math.abs(B_PROXY - W_TPT) < 1e-12,
   },
   {
-    // Honesty gate: measurement on OOM model only, no positivity, no cap, no delta>0, no QED, PT SOTA.
+    // Honesty gate: measurement on OOM model only, no positivity, no cap, no delta>0, no QED, no refereed bound is changed.
     id: 'imp35867-honesty-gate-no-qed',
-    description: 'OOM measurement only; certifies no cap; certifies no delta>0; establishes no positivity; changes no bound; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'OOM measurement only; certifies no cap; certifies no delta>0; establishes no positivity; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35867_BOUNDARY_PANEL_COUNT_TABULATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -249,7 +248,7 @@ export const IMP35867_BOUNDARY_PANEL_COUNT_TABULATION_ASSERTIONS = [
       /establishes no positivity/.test(IMP35867_BOUNDARY_PANEL_COUNT_TABULATION.verdict) &&
       /GREENFIELD/.test(IMP35867_BOUNDARY_PANEL_COUNT_TABULATION.verdict) &&
       /NO QED/.test(IMP35867_BOUNDARY_PANEL_COUNT_TABULATION.verdict) &&
-      /remains SOTA/.test(IMP35867_BOUNDARY_PANEL_COUNT_TABULATION.verdict),
+      /refereed bound is changed/i.test(IMP35867_BOUNDARY_PANEL_COUNT_TABULATION.verdict),
   },
 ];
 

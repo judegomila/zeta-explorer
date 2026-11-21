@@ -34,7 +34,7 @@
  *   1.0000 exactly at c = c* and grows monotonically away from it (~1.04x
  *   a quarter-offset below, ~5.98x an octave-3 offset above), confirming the
  *   cap is the exact sup over b of the min-branch envelope. No bound is
- *   changed. NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   changed. NO QED; no refereed bound is changed.
  *
  *   HONEST SCOPE
  *   -----------------------------------------------
@@ -164,8 +164,8 @@ export const IMP95357_BCAP_CROSSVAL = {
     'c*=1+a^2/(2w^2) is exact to 4.1e-11 relative, and cap/minBranch=1.0000 ' +
     'exactly at the crossing (the cap is the b-sup of the min-branch ' +
     'envelope) -- the b-uniform beta-trace currency is exhausted. ' +
-    'Cross-validation only; changes no bound; NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'Cross-validation only; changes no bound; NO QED; no refereed bound is changed' +
+    '.',
 };
 
 const IMP95357_BCAP_CROSSVAL_ASSERTIONS = [
@@ -217,11 +217,11 @@ const IMP95357_BCAP_CROSSVAL_ASSERTIONS = [
   {
     id: 'imp95357-honesty-gate-no-qed',
     why:
-      'Cross-validation only: no enclosure established, PT SOTA line ' +
+      'Cross-validation only: no enclosure established, no-refereed-bound-change line ' +
       'present, scope glosses the single lemma being checked.',
     holds: () =>
       IMP95357_BCAP_CROSSVAL.anyEnclosureEstablished === false &&
-      /remains SOTA/.test(IMP95357_BCAP_CROSSVAL.verdict) &&
+      /refereed bound is changed/i.test(IMP95357_BCAP_CROSSVAL.verdict) &&
       IMP95357_BCAP_CROSSVAL.glosses === 'imp-95329',
   },
 ];

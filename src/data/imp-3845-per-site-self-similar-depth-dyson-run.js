@@ -59,8 +59,7 @@
  * absolute shock constant c_sh (imp-2520 SG1, OPEN) is untouched. So G6a_shock_lipschitz stays OPEN.
  *
  * MEASUREMENT ONLY. RH-EQUIVALENT; necessary-but-not-sufficient. No positivity, no bridge closure, no RH
- * claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3726-y2-adapted-flow-depth-schedule (states s_k = c g_k^2; N2 = "not outputs of an actual per-site RK4 run")
  * @see imp-3642-sigma-crossover-tc-direct-dyson-crosscheck (the RK4 machinery reused here; integrates to HALF the shock budget)
@@ -286,8 +285,8 @@ export const IMP3845_PER_SITE_SELF_SIMILAR_DEPTH_DYSON_RUN = {
     'is read, not the microscopic nearest-pair collision; the absolute shock constant c_sh (imp-2520 SG1, ' +
     'OPEN) is untouched. So G6a_shock_lipschitz stays OPEN. Measurement only, RH-EQUIVALENT, ' +
     'necessary-but-not-sufficient; no positivity, no bridge closure, no RH claim, NO QED. imp-3066 ' +
-    'off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3726 (states s_k = c g_k^2; N2 = "not outputs of an actual per-site RK4 run"); imp-3642 ' +
     '(backward-Dyson RK4 machinery; integrates to HALF the shock budget); imp-3708 (fixed-depth floor ' +
@@ -345,15 +344,15 @@ export const IMP3845_PER_SITE_SELF_SIMILAR_DEPTH_DYSON_RUN_ASSERTIONS = [
       IMP3845_PER_SITE_SELF_SIMILAR_DEPTH_DYSON_RUN.g6aStillOpen === true,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3845-honesty-gate-no-qed',
-    description: 'Measurement only: no QED, RH-equivalent necessary-but-not-sufficient, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: no QED, RH-equivalent necessary-but-not-sufficient, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3845_PER_SITE_SELF_SIMILAR_DEPTH_DYSON_RUN.isRigorous === false &&
       /NO QED/.test(IMP3845_PER_SITE_SELF_SIMILAR_DEPTH_DYSON_RUN.verdict) &&
       /RH-EQUIVALENT/.test(IMP3845_PER_SITE_SELF_SIMILAR_DEPTH_DYSON_RUN.verdict) &&
       /necessary-but-not-sufficient/.test(IMP3845_PER_SITE_SELF_SIMILAR_DEPTH_DYSON_RUN.verdict) &&
-      /remains the\s+rigorous SOTA/.test(IMP3845_PER_SITE_SELF_SIMILAR_DEPTH_DYSON_RUN.verdict.replace(/\s+/g, ' ')) &&
+      /refereed bound is changed/i.test(IMP3845_PER_SITE_SELF_SIMILAR_DEPTH_DYSON_RUN.verdict.replace(/\s+/g, ' ')) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3845_PER_SITE_SELF_SIMILAR_DEPTH_DYSON_RUN.verdict),
   },
 ];

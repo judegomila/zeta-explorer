@@ -48,7 +48,7 @@
  *   here as an eps-step artifact)
  *
  * Ticket: imp-124883 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The L6 eps-step-artifact headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -80,8 +80,8 @@ const L6_EPS_STEP_ARTIFACT_HEADWORD = Object.freeze({
     'double-precision pin exactly, every dps>=30 rung is bit-identical at R=1.0819e-12 / ' +
     'sigma_crit=0.020385, and the eps ladder at dps=100 fits log-log slope 2.000 with ratio ' +
     '~100x per decade. Naming / glossary headword only; supplies no new bound; the C_C 1/8 ' +
-    'ansatz and E_trunc/E_flow component model are untouched; RH open; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA; NO QED.',
+    'ansatz and E_trunc/E_flow component model are untouched; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP124883_L6_EPS_STEP_ARTIFACT_GLOSSARY_HEADWORD = Object.freeze({
@@ -103,7 +103,7 @@ export const IMP124883_L6_EPS_STEP_ARTIFACT_GLOSSARY_HEADWORD = Object.freeze({
     '2-point-stencil truncation (eps-step) artifact, NOT a double-precision round-off floor; the ' +
     'imp-124810 double-precision-limited premise is REFUTED. Only shrinking eps, not adding ' +
     'precision, can move sigma_crit toward L6. No bound moved; the component model and all pinned ' +
-    'surrogate constants are untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'surrogate constants are untouched; NO QED. No refereed bound is changed.',
   citation:
     'imp-124849 (the dps/eps two-axis sweep this glosses, deciding the imp-124810 question); ' +
     'imp-124864 (the prior headword this one supersedes); imp-124810 (the double-precision-only ' +
@@ -130,11 +130,11 @@ export const IMP124883_L6_EPS_STEP_ARTIFACT_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp124883-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124849.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124849.',
     holds: () =>
       IMP124883_L6_EPS_STEP_ARTIFACT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124883_L6_EPS_STEP_ARTIFACT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124883_L6_EPS_STEP_ARTIFACT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124883_L6_EPS_STEP_ARTIFACT_GLOSSARY_HEADWORD.verdict) &&
       IMP124883_L6_EPS_STEP_ARTIFACT_GLOSSARY_HEADWORD.glosses === 'imp-124849',
   },
   {

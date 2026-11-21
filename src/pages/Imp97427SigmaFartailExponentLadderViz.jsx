@@ -115,7 +115,7 @@ export default function Imp97427SigmaFartailExponentLadderViz() {
         <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> measurement/fit
         diagnostic reused verbatim from imp-97404, itself extending the imp-33582
         per-decade ladder. NOT an RH bound &mdash; conditional-share diagnostic
-        only; no operator positivity established; PT Lambda&le;0.2 remains SOTA;
+        only; no operator positivity established; no refereed bound is changed;
         RH open; NO QED.
       </div>
 

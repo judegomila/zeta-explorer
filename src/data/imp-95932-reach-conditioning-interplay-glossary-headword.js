@@ -32,13 +32,13 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95895 interplay finding for quick
  *   reference. It establishes nothing, fits no new curve, moves no bound. NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-95895-ln125-ufit-interval (source: derives the interplay finding this glosses)
  * @see imp-95885-per-delta-ufit-comparison-table (the three-delta table FINDING A this refines)
  *
  * Ticket: imp-95932 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The reach-to-conditioning interplay headword, baked verbatim (no re-import).
@@ -84,7 +84,7 @@ export const IMP95932_REACH_CONDITIONING_INTERPLAY_GLOSSARY_HEADWORD = Object.fr
     'ln 1.2 0.3415%) is explained by neither reach alone nor conditioning alone, but by ' +
     'their INTERPLAY -- ln 1.25 pairs long reach (340) with only moderate conditioning ' +
     '(~1e17). Establishes nothing; fits no new curve; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95895 (derives the ln 1.25 interval and the interplay finding); imp-95885 ' +
     '(three-delta comparison table and FINDING A this refines).',
@@ -109,11 +109,11 @@ export const IMP95932_REACH_CONDITIONING_INTERPLAY_GLOSSARY_HEADWORD_ASSERTIONS 
   },
   {
     id: 'imp95932-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, correct glosses/scopes pointers.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, correct glosses/scopes pointers.',
     holds: () =>
       IMP95932_REACH_CONDITIONING_INTERPLAY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95932_REACH_CONDITIONING_INTERPLAY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95932_REACH_CONDITIONING_INTERPLAY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95932_REACH_CONDITIONING_INTERPLAY_GLOSSARY_HEADWORD.verdict) &&
       IMP95932_REACH_CONDITIONING_INTERPLAY_GLOSSARY_HEADWORD.glosses === 'imp-95895' &&
       IMP95932_REACH_CONDITIONING_INTERPLAY_GLOSSARY_HEADWORD.scopes === 'imp-95885',
   },

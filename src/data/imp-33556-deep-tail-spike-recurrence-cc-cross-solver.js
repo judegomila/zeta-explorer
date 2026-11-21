@@ -83,7 +83,7 @@
  *   recurrence-and-intensification that BOTH solvers share, not the exact per-rung ULP. The NPHI = 10
  *   Phi-series truncation is inherited upstream. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the
  *   operator-level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is
- *   UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33537-deep-tail-plateau-spike-recurrence.js (the graded-GL recurrence finding this cross-solves)
  *   @see imp-33536-r40-graded-vs-cc-cross-solver-node-budget.js (the Clenshaw-Curtis inner rule carried here)
@@ -368,7 +368,7 @@ const verdict = recurrenceIsIntrinsic
     'OVERTURN)-imp-33537-SPIKES-RECUR-AND-INTENSIFY-AND-ITS-CORRECTION-OF-THE-imp-33316-CONSTANT-<64-ULP-' +
     'BAND-AS-A-COARSE-GRID-ARTIFACT.-ACCURACY/RULE-DESIGN-CROSS-SOLVER-MEASUREMENT-ONLY;-JITTERY-LATTICE-' +
     'FLOOR;-NO-LITERAL-PATCHED;-imp-33537/imp-33536/imp-33213-INTACT;-mass-feasibility-NECESSARY-BUT-NOT-' +
-    'SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+    'SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
   : 'INDETERMINATE';
 
 export const IMP33556_DEEP_TAIL_SPIKE_RECURRENCE_CC_CROSS_SOLVER = Object.freeze({
@@ -401,7 +401,7 @@ export const IMP33556_DEEP_TAIL_SPIKE_RECURRENCE_CC_CROSS_SOLVER = Object.freeze
     'not overturn) imp-33537 and its correction of the imp-33316 constant &lt; 64 ULP band as a coarse-grid ' +
     'artifact. ACCURACY/RULE-DESIGN CROSS-SOLVER MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; ' +
     'jittery lattice floor; no literal patched; imp-33537/imp-33536/imp-33213 intact; operator positivity ' +
-    '(imp-3066) untouched; no QED. PT Lambda &lt;= 0.2 stays SOTA.',
+    '(imp-3066) untouched; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^inf Phi(s)Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -505,7 +505,7 @@ export const IMP33556_DEEP_TAIL_SPIKE_RECURRENCE_CC_CROSS_SOLVER = Object.freeze
       'exact per-rung ULP, the worst-at-n and the precise 64-ULP crossing rungs shift between the graded-GL and ' +
       'Clenshaw-Curtis solvers and under cross-platform libm exp/pow/cos variation. The robust reading is the ' +
       'QUALITATIVE recurrence-and-intensification both solvers share, not the exact per-rung ULP.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -564,7 +564,7 @@ export const IMP33556_DEEP_TAIL_SPIKE_RECURRENCE_CC_CROSS_SOLVER_ASSERTIONS = [
   {
     id: 'imp33556-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design cross-solver measurement only, not a certified bound, no literal ' +
-         'patched, source modules intact, confirms (not overturns) imp-33537, operator positivity (imp-3066) untouched, PT 0.2 SOTA.',
+         'patched, source modules intact, confirms (not overturns) imp-33537, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33556_DEEP_TAIL_SPIKE_RECURRENCE_CC_CROSS_SOLVER.honestCaveat;
       return (
@@ -576,7 +576,7 @@ export const IMP33556_DEEP_TAIL_SPIKE_RECURRENCE_CC_CROSS_SOLVER_ASSERTIONS = [
         c.patchedALiteral === false &&
         c.leavesSourceModulesIntact === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

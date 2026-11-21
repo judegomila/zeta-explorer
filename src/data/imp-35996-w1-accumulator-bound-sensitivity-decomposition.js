@@ -19,7 +19,7 @@
  * MEASUREMENT ONLY. Instantiates no directed-rounding interval; evaluates no true H_0; verifies no
  * inequality; changes no bound; establishes no positivity; the certified length-N interval sum stays
  * MECHANICAL / GREENFIELD (imp-35725 / imp-35681 Part A); C_mb GUE-conditional (imp-486) untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE DECOMPOSITION (why the split is exact and clean)
  * -----------------------------------------------------------------------------
@@ -64,7 +64,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35761 / imp-35812 / imp-35890 / imp-35949) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -238,8 +238,8 @@ export const IMP35996_W1_ACCUMULATOR_BOUND_SENSITIVITY_DECOMPOSITION = {
     'the grid (imp-35949): even the collapsed r = 1 corner leaves gamma_{N-1} ~ 5.4e-11 ~4 orders under the ' +
     'imp-35760 O(1) barrier margin. Instantiates no directed-rounding interval; evaluates no true H_0; verifies ' +
     'no inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT stays ' +
-    'GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35949 (composite-r (alpha,beta) grid this decomposes into numerator vs denominator); imp-35890 (O(1) ' +
     'running-accumulator normalized a-priori bound whose sensitivity is split); imp-35991 (baseline-to-resonance ' +
@@ -318,15 +318,15 @@ export const IMP35996_W1_ACCUMULATOR_BOUND_SENSITIVITY_DECOMPOSITION_ASSERTIONS 
     },
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp35996-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35996_W1_ACCUMULATOR_BOUND_SENSITIVITY_DECOMPOSITION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /GREENFIELD/.test(IMP35996_W1_ACCUMULATOR_BOUND_SENSITIVITY_DECOMPOSITION.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35996_W1_ACCUMULATOR_BOUND_SENSITIVITY_DECOMPOSITION.verdict) &&
-      /remains SOTA/.test(IMP35996_W1_ACCUMULATOR_BOUND_SENSITIVITY_DECOMPOSITION.verdict),
+      /refereed bound is changed/i.test(IMP35996_W1_ACCUMULATOR_BOUND_SENSITIVITY_DECOMPOSITION.verdict),
   },
 ];
 

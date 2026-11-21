@@ -95,7 +95,7 @@
  * beta_2(1) = K(0, 2), beta_2(2) = 0, and lambda_max (2 - alpha) is the convex
  * chord; (5) both bounding lines strictly decrease and meet 0 at alpha = 2, so
  * beta_full strictly decreases; (6) DELTA(1) = coupling exactly, DELTA(2) = 0;
- * (7) no bound promoted, residual named, PT stays SOTA.
+ * (7) no bound promoted, residual named, no refereed bound is changed.
  *
  * HONEST SCOPE. The convex sandwich (lower = feasible two-block restriction,
  * upper = convex chord through the two exact endpoints) is RIGOROUS and
@@ -105,7 +105,7 @@
  * the named residual (witness-mass dependent). Import-light (no heavy bundle;
  * the kernel machinery is a short copy of the exact Lemma PF form, identical
  * to the imp-95008 siblings). Changes no bound; does NOT promote Lambda <=
- * 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── baked cross-check literals (from imp-95096) ──────────────────────────────
@@ -435,7 +435,7 @@ export const IMP95112_FULL_SECTION_JOINT_NEAR_FAR = {
     "The convex sandwich is RIGOROUS and unconditional: LOWER is a feasible restriction of the same SDP to the {0,2} sub-block; UPPER is the convex chord (beta(alpha)=sup of affine-in-alpha functions is convex) through two exact endpoints (beta_full(1)=lambda_max by imp-95008 Lemma SW Rayleigh sharpness, beta_full(2)=0 by the squeeze). This caps the full-section departure from the imp-95096 two-block line at coupling(2-alpha) <= 1.4858e-11 WITHOUT the interior solve, and confirms strict monotonicity (both bounding lines strictly decrease). The exact interior value within the <=1.5e-11 band is the named witness-mass residual. Measurement only; adds no lemma to the closure chain, changes no bound.",
   promotesBound: false,
   verdict:
-    "MEASUREMENT (imp-95112): extending imp-95096 Lemma JNF from the dominant two-block {0,2} model to the full even-class SDP, the full-section Pareto line is rigorously sandwiched K(0,2)(2-alpha) <= beta_full(alpha) <= lambda_max(2-alpha) on [1,2] (lower = feasible two-block restriction, upper = convex chord through the exact endpoints beta_full(1)=lambda_max, beta_full(2)=0). So the full section departs from the imp-95096 two-block approximation by at most the block-4 coupling (2-alpha) <= 1.4858e-11 -- EXACTLY the coupling 1.4858e-11 at the alpha=1 aggregation endpoint, vanishing at alpha=2. Strict monotonicity (convexity) is confirmed unconditionally in the full section. The exact interior value within the <=1.5e-11 band is the named witness-mass residual imp-95096-subgap-near-currency-ratio. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    "MEASUREMENT (imp-95112): extending imp-95096 Lemma JNF from the dominant two-block {0,2} model to the full even-class SDP, the full-section Pareto line is rigorously sandwiched K(0,2)(2-alpha) <= beta_full(alpha) <= lambda_max(2-alpha) on [1,2] (lower = feasible two-block restriction, upper = convex chord through the exact endpoints beta_full(1)=lambda_max, beta_full(2)=0). So the full section departs from the imp-95096 two-block approximation by at most the block-4 coupling (2-alpha) <= 1.4858e-11 -- EXACTLY the coupling 1.4858e-11 at the alpha=1 aggregation endpoint, vanishing at alpha=2. Strict monotonicity (convexity) is confirmed unconditionally in the full section. The exact interior value within the <=1.5e-11 band is the named witness-mass residual imp-95096-subgap-near-currency-ratio. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -505,12 +505,12 @@ export const IMP95112_ASSERTIONS = [
   {
     id: "imp95112-honesty-gate",
     description:
-      "the verdict measures the full-section line, gives the rigorous sandwich, names the witness-mass residual, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict measures the full-section line, gives the rigorous sandwich, names the witness-mass residual, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95112_FULL_SECTION_JOINT_NEAR_FAR.promotesBound === false &&
       IMP95112_FULL_SECTION_JOINT_NEAR_FAR.openResiduals.length === 2 &&
       /NO QED/.test(IMP95112_FULL_SECTION_JOINT_NEAR_FAR.verdict) &&
-      /remains SOTA/.test(IMP95112_FULL_SECTION_JOINT_NEAR_FAR.verdict) &&
+      /refereed bound is changed/i.test(IMP95112_FULL_SECTION_JOINT_NEAR_FAR.verdict) &&
       /sandwiched/.test(IMP95112_FULL_SECTION_JOINT_NEAR_FAR.verdict) &&
       /imp-95096-subgap-near-currency-ratio/.test(IMP95112_FULL_SECTION_JOINT_NEAR_FAR.residual) &&
       typeof IMP95112_FULL_SECTION_JOINT_NEAR_FAR.rigorScope === "string",

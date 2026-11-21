@@ -12,8 +12,7 @@
  * Import-light (no imports, no zeros bundle); mirrors the exact kernel of
  * imp-95256-split2-splitloo-crossover.js (compareSplits / rhoStar) rather
  * than importing it, per the imp-95349/95350/95351 pattern. Presentation +
- * re-derivation cross-check only; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * re-derivation cross-check only; changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -208,8 +207,8 @@ export const IMP95409_SUMMARY = {
     "rho-vs-rhoStar(sigma) form and traces the concrete depth-flip example " +
     "where sigma stays fixed but rho falls through the threshold as depth " +
     "grows. Algebraically identical to the g-vs-sigma form (imp-95391); no " +
-    "new bound; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA.",
+    "new bound; changes no bound; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -265,7 +264,7 @@ const ASSERTIONS = [
       /MEASUREMENT/.test(IMP95409_SUMMARY.verdict) &&
       /changes no bound/.test(IMP95409_SUMMARY.verdict) &&
       /NO QED/.test(IMP95409_SUMMARY.verdict) &&
-      /remains SOTA/.test(IMP95409_SUMMARY.verdict),
+      /refereed bound is changed/i.test(IMP95409_SUMMARY.verdict),
   },
 ];
 

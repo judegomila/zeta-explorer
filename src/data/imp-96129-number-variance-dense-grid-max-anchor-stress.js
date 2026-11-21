@@ -60,7 +60,7 @@
  * as a genuine cap over the accessible range. This does not upgrade the anchor to a proof:
  * a finite grid cannot exclude a deeper interior excursion (sub-gap DENSE-GRID-INTERPOLATION),
  * and all heights remain ~6.7 decades below the T = 3.0e12 window bottom. Measurement only;
- * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route
+ * changes no bound; NO QED; no refereed bound is changed; the zero-side route
  * stays PCC/GRH-gated.
  *
  * @see imp-96108-number-variance-excursion-depth-vs-max-anchor (the max-anchor + sample-max caveat this stresses)
@@ -167,7 +167,7 @@ export const IMP96129_NUMBER_VARIANCE_DENSE_GRID_MAX_ANCHOR_STRESS = {
   caveat:
     'This TRIPLES the interior sample (25 new heights, 36 total) and widens the reach to T = 6.37e5, materially strengthening the genuine-cap reading, but C0_max stays a FINITE-SAMPLE maximum: it cannot exclude a deeper excursion between grid points or above T = 6.37e5, and all heights sit ~6.7 decades below the T = 3.0e12 window bottom. Changes NO Lambda bound.',
   verdict:
-    'On a 25-height interior grid roughly TRIPLING the density and widening the reach to T = 6.37e5, the max offset anchor C0_max = 0.333721 caps EVERY measured height (0 / 25 breaches; 0 / 36 including the prior sample). The deepest new grid offset (0.292306 at T = 2.75e4) sits 0.041415 offset units below the anchor and no denser point approaches C0_max more closely than the already-known held-out T = 5e4 (gap 0.012815), so finer sampling does NOT reveal the max anchor to be a coarse-grid sampling ceiling; it behaves as a genuine cap over the accessible range. A finite grid still cannot exclude a deeper interior excursion (sub-gap DENSE-GRID-INTERPOLATION), and all heights remain ~6.7 decades below the T = 3.0e12 window bottom. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'On a 25-height interior grid roughly TRIPLING the density and widening the reach to T = 6.37e5, the max offset anchor C0_max = 0.333721 caps EVERY measured height (0 / 25 breaches; 0 / 36 including the prior sample). The deepest new grid offset (0.292306 at T = 2.75e4) sits 0.041415 offset units below the anchor and no denser point approaches C0_max more closely than the already-known held-out T = 5e4 (gap 0.012815), so finer sampling does NOT reveal the max anchor to be a coarse-grid sampling ceiling; it behaves as a genuine cap over the accessible range. A finite grid still cannot exclude a deeper interior excursion (sub-gap DENSE-GRID-INTERPOLATION), and all heights remain ~6.7 decades below the T = 3.0e12 window bottom. Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -190,8 +190,8 @@ export const IMP96129_NUMBER_VARIANCE_DENSE_GRID_MAX_ANCHOR_STRESS = {
   // honesty gates
   if (!/NO QED/.test(IMP96129_NUMBER_VARIANCE_DENSE_GRID_MAX_ANCHOR_STRESS.verdict))
     throw new Error('imp-96129: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96129_NUMBER_VARIANCE_DENSE_GRID_MAX_ANCHOR_STRESS.verdict))
-    throw new Error('imp-96129: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96129_NUMBER_VARIANCE_DENSE_GRID_MAX_ANCHOR_STRESS.verdict))
+    throw new Error('imp-96129: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96129_NUMBER_VARIANCE_DENSE_GRID_MAX_ANCHOR_STRESS;

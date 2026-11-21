@@ -77,7 +77,7 @@
  * imp-34997a / imp-35243a stay OPEN; R1 (floor-independence) stays the single OPEN binding obstruction. ASSESSMENT
  * ONLY; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35259-two-rate-band-edges-direct-rootfind (routes the off-by-one WHETHER-question back onto R1)
  * @see imp-35330-reentry-band-fidelity-requirement-dependency (R1 is the DAG root; R2/R3 dominated; R4 downstream)
@@ -178,7 +178,7 @@ export const IMP95034_R1_TERMINAL_CEIL_RATE_MODEL_ASSESSMENT = {
     'imp-35174a / imp-34997a / imp-35243a stay OPEN. ASSESSMENT ONLY on the inherited imp-3220/imp-3406 double ' +
     'surrogate; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 ' +
     'are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35259 (routes the off-by-one WHETHER-question back onto R1); imp-35330 (R1 is the DAG root, independent ' +
     'binding count 1, R2/R3 dominated, R4 downstream); imp-35572 (in-band n_two = n_single at every seed, ' +
@@ -223,13 +223,13 @@ export const IMP95034_R1_TERMINAL_CEIL_RATE_MODEL_ASSESSMENT_ASSERTIONS = [
       /DISSOLVES/.test(IMP95034_R1_TERMINAL_CEIL_RATE_MODEL_ASSESSMENT.q2_closes_off_by_one_census),
   },
   {
-    // Honesty gate: assessment only, discharges nothing, no QED, PT SOTA, sub-gap OPEN.
+    // Honesty gate: assessment only, discharges nothing, no QED, no refereed bound is changed, sub-gap OPEN.
     id: 'imp95034-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, imp-35243a OPEN, no QED, Platt-Trudgian stays SOTA',
+    description: 'Assessment only: isRigorous false, imp-35243a OPEN, no QED, no refereed bound is changed',
     holds: () =>
       IMP95034_R1_TERMINAL_CEIL_RATE_MODEL_ASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP95034_R1_TERMINAL_CEIL_RATE_MODEL_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP95034_R1_TERMINAL_CEIL_RATE_MODEL_ASSESSMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP95034_R1_TERMINAL_CEIL_RATE_MODEL_ASSESSMENT.verdict) &&
       /imp-35243a/.test(IMP95034_R1_TERMINAL_CEIL_RATE_MODEL_ASSESSMENT.residual_sub_gap) &&
       /stay OPEN/.test(IMP95034_R1_TERMINAL_CEIL_RATE_MODEL_ASSESSMENT.residual_sub_gap),
   },

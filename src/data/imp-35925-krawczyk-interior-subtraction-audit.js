@@ -59,7 +59,7 @@
  * Establishing that the interior nodes are O(1)-conditioned is NECESSARY but not SUFFICIENT; the full K(m)
  * operator over the imp-34687a layer is not ported. imp-34714a REMAINS OPEN; C_C = 1/8 (imp-2642/2643) and
  * C_mb GUE-conditional (imp-486) are UNTOUCHED; changes no bound; establishes no operator positivity;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35885-krawczyk-node-cancellation-audit (operator-level nodes A/B/C/D; left g/a atomic)
  * @see imp-35855-rclean-interval-de-cancellation-assessment (de-cancelled the dG node in closed form)
@@ -222,7 +222,7 @@ export const IMP35925_KRAWCZYK_INTERIOR_SUBTRACTION_AUDIT = {
     'instantiated, the F(m)=0 artifact is classified not discharged, the imp-34687a layer is not ported. ' +
     'Reuses the imp-34774/imp-35855/imp-35885 machinery (identical K_AMPL, aOf, RvM inverse); C_C = 1/8 ' +
     '(imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35885 (operator-level nodes A/B/C/D; left g/a atomic); imp-35855 (de-cancelled the dG node in ' +
     'closed form, M_G-1=-a/(2-a)); imp-34774 (the operator K(m), F(m)=0 artifact, contraction gap); ' +
@@ -262,15 +262,15 @@ export const IMP35925_KRAWCZYK_INTERIOR_SUBTRACTION_AUDIT_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: assessment/scoping, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: assessment/scoping, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp35925-honesty-gate-no-qed',
-    description: 'assessment: isRigorous false, imp-34714a open, NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'assessment: isRigorous false, imp-34714a open, NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP35925_KRAWCZYK_INTERIOR_SUBTRACTION_AUDIT.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP35925_KRAWCZYK_INTERIOR_SUBTRACTION_AUDIT.subGap) &&
       /NECESSARY but not SUFFICIENT/.test(IMP35925_KRAWCZYK_INTERIOR_SUBTRACTION_AUDIT.subGap) &&
       /NO QED/.test(IMP35925_KRAWCZYK_INTERIOR_SUBTRACTION_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35925_KRAWCZYK_INTERIOR_SUBTRACTION_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35925_KRAWCZYK_INTERIOR_SUBTRACTION_AUDIT.verdict),
   },
 ];
 

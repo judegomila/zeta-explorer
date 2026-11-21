@@ -75,7 +75,7 @@
  * model-dependent, BUT for any positive floor the crossing still EXISTS and stays ordered -- the
  * milestone is structural, only its N-coordinate moves. The clean-dimensional argument is
  * confirmed deeper, not merely asserted. Assessment only; C_mb stays GUE-conditional (imp-486),
- * no bound changes, no positivity, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bound changes, no positivity, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-33708-sigma-fartail-landmark-etrunc-model-sensitivity (SAME floor swap, two shallower landmarks; the -2.0 claim tested here)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (the far-tail landmark ladder)
@@ -252,7 +252,7 @@ export const IMP33751_SIGMA_DEEP_TAIL_001_ETRUNC_FLOOR_SENSITIVITY = {
     'crossing still EXISTS and stays ordered -- the milestone is structural, only its N-coordinate ' +
     'moves. imp-33708 clean-dimensional argument is confirmed DEEPER, not merely asserted. ' +
     'Assessment only; C_mb stays GUE-conditional (imp-486), no bound changes, no positivity, no ' +
-    'RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-33708 (SAME floor swap on the two shallower landmarks, the -2.0 claim tested here); ' +
     'imp-33582 (far-tail landmark ladder); imp-33647 (E_coll sub-leading swap on the SAME ' +
@@ -321,16 +321,16 @@ export const IMP33751_SIGMA_DEEP_TAIL_001_ETRUNC_FLOOR_SENSITIVITY_ASSERTIONS = 
       ),
   },
   {
-    // Honesty gate: sensitivity/assessment only, split verdict, no QED, PT stays SOTA.
+    // Honesty gate: sensitivity/assessment only, split verdict, no QED, no refereed bound is changed.
     id: 'imp33751-honesty-gate-no-qed',
-    description: 'Assessment only: robust-qualitative/fragile-quantitative verdict, no QED, PT stays SOTA',
+    description: 'Assessment only: robust-qualitative/fragile-quantitative verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP33751_SIGMA_DEEP_TAIL_001_ETRUNC_FLOOR_SENSITIVITY.isRigorous === false &&
       /ROBUST QUALITATIVELY, FRAGILE QUANTITATIVELY/.test(
         IMP33751_SIGMA_DEEP_TAIL_001_ETRUNC_FLOOR_SENSITIVITY.verdict,
       ) &&
       /NO QED/.test(IMP33751_SIGMA_DEEP_TAIL_001_ETRUNC_FLOOR_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP33751_SIGMA_DEEP_TAIL_001_ETRUNC_FLOOR_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP33751_SIGMA_DEEP_TAIL_001_ETRUNC_FLOOR_SENSITIVITY.verdict),
   },
 ];
 

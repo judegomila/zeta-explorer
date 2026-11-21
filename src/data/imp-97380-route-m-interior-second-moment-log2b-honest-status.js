@@ -20,7 +20,7 @@
  * -1/8 into a divisor-weighted arithmetic function of b, and Qcross contributes an additional
  * log^2 b piece; certifying the coefficient needs a rigorous bound on the SECOND MOMENT of the
  * Vasyunin/Bettin-Conrey cotangent residual r(a,b) (the imp-97116 Estermann/Kloosterman
- * small-inverse equidistribution input). No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA;
+ * small-inverse equidistribution input). No bound on Lambda moves; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-97349-route-m-diagonal-remainder-profile-separation.js (source of every verdict flag below)
@@ -28,7 +28,7 @@
  * @see imp-97330-route-m-smalla-intercept-closed-form.js (Ihat = (a/2) log(b/a) + a(C+1/2); the skeleton)
  *
  * Ticket: imp-97380 (content, medium, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 import IMP97349_DEFAULT, { IMP97349_VERDICT, IMP97349_SUBGAP } from './imp-97349-route-m-diagonal-remainder-profile-separation.js';
@@ -56,8 +56,8 @@ export const IMP97380_HONEST_BANNER =
   'log-polynomial with a proven log^2 b term and provably no fractional power, while the ' +
   'arithmetic Vasyunin pieces are linear in b and feed the leading slope instead. Left open: the ' +
   'EXACT log^2 b coefficient, which needs the coprimality divisor weighting plus a rigorous bound ' +
-  'on the Vasyunin cotangent residual second moment (imp-97116). No bound on Lambda moves; PT ' +
-  'Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'on the Vasyunin cotangent residual second moment (imp-97116). No bound on Lambda moves; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97380_ASSERTIONS = [
@@ -84,9 +84,9 @@ const IMP97380_ASSERTIONS = [
       IMP97380_STATUS.rhResolved === false &&
       IMP97380_STATUS.qed === false &&
       /NO QED/.test(IMP97380_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97380_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97380_HONEST_BANNER) &&
       /RH open/.test(IMP97380_HONEST_BANNER),
-    why: 'documentation only: decision recorded (log^2 b, not b^(1/2)), no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: decision recorded (log^2 b, not b^(1/2)), no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

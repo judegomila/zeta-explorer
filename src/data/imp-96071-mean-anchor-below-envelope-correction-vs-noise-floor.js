@@ -68,7 +68,7 @@
  * floor for any sampling with fewer than ~537 windows and T = 1.5e5 (-16.0 percent) only below ~79
  * windows, while T = 3e5 (-0.5 percent) is unambiguously noise (crossover ~73194). The final verdict
  * at the two significant heights is left as the named window-count sub-gap. Measurement only; changes
- * no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96049-number-variance-mean-anchor-six-height-residual-band (the mean-anchor residual band this refines)
  * @see imp-95946-number-variance-envelope-vs-measured-crossvalidation (the max-anchor six-height band)
@@ -154,7 +154,7 @@ export const IMP96071_MEAN_ANCHOR_BELOW_ENVELOPE_CORRECTION_VS_NOISE_FLOOR = {
   caveat:
     'The chi-square sqrt(2/n_w) relative error is the first-order variance-estimator model; overlapping GUE windows de-correlate, inflating the effective error (fewer independent windows), which only makes dips EASIER to dismiss as noise -- so the crossover counts are conservative upper bounds on when a dip becomes real. Measurement/assessment only.',
   verdict:
-    'The minimal r_cap correction restoring all-positive slack is delta_C0 = 0.07188 (+27.5 percent of C0_mean), binding at T = 1.5e5 and exactly recovering the max anchor -- no small local correction exists. Of the significant dips, T = 1e4 (-6.1 percent) is within the noise floor for any sampling below ~537 windows and T = 1.5e5 (-16.0 percent) only below ~79 windows, while T = 3e5 (-0.5 percent) is unambiguously noise (crossover ~73194). Final verdict at the two significant heights is the named window-count sub-gap. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The minimal r_cap correction restoring all-positive slack is delta_C0 = 0.07188 (+27.5 percent of C0_mean), binding at T = 1.5e5 and exactly recovering the max anchor -- no small local correction exists. Of the significant dips, T = 1e4 (-6.1 percent) is within the noise floor for any sampling below ~537 windows and T = 1.5e5 (-16.0 percent) only below ~79 windows, while T = 3e5 (-0.5 percent) is unambiguously noise (crossover ~73194). Final verdict at the two significant heights is the named window-count sub-gap. Measurement only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -186,8 +186,8 @@ export const IMP96071_MEAN_ANCHOR_BELOW_ENVELOPE_CORRECTION_VS_NOISE_FLOOR = {
   // honesty gates
   if (!/NO QED/.test(IMP96071_MEAN_ANCHOR_BELOW_ENVELOPE_CORRECTION_VS_NOISE_FLOOR.verdict))
     throw new Error('imp-96071: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96071_MEAN_ANCHOR_BELOW_ENVELOPE_CORRECTION_VS_NOISE_FLOOR.verdict))
-    throw new Error('imp-96071: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96071_MEAN_ANCHOR_BELOW_ENVELOPE_CORRECTION_VS_NOISE_FLOOR.verdict))
+    throw new Error('imp-96071: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96071_MEAN_ANCHOR_BELOW_ENVELOPE_CORRECTION_VS_NOISE_FLOOR;

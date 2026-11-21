@@ -61,7 +61,7 @@
  * rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; C_H
  * isRigorousUpperBound stays false (imp-2642/imp-2701); no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * Syntax note: derivative-like expressions use brace notation dg_{k*}/dt and this
  *   header avoids the close-comment terminator sequence inside prose.
@@ -241,7 +241,7 @@ export const IMP96485_COUNT_OFFSET_ROBUSTNESS = Object.freeze({
     'reference, divide-by-zero ratio). The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; C_H isRigorousUpperBound ' +
     'stays false (imp-2642/imp-2701); changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96449 (F2 ratio-crossing at N ~ 1e15 with fixed +7/8 offset, solver noise floor ~8e-16); imp-96427 ' +
     '(knee-only solver spread); imp-96363 (closed-form Lambert-W height inversion); imp-486 (C_mb ' +
@@ -279,11 +279,11 @@ const IMP96485_ASSERTIONS = [
   },
   {
     id: 'imp96485-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP96485_COUNT_OFFSET_ROBUSTNESS.isRigorous === false &&
       /NO QED/.test(IMP96485_COUNT_OFFSET_ROBUSTNESS.verdict) &&
-      /remains SOTA/.test(IMP96485_COUNT_OFFSET_ROBUSTNESS.verdict),
+      /refereed bound is changed/i.test(IMP96485_COUNT_OFFSET_ROBUSTNESS.verdict),
   },
 ];
 

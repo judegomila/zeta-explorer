@@ -60,7 +60,7 @@
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642);
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34290-nhalf-ncross-exact-rvm-forward-count (halving-landmark ordering + RvM Jacobian ~1.056)
  * @see imp-33743-sigma-fartail-crossover-closed-form (far-tail thr=0.1 closed form + bisection landmark)
@@ -221,7 +221,7 @@ export const IMP34370_NTHR_NCROSS_FARTAIL_ORDERING_RVM_JACOBIAN = {
     'landmark-family-wide, not specific to the halving landmark. Component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 and ' +
     'the C_C 1/8 ansatz (imp-2642) are UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34290 (halving-landmark strict ordering + RvM Jacobian ~1.056); imp-33848 (closed-form strict ' +
     'ordering N_half < N_cross); imp-33743 (far-tail thr=0.1 closed form + bisection landmark); imp-34355 ' +
@@ -273,13 +273,13 @@ export const IMP34370_NTHR_NCROSS_FARTAIL_ORDERING_RVM_JACOBIAN_ASSERTIONS = [
     holds: () => Math.abs(RVM_JACOBIAN / (U_FARTAIL / (U_FARTAIL - 1)) - 1) < 1e-6,
   },
   {
-    // Honesty gate: measurement/interpretation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/interpretation only, no QED, no refereed bound is changed.
     id: 'imp34370-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34370_NTHR_NCROSS_FARTAIL_ORDERING_RVM_JACOBIAN.isRigorous === false &&
       /NO QED/.test(IMP34370_NTHR_NCROSS_FARTAIL_ORDERING_RVM_JACOBIAN.verdict) &&
-      /remains SOTA/.test(IMP34370_NTHR_NCROSS_FARTAIL_ORDERING_RVM_JACOBIAN.verdict),
+      /refereed bound is changed/i.test(IMP34370_NTHR_NCROSS_FARTAIL_ORDERING_RVM_JACOBIAN.verdict),
   },
 ];
 

@@ -68,8 +68,8 @@
  * the exact slope it needs a NEW subleading Q-constant c1 plus an absolutely-convergent fluctuation
  * residual over the full Q sequence -- the Bettin-Conrey cotangent second moment at second order.
  * No bound is moved; the narrowed [F, +d/N] band stays a measurement, not a certified pin; T =
- * 2.594e7 remains the rigorous anchor; compute (N ~ 9916, imp-96352) binds first by >2600x. PT
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * 2.594e7 remains the rigorous anchor; compute (N ~ 9916, imp-96352) binds first by >2600x. No refereed bound is changed
+ * ; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97095-interior-second-moment-o1-offset -- the pieces (P2)+(P3) of
  * C_T, i.e. 2 c1 (zeta(2) - 5/4) + 2 Sum_{b>=3} (Q(b) - s0* b - c1)/b^2, which require the EXACT
@@ -149,8 +149,8 @@ export const IMP97095_VERDICT = Object.freeze({
     'Q-constant c1 plus an absolutely-convergent fluctuation residual over the full Q sequence -- ' +
     'the Bettin-Conrey cotangent second moment at second order. So the narrowed [F, +d/N] band ' +
     'stays a measurement, not a certified pin. No bound moved; the rigorous anchor stays T = ' +
-    '2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; PT ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED.',
+    '2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x; no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97095_SUBGAP = Object.freeze({
@@ -168,7 +168,7 @@ export const IMP97095_SUBGAP = Object.freeze({
 });
 
 export const IMP97095_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment + reduction only: the interior ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment + reduction only: the interior ' +
   'second-moment O(1) offset is decomposed exactly into a harmonic-tail piece (DERIVED, ~ -3.23 at ' +
   'the measured slope), a subleading-constant piece needing the second-order Bettin-Conrey cotangent ' +
   'constant c1, and a convergent fluctuation residual; and pinning F to a VALUE is shown strictly ' +
@@ -237,7 +237,7 @@ const IMP97095_ASSERTIONS = [
       IMP97095_VERDICT.p1Derived === true &&
       IMP97095_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97095_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97095_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97095_HONEST_BANNER) &&
       /o1-offset/.test(IMP97095_SUBGAP.id),
   },
 ];

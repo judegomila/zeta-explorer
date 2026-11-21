@@ -41,8 +41,7 @@
  * dominated) but the sign is not rounding-limited.
  *
  * GRADE: documentation/measurement only. Import-light (all literals baked, no
- * heavy bundle). Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * heavy bundle). Changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * @see imp-96289-margin-floor-t60-anchor-sensitivity (single-T=60 perturbation)
  * @see imp-96265-margin-floor-loo-stability (LOO/LTO leverage ranking)
@@ -112,7 +111,7 @@ export const IMP_96313_MARGIN_FLOOR_JOINT_ROUNDING_ENVELOPE = {
     + 'the binding uncertainty on the floor sign',
   note:
     'documentation/measurement only; import-light baked literals; changes no '
-    + 'Lambda bound; Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    + 'Lambda bound; no refereed bound is changed',
   closesTickets: ['imp-96313'],
 };
 

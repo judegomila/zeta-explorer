@@ -57,7 +57,7 @@
  * direction; it does not close the +d/N-vs-quad ceiling ambiguity at N* ~ 4e7. The residual
  * blocker remains the imp-97093 exact R-evaluator (3.3e-6 -> machine precision) that would
  * make ANY rung past N=16000 exact in the first place. No bound moves; the rigorous trace
- * ceiling T ~ 2.594e7 and the T<F<M ordering are unaffected; PT Lambda <= 0.2 stays SOTA;
+ * ceiling T ~ 2.594e7 and the T<F<M ordering are unaffected; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-97081-route-m-frobenius-ceiling-band-discriminator (candidate (2): intermediate exact rung)

@@ -43,7 +43,7 @@
  * bound. The component model is the imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  * E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED;
  * E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35236-eflow-fartail-inverse-swap-isolation (single-h isolation, step-robustness checked here)
  * @see imp-35279-eflow-fartail-inverse-swap-ladder (extends the swap isolation across N; same single h)
@@ -157,8 +157,8 @@ export const IMP35302_EFLOW_FARTAIL_SWAP_GAP_STEP_ROBUSTNESS = {
     'Measurement only on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 ' +
     'UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes ' +
-    'no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35236 (single-h swap isolation, step-robustness confirmed here); imp-35279 (swap ladder ' +
     'across N, same single h); imp-35135 (source central-difference method); imp-486 (C_mb ' +
@@ -207,13 +207,13 @@ export const IMP35302_EFLOW_FARTAIL_SWAP_GAP_STEP_ROBUSTNESS_ASSERTIONS = [
       DEEP.gapAtReportedH < TOP.gapAtReportedH,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35302-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35302_EFLOW_FARTAIL_SWAP_GAP_STEP_ROBUSTNESS.isRigorous === false &&
       /NO QED/.test(IMP35302_EFLOW_FARTAIL_SWAP_GAP_STEP_ROBUSTNESS.verdict) &&
-      /remains SOTA/.test(IMP35302_EFLOW_FARTAIL_SWAP_GAP_STEP_ROBUSTNESS.verdict),
+      /refereed bound is changed/i.test(IMP35302_EFLOW_FARTAIL_SWAP_GAP_STEP_ROBUSTNESS.verdict),
   },
 ];
 

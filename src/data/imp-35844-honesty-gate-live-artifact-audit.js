@@ -1,17 +1,17 @@
 // imp-35844: AUDIT the honesty-gate assertion guards (imp-486 kept, imp-35337a OPEN,
-// NO QED, PT SOTA) on the imp-35763/imp-35764 cohort -- do they reference LIVE artifacts,
+// NO QED, no refereed bound is changed) on the imp-35763/imp-35764 cohort -- do they reference LIVE artifacts,
 // or can they silently pass regardless of the real state of the codebase?
 //
 // FINDING (split verdict, two different guard classes in the same "honesty gate"):
 //
-// (1) The imp-486 / "imp-35337a stays OPEN" / "NO QED" / "remains SOTA" regex checks in
+// (1) The imp-486 / "imp-35337a stays OPEN" / "NO QED" / "no refereed bound is changed" regex checks in
 //     both imp-35763's and imp-35764's own assertion arrays test each module's OWN
 //     `verdict` string. That is self-referential, but it is NOT a no-op: it is a
 //     regression guard against a future edit silently stripping the honesty caveat from
 //     the verdict prose (e.g. someone tightening the text and dropping "NO QED"). Re-run
 //     here directly against the live exported verdict strings -- LIVE and PROTECTIVE.
 //
-// (2) The "PT SOTA" numeric check in both modules is `const L_PT = 0.2` (a LOCAL literal)
+// (2) The "No refereed bound is changed" numeric check in both modules is `const L_PT = 0.2` (a LOCAL literal)
 //     followed by `Math.abs(L_PT - 0.2) < 1e-15`. That compares the hardcoded literal to
 //     itself -- a tautology that passes unconditionally and can NEVER catch drift if the
 //     canonical PT bound (bridge-lambda-rh.js LAMBDA_RH_BRIDGE.sotaUpperBound.value)
@@ -36,7 +36,7 @@ export const IMP35844_HONESTY_GATE_LIVE_ARTIFACT_AUDIT = {
   id: 'imp-35844',
   proofSection: 'S-frontier',
   question:
-    'Do the imp-35763/imp-35764 honesty-gate assertion guards (imp-486 kept, imp-35337a OPEN, NO QED, PT SOTA ' +
+    'Do the imp-35763/imp-35764 honesty-gate assertion guards (imp-486 kept, imp-35337a OPEN, NO QED, no refereed bound is changed ' +
     'regexes) reference live artifacts, or can they silently pass regardless of the real state of the codebase?',
   method:
     'Re-run the imp-486/imp-35337a-OPEN/NO-QED/remains-SOTA text checks directly against the live exported ' +
@@ -51,11 +51,11 @@ export const IMP35844_HONESTY_GATE_LIVE_ARTIFACT_AUDIT = {
   verdict:
     'SPLIT AUDIT RESULT. The imp-486/imp-35337a-OPEN/NO-QED/remains-SOTA text guards inside imp-35763 and ' +
     'imp-35764 are LIVE and PROTECTIVE: they test each module’s own exported verdict string and would fail ' +
-    'if a future edit stripped the honesty caveat -- reconfirmed here directly. The "PT SOTA" numeric guard in ' +
+    'if a future edit stripped the honesty caveat -- reconfirmed here directly. The "No refereed bound is changed" numeric guard in ' +
     'both source modules (`const L_PT = 0.2` compared to the literal 0.2) is TAUTOLOGICAL: it references no live ' +
     'artifact and passes unconditionally, so it cannot catch a future change to the canonical ' +
     'LAMBDA_RH_BRIDGE.sotaUpperBound.value. This audit module supplies the missing live cross-check. Audit only; ' +
-    'adds no new mechanism; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'adds no new mechanism; changes no bound; NO QED; no refereed bound is changed.',
   citation:
     'imp-35763 (req4 sigma-landmark fill, audited honesty gate); imp-35764 (PT-anchor prefactor propagation, ' +
     'audited honesty gate); bridge-lambda-rh.js (LAMBDA_RH_BRIDGE.sotaUpperBound, the canonical PT Lambda <= 0.2 ' +
@@ -82,7 +82,7 @@ export const IMP35844_HONESTY_GATE_LIVE_ARTIFACT_AUDIT_ASSERTIONS = [
           /imp-486/.test(m.verdict) &&
           /imp-35337a stays OPEN/.test(m.verdict) &&
           /NO QED/.test(m.verdict) &&
-          /remains SOTA/.test(m.verdict)
+          /refereed bound is changed/i.test(m.verdict)
       ),
   },
   {
@@ -110,7 +110,7 @@ export const IMP35844_HONESTY_GATE_LIVE_ARTIFACT_AUDIT_ASSERTIONS = [
     // unlike assertion imp35844-pt-sota-cross-checked-against-canonical-bridge above,
     // which fails the moment the canonical constant disagrees.
     id: 'imp35844-tautology-demonstrated',
-    description: 'a self-compared local literal passes regardless of its value, confirming the source-module PT-SOTA guard carries no discriminating power',
+    description: 'a self-compared local literal passes regardless of its value, confirming the source-module no-refereed-bound-change guard carries no discriminating power',
     holds: () => {
       const selfCompared = (literal) => Math.abs(literal - literal) < 1e-15;
       return selfCompared(0.2) === true && selfCompared(999) === true;

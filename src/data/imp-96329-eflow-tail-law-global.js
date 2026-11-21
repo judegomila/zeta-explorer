@@ -62,7 +62,7 @@
  * imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-96308-eflow-peak-third-order-shrink (third-order tail measured AT THE PEAK only)
  * @see imp-96286-eflow-peak-location-error-order (M4 predicts the ~x shrink per order)
@@ -311,7 +311,7 @@ export const IMP96329_EFLOW_TAIL_LAW_GLOBAL = {
     'by (4/5)/x = 25.49). No new obstruction. Measurement on the inherited sub-terms only; the C_mb ' +
     'GUE-conditional per imp-486 stays GUE-conditional and UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96308 (third-order tail measured AT THE PEAK only); imp-96286 (M4 predicts the ~x shrink ' +
     'per order); imp-96266 (first-order reconstruction); imp-96151 (closed-form share model); ' +
@@ -379,13 +379,13 @@ export const IMP96329_EFLOW_TAIL_LAW_GLOBAL_ASSERTIONS = [
       HT_ERR[2] > HT_ERR[3],
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp96329-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96329_EFLOW_TAIL_LAW_GLOBAL.isRigorous === false &&
       /NO QED/.test(IMP96329_EFLOW_TAIL_LAW_GLOBAL.verdict) &&
-      /remains SOTA/.test(IMP96329_EFLOW_TAIL_LAW_GLOBAL.verdict),
+      /refereed bound is changed/i.test(IMP96329_EFLOW_TAIL_LAW_GLOBAL.verdict),
   },
 ];
 

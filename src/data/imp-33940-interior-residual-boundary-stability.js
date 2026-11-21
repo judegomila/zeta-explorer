@@ -68,7 +68,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate is descriptive, not
  * derived; the growth classifications are descriptive, not derived; the C_mb GUE-conditional per imp-486
  * is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33917-endpoint-residual-growth-law (the endpoint peak this complements; machinery reused)
  * @see imp-33877-widening-fit-tail-endpoint-artifact-test (the boundary-locked endpoint peak)
@@ -321,7 +321,7 @@ export const IMP33940_INTERIOR_RESIDUAL_BOUNDARY_STABILITY = {
     'growth classifications are descriptive, not derived; the component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33917 (the endpoint peak this complements; machinery reused verbatim); imp-33877 (the ' +
     'boundary-locked endpoint peak); imp-33858 (the original k=11 far-tail excursion); imp-33843 (the ' +
@@ -376,14 +376,14 @@ export const IMP33940_INTERIOR_RESIDUAL_BOUNDARY_STABILITY_ASSERTIONS = [
   },
   {
     // Honesty gate: interior residual is NOT boundary-stable (the key negative result), isRigorous
-    // false, imp-33917 refined not overturned, no QED, PT SOTA.
+    // false, imp-33917 refined not overturned, no QED, no refereed bound is changed.
     id: 'imp33940-honesty-gate-no-qed',
-    description: 'Measurement only: interior NOT boundary-stable, isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: interior NOT boundary-stable, isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33940_INTERIOR_RESIDUAL_BOUNDARY_STABILITY.interiorIsBoundaryStable === false &&
       IMP33940_INTERIOR_RESIDUAL_BOUNDARY_STABILITY.isRigorous === false &&
       /NO QED/.test(IMP33940_INTERIOR_RESIDUAL_BOUNDARY_STABILITY.verdict) &&
-      /remains SOTA/.test(IMP33940_INTERIOR_RESIDUAL_BOUNDARY_STABILITY.verdict),
+      /refereed bound is changed/i.test(IMP33940_INTERIOR_RESIDUAL_BOUNDARY_STABILITY.verdict),
   },
 ];
 

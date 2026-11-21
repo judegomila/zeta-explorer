@@ -105,7 +105,7 @@
  *
  *   STATUS: a grouping/index note over eleven already-completed tickets, not a new derivation. No
  *   bound changes: interval-rigorous certified reach stays 2a<=0.96; RH open; NO QED.
- *   Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-97706-route-m-deep-ladder-extension.js (deep-ladder sign-change recurrence; bootstrap band narrows)
  * @see imp-97701-route-m-bc-reflection-weight-pinning-obstruction.js (both W_refl pinning routes fail)
@@ -121,7 +121,7 @@
  * @see imp-97674-late-frontier-leaves-cohort-index-2.js (predecessor meta index: imp-97640..97647)
  *
  * Ticket: imp-97734 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098 -- reference constant carried from the predecessor index
@@ -305,7 +305,7 @@ export const IMP97734_LATE_FRONTIER_LEAVES_COHORT_INDEX_3 = Object.freeze({
     'L2 residual is already at the 5-point noise floor. No bound moves in any group: interval-rigorous ' +
     'certified reach stays EXACTLY 2a<=0.96, MCM stays verified-not-proved with onset unchanged at ' +
     'omega=11, and no coefficient (W_refl, kappaK_period, kappa_smooth, the w_lin linear coefficient) is ' +
-    'newly pinned. RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'newly pinned. RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97706 (deep-ladder sign-change recurrence); imp-97701 (W_refl pinning obstruction); ' +
     'imp-97709 (kappa_smooth reinforcement sign structure); imp-97702 (far-tail residual two-piece ' +
@@ -429,13 +429,13 @@ export const IMP97734_LATE_FRONTIER_LEAVES_COHORT_INDEX_3_ASSERTIONS = [
   },
   {
     id: 'imp97734-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97734_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.anyBoundMoved === false &&
       IMP97734_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.certifiedReach === 0.96 &&
       IMP97734_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.certifiedReach < IMP97734_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.ln3 &&
       /NO QED/.test(IMP97734_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.verdict) &&
-      /remains SOTA/.test(IMP97734_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.verdict) &&
+      /refereed bound is changed/i.test(IMP97734_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.verdict) &&
       /2a<=0\.96/.test(IMP97734_LATE_FRONTIER_LEAVES_COHORT_INDEX_3.verdict),
   },
 ];

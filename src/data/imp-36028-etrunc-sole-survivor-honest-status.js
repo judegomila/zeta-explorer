@@ -14,7 +14,7 @@
  *   Ticket: imp-36028 (content, low). Note only; re-reads nothing new; derives no remainder;
  *   discharges nothing; changes no bound; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643) and
  *   E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a
- *   stays OPEN; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   stays OPEN; no refereed bound is changed; NO QED.
  *
  * @see imp-35971-etrunc-sole-survivor-height.js (source module this note restates)
  * @see imp-35950-etrunc-ecoll-crossover-height.js (E_trunc = E_coll sigma = 0.5 crossover, N ~ 3.267e9)
@@ -70,7 +70,7 @@ export const IMP36028_ETRUNC_SOLE_SURVIVOR_HONEST_STATUS = Object.freeze({
     derivesRemainder: false,
     dischargesAnything: false,
     changesAnyBound: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -81,7 +81,7 @@ export const IMP36028_ETRUNC_SOLE_SURVIVOR_HONEST_STATUS = Object.freeze({
     'imp-33582 constants unchanged; derives no remainder; discharges nothing; changes no bound; ' +
     'C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631), and C_mb ' +
     'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 });
 
 export const IMP36028_ETRUNC_SOLE_SURVIVOR_HONEST_STATUS_ASSERTIONS = [
@@ -136,11 +136,11 @@ export const IMP36028_ETRUNC_SOLE_SURVIVOR_HONEST_STATUS_ASSERTIONS = [
       IMP36028_ETRUNC_SOLE_SURVIVOR_HONEST_STATUS.honestCaveat.isRigorous === false &&
       IMP36028_ETRUNC_SOLE_SURVIVOR_HONEST_STATUS.honestCaveat.isUnconditional === false &&
       IMP36028_ETRUNC_SOLE_SURVIVOR_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36028_ETRUNC_SOLE_SURVIVOR_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36028_ETRUNC_SOLE_SURVIVOR_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36028-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP36028_ETRUNC_SOLE_SURVIVOR_HONEST_STATUS.verdict),
   },
 ];

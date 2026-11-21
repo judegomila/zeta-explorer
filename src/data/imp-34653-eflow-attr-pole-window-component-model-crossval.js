@@ -68,8 +68,7 @@
  *   k-nodes, confirming two source ladders agree; NOT an RH bound and changing no result. The
  *   component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
  *   the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- *   positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA.
+ *   positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34636-eflow-attr-pole-centred-window-slope.js (the pole window this cross-validates)
  *   @see imp-34406-eflow-attr-smooth-nonzero-across-pole.js (the near source ladder, 4 rungs)
@@ -250,7 +249,7 @@ export const IMP34653_EFLOW_ATTR_POLE_WINDOW_COMPONENT_MODEL_CROSSVAL = {
     'source ladders agree; NOT an RH bound and changing no result. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed.',
 };
 
 export const IMP34653_ASSERTIONS = [
@@ -291,13 +290,13 @@ export const IMP34653_ASSERTIONS = [
     holds: () => EFLOW_ATTR_MONOTONE_DECREASING,
   },
   {
-    // Honesty gate: cross-validation only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: cross-validation only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34653-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no QED, PT SOTA',
+    description: 'Cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34653_EFLOW_ATTR_POLE_WINDOW_COMPONENT_MODEL_CROSSVAL.isRigorous === false &&
       /NO QED/.test(IMP34653_EFLOW_ATTR_POLE_WINDOW_COMPONENT_MODEL_CROSSVAL.honest) &&
-      /remains SOTA/.test(IMP34653_EFLOW_ATTR_POLE_WINDOW_COMPONENT_MODEL_CROSSVAL.honest),
+      /refereed bound is changed/i.test(IMP34653_EFLOW_ATTR_POLE_WINDOW_COMPONENT_MODEL_CROSSVAL.honest),
   },
 ];
 

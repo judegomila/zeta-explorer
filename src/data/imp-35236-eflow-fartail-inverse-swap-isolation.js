@@ -45,8 +45,7 @@
  * MEASUREMENT ONLY. Changes no bound; the component model is the imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched;
  * C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463;
- * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35217-eflow-fartail-exponent-x2-correction (attributed the residual to the inverse gap; isolated here)
  * @see imp-35198-eflow-fartail-exponent-logn-correction (leading -1 + 3/log N derivation)
@@ -160,7 +159,7 @@ export const IMP35236_EFLOW_FARTAIL_INVERSE_SWAP_ISOLATION = {
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; E_flow > 0 ' +
     'strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail ' +
     'exponent 1/2 per imp-3463; imp-3066 K_a >= 0 untouched; changes no bound; no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35217 (attributed the residual to the inverse gap, isolated here); imp-35198 (leading ' +
     '-1 + 3/log N); imp-35135 (measured on effectiveHeightForN, reproduced here); imp-486 (C_mb ' +
@@ -210,13 +209,13 @@ export const IMP35236_EFLOW_FARTAIL_INVERSE_SWAP_ISOLATION_ASSERTIONS = [
       DEEP.fdTrueExponent < TOP.fdTrueExponent,
   },
   {
-    // Honesty gate: measurement only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35236-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35236_EFLOW_FARTAIL_INVERSE_SWAP_ISOLATION.isRigorous === false &&
       /NO QED/.test(IMP35236_EFLOW_FARTAIL_INVERSE_SWAP_ISOLATION.verdict) &&
-      /remains SOTA/.test(IMP35236_EFLOW_FARTAIL_INVERSE_SWAP_ISOLATION.verdict),
+      /refereed bound is changed/i.test(IMP35236_EFLOW_FARTAIL_INVERSE_SWAP_ISOLATION.verdict),
   },
 ];
 

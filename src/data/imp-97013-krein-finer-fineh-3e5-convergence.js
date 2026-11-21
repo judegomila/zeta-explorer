@@ -60,7 +60,7 @@
  *   larger cutoff T past 40, or a denser HP top-t^5-family tail covering the t~35-40 transition) that
  *   lifts the design F >= eps across the tail edge drives convergence remains open; this run tested only
  *   the FINEH refinement lever (which no longer helps), holding T=40 and HP=0.05 fixed.
- * RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96970-krein-kmax5-100-converged-solve-verify.js (parent: FINEH=1e-4, residual cycles at -0.069, tail guard wall; sub-gap IMP96970_LP_CONVERGENCE_NOT_REACHED)
  * @see imp-96956-krein-kmax5-100-interval-verify.js (grandparent: FINEH=3e-4 lean iterate, stalled -0.166, collapses under rigor)

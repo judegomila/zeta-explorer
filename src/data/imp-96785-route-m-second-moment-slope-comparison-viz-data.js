@@ -14,7 +14,7 @@
  * this module is presentation only.
  *
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96750-route-m-interior-second-moment-upper-bound-reduction.js (source IMP96750_CONSISTENCY + IMP96771_SLOPE_RECONCILIATION)
  * @see imp-96779-route-m-ceiling-ladder-viz-data.js (sibling viz-data leaf convention)
@@ -113,7 +113,7 @@ const IMP96785_ASSERTIONS = [
     id: 'imp96785-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96785_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96785_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96785_HONEST_BANNER) &&
       /NO QED/.test(IMP96785_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers, matching the source verdict.',
   },

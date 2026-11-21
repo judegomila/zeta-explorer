@@ -76,7 +76,7 @@
  *   conditioning OF that measurement, it does not rehabilitate the model). The -2 asymptote and
  *   C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share
  *   per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict,
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  *   @see imp-34592-q4-share-roundoff-floor-vs-dp.js (q4 O(h^4) share inflates ~1/dp^4; deep-tail dp floor)
  *   @see imp-34593-drift-share-error-optimal-dp-fit.js (q3-share excess roundoff exponent free m ~ 3.5)
@@ -240,7 +240,7 @@ export const IMP34606_ROUNDOFF_AMPLIFICATION_EXPONENT_LADDER = Object.freeze({
     'finite-difference conditioning of that measurement, it does not rehabilitate the model. The -2 ' +
     'asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb ' +
     'GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34592 (q4 O(h^4) share inflates ~1/dp^4; deep-tail dp floor -- q4 rung reproduced here); ' +
     'imp-34593 (q3-share relative-range excess free exponent m ~ 3.5 -- reconciled to raw m3 ~ 2.90 ' +
@@ -277,9 +277,9 @@ const IMP34606_ASSERTIONS = [
     holds: () =>
       IMP34606_ROUNDOFF_AMPLIFICATION_EXPONENT_LADDER.isRigorous === false &&
       /NO QED/.test(IMP34606_ROUNDOFF_AMPLIFICATION_EXPONENT_LADDER.verdict) &&
-      /remains SOTA/.test(IMP34606_ROUNDOFF_AMPLIFICATION_EXPONENT_LADDER.verdict) &&
+      /refereed bound is changed/i.test(IMP34606_ROUNDOFF_AMPLIFICATION_EXPONENT_LADDER.verdict) &&
       /UNTOUCHED/.test(IMP34606_ROUNDOFF_AMPLIFICATION_EXPONENT_LADDER.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

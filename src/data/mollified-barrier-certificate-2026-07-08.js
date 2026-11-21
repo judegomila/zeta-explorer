@@ -23,7 +23,7 @@
  * frequencies (no commensuration — that is what eliminated the naive Fejér–Riesz
  * variant and is deliberately not reintroduced).
  *
- * HONEST SCOPE: no bound, no beat, no QED. Platt–Trudgian Λ ≤ 0.2 stays SOTA.
+ * HONEST SCOPE: no bound, no beat, no QED. No refereed bound is changed.
  */
 
 export const MOLLIFIER_META = {

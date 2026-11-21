@@ -59,8 +59,7 @@
  * MEASUREMENT / CROSS-VALIDATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz is UNTOUCHED (imp-2642); no bound;
- * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (L1 closed-form crossover, K ~ 1.5727e8)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (L2 six-decade ladder + sigma=1/2 halving)
@@ -212,8 +211,8 @@ export const IMP33748_SIGMA_HALVING_LOCATORS_THREE_WAY_CROSSVALIDATION = {
     'offset is simply the smaller E_flow offset plus the curvature lag. Component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 and the C_C 1/8 ansatz (imp-2642) are UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33723 (closed-form crossover, K ~ 1.5727e8); imp-33582 (six-decade ladder + sigma=1/2 ' +
     'halving); imp-3444 (E_coll=E_trunc crossover, bisected); imp-33721 (sub-decade knee ~3.38e9); ' +
@@ -265,13 +264,13 @@ export const IMP33748_SIGMA_HALVING_LOCATORS_THREE_WAY_CROSSVALIDATION_ASSERTION
     holds: () => Math.abs(CLOSURE_RESIDUAL) < 1e-12,
   },
   {
-    // Honesty gate: measurement/cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/cross-validation only, no QED, no refereed bound is changed.
     id: 'imp33748-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33748_SIGMA_HALVING_LOCATORS_THREE_WAY_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP33748_SIGMA_HALVING_LOCATORS_THREE_WAY_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP33748_SIGMA_HALVING_LOCATORS_THREE_WAY_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP33748_SIGMA_HALVING_LOCATORS_THREE_WAY_CROSSVALIDATION.verdict),
   },
 ];
 

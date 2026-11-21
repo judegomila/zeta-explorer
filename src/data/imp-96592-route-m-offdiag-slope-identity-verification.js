@@ -123,11 +123,11 @@ export const IMP96592_VERDICT = Object.freeze({
     'CONFIRMED. The 0.3526 log-slope is 100 percent an off-diagonal-mass effect: subtracting ' +
     'the frozen diagonal ceiling I(1,1) leaves the slope bit-identical and shifts the intercept ' +
     'by exactly I(1,1). The identity is exact by construction of OLS, not merely numerical. ' +
-    'Changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Changes no bound; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96592_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Check only: an independent re-run of the two ' +
+  'RH open; no refereed bound is changed; NO QED. Check only: an independent re-run of the two ' +
   'imp-96562 OLS regressions on the imp-96443 N=250..6000 ladder. The slope identity is EXACT ' +
   '(gap 0, forced by OLS shift-invariance) and the intercept offset equals I(1,1) to the bit; ' +
   'the only amendment is cosmetic (a stray last digit in the imp-96562 prose). No bound moved.';
@@ -174,7 +174,7 @@ const IMP96592_ASSERTIONS = [
       IMP96592_VERDICT.slopeIdentityConfirmed === true &&
       IMP96592_VERDICT.interceptOffsetConfirmedExact === true &&
       /NO QED/.test(IMP96592_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96592_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96592_HONEST_BANNER) &&
       /RH open/.test(IMP96592_HONEST_BANNER),
     why: 'check only: the identity is confirmed exact, the intercept offset is exact, and the honesty markers are present; no bound is claimed moved.',
   },

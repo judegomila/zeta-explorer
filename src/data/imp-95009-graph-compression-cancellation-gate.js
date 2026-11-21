@@ -37,7 +37,7 @@
  *     phase and generically has nonvanishing odd moments.
  *
  * This is a finite-rank ASSESSMENT illustrating the operator structure. It changes
- * no bound and closes no gap (NO QED); Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bound and closes no gap (NO QED); no refereed bound is changed.
  * The Schur gate (ii) is a downstream refinement: it never opens because gate (i)
  * already forbids the cancellation the isometry alone appears to offer.
  */
@@ -196,7 +196,7 @@ export const IMP_95009_GRAPH_COMPRESSION_CANCELLATION_GATE = {
     'direct/dual bridge to the intertwiner class (U* R_- U = R_+, kappa=1, no gain), ' +
     'while genuine anti-Hermitian cancellation demands spec(A_+) symmetric about 0, ' +
     'refuted here by a nonzero odd moment. Changes no bound; closes no gap; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 // ── assertions (import-light; no heavy bundle) ─────────────────────────────

@@ -82,7 +82,7 @@ export const R3_CG = Object.freeze({
     'Lemma CG proves c_n(t) ≥ 0 and nondecreasing for every n ≥ 1 and t ≥ 0 (G0-a closed, internal grade), and licenses Track A bin bounds, '
     + 'eq. (11), the D_C upper-time enclosure, the AF (6.3) head cancellation and the max(0, ·) clamp. Theorem 4′ gives the joint-pair floor for '
     + 'every shift interval I ⊂ (0,2) given (OP) at both probe points; the arbitrary-shift item adds no hypothesis beyond G0-c + G0-d. Open in G0: '
-    + 'G0-c, G0-d, G0-d′, G0-e. Route P uses no two-height kernel. No Λ value moves. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'G0-c, G0-d, G0-d′, G0-e. Route P uses no two-height kernel. No Λ value moves. No refereed bound is changed. RH open. NO QED.',
   nextStep: 'Non-project reader for Theorem 4′ (G0-c); independent pass on AF I §§6–9 starting with (8.1)–(8.3), §7 blocks, E_ℓ cap, exceptional pairs (G0-d); written X-transfer at 2.6X (G0-d′).',
 });
 
@@ -143,7 +143,7 @@ export const R3_CG_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r3-cg-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(C.verdict) && /NO QED/.test(C.verdict) && /No Λ value moves/.test(C.verdict),
+    holds: () => /refereed bound is changed/i.test(C.verdict) && /NO QED/.test(C.verdict) && /No Λ value moves/.test(C.verdict),
     why: 'No bound moves; RH open.',
   },
 ]);

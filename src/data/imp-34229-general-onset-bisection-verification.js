@@ -45,7 +45,7 @@
  * form for the model cusp rho(x) = |x|^{-alpha}. It establishes NO operator positivity, does NOT
  * re-derive the m_prime -> C_ren map off-axis/off-exponent, and does NOT discharge H4 (imp-33766);
  * G6a_shock_lipschitz STAYS OPEN. C_mb GUE-conditional untouched; imp-3066 off-diagonal endpoint-
- * Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed.
  *
  * @see imp-34173-unified-branch-endpoint-law (the general k-indexed closed form, derived + n=1,2,3 checked)
  * @see imp-34167-third-outer-branch-geometry (the n=3 second-code-path bisection this extends)
@@ -267,7 +267,7 @@ export const IMP34229_GENERAL_ONSET_BISECTION_VERIFICATION = {
     'inherited imp-33924 closed form for the model cusp rho(x) = |x|^{-alpha}; establishes NO operator ' +
     'positivity; does NOT re-derive the m_prime -> C_ren map off-axis/off-exponent and does NOT discharge ' +
     'H4 (imp-33766). C_mb GUE-conditional untouched; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 ' +
-    'UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'UNTOUCHED; NO QED. No refereed bound is changed.',
 };
 
 export const IMP34229_GENERAL_ONSET_BISECTION_VERIFICATION_ASSERTIONS = [
@@ -304,15 +304,15 @@ export const IMP34229_GENERAL_ONSET_BISECTION_VERIFICATION_ASSERTIONS = [
       IMP34229_GENERAL_ONSET_BISECTION_VERIFICATION.onsetRows.every((r) => r.onsetAlpha === 2 * r.n - 1),
   },
   {
-    // Honesty gate: verification/measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA.
+    // Honesty gate: verification/measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed.
     id: 'imp34229-honesty-gate-no-qed',
-    description: 'Verification/measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Verification/measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34229_GENERAL_ONSET_BISECTION_VERIFICATION.isRigorous === false &&
       IMP34229_GENERAL_ONSET_BISECTION_VERIFICATION.dischargesH4 === false &&
       /NO QED/.test(IMP34229_GENERAL_ONSET_BISECTION_VERIFICATION.verdict) &&
       /STAYS OPEN/.test(IMP34229_GENERAL_ONSET_BISECTION_VERIFICATION.verdict) &&
-      /remains the rigorous SOTA/.test(IMP34229_GENERAL_ONSET_BISECTION_VERIFICATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34229_GENERAL_ONSET_BISECTION_VERIFICATION.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP34229_GENERAL_ONSET_BISECTION_VERIFICATION.verdict) &&
       /C_mb GUE-conditional untouched/i.test(IMP34229_GENERAL_ONSET_BISECTION_VERIFICATION.verdict),
   },

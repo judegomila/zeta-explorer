@@ -4,7 +4,7 @@
  * imp-97225 (numerical, MEASUREMENT): extend the imp-97203 inverse-line-vs-full-residue
  * second-moment ratio M2w / E_h[(c_0/a)^2] across a much larger range of b to test whether the
  * inverse-map equidistribution OVERSAMPLING stays bounded (inside the Cauchy-Schwarz margin) or
- * DRIFTS as a grows. Measurement only; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * DRIFTS as a grows. Measurement only; no bound moved; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * SETUP (as imp-97203).
@@ -45,7 +45,7 @@
  * has a bounded (constant) target and sits safely inside the CS margin at every measured scale.
  * STAYS OPEN: the transfer itself (a Kloosterman-type inverse-map equidistribution of the full-residue
  * Bettin-Conrey second moment) is still not proved -- OVR ~1.25 is MEASURED, not certified. No rigorous
- * ceiling on M2w or c_1 is produced. No bound on Lambda moves. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * ceiling on M2w or c_1 is produced. No bound on Lambda moves. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97203-route-m-cotangent-absvalue-first-moment-cauchy-schwarz.js (parent: c_1 <= sqrt(M2w); OVR ~1.3 at b=401)
  * @see imp-97180-route-m-cotangent-absvalue-bulk-firstmoment-obstruction.js (grandparent: absolute first-moment obstruction)
@@ -135,11 +135,11 @@ export const IMP97225_VERDICT = Object.freeze({
     'kappa_arith = 0.5705 by ~1.38x out to b=4001, and c_1 ~ 0.29 stays flat. So the residual ' +
     'second-moment-inverse-equidistribution transfer has a bounded (constant) target inside the CS ' +
     'margin at every measured scale. The transfer itself stays unproved; OVR ~1.25 is MEASURED, not ' +
-    'certified. No bound on Lambda moves. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'certified. No bound on Lambda moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97225_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the imp-97203 inverse-map ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the imp-97203 inverse-map ' +
   'oversampling factor OVR(b) = M2w / E_h[(c_0/a)^2] converges to a bounded ~1.25 constant (no drift ' +
   'out to b=4001) and the Cauchy-Schwarz ceiling sqrt(M2w) ~ 0.414 stays ~1.38x below kappa_arith = ' +
   '0.5705 throughout. The equidistribution transfer target is a bounded constant, but the transfer ' +
@@ -199,7 +199,7 @@ const IMP97225_ASSERTIONS = [
       IMP97225_VERDICT.qed === false &&
       IMP97225_MEASURED.drifts === false &&
       /NO QED/.test(IMP97225_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97225_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97225_HONEST_BANNER) &&
       /RH open/.test(IMP97225_HONEST_BANNER),
     why: 'measurement only: OVR bounded ~1.25 with no drift and sqrt(M2w) below target throughout; the transfer stays unproved, no bound moved, honesty markers present.',
   },

@@ -10,8 +10,8 @@
  * (b) reduces the ceiling to a sign condition + a magnitude condition on the correction, and (c) uses
  * that decomposition to PROVE the ceiling on the ENTIRE semiprime class omega(b)=2 (distinct primes) --
  * exactly the near-twin-semiprime family imp-97265 flagged as the binding obstruction. This lifts the
- * imp-97265 prime-only proof to the first composite class. No bound on Lambda moves; PT Lambda <= 0.2
- * remains SOTA; RH open; NO QED.
+ * imp-97265 prime-only proof to the first composite class. No bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  *   Notation as imp-97133 / imp-97208 / imp-97224 / imp-97265: E1(b) = L1(b) - phi(b) b((1/2) log b - 1/4),
  *   L1(b) = Sum_{a in R_b} a log a, R_b = {a : 1 <= a <= b-1, (a,b)=1}, omega(b) = number of distinct
@@ -87,7 +87,7 @@
  * ceiling) and omega = 2 (this leaf). VERDICT: honest PARTIAL. Proved: the exact leader + inward-correction
  * decomposition and the full semiprime ceiling. Residual: omega >= 3 sign + magnitude via retained
  * Moebius cancellation. kappa_arith unchanged; the cotangent first moment (imp-97097) stays the separate
- * open leaf; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * open leaf; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97265-route-m-arith-first-moment-quarter-ceiling-proof.js (prime ceiling; the close-factor residual this advances)
  * @see imp-97269-route-m-e1-quarter-b-class-uniformity-crosscheck.js (per-class |E1|/(b/4) tabulation)
@@ -207,7 +207,7 @@ export const IMP97290_VERDICT = Object.freeze({
     'as the obstruction. This lifts the imp-97265 prime-only proof to the first composite class. RESIDUAL: the ' +
     'uniform ceiling for omega >= 3 -- the sign condition plus the magnitude with Moebius cancellation retained ' +
     '(the triangle bound over-charges for highly-composite b). kappa_arith unchanged; the cotangent first moment ' +
-    '(imp-97097) stays open; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    '(imp-97097) stays open; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97290_SUBGAP = Object.freeze({
@@ -223,7 +223,7 @@ export const IMP97290_SUBGAP = Object.freeze({
 });
 
 export const IMP97290_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Proof attempt at the uniform ceiling |E1(b)| <= b/4 on the ' +
+  'RH open; no refereed bound is changed; NO QED. Proof attempt at the uniform ceiling |E1(b)| <= b/4 on the ' +
   'close-prime-factor family: proves the exact leader + inward-correction decomposition E1(b) = mu(b)(b/4) + ' +
   'Delta(b) (leader sign = (-1)^omega), reduces the ceiling to a sign + magnitude condition on Delta, and PROVES ' +
   'the full semiprime ceiling |E1(pq)| < pq/4 (near-twin family included). The uniform ceiling for omega >= 3 ' +
@@ -300,7 +300,7 @@ const IMP97290_ASSERTIONS = [
       IMP97290_VERDICT.uniformCeilingProved === false &&
       /omega-ge-3/.test(IMP97290_SUBGAP.id) &&
       /NO QED/.test(IMP97290_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97290_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97290_HONEST_BANNER) &&
       /RH open/.test(IMP97290_HONEST_BANNER),
     why: 'proof / honest partial -- proves the leader decomposition, the ceiling reduction and the full semiprime ceiling, leaves omega>=3 open; no bound moved, no rigorous full ceiling posted, no QED.',
   },

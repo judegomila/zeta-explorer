@@ -42,7 +42,7 @@
  * (C_mb GUE-conditional per imp-486). The height term is evaluated on the inherited imp-3220/imp-3406
  * extrapolation of T0(N), NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays
- * 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34995-translation-coef-excess-origin (the F2 height term +4.75% at a single N traced here)
  * @see imp-34950-eflow-crossing-strength-cmb-exponent-structural (the translCoef ~2.06 landmark kernels)
@@ -178,7 +178,7 @@ export const IMP35108_HEIGHT_TERM_N_RUNNING = {
     '(C_mb GUE-conditional per imp-486). The height term is evaluated on the inherited imp-3220/imp-3406 ' +
     'extrapolation of T0(N), NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays ' +
-    '1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS imp-35108: the imp-34995 F2 height term 0.5 L-prime/L decays STRICTLY monotonically to 0 as ' +
     '0.5/L ~ 0.5/ln N (product halfLpL*L -> 1/2, local exponent ~ -1), so the level-landmark surrogate-curvature ' +
@@ -224,16 +224,16 @@ export const IMP35108_HEIGHT_TERM_N_RUNNING_ASSERTIONS = [
     holds: () => Math.abs(LOCAL_EXPONENT + 1) < 0.05,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed.
     id: 'imp35108-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed',
     holds: () =>
       IMP35108_HEIGHT_TERM_N_RUNNING.isRigorous === false &&
       IMP35108_HEIGHT_TERM_N_RUNNING.farTailExponent === 0.5 &&
       typeof IMP35108_HEIGHT_TERM_N_RUNNING.subGap === 'string' &&
       /imp-486/.test(IMP35108_HEIGHT_TERM_N_RUNNING.subGap) &&
       /NO QED/.test(IMP35108_HEIGHT_TERM_N_RUNNING.verdict) &&
-      /remains SOTA/.test(IMP35108_HEIGHT_TERM_N_RUNNING.verdict),
+      /refereed bound is changed/i.test(IMP35108_HEIGHT_TERM_N_RUNNING.verdict),
   },
 ];
 

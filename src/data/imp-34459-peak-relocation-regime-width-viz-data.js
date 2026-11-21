@@ -19,8 +19,7 @@
  *
  *   Ticket: imp-34459 (ux, medium). Presentation only of an already-established measurement; adds
  *   no new Lambda bound. Component model is the inherited surrogate diagnostic, NOT rigorous;
- *   C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian
- *   Lambda<=0.2 remains the SOTA unconditional bound.
+ *   C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.
  */
 
 // -- the baked imp-34369 fine migration probe, collapsed to the four distinct effective-rung rows --

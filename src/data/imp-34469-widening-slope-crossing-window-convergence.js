@@ -60,7 +60,7 @@
  * imp-34188 are UNTOUCHED; the exponential-approach surrogate is descriptive, not derived; the
  * component model is the inherited imp-3220/imp-3406 extrapolation; C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; changes no bound; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34409-widening-slope-crossing-kernel-frame (the k=12..18 fit whose +0.227 overshoot is tested here)
  * @see imp-34327-widening-slope-minus-one-crossing-location (the mapped crossing 20.47903 the residual is measured against)
@@ -201,7 +201,7 @@ export const IMP34469_WIDENING_SLOPE_CROSSING_WINDOW_CONVERGENCE = {
     'inherited imp-3220/imp-3406/imp-33810 component model, NOT a rigorous asymptotic; ' +
     'imp-34409/imp-34327/imp-34246/imp-34188 UNTOUCHED; the exponential-approach form is descriptive, not ' +
     'derived; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34409 (the k=12..18 fit whose +0.227 overshoot is tested); imp-34327 (the mapped crossing ' +
     '20.47903); imp-34246 (the -ln10/2 + ln10*3/u correction curve); imp-34188 (the exponential-approach ' +
@@ -249,12 +249,12 @@ const IMP34469_WIDENING_SLOPE_CROSSING_WINDOW_CONVERGENCE_ASSERTIONS = [
     // Honesty gate: measurement/surrogate-fit only, isRigorous false, no bound changed, NO QED, SOTA +
     // K_a untouched.
     id: 'imp34469-honesty-gate-no-qed',
-    description: 'overshootIsFiniteWindowArtifact true; isRigorous false, no bound changed, NO QED, K_a>=0 untouched, PT SOTA',
+    description: 'overshootIsFiniteWindowArtifact true; isRigorous false, no bound changed, NO QED, K_a>=0 untouched, no refereed bound is changed',
     holds: () =>
       IMP34469_WIDENING_SLOPE_CROSSING_WINDOW_CONVERGENCE.overshootIsFiniteWindowArtifact === true &&
       IMP34469_WIDENING_SLOPE_CROSSING_WINDOW_CONVERGENCE.isRigorous === false &&
       /NO QED/.test(IMP34469_WIDENING_SLOPE_CROSSING_WINDOW_CONVERGENCE.verdict) &&
-      /remains SOTA/.test(IMP34469_WIDENING_SLOPE_CROSSING_WINDOW_CONVERGENCE.verdict) &&
+      /refereed bound is changed/i.test(IMP34469_WIDENING_SLOPE_CROSSING_WINDOW_CONVERGENCE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34469_WIDENING_SLOPE_CROSSING_WINDOW_CONVERGENCE.verdict),
   },
 ];

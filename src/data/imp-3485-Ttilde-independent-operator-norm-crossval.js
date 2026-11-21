@@ -67,7 +67,7 @@
  *   Ticket: imp-3485 (accuracy, medium). Cross-validation/measurement only; certifies
  *   the numerator norm of the capture RATIO, does NOT construct the missing
  *   magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT.
- *   NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO RH verdict, NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -431,7 +431,7 @@ export const IMP3485_TTILDE_INDEPENDENT_OPERATOR_NORM_CROSSVAL = Object.freeze({
     'survives an independent operator-norm cross-check. CROSS-VALIDATION only; certifies the numerator norm ' +
     'of the capture RATIO, does NOT construct the missing magnitude and does NOT attempt the imp-3066 ' +
     'K_a >= 0 positivity; RH-EQUIVALENT; the off-diagonal endpoint-Hankel obstruction remains UNTOUCHED. ' +
-    'NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     phiKernel: 'de Bruijn-Newman: sum_{n=1..10} (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -509,7 +509,7 @@ export const IMP3485_TTILDE_INDEPENDENT_OPERATOR_NORM_CROSSVAL = Object.freeze({
       'This cross-validates the numerator norm of the capture RATIO only; the imp-3066 off-diagonal ' +
       'endpoint-Hankel operator magnitude remains the lone obstruction, UNTOUCHED.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -557,7 +557,7 @@ export const IMP3485_TTILDE_INDEPENDENT_OPERATOR_NORM_CROSSVAL_ASSERTIONS = [
   {
     id: 'imp3485-honest-assessment-no-qed',
     why: 'Mandatory honesty: CROSS-VALIDATION only -- independent operator-norm recomputation of the imp-3467 ' +
-      'numerator, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'numerator, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3485_TTILDE_INDEPENDENT_OPERATOR_NORM_CROSSVAL.honestCaveat;
       return (
@@ -567,7 +567,7 @@ export const IMP3485_TTILDE_INDEPENDENT_OPERATOR_NORM_CROSSVAL_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.crossValidatesNotConstructs === 'string' &&
         typeof c.agreementIsNumericalNotSymbolic === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

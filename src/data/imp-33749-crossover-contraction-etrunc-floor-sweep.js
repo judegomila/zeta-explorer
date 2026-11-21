@@ -73,7 +73,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb
  * stays GUE-conditional (imp-486); the C_C 1/8 ansatz is UNTOUCHED (imp-2642/imp-2643);
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33723-sigma-half-vs-crossover-closed-form (the closed-form map + base |g_prime| ~ 4.54e-2)
  * @see imp-33708-sigma-fartail-landmark-etrunc-model-sensitivity (the 0.5x..5x floor sweep; N ~ E_trunc^(-2))
@@ -200,7 +200,7 @@ export const IMP33749_CROSSOVER_CONTRACTION_ETRUNC_FLOOR_SWEEP = {
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb stays ' +
     'GUE-conditional (imp-486); the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33723 (closed-form crossover map + base |g_prime| ~ 4.54e-2); imp-33708 (0.5x..5x E_trunc ' +
     'floor sweep, N ~ E_trunc^(-2)); imp-3444 (E_coll = E_trunc crossover N ~ 3.280e9); imp-486 ' +
@@ -248,14 +248,14 @@ export const IMP33749_CROSSOVER_CONTRACTION_ETRUNC_FLOOR_SWEEP_ASSERTIONS = [
     holds: () => MAX_ANALYTIC_VS_CENTRAL < 1e-5,
   },
   {
-    // Honesty gate: measurement/stability only, floor-robust verdict, no QED, PT stays SOTA.
+    // Honesty gate: measurement/stability only, floor-robust verdict, no QED, no refereed bound is changed.
     id: 'imp33749-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, floor-robust verdict, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, floor-robust verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP33749_CROSSOVER_CONTRACTION_ETRUNC_FLOOR_SWEEP.isRigorous === false &&
       /STRONG CONTRACTION IS FLOOR-ROBUST/.test(IMP33749_CROSSOVER_CONTRACTION_ETRUNC_FLOOR_SWEEP.verdict) &&
       /NO QED/.test(IMP33749_CROSSOVER_CONTRACTION_ETRUNC_FLOOR_SWEEP.verdict) &&
-      /remains SOTA/.test(IMP33749_CROSSOVER_CONTRACTION_ETRUNC_FLOOR_SWEEP.verdict),
+      /refereed bound is changed/i.test(IMP33749_CROSSOVER_CONTRACTION_ETRUNC_FLOOR_SWEEP.verdict),
   },
 ];
 

@@ -18,7 +18,7 @@
  *   verbatim (no re-derivation, no new numerics).
  *
  *   Ticket: imp-36142 (content, medium). Note only; ports nothing; changes no
- *   bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   bound; no refereed bound is changed; NO QED.
  *
  * @see imp-36096-w1-accumulator-joint-recovery-contour (source: the joint (alpha,beta) recovery contour and non-convexity finding)
  * @see imp-36061-w1-accumulator-recovery-detuning-width (the two single-axis edges the joint contour shows are non-conservative)
@@ -81,7 +81,7 @@ export const IMP36142_JOINT_BASIN_NON_CONVEX_SINGLE_AXIS_UNSAFE_HONEST_STATUS = 
     changesAnyBound: false,
     portsAnyRoute: false,
     scope: 'restates imp-36096 measurement only; instantiates no directed-rounding interval; verifies no inequality',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -91,7 +91,7 @@ export const IMP36142_JOINT_BASIN_NON_CONVEX_SINGLE_AXIS_UNSAFE_HONEST_STATUS = 
     ' outside the axis diamond over most of the plane, so a run-time monitor keyed on the imp-36061 single-axis ' +
     'edges alone under-estimates the joint detuning needed by up to ~2.5x and is therefore unsafe as a general ' +
     'guard; only the full joint contour (or a conservative outer envelope of it) is a safe monitoring rule. ' +
-    'Measurement/diagnostic restatement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'Measurement/diagnostic restatement only; changes no bound; NO QED; no refereed bound is changed.',
 });
 
 export const IMP36142_JOINT_BASIN_NON_CONVEX_SINGLE_AXIS_UNSAFE_HONEST_STATUS_ASSERTIONS = [
@@ -127,7 +127,7 @@ export const IMP36142_JOINT_BASIN_NON_CONVEX_SINGLE_AXIS_UNSAFE_HONEST_STATUS_AS
       IMP36142_JOINT_BASIN_NON_CONVEX_SINGLE_AXIS_UNSAFE_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP36142_JOINT_BASIN_NON_CONVEX_SINGLE_AXIS_UNSAFE_HONEST_STATUS.honestCaveat.isReductionBelowRH === false &&
       IMP36142_JOINT_BASIN_NON_CONVEX_SINGLE_AXIS_UNSAFE_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36142_JOINT_BASIN_NON_CONVEX_SINGLE_AXIS_UNSAFE_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36142_JOINT_BASIN_NON_CONVEX_SINGLE_AXIS_UNSAFE_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36142-verdict-unsafe-no-qed',

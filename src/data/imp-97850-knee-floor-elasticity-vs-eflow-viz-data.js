@@ -60,7 +60,7 @@ export const IMP97850_SUMMARY = Object.freeze({
     'Presentation only: every floor-sweep row and the comparison bars are reused verbatim from '
     + 'imp-97822 (a measurement, not a derivation); no new computation. Conditional-share curvature '
     + 'diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes '
-    + 'no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH '
+    + 'no bound; establishes no operator positivity; no refereed bound is changed; RH '
     + 'open; NO QED.',
 });
 

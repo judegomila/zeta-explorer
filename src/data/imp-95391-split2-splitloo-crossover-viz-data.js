@@ -9,8 +9,7 @@
  * g < sigma, i.e. by which side of the diagonal g = sigma the point falls on.
  *
  * VERDICT. MEASUREMENT ONLY, self-consistency re-render of an existing
- * algebraic identity. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * algebraic identity. Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -202,7 +201,7 @@ export const IMP95391_SUMMARY = {
     "MEASUREMENT: re-renders the imp-95256 g-vs-sigma crossover as a scatter " +
     "against the exact diagonal locus g = sigma; every point's winner label " +
     "agrees with the diagonal test to machine precision. Changes no bound; " +
-    "NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------

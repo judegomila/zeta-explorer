@@ -31,8 +31,8 @@
  * window is ONLY the imp-95213 tier slice u in [73222.5, 74022.5] (see
  * imp-95213-tier-certifier-build.js CERTIFIED_SLICE, imported by the page
  * for the shaded band); the window-1 full continuum run (W1-CERT) is in
- * progress. This module proves no bound, makes no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; NO QED.
+ * progress. This module proves no bound, makes no RH claim; no refereed bound is changed
+ * ; NO QED.
  */
 
 export const W1_LANDSCAPE_META = Object.freeze({

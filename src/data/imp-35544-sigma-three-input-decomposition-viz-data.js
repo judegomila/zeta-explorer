@@ -38,7 +38,7 @@
  *   Ticket: imp-35544 (ux, medium). Presentation only of an already-established
  *   decomposition; adds no new Lambda bound. Discharges nothing; imp-35337a stays
  *   OPEN. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5
- *   (imp-2631) UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   (imp-2631) UNTOUCHED. NO QED. No refereed bound is changed.
  */
 
 // -- baked (log10N, truncShare, flowShare, collShare) points, offline-reproduced --

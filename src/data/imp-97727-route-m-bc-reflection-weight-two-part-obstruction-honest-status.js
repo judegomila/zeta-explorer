@@ -34,7 +34,7 @@
  * imp-97701 IMP97701_VERDICT / IMP97701_SUBGAP finding as a standalone indexable module (glossary/audit
  * sweeps that grep for honest-status modules by filename, per imp-36209's finding that inline-only
  * corrections are not reliably discoverable). Read-only record; changes no bound; establishes no
- * operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-97701-route-m-bc-reflection-weight-pinning-obstruction.js (the two-part obstruction this note records)
  * @see imp-97681-route-m-bc-reflection-gamma-normalisation.js (the |W_refl| <~ 0.24/pi cap and rho_refl)
@@ -80,7 +80,7 @@ export const IMP97727_BC_REFLECTION_WEIGHT_OBSTRUCTION_HONEST_STATUS = {
     'sign-swinging aggregate. The imp-97681 cap test is non-discriminating: the symmetric admissible ' +
     `band [-${IMP97701_W_REFL_CAP}, +${IMP97701_W_REFL_CAP}] contains 0, so every candidate -- including ` +
     `W_refl = 0 -- passes identically. Changes no bound; establishes no operator positivity; no RH ` +
-    'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-97701-route-m-bc-reflection-weight-pinning-obstruction.js (IMP97701_VERDICT / IMP97701_SUBGAP, ' +
     'the source finding this note records); imp-97681-route-m-bc-reflection-gamma-normalisation.js ' +
@@ -115,12 +115,12 @@ export const IMP97727_BC_REFLECTION_WEIGHT_OBSTRUCTION_HONEST_STATUS_ASSERTIONS 
   },
   {
     id: 'imp97727-no-fix-honesty-gate',
-    description: 'honest-status finding only: no fix applied, no RH verdict, no QED, PT stays SOTA',
+    description: 'honest-status finding only: no fix applied, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP97727_BC_REFLECTION_WEIGHT_OBSTRUCTION_HONEST_STATUS.fixApplied === false &&
       IMP97727_BC_REFLECTION_WEIGHT_OBSTRUCTION_HONEST_STATUS.isRigorous === false &&
       /NO QED/.test(IMP97727_BC_REFLECTION_WEIGHT_OBSTRUCTION_HONEST_STATUS.verdict) &&
-      /remains the rigorous SOTA/.test(IMP97727_BC_REFLECTION_WEIGHT_OBSTRUCTION_HONEST_STATUS.verdict),
+      /refereed bound is changed/i.test(IMP97727_BC_REFLECTION_WEIGHT_OBSTRUCTION_HONEST_STATUS.verdict),
   },
 ];
 

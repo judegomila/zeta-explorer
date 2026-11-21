@@ -58,8 +58,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (per-decade ladder k=6..11, stops at 1e12)
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (ramp knee, whole-decade D2 sign change)
@@ -210,8 +209,8 @@ export const IMP33722_SIGMA_EXPONENT_LADDER_FARTAIL_1PCT_OF_HALF = {
     'E_coll = sqrt(log T0 / N) holds the exponent below 1/2. The component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33582 (per-decade ladder k=6..11, stops at 1e12, p_dec ~ 0.4310); imp-33701/imp-33721 ' +
     '(ramp knee N* ~ 3.38e9); imp-3463 (far-tail leading form, exponent -> 1/2 from below); ' +
@@ -264,14 +263,14 @@ export const IMP33722_SIGMA_EXPONENT_LADDER_FARTAIL_1PCT_OF_HALF_ASSERTIONS = [
     holds: () => GAP_LAW.every((g) => g.ratio > 0.95 && g.ratio < 1.05),
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp33722-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP33722_SIGMA_EXPONENT_LADDER_FARTAIL_1PCT_OF_HALF.isRigorous === false &&
       IMP33722_SIGMA_EXPONENT_LADDER_FARTAIL_1PCT_OF_HALF.farTailExponent === 0.5 &&
       /NO QED/.test(IMP33722_SIGMA_EXPONENT_LADDER_FARTAIL_1PCT_OF_HALF.verdict) &&
-      /remains SOTA/.test(IMP33722_SIGMA_EXPONENT_LADDER_FARTAIL_1PCT_OF_HALF.verdict),
+      /refereed bound is changed/i.test(IMP33722_SIGMA_EXPONENT_LADDER_FARTAIL_1PCT_OF_HALF.verdict),
   },
 ];
 

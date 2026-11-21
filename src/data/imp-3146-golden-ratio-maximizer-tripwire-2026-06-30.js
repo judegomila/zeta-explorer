@@ -26,7 +26,7 @@
  * silent edit to the live closed form -- a changed exponent in phi^{-5/2}, a
  * dropped tanh term, a perturbed S_STAR -- is therefore caught here.
  *
- * LOCK ONLY -- no new math, no QED; PT Lambda <= 0.2 stays the rigorous SOTA.
+ * LOCK ONLY -- no new math, no QED; no refereed bound is changed.
  *
  * @see imp-3146-residual-gap-limit-aU-grid.js (imp-3146, the self-asserted landmark this locks)
  */
@@ -93,7 +93,7 @@ export const IMP3146_GOLDEN_RATIO_MAXIMIZER_TRIPWIRE = {
   liveScanMaxMatchesClosedForm: LIVE.scanMaxMatchesClosedForm,
   independence: 'maximizer from bisection on G prime(s)=0 over [0.5,2.0], never Math.acosh; live module used arccosh(phi) plus a 24000-point grid argmax',
   status: 'cross-module tripwire: an independent Newton root of the stationarity condition reproduces the imp-3146 golden-ratio maximizer, with cosh(s*)=phi and G(s*)=phi^{-5/2} re-certified to ~1e-9, and the live fine-scan maximizer/value confirmed against the closed form',
-  honest: 'LOCK ONLY -- independent recompute of an existing closed-form maximizer, no new math, no QED; PT Lambda <= 0.2 stays the rigorous SOTA.',
+  honest: 'LOCK ONLY -- independent recompute of an existing closed-form maximizer, no new math, no QED; no refereed bound is changed.',
 };
 
 export const IMP3146_GOLDEN_RATIO_MAXIMIZER_TRIPWIRE_ASSERTIONS = [
@@ -126,9 +126,9 @@ export const IMP3146_GOLDEN_RATIO_MAXIMIZER_TRIPWIRE_ASSERTIONS = [
   },
   {
     id: 'imp3146-maximizer-tripwire-lock-honest',
-    description: 'explicitly a LOCK ONLY (no new math, no QED) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly a LOCK ONLY (no new math, no QED) and no refereed bound is changed',
     holds: () => /LOCK ONLY/.test(IMP3146_GOLDEN_RATIO_MAXIMIZER_TRIPWIRE.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(IMP3146_GOLDEN_RATIO_MAXIMIZER_TRIPWIRE.honest),
+      && /refereed bound is changed/i.test(IMP3146_GOLDEN_RATIO_MAXIMIZER_TRIPWIRE.honest),
   },
 ];
 

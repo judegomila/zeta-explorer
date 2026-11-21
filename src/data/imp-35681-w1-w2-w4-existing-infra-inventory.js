@@ -8,8 +8,7 @@
  * already holds.
  *
  * ASSESSMENT / SCOPING ONLY. Ports nothing; discharges nothing; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * The three finite/mechanical items (imp-35653 Part E; W3, the analytic tail lemma,
  * is the breakthrough-tier NON-finite obligation and is out of this inventory scope):
@@ -79,7 +78,7 @@
  * EXTERNAL Platt-Trudgian 2021, NOT repo imp-341 (a scout misattribution). Net: the
  * engine holds STRUCTURE and EXPERIMENTAL scaffolding plus one analytic refutation, but
  * every W1 / W2 / W4 finite CERTIFICATE remains greenfield or W3-gated. Assessment /
- * scoping only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * scoping only; changes no bound; NO QED; no refereed bound is changed.
  *
  * @see imp-35653-sbarrier-finite-check-porting-scope (the W1..W4 itemization this inventories)
  * @see imp-35674-w3-tail-lemma-polymath15-scope (repo proxy = de Bruijn at NEGATIVE time; wrong t-sign)
@@ -91,7 +90,7 @@
 
 // -- Anchor constants (matching imp-35653; no heavy imports) -------------------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this inventory
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this inventory
 const KERNEL_MISPRICE_FACTOR = 3.75e11; // imp-34791: single deep-zero 2/gamma mispricing
 
 export const IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY = {
@@ -174,7 +173,7 @@ export const IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY = {
     'scout misattribution). Net: the engine holds STRUCTURE, EXPERIMENTAL scaffolding, and one analytic ' +
     'refutation, but every W1 / W2 / W4 finite CERTIFICATE remains greenfield or W3-gated. Ports ' +
     'nothing; discharges nothing; changes no bound; establishes no operator positivity; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35653 (the W1..W4 itemization); imp-35674 (repo proxy = de Bruijn at NEGATIVE time); ' +
     'imp-35676 (W4 substitution gated on W3); imp-34791 (E_trunc reclassification; 2/gamma mispricing ' +
@@ -222,15 +221,15 @@ export const IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY_ASSERTIONS = [
       T_PT === 3e12,
   },
   {
-    // Honesty gate: inventory only, none fully held, no discharge, no QED, PT stays SOTA.
+    // Honesty gate: inventory only, none fully held, no discharge, no QED, no refereed bound is changed.
     id: 'imp35681-honesty-gate-no-qed',
-    description: 'Inventory only: none of W1/W2/W4 fully held, ports nothing, changes no bound, no QED, PT SOTA',
+    description: 'Inventory only: none of W1/W2/W4 fully held, ports nothing, changes no bound, no QED, no refereed bound is changed',
     holds: () =>
       IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY.isRigorous === false &&
       IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY.summary.noneFullyHeld === true &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /NO QED/.test(IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY.verdict) &&
-      /remains SOTA/.test(IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY.verdict),
+      /refereed bound is changed/i.test(IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY.verdict),
   },
 ];
 

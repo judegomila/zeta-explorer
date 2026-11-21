@@ -3,7 +3,7 @@
  * @fileoverview imp-33804 -- META provenance roll-up cataloguing the imp-33765/imp-33766/imp-33767
  * newest cohort (G7 one-dimensionality-in-s, H4-H3 curvature coupling, sigma-inflection offset
  * reconciliation), mirroring the imp-33824/imp-33784 rollup pattern and confirming each module carries
- * the mandatory honest banner: no QED, imp-3066 K_a >= 0 untouched, and Platt-Trudgian Lambda <= 0.2 SOTA.
+ * the mandatory honest banner: no QED, imp-3066 K_a >= 0 untouched, and no refereed bound is changed.
  *
  * METHOD (read-only, performed at author time). Each module's @fileoverview/verdict block was read and
  * classified into the evidence class it earns on its own terms:
@@ -23,7 +23,7 @@
  *     which is in turn the E_flow displacement -- the two prior readings do not disagree, they differ
  *     only in reference landmark.
  * The honest-banner check greps each module for the mandatory phrases (no QED, imp-3066 K_a >= 0
- * untouched, Platt-Trudgian Lambda <= 0.2 SOTA); glossary/viz-page coverage was cross-checked against
+ * untouched, no refereed bound is changed); glossary/viz-page coverage was cross-checked against
  * src/data/glossary.js and src/pages. Import lines were grepped and followed transitively (per the
  * imp-33695/imp-33720/imp-33784/imp-33824 heavy-import safety pattern -- the 16.7MB
  * src/data/zeros-to-1e6.js bundle hangs vite ssrLoadModule / npm-run-assert when transitively pulled
@@ -34,7 +34,7 @@
  * together with an explicit isRigorous: false field. imp-33765 has NO isRigorous field and no literal
  * "NO QED" string in its exported object (only in its JSDoc comment, "No false QED.") -- it instead
  * expresses the identical honesty content through an object honesty gate (honestCaveat.isProof: false,
- * .opNormCarriesNoRHVerdict prose, .sota: "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA"),
+ * .opNormCarriesNoRHVerdict prose, .sota: "No refereed bound is changed"),
  * an equivalent, not a weaker, guarantee -- mirroring the imp-33787/imp-33789 case the imp-33824 rollup
  * already found in the predecessor cohort. All three state imp-3066 K_a >= 0 untouched verbatim (or, for
  * imp-33765, "imp-3066 / imp-33704 / imp-33725 / G7 are untouched" plus honestCaveat.imp3066Untouched:
@@ -69,8 +69,8 @@ export const IMP_33804_33765_33767_COHORT_PROVENANCE_ROLLUP = {
     'Read each of the three imp-33765/33766/33767 module @fileoverview/verdict blocks; classify by ' +
     'evidence class (G7 shear-obstruction one-dimensionality-in-s derivation / H4-H3 strip-height ' +
     'coupling scoping / sigma-inflection knee-vs-landmark offset reconciliation); grep for the ' +
-    'mandatory honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 ' +
-    'SOTA); cross-check glossary.js and src/pages for dedicated coverage and follow import lines ' +
+    'mandatory honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed' +
+    '); cross-check glossary.js and src/pages for dedicated coverage and follow import lines ' +
     'transitively for heavy-import safety.',
   modules: [
     {
@@ -124,7 +124,7 @@ export const IMP_33804_33765_33767_COHORT_PROVENANCE_ROLLUP = {
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
     'itself. imp-3066 K_a >= 0 positivity untouched across all three cohort members; ' +
-    'G6a_shock_lipschitz stays OPEN per imp-33766. Platt-Trudgian Lambda <= 0.2 remains SOTA. No QED.',
+    'G6a_shock_lipschitz stays OPEN per imp-33766. No refereed bound is changed. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -155,7 +155,7 @@ const IMP_33804_ASSERTIONS = [
         (x) => x.noQED === true && /imp-3066/.test(x.untouchedInvariant) && x.plattTrudgianSOTA === true
       ) && IMP_33804_33765_33767_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 3,
     why: 'Every module in the cohort must state no-QED (as a literal string or an equivalent object ' +
-      'honesty gate), imp-3066 K_a >= 0 untouched, and Platt-Trudgian Lambda <= 0.2 SOTA -- ' +
+      'honesty gate), imp-3066 K_a >= 0 untouched, and no refereed bound is changed -- ' +
       'grep-verified against the source files.',
   },
   {
@@ -206,11 +206,11 @@ const IMP_33804_ASSERTIONS = [
   {
     id: 'imp33804-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_33804_33765_33767_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_33804_33765_33767_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_33804_33765_33767_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33804_33765_33767_COHORT_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 stays ' +
-      'SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

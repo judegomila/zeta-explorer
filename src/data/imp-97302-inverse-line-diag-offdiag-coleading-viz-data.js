@@ -16,7 +16,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Every (b, M2w, diag, offdiag) value below is copied verbatim
  * from the imp-97267 and imp-97284 baked ladders (no re-derivation of the exact O(b^3)
  * character-detection kernel). Changes no bound, establishes no operator positivity, no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-97267-route-m-inverse-map-kloosterman-transfer.js (IMP97267_LADDER, b=101..401, parent identity)
  * @see imp-97284-inverse-line-offdiag-diag-ladder-extension.js (IMP97284_LADDER, b=401..1201, extension)
@@ -60,7 +60,7 @@ export const IMP97302_MEASURED = Object.freeze({
 });
 
 export const IMP97302_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every (b, M2w, diag, offdiag) ' +
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every (b, M2w, diag, offdiag) ' +
   'row is copied verbatim from the imp-97267 (b=101..401) and imp-97284 (b=401..1201) baked ladders ' +
   '(no re-derivation of the exact O(b^3) character-detection kernel); no bound is claimed and no ' +
   'operator positivity is established.';
@@ -97,7 +97,7 @@ const IMP97302_ASSERTIONS = [
     id: 'imp97302-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97302_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97302_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97302_HONEST_BANNER) &&
       /NO QED/.test(IMP97302_HONEST_BANNER),
     why: 'every Route-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

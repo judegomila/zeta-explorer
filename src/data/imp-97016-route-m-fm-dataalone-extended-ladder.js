@@ -60,8 +60,8 @@
  * N = 24000 do NOT settle it from the data alone. Settling it data-only remains blocked on exact
  * rungs FAR beyond N = 24000 (the O(N^3) V-table build is genuinely CPU-blocked in-pool and belongs
  * on a native/offline backend). Only the trace ceiling T ~ 2.594e7 is a rigorous lower bound; F and
- * M inherit the non-rigorous lam_min N^-p / ||G||_F log-fit extrapolations; no bound moves; PT
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * M inherit the non-rigorous lam_min N^-p / ||G||_F log-fit extrapolations; no bound moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-96996-route-m-fm-quad-turnover-adjudication.js (the F<M partition under the monotonicity prior; caveat (iii))
  * @see imp-96912-route-m-frobenius-ladder-extension-above-16000.js (the 6 exact rungs N=17000..24000 + extended ceilings)
@@ -155,7 +155,7 @@ export const IMP97016_VERDICT = Object.freeze({
     'the quad in play, so settling F<M from the data alone remains blocked on exact rungs FAR beyond ' +
     'N=24000 -- the O(N^3) V-table build is genuinely CPU-blocked in-pool and belongs on a ' +
     'native/offline backend. Only the trace ceiling T~2.594e7 is rigorous; F, M inherit the ' +
-    'non-rigorous extrapolations; no bound moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'non-rigorous extrapolations; no bound moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97016_SUBGAP = Object.freeze({
@@ -173,7 +173,7 @@ export const IMP97016_SUBGAP = Object.freeze({
 });
 
 export const IMP97016_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/analysis only, honest partial of ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement/analysis only, honest partial of ' +
   'imp-96996 caveat (iii): no Gram was rebuilt and no O(N^3) rung was computed here -- the imp-96996 ' +
   'F<M monotonicity-partition is re-run against the already-committed imp-96912 EXTENDED 24-rung ' +
   'exact ceilings (top exact rung N=24000, superseding the stale "N=16000" framing). The freshest ' +
@@ -222,7 +222,7 @@ const IMP97016_ASSERTIONS = [
       IMP97016_VERDICT.caveatIiiFramingSuperseded === true &&
       IMP97016_VERDICT.settledByDataAlone === false &&
       /NO QED/.test(IMP97016_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97016_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97016_HONEST_BANNER) &&
       /RH open/.test(IMP97016_HONEST_BANNER) &&
       /far-beyond-24000/.test(IMP97016_SUBGAP.id),
     why: 'measurement/analysis only: no bound moved, no rigorous ceiling posted, the caveat-(iii) framing is superseded but F<M stays unsettled data-only, and the honesty markers plus the residual sub-gap are present.',

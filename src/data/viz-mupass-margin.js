@@ -26,8 +26,7 @@
  *   wPass >= nu pins the lag symbol / diagonal of the section-26 Gram; it is
  *   NECESSARY but NOT sufficient for the operator positivity K_a >= 0 (the
  *   off-diagonal endpoint-Hankel step stays open). Descriptive / structural,
- *   RH-EQUIVALENT, not a reduction. No Lambda claim; Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   RH-EQUIVALENT, not a reduction. No Lambda claim; no refereed bound is changed.
  *
  *   What this file exports:
  *   - {@link VIZ_MUPASS_MARGIN}: frozen record with title, caption, the
@@ -185,7 +184,7 @@ export const VIZ_MUPASS_MARGIN = Object.freeze({
       'operator positivity K_a >= 0 needs the off-diagonal endpoint-Hankel term.',
     rhEquivalent: true,
     isProof: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   /* Honest partial (imp-3081): the plot GEOMETRY is delivered and self-verified
@@ -269,12 +268,12 @@ export const VIZ_MUPASS_MARGIN_ASSERTIONS = [
   {
     id: 'viz-mupass-margin-honest-ceiling',
     why: 'Mandatory honesty: scalar cover only, operator step open, RH-equivalent, ' +
-         'not a proof, PT 0.2 stays SOTA, and the renderer/index sub-gap stays open.',
+         'not a proof, no refereed bound is changed, and the renderer/index sub-gap stays open.',
     holds: () => {
       const c = VIZ_MUPASS_MARGIN.honestCeiling;
       return c.scalarCoverOnly === true && c.operatorStepOpen === true &&
         c.rhEquivalent === true && c.isProof === false &&
-        /Platt-Trudgian/.test(c.sota) && VIZ_MUPASS_MARGIN.SUB_GAP.open === true;
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota) && VIZ_MUPASS_MARGIN.SUB_GAP.open === true;
     },
   },
 ];

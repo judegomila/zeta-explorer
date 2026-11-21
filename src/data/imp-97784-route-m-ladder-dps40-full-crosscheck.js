@@ -45,7 +45,7 @@
  * imp-97706 sign-oscillation (eight negative-slope rungs) and the imp-97687/imp-97706 bootstrap exponent
  * band [9.80, 11.22] therefore rest ENTIRELY on precision-clean rungs -- no rung is precision-limited, so
  * neither the oscillation nor the ">3" reading is a precision artifact. MCM stays refuted from omega=11;
- * b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open;
+ * b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-97742-route-m-ladder-dps40-crosscheck.js (dps=40 endpoints: smallest, mid, largest)
@@ -137,12 +137,12 @@ export const IMP97784_VERDICT = Object.freeze({
     'values exactly. So the full ladder is precision-clean end-to-end: the imp-97706 sign-oscillation ' +
     '(eight negative-slope rungs) and the imp-97687/imp-97706 bootstrap exponent band [9.80,11.22] rest ' +
     'ENTIRELY on precision-clean rungs and are NOT precision artifacts. MCM stays refuted from omega=11; ' +
-    'b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; ' +
+    'b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
 export const IMP97784_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Independent mpmath dps=40 recompute of ALL 23 rungs ' +
+  'RH open; no refereed bound is changed; NO QED. Independent mpmath dps=40 recompute of ALL 23 rungs ' +
   'of the Route M gap-law residual ladder (single 26.0M-prime accumulating pass): every rung reproduces ' +
   'its baked dps=30/35 literal to 9.34..12.13 significant figures, closing the seventeen rungs ' +
   'imp-97742/imp-97758 left unchecked. The sign-oscillation and the [9.80,11.22] bootstrap band rest ' +
@@ -213,7 +213,7 @@ const IMP97784_ASSERTIONS = [
       IMP97784_VERDICT.anyBoundMoved === false &&
       IMP97784_VERDICT.qed === false &&
       /NO QED/.test(IMP97784_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97784_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97784_HONEST_BANNER) &&
       /RH open/.test(IMP97784_HONEST_BANNER),
     why: 'cross-validation only -- the full 23-rung ladder reproduces at dps=40 and is not precision-limited, so the sign-oscillation and bootstrap band are precision-clean; MCM refuted from omega=11; no bound moved, no QED.',
   },

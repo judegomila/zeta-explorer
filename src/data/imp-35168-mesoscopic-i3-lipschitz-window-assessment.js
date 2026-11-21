@@ -70,7 +70,7 @@
  * -- an N-uniform field-Lipschitz bound on a fixed strip, which the poles at y = 0
  * forbid. I3 stays OPEN. Assessment only; establishes no operator positivity; changes
  * no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35127-g-step-error-certified-bound-scope (I3 ingredient; the coupling claim)
  * @see backward-flow-stability-gronwall.js (imp-2520 Lemma B; line 426 field Lipschitz N/y^2; imp-35128 vacuity map)
@@ -190,7 +190,7 @@ export const IMP35168_MESOSCOPIC_I3_LIPSCHITZ_WINDOW_ASSESSMENT = {
     'residual sub-gap is the sqrt(N)-diverging accumulation height -- an N-uniform field-Lipschitz bound ' +
     'on a fixed strip, which the poles at y = 0 forbid. I3 stays OPEN. Assessment only; discharges ' +
     'nothing; establishes no operator positivity; changes no bound; C_mb GUE-conditional per imp-486 ' +
-    'UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35127-g-step-error-certified-bound-scope (I3, coupling); backward-flow-stability-gronwall.js ' +
     '(imp-2520 Lemma B, line 426 field Lipschitz N/y^2, imp-35128 vacuity map); lambda-roadmap.js Step 2 ' +
@@ -239,14 +239,14 @@ export const IMP35168_MESOSCOPIC_I3_LIPSCHITZ_WINDOW_ASSESSMENT_ASSERTIONS = [
     holds: () => Math.abs(COINCIDENCE_N - 2) < 1e-9,
   },
   {
-    // Honesty gate: assessment only, does not suffice, no QED, PT stays SOTA.
+    // Honesty gate: assessment only, does not suffice, no QED, no refereed bound is changed.
     id: 'imp35168-honesty-gate-no-qed',
-    description: 'Assessment only: suffices false, isRigorous false, NO QED, PT stays SOTA',
+    description: 'Assessment only: suffices false, isRigorous false, NO QED, no refereed bound is changed',
     holds: () =>
       IMP35168_MESOSCOPIC_I3_LIPSCHITZ_WINDOW_ASSESSMENT.suffices === false &&
       IMP35168_MESOSCOPIC_I3_LIPSCHITZ_WINDOW_ASSESSMENT.isRigorous === false &&
       /NO QED/.test(IMP35168_MESOSCOPIC_I3_LIPSCHITZ_WINDOW_ASSESSMENT.verdict) &&
-      /remains SOTA/.test(IMP35168_MESOSCOPIC_I3_LIPSCHITZ_WINDOW_ASSESSMENT.verdict),
+      /refereed bound is changed/i.test(IMP35168_MESOSCOPIC_I3_LIPSCHITZ_WINDOW_ASSESSMENT.verdict),
   },
 ];
 

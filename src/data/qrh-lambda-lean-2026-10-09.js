@@ -11,7 +11,7 @@
  * CONDITIONAL: the final theorems take RaymondChainHyps (head wall, first contact, contact exclusion) and the run's
  *  TableHyps (floor entries, kernel rows) as explicit arguments. They are not bounds on Λ.
  *
- * PT Lambda <= 0.2 stands; RH is open; NO QED. Import-free. QRH_LAMBDA_LEAN_ASSERTIONS check the internal consistency
+ * No refereed bound is changed; RH is open; NO QED. Import-free. QRH_LAMBDA_LEAN_ASSERTIONS check the internal consistency
  * of the record (values equal to the parent module's exact rationals, substep and chunk counts, axiom audit, hypothesis
  * list, honest-scope wording).
  */
@@ -36,7 +36,7 @@ export const QRH_LAMBDA_LEAN = Object.freeze({
     + 'derived in Lean from the openai/math theorem OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re (kernel-checked in the local build with '
     + 'standard axioms only; not replayed by an independent checker or the comparator; not peer-reviewed); without it, the confirmed '
     + 'statements are the *_of_zeroFree theorems, which take the half-plane as an argument. Every substep of both runs (59,439 and 60,675) '
-    + 'is replayed by decide +kernel. Conditional, not a bound. PT Lambda <= 0.2 stands; RH is open; NO QED.',
+    + 'is replayed by decide +kernel. Conditional, not a bound. No refereed bound is changed; RH is open; NO QED.',
 
   toolchain: Object.freeze({ lean: '4.34.1', mathlib: 'd13f23b7', leancert: '7f91b6eb', oaiWorkspace: '/tmp/qrh-verify/lean (local, not a git repository)' }),
 
@@ -156,7 +156,7 @@ export const QRH_LAMBDA_LEAN = Object.freeze({
 
   verdict: 'Lean-checked, conditional: under RaymondChainHyps and the run\'s TableHyps, Lean proves Λ ≤ 0.116091488672439 (F2) and Λ ≤ 0.118505710922701 '
     + '(Raymond chain), with the 7/8 start from the openai/math theorem (local build only, not peer-reviewed). The analytic hypotheses and table entries '
-    + 'are not Lean-checked, so this is a conditional value, not a bound. PT Lambda <= 0.2 stands; RH is open; NO QED.',
+    + 'are not Lean-checked, so this is a conditional value, not a bound. No refereed bound is changed; RH is open; NO QED.',
 });
 
 const L = QRH_LAMBDA_LEAN;
@@ -195,7 +195,7 @@ export const QRH_LAMBDA_LEAN_ASSERTIONS = Object.freeze([
     id: 'qrhl-hypotheses-named',
     holds: () => { const n = L.namedHypotheses.map((h) => h.name);
       return n.length === 5 && ['head_wall', 'first_contact', 'contact_exclusion', 'floors_valid', 'kernels_valid'].every((k) => n.some((x) => x.endsWith(k)))
-        && /0\.0023/.test(L.namedHypotheses[3].source) && /PT/.test(L.namedHypotheses[0].source)
+        && /0\.0023/.test(L.namedHypotheses[3].source) && /PT|refereed bound is changed/.test(L.namedHypotheses[0].source)
         && /not peer-reviewed/.test(L.externalInput) && /comparator/.test(L.externalInput); },
     why: 'Three RaymondChainHyps fields and two TableHyps fields are listed with sources; the r2 measured allowance, PT inside head_wall and the openai/math status are disclosed.',
   },
@@ -208,10 +208,10 @@ export const QRH_LAMBDA_LEAN_ASSERTIONS = Object.freeze([
   },
   {
     id: 'qrhl-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(L.verdict) && /NO QED/.test(L.verdict) && /not a bound/.test(L.verdict)
-      && /PT Lambda <= 0\.2 stands/.test(L.headline) && /NO QED/.test(L.headline) && /not peer-reviewed/.test(L.headline)
+    holds: () => /refereed bound is changed/i.test(L.verdict) && /NO QED/.test(L.verdict) && /not a bound/.test(L.verdict)
+      && /refereed bound is changed/i.test(L.headline) && /NO QED/.test(L.headline) && /not peer-reviewed/.test(L.headline)
       && L.effortToFinish.length === 6 && /not measurements/.test(L.effortNote),
-    why: 'Verdict and headline: conditional value, not a bound; PT Λ ≤ 0.2 stands; NO QED; the half-plane is flagged not peer-reviewed; effort figures labelled as judgements.',
+    why: 'Verdict and headline: conditional value, not a bound; no refereed bound is changed; NO QED; the half-plane is flagged not peer-reviewed; effort figures labelled as judgements.',
   },
 ]);
 

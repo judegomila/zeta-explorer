@@ -38,7 +38,7 @@
  *   limit; kernel; MCM refuted from omega=11, unchanged)
  *
  * Ticket: imp-97648 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The MCM bracket-limit closed-form headword, baked verbatim (no re-import).
@@ -65,7 +65,7 @@ const ROUTE_M_MCM_BINF_MERTENS_CLOSED_FORM_HEADWORD = Object.freeze({
     'monotonically increasing toward B_inf_derived across omega = 100..148933 (p up to ~2e6) and the ' +
     'gap-tail residual against the derived law strictly decreasing when scaled by log^2 p. Naming / ' +
     'glossary headword only; supplies no new bound; MCM stays refuted from omega=11; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP97648_ROUTE_M_MCM_BINF_MERTENS_CLOSED_FORM_GLOSSARY_HEADWORD = Object.freeze({
@@ -81,8 +81,8 @@ export const IMP97648_ROUTE_M_MCM_BINF_MERTENS_CLOSED_FORM_GLOSSARY_HEADWORD = O
     'GLOSSARY HEADWORD ONLY (documentation, not a proof). Names the imp-97619 closed-form result ' +
     'B_inf = lnA + gamma/12 = 0.2968557824 (Mertens-type: log p - Sigma_omega -> gamma), refining ' +
     'the imp-97601 measured 0.296789 and the gap-law constant to e^{-gamma}*(lnA + gamma/12) = ' +
-    '0.16667249. No bound moved; MCM stays refuted from omega=11; NO QED. Platt-Trudgian Lambda <= ' +
-    '0.2 remains SOTA.',
+    '0.16667249. No bound moved; MCM stays refuted from omega=11; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97619 (the closed-form derivation this glosses); imp-97601 (the finite-height measurement ' +
     'refined here); imp-97432 (the surrogate kernel and MCM refutation, unchanged).',
@@ -108,11 +108,11 @@ export const IMP97648_ROUTE_M_MCM_BINF_MERTENS_CLOSED_FORM_GLOSSARY_HEADWORD_ASS
   },
   {
     id: 'imp97648-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97619.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97619.',
     holds: () =>
       IMP97648_ROUTE_M_MCM_BINF_MERTENS_CLOSED_FORM_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97648_ROUTE_M_MCM_BINF_MERTENS_CLOSED_FORM_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97648_ROUTE_M_MCM_BINF_MERTENS_CLOSED_FORM_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97648_ROUTE_M_MCM_BINF_MERTENS_CLOSED_FORM_GLOSSARY_HEADWORD.verdict) &&
       IMP97648_ROUTE_M_MCM_BINF_MERTENS_CLOSED_FORM_GLOSSARY_HEADWORD.glosses === 'imp-97619',
   },
 ];

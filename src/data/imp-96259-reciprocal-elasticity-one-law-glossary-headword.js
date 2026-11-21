@@ -36,8 +36,8 @@
  *   A glossary-style lookup restating the imp-96229 VERDICT for quick reference,
  *   so the -0.4 and -2.5 readings are never cited as if they were two
  *   independent constants. It establishes nothing new and fits no new curve.
- *   Changes no bound of the Lambda program; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA; RH remains OPEN.
+ *   Changes no bound of the Lambda program; NO QED. No refereed bound is changed
+ *   ; RH remains OPEN.
  *
  * @see imp-96229-reciprocal-elasticity-consistency-audit (source: the measured VERDICT this glosses)
  * @see imp-2322-etrunc-pt-T_PT-sensitivity (forward elasticity -0.4, load-bearing 3e12)
@@ -45,7 +45,7 @@
  * @see imp-96190-fixed-strip-n-decaying-tail-obstruction (the two-ways-are-one-way collapse)
  *
  * Ticket: imp-96259 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The reciprocal-elasticity-is-one-law headword, baked verbatim (no re-import).
@@ -97,7 +97,7 @@ export const IMP96259_RECIPROCAL_ELASTICITY_ONE_LAW_GLOSSARY_HEADWORD = Object.f
     'E_trunc(3e12)=3.063887e-5 (pinned 3.06e-5) on both source modules; no drift. The ' +
     'per-decade FACTORS 2.512 and 316.23 are not reciprocals of each other (reciprocity is ' +
     'on the exponents). Establishes nothing; fits no new curve; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96229 (reciprocal-elasticity consistency audit, source VERDICT); imp-2322 (forward ' +
     'E_trunc(T_PT) power law, elasticity -0.4); imp-96207 (inverse height-to-floor law, ' +
@@ -125,11 +125,11 @@ export const IMP96259_RECIPROCAL_ELASTICITY_ONE_LAW_GLOSSARY_HEADWORD_ASSERTIONS
   },
   {
     id: 'imp96259-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, correct glosses/scopes pointers.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, correct glosses/scopes pointers.',
     holds: () =>
       IMP96259_RECIPROCAL_ELASTICITY_ONE_LAW_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96259_RECIPROCAL_ELASTICITY_ONE_LAW_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96259_RECIPROCAL_ELASTICITY_ONE_LAW_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96259_RECIPROCAL_ELASTICITY_ONE_LAW_GLOSSARY_HEADWORD.verdict) &&
       IMP96259_RECIPROCAL_ELASTICITY_ONE_LAW_GLOSSARY_HEADWORD.glosses === 'imp-96229' &&
       IMP96259_RECIPROCAL_ELASTICITY_ONE_LAW_GLOSSARY_HEADWORD.scopes === 'imp-2322,imp-96207',
   },

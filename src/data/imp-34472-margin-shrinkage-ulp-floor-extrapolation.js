@@ -50,7 +50,7 @@
  * ticket framing (the margins are treated as relative to an O(1) stored resid_exp); the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes
  * no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * SUB-GAP-imp-34472-continuum-margin-below-floor: the extrapolation crosses the floor for the DYADIC
  * stored margin on the 6 + j/2^e grid, but whether a sub-ULP CONTINUUM refinement off the dyadic lattice
@@ -216,8 +216,8 @@ export const IMP34472_MARGIN_SHRINKAGE_ULP_FLOOR_EXTRAPOLATION = {
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda ' +
-    '<= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34411 (D2 source of the shrinking margin ladder, reused verbatim); imp-34325 (the e=19,20 Kahan ' +
     'tie-break); imp-34250 (the two-estimator tie-fragile classification); imp-33878 (source of ' +
@@ -271,16 +271,16 @@ export const IMP34472_MARGIN_SHRINKAGE_ULP_FLOOR_EXTRAPOLATION_ASSERTIONS = [
       DEGENERACY_REACHABLE === false,
   },
   {
-    // Honesty gate: extrapolation only, isRigorous false, no QED, PT SOTA, inherited surrogates untouched.
+    // Honesty gate: extrapolation only, isRigorous false, no QED, no refereed bound is changed, inherited surrogates untouched.
     id: 'imp34472-honesty-gate-no-qed',
-    description: 'Extrapolation only: isRigorous false, EXTRAPOLATES the imp-34411 D2 margin shrinkage, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched, C_mb GUE-conditional untouched',
+    description: 'Extrapolation only: isRigorous false, EXTRAPOLATES the imp-34411 D2 margin shrinkage, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, C_mb GUE-conditional untouched',
     holds: () =>
       IMP34472_MARGIN_SHRINKAGE_ULP_FLOOR_EXTRAPOLATION.isRigorous === false &&
       /EXTRAPOLATES the imp-34411 D2 deep-ladder top-two argmax margin/.test(
         IMP34472_MARGIN_SHRINKAGE_ULP_FLOOR_EXTRAPOLATION.verdict,
       ) &&
       /NO QED/.test(IMP34472_MARGIN_SHRINKAGE_ULP_FLOOR_EXTRAPOLATION.verdict) &&
-      /remains SOTA/.test(IMP34472_MARGIN_SHRINKAGE_ULP_FLOOR_EXTRAPOLATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34472_MARGIN_SHRINKAGE_ULP_FLOOR_EXTRAPOLATION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34472_MARGIN_SHRINKAGE_ULP_FLOOR_EXTRAPOLATION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(
         IMP34472_MARGIN_SHRINKAGE_ULP_FLOOR_EXTRAPOLATION.verdict,

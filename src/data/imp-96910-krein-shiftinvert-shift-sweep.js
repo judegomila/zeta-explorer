@@ -38,7 +38,7 @@
  * truncation-rate dependence: the shift is a no-op lever on the lower-bound content, confirming and
  * strengthening the imp-96889 single-shift finding across the whole m axis. SUB-GAP
  * IMP96910_SHIFT_IS_NOOP_LEVER. Provisional beta is a Ritz value, NOT a certified bound;
- * interval-rigorous certificate reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * interval-rigorous certificate reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-96889-krein-shiftinvert-katotemple-scout.js (single shift m=1; this leaf sweeps the whole m axis)
  * @see imp-96875-krein-katotemple-residual-scout.js (DIRECT residual diverges; bounded reformulation cures it)

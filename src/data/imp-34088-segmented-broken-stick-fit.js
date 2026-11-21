@@ -80,7 +80,7 @@
  * the OLS surrogate is descriptive, not derived; at n=21 the higher-lag r_k rest on few pairs (n-k) and the
  * Q_m chi-square reference is a small-sample asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34026-quadratic-detrend-ljung-box (the quadratic remedy R3 flagged as too-smooth; the RMSE/Q baseline)
  * @see imp-33964-ljung-box-portmanteau-test (the linear-residual Ljung-Box null this segments)
@@ -304,7 +304,7 @@ export const IMP34088_SEGMENTED_BROKEN_STICK_FIT = {
     'few pairs (n-k) and the Q_m chi-square reference is a small-sample asymptotic; the component model is ' +
     'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34026 (the quadratic remedy R3 flagged as too-smooth; the RMSE/Q baseline); imp-33964 (the ' +
     'linear-residual Ljung-Box null this segments); imp-33858 (the 21 signed residuals and the curved ' +
@@ -378,13 +378,13 @@ export const IMP34088_SEGMENTED_BROKEN_STICK_FIT_ASSERTIONS = [
       Math.abs(R[4] - -0.3635) < 1e-3,
   },
   {
-    // Honesty gate: isRigorous false, no QED, PT SOTA, residual small, imp-3066 untouched.
+    // Honesty gate: isRigorous false, no QED, no refereed bound is changed, residual small, imp-3066 untouched.
     id: 'imp34088-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, 12% multiplicative, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, 12% multiplicative, imp-3066 untouched',
     holds: () =>
       IMP34088_SEGMENTED_BROKEN_STICK_FIT.isRigorous === false &&
       /NO QED/.test(IMP34088_SEGMENTED_BROKEN_STICK_FIT.verdict) &&
-      /remains SOTA/.test(IMP34088_SEGMENTED_BROKEN_STICK_FIT.verdict) &&
+      /refereed bound is changed/i.test(IMP34088_SEGMENTED_BROKEN_STICK_FIT.verdict) &&
       /12% multiplicative/.test(IMP34088_SEGMENTED_BROKEN_STICK_FIT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34088_SEGMENTED_BROKEN_STICK_FIT.verdict),
   },

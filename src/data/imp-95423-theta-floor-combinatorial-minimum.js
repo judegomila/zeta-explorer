@@ -64,8 +64,7 @@
  * non-rigorously. (d) The spectral lower bound uses power-iteration Rayleigh
  * quotients (numerical, NOT a certified eigenvalue enclosure). (e) The ACTUAL
  * seam sign pattern is still NOT determined -- that is obligation (3) /
- * imp-95397, unchanged and OPEN. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * imp-95397, unchanged and OPEN. Changes no bound; NO QED; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD. (1) N = 4 exact floor 0.1115184 reproduces
  * the imp-95375 alternating literal (they coincide -- alt is optimal there).
@@ -194,7 +193,7 @@ export const IMP95423_THETA_FLOOR_COMBINATORIAL_MINIMUM = {
   subGap:
     "OPEN residuals. (i) exact theta_floor for N in {64, 192, 640} -- the integer program min over {+-1}^N of sigma^T G sigma, uncomputed here (2^N infeasible), bracketed [0, theta(alt)] rigorously; needs certified branch-and-bound or an SDP relaxation with a certified eigenvalue enclosure. (ii) imp-95397 / obligation (3): the ACTUAL seam alias sign pattern -- which point of [theta_floor, 1] the real seam realizes -- STILL OPEN and unchanged by this measurement.",
   verdict:
-    "MEASUREMENT (PARTIAL, honest): the imp-95375 secondary residual (exact theta_floor) is discharged where enumeration is feasible. The alternating witness is the GLOBAL minimizer at N = 4 but is STRICTLY suboptimal from N = 16 on -- exact enumeration gives theta_floor = 0.007990482, 2.32% below theta(alt) = 0.008176, at a non-alternating optimizer -- so imp-95375's greedy 'alternating is the local minimizer' is confirmed to be a strictly suboptimal local basin. Greedy multi-start under-finds the global floor even at N = 16, so the larger grids N >= 64 stay OPEN (2^N enumeration infeasible), bracketed 0 <= theta_floor <= theta(alt). Nothing derives or moves a bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT (PARTIAL, honest): the imp-95375 secondary residual (exact theta_floor) is discharged where enumeration is feasible. The alternating witness is the GLOBAL minimizer at N = 4 but is STRICTLY suboptimal from N = 16 on -- exact enumeration gives theta_floor = 0.007990482, 2.32% below theta(alt) = 0.008176, at a non-alternating optimizer -- so imp-95375's greedy 'alternating is the local minimizer' is confirmed to be a strictly suboptimal local basin. Greedy multi-start under-finds the global floor even at N = 16, so the larger grids N >= 64 stay OPEN (2^N enumeration infeasible), bracketed 0 <= theta_floor <= theta(alt). Nothing derives or moves a bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "theta(sigma) = sigma^T G sigma / (1^T G 1) is EXACT (imp-95375 closed-form Gram). theta_floor at N = 4 and N = 16 is EXACT by exhaustive enumeration (all sign classes). theta_floor at N = 64, 192, 640 is UNCOMPUTED, bracketed [0, theta(alt)] rigorously; the spectral lower-bound estimate uses power-iteration Rayleigh quotients (numerical, NOT a certified eigenvalue enclosure). The actual seam sign pattern is NOT determined (obligation (3) / imp-95397).",
 };
@@ -272,7 +271,7 @@ export const IMP95423_THETA_FLOOR_ASSERTIONS = [
       /INFEASIBLE/.test(IMP95423_THETA_FLOOR_COMBINATORIAL_MINIMUM.gridSizes) &&
       /OPEN/.test(IMP95423_THETA_FLOOR_COMBINATORIAL_MINIMUM.subGap) &&
       /NO QED/.test(IMP95423_THETA_FLOOR_COMBINATORIAL_MINIMUM.verdict) &&
-      /remains SOTA/.test(IMP95423_THETA_FLOOR_COMBINATORIAL_MINIMUM.verdict),
+      /refereed bound is changed/i.test(IMP95423_THETA_FLOOR_COMBINATORIAL_MINIMUM.verdict),
   },
 ];
 

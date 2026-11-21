@@ -54,7 +54,7 @@
  *   as-is -- this cross-checks that regime, it does not rehabilitate it. The -2 asymptote and
  *   C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per
  *   imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; the inherited surrogate is NOT rigorous; no operator
- *   positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34689-resolution-matched-collapse-2pow-k-recovery.js (first footing: r_k ~ {4.00,7.00,17.91}, m_k -> {2,3,4}; F3 residual claimed ULP-stochastic on one footing)
  *   @see imp-34606-roundoff-amplification-exponent-ladder.js (clean {2,3,4} 1/dp^k exponent ladder; raw shares and per-channel roundoff windows reused here)
@@ -238,7 +238,7 @@ export const IMP34712_SECOND_FOOTING_COLLAPSE_LADDER_CROSSVALIDATION = Object.fr
     'cross-checks that regime, it does not rehabilitate it. The -2 asymptote and C_C = (1/8)sqrt(3 pi) ' +
     '(imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; the inherited surrogate is NOT rigorous; changes no bound; ' +
-    'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34689 (first footing: matched-resolution collapse r_k ~ {4.00,7.00,17.91}, slopes m_k -> ' +
     '{2,3,4}; F3 residual claimed ULP-stochastic on a single footing -- cross-validated here); imp-34606 ' +
@@ -279,9 +279,9 @@ const IMP34712_ASSERTIONS = [
     holds: () =>
       IMP34712_SECOND_FOOTING_COLLAPSE_LADDER_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP34712_SECOND_FOOTING_COLLAPSE_LADDER_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP34712_SECOND_FOOTING_COLLAPSE_LADDER_CROSSVALIDATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34712_SECOND_FOOTING_COLLAPSE_LADDER_CROSSVALIDATION.verdict) &&
       /UNTOUCHED/.test(IMP34712_SECOND_FOOTING_COLLAPSE_LADDER_CROSSVALIDATION.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

@@ -69,7 +69,7 @@
  * E_coll is GUE-conditional (C_H ansatz) but UNTOUCHED here. The C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; the C_C 1/8 ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; changes no bound; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34213-eflow-onset-closed-form (E_flow onset, fixed point in T0)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (E_coll=E_trunc crossover, fixed point in N)
@@ -248,7 +248,7 @@ export const IMP34293_JOINT_EFLOW_ECOLL_FIXED_POINT = {
     'mesoscopic-Gronwall per imp-2845, E_coll GUE-conditional but untouched); the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED, the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED, ' +
     'imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34213 (E_flow onset, fixed point in T0); imp-33723 (E_coll=E_trunc crossover, fixed point ' +
     'in N); imp-3444 (E_coll / E_flow sub-terms); imp-2631 (E_trunc fixed-strip floor); imp-2845 ' +
@@ -294,14 +294,14 @@ export const IMP34293_JOINT_EFLOW_ECOLL_FIXED_POINT_ASSERTIONS = [
     holds: () => N_CROSS > 100 * N_ONSET && T0_CROSS > 100 * T0_ONSET,
   },
   {
-    // Honesty gate: measurement only, no QED, C_mb GUE-conditional untouched, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, C_mb GUE-conditional untouched, no refereed bound is changed.
     id: 'imp34293-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, C_mb GUE-conditional per imp-486 UNTOUCHED named, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, C_mb GUE-conditional per imp-486 UNTOUCHED named, no refereed bound is changed',
     holds: () =>
       IMP34293_JOINT_EFLOW_ECOLL_FIXED_POINT.isRigorous === false &&
       /NO QED/.test(IMP34293_JOINT_EFLOW_ECOLL_FIXED_POINT.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34293_JOINT_EFLOW_ECOLL_FIXED_POINT.verdict) &&
-      /remains SOTA/.test(IMP34293_JOINT_EFLOW_ECOLL_FIXED_POINT.verdict),
+      /refereed bound is changed/i.test(IMP34293_JOINT_EFLOW_ECOLL_FIXED_POINT.verdict),
   },
 ];
 

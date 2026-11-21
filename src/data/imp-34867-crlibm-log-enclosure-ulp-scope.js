@@ -60,7 +60,7 @@
  * FEASIBILITY / SCOPING ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate crossover map; NOT a
  * rigorous asymptotic and NOT an RH bound. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34840-krawczyk-directed-rounding-op-dag-feasibility (op DAG n_op ~ 49, depth ~ 30; localizes the log layer as the blocker this SCOPES)
  * @see imp-34799-krawczyk-directed-rounding-width-bound (a-priori gamma(n_op) half-width bound the log calls feed into)
@@ -257,7 +257,7 @@ export const IMP34867_CRLIBM_LOG_ENCLOSURE_ULP_SCOPE = {
     'NOT a machine certificate. SUB-GAP imp-34714a REMAINS OPEN. Scoping/assessment only on the inherited ' +
     'imp-3220/imp-3406 surrogate crossover map; the C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-' +
     'conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34840 (op-DAG feasibility; n_op ~ 49, depth ~ 30; localizes the log layer this SCOPES); imp-34799 ' +
     '(a-priori gamma(n_op) half-width bound the log calls feed into); imp-34687 (crossover interval-' +
@@ -314,9 +314,9 @@ export const IMP34867_CRLIBM_LOG_ENCLOSURE_ULP_SCOPE_ASSERTIONS = [
       HEADROOM_ORDERS < 12,
   },
   {
-    // Honesty gate: feasibility/surrogate, not rigorous, sub-gap open, width not the blocker, no QED, PT SOTA.
+    // Honesty gate: feasibility/surrogate, not rigorous, sub-gap open, width not the blocker, no QED, no refereed bound is changed.
     id: 'imp34867-honesty-gate-no-qed',
-    description: 'Log-enclosure scope: isRigorous false, imp-34714a open, width not the blocker, remaining gap is proven-ULP log, no QED, PT stays SOTA',
+    description: 'Log-enclosure scope: isRigorous false, imp-34714a open, width not the blocker, remaining gap is proven-ULP log, no QED, no refereed bound is changed',
     holds: () =>
       IMP34867_CRLIBM_LOG_ENCLOSURE_ULP_SCOPE.isRigorous === false &&
       IMP34867_CRLIBM_LOG_ENCLOSURE_ULP_SCOPE.feasibility.log_layer_is_the_width_blocker === false &&
@@ -324,7 +324,7 @@ export const IMP34867_CRLIBM_LOG_ENCLOSURE_ULP_SCOPE_ASSERTIONS = [
       /imp-34714a/.test(IMP34867_CRLIBM_LOG_ENCLOSURE_ULP_SCOPE.subGap) &&
       /REMAINS OPEN/.test(IMP34867_CRLIBM_LOG_ENCLOSURE_ULP_SCOPE.subGap) &&
       /NO QED/.test(IMP34867_CRLIBM_LOG_ENCLOSURE_ULP_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP34867_CRLIBM_LOG_ENCLOSURE_ULP_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP34867_CRLIBM_LOG_ENCLOSURE_ULP_SCOPE.verdict),
   },
 ];
 

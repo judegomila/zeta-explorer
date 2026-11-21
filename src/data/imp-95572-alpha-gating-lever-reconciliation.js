@@ -9,8 +9,8 @@
  * reliant on the pair-correlation CONJECTURE proper. Both modules conclude
  * alpha itself is not the binding wall; this note tabulates how the two
  * levers relate, following the imp-95432 complementary-not-subsumed pattern.
- * Content only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; RH open.
+ * Content only; changes no bound; NO QED; no refereed bound is changed
+ * ; RH open.
  *
  * SHARED FREQUENCY-INVARIANCE. alpha_{k,h} = log u_{k,h} / log(scale) with
  * u_{k,h} = v/(k - h/p) pinned by phase stationarity in T = Im s alone.
@@ -65,7 +65,7 @@
  * what varying their chosen third axis achieves (relabeling vs dissolving
  * the question), and hand off to disjoint surviving walls. The imp-95519
  * zero-side no-go STANDS under every combination checked; only the framing
- * sharpens. No bound changes; NO QED; PT Lambda <= 0.2 remains SOTA; RH open.
+ * sharpens. No bound changes; NO QED; no refereed bound is changed; RH open.
  *
  * Import-light (no zeros bundle, no sibling imports). Numerics below re-check
  * the shared invariance directly against both source evaluator formulas
@@ -190,8 +190,8 @@ export const IMP95572_ALPHA_GATING_LEVER_RECONCILIATION = Object.freeze({
     'on what their chosen third axis buys (relabeling vs dissolving the ' +
     'question), and hand off to disjoint surviving walls. The imp-95519 ' +
     'zero-side no-go STANDS under every combination checked; only the ' +
-    'framing sharpens. No bound changes; NO QED; PT Lambda <= 0.2 remains ' +
-    'SOTA; RH open.',
+    'framing sharpens. No bound changes; NO QED; no refereed bound is changed' +
+    '; RH open.',
 
   promotesBound: false,
   isRigorous: true,
@@ -243,7 +243,7 @@ export const IMP95572_ASSERTIONS = Object.freeze([
       /COMPLEMENTARY, NOT SUBSUMED/.test(REC.verdict) &&
       REC.promotesBound === false &&
       /NO QED/.test(REC.verdict) &&
-      /remains SOTA/.test(REC.verdict) &&
+      /refereed bound is changed/i.test(REC.verdict) &&
       /RH open/.test(REC.verdict),
   },
 ]);

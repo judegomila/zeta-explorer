@@ -36,7 +36,7 @@
  * inverses here are LOCAL to this measurement -- they do NOT replace effectiveHeightForN in the live
  * mapping. Instantiates NO interval, ports nothing, derives no remainder, changes no bound.
  * imp-34714a REMAINS OPEN. C_C = (1/8) sqrt(3 pi) (imp-2642/2643) and C_mb GUE-conditional (imp-486)
- * UNTOUCHED. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED. NO QED. No refereed bound is changed.
  *
  * @see imp-35947-log-domain-height-seed-cliff-deferral (answered the either/or; left faithfulness untested)
  * @see imp-35892-rdirect-own-floor-departure-height (located the 10^307.46 NaN cliff as the seed overflow)
@@ -181,7 +181,7 @@ export const IMP35967_LOG_DOMAIN_HEIGHT_INVERSE_FAITHFULNESS_DECADE_GAIN = {
     LOGSEED_HEIGHT_CLIFF_LOG10N.toFixed(3) +
     '). Reuses the imp-35855/imp-35892/imp-35947 machinery (same K, C_C, E_trunc, RvM root). imp-34714a ' +
     'REMAINS OPEN; C_C = (1/8) sqrt(3 pi) (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; ' +
-    'instantiates no interval; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'instantiates no interval; changes no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-35947 (log-domain seed defers the RvM inverse; ~0.8-decade R_direct gain, capped by N ' +
     'representability); imp-35892 (R_direct NaN cliff at 10^307.46 = the 2 pi . N seed overflow); ' +
@@ -207,14 +207,14 @@ export const IMP35967_LOG_DOMAIN_HEIGHT_INVERSE_FAITHFULNESS_DECADE_GAIN_ASSERTI
       STOCK_HEIGHT_CLIFF_LOG10N < 307.5,
   },
   {
-    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp35967-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, PT SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no interval, no QED, no refereed bound is changed',
     holds: () =>
       IMP35967_LOG_DOMAIN_HEIGHT_INVERSE_FAITHFULNESS_DECADE_GAIN.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP35967_LOG_DOMAIN_HEIGHT_INVERSE_FAITHFULNESS_DECADE_GAIN.subGap) &&
       /NO QED/.test(IMP35967_LOG_DOMAIN_HEIGHT_INVERSE_FAITHFULNESS_DECADE_GAIN.verdict) &&
-      /remains SOTA/.test(IMP35967_LOG_DOMAIN_HEIGHT_INVERSE_FAITHFULNESS_DECADE_GAIN.verdict),
+      /refereed bound is changed/i.test(IMP35967_LOG_DOMAIN_HEIGHT_INVERSE_FAITHFULNESS_DECADE_GAIN.verdict),
   },
 ];
 

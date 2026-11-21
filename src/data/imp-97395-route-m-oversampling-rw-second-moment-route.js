@@ -8,8 +8,8 @@
  * Rw = Sum_a w_a r_a: a MARGINAL SECOND-MOMENT (L2 / Chebyshev / variance) route, and quantifies how the
  * headroom = 2.5/Rw behaves as the range grows. FINDING: the marginal second-moment route is ALSO refuted
  * (the b-mean of r_a^2 grows unboundedly), and a uniform Rw < 2.5 reduces to a genuine JOINT equidistribution
- * input, NOT to any marginal moment bound. Rw is NOT rigorously bounded. No bound on Lambda moves; PT Lambda
- * <= 0.2 SOTA; RH open; NO QED.
+ * input, NOT to any marginal moment bound. Rw is NOT rigorously bounded. No bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * SETUP (as imp-97310 / imp-97285). c_0(h/a) = Sum_{n=1}^{a-1} (n/a) cot(pi n h/a); h_a = b-inverse mod a.
@@ -71,7 +71,7 @@
  * that the inverse residues do NOT preferentially land on the high-mass residues on the a-weighted average.
  * That is the named equidistribution input the imp-97285 sub-gap requires; marginal moment methods cannot
  * supply it. Rw and M2w stay MEASURED. No bound on Lambda moves; T ~ 2.594e7 anchor; compute N ~ 9916 binds
- * first. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * first. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97310-route-m-oversampling-rw-mean-value-decomposition.js (parent: convex decomposition + in-mean identity, trivial-max refuted)
  * @see imp-97285-route-m-offdiag-oversampling-factorization.js (grandparent: M2w = Rw * Mbar, Rw the sole open scalar)
@@ -208,7 +208,7 @@ export const IMP97395_VERDICT = Object.freeze({
     'selector h_a = b-inverse mod a and the c_0^2 mass profile on (Z/aZ)^* -- a Kloosterman/large-sieve-type ' +
     'statement that the inverse residues do not preferentially hit the high-mass residues on the a-weighted ' +
     'average. That is the named equidistribution input the imp-97285 sub-gap requires; no marginal moment ' +
-    'method can supply it. Rw and M2w stay MEASURED. No bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH ' +
+    'method can supply it. Rw and M2w stay MEASURED. No bound on Lambda moves; no refereed bound is changed; RH ' +
     'open; NO QED.',
 });
 
@@ -226,7 +226,7 @@ export const IMP97395_SUBGAP = Object.freeze({
 });
 
 export const IMP97395_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment + partial only: the imp-97285 open scalar ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment + partial only: the imp-97285 open scalar ' +
   'Rw = X/Xbar is NOT rigorously bounded. Extending imp-97310 (trivial worst-case route refuted, C_a ~ ' +
   'a^0.434), this leaf REFUTES the marginal SECOND-MOMENT route too: K_a = E_b[r_a^2] grows unboundedly ' +
   '(~a^0.197) so the weighted L2 ceiling sqrt(S2) climbs with the range (1.997 -> 2.731) while Rw stays flat ' +
@@ -309,7 +309,7 @@ const IMP97395_ASSERTIONS = [
       /joint-equidistribution-not-marginal-moment/.test(IMP97395_SUBGAP.id) &&
       /JOINT equidistribution/.test(IMP97395_SUBGAP.statement) &&
       /NO QED/.test(IMP97395_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97395_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97395_HONEST_BANNER) &&
       /RH open/.test(IMP97395_HONEST_BANNER),
     why: 'assessment + partial: Rw is not certified; the marginal second-moment route is refuted (K_a diverges) on top of the imp-97310 trivial-max refutation, uniform Rw < 2.5 is numerically within reach but reduces to a named JOINT equidistribution input, and no bound moved -- honesty markers and the named residual sub-gap present.',
   },

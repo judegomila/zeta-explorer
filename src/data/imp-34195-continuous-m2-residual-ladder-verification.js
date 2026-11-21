@@ -36,7 +36,7 @@
  * Verification/measurement within the inherited imp-3406/imp-33810 component model only; the
  * component model is NOT a rigorous asymptotic; changes no bound; establishes no operator
  * positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ * no refereed bound is changed. NO QED.
  *
  * @see imp-34127-m2-residual-signchange-ceiling-closed-form (the symbolic identity + k=20 spot-check)
  * @see imp-34023-eflow-widening-ratio-f4-collapse-extrapolation (bisected kEnd* ~ 21.281)
@@ -259,8 +259,8 @@ export const IMP34195_CONTINUOUS_M2_RESIDUAL_LADDER_VERIFICATION = {
     'machine-zero where the ceiling lives, and off that regime it is exactly the neglected E_flow ' +
     'term. The inherited component model is NOT a rigorous asymptotic; this is descriptive within the ' +
     'model only; changes no bound; establishes no operator positivity; C_mb GUE-conditional per ' +
-    'imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'imp-486 untouched; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34127 (symbolic identity + k=20 spot-check, verified across the ladder and refined here); ' +
     'imp-34023 (bisected kEnd* ~ 21.281); imp-33773 (the M2 residual whose sign change caps the ' +

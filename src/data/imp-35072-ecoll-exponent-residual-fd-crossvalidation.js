@@ -57,7 +57,7 @@
  * CROSS-VALIDATION / MEASUREMENT ONLY. The component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the far-tail exponent stays 1/2 per imp-3463; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (the resolution being cross-validated: OLS ladder + 1/log T0 regression + log-space direct path)
  * @see imp-33620 (roadmap: separated E_coll local exponent -0.4810@1e12 -> -0.4848@1e15, residual ~0.0152, close-vs-floor)
@@ -202,7 +202,7 @@ export const IMP35072_ECOLL_EXPONENT_RESIDUAL_FD_CROSSVALIDATION = {
     'not a single-route artifact. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
     'NOT a rigorous asymptotic; the far-tail exponent stays 1/2 per imp-3463; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34130 (OLS ladder + 1/log T0 regression + log-space direct path identifying resid ~ 1/(2 log T0)); ' +
     'imp-33620 (roadmap: separated E_coll local exponent, close-vs-floor); imp-33816 (sigma-share ' +
@@ -257,14 +257,14 @@ export const IMP35072_ECOLL_EXPONENT_RESIDUAL_FD_CROSSVALIDATION_ASSERTIONS = [
     holds: () => FD_STEP_SPREAD < 1e-8,
   },
   {
-    // honesty gate: cross-validation only, far-tail exponent = -1/2 (imp-3463), no QED, PT SOTA.
+    // honesty gate: cross-validation only, far-tail exponent = -1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35072-honesty-gate-no-qed',
-    description: 'Cross-validation only: far-tail exponent = -1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Cross-validation only: far-tail exponent = -1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP35072_ECOLL_EXPONENT_RESIDUAL_FD_CROSSVALIDATION.isRigorous === false &&
       IMP35072_ECOLL_EXPONENT_RESIDUAL_FD_CROSSVALIDATION.farTailExponent === -0.5 &&
       /NO QED/.test(IMP35072_ECOLL_EXPONENT_RESIDUAL_FD_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP35072_ECOLL_EXPONENT_RESIDUAL_FD_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP35072_ECOLL_EXPONENT_RESIDUAL_FD_CROSSVALIDATION.verdict),
   },
 ];
 

@@ -58,7 +58,7 @@
  * @see imp-95767-dual-primal-agreement-interval (the certified interval whose ln 1.3 direct value is the crossing target)
  *
  * Ticket: imp-95948 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The DD-reach-lever-exhausted headword, baked verbatim (no re-import).
@@ -128,7 +128,7 @@ export const IMP95948_LN12_DD_FLOOR_EXHAUSTED_GLOSSARY_HEADWORD = Object.freeze(
     '(1.07x looser than the ln 1.3 direct 0.23 percent) and the residual ' +
     'is reframed from "more reach" to "more precision" (quad-double / ' +
     'MPFR). Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95919 (the past-5200 measurement and DD-floor verdict this ' +
     'glosses); imp-95896 (the last DD-reliable 14-point grid, N <= 5200); ' +
@@ -155,11 +155,11 @@ export const IMP95948_LN12_DD_FLOOR_EXHAUSTED_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95948-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95948_LN12_DD_FLOOR_EXHAUSTED_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95948_LN12_DD_FLOOR_EXHAUSTED_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95948_LN12_DD_FLOOR_EXHAUSTED_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95948_LN12_DD_FLOOR_EXHAUSTED_GLOSSARY_HEADWORD.verdict) &&
       IMP95948_LN12_DD_FLOOR_EXHAUSTED_GLOSSARY_HEADWORD.glosses === 'imp-95919',
   },
 ];

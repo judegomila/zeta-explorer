@@ -135,7 +135,7 @@ export const DISCOVERABILITY_AUDIT_34952_34957 = {
     + 'sibling cohort audited by imp-35008 is equally orphaned from the master index on the same axis -- no '
     + 'asymmetry there -- but that cohort has a headword for every member, unlike this cohort’s 3-of-6 '
     + 'coverage. No routes added, no index entries changed; adding either is a distinct ux ticket. Changes no '
-    + 'bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed.',
 };
 
 export const DISCOVERABILITY_AUDIT_34952_34957_ASSERTIONS = [
@@ -178,10 +178,10 @@ export const DISCOVERABILITY_AUDIT_34952_34957_ASSERTIONS = [
   },
   {
     id: 'imp-35023-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no index entries added, no routes changed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no index entries added, no routes changed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(DISCOVERABILITY_AUDIT_34952_34957.honest)
       && /No routes added, no index entries changed/.test(DISCOVERABILITY_AUDIT_34952_34957.honest)
-      && /Lambda<=0.2 remains SOTA/.test(DISCOVERABILITY_AUDIT_34952_34957.honest),
+      && /refereed bound is changed/i.test(DISCOVERABILITY_AUDIT_34952_34957.honest),
   },
 ];
 

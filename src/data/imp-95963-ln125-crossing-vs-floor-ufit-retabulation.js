@@ -58,8 +58,8 @@
  * carries no signed scalar-floor interval (it is a C-crossing extrapolation, not an
  * A_opt-floor one), so it is NOT claimed to contain zero on the A-floor axis. Model
  * seam family only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase legs
- * stay OPEN. Changes NO bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. Sun arXiv:2609.04176 unrefereed.
+ * stay OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed
+ * . Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95885-per-delta-ufit-comparison-table (the three-delta table)
  * @see imp-95895-ln125-ufit-interval (the ln 1.25 A_opt-floor u_fit interval, +0.0846%)
@@ -157,7 +157,7 @@ export const IMP95963_LN125_CROSSING_VS_FLOOR_UFIT_RETABULATION = {
     "FINDING A stands. Cross-validation only; no new cited input; no numeric value " +
     "changed; model seam family only; the imp-95212 envelope port, signed WEIGHT, and " +
     "modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO QED; " +
-    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "no refereed bound is changed.",
   closesTickets: ["imp-95963"],
 };
 
@@ -273,7 +273,7 @@ export const IMP95963_ASSERTIONS = [
       REF.qed === false &&
       REF.intervalUnchanged === true &&
       /CROSS-VALIDATED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.closesTickets.includes("imp-95963"),
   },
 ];

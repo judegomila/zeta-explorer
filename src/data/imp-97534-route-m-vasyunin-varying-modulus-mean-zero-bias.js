@@ -5,7 +5,7 @@
  * varying-modulus half Sum_{a=2,(a,b)=1}^{b-1} V(b,a) of the Route M cotangent first moment (the
  * imp-97097 RESULT 2 + OBSTRUCTION: this half carries the whole leading -0.077 phi(b) b of Phi(b),
  * measured stable ~ -0.076 but not evaluated). This leaf makes a genuine analytic advance and CORRECTS
- * the imp-97097 framing. No bound is proved rigorous; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * the imp-97097 framing. No bound is proved rigorous; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-97097/imp-96750. V(h,k) = Sum_{m=1}^{k-1} frac(m h/k) cot(pi m/k) is the Vasyunin
  * cotangent sum; in the operative half V(b,a) the summation index a is the MODULUS and b the multiplier.
@@ -81,8 +81,8 @@
  * the whole -0.076 phi(b) b is an equidistribution bias of the sample a -> b mod a, correcting the
  * imp-97097 "non-elementary mean" framing. A rigorous lower bound reduces to a quantitative bias /
  * first-absolute-moment estimate over varying moduli, neither elementary nor reachable by reciprocity.
- * No rigorous ceiling posted; trace ceiling T ~ 2.594e7 stays the anchor; compute binds first. PT
- * Lambda <= 0.2 SOTA; RH open; NO QED.
+ * No rigorous ceiling posted; trace ceiling T ~ 2.594e7 stays the anchor; compute binds first. No refereed bound is changed
+ * ; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97534-varying-modulus-bias -- an absolute lower bound on the signed
  * bias Sum_{a=2,(a,b)=1}^{b-1} V(b mod a, a) >= -c phi(b) b with explicit c < 0.5705, via a
@@ -177,7 +177,7 @@ export const IMP97534_VERDICT = Object.freeze({
     'estimate over varying moduli (an incomplete-Kloosterman correlation or the imp-97116/imp-97203 L1 ' +
     'Vasyunin moment), neither elementary nor reachable by reciprocity, which closes only the zero-value ' +
     'half. Sign (coeff < 0, so no cancellation of the arithmetic +0.5705) MEASURED, not proved. No bound ' +
-    'moved, no rigorous ceiling posted; T ~ 2.594e7 anchor; compute binds first. PT Lambda <= 0.2 SOTA; ' +
+    'moved, no rigorous ceiling posted; T ~ 2.594e7 anchor; compute binds first. No refereed bound is changed; ' +
     'RH open; NO QED.',
 });
 
@@ -195,7 +195,7 @@ export const IMP97534_SUBGAP = Object.freeze({
 });
 
 export const IMP97534_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + partial: the operative varying-modulus ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + partial: the operative varying-modulus ' +
   'half is V(b,a) = V(b mod a, a), and the first-argument antisymmetry V(a-h,a) = -V(h,a) forces the ' +
   'coprime-residue mean Sum_{(h,a)=1} V(h,a) = 0 EXACTLY for every a. So the whole leading ~ -0.077 ' +
   'phi(b) b coefficient is a pure equidistribution BIAS of the sample a -> b mod a (random reduced ' +
@@ -274,7 +274,7 @@ const IMP97534_ASSERTIONS = [
       /varying-modulus-bias/.test(IMP97534_SUBGAP.id) &&
       /EXACTLY/.test(IMP97534_SUBGAP.statement) &&
       /NO QED/.test(IMP97534_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97534_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97534_HONEST_BANNER) &&
       /RH open/.test(IMP97534_HONEST_BANNER),
     why: 'derivation + partial: the modulo reduction, first-argument antisymmetry, and exact vanishing of the coprime mean are rigorous, but the leading coefficient is a bias whose lower bound is unproved -- no bound moved, no rigorous ceiling, honesty markers and the named residual sub-gap present.',
   },

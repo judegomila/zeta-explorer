@@ -188,8 +188,8 @@ export const IMP33794_CREN_WINDOW_MEASUREMENT = {
     'NOT DISCHARGE H4: the uniform bound requires the ANALYTIC tracking of C_ren through the fold-modulus ' +
     'back-conversion, not an empirical band on a finite ladder, and it says nothing about the coupled H3 ' +
     'curvature rung (N-exponent 5/4, imp-33786) that dominates and jointly governs the discharge. No positivity; ' +
-    'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; imp-3066 UNTOUCHED; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; imp-3066 UNTOUCHED; NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP33794_CREN_WINDOW_ASSERTIONS = [
@@ -238,15 +238,15 @@ export const IMP33794_CREN_WINDOW_ASSERTIONS = [
       IMP33794_CREN_WINDOW_MEASUREMENT.consistentWithFiniteWindowRequirement === true,
   },
   {
-    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33794-honesty-gate-no-qed',
-    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33794_CREN_WINDOW_MEASUREMENT.isRigorous === false &&
       IMP33794_CREN_WINDOW_MEASUREMENT.dischargesH4 === false &&
       /NO QED/.test(IMP33794_CREN_WINDOW_MEASUREMENT.verdict) &&
       /STAYS OPEN/.test(IMP33794_CREN_WINDOW_MEASUREMENT.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33794_CREN_WINDOW_MEASUREMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP33794_CREN_WINDOW_MEASUREMENT.verdict) &&
       /imp-3066 UNTOUCHED/.test(IMP33794_CREN_WINDOW_MEASUREMENT.verdict),
   },
 ];

@@ -63,7 +63,7 @@
  * pinned in-repo (the anchors are placed on the MODEL Q scan).
  *
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // -- parameterized ceiling machinery (identical shape to imp-95026/imp-95075) --
@@ -186,7 +186,7 @@ export const IMP95093_CFAR_Q_SECOND_DERIVATIVE_CONCAVITY = {
     "ASSESSMENT. The sign of d2 cFar/dQ2 is read off the Omega/D structure (single b=2 branch; both factors convex; quotient-rule near-cancellation) and CERTIFIED NUMERICALLY at anchor points (model Q0 CONCAVE -0.4420, low-Q c=0.5 CONVEX +0.1316), with the sign flip stable under stencil and quadrature refinement and the inflection bracketed at Q* ~ 0.386. No interval-arithmetic sign certificate and no paper Q are produced. NO QED.",
   promotesBound: false,
   verdict:
-    "ASSESSMENT of the sign of d2 cFar/dQ2 for the imp-95008 far coefficient. Q enters only through gSharp proportional to 1/Q, the argmax b is fixed at 2 (Omega smooth), and both Omega and D = Tx(2) are convex increasing, so cFar concavity is a QUOTIENT-RULE residue of a ~150:1 near-cancellation - which CHANGES SIGN. d2 cFar/dQ2 is CONCAVE (< 0) at the model Q0 = 2^(-2/3) (-0.4420) and CONVEX (> 0) at the low-Q end (c=0.5, +0.1316), with an inflection at Q* ~ 0.386 (c* ~ 0.613); the flip is stable under stencil/quadrature refinement. So imp-95075 concavity is CONFIRMED as a RANGE statement for Q >= Q* (including the model point and the transfer-risk direction Q > Q0), but it is NOT global. SUB-GAP: no closed-form/interval sign certificate (the sign is a small residue of a large cancellation and is not one-signed); paper Q not pinned in-repo. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT of the sign of d2 cFar/dQ2 for the imp-95008 far coefficient. Q enters only through gSharp proportional to 1/Q, the argmax b is fixed at 2 (Omega smooth), and both Omega and D = Tx(2) are convex increasing, so cFar concavity is a QUOTIENT-RULE residue of a ~150:1 near-cancellation - which CHANGES SIGN. d2 cFar/dQ2 is CONCAVE (< 0) at the model Q0 = 2^(-2/3) (-0.4420) and CONVEX (> 0) at the low-Q end (c=0.5, +0.1316), with an inflection at Q* ~ 0.386 (c* ~ 0.613); the flip is stable under stencil/quadrature refinement. So imp-95075 concavity is CONFIRMED as a RANGE statement for Q >= Q* (including the model point and the transfer-risk direction Q > Q0), but it is NOT global. SUB-GAP: no closed-form/interval sign certificate (the sign is a small residue of a large cancellation and is not one-signed); paper Q not pinned in-repo. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) --------------------------
@@ -237,12 +237,12 @@ export const IMP95093_CFAR_Q_SECOND_DERIVATIVE_ASSERTIONS = [
   {
     id: "imp95093-honesty-gate",
     description:
-      "the verdict names the sub-gap (no closed-form/interval sign certificate; sign not one-signed; paper Q not pinned), records the sign flip and inflection, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (no closed-form/interval sign certificate; sign not one-signed; paper Q not pinned), records the sign flip and inflection, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95093_CFAR_Q_SECOND_DERIVATIVE_CONCAVITY.promotesBound === false &&
       IMP95093_CFAR_Q_SECOND_DERIVATIVE_CONCAVITY.openResiduals.length === 2 &&
       /NO QED/.test(IMP95093_CFAR_Q_SECOND_DERIVATIVE_CONCAVITY.verdict) &&
-      /remains SOTA/.test(IMP95093_CFAR_Q_SECOND_DERIVATIVE_CONCAVITY.verdict) &&
+      /refereed bound is changed/i.test(IMP95093_CFAR_Q_SECOND_DERIVATIVE_CONCAVITY.verdict) &&
       /CHANGES SIGN/.test(IMP95093_CFAR_Q_SECOND_DERIVATIVE_CONCAVITY.verdict) &&
       /SUB-GAP/.test(IMP95093_CFAR_Q_SECOND_DERIVATIVE_CONCAVITY.verdict),
   },

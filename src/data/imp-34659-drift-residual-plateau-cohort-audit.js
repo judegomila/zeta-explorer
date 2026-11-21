@@ -8,8 +8,8 @@
  * METHOD. For each of the 7 modules: (1) confirm the honest-status banner
  * carries the required elements (measurement-only framing, inherited
  * imp-3220/imp-3406 component model NOT rigorous, C_mb GUE-conditional per
- * imp-486 untouched, imp-3066 K_a>=0 untouched, Platt-Trudgian Lambda<=0.2
- * SOTA, NO QED); (2) scan every reconstructed-cache-value comparison (any
+ * imp-486 untouched, imp-3066 K_a>=0 untouched, no refereed bound is changed
+ * , NO QED); (2) scan every reconstructed-cache-value comparison (any
  * assertion diffing a recomputed number against an imported/exported
  * constant) for the storage-precision trap -- a value round-tripped through a
  * 7-significant-figure toFixed(6)/toExponential(6) literal but re-checked at
@@ -63,7 +63,7 @@ export const DRIFT_RESIDUAL_PLATEAU_COHORT_AUDIT = {
     'six-element honest-status banner and that the cohort\'s single tight-tolerance (< 1e-9) assertion compares ' +
     'against a live-computed export, not a rounded storage literal, so the storage-precision assertion-tolerance ' +
     'trap does not apply here. No bound change; imp-3066 K_a>=0 untouched; C_mb GUE-conditional per imp-486 ' +
-    'untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; NO QED; no refereed bound is changed.',
 };
 
 export const DRIFT_RESIDUAL_PLATEAU_COHORT_AUDIT_ASSERTIONS = [
@@ -92,9 +92,9 @@ export const DRIFT_RESIDUAL_PLATEAU_COHORT_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-34659-audit-honest',
-    description: 'no bound change and PT Lambda <= 0.2 stays SOTA',
+    description: 'no bound change and no refereed bound is changed',
     holds: () => /No bound change/.test(DRIFT_RESIDUAL_PLATEAU_COHORT_AUDIT.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(DRIFT_RESIDUAL_PLATEAU_COHORT_AUDIT.honest),
+      && /refereed bound is changed/i.test(DRIFT_RESIDUAL_PLATEAU_COHORT_AUDIT.honest),
   },
 ];
 

@@ -17,7 +17,7 @@
  *   Measurement only. The Ritz value is an UPPER bound on lambda_1(T), so eta_inf / the floor is an
  *   upper estimate, NOT a certified lower bound. The imp-96969 cohort stays closed as a lever; this
  *   measures only. No bound moves; interval-rigorous reach stays 2a<=0.96; RH open;
- *   Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  * FINDING 1 -- CONSTRAINING eta_inf < 1 DOES NOT RESCUE A GENUINE RATE. With eta_inf boxed to
  *   (0.55, 0.999) the best 6000-restart fit gives eta_inf=0.999000 (PUSHED to the imposed <1
@@ -44,7 +44,7 @@
  *   symptom, not the cause -- the Nbig drift is sub-algebraic under any physical eta_inf constraint.
  *   SUB-GAP IMP97102_BOUNDED_ETAINF_SURFACE_FIT_STILL_SUB_ALGEBRAIC. Ritz value is an UPPER bound so
  *   the floor is an upper estimate, not a certified LB; interval-rigorous reach stays 2a<=0.96;
- *   RH open; PT Lambda<=0.2 SOTA; NO QED.
+ *   RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-97058-krein-coupled-nt-surface-fit-no-rate.js (the FREE joint fit whose eta_inf runaway this constrains)
  * @see imp-96911-krein-eta-nconvergence-scout.js (the single-power fit and the source data)

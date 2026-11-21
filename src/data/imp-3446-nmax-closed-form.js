@@ -69,7 +69,7 @@
  * full implicit condition matches the ternary search to ~3e-8.
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (interior MAX pinned N_max ~ 9.22e5 by ternary search)
  * @see imp-3443-nmax-etrunc-sensitivity (dN_max/dE_trunc, N_max ~ (1/E_trunc)^1.38 power law)
@@ -228,7 +228,7 @@ export const IMP3446_NMAX_CLOSED_FORM = {
     'N ~ G L (l^2-1)/(4 pi^2 E_trunc) ~ 1.6e6 misses by ~73% because E_flow ~ 1.53 x ' +
     'E_trunc at the peak and the log-derivatives are order 1 -- the full equation is ' +
     'required. Derivation/measurement only; no positivity, no bridge closure, no RH ' +
-    'claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-3406 (interior max N_max ~ 9.22e5 by ternary search); imp-3443 (N_max sensitivity ' +
     'to E_trunc); imp-3323 (interior min N ~ 97.80); imp-3220 (U-shaped sigma(N) ladder); ' +
@@ -276,13 +276,13 @@ export const IMP3446_NMAX_CLOSED_FORM_ASSERTIONS = [
     holds: () => CRUDE_REL_ERR > 0.5 && E_FLOW_OVER_E_TRUNC > 1 && E_FLOW_OVER_E_TRUNC < 2,
   },
   {
-    // Honesty gate: derivation only, no QED, PT stays SOTA, no RH claim.
+    // Honesty gate: derivation only, no QED, no refereed bound is changed, no RH claim.
     id: 'imp3446-honesty-gate-no-qed',
-    description: 'Derivation only: no QED, PT stays SOTA, not rigorous',
+    description: 'Derivation only: no QED, no refereed bound is changed, not rigorous',
     holds: () =>
       IMP3446_NMAX_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP3446_NMAX_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP3446_NMAX_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP3446_NMAX_CLOSED_FORM.verdict),
   },
 ];
 

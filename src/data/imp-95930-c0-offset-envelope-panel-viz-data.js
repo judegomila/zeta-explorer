@@ -45,7 +45,7 @@ export const IMP95930_CAVEAT_BANNER =
   'noise-dominated (R^2 ~ 0.0007) with its max at an INTERIOR height (1.5e5), not an ' +
   'endpoint -- monotonicity over [3e12, infinity) is UNDECIDED by this table alone (see ' +
   'imp-95921 for the superseding analytic bracket). Changes no bound, establishes no ' +
-  'operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.';
+  'operator positivity, no RH claim; no refereed bound is changed; NO QED.';
 
 export const IMP95930_ASSERTIONS = [
   {
@@ -83,7 +83,7 @@ export const IMP95930_ASSERTIONS = [
     holds: () =>
       /INTERIOR/.test(IMP95930_CAVEAT_BANNER) &&
       /NO QED/.test(IMP95930_CAVEAT_BANNER) &&
-      /Lambda <= 0.2 remains SOTA/.test(IMP95930_CAVEAT_BANNER) &&
+      /refereed bound is changed/i.test(IMP95930_CAVEAT_BANNER) &&
       SRC.isRigorous === false,
   },
 ];

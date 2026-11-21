@@ -26,7 +26,7 @@
  * the same imp-3220/imp-3406 RvM surrogate; derives no remainder; discharges nothing; changes
  * no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643),
  * E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a
- * stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35813-req4-required-height-sigma-landmark-extend (source of the two new rungs verified here)
  * @see imp-35763-req4-required-height-sigma-landmark-fill (the six-rung filled ladder they interleave)
@@ -42,7 +42,7 @@ import { IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS } from './imp-35538-
 import { IMP35763_REQ4_REQUIRED_HEIGHT_SIGMA_LANDMARK_FILL } from './imp-35763-req4-required-height-sigma-landmark-fill.js';
 import { IMP35813_REQ4_REQUIRED_HEIGHT_SIGMA_LANDMARK_EXTEND } from './imp-35813-req4-required-height-sigma-landmark-extend.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any verification here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any verification here)
 
 const HR = IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS.heightRegime;
 const LOG_T0_NEEDED = HR.logT0NeededForHalfPctBudget; // 200
@@ -167,8 +167,8 @@ export const IMP35872_REQ4_EXTEND_RUNG_INTERLEAVE_DRIFT_GUARD = {
     'sigma constants ever move, the guard trips instead of silently invalidating the baked prose. Verification/guard ' +
     'only; re-reads the imp-33582 model on the same surrogate; derives no remainder; changes no bound; establishes no ' +
     'operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb ' +
-    'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35813 (two new interior rungs verified here); imp-35763 (six-rung filled ladder they interleave); imp-35538 ' +
     '(REQ 4; binding log-height 200); imp-33582 (sigma-decay model; peak sigma_max ~ 0.9494); imp-3220/imp-3406 (RvM ' +
@@ -225,7 +225,7 @@ export const IMP35872_REQ4_EXTEND_RUNG_INTERLEAVE_DRIFT_GUARD_ASSERTIONS = [
       interleaveOrder.every((row, i) => i === 0 || row.requiredMultiple < interleaveOrder[i - 1].requiredMultiple),
   },
   {
-    // (7) honesty gate: verification only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, NO QED.
+    // (7) honesty gate: verification only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, NO QED.
     id: 'imp35872-verify-only-no-qed',
     description: 'verification/guard only: not rigorous/unconditional, changes no bound, keeps imp-486, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -237,7 +237,7 @@ export const IMP35872_REQ4_EXTEND_RUNG_INTERLEAVE_DRIFT_GUARD_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

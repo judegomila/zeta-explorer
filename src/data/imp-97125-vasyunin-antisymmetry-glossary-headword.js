@@ -28,8 +28,8 @@
  *
  *   STATUS: documentation glossary headword only, not a re-derivation or a new computation.
  *   Establishes nothing new; moves no bound. The imp-97097 obstruction (the varying-modulus half is
- *   NOT elementarised by reciprocity) remains the open residual. NO QED. Platt-Trudgian
- *   Lambda <= 0.2 SOTA; RH open.
+ *   NOT elementarised by reciprocity) remains the open residual. NO QED. No refereed bound is changed
+ *   ; RH open.
  *
  * @see imp-97097-route-m-cotangent-first-moment-reciprocity.js (source: full derivation of the
  *   antisymmetry, the exact-zero collapse, and the varying-modulus obstruction this headword
@@ -38,7 +38,7 @@
  *   "permutation" intuition this antisymmetry sharpens into an exact identity)
  *
  * Ticket: imp-97125 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 import { IMP97097_REDUCTION, IMP97097_VERDICT } from './imp-97097-route-m-cotangent-first-moment-reciprocity.js';
@@ -67,8 +67,8 @@ const VASYUNIN_ANTISYMMETRY_HEADWORD = Object.freeze({
   verificationStatus:
     'Exact identity, machine-verified to 1e-7 at finite even and odd b (imp-97097). Establishes no ' +
     'bound and moves nothing on its own -- the varying-modulus half it isolates remains open and is ' +
-    'NOT elementarised by reciprocity (imp-97097 RESULT 2/obstruction). NO QED; PT Lambda <= 0.2 ' +
-    'remains SOTA; RH open.',
+    'NOT elementarised by reciprocity (imp-97097 RESULT 2/obstruction). NO QED; no refereed bound is changed' +
+    '; RH open.',
 });
 
 export const IMP97125_VASYUNIN_ANTISYMMETRY_GLOSSARY_HEADWORD = Object.freeze({
@@ -88,8 +88,8 @@ export const IMP97125_VASYUNIN_ANTISYMMETRY_GLOSSARY_HEADWORD = Object.freeze({
     'lower-order a=1 boundary term when restricted to a >= 2. This is the sharpest rigorous form of ' +
     'the route (3) permutation intuition, and it carries NO leading lower-bound content -- the ' +
     'entire leading cotangent moment lives in the separate varying-modulus half (not restated ' +
-    'here). Establishes nothing new; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'here). Establishes nothing new; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97097 (the full derivation of the antisymmetry, the exact-zero fixed-modulus collapse, and ' +
     'the varying-modulus obstruction this headword glosses only the RESULT 1 half of); imp-97071 ' +
@@ -125,12 +125,12 @@ export const IMP97125_VASYUNIN_ANTISYMMETRY_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97125-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, and the source ' +
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, and the source ' +
       'verdict this headword glosses must still show the varying-modulus half as unresolved.',
     holds: () =>
       IMP97125_VASYUNIN_ANTISYMMETRY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97125_VASYUNIN_ANTISYMMETRY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97125_VASYUNIN_ANTISYMMETRY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97125_VASYUNIN_ANTISYMMETRY_GLOSSARY_HEADWORD.verdict) &&
       IMP97125_VASYUNIN_ANTISYMMETRY_GLOSSARY_HEADWORD.glosses === 'imp-97097' &&
       IMP97097_VERDICT.fixedModulusVanishesRigorously === true &&
       IMP97097_VERDICT.cotangentLowerBoundProved === false,

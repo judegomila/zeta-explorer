@@ -50,7 +50,7 @@
  * no remainder; discharges nothing; changes no bound; establishes no operator positivity; C_C =
  * (1/8) sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional
  * (imp-486) are UNTOUCHED; the nominal E_trunc baseline is only swept for the grid; imp-35337a
- * stays OPEN; NOT rigorous; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays OPEN; NOT rigorous; NO QED; no refereed bound is changed.
  *
  * @see imp-36139-etrunc-coll-crossover-sensitivity (records the invariant sigma ~ 0.4995; never derives it)
  * @see imp-36064-eflow-inclusion-tilt-closed-form (the f-based tilt f/(2(2+f)); shareFlow/2 = f/(2(2+f)))
@@ -64,7 +64,7 @@ import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 import { IMP36139_ETRUNC_COLL_CROSSOVER_SENSITIVITY } from './imp-36139-etrunc-coll-crossover-sensitivity.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any derivation here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any derivation here)
 
 // EXACT imp-3406 / imp-33582 sub-terms (byte-identical to imp-36139), with E_trunc PARAMETERIZED.
 const TWO_PI = 2 * Math.PI;
@@ -202,8 +202,8 @@ export const IMP36278_CROSSOVER_SIGMA_INVARIANT_EFLOW_SHARE = {
     'the byte-identical imp-3406 / imp-33582 sub-terms and the imp-36139 grid unchanged; derives no ' +
     'remainder; discharges nothing; changes no bound; establishes no operator positivity; C_C = ' +
     '(1/8) sqrt(3 pi) (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional ' +
-    '(imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= ' +
-    '0.2 remains SOTA.',
+    '(imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36139 (records invariant sigma ~ 0.4995 across the half-to-double floor grid; never derives ' +
     'it); imp-36064 (f-based tilt f/(2(2+f)); shareFlow/2 = f/(2(2+f))); imp-35968 (raw ratio ' +
@@ -261,7 +261,7 @@ export const IMP36278_CROSSOVER_SIGMA_INVARIANT_EFLOW_SHARE_ASSERTIONS = [
       ) < 1e-5,
   },
   {
-    // (8) honesty gate: derivation only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, PT SOTA, NO QED.
+    // (8) honesty gate: derivation only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp36278-derivation-only-no-qed',
     description: 'derivation only: not rigorous/unconditional, changes no bound, keeps imp-486, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -273,7 +273,7 @@ export const IMP36278_CROSSOVER_SIGMA_INVARIANT_EFLOW_SHARE_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

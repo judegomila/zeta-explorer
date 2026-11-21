@@ -58,7 +58,7 @@
  * IMP96749_UNIFORM_N_GAP_UNSETTLED: an extended-precision (double-double) or orthogonal-basis
  * (Gegenbauer C_n^{7/2}, diagonal Gram) recomputation is needed to push past condB ~1e13 and confirm
  * the plateau. Measurement only; the true operator positivity for 0.96 < 2a < ln3 stays OPEN;
- * interval-rigorous certificate reach stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 SOTA;
+ * interval-rigorous certificate reach stays 2a <= 0.96; RH open; no refereed bound is changed;
  * NO QED.
  *
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (lambdaMinSigma2 N={20,28,36}; analyticObstruction)

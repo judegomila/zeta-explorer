@@ -54,7 +54,7 @@
  *
  * MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. C_C is GUE-conditional per
  * imp-486; changes no bound; imp-3066 K_a >= 0 untouched; no positivity, no bridge closure, no
- * RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-33540-sigma-fartail-overshoot-two-power-decomposition (the single-point ~18:1 dominance extended here)
  * @see imp-33291-sigma-fartail-two-parameter-lnN-lnlogT0-fit (the (-1/2, +1/2) joint power pair)
@@ -222,7 +222,7 @@ export const IMP33553_SIGMA_FARTAIL_SLOPE_SQRT_DOMINANCE_LADDER = {
     'So the imp-33540 ~18:1 dominance at the interior max is the SHALLOWEST point of the off-regime ' +
     'span, not a midpoint of a run toward parity; the scout hypothesis is REFUTED. C_C is ' +
     'GUE-conditional per imp-486; changes no bound; imp-3066 K_a >= 0 untouched; no positivity, no ' +
-    'bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bridge closure, no RH claim, NO QED. No refereed bound is changed.',
   citation:
     'imp-33540 (single-point ~18:1 slope:sqrt dominance at the interior max, extended here to a ' +
     'ladder); imp-33291 ((-1/2, +1/2) joint power law); imp-3406 (interior MAX N ~ 9.22e5); imp-3444 ' +
@@ -279,13 +279,13 @@ export const IMP33553_SIGMA_FARTAIL_SLOPE_SQRT_DOMINANCE_LADDER_ASSERTIONS = [
       PC.L > 20 && PC.L < 22,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp33553-honesty-gate-no-qed',
-    description: 'Measurement only: no QED, PT stays SOTA',
+    description: 'Measurement only: no QED, no refereed bound is changed',
     holds: () =>
       IMP33553_SIGMA_FARTAIL_SLOPE_SQRT_DOMINANCE_LADDER.isRigorous === false &&
       /NO QED/.test(IMP33553_SIGMA_FARTAIL_SLOPE_SQRT_DOMINANCE_LADDER.verdict) &&
-      /remains SOTA/.test(IMP33553_SIGMA_FARTAIL_SLOPE_SQRT_DOMINANCE_LADDER.verdict),
+      /refereed bound is changed/i.test(IMP33553_SIGMA_FARTAIL_SLOPE_SQRT_DOMINANCE_LADDER.verdict),
   },
 ];
 

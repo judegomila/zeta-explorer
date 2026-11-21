@@ -67,7 +67,7 @@
  * asymptotic; the second differences, turnover, knee and shared-grid split are descriptive, not derived;
  * changes no bound; establishes no operator positivity; the imp-33843 log-linear FORM verdict is
  * UNTOUCHED; C_mb GUE-conditional per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34170-endpoint-vs-fixed-band-peak-curvature-reconciliation.js (posed the disjoint-window gap)
  * @see imp-34108-endpoint-peak-saturating-ceiling-extrapolation.js (endpoint: SATURATES, ceiling a ~ 1.678095)
@@ -264,8 +264,8 @@ export const IMP34192_ENDPOINT_VS_FIXED_BAND_PEAK_SHARED_GRID_KNEE = {
     'the inherited imp-3220/imp-3406 component model reproduced by imp-33917, NOT a rigorous asymptotic; ' +
     'the turnover, knee and shared-grid split are descriptive, not derived; changes no bound; establishes ' +
     'no operator positivity; the imp-33843 form verdict UNTOUCHED; C_mb GUE-conditional per imp-486 is ' +
-    'UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'UNTOUCHED; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP34192_ENDPOINT_VS_FIXED_BAND_PEAK_SHARED_GRID_KNEE_ASSERTIONS = [
@@ -326,9 +326,9 @@ export const IMP34192_ENDPOINT_VS_FIXED_BAND_PEAK_SHARED_GRID_KNEE_ASSERTIONS = 
   },
   {
     // Honesty gate: reconciliation closes the imp-34170 sub-gap, within-window readings preserved,
-    // isRigorous false, argmax-migration caveat recorded, no QED, PT SOTA.
+    // isRigorous false, argmax-migration caveat recorded, no QED, no refereed bound is changed.
     id: 'imp34192-honesty-gate-no-qed',
-    description: 'subGapClosed set; isRigorous false; NOT a rigorous asymptotic; within-window readings not overturned; argmax caveat; imp-486 C_mb untouched; imp-3066 K_a>=0 untouched; no QED; PT SOTA',
+    description: 'subGapClosed set; isRigorous false; NOT a rigorous asymptotic; within-window readings not overturned; argmax caveat; imp-486 C_mb untouched; imp-3066 K_a>=0 untouched; no QED; no refereed bound is changed',
     holds: () =>
       IMP34192_ENDPOINT_VS_FIXED_BAND_PEAK_SHARED_GRID_KNEE.subGapClosed === 'SUB-GAP-imp-34170-endpoint-knee-untested' &&
       IMP34192_ENDPOINT_VS_FIXED_BAND_PEAK_SHARED_GRID_KNEE.isRigorous === false &&
@@ -336,7 +336,7 @@ export const IMP34192_ENDPOINT_VS_FIXED_BAND_PEAK_SHARED_GRID_KNEE_ASSERTIONS = 
       /NOT a rigorous asymptotic/.test(IMP34192_ENDPOINT_VS_FIXED_BAND_PEAK_SHARED_GRID_KNEE.verdict) &&
       /are not overturned/.test(IMP34192_ENDPOINT_VS_FIXED_BAND_PEAK_SHARED_GRID_KNEE.verdict) &&
       /NO QED/.test(IMP34192_ENDPOINT_VS_FIXED_BAND_PEAK_SHARED_GRID_KNEE.verdict) &&
-      /remains\s+SOTA/.test(IMP34192_ENDPOINT_VS_FIXED_BAND_PEAK_SHARED_GRID_KNEE.verdict) &&
+      /refereed bound is changed/i.test(IMP34192_ENDPOINT_VS_FIXED_BAND_PEAK_SHARED_GRID_KNEE.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34192_ENDPOINT_VS_FIXED_BAND_PEAK_SHARED_GRID_KNEE.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34192_ENDPOINT_VS_FIXED_BAND_PEAK_SHARED_GRID_KNEE.verdict),
   },

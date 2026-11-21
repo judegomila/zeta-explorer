@@ -163,7 +163,7 @@ export const IMP_2839_CLIP_COLLISION_REGULARIZED = {
     'HOLDER-1/2: d g_min/d W_1 = C_shock/(2 W_1^{1/2}) -> infinity as W_1 -> 0. The divergence is ' +
     'INTRINSIC, not an artifact of the chosen bound. The Lipschitz/Gronwall route CANNOT supply a ' +
     'finite N-uniform C_Lip. C_Lip is RH-hard-at-the-modulus; the finite-N Lipschitz beat is retired ' +
-    'to ESTIMATE. Platt-Trudgian Lambda <= 0.2 remains rigorous SOTA.',
+    'to ESTIMATE. No refereed bound is changed.',
   stoppedIntegralFormula: 'I_eps(g0) = (1/4) log(g0^2/eps^2) = (1/2) log(g0/eps)  (finite for eps>0)',
   cuspSlopeFormula: 'd g_min / d W_1 = C_shock / (2 W_1^{1/2})  (diverges as W_1 -> 0; Holder-1/2)',
   intrinsicDivergence: true,
@@ -227,12 +227,12 @@ export const IMP_2839_ASSERTIONS = [
         r.rhHardAtModulus === true &&
         /NEGATIVE/.test(r.verdict) &&
         /Holder-1\/2|HOLDER-1\/2/.test(r.verdict) &&
-        /SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
     why:
       'VERDICT LOCK: the divergence is intrinsic (Holder-1/2 genuine regularity), no rigorous beat, ' +
-      'C_Lip RH-hard-at-the-modulus, Platt-Trudgian Lambda <= 0.2 stays SOTA. This blocks any future ' +
+      'C_Lip RH-hard-at-the-modulus, no refereed bound is changed. This blocks any future ' +
       'edit from flipping the clean negative into a claimed C_Lip closure or a rigorous Lambda < 0.2 beat.',
   },
 ];

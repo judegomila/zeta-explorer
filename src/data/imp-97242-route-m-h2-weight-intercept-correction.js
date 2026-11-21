@@ -85,11 +85,11 @@ export const IMP97242_MEASUREMENT = Object.freeze({
     'a_int - H2_slope*c1_T is ~-2.685. The correction is LARGE (comparable to c1_T itself) and ' +
     'negative, so it cannot be neglected in pinning the far-field ceiling F as a value; but both ' +
     'inputs are OLS fits, so dH2 stays a MEASUREMENT, nothing is pinned, no bound moves. ' +
-    'PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97242_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement only: the imp-97207 H2-weight ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement only: the imp-97207 H2-weight ' +
   'intercept correction is sized at dH2 = a_int - c1_T ~ -7.363 (split ~-4.68 slope-weight + ' +
   '~-2.69 intercept-specific). Both c1_T and a_int are OLS fits; no value is pinned and no bound ' +
   'is moved.';
@@ -142,7 +142,7 @@ const IMP97242_ASSERTIONS = [
       IMP97242_MEASUREMENT.anyBoundMoved === false &&
       IMP97242_MEASUREMENT.operatorPositivityEstablished === false &&
       /NO QED/.test(IMP97242_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97242_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97242_HONEST_BANNER) &&
       /RH open/.test(IMP97242_HONEST_BANNER),
   },
 ];

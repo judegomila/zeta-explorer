@@ -48,8 +48,8 @@ export const IMP97635_SUMMARY = Object.freeze({
     + 'onset down to omega=10.',
   verdict:
     'Presentation only: every T-value and set is reused verbatim from imp-97606 (a measurement, not a '
-    + 'derivation); no new computation. The b/4 ceiling is untouched; no bound moves; Platt-Trudgian '
-    + 'Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'derivation); no new computation. The b/4 ceiling is untouched; no bound moves; no refereed bound is changed'
+    + '; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

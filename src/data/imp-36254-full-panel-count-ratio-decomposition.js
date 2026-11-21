@@ -40,7 +40,7 @@
  *
  *   Ticket: imp-36254 (numerical, medium). Measurement/derivation only; certifies no cap; changes
  *   no bound; C_mb GUE-conditional (imp-486) untouched; imp-35337a OPEN; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-36141-route-ii-vs-route-i-panel-count-ratio.js (the frequency-floor tabulation this extends)
  *   @see imp-35988-i2-derivative-cap-route-comparison.js (the three same-signed slack axes; source of the floor)
@@ -153,7 +153,7 @@ export const IMP36254_FULL_PANEL_COUNT_RATIO_DECOMPOSITION = Object.freeze({
     certifiesDerivativeBoundB: false,
     certifiesI2Cap: false,
     changesAnyBound: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -166,7 +166,7 @@ export const IMP36254_FULL_PANEL_COUNT_RATIO_DECOMPOSITION = Object.freeze({
     'remaining axes are rigorously same-signed (E >= 1) but quantitatively OPEN, and the missing ' +
     'quantification is now a named sub-gap imp-36254a. Measurement/derivation only; certifies no ' +
     'cap; changes no bound; C_mb GUE-conditional (imp-486) untouched; imp-35337a OPEN; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
 });
 
 export const IMP36254_FULL_PANEL_COUNT_RATIO_DECOMPOSITION_ASSERTIONS = [
@@ -229,17 +229,17 @@ export const IMP36254_FULL_PANEL_COUNT_RATIO_DECOMPOSITION_ASSERTIONS = [
   },
   {
     id: 'imp36254-honesty-gate',
-    why: 'Measurement/derivation only: it must not claim it certifies B or the I2 cap, nor a bound change, and must keep the PT SOTA caveat.',
+    why: 'Measurement/derivation only: it must not claim it certifies B or the I2 cap, nor a bound change, and must keep the no-refereed-bound-change caveat.',
     holds: () =>
       IMP36254_FULL_PANEL_COUNT_RATIO_DECOMPOSITION.honestCaveat.certifiesDerivativeBoundB === false &&
       IMP36254_FULL_PANEL_COUNT_RATIO_DECOMPOSITION.honestCaveat.certifiesI2Cap === false &&
       IMP36254_FULL_PANEL_COUNT_RATIO_DECOMPOSITION.honestCaveat.changesAnyBound === false &&
       IMP36254_FULL_PANEL_COUNT_RATIO_DECOMPOSITION.honestCaveat.onlyFrequencyAxisPinned === true &&
-      /Platt-Trudgian/.test(IMP36254_FULL_PANEL_COUNT_RATIO_DECOMPOSITION.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36254_FULL_PANEL_COUNT_RATIO_DECOMPOSITION.honestCaveat.sota),
   },
   {
     id: 'imp36254-verdict-no-qed',
-    why: 'The verdict must record NO QED, matching the standing SOTA caveat.',
+    why: 'The verdict must record NO QED, matching the standing no-refereed-bound-change caveat.',
     holds: () => /NO QED/.test(IMP36254_FULL_PANEL_COUNT_RATIO_DECOMPOSITION.verdict),
   },
 ];

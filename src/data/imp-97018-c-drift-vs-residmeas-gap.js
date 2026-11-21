@@ -50,7 +50,7 @@
  * law. REFINED SUB-GAP imp-97018-residmeas-high-N-unmeasured: closing the attribution requires extending
  * the imp-96995 lam_min(A_full)/lam_min(A_lo) driver to N in {136,148,160} (where the decline actually
  * lives) to check whether the gap tracks C there. Measurement only; the floor is a Rayleigh UPPER bound;
- * no operator positivity; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA;
+ * no operator positivity; interval-rigorous reach stays 2a<=0.96; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-96997-sigma2-weighted-tail-envelope-model.js (Finding 1: C=wtf/rfo, the attribution tested here)

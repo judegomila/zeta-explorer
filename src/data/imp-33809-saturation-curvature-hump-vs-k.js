@@ -63,7 +63,7 @@
  * bound. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
  * rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-33773-ecoll-sigma-offset-eflow-attribution (M3 curvature-hump asserted, tabulated here)
  * @see imp-33727-sigma-ecoll-exponent-ladder-crossvalidation (offset ladder overlap window k=6..11)
@@ -223,8 +223,8 @@ export const IMP33809_SATURATION_CURVATURE_HUMP_VS_K = {
     'crossover and its tail falloff tracks the residual saturation, consistent with imp-3463. The ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33773 (M3 curvature-hump asserted, tabulated vs k here); imp-33727 (offset ladder overlap ' +
     'window k=6..11); imp-33620 (separated-E_coll exponent ladder); imp-33582 (full-sigma OLS ladder); ' +
@@ -297,15 +297,15 @@ export const IMP33809_SATURATION_CURVATURE_HUMP_VS_K_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp33809-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, crossover k=9, no QED, PT Lambda<=0.2 SOTA',
+    description: 'Measurement only: isRigorous false, crossover k=9, no QED, no refereed bound is changed',
     holds: () =>
       IMP33809_SATURATION_CURVATURE_HUMP_VS_K.isRigorous === false &&
       IMP33809_SATURATION_CURVATURE_HUMP_VS_K.humpArgmaxK === 9 &&
       IMP33809_SATURATION_CURVATURE_HUMP_VS_K.crossoverDecadeK === 9 &&
       /NO QED/.test(IMP33809_SATURATION_CURVATURE_HUMP_VS_K.verdict) &&
-      /remains SOTA/.test(IMP33809_SATURATION_CURVATURE_HUMP_VS_K.verdict),
+      /refereed bound is changed/i.test(IMP33809_SATURATION_CURVATURE_HUMP_VS_K.verdict),
   },
 ];
 

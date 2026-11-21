@@ -37,8 +37,7 @@
  *   (E_trunc = 3.06e-5 fixed, imp-2631; E_flow = C_F (log T0 / T0) exp|t_c|; E_coll =
  *   C_C sqrt(log T0 / N), C_C = (1/8) sqrt(3 pi), imp-2642 / imp-2643, GUE-conditional, imp-486);
  *   re-derives no sub-term; derives no remainder; discharges nothing; changes no bound; establishes
- *   no operator positivity; imp-35337a stays OPEN; no RH verdict, NO QED; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   no operator positivity; imp-35337a stays OPEN; no RH verdict, NO QED; no refereed bound is changed.
  *
  * @see imp-36155-sharecoll-crossing-precedes-sole-survivor.js (the ordering claim whose premise (b) this witnesses)
  * @see imp-35889-e-share-decomposition-at-knees.js (the three-way split and the exact sub-terms reused here)
@@ -52,7 +51,7 @@
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // EXACT imp-35889 / imp-3406 / imp-33582 sub-terms (identical model; no fresh numerics).
 const TWO_PI = 2 * Math.PI;
@@ -188,7 +187,7 @@ export const IMP36272_ORDERING_MECHANISM_JOINT_MONOTONICITY = Object.freeze({
   isRigorous: false,
   isUnconditional: false,
   changesAnyBound: false,
-  sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+  sota: 'No refereed bound is changed',
 
   verdict:
     'MEASUREMENT (NOT rigorous). Re-evaluating the imp-35889 three-way split E = E_trunc + E_flow + E_coll on a ' +
@@ -204,7 +203,7 @@ export const IMP36272_ORDERING_MECHANISM_JOINT_MONOTONICITY = Object.freeze({
     'rises. Reuses the imp-35889 / imp-3406 / imp-33582 sub-terms verbatim; re-derives no sub-term; derives no ' +
     'remainder; discharges nothing; changes no bound; establishes no operator positivity; E_trunc = 3.06e-5 ' +
     '(imp-2631) and C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643, GUE-conditional, imp-486) are UNTOUCHED; ' +
-    'imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-36155 (the ordering claim whose premise (b) is witnessed here); imp-35889 (the three-way split and exact ' +
     'sub-terms); imp-36252 (the sub-1% ordering ladder); imp-35337 (E_trunc = E_coll crossover at sigma = 0.5); ' +
@@ -280,7 +279,7 @@ export const IMP36272_ORDERING_MECHANISM_JOINT_MONOTONICITY_ASSERTIONS = [
     },
   },
   {
-    // (6) honesty gate: measurement only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, PT SOTA, NO QED.
+    // (6) honesty gate: measurement only, conditional, no bound moves, imp-486 kept, imp-35337a OPEN, no refereed bound is changed, NO QED.
     id: 'imp36272-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -293,7 +292,7 @@ export const IMP36272_ORDERING_MECHANISM_JOINT_MONOTONICITY_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

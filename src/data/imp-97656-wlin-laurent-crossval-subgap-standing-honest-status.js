@@ -13,7 +13,7 @@
  * @see imp-97597-route-m-psi-s-integral-rep-double-expansion.js (RESULT 3 sub-gap that STANDS)
  *
  * Ticket: imp-97656 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97618_VERDICT, IMP97618_FIT, IMP97618_MAX_RESID_SMALL_X } from './imp-97618-wlin-leading-laurent-crossval.js';
@@ -50,7 +50,7 @@ export const IMP97656_CROSSVAL_SUBGAP_STANDING_HONEST_STATUS = Object.freeze({
 });
 
 export const IMP97656_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. The imp-97618 cross-check confirms the leading ' +
+  'RH open; no refereed bound is changed; NO QED. The imp-97618 cross-check confirms the leading ' +
   'Laurent block {A,B,C0} reproduces w_lin to measured precision, but this does NOT close the imp-97597 ' +
   'RESULT 3 sub-gap: the epsilon*z^2 mixed Bettin-Conrey kernel coefficient kappaK is uncomputed and its ' +
   'contribution is exactly the O(x^2) wobble tail the cross-check leaves unreproduced. No bound moves; ' +
@@ -76,7 +76,7 @@ if (
     IMP97656_CROSSVAL_SUBGAP_STANDING_HONEST_STATUS.isRigorous === false &&
     IMP97656_CROSSVAL_SUBGAP_STANDING_HONEST_STATUS.qed === false &&
     /NO QED/.test(IMP97656_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP97656_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97656_HONEST_BANNER) &&
     /RH open/.test(IMP97656_HONEST_BANNER)
   )
 ) {

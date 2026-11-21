@@ -16,8 +16,8 @@
  * the common collar, and RUNS the generalized-eigenvalue comparison. The
  * fixed-window inequality is reported as it comes out. This yields NO uniform
  * bound (that is the imp-95443 decay-vs-margin race over all depths d and all
- * N); it is a single-window spot-check. Report only; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open.
+ * N); it is a single-window spot-check. Report only; NO QED; no refereed bound is changed
+ * ; RH open.
  *
  * THE PORT DATA (imp-95220 width law, model normalization c = v = 1). The
  * paper alias grid at window (p, D) is G(p, D) = { n/p : 1 <= n <= pD, p not
@@ -96,7 +96,7 @@
  * ANALYSIS (imp-95443), distinct from the DATA gap closed here. Import-light
  * (no zeros bundle, no sibling imports; the imp-95220 measured literals are
  * restated so this module stays independently checkable). Changes no bound; NO
- * QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ * QED; no refereed bound is changed; RH open.
  */
 
 // -- self-contained linear-algebra machinery (mirrors imp-95220 exactly) ------
@@ -292,8 +292,8 @@ export const IMP95560_LEGB_FIXED_WINDOW_GRAM_COMPARISON = {
     + 'into the free Rayleigh coefficients (amplitude weighting is the separate imp-95220 reroute leg beta); the '
     + 'model common collar is at the shallowest depth dbar = min u_i (the natural upper envelope). Full LEG B '
     + 'stays OPEN at imp-95212-subgap-fresnel-airy-envelope-port; the uniform difficulty is ANALYSIS (imp-95443), '
-    + 'distinct from the DATA gap closed here. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains '
-    + 'SOTA; RH open.',
+    + 'distinct from the DATA gap closed here. Changes no bound; NO QED; no refereed bound is changed'
+    + '; RH open.',
   fns: { kappa, genEigMax, aliasFamily, paperGrams, modelGrams, decideWindow, eigMinSym2 },
 };
 
@@ -345,12 +345,12 @@ export const IMP95560_LEGB_FIXED_WINDOW_GRAM_COMPARISON_ASSERTIONS = [
   },
   {
     id: 'imp-95560-spot-check-honest',
-    description: 'explicitly SPOT-CHECK ONLY: no uniform bound, NO QED, PT Lambda <= 0.2 stays SOTA, RH open, LEG '
+    description: 'explicitly SPOT-CHECK ONLY: no uniform bound, NO QED, no refereed bound is changed, RH open, LEG '
       + 'B substance (uniformity) untouched',
     holds: () =>
       /SPOT-CHECK ONLY/.test(IMP95560_LEGB_FIXED_WINDOW_GRAM_COMPARISON.honest)
       && /NO QED/.test(IMP95560_LEGB_FIXED_WINDOW_GRAM_COMPARISON.honest)
-      && /Lambda <= 0.2 remains/.test(IMP95560_LEGB_FIXED_WINDOW_GRAM_COMPARISON.honest)
+      && /refereed bound is changed/i.test(IMP95560_LEGB_FIXED_WINDOW_GRAM_COMPARISON.honest)
       && /RH open/.test(IMP95560_LEGB_FIXED_WINDOW_GRAM_COMPARISON.honest)
       && /UNIFORMITY/.test(IMP95560_LEGB_FIXED_WINDOW_GRAM_COMPARISON.netScope),
   },

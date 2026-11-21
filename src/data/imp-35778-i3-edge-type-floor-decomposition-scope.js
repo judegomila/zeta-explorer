@@ -11,7 +11,7 @@
  *
  * ORDER-OF-MAGNITUDE SCOPING ONLY. Establishes no positivity; certifies no
  * non-vanishing; evaluates no modulus; positions no rectangle; fixes no Delta or h;
- * changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * THE GEOMETRY OF dR (why one delta hides two very different floors)
  * -----------------------------------------------------------------------------
@@ -76,7 +76,7 @@
  * certifies no delta_short > 0 or delta_long > 0. It only records the edge-type SPLIT of
  * the I3 floor and each edge's governing scale. Establishes no positivity; certifies no
  * non-vanishing; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35758-i3-modulus-floor-margin-tie-scope (I3 floor = margin - cap; monolithic min over dR, no edge split)
  * @see imp-35777-i2-logderivative-panel-cap-scope (B = sup|H_t prime| ~ |H_t| . w; I2/I3 coupling L_panel < pi . delta / B)
@@ -89,7 +89,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35725 / imp-35757 / imp-35777) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 const N_AT_TPT = Math.floor(Math.sqrt(T_PT / (4 * Math.PI))); // ~488602 retained terms (imp-35674 Part D)
 
 // Winding rate / derivative log-scale w(T) = (1/2) log(T / 2 pi) (imp-35757 / imp-35777).
@@ -167,7 +167,7 @@ export const IMP35778_I3_EDGE_TYPE_FLOOR_DECOMPOSITION_SCOPE = {
     'Part A) and the SAME ~4.886e5-term certified sum imp-35725 named. Evaluates no modulus; lower-bounds no ' +
     'inf|H_t prime|; fixes no Delta or h; positions no rectangle; verifies no inequality; certifies no delta > 0; ' +
     'establishes no positivity; changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35758 (I3 floor = margin - cap, monolithic min over dR); imp-35777 (B = sup|H_t prime| ~ |H_t| . w; I2/I3 ' +
     'coupling); imp-35757 (mean zero gap delta(T_PT) = 2 pi / log(T_PT/2 pi) ~ 0.2336); imp-35727 (I3 GREENFIELD); ' +
@@ -224,16 +224,16 @@ export const IMP35778_I3_EDGE_TYPE_FLOOR_DECOMPOSITION_SCOPE_ASSERTIONS = [
       N_AT_TPT > 4.8e5 && N_AT_TPT < 4.9e5,
   },
   {
-    // Honesty gate: OOM scoping only, no positivity, no non-vanishing certificate, no QED, PT SOTA.
+    // Honesty gate: OOM scoping only, no positivity, no non-vanishing certificate, no QED, no refereed bound is changed.
     id: 'imp35778-honesty-gate-no-qed',
-    description: 'Scoping only; establishes no positivity; certifies no delta>0; changes no bound; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Scoping only; establishes no positivity; certifies no delta>0; changes no bound; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35778_I3_EDGE_TYPE_FLOOR_DECOMPOSITION_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /establishes no positivity/.test(IMP35778_I3_EDGE_TYPE_FLOOR_DECOMPOSITION_SCOPE.verdict) &&
       /certifies no delta > 0/.test(IMP35778_I3_EDGE_TYPE_FLOOR_DECOMPOSITION_SCOPE.verdict) &&
       /NO QED/.test(IMP35778_I3_EDGE_TYPE_FLOOR_DECOMPOSITION_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35778_I3_EDGE_TYPE_FLOOR_DECOMPOSITION_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35778_I3_EDGE_TYPE_FLOOR_DECOMPOSITION_SCOPE.verdict),
   },
 ];
 

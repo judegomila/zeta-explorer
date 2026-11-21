@@ -59,8 +59,7 @@
  *   DEGREE-0 SCALAR MEASURE ONLY, RH-EQUIVALENT, NOT THE OPERATOR STEP. These are
  *   interior landmark scales of the imp-3064 scalar ratio; they neither prove nor
  *   weaken RH. The off-diagonal endpoint-Hankel operator step (imp-3066) remains the
- *   lone obstruction and is untouched. Measure only, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 REMAINS the rigorous SOTA.
+ *   lone obstruction and is untouched. Measure only, no QED. No refereed bound is changed.
  *
  *   @see imp-3064-deficit-excess-fraction-grid.js (the a*U scale invariant + phi)
  *   @see imp-3087-excess-fraction-onset-divergence.js (onset pole C/(s-s0)^2)
@@ -212,7 +211,7 @@ export const IMP3105_EXCESS_FRACTION_CROSSOVER_LANDMARKS = Object.freeze({
       'Interior landmark scales of the imp-3064 degree-0 scalar ratio; the off-diagonal ' +
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction and is NOT ' +
       'addressed here.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     didNotRerunBarePilot: true,
   }),
 });
@@ -300,7 +299,7 @@ export const IMP3105_EXCESS_FRACTION_CROSSOVER_LANDMARKS_ASSERTIONS = [
   {
     id: 'imp3105-honest-rh-equivalent-not-a-reduction',
     why: 'Mandatory honesty: the landmarks are RH-EQUIVALENT, structural/diagnostic, leave the ' +
-         'operator step untouched, are not a proof, not a reduction below RH, and PT 0.2 stays SOTA. ' +
+         'operator step untouched, are not a proof, not a reduction below RH, and no refereed bound is changed. ' +
          'If any of these flip the module is over-claiming.',
     holds: () => {
       const c = IMP3105_EXCESS_FRACTION_CROSSOVER_LANDMARKS.honestCaveat;
@@ -310,7 +309,7 @@ export const IMP3105_EXCESS_FRACTION_CROSSOVER_LANDMARKS_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.isStructuralDiagnostic === true &&
         c.didNotRerunBarePilot === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

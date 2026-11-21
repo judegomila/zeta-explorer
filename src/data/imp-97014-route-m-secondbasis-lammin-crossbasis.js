@@ -74,8 +74,8 @@
  * residual IMP97014_SUBGAP.
  *
  * Accuracy cross-validation only. Changes no bound, establishes no operator positivity,
- * makes no RH claim. Interval-rigorous reach stays 2a <= 0.96. Platt-Trudgian Lambda <= 0.2
- * remains SOTA. RH open. NO QED.
+ * makes no RH claim. Interval-rigorous reach stays 2a <= 0.96. No refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96428-route-m-vasyunin-lammin-conditioning-ceiling.js (the raw-basis p=1.917927 law tested here)
  * @see imp-96999-route-m-lammin-exponent-crossvalidation.js (the ESTIMATOR cross-validation whose SUBGAP this closes)
@@ -172,7 +172,7 @@ export const IMP97014_SUBGAP = Object.freeze({
 });
 
 export const IMP97014_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-validation only: the Vasyunin Gram was ' +
+  'RH open; no refereed bound is changed; NO QED. Cross-validation only: the Vasyunin Gram was ' +
   'genuinely REBUILT (tmp/rh-route-m/imp-97014-secondbasis.py) and lam_min re-measured in a second ' +
   '(unit-norm correlation) basis; no bound is claimed moved and no operator positivity is established. ' +
   'Interval-rigorous reach stays 2a <= 0.96.';
@@ -223,7 +223,7 @@ const IMP97014_ASSERTIONS = [
       IMP97014_VERDICT.intervalRigorousReachUnchanged === 0.96 &&
       IMP97014_VERDICT.qed === false &&
       /NO QED/.test(IMP97014_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97014_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97014_HONEST_BANNER) &&
       /RH open/.test(IMP97014_HONEST_BANNER) &&
       /ordering-basis-invariance-untested/.test(IMP97014_SUBGAP.id),
     why: 'cross-validation only: a genuine second-basis Gram was rebuilt (closing IMP96999_SUBGAP), the regularity is basis-robust but the exponent value is not, no bound moved, reach stays 0.96, the ordering-basis-invariance residual is named, and the honesty markers are present.',

@@ -67,8 +67,7 @@
  * MEASUREMENT ONLY. The component model is the inherited imp-3220/imp-3406 extrapolation,
  * NOT a rigorous asymptotic; the crossover anchor is the imp-3444 floor-crossover landmark;
  * the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no
- * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35242-ecoll-exponent-residual-0005-tolerance-locate (deep-tail 1e15..1e45 verification of the same law)
  * @see imp-34130-ecoll-local-exponent-residual-close-vs-floor (the residual ~ 1/(2 log T0) closing law, NO floor)
@@ -238,7 +237,7 @@ export const IMP35304_ECOLL_EXPONENT_RESIDUAL_CROSSOVER_ANCHOR_CROSSVALIDATION =
     'extrapolation, NOT a rigorous asymptotic; the crossover anchor is the imp-3444 floor-crossover ' +
     'landmark; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35242 (deep-tail 1e15..1e45 verification of residual = 1/(2 log T0), cross-validated here); ' +
     'imp-34130 (residual ~ 1/(2 log T0) closing law, no floor); imp-33620 (mid-ladder exponent rungs ' +
@@ -288,13 +287,13 @@ export const IMP35304_ECOLL_EXPONENT_RESIDUAL_CROSSOVER_ANCHOR_CROSSVALIDATION_A
     holds: () => MAX_DEV_MIDLADDER < TOL,
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35304-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35304_ECOLL_EXPONENT_RESIDUAL_CROSSOVER_ANCHOR_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP35304_ECOLL_EXPONENT_RESIDUAL_CROSSOVER_ANCHOR_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP35304_ECOLL_EXPONENT_RESIDUAL_CROSSOVER_ANCHOR_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP35304_ECOLL_EXPONENT_RESIDUAL_CROSSOVER_ANCHOR_CROSSVALIDATION.verdict),
   },
 ];
 

@@ -15,8 +15,8 @@
  * verbatim from imp-97537 (well/band boundaries, far-field threshold) and
  * TOEPLITZ_KREIN_LITERALS.lambdaMinSigma2 (imp-96609/imp-96677 baked LP
  * table). Establishes no operator positivity; changes no bound;
- * interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2
- * remains SOTA; RH open; NO QED.
+ * interval-rigorous reach stays 2a<=0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97537-confined-well-vs-projected-positivity-assessment.js (the source assessment)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (sigma2, lambdaMinSigma2 table)

@@ -59,7 +59,7 @@
  * out-of-family discrepancy from an independent basis at the ~1e-13 level but does not tighten the
  * imp-96371 mid-ladder floor (which lives in the separate closed-form rho ratio). Cross-validation
  * arithmetic-reach only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96369-direct-double-integral-pt-anchor-feasibility (named the two routes; measured the L-linear plain floor)
  * @see imp-96371-covariance-exact-vs-asymptotic-decade-ladder (the U-shaped envelope + the ~3e-13 mid-ladder floor left only bounded)
@@ -232,7 +232,7 @@ export const IMP96384_DOUBLE_DOUBLE_VAR_REORDER_FLOOR = {
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L(T); at these heights (and certainly at 3e12) there are no computed Riemann zeros, so this measures the arithmetic reach of two alternative evaluation paths for a known GUE envelope, not a measurement of actual zeros. The PT-anchor reach is an extrapolation of the accessible-L floor, not a run at L = 5.9148e6. It changes no bound and does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'Of the two escape routes imp-96369 named, the reordered form Var = 2 Int_0^L (L-r)(1-Y) dr - L is algebraically NOT Var (it equals Var + (L^2 - 2L) ~ L^2; measured 1.42e4/2.29e5/3.68e6 vs Sigma2 ~ O(1)), so route (A) is a mis-statement; but route (B), double-double accumulation of the Simpson sum and the L - 2 Int subtraction, WORKS: it converts the imp-96369 L-linear round-off floor into a roughly L-independent ~1e-13 floor (best-error reduction 5.4x at L = 480, 16x at L = 1920, ~99x at L = 7680), now limited by plain-double integrand rounding rather than Var cancellation. Extrapolated (not run) to the PT anchor this reaches ~1e-13, so it CROSS-CONFIRMS the imp-96350/imp-96371 2.52e-10 out-of-family discrepancy from an independent basis at the ~1e-13 level but does not tighten the imp-96371 mid-ladder floor (which lives in the separate closed-form rho ratio). Cross-validation arithmetic-reach only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Of the two escape routes imp-96369 named, the reordered form Var = 2 Int_0^L (L-r)(1-Y) dr - L is algebraically NOT Var (it equals Var + (L^2 - 2L) ~ L^2; measured 1.42e4/2.29e5/3.68e6 vs Sigma2 ~ O(1)), so route (A) is a mis-statement; but route (B), double-double accumulation of the Simpson sum and the L - 2 Int subtraction, WORKS: it converts the imp-96369 L-linear round-off floor into a roughly L-independent ~1e-13 floor (best-error reduction 5.4x at L = 480, 16x at L = 1920, ~99x at L = 7680), now limited by plain-double integrand rounding rather than Var cancellation. Extrapolated (not run) to the PT anchor this reaches ~1e-13, so it CROSS-CONFIRMS the imp-96350/imp-96371 2.52e-10 out-of-family discrepancy from an independent basis at the ~1e-13 level but does not tighten the imp-96371 mid-ladder floor (which lives in the separate closed-form rho ratio). Cross-validation arithmetic-reach only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (accessible-L re-measurement only) ---
@@ -266,8 +266,8 @@ export const IMP96384_DOUBLE_DOUBLE_VAR_REORDER_FLOOR = {
   // honesty gates
   if (!/NO QED/.test(IMP96384_DOUBLE_DOUBLE_VAR_REORDER_FLOOR.verdict))
     throw new Error('imp-96384: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96384_DOUBLE_DOUBLE_VAR_REORDER_FLOOR.verdict))
-    throw new Error('imp-96384: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96384_DOUBLE_DOUBLE_VAR_REORDER_FLOOR.verdict))
+    throw new Error('imp-96384: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96384_DOUBLE_DOUBLE_VAR_REORDER_FLOOR;

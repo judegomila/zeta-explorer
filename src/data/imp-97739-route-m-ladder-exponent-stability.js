@@ -55,7 +55,7 @@
  * from 8 to 10 -- the PNT/Mertens oscillation persists and keeps the exponent moving. The QUALITATIVE
  * "outruns every fixed power <= 3" conclusion is untouched (all estimators >> 3, frac>3 ~0.91). MCM
  * stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves;
- * PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97722-route-m-deep-ladder-independent-crosscheck.js (the baked 23-rung ladder + non-OLS estimators)
  * @see imp-97706-route-m-deep-ladder-extension.js (the dps=35 doubled ladder to p=4.93e8)
@@ -161,11 +161,11 @@ export const IMP97739_VERDICT = Object.freeze({
     'exponent moving -- it is not a converged point estimate. The QUALITATIVE "outruns every fixed ' +
     'power <= 3" conclusion is untouched (all estimators >> 3, fraction of pairwise slopes > 3 barely ' +
     'moves, 0.9012 -> 0.9113). MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith ' +
-    'unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97739_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extending the imp-97706 dps=35 Route M gap-law ' +
+  'RH open; no refereed bound is changed; NO QED. Extending the imp-97706 dps=35 Route M gap-law ' +
   'residual ladder six rungs past p ~ 4.93e8 (to p ~ 7.36e8): the ~10.56 decay exponent does NOT ' +
   'stabilize -- endpoint 10.29 -> 10.96, Theil-Sen 10.62 -> 10.84, OLS 10.56 -> 10.71 -- and the ' +
   'sign-change count rises 8 -> 10, so the PNT/Mertens oscillation persists. The "outruns every fixed ' +
@@ -236,7 +236,7 @@ const IMP97739_ASSERTIONS = [
       IMP97739_VERDICT.anyBoundMoved === false &&
       IMP97739_VERDICT.qed === false &&
       /NO QED/.test(IMP97739_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97739_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97739_HONEST_BANNER) &&
       /RH open/.test(IMP97739_HONEST_BANNER),
     why: 'measurement only -- the exponent drifts (does not stabilize) and the sign oscillation recurs; MCM refuted from omega=11; no bound moved, no QED.',
   },

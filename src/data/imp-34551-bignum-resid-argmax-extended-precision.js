@@ -65,7 +65,7 @@
  * imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is descriptive,
  * not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643)
  * is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34533-deep-rung-argmax-jitter-propagation (the sub-gap answered here; source of F1 prediction)
  * @see imp-34524-continuum-margin-below-ulp-floor (source of the H=2^-8 vertex refined here + curvature)
@@ -198,7 +198,7 @@ export const IMP34551_BIGNUM_RESID_ARGMAX_EXTENDED_PRECISION = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the surrogate resid_exp(k) is ' +
     'descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34533 (the sub-gap answered here; source of the F1 continuum-never-locks prediction); imp-34524 ' +
     '(source of the H=2^-8 vertex refined here and the curvature); imp-34411 (source of the doubling-map ' +
@@ -225,14 +225,14 @@ export const IMP34551_BIGNUM_RESID_ARGMAX_EXTENDED_PRECISION_ASSERTIONS = [
     holds: () => H8_REPRODUCES_IMP34524 && VERTEX_CONVERGES_UP && CORRECTION_SELF_CONSISTENT && IMP34533_USED_BIASED_VERTEX && CURVATURE_ABS > 3.6e-2 && CURVATURE_ABS < 3.7e-2,
   },
   {
-    // Honesty gate: extended-precision measurement only, isRigorous false, answers the sub-gap, no QED, PT SOTA.
+    // Honesty gate: extended-precision measurement only, isRigorous false, answers the sub-gap, no QED, no refereed bound is changed.
     id: 'imp34551-honesty-gate-no-qed',
-    description: 'Extended-precision measurement only: isRigorous false, ANSWERS SUB-GAP-imp-34533-deep-rung-argmax-noise-dominated, no QED, PT Lambda<=0.2 SOTA, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per imp-486 untouched, C_C 1/8 ansatz untouched',
+    description: 'Extended-precision measurement only: isRigorous false, ANSWERS SUB-GAP-imp-34533-deep-rung-argmax-noise-dominated, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, C_mb GUE-conditional per imp-486 untouched, C_C 1/8 ansatz untouched',
     holds: () =>
       IMP34551_BIGNUM_RESID_ARGMAX_EXTENDED_PRECISION.isRigorous === false &&
       /SUB-GAP-imp-34533-deep-rung-argmax-noise-dominated/.test(IMP34551_BIGNUM_RESID_ARGMAX_EXTENDED_PRECISION.verdict) &&
       /NO QED/.test(IMP34551_BIGNUM_RESID_ARGMAX_EXTENDED_PRECISION.verdict) &&
-      /remains SOTA/.test(IMP34551_BIGNUM_RESID_ARGMAX_EXTENDED_PRECISION.verdict) &&
+      /refereed bound is changed/i.test(IMP34551_BIGNUM_RESID_ARGMAX_EXTENDED_PRECISION.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34551_BIGNUM_RESID_ARGMAX_EXTENDED_PRECISION.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/i.test(IMP34551_BIGNUM_RESID_ARGMAX_EXTENDED_PRECISION.verdict) &&
       /C_C 1\/8 ansatz \(imp-2642\/imp-2643\) is UNTOUCHED/i.test(IMP34551_BIGNUM_RESID_ARGMAX_EXTENDED_PRECISION.verdict),

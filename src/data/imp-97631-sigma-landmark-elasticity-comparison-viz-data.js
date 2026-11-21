@@ -70,7 +70,7 @@ export const IMP97631_SUMMARY = Object.freeze({
   verdict:
     'Presentation only: both elasticity axes are reused verbatim from imp-97584 and imp-97598 (prior '
     + 'measurements, not derivations); no new computation. Changes no bound; establishes no operator '
-    + 'positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    + 'positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

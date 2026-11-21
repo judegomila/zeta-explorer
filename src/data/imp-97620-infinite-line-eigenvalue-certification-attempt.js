@@ -49,7 +49,7 @@
  *   rate or Krein upper-control exists. So the sub-gap is REFINED, not closed: what remains is a PROVEN R_inf - R(T)
  *   tail estimate, not the eigenvalue measurement itself. This is a MEASUREMENT -> certification attempt: no rigorous
  *   bound is promoted; the scalar bound stays a negative floor; no operator positivity; no bound moves; interval-
- *   rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *   SUB-GAP IMP97620_INFINITE_LINE_EIGENVALUE_VALUE_NEEDS_PROVEN_TRUNCATION_TAIL_RATE.
  *
  * @see imp-97564-realizability-fraction-resolution-sweep.js (the R_inf ~ 1573 1/T extrapolation this attempts to certify)
@@ -59,7 +59,7 @@
  *
  * Import-light: no eigenvalue recompute; reuses the baked imp-97564 window ladder and re-extrapolates it under two
  *   tail models in closed form. Measurement/certification attempt only; NO QED.
- * Ticket: imp-97620 (numerical, high, opus-4-8). Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Ticket: imp-97620 (numerical, high, opus-4-8). Changes no bound; no refereed bound is changed.
  */
 
 import {

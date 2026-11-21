@@ -10,7 +10,7 @@
  * region 2a > 1.1316 where the unconstrained pencil eigenvalue mu_max(a; k = 0) has already exceeded 1. It does
  * NOT re-run the pencil; it bakes the frozen high-res literals and answers the uniformity question analytically.
  * Import-light: no imports, no zeros bundle; literals baked from the pencil high-res map (single source of truth).
- * RH open; PT Lambda <= 0.2 stands; NO QED; no bound moved; this is an assessment, not a proof.
+ * RH open; no refereed bound is changed; NO QED; no bound moved; this is an assessment, not a proof.
  *
  * ============================ 1. THE FALSE VERDICT IS NOT UNIFORM ============================
  * From PENCIL_HIGHRES_LITERALS.gridN128 (N = 128, mu_max(a; k) for k vanishing moments), tracked across the
@@ -66,7 +66,7 @@
  * therefore corner-confinement of the crossing direction, not a lack of margin on the sub-family; it is the same
  * imp-96085 corner, now shown BINDING (mu_max > 1) past the crossing. Compounding it, past 2a = ln 3 the
  * p = 2-only form is not Weil positivity anyway (the -P_3 rescue). No constrained pole-free sub-family advances a
- * Weil-positivity certificate beyond 2a = ln 3. Assessment only; no bound moved; RH open; NO QED; PT Lambda <= 0.2 SOTA.
+ * Weil-positivity certificate beyond 2a = ln 3. Assessment only; no bound moved; RH open; NO QED; no refereed bound is changed.
  */
 
 const LN3 = Math.log(3);
@@ -98,7 +98,7 @@ export const IMP_96130_CROSSING_UNIFORMITY = Object.freeze({
   /** second pencil eigenvalue at k = 0 (mu2N128): the EVEN sector crosses 1 only near a = 0.59 */
   secondEigK0: Object.freeze({ a058: 0.99801, a060: 1.00245 }),
   ln3: LN3,
-  verdict: 'The D_S <= L_S FALSE verdict is NOT uniform across pole-free h past 2a = 1.1316: a k >= 2 vanishing-moment sub-family keeps mu_max strictly below 1 (margin 0.392 at 2a = 1.16, 0.291 at 2a = 1.20). But the surviving sub-family certifies NOTHING about the full-space inequality -- the crossing is carried by an odd low-moment corner vector (|hhat|^2 peaked at t = 8.85 in I_1) that every such constraint DELETES rather than controls; by the min-over-subset identity min_{V_2} R >= min_{whole} R, so the larger constrained margin is the ABSENCE of the negative direction, not evidence about it. Precise obstruction: corner-confinement of the crossing direction (the imp-96085 corner, now binding with mu_max > 1). Compounding it, past 2a = ln 3 the p = 2-only form is not Weil positivity anyway (the -P_3 rescue keeps the true W = 0.02038 > 0 at a*). No constrained pole-free sub-family advances a Weil-positivity certificate beyond 2a = ln 3. Assessment only; NO QED; RH open; PT Lambda <= 0.2 SOTA.',
+  verdict: 'The D_S <= L_S FALSE verdict is NOT uniform across pole-free h past 2a = 1.1316: a k >= 2 vanishing-moment sub-family keeps mu_max strictly below 1 (margin 0.392 at 2a = 1.16, 0.291 at 2a = 1.20). But the surviving sub-family certifies NOTHING about the full-space inequality -- the crossing is carried by an odd low-moment corner vector (|hhat|^2 peaked at t = 8.85 in I_1) that every such constraint DELETES rather than controls; by the min-over-subset identity min_{V_2} R >= min_{whole} R, so the larger constrained margin is the ABSENCE of the negative direction, not evidence about it. Precise obstruction: corner-confinement of the crossing direction (the imp-96085 corner, now binding with mu_max > 1). Compounding it, past 2a = ln 3 the p = 2-only form is not Weil positivity anyway (the -P_3 rescue keeps the true W = 0.02038 > 0 at a*). No constrained pole-free sub-family advances a Weil-positivity certificate beyond 2a = ln 3. Assessment only; NO QED; RH open; no refereed bound is changed.',
   subGap: 'imp-96130-corner-binding: the crossing direction is the odd part of the fixed corner C_2; no vanishing-moment or resonance-window-orthogonality constraint that excludes it can certify the full-space inequality (min-over-subset). Inherits and sharpens imp-96063-corner / imp-96085; the usable lever remains one-prime, 2a < ln 3.',
 });
 

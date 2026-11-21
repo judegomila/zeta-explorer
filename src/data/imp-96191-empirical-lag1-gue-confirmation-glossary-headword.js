@@ -44,14 +44,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96171 empirical lag-1 measurement for quick
  *   reference. It establishes nothing, instantiates no interval, closes no sub-gap beyond
- *   the imp-96128 caveat, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   the imp-96128 caveat, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96171-number-variance-empirical-lag1-vs-gue-proxy (source: the measurement this glosses)
  * @see imp-96128-number-variance-two-interval-covariance-exact (the exact GUE proxy this confirms)
  * @see imp-95562-meansquare-vs-pointwise-gap (the raw tiling whose +0.243 is the overlap artifact)
  *
  * Ticket: imp-96191 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The empirical lag-1 GUE-confirmation headword, baked verbatim (no re-import).
@@ -84,7 +84,7 @@ const EMPIRICAL_LAG1_GUE_CONFIRMATION_HEADWORD = Object.freeze({
     'empirical correlation stays on the safe side of the positive flip threshold rho_crit = ' +
     '0.57443, exactly as imp-96128 concluded from the proxy alone. Changes no bound; does ' +
     'not raise the ~1.9-sigma significant-dip confidence (set by excursion depth, not the ' +
-    'correlation model); PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'correlation model); no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96191_EMPIRICAL_LAG1_GUE_CONFIRMATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -104,8 +104,8 @@ export const IMP96191_EMPIRICAL_LAG1_GUE_CONFIRMATION_GLOSSARY_HEADWORD = Object
     'rho_exact = -0.46398 (difference 0.0486, inside the 0.1151 small-sample band), while ' +
     'the imp-95562 raw tiling r1 = +0.243 is a box-overlap artifact of the fixed-step / ' +
     'local-width mismatch. The clean L-sweep stays in [-0.526,-0.433]. Establishes nothing; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96171 (the empirical measurement this glosses); imp-96128 (the exact GUE proxy ' +
     'this confirms); imp-95562 (the raw tiling whose +0.243 is the overlap artifact).',
@@ -131,11 +131,11 @@ export const IMP96191_EMPIRICAL_LAG1_GUE_CONFIRMATION_GLOSSARY_HEADWORD_ASSERTIO
   },
   {
     id: 'imp96191-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96191_EMPIRICAL_LAG1_GUE_CONFIRMATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96191_EMPIRICAL_LAG1_GUE_CONFIRMATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96191_EMPIRICAL_LAG1_GUE_CONFIRMATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96191_EMPIRICAL_LAG1_GUE_CONFIRMATION_GLOSSARY_HEADWORD.verdict) &&
       IMP96191_EMPIRICAL_LAG1_GUE_CONFIRMATION_GLOSSARY_HEADWORD.glosses === 'imp-96171',
   },
 ];

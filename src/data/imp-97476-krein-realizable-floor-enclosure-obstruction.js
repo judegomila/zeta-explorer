@@ -49,7 +49,7 @@
  *   certified spectral-projection / Kato-Temple argument with rigorous a-priori localization of the
  *   top eigenvector), which the finite-section route cannot supply. Assessment only; no rigorous
  *   bound is promoted; scalar bound stays a negative floor; no operator positivity; no bound moves;
- *   interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open;
+ *   interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open;
  *   NO QED.
  *   SUB-GAP IMP97476_REALIZABLE_FLOOR_NEEDS_APRIORI_OPERATOR_UPPER_BOUND (finite sections give only
  *   a lower bracket; a rigorous floor below the bathtub 3065.435 needs an a-priori upper bound on
@@ -63,7 +63,7 @@
  *
  * Runner: tmp/imp-97476-tail-assess.py, tmp/imp-97476-bracket.py (numpy sinc-projector matrix,
  *   mpmath dps=30 symbol; T-sweep at h=0.01). Assessment only; NO QED.
- * Ticket: imp-97476 (numerical, medium, opus-4-8). Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Ticket: imp-97476 (numerical, medium, opus-4-8). Changes no bound; no refereed bound is changed.
  */
 
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

@@ -70,7 +70,7 @@
  * ACCURACY CROSS-VALIDATION ONLY. The component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33879-geometric-center-correction-endpoint-midpoint-offset (analytic Taylor factor, reproduced here)
  * @see imp-33901-geometric-center-correction-lower-decade-ladder (same factor on the lower 1e6..1e12 ladder)
@@ -197,7 +197,7 @@ export const IMP33903_GEOMETRIC_CENTER_DIRECT_FINITE_DIFFERENCE_REPRODUCTION = {
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33879 (analytic Taylor factor, reproduced here); imp-33901 (same factor on 1e6..1e12); ' +
     'imp-33900 (second-order Taylor tail); imp-33816 (pointwise gap_sigma ~ 1/(2 log T0)); ' +
@@ -230,13 +230,13 @@ export const IMP33903_GEOMETRIC_CENTER_DIRECT_FINITE_DIFFERENCE_REPRODUCTION_ASS
     holds: () => UNDERSHOOT_MIN > -5 && UNDERSHOOT_MAX < -3,
   },
   {
-    // Honesty gate: cross-validation only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: cross-validation only, no QED, no refereed bound is changed.
     id: 'imp33903-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33903_GEOMETRIC_CENTER_DIRECT_FINITE_DIFFERENCE_REPRODUCTION.isRigorous === false &&
       /NO QED/.test(IMP33903_GEOMETRIC_CENTER_DIRECT_FINITE_DIFFERENCE_REPRODUCTION.verdict) &&
-      /remains SOTA/.test(IMP33903_GEOMETRIC_CENTER_DIRECT_FINITE_DIFFERENCE_REPRODUCTION.verdict),
+      /refereed bound is changed/i.test(IMP33903_GEOMETRIC_CENTER_DIRECT_FINITE_DIFFERENCE_REPRODUCTION.verdict),
   },
 ];
 

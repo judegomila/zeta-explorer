@@ -58,7 +58,7 @@
  * weight is O(1), so a 40%-of-J term cannot be argued away as weight-suppressed.
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no
- * bound; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.
+ * bound; NO Lambda movement; no refereed bound is changed; NO QED.
  *
  * NO heavy imports. All figures baked as literals / recomputed from the eqs above.
  */
@@ -95,7 +95,7 @@ export const C_ODD_J_VARIATION_MAGNITUDE_ASSESSMENT = Object.freeze({
     + 'dI(1/20)=kappa-3/2=1.01069789 is ~40% of J. VERDICT: the constant-J null is NEITHER excluded '
     + '(one anchor) NOR defensible-as-negligible (40% of J at stake) -- kappa-as-curvature is '
     + 'uncertified at LEADING order; only the imp-95690 second-anchor Prop-6.3 re-run resolves it. '
-    + 'G irrationality OPEN; Sun unrefereed; changes no bound; PT Lambda<=0.2 SOTA; NO QED',
+    + 'G irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'Sun Prop 6.3 eqs (6.19)-(6.21) via imp-95690; anchor kappa via imp-95516/95637/95653',
 
@@ -143,7 +143,7 @@ export const C_ODD_J_VARIATION_MAGNITUDE_ASSESSMENT = Object.freeze({
     'Assessment + exact rho-free localization, not a Prop-6.3 re-derivation or a second-anchor '
     + 'computation. Uses only the exact telescoping integral and the carried anchor kappa. '
     + 'Catalan G irrationality OPEN; Sun single-author, unrefereed; NO Lambda movement; '
-    + 'PT Lambda<=0.2 SOTA; NO QED.',
+    + 'no refereed bound is changed; NO QED.',
 });
 
 export const C_ODD_J_VARIATION_MAGNITUDE_ASSERTIONS = Object.freeze([
@@ -167,10 +167,10 @@ export const C_ODD_J_VARIATION_MAGNITUDE_ASSERTIONS = Object.freeze([
       && C_ODD_J_VARIATION_MAGNITUDE_ASSESSMENT.verdict.defensibleAsNegligible === false,
   },
   {
-    name: 'honest: assessment only, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: assessment only, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       /G irrationality OPEN/.test(C_ODD_J_VARIATION_MAGNITUDE_ASSESSMENT.status)
-      && /PT Lambda<=0.2 SOTA/.test(C_ODD_J_VARIATION_MAGNITUDE_ASSESSMENT.status)
+      && /refereed bound is changed/i.test(C_ODD_J_VARIATION_MAGNITUDE_ASSESSMENT.status)
       && /NO QED/.test(C_ODD_J_VARIATION_MAGNITUDE_ASSESSMENT.status),
   },
 ]);

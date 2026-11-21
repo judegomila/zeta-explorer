@@ -54,7 +54,7 @@
  *   near-side slope, NOT an RH bound. Descriptive surrogate, NOT a rigorous asymptotic; the
  *   component model is the inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional
  *   per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- *   K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34570-eflow-attr-power-law-fit-eflow-slope-check.js (near-side fit, per-k slope -2.158629)
  *   @see imp-34572-eflow-attr-far-side-pole-smoothness.js (far-side rungs, local-slope drift)
@@ -184,7 +184,7 @@ export const IMP34589_EFLOW_ATTR_FAR_SIDE_SLOPE_CONTINUITY = {
     'rigorous asymptotic; the component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
 };
 
 export const IMP34589_ASSERTIONS = [
@@ -229,13 +229,13 @@ export const IMP34589_ASSERTIONS = [
       IMP34589_FAR_MINUS_NEAR_SIGMA < 20,
   },
   {
-    // Honesty gate: measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp-34589-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34589_EFLOW_ATTR_FAR_SIDE_SLOPE_CONTINUITY.isRigorous === false &&
       /NO QED/.test(IMP34589_EFLOW_ATTR_FAR_SIDE_SLOPE_CONTINUITY.honest) &&
-      /remains SOTA/.test(IMP34589_EFLOW_ATTR_FAR_SIDE_SLOPE_CONTINUITY.honest),
+      /refereed bound is changed/i.test(IMP34589_EFLOW_ATTR_FAR_SIDE_SLOPE_CONTINUITY.honest),
   },
 ];
 

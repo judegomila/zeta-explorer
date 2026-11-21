@@ -34,7 +34,7 @@
  * Dissipation (referee-corrected direction): along a real flow the dissipation is AT LEAST the conjugate-pair term (2ψ′(r)/r per pair) plus
  * the real-zero term; the cross terms G(D) ≥ 0 add more. None of this gives a backward-in-time or t = 0 statement.
  *
- * No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_21_ASSERTIONS recompute live: the velocity identity,
+ * No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_21_ASSERTIONS recompute live: the velocity identity,
  * exact heat flows of small polynomials (Durand–Kerner roots, warm-started) with conservation laws, Ky Fan majorization of y and x, a
  * non-quadratic saddle functional, Theorem B sums for p ∈ {0.25, 0.5, 1, 2, 4}, the G(0) identity, the height-1 count counterexample, the
  * isolated-pair law, and the isolated-pair estimate of the Lehmer-pair collision time.
@@ -85,7 +85,7 @@ export const ROUTE_21 = Object.freeze({
     + 'functionals are the saddle functions (complex case) and, for real polynomials, a log-convex family from Pólya\'s count to de Bruijn\'s max-Im '
     + 'bound. These are forward-only soft inequalities that hold for every polynomial heat flow, including ones with non-real zeros (the SL2 '
     + 'flow-blindness class); their dissipation is at least the conjugate-pair plus real-zero terms and gives no backward or t = 0 statement. '
-    + 'Nothing interval-certified. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'Nothing interval-certified. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_21;
@@ -182,7 +182,7 @@ export const ROUTE_21_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r21-honest-scope',
-    holds: () => R.status === 'done' && /flow-blindness/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict)
+    holds: () => R.status === 'done' && /flow-blindness/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict)
       && /no bound moves/.test(R.verdict) && /at least/.test(R.verdict) && R.refereeKilled.length === 6,
     why: 'Forward-only soft inequalities (SL2 class); dissipation direction corrected; no Λ change; no QED.',
   },

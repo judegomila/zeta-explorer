@@ -73,7 +73,7 @@
  * (the imp-33843 log-linear verdict is untouched). The component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the OLS surrogate is descriptive, not derived; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34153-trough-peak-perstep-crossover-locate (the quarter-decade bracket refined and nested here)
  * @see imp-34085-trough-peak-ratio-convergence (the half-decade per-step increments and original crossover bracket)
@@ -344,7 +344,7 @@ export const IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE = {
     'selection; the imp-33843 log-linear verdict is untouched. The OLS surrogate is descriptive, not derived; ' +
     'the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34153 (the quarter-decade bracket refined and nested here); imp-34085 (the half-decade per-step ' +
     'increments and original crossover bracket); imp-34154 (the argmin-relocation discretization question ' +
@@ -418,14 +418,14 @@ export const IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE_ASSERTIONS = [
       Math.abs(gapFitR2 - 0.978) < 0.02,
   },
   {
-    // Honesty gate: measurement only -- isRigorous false, log-linear form verdict untouched, no QED, PT SOTA,
+    // Honesty gate: measurement only -- isRigorous false, log-linear form verdict untouched, no QED, no refereed bound is changed,
     // imp-3066 K_a >= 0 untouched, C_mb GUE-conditional per imp-486 untouched.
     id: 'imp34234-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, imp-3066 K_a>=0 untouched, C_mb GUE-conditional untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, imp-3066 K_a>=0 untouched, C_mb GUE-conditional untouched',
     holds: () =>
       IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE.isRigorous === false &&
       /NO QED/.test(IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE.verdict) &&
-      /remains SOTA/.test(IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE.verdict) &&
+      /refereed bound is changed/i.test(IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE.verdict) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE.verdict),
   },

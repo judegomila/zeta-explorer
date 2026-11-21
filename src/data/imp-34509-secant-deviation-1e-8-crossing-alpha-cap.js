@@ -54,8 +54,7 @@
  * MEASUREMENT / THRESHOLD-LOCATION ONLY. Conditional-share diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34471-direct-secant-deviation-decay-law-fit (1e-6 crossing at 24.80, alpha drifts to 0.472)
  * @see imp-34410-complement-identity-direct-secant-crossvalidation (F3 named delta, tabulated 3 points)
@@ -224,7 +223,7 @@ export const IMP34509_SECANT_DEVIATION_1E8_CROSSING_ALPHA_CAP = {
     'open the log10 N ~ 29..35 window. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-34471 (1e-6 crossing at 24.80, alpha drifts up to 0.472, floor onset ~28); imp-34410 (F3 ' +
     'named delta); imp-33816 (full-sigma direct secant); imp-34130 (shared resid); imp-34492 ' +
@@ -263,15 +262,15 @@ export const IMP34509_SECANT_DEVIATION_1E8_CROSSING_ALPHA_CAP_ASSERTIONS = [
     holds: () => Math.abs(deltaFromLog10N(20) - 1.80e-4) < 5e-6,
   },
   {
-    // Honesty gate: measurement only, sub-gap named, no QED, PT SOTA.
+    // Honesty gate: measurement only, sub-gap named, no QED, no refereed bound is changed.
     id: 'imp34509-honesty-gate-no-qed',
-    description: 'Measurement only: not rigorous, EXTENDED-PRECISION sub-gap named, no QED, PT stays SOTA',
+    description: 'Measurement only: not rigorous, EXTENDED-PRECISION sub-gap named, no QED, no refereed bound is changed',
     holds: () =>
       IMP34509_SECANT_DEVIATION_1E8_CROSSING_ALPHA_CAP.isRigorous === false &&
       IMP34509_SECANT_DEVIATION_1E8_CROSSING_ALPHA_CAP.alphaReaches049 === false &&
       /EXTENDED-PRECISION-SECANT-ALPHA-CAP/.test(IMP34509_SECANT_DEVIATION_1E8_CROSSING_ALPHA_CAP.verdict) &&
       /NO QED/.test(IMP34509_SECANT_DEVIATION_1E8_CROSSING_ALPHA_CAP.verdict) &&
-      /remains SOTA/.test(IMP34509_SECANT_DEVIATION_1E8_CROSSING_ALPHA_CAP.verdict),
+      /refereed bound is changed/i.test(IMP34509_SECANT_DEVIATION_1E8_CROSSING_ALPHA_CAP.verdict),
   },
 ];
 

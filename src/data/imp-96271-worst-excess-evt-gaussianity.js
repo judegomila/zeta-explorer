@@ -34,8 +34,8 @@
  * Import-light: no zeros bundle, no sibling imports. The four imp-95562 per-height
  * literals (nWindows, maxPosExcess, sdDiscrepancy) are baked; the extreme-value
  * predictions are re-derived here from the closed forms above. Measurement only;
- * uses baked imp-95562 literals; changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated regardless.
+ * uses baked imp-95562 literals; changes no bound; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated regardless.
  * @see imp-95562-meansquare-vs-pointwise-gap (finding 2, the claim under test)
  */
 
@@ -104,7 +104,7 @@ export const IMP96271_WORST_EXCESS_EVT_GAUSSIANITY = {
     nHeights: ROWS.length,
   },
   verdict:
-    'The imp-95562 "Gaussian-tailed, no anomalous pointwise spikes" claim is SUPPORTED by an extreme-value comparison. At all six sample heights the observed worst excess worstSigma = maxPosExcess/sdDiscrepancy is consistent with the maximum of nWindows i.i.d. standard Gaussians: the deviation z = (worstSigma - E[max])/sd[max] lies in [-1.10, +1.85] Gumbel sd, so every height sits within +/-2 sd of its expected batch maximum. Five of six heights fall at or below the leading sqrt(2 ln n); the sole height above leading order (T = 1e4, n = 75, worstSigma = 3.26) is only +1.85 Gumbel sd above its expected max 2.46 -- a routine tail draw for a batch of 75, not an anomalous spike. No height exceeds the extreme-value prediction. Measurement only; uses baked imp-95562 literals; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated regardless.',
+    'The imp-95562 "Gaussian-tailed, no anomalous pointwise spikes" claim is SUPPORTED by an extreme-value comparison. At all six sample heights the observed worst excess worstSigma = maxPosExcess/sdDiscrepancy is consistent with the maximum of nWindows i.i.d. standard Gaussians: the deviation z = (worstSigma - E[max])/sd[max] lies in [-1.10, +1.85] Gumbel sd, so every height sits within +/-2 sd of its expected batch maximum. Five of six heights fall at or below the leading sqrt(2 ln n); the sole height above leading order (T = 1e4, n = 75, worstSigma = 3.26) is only +1.85 Gumbel sd above its expected max 2.46 -- a routine tail draw for a batch of 75, not an anomalous spike. No height exceeds the extreme-value prediction. Measurement only; uses baked imp-95562 literals; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated regardless.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -131,8 +131,8 @@ export const IMP96271_WORST_EXCESS_EVT_GAUSSIANITY = {
   // honesty gate: measurement, not a bound change
   if (!/NO QED/.test(IMP96271_WORST_EXCESS_EVT_GAUSSIANITY.verdict))
     throw new Error('imp-96271: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96271_WORST_EXCESS_EVT_GAUSSIANITY.verdict))
-    throw new Error('imp-96271: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96271_WORST_EXCESS_EVT_GAUSSIANITY.verdict))
+    throw new Error('imp-96271: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96271_WORST_EXCESS_EVT_GAUSSIANITY;

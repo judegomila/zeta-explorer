@@ -51,8 +51,7 @@
  * reconciles two recorded readings; asserts NO beat beyond the recorded (already-caveated)
  * imp-452/459 finite-height one; changes no bound; establishes no operator positivity;
  * C_mb stays GUE-conditional per imp-486; the imp-34791 E_trunc barrier-lemma
- * reclassification is UNCHANGED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * reclassification is UNCHANGED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35678-finite-height-beat-vs-parity-regime-boundary (the mechanical handoff this LOCATES)
  * @see imp-35723-beat-parity-regime-boundary-Nsigma-locator (SAME crossover, located by mapping the imp-35750
@@ -73,7 +72,7 @@ const TWO_PI = 2 * Math.PI;
 const E_TRUNC_PT = 3.06e-5; // N-independent fixed-strip route (imp-2631/imp-3220/imp-34791)
 const TC_A1_TRAP = 2.37e-4;
 const GRONWALL = Math.exp(1.0 * TC_A1_TRAP); // matches imp-35410/imp-35334/imp-35732 exactly
-const L_PT = 0.2; // Platt-Trudgian SOTA -- matched, not beaten
+const L_PT = 0.2; // Platt-Trudgian 2021 bound -- matched, not beaten
 const SIGMA_LANDMARK_SHALLOWEST = 1.0e-3; // imp-35334/imp-35677 shallowest far-tail landmark
 const N_LANDMARK_SHALLOWEST = 5.432e15; // imp-35334 N at sigma = 1e-3 (for decade comparison)
 
@@ -199,8 +198,8 @@ export const IMP35735_BEAT_PARITY_CROSSOVER_SIGMA_STAR_LOCATOR = {
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; this ' +
     'reconciles two recorded readings; asserts NO beat beyond the recorded (already-caveated) imp-452/459 ' +
     'finite-height one; changes no bound; establishes no operator positivity; C_mb GUE-conditional per ' +
-    'imp-486 UNTOUCHED; imp-34791 E_trunc reclassification UNCHANGED; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'imp-486 UNTOUCHED; imp-34791 E_trunc reclassification UNCHANGED; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35678 (finite-height beat vs parity mechanical handoff); imp-35677 (deep-tail E_coll share = sigma ' +
     'ladder); imp-35732 (parts()/bisection source, true E_flow N-scaling); imp-35334 (landmark ladder ' +
@@ -263,16 +262,16 @@ const IMP35735_ASSERTIONS = [
       parts(N_STAR * 10).sigma < SIGMA_STAR,
   },
   {
-    // Honesty gate: measurement only, reconciles two readings, GUE-conditional per imp-486, no QED, PT SOTA.
+    // Honesty gate: measurement only, reconciles two readings, GUE-conditional per imp-486, no QED, no refereed bound is changed.
     id: 'imp35735-honesty-gate-no-qed',
-    description: 'Measurement only: locates the imp-35678 crossover, C_mb GUE-conditional per imp-486, no beat, no QED, PT SOTA',
+    description: 'Measurement only: locates the imp-35678 crossover, C_mb GUE-conditional per imp-486, no beat, no QED, no refereed bound is changed',
     holds: () =>
       IMP35735_BEAT_PARITY_CROSSOVER_SIGMA_STAR_LOCATOR.isRigorous === false &&
       /crossover/.test(IMP35735_BEAT_PARITY_CROSSOVER_SIGMA_STAR_LOCATOR.verdict) &&
       /asserts NO beat beyond the recorded/.test(IMP35735_BEAT_PARITY_CROSSOVER_SIGMA_STAR_LOCATOR.verdict) &&
       /UNTOUCHED/.test(IMP35735_BEAT_PARITY_CROSSOVER_SIGMA_STAR_LOCATOR.verdict) &&
       /NO QED/.test(IMP35735_BEAT_PARITY_CROSSOVER_SIGMA_STAR_LOCATOR.verdict) &&
-      /remains SOTA/.test(IMP35735_BEAT_PARITY_CROSSOVER_SIGMA_STAR_LOCATOR.verdict),
+      /refereed bound is changed/i.test(IMP35735_BEAT_PARITY_CROSSOVER_SIGMA_STAR_LOCATOR.verdict),
   },
 ];
 

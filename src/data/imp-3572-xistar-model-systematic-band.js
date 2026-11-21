@@ -47,7 +47,7 @@
  *   spread is a faithful proxy, but this is an empirical measurement, not an analytic tail bound).
  *   It does NOT give xi* a closed form -- the imp-3470 stationarity equation stays transcendental.
  *   RH-EQUIVALENT; the imp-3066 off-diagonal endpoint-Hankel K_a >= 0 magnitude is the lone RH
- *   obstruction, UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *   obstruction, UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-3551-xistar-residual-band-sharpening.js (1e-9 quadrature band; scoped OUT NPHI/U)
  *   @see imp-3548-xistar-quadrature-scheme-invariance.js (extrapolation-free GL assembly reused)
@@ -238,7 +238,7 @@ export const IMP3572_XISTAR_MODEL_SYSTEMATIC_BAND = Object.freeze({
     'might be the larger source. The sharpened quote xi*_inf = 12.0666876100 +/- 1e-9 already bounds the total (NPHI, U) ' +
     'model uncertainty with three decades of headroom. Measurement only; does NOT prove the analytic NPHI/U continuum ' +
     'limit and gives NO closed form (imp-3470 equation stays transcendental). RH-equivalent; the imp-3066 K_a >= 0 ' +
-    'magnitude is the lone obstruction, UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'magnitude is the lone obstruction, UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     objective: 'sup_xi |P1(xi)|, P1 = dP/dxi, P(xi) = |Phihat(xi)|^2 = C^2 + S^2 (the peak slope behind ||Ttilde||)',
@@ -326,7 +326,7 @@ export const IMP3572_XISTAR_MODEL_SYSTEMATIC_BAND = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -374,7 +374,7 @@ export const IMP3572_XISTAR_MODEL_SYSTEMATIC_BAND_ASSERTIONS = [
     id: 'imp3572-honest-assessment-no-qed',
     why: 'Mandatory honesty: measures a discrete family not the analytic continuum limit, the band is empirical not ' +
       'analytic, the quadrature band is not re-derived, gives no closed form, measures the ratio not positivity, ' +
-      'RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3572_XISTAR_MODEL_SYSTEMATIC_BAND.honestCaveat;
       return (
@@ -385,7 +385,7 @@ export const IMP3572_XISTAR_MODEL_SYSTEMATIC_BAND_ASSERTIONS = [
         typeof c.measuresDiscreteFamilyNotContinuumLimit === 'string' &&
         typeof c.bandIsMeasuredNotAnalytic === 'string' &&
         typeof c.doesNotGiveClosedForm === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

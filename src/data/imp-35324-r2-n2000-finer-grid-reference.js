@@ -73,7 +73,7 @@
  *
  * SCOPE: MEASUREMENT ONLY. Does NOT advance the R2 ladder; does NOT extend the
  * C_mb certificate; does NOT remove the imp-486 GUE conditional; changes NO
- * bound. Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ * bound. No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2" and "2/diff" prose.
  *
@@ -196,7 +196,7 @@ export const IMP_35324_R2_N2000_FINER_GRID_REFERENCE = {
       'Does NOT advance the R2 ladder to N=2000 (clearance is a 6e-8 knife-edge, ' +
       'dt/2 cross-family gap nonzero); does NOT extend the C_mb certificate; does ' +
       'NOT remove the imp-486 GUE conditional; changes NO Lambda bound. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     subGap:
       'imp-35324-sub-n2000-marginal-clearance: robustly certifying R2 at N=2000 ' +
       'needs EITHER a still-finer grid (to drive the dt/2 cross-family gap back to ' +
@@ -285,7 +285,7 @@ export const IMP_35324_R2_N2000_FINER_GRID_REFERENCE_ASSERTIONS = [
       'razor-thin and the dt/2 cross-family agreement is not full-precision, the R2 ' +
       'ladder largest-N-robustly-certified STAYS at 1000 (NOT advanced to 2000) and ' +
       'a named sub-gap is recorded. C_mb stays GUE-conditional (imp-486); ' +
-      'Lambda <= 0.2 stays SOTA.',
+      'no refereed bound is changed.',
   },
   {
     // imp-35358: independent recompute of BOTH prose slack literals from the

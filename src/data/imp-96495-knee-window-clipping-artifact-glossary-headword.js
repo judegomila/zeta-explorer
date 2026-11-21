@@ -45,7 +45,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96464 verdict for quick
  *   reference. It establishes nothing, instantiates no interval, closes no
- *   sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-96464-sigma-knee-widened-grid-window-exit (source: the widened-grid re-measurement this glosses)
  * @see imp-96451-sigma-knee-etrunc-sensitivity (source: the F4 fixed-window non-resolution this corrects)
@@ -53,7 +53,7 @@
  * @see imp-96388-sigma-peak-vs-knee-cross-tabulation (knee sits ~0.015 log10 above the crossover)
  *
  * Ticket: imp-96495 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The window-clipping-artefact headword, baked verbatim
@@ -88,8 +88,8 @@ const KNEE_WINDOW_CLIPPING_ARTIFACT_HEADWORD = Object.freeze({
     'Measurement classification (window-resolution diagnostic), not a rigorous ' +
     'derivation. Changes no bound; the component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_H ' +
-    'isRigorousUpperBound remains false (imp-2642/imp-2701); PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'isRigorousUpperBound remains false (imp-2642/imp-2701); no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96495_KNEE_WINDOW_CLIPPING_ARTIFACT_GLOSSARY_HEADWORD = Object.freeze({
@@ -111,7 +111,7 @@ export const IMP96495_KNEE_WINDOW_CLIPPING_ARTIFACT_GLOSSARY_HEADWORD = Object.f
     'confirmed the elasticity match to the crossover survives off-window ' +
     '(~-0.9115 vs ~-0.9113), and located the precise low-edge exit at ' +
     'f* ~ 1.7847 (E_trunc ~ 5.461e-5). Establishes nothing; instantiates no ' +
-    'interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96464 (the widened-grid re-measurement this glosses, f* ~ 1.7847, ' +
     'E_trunc ~ 5.461e-5); imp-96451 (the fixed-window F4 finding this corrects, ' +
@@ -139,11 +139,11 @@ export const IMP96495_KNEE_WINDOW_CLIPPING_ARTIFACT_GLOSSARY_HEADWORD_ASSERTIONS
   },
   {
     id: 'imp96495-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96495_KNEE_WINDOW_CLIPPING_ARTIFACT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96495_KNEE_WINDOW_CLIPPING_ARTIFACT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96495_KNEE_WINDOW_CLIPPING_ARTIFACT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96495_KNEE_WINDOW_CLIPPING_ARTIFACT_GLOSSARY_HEADWORD.verdict) &&
       IMP96495_KNEE_WINDOW_CLIPPING_ARTIFACT_GLOSSARY_HEADWORD.glosses === 'imp-96464',
   },
 ];

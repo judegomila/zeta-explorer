@@ -47,7 +47,7 @@
  *   knee's floor band dwarfs by ~105x)
  *
  * Ticket: imp-124780 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The knee floor-fragility headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -80,8 +80,8 @@ const KNEE_FLOOR_FRAGILITY_HEADWORD = Object.freeze({
     'crossing; p_knee ~ -2.099 matches the imp-33708 far-tail exponent to <0.05 and is steeper than ' +
     'the imp-33684 peak exponent ~ -1.375; +/-10% floor band ~0.183 decades is ~105x the imp-33767 ' +
     'E_flow displacement. Naming / glossary headword only; supplies no new bound; the C_C 1/8 ansatz ' +
-    'and E_trunc/E_flow component model are untouched; RH open; Platt-Trudgian Lambda <= 0.2 remains ' +
-    'SOTA; NO QED.',
+    'and E_trunc/E_flow component model are untouched; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP124780_KNEE_FLOOR_FRAGILITY_GLOSSARY_HEADWORD = Object.freeze({
@@ -102,7 +102,7 @@ export const IMP124780_KNEE_FLOOR_FRAGILITY_GLOSSARY_HEADWORD = Object.freeze({
     '(coordinate-fragile), matching the imp-33708 far-tail halving-landmark exponent rather than ' +
     'the softer imp-33684 interior-peak exponent, with a +/-10% floor band ~105x the imp-33767 ' +
     'E_flow displacement. No bound moved; the component model and all pinned surrogate constants ' +
-    'are untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'are untouched; NO QED. No refereed bound is changed.',
   citation:
     'imp-97822 (the floor-elasticity fit this glosses); imp-97708 (the bracketing-free pointwise ' +
     'knee at baseline floor, log10 N* = 9.5291); imp-33708 (the E_trunc floor sweep and far-tail ' +
@@ -132,11 +132,11 @@ export const IMP124780_KNEE_FLOOR_FRAGILITY_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp124780-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97822.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97822.',
     holds: () =>
       IMP124780_KNEE_FLOOR_FRAGILITY_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124780_KNEE_FLOOR_FRAGILITY_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124780_KNEE_FLOOR_FRAGILITY_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124780_KNEE_FLOOR_FRAGILITY_GLOSSARY_HEADWORD.verdict) &&
       IMP124780_KNEE_FLOOR_FRAGILITY_GLOSSARY_HEADWORD.glosses === 'imp-97822',
   },
 ];

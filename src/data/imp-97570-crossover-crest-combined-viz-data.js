@@ -15,8 +15,8 @@
  * PRESENTATION ONLY. Reuses IMP97441_XSTAR_TABLE / IMP97441_BINDEPENDENCE and
  * IMP97459_CREST_TABLE / IMP97459_CRESTS / IMP97459_STEP / IMP97459_SCALE
  * verbatim; no re-solve. Establishes no operator positivity; changes no
- * bound; the rigorous anchor stays T = 2.594e7; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; RH open; NO QED.
+ * bound; the rigorous anchor stays T = 2.594e7; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97441-route-m-crossover-fraction-tolerance-table.js (x*(eps) table, b-independence, curvature fit)
  * @see imp-97459-route-m-bimodal-1pct-crossover-peaks.js (crest table, step point, A(b) scale)

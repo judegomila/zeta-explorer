@@ -65,7 +65,7 @@
  * moves the terminal-slice constants, so the tail needs its own certificate --
  * it is not inherited from the 0.14 tail. This module characterizes the lane and
  * names the sub-gap; it proves nothing new. Changes no bound; closes no gap;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 import { ROW_01399_DECISION, GATE2_ROW } from './imp-95012-gate2-frozen-spec.js';
@@ -191,7 +191,7 @@ export const IMP95047_DIRECTED_TAIL = Object.freeze({
     'architecture and height verification but not the certificate. It is independent of ' +
     'the Gate-2 open family and of the slab lane, but none of the four proof requirements ' +
     'is discharged by the frozen spec, so it is a target, not a result. Changes no bound; ' +
-    'closes no gap; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'closes no gap; NO QED; no refereed bound is changed.',
 });
 
 // ── assertions (self-executing; import-light; throw on violation) ───────────
@@ -250,7 +250,7 @@ export const IMP95047_DIRECTED_TAIL_ASSERTIONS = [
   },
   {
     id: 'imp95047-independent-conditional-no-qed',
-    description: 'the tail lane is an independent conditional target: no bound, not rigorous, sub-gap named, PT stays SOTA',
+    description: 'the tail lane is an independent conditional target: no bound, not rigorous, sub-gap named, no refereed bound is changed',
     holds: () =>
       IMP95047_DIRECTED_TAIL.independentOfOpenFamily === true &&
       IMP95047_DIRECTED_TAIL.independentOfSlabLane === true &&
@@ -259,7 +259,7 @@ export const IMP95047_DIRECTED_TAIL_ASSERTIONS = [
       TAIL_HYPOTHESIS.presupposesOpenFamily === false &&
       IMP95047_DIRECTED_TAIL.namedSubGap === 'imp-95047-sub-directed-tail-nonvanishing-certificate' &&
       /NO QED/.test(IMP95047_DIRECTED_TAIL.verdict) &&
-      /remains SOTA/.test(IMP95047_DIRECTED_TAIL.verdict),
+      /refereed bound is changed/i.test(IMP95047_DIRECTED_TAIL.verdict),
   },
 ];
 

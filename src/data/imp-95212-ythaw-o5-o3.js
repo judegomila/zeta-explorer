@@ -17,7 +17,7 @@
  *
  * Changes no bound. O1 (all-y transfer), O2 (barrier/winding), O4 (tail),
  * O6 (assembly) remain OPEN; 0.17759432 stays a package value, not a bound.
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * Scripts (formalization/y-thaw-01775943/):
  *  verify_o5_site_coverage.py  sha256 484c5bf52b75dee8a9ce4d8d3c90ae28f366af63cd549f359d80c76053d9c2db

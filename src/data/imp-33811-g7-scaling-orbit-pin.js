@@ -51,8 +51,8 @@
  *   measured ||R|| carries NO RH verdict. The physically-pinned s is NOT located: the
  *   scaling-orbit constraint is a symmetry and cannot pin s; the pin reduces to the still-open
  *   residual GAP-G7-SMIN. K_a >= 0 is NOT attempted. imp-3066 / imp-33704 / imp-33725 / imp-33765 /
- *   imp-33787 / G7 are UNTOUCHED as a proof. Platt-Trudgian Lambda &lt;= 0.2 REMAINS the rigorous
- *   SOTA. No false QED.
+ *   imp-33787 / G7 are UNTOUCHED as a proof. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see imp-33787-g7-perron-lower-bound.js (imp-33787: names the residual this addresses)
  *   @see imp-33765-g7-obstruction-orthogonal-lever.js (imp-33765: derives the s one-dimensionality / orbit)
@@ -251,8 +251,8 @@ export const IMP33811_G7_SCALING_ORBIT_PIN = Object.freeze({
     '3.017..4.822, all admissible). MEASURED at the imp-33792 representative anchor a*U = 3: ' +
     '||R|| = 4.61701368 (midpoint; spectral 4.61701367541). The pin reduces EXACTLY to the ' +
     'still-open residual GAP-G7-SMIN (section-26 provenance of a*U). Diagnostic; K_a >= 0 NOT ' +
-    'attempted; imp-3066 / imp-33765 / imp-33787 / G7 untouched; NO QED; Platt-Trudgian ' +
-    'Lambda &lt;= 0.2 remains SOTA.',
+    'attempted; imp-3066 / imp-33765 / imp-33787 / G7 untouched; NO QED; no refereed bound is changed' +
+    '.',
 
   honestCaveat:
     'HONEST PARTIAL. STRUCTURAL / DIAGNOSTIC on the SAME representative monomial truncation as ' +
@@ -260,8 +260,8 @@ export const IMP33811_G7_SCALING_ORBIT_PIN = Object.freeze({
     'measured ||R|| carries NO RH verdict. The physically-pinned s is NOT located: the ' +
     'scaling-orbit constraint is a symmetry and cannot pin s; the pin reduces to the still-open ' +
     'residual GAP-G7-SMIN. The K_a >= 0 positivity step is NOT attempted. imp-3066 / imp-33704 / ' +
-    'imp-33725 / imp-33765 / imp-33787 / G7 are UNTOUCHED as a proof. Platt-Trudgian ' +
-    'Lambda &lt;= 0.2 REMAINS the rigorous SOTA. No false QED.',
+    'imp-33725 / imp-33765 / imp-33787 / G7 are UNTOUCHED as a proof. No refereed bound is changed' +
+    '. No false QED.',
 });
 
 // -- Self-executing tripwire assertions (run at import; mirror the imp-33787 family gate style) ---
@@ -295,11 +295,11 @@ if (
   throw new Error('imp-33811 tripwire: the still-open residual GAP-G7-SMIN was not named / re-attributed');
 }
 
-// 6. Honesty gate: HONEST PARTIAL, no RH verdict / no QED, K_a >= 0 not attempted, SOTA preserved.
+// 6. Honesty gate: HONEST PARTIAL, no RH verdict / no QED, K_a >= 0 not attempted, no refereed bound is changed.
 if (
   !A.honestCaveat.includes('HONEST PARTIAL') ||
   !A.honestCaveat.includes('K_a >= 0 positivity step is NOT attempted') ||
-  !A.honestCaveat.includes('Lambda &lt;= 0.2')
+  !A.honestCaveat.includes('efereed bound is changed')
 ) {
   throw new Error('imp-33811 tripwire: honesty gate text weakened');
 }

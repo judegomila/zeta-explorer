@@ -17,7 +17,7 @@
  * ASSESSMENT ONLY. Ports nothing; discharges nothing; changes no bound; establishes
  * no operator positivity; C_mb GUE-conditional (imp-486) UNTOUCHED; the imp-34791
  * E_trunc barrier-lemma reclassification UNCHANGED; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * THE BAKED LANDMARK (imp-35334 sigma < 1e-3 reference literals; no heavy import)
  * -----------------------------------------------------------------------------
@@ -97,7 +97,7 @@ const SIGMA_LANDMARK = 1.0e-3; // GUE-conditional share = sigma at the imp-35334
 const GUE_CONDITIONAL_SHARE = 1.0e-3; // (E_coll)/E(N) = sigma (imp-486 C_mb / C_H)
 const CT_BARRIER_SHARE = 0.999; // (E_trunc)/E(N) sigma-blind DOMINANT (imp-34791 unported barrier lemma)
 const UNCONDITIONAL_SHARE_PREPORT = 5.655e-9; // (E_flow)/E(N) already discharged (imp-398)
-const L_PT = 0.2; // Platt-Trudgian SOTA -- the value the ported bridge MATCHES, not beats
+const L_PT = 0.2; // Platt-Trudgian 2021 bound -- the value the ported bridge MATCHES, not beats
 
 // POST-PORT: S_barrier discharges the dominant C_T-barrier share to unconditional (imp-35419 C1).
 const UNCONDITIONAL_SHARE_POSTPORT = CT_BARRIER_SHARE + UNCONDITIONAL_SHARE_PREPORT; // ~0.999000006 = 1 - sigma
@@ -193,7 +193,7 @@ export const IMP35654_PORTED_BARRIER_FAR_TAIL_MIXED_CONDITIONALITY = {
     '(imp-35419 C2), so the ported bridge MATCHES Lambda <= 0.2, it does NOT beat it. Ports nothing; ' +
     'discharges nothing; changes no bound; establishes no operator positivity; C_mb GUE-conditional per ' +
     'imp-486 UNTOUCHED; imp-34791 E_trunc reclassification UNCHANGED; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35419 (port yields unconditional-parity-with-PT; item iii / Part C); imp-35334 (pre-port TWO ' +
     'orthogonal conditionalities; sigma<1e-3 landmark shares); imp-34791 (E_trunc = unported barrier ' +
@@ -235,9 +235,9 @@ export const IMP35654_PORTED_BARRIER_FAR_TAIL_MIXED_CONDITIONALITY_ASSERTIONS = 
       Math.abs(L_PT - 0.2) < 1e-15, // parity-with-PT: the value the port MATCHES, not beats
   },
   {
-    // Honesty gate: assessment only, GUE-conditional per imp-486, no QED, PT stays SOTA.
+    // Honesty gate: assessment only, GUE-conditional per imp-486, no QED, no refereed bound is changed.
     id: 'imp35654-honesty-gate-no-qed',
-    description: 'Assessment only: C_mb GUE-conditional (imp-486) UNTOUCHED, parity-not-beat, no QED, PT SOTA',
+    description: 'Assessment only: C_mb GUE-conditional (imp-486) UNTOUCHED, parity-not-beat, no QED, no refereed bound is changed',
     holds: () =>
       IMP35654_PORTED_BARRIER_FAR_TAIL_MIXED_CONDITIONALITY.isRigorous === false &&
       /UNCONDITIONAL UP TO A VANISHING GUE-CONDITIONAL SHARE/.test(
@@ -246,7 +246,7 @@ export const IMP35654_PORTED_BARRIER_FAR_TAIL_MIXED_CONDITIONALITY_ASSERTIONS = 
       /PARITY-WITH-PT/.test(IMP35654_PORTED_BARRIER_FAR_TAIL_MIXED_CONDITIONALITY.verdict) &&
       /does NOT beat it/.test(IMP35654_PORTED_BARRIER_FAR_TAIL_MIXED_CONDITIONALITY.verdict) &&
       /NO QED/.test(IMP35654_PORTED_BARRIER_FAR_TAIL_MIXED_CONDITIONALITY.verdict) &&
-      /remains SOTA/.test(IMP35654_PORTED_BARRIER_FAR_TAIL_MIXED_CONDITIONALITY.verdict),
+      /refereed bound is changed/i.test(IMP35654_PORTED_BARRIER_FAR_TAIL_MIXED_CONDITIONALITY.verdict),
   },
 ];
 
@@ -347,7 +347,7 @@ export const IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION = {
     'candidate legitimately privileges the other for this arithmetic; both are the same vestigial count ' +
     'artifact (imp-35653 W4 retires either to exactly zero). Changes no bound; C_mb GUE-conditional ' +
     '(imp-486) UNTOUCHED; imp-34791 E_trunc reclassification UNCHANGED; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35654 (far-tail mixed-conditionality landmark shares); imp-35334 (sigma<1e-3 landmark, baked on ' +
     'the 3.06e-5 floor); imp-2631 (clean count floor 3.06e-5); imp-34791 (E_trunc R2 parts-correction ' +
@@ -401,15 +401,15 @@ export const IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION_ASSERTIONS = [
     holds: () => Math.abs(SHARES_CLEAN.unconditional - UNCONDITIONAL_SHARE_PREPORT) < 1e-11,
   },
   {
-    // Honesty gate: reconciliation only, immaterial to the decomposition, no bound change, no QED, PT SOTA.
+    // Honesty gate: reconciliation only, immaterial to the decomposition, no bound change, no QED, no refereed bound is changed.
     id: 'imp35702-honesty-gate-no-qed',
-    description: 'Reconciliation only: E_trunc choice IMMATERIAL to the landmark shares, no bound change, no QED, PT SOTA',
+    description: 'Reconciliation only: E_trunc choice IMMATERIAL to the landmark shares, no bound change, no QED, no refereed bound is changed',
     holds: () =>
       IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION.isRigorous === false &&
       /IMMATERIAL to the landmark decomposition/.test(IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION.verdict) &&
       /Changes no bound/.test(IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION.verdict) &&
       /NO QED/.test(IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION.verdict),
   },
 ];
 
@@ -435,7 +435,7 @@ for (const a of IMP35702_ETRUNC_LANDMARK_SHARE_RECONCILIATION_ASSERTIONS) {
 //   conditionalityDecomposition.share_sum                 = 1.000000000000
 // All four baked constants match the source to storage tolerance and the three shares sum
 // to 1: the copied literals are NOT stale. VERIFICATION ONLY; no bound change; NO QED;
-// Platt-Trudgian Lambda <= 0.2 remains SOTA.
+// no refereed bound is changed.
 const IMP35334_SOURCE_N_LANDMARK = 5.432329825e15; // imp-35334 landmark.N_0001
 const IMP35334_SOURCE_GUE_SHARE = 1.0e-3; // imp-35334 GUE_conditional_E_coll (= sigma)
 const IMP35334_SOURCE_CT_SHARE = 0.998999994; // imp-35334 C_T_barrier_lemma_E_trunc (rounds to 0.999000)
@@ -468,8 +468,8 @@ export const IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION = {
     '(the 0.999 and 5.655e-9 literals are the source values rounded to display precision), and the three ' +
     'pre-port shares sum to 1 (~1.000000005655, the ~5.7e-9 excess being the 0.999 baked rounding). The ' +
     'copied constants are NOT STALE. Changes no bound; C_mb GUE-conditional (imp-486) UNTOUCHED; ' +
-    'imp-34791 E_trunc reclassification UNCHANGED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'imp-34791 E_trunc reclassification UNCHANGED; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35654 (baked sigma<1e-3 landmark shares); imp-35334 (source landmark shares; parts()+bisection); ' +
     'imp-486 (C_mb GUE-conditional); imp-398 (E_flow fully unconditional); imp-34791 (E_trunc barrier lemma).',
@@ -501,15 +501,15 @@ export const IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION_ASSERTIONS = [
     holds: () => Math.abs(IMP35703_PREPORT_THREE_SHARE_SUM - 1) < 1e-7,
   },
   {
-    // Honesty gate: verification only, not stale, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: verification only, not stale, no bound change, no QED, no refereed bound is changed.
     id: 'imp35703-honesty-gate-no-qed',
-    description: 'Verification only: baked literals NOT STALE, no bound change, no QED, PT SOTA',
+    description: 'Verification only: baked literals NOT STALE, no bound change, no QED, no refereed bound is changed',
     holds: () =>
       IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION.isRigorous === false &&
       /NOT STALE/.test(IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION.verdict) &&
       /Changes no bound/.test(IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION.verdict) &&
       /NO QED/.test(IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION.verdict) &&
-      /remains SOTA/.test(IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION.verdict),
+      /refereed bound is changed/i.test(IMP35703_BAKED_LANDMARK_CROSS_VERIFICATION.verdict),
   },
 ];
 

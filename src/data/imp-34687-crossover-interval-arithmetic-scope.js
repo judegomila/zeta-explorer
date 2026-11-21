@@ -67,7 +67,7 @@
  * crossover, NOT a rigorous asymptotic and NOT an RH bound. C_C = (1/8) sqrt(3 pi) 1/8 ansatz
  * (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0
  * untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34650-crossover-banach-contraction-certificate (L-contraction certificate; sub-gap imp-34650a)
  * @see imp-34675-crossover-contraction-left-edge (closed-form left edge N_star; sub-gap imp-34675a)
@@ -215,7 +215,7 @@ export const IMP34687_CROSSOVER_INTERVAL_ARITHMETIC_SCOPE = {
     'lacks directed rounding). This scopes an enclosure of a property of the inherited imp-3220/imp-3406 ' +
     'surrogate crossover map, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643) and the ' +
     'C_mb GUE-conditional per imp-486 are UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34650 (Banach contraction certificate on I = [1e9, 1e10]; sub-gap imp-34650a); imp-34675 ' +
     '(closed-form left edge N_star; sub-gap imp-34675a); imp-34676 (right-widening; sub-gap imp-34676a); ' +
@@ -267,14 +267,14 @@ export const IMP34687_CROSSOVER_INTERVAL_ARITHMETIC_SCOPE_ASSERTIONS = [
       G_A_MID <= G_A_HI,
   },
   {
-    // Honesty gate: scope/surrogate of an enclosure, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: scope/surrogate of an enclosure, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34687-honesty-gate-no-qed',
-    description: 'Scope only: isRigorous false, named sub-gap imp-34687a, no QED, Platt-Trudgian stays SOTA',
+    description: 'Scope only: isRigorous false, named sub-gap imp-34687a, no QED, no refereed bound is changed',
     holds: () =>
       IMP34687_CROSSOVER_INTERVAL_ARITHMETIC_SCOPE.isRigorous === false &&
       /imp-34687a/.test(IMP34687_CROSSOVER_INTERVAL_ARITHMETIC_SCOPE.subGap) &&
       /NO QED/.test(IMP34687_CROSSOVER_INTERVAL_ARITHMETIC_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP34687_CROSSOVER_INTERVAL_ARITHMETIC_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP34687_CROSSOVER_INTERVAL_ARITHMETIC_SCOPE.verdict),
   },
 ];
 

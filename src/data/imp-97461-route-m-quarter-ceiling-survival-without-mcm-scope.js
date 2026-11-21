@@ -6,7 +6,7 @@
  * b/4 ceiling SURVIVES, without formalizing the argument that REPLACES MCM for omega >= 11. imp-97422 had
  * reduced BOTH b/4-ceiling conditions at omega >= 4 to MCM. This leaf scopes the survival: which of the two
  * ceiling conditions actually needed MCM, whether the failing tower differences threaten the ceiling, and the
- * precise replacement lemma. No bound moves; kappa_arith unchanged; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * precise replacement lemma. No bound moves; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.
  *
  *   Notation (imp-97290 / imp-97422 / imp-97432): for squarefree b, E1(b) = mu(b)(b/4) + Delta(b),
  *   Delta(b) = mu(b) b S(b), S(b) = Sum_{e|b, e>1} mu(e) h(e), h(m) = g(m)/m, g(1) = 1/4,
@@ -86,7 +86,7 @@
  * (|T(p_11#)| = 9.6e-4, primorial limit -0.04577). The replacement for MCM is the strictly weaker two-sided
  * extremizer statement (RL-U)+(RL-L): S(b) < 0 uniformly and the primorial infimum -e^{-gamma}/12 in
  * (-1/4, 1/4). kappa_arith unchanged; cotangent first moment (imp-97097) stays open; no bound on Lambda moves;
- * PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (MCM refuted at omega=11; ceiling asserted safe)
  * @see imp-97422-route-m-quarter-ceiling-omega4-multiplicative-difference-reduction.js (both edges reduced to MCM)
@@ -189,7 +189,7 @@ export const IMP97461_VERDICT = Object.freeze({
     'for MCM is the strictly weaker TWO-SIDED EXTREMIZER statement: (RL-U) S(b) < 0 uniformly (T < 1/4) and ' +
     '(RL-L) the primorial infimum -e^{-gamma}/12 lies in (-1/4, 1/4). No non-negativity and no order-by-order ' +
     'induction is needed for the ceiling. kappa_arith unchanged; cotangent first moment (imp-97097) open; no ' +
-    'bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97461_SUBGAP = Object.freeze({
@@ -207,7 +207,7 @@ export const IMP97461_SUBGAP = Object.freeze({
 });
 
 export const IMP97461_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Scoping the MCM-free survival of the b/4 ceiling ' +
+  'RH open; no refereed bound is changed; NO QED. Scoping the MCM-free survival of the b/4 ceiling ' +
   '(imp-97432 refuted MCM at omega=11 but asserted the ceiling holds): |T(b)| <= 1/4 is TWO one-sided edges ' +
   'living in DISJOINT regimes. UPPER T <= 1/4 is extremized in the all-large-prime MCM-safe regime (refutation ' +
   'IRRELEVANT); LOWER T >= -1/4 is the primorial regime where MCM died -- its imp-97422 proof (T >= 0) is ' +
@@ -275,7 +275,7 @@ const IMP97461_ASSERTIONS = [
       IMP97461_VERDICT.mcmStrictlyStrongerThanBothEdges === true &&
       /lower-edge-primorial-extremizer/.test(IMP97461_SUBGAP.id) &&
       /NO QED/.test(IMP97461_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97461_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97461_HONEST_BANNER) &&
       /RH open/.test(IMP97461_HONEST_BANNER),
     why: 'scoping / honest assessment -- decomposes the ceiling into two disjoint-regime edges and names RL-L as the operative MCM replacement; no bound moved, no rigorous full ceiling, no QED.',
   },

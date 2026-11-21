@@ -5,7 +5,7 @@
  * the one un-run lead whose external source is MODULAR (an SL₂(ℤ) transformation law) rather than the
  * explicit-formula prime side every other route reduces to. Import-free; holds() assertions; literals baked from
  * tmp/rh-route-m/m1..m6 (mpmath 30–40 digits for the closed form / reciprocity / d_N cross-check, numpy float64
- * for the N = 500 Gram; every run < 4 min). NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
+ * for the N = 500 Gram; every run < 4 min). NOT a bound; no refereed bound is changed; RH open; NO QED.
  *
  * SETTING (Báez-Duarte 2003, Lincei 14): ρ_k(x) = {1/(kx)} in L²(0,∞), χ = χ_(0,1]; RH ⟺ d_N → 0 with
  *   d_N² = min_c ‖χ − Σ_{k≤N} c_k ρ_k‖² = 1 − bᵀG⁻¹b,  b_k = ⟨χ,ρ_k⟩ = (log k + 1 − γ)/k.
@@ -222,7 +222,7 @@ export const ROUTE_M_VERDICT = Object.freeze({
   }),
   preciseWall: 'an UNCONDITIONAL evaluation of the Möbius-weighted double cotangent sum Σ_{h,k≤N} μ(h)μ(k)w_hw_k·gcd·V(h′/k′)/(hk) to o(1) precision would give d_N → 0 (BCF/Burnol), i.e. RH itself; the reciprocity reduces each summand to continued-fraction data of h̄/k but the μ(h)μ(k)-weighted equidistribution of that data is the Kloosterman/Estermann problem in the regime (T = O(1), N → ∞) where square-root cancellation does not suffice',
   nextStep: 'none for RH via Route M. The only non-perturbative object left is the double cotangent sum above, which is RH-equivalent to o(1) precision. Route M joins J, K, L in the wall map: wall = mollifier / Estermann-FE (a symmetry-forced input), entered through the Nyman–Beurling weight 1/(¼+t²).',
-  honest: 'Nothing here is a bound or a proof. The Vasyunin Gram, its d_N ladder, the reciprocity transcription and the depth-truncation test are numerical facts at N ≤ 500 (plus 30–40-digit mpmath for the closed form and the reciprocity); the collapse identification rests on Bettin–Conrey’s own §2–4 and on the Mellin identity. PT Λ≤0.2 SOTA; RH open; NO QED.',
+  honest: 'Nothing here is a bound or a proof. The Vasyunin Gram, its d_N ladder, the reciprocity transcription and the depth-truncation test are numerical facts at N ≤ 500 (plus 30–40-digit mpmath for the closed form and the reciprocity); the collapse identification rests on Bettin–Conrey’s own §2–4 and on the Mellin identity. No refereed bound is changed; RH open; NO QED.',
   scripts: Object.freeze(['tmp/rh-route-m/m1-vasyunin-validate.py', 'tmp/rh-route-m/m2-gram-dn.py', 'tmp/rh-route-m/m3-mp-check.py', 'tmp/rh-route-m/m4-reciprocity.py', 'tmp/rh-route-m/m5-structure.py', 'tmp/rh-route-m/m6-mellin-identity.py']),
 });
 

@@ -33,8 +33,7 @@
  * imp-36034, imp-36050, imp-36070, imp-36109, ...) specifically to catch orphans like this before
  * they accumulate silently.
  *
- * Meta finding only; no bound touched; no new measurement; NO QED. Platt-Trudgian
- * Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * Meta finding only; no bound touched; no new measurement; NO QED. No refereed bound is changed.
  *
  * @see imp-36034-imp3596x97x-registration-reachability-audit (the audit that discovered and fixed this orphan)
  * @see imp-35969-krawczyk-residual-directed-rounding-width (the module that was orphaned, now registered)
@@ -76,7 +75,7 @@ export const IMP36129_ORPHANED_MODULE_REGISTRATION_AUDIT_HONEST_STATUS = {
     'imported or DATA_MODULES-registered, hence never executed by `npm run assert`) and names ' +
     'the direct/transitive/orphaned registration-audit method as the standing guard against ' +
     'recurrence. No code change here beyond this record. Changes no bound; establishes no ' +
-    'operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-36034-imp3596x97x-registration-reachability-audit (discovery and fix); ' +
     'imp-35982/imp-35905/imp-35986 (registration-audit method precedents); ' +
@@ -110,11 +109,11 @@ export const IMP36129_ORPHANED_MODULE_REGISTRATION_AUDIT_HONEST_STATUS_ASSERTION
   },
   {
     id: 'imp36129-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36129_ORPHANED_MODULE_REGISTRATION_AUDIT_HONEST_STATUS.isRigorous === false &&
       /NO QED/.test(IMP36129_ORPHANED_MODULE_REGISTRATION_AUDIT_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(IMP36129_ORPHANED_MODULE_REGISTRATION_AUDIT_HONEST_STATUS.verdict),
+      /refereed bound is changed/i.test(IMP36129_ORPHANED_MODULE_REGISTRATION_AUDIT_HONEST_STATUS.verdict),
   },
 ];
 

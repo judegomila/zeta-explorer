@@ -186,7 +186,7 @@ export const R6_SYNTHESIS = Object.freeze({
     + 'with rounding slacks fixed at source, 337 floors, E1-E8 0 failures, replay 39/39 + 13/13), conditional on the shared inputs and on '
     + 'single-implementation engines with internal referee passes only. Lambda < 0.145 is NOT certified: 0.144797588795775 needs WOL-C for '
     + '369 P47 floors; with the implemented engines route P stops at about 0.14502 (measured). Route H gives 0.144951726247781 for '
-    + '5.68e6 paid core-hours plus G0-d′ at 1.6X. Nothing is proved unconditionally below 0.2. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + '5.68e6 paid core-hours plus G0-d′ at 1.6X. Nothing is proved unconditionally below 0.2. No refereed bound is changed. RH open. NO QED.',
 });
 
 const R = R6_SYNTHESIS;
@@ -290,7 +290,7 @@ export const R6_SYNTHESIS_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r6-syn-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && /NOT certified/.test(R.verdict) && /NOT PROVED/.test(R.verdict)
+    holds: () => /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && /NOT certified/.test(R.verdict) && /NOT PROVED/.test(R.verdict)
       && /Nothing is proved unconditionally below 0\.2/.test(R.verdict) && /NO QED/.test(R.status) && /REFUTED/.test(R.verdict) && /user decision/.test(R.routes.recommendation),
     why: 'No bound below 0.2 is proved; Λ < 0.145 not certified; fiber refuted; spending left to the user; RH open.',
   },

@@ -32,7 +32,7 @@
  *  band values also Lemma B incl. BB1/BB2, FLINT window, MTY, H2, U2). MEASURED: Kronecker gaps, outer-lemma sampling, robustness.
  *  HEURISTIC: the cos ≥ 0.3 selection rule (decides S, does not validate a floor); Kronecker reference values (float ascents).
  * Verdict: below 0.145 at PT floor height only with the band and only conditionally; without the band 0.146147 (not below 0.145).
- *  PT Lambda <= 0.2 stands. RH open. NO QED.
+ *  No refereed bound is changed. RH open. NO QED.
  * Files: tmp/r2-floor-{cert*,batch*,ccp,consume,consume-shift,adapt-*,outer-*,kron-compare}.py, tmp/r2-floor-c/, tmp/r2-floor-out/,
  *  referee tmp/r2-refF-*.py, tmp/r2-refF-out/ (corrected/, corrected_m0023/, CONSUME_slopefix*.json); /tmp/r2-floor-archive/ (volatile).
  * Import-free. ASSERTIONS recompute the rationals and margins, the slope-fix shifts, the robustness ladder, the gap-closing shares, the
@@ -95,7 +95,7 @@ export const R2_STRUCTURED_FLOOR = Object.freeze({
     'Λ < 0.145 at PT floor height holds only conditionally: 0.144505784802732 with the two-band stack (slope-fixed), conditional on the outer '
     + 'lemma, the time-box zero-freeness step (or its 0.0023 allowance: 0.144544975039788), Raymond’s chain G0, the multi-height consumer and the '
     + 'band inputs (Lemma B with BB1/BB2 not proved, FLINT window, MTY, H2, U2). Without the band 0.146147388063520. A weak outer lemma with margin '
-    + '0.02 is enough (0.1448843462793 with the time-box allowance). PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + '0.02 is enough (0.1448843462793 with the time-box allowance). No refereed bound is changed. RH open. NO QED.',
   nextStep:
     'Certify the weak outer lemma sup Φ ≤ Φ(0) + 0.02 on the 635 band-path entries (second-order Taylor box bounds near θ_S = 0 plus coarse '
     + 'global bounds, P47 late cells first) or prove a monotonicity lemma for cos-positive prime sets; write the time-box lemma or re-run the floors '
@@ -166,7 +166,7 @@ export const R2_STRUCTURED_FLOOR_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r2-floor-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(F.verdict) && /NO QED/.test(F.verdict) && /only conditionally/.test(F.verdict)
+    holds: () => /refereed bound is changed/i.test(F.verdict) && /NO QED/.test(F.verdict) && /only conditionally/.test(F.verdict)
       && /outer lemma unproved/.test(F.status) && /NO QED/.test(F.status),
     why: 'Sub-0.145 value conditional on an unproved outer lemma and unrefereed band inputs; no bound below 0.2 proved.',
   },

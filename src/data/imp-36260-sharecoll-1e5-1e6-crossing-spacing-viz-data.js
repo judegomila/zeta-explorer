@@ -41,7 +41,7 @@
  * deeper crossing heights; reuses the pinned imp-3406 / imp-33582 constants and the imp-35889
  * sub-terms unchanged; derives no remainder; discharges nothing; changes no bound; C_C
  * GUE-conditional (imp-2642 / imp-2643 / imp-486) untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-36138-sharecoll-subpercent-threshold-crossings-viz-data.js (the 1e-2..1e-4 ladder this extends)
  * @see imp-36097-e-share-threshold-crossings-viz-data.js (the crossing ladder imp-36138 extends; 1e-2 anchor)

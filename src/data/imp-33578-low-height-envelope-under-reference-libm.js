@@ -52,7 +52,7 @@
  *   real platform libms. It establishes NO operator positivity and NO new bound; it changes no bound.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity
  *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. The NPHI=10 Phi-series truncation is
- *   inherited upstream. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
+ *   inherited upstream. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33559-envelope-under-reference-libm.js (the high-band tau in {7..10} dd recompute this extends)
  *   @see imp-33558-envelope-below-tau7.js (the fp64 low-height ceilings this recomputes in dd)
@@ -125,7 +125,7 @@ const verdict =
       'CEILING-10.212),-AND-THE-fp64-~10.78-ULP-ENVELOPE-STAYS-A-CONSERVATIVE-UPPER-BOUND-(FULL-BAND-E_ref~=10.212<E' +
       '~=10.779,-MARGINS-~7.96/~6.65-ULP).-ACCURACY-MEASUREMENT-ONLY;-DOUBLE-DOUBLE-IS-A-REFERENCE-PRECISION-' +
       'SURROGATE-NOT-A-PLATFORM-SURVEY;-CHANGES-NO-BOUND;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-' +
-      'UNTOUCHED;-NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'UNTOUCHED;-NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33578_LOW_HEIGHT_ENVELOPE_UNDER_REFERENCE_LIBM = Object.freeze({
@@ -148,7 +148,7 @@ export const IMP33578_LOW_HEIGHT_ENVELOPE_UNDER_REFERENCE_LIBM = Object.freeze({
     'tau=8 (low ceilings far below the 10.212 dd tau=8 ceiling) and the fp64 ~10.78 ULP envelope stays a ' +
     'conservative upper bound (E_ref ~= 10.212 < E ~= 10.779, margins ~7.96/~6.65 ULP). ACCURACY MEASUREMENT ' +
     'ONLY, RH-EQUIVALENT, reference-precision surrogate not a platform survey; changes no bound; imp-3066 ' +
-    'untouched; necessary-but-not-sufficient; no QED. PT Lambda <= 0.2 stays SOTA.',
+    'untouched; necessary-but-not-sufficient; no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     band: 'the imp-33312 min-node grade6 lattice-jitter band: single-tau gold per height (grade5/grade6 ' +
@@ -230,7 +230,7 @@ export const IMP33578_LOW_HEIGHT_ENVELOPE_UNDER_REFERENCE_LIBM = Object.freeze({
       '53-bit), NOT a survey of real platform libms. A specific platform libm with a ~1 ULP exp/log error could ' +
       'still differ; the robust conclusion is that the binding height stays tau=8 and the fp64 envelope stays a ' +
       'valid (slightly conservative) upper bound across the full band.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -276,7 +276,7 @@ export const IMP33578_LOW_HEIGHT_ENVELOPE_UNDER_REFERENCE_LIBM_ASSERTIONS = [
     id: 'imp33578-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy measurement only, changes no bound, reference-precision surrogate not a ' +
          'platform survey, mass-feasibility necessary-but-not-sufficient, operator positivity (imp-3066) ' +
-         'untouched, PT 0.2 SOTA.',
+         'untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33578_LOW_HEIGHT_ENVELOPE_UNDER_REFERENCE_LIBM.honestCaveat;
       return (
@@ -284,7 +284,7 @@ export const IMP33578_LOW_HEIGHT_ENVELOPE_UNDER_REFERENCE_LIBM_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.changesNoBound === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

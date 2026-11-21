@@ -19,8 +19,8 @@
  *   GREENFIELD (imp-35681 Part A) -- not any numerical-precision gap. Read-only note: imports the
  *   three source objects verbatim (no re-derivation, no new numerics).
  *
- *   Ticket: imp-36146 (content, medium). Note only; ports nothing; changes no bound; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA; NO QED.
+ *   Ticket: imp-36146 (content, medium). Note only; ports nothing; changes no bound; no refereed bound is changed
+ *   ; NO QED.
  *
  * @see imp-36083-kbn-floor-headroom-to-certified-rung (deterministic KBN floor vs certified rung, ~3.9-6.5 orders headroom)
  * @see imp-36096-w1-accumulator-joint-recovery-contour (joint (alpha,beta) recovery basin; r=1 corner still orders under the barrier margin)
@@ -95,7 +95,7 @@ export const IMP36146_PRECISION_NON_BINDING_CONSOLIDATED_HONEST_STATUS = Object.
     changesAnyBound: false,
     portsAnyRoute: false,
     scope: 'restates the imp-36083/imp-36096/imp-36095 measurements only; instantiates no directed-rounding interval; verifies no inequality',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -105,7 +105,7 @@ export const IMP36146_PRECISION_NON_BINDING_CONSOLIDATED_HONEST_STATUS = Object.
     'headroom is never the binding constraint N-uniformly, so the sole remaining obstruction to the W1 ' +
     'A + B - C certificate at T_PT is the ENGINEERING of the certified length-N interval sum (MECHANICAL, ' +
     'imp-35725; GREENFIELD, imp-35681 Part A). Measurement/diagnostic restatement only; changes no bound; ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 });
 
 export const IMP36146_PRECISION_NON_BINDING_CONSOLIDATED_HONEST_STATUS_ASSERTIONS = [
@@ -152,7 +152,7 @@ export const IMP36146_PRECISION_NON_BINDING_CONSOLIDATED_HONEST_STATUS_ASSERTION
       IMP36146_PRECISION_NON_BINDING_CONSOLIDATED_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP36146_PRECISION_NON_BINDING_CONSOLIDATED_HONEST_STATUS.honestCaveat.isReductionBelowRH === false &&
       IMP36146_PRECISION_NON_BINDING_CONSOLIDATED_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36146_PRECISION_NON_BINDING_CONSOLIDATED_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36146_PRECISION_NON_BINDING_CONSOLIDATED_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36146-verdict-mentions-all-three-channels-and-no-qed',

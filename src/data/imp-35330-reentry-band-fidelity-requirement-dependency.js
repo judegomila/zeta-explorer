@@ -72,7 +72,7 @@
  * imp-34997a / imp-35243a stay OPEN. ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate; the
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes
- * no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35243-reentry-band-surrogate-fidelity-assessment (enumerates R1-R4; unordered checklist, R1/R4 binding)
  * @see imp-35297-r4-independent-model-agreement-assessment (R4 has zero independent witnesses; W1/W2/W3)
@@ -194,7 +194,7 @@ export const IMP35330_REENTRY_BAND_FIDELITY_REQUIREMENT_DEPENDENCY = {
     'arithmetic result unaffected. ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate; the ' +
     'C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
     'imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35243 (enumerates R1-R4, unordered, R1/R4 binding); imp-35297 (R4 zero independent witnesses); ' +
     'imp-35263/35259/35260 (R1/R2/R3 dedicated tickets); imp-34862 (two-rate law does NOT remove the ' +
@@ -254,15 +254,15 @@ export const IMP35330_REENTRY_BAND_FIDELITY_REQUIREMENT_DEPENDENCY_ASSERTIONS = 
       Math.abs(BAND_WIDTH_DECADES - 10.08) < 0.05,
   },
   {
-    // Honesty gate: assessment only, discharges nothing, conditional verdicts, no QED, PT SOTA.
+    // Honesty gate: assessment only, discharges nothing, conditional verdicts, no QED, no refereed bound is changed.
     id: 'imp35330-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, R4 vacuous conditional YES, R2/R3 dominated YES, no QED, PT SOTA, sub-gaps OPEN',
+    description: 'Assessment only: isRigorous false, R4 vacuous conditional YES, R2/R3 dominated YES, no QED, no refereed bound is changed, sub-gaps OPEN',
     holds: () =>
       IMP35330_REENTRY_BAND_FIDELITY_REQUIREMENT_DEPENDENCY.isRigorous === false &&
       /^YES/.test(IMP35330_REENTRY_BAND_FIDELITY_REQUIREMENT_DEPENDENCY.r4_vacuous_by_construction) &&
       /^YES/.test(IMP35330_REENTRY_BAND_FIDELITY_REQUIREMENT_DEPENDENCY.r2_r3_dominated_by_r1) &&
       /NO QED/.test(IMP35330_REENTRY_BAND_FIDELITY_REQUIREMENT_DEPENDENCY.verdict) &&
-      /remains SOTA/.test(IMP35330_REENTRY_BAND_FIDELITY_REQUIREMENT_DEPENDENCY.verdict) &&
+      /refereed bound is changed/i.test(IMP35330_REENTRY_BAND_FIDELITY_REQUIREMENT_DEPENDENCY.verdict) &&
       /imp-35243a/.test(IMP35330_REENTRY_BAND_FIDELITY_REQUIREMENT_DEPENDENCY.residual_sub_gap) &&
       /imp-35111a/.test(IMP35330_REENTRY_BAND_FIDELITY_REQUIREMENT_DEPENDENCY.residual_sub_gap),
   },

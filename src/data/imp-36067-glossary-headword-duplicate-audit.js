@@ -66,7 +66,7 @@ export const IMP36067_GLOSSARY_HEADWORD_DUPLICATE_AUDIT = {
     'Kahan distinction and the imp-36023 N~488602 numeric contrast in full. This module records ' +
     'the duplicate-ticket finding and pins a permanent regression guard confirming the existing ' +
     'headword stays present and consistent. Changes no bound; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP36067_GLOSSARY_HEADWORD_DUPLICATE_AUDIT_ASSERTIONS = [
@@ -96,11 +96,11 @@ export const IMP36067_GLOSSARY_HEADWORD_DUPLICATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp36067-honesty-gate-no-qed',
-    description: 'Audit finding is non-rigorous scoping metadata; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Audit finding is non-rigorous scoping metadata; NO QED; no refereed bound is changed',
     holds: () =>
       IMP36067_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP36067_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP36067_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP36067_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.verdict),
   },
 ];
 

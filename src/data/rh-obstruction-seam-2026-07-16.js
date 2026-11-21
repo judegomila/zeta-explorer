@@ -8,7 +8,7 @@
  * Verdict: CLEAN NEGATIVE — no crack — but over-determined and structurally
  * sharp. Every route bifurcates at the SAME seam into a provable-but-inert half
  * and a sufficient-but-RH-hard half, and the two NEVER overlap. That gap is,
- * literally, the content of RH. No false QED; PT Λ≤0.2 stays SOTA.
+ * literally, the content of RH. No false QED; no refereed bound is changed.
  */
 
 export const SEAM_META = {

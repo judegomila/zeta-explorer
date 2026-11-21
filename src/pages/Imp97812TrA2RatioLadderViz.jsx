@@ -162,8 +162,7 @@ export default function Imp97812TrA2RatioLadderViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only -- every ratio,
         drift and extrapolated limit is reused verbatim from imp-97684 (a measurement, not a
-        derivation); no new computation. Changes no bound; establishes no operator positivity;
-        Platt-Trudgian Lambda &le; 0.2 remains SOTA; RH open; NO QED.
+        derivation); no new computation. Changes no bound; establishes no operator positivity; RH open; NO QED.
       </div>
     </div>
   );

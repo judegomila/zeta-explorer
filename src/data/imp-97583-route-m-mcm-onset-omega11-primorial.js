@@ -56,8 +56,8 @@
  * order earlier (omega = 10); the saturated R-correction (+1.0186e-3) buys exactly one order. Past onset
  * the failure deepens monotonically toward -e^{-gamma}/12 + Rcorr = -0.0458 but stays inside [-1/4, 1/4].
  * The primorial is the worst case at every order. MCM stays VERIFIED-not-proved below onset and FALSE from
- * omega = 11; the b/4 ceiling is not touched; kappa_arith unchanged; no bound on Lambda moves; PT
- * Lambda <= 0.2 SOTA; RH open; NO QED.
+ * omega = 11; the b/4 ceiling is not touched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (MCM refuted at omega=11; kernel source)
  * @see imp-97519-route-m-mcm-baseterm-043-crossing-spotcheck.js (MCM verified at omega<=6)
@@ -138,11 +138,11 @@ export const IMP97583_VERDICT = Object.freeze({
     'failure deepens monotonically toward -e^{-gamma}/12 + Rcorr = -0.0458, staying inside [-1/4, 1/4] ' +
     'throughout. The primorial is the worst case at every measured order. MCM stays VERIFIED-not-proved ' +
     'below onset and FALSE from omega = 11; b/4 ceiling untouched; kappa_arith unchanged; no bound on ' +
-    'Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97583_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Direct-kernel measurement of the Route M MCM predicate ' +
+  'RH open; no refereed bound is changed; NO QED. Direct-kernel measurement of the Route M MCM predicate ' +
   'across omega = 7..11 (primorial worst case): MCM first fails at omega = 11 (T(p_11#) = -9.62e-4 < 0, ' +
   'b = 200560490130), holds through omega = 10 (T = +4.78e-4, shallowest positive margin) and deeply at ' +
   'omega = 6 (T = +1.00e-2). The "{7,8,9,10}" onset premise is refuted. The surrogate goes negative one ' +
@@ -244,7 +244,7 @@ const IMP97583_ASSERTIONS = [
       IMP97583_VERDICT.qed === false &&
       IMP97583_RESULTS.rCorrectionBuysOrders === 1 &&
       /NO QED/.test(IMP97583_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97583_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97583_HONEST_BANNER) &&
       /RH open/.test(IMP97583_HONEST_BANNER),
     why: 'measurement only -- onset located at omega = 11; MCM verified-not-proved below onset, refuted from 11; no bound moved, no QED.',
   },

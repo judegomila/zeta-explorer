@@ -53,7 +53,7 @@
  * transcendental layer (the surrogate is a first-order outward-rounding proxy) and does NOT discharge the
  * conditional. imp-34714a REMAINS OPEN. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator
- * positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34909-op-depth-newton-step-reconciliation (states the unified nStar law; verified here from constituents)
  * @see imp-34884-forward-op-depth-breach (op-DAG DEPTH crossing d*=8 = seed-bracket crossing; reused verbatim)
@@ -187,7 +187,7 @@ export const IMP34930_BREACH_STEP_LAW_VERIFICATION = {
     'reuses the imp-34884/imp-34889/imp-34909 literals verbatim; does NOT instantiate the imp-34687a ' +
     'directed-rounding layer; SUB-GAP imp-34714a REMAINS OPEN. The C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb ' +
     'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34909 (states the unified nStar(R) = floor(log2 R) + 1 crossing law; verified here from published ' +
     'constituents); imp-34884 (op-DAG DEPTH crossing d*=8 = seed-bracket crossing; reused verbatim); imp-34889 ' +
@@ -237,15 +237,15 @@ export const IMP34930_BREACH_STEP_LAW_VERIFICATION_ASSERTIONS = [
     holds: () => Math.abs(IMAGE_DOUBLING_RATIO - 2) < 1e-12,
   },
   {
-    // Honesty gate: verification/surrogate, not rigorous, sub-gap open, no QED, PT SOTA.
+    // Honesty gate: verification/surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34930-honesty-gate-no-qed',
-    description: 'verification measurement: isRigorous false, imp-34714a open, no QED, PT stays SOTA',
+    description: 'verification measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34930_BREACH_STEP_LAW_VERIFICATION.isRigorous === false &&
       /imp-34714a/.test(IMP34930_BREACH_STEP_LAW_VERIFICATION.subGap) &&
       /REMAINS OPEN/.test(IMP34930_BREACH_STEP_LAW_VERIFICATION.subGap) &&
       /NO QED/.test(IMP34930_BREACH_STEP_LAW_VERIFICATION.verdict) &&
-      /remains SOTA/.test(IMP34930_BREACH_STEP_LAW_VERIFICATION.verdict),
+      /refereed bound is changed/i.test(IMP34930_BREACH_STEP_LAW_VERIFICATION.verdict),
   },
 ];
 

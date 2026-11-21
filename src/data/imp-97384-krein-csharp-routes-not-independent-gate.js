@@ -22,7 +22,7 @@
  *
  * WHAT REMAINS OPEN. The shared band-limited concentration primitive itself is unproved. No rigorous
  * positive lower bound on c_sharp exists; no operator positivity is established; interval-rigorous
- * certificate reach stays 2a<=0.96. No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open;
+ * certificate reach stays 2a<=0.96. No bound on Lambda moves; no refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-97350-krein-csharp-lower-bound-routes-shared-obstruction.js (source of every verdict flag below)
@@ -31,7 +31,7 @@
  * @see imp-97161-krein-concentration-lower-bound-assessment.js (IMP97161_CONCENTRATION_LOWER_BOUND_NEEDS_WEIGHTED_PSWF_OR_FEJER_RIESZ_MARGIN)
  *
  * Ticket: imp-97384 (meta, medium, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97350_DEFAULT, { IMP97350_VERDICT } from './imp-97350-krein-csharp-lower-bound-routes-shared-obstruction.js';
@@ -64,7 +64,7 @@ export const IMP97384_HONEST_BANNER =
   '2a=ln3 -- both reduce to ONE missing primitive, a quantitative band-limited (PW_a) concentration ' +
   'inequality against the confined negative sigma_2 well (inf -4336.198 at t=9.3502). Future tickets ' +
   'should target that shared primitive, not fund the two routes separately. No bound on Lambda moves; ' +
-  'PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97384_ASSERTIONS = [
@@ -93,9 +93,9 @@ const IMP97384_ASSERTIONS = [
       IMP97384_STATUS.qed === false &&
       /NOT independent/.test(IMP97384_HONEST_BANNER) &&
       /NO QED/.test(IMP97384_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97384_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97384_HONEST_BANNER) &&
       /RH open/.test(IMP97384_HONEST_BANNER),
-    why: 'the gate must be active (true), the synthesis flag must hold, no rigorous bound or positivity claimed, Temple route not re-attempted, interval-rigorous reach unchanged at 2a<=0.96, no QED, PT SOTA line present, RH stated open.',
+    why: 'the gate must be active (true), the synthesis flag must hold, no rigorous bound or positivity claimed, Temple route not re-attempted, interval-rigorous reach unchanged at 2a<=0.96, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

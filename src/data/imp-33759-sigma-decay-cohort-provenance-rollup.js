@@ -28,7 +28,7 @@
  * existing coverage.
  *
  * RESULT (audited 2026-07-05). All six modules carry isRigorous:false and the full honest banner (no
- * QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 SOTA). Four (imp-33708, imp-33721,
+ * QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed). Four (imp-33708, imp-33721,
  * imp-33722, imp-33723) share the sigma(N) = E_coll/(E_trunc+E_flow+E_coll) component model and inherit
  * its C_mb GUE-conditional caveat (imp-486); two (imp-33706, imp-33707) do not and carry their own
  * independent caveats (the G6a_shock_lipschitz-stays-OPEN caveat and the imp-3066-untouched caveat
@@ -143,8 +143,8 @@ export const IMP_33759_SIGMA_DECAY_COHORT_PROVENANCE_ROLLUP = {
     'four correct cohort members -- a candidate for a future glossary-entry ticket.',
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module itself. ' +
-    'imp-3066 K_a >= 0 positivity untouched across all six catalogued modules. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA. No QED.',
+    'imp-3066 K_a >= 0 positivity untouched across all six catalogued modules. No refereed bound is changed' +
+    '. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -187,9 +187,9 @@ const IMP_33759_ASSERTIONS = [
       IMP_33759_SIGMA_DECAY_COHORT_PROVENANCE_ROLLUP.modules.every((x) => x.isRigorous === false) &&
       /no QED/i.test(IMP_33759_SIGMA_DECAY_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_33759_SIGMA_DECAY_COHORT_PROVENANCE_ROLLUP.honestNote) &&
-      /SOTA/.test(IMP_33759_SIGMA_DECAY_COHORT_PROVENANCE_ROLLUP.honestNote),
+      /refereed bound is changed/i.test(IMP_33759_SIGMA_DECAY_COHORT_PROVENANCE_ROLLUP.honestNote),
     why: 'Every catalogued module must be isRigorous:false, and the roll-up itself must state no-QED, ' +
-      'imp-3066 untouched, and Platt-Trudgian Lambda <= 0.2 SOTA.',
+      'imp-3066 untouched, and no refereed bound is changed.',
   },
   {
     id: 'imp33759-glossary-coverage-count-matches',

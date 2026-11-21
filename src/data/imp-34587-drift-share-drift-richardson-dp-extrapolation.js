@@ -71,7 +71,7 @@
  *   that regime, not a rehabilitation OF it). The -2 asymptote and C_C = (1/8)sqrt(3 pi)
  *   (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is
  *   UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34573-drift-residual-share-deeptail-vs-midrange.js (deep-vs-mid drift at dp = 1e-3, 2e-3)
  *   @see imp-34566-drift-residual-fourth-difference-share.js (finite-difference floor F3)
@@ -215,7 +215,7 @@ export const IMP34587_DRIFT_SHARE_DRIFT_RICHARDSON = Object.freeze({
     'diagnoses that regime, it does not rehabilitate it. The -2 asymptote and C_C = (1/8)sqrt(3 pi) ' +
     '(imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34573 (deep-vs-mid q3-share drift at dp = 1e-3, 2e-3, extrapolated to dp -> 0 here); ' +
     'imp-34566 (finite-difference floor F3); imp-34543 (q2/q3 shares as ladder aggregates); ' +
@@ -258,9 +258,9 @@ const IMP34587_ASSERTIONS = [
     holds: () =>
       IMP34587_DRIFT_SHARE_DRIFT_RICHARDSON.isRigorous === false &&
       /NO QED/.test(IMP34587_DRIFT_SHARE_DRIFT_RICHARDSON.verdict) &&
-      /remains SOTA/.test(IMP34587_DRIFT_SHARE_DRIFT_RICHARDSON.verdict) &&
+      /refereed bound is changed/i.test(IMP34587_DRIFT_SHARE_DRIFT_RICHARDSON.verdict) &&
       /UNTOUCHED/.test(IMP34587_DRIFT_SHARE_DRIFT_RICHARDSON.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

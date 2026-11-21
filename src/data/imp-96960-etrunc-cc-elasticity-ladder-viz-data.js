@@ -17,7 +17,7 @@
  *
  * PRESENTATION ONLY. Changes no bound; establishes no operator positivity; C_mb
  * stays GUE-conditional (imp-486); interval-rigorous certificate reach stays
- * 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96936-sigma-quarter-crossing-cc-elasticity.js (source ladder, sigma 0.75/0.5/0.25/0.1)
  * @see imp-96950-sigma-deep-decay-crossing-cc-elasticity.js (source ladder, sigma 0.1/0.05/0.01)
@@ -72,8 +72,8 @@ export const IMP96960_HONEST_BANNER =
   '+2 / -2 mirror about the inverse-square asymptote, not an operator positivity proof. The signed ' +
   'sum shrinks monotonically toward zero as E_flow / E_trunc collapses down the arm, so deep in the ' +
   'decay arm the share depends on the two constants only through the ratio C_C / E_trunc. C_mb stays ' +
-  'GUE-conditional (imp-486); interval-rigorous certificate reach stays 2a<=0.96; PT Lambda <= 0.2 ' +
-  'remains SOTA; RH open; NO QED.';
+  'GUE-conditional (imp-486); interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // plain validation object (no self-executing throw; imp-96294/imp-96819 convention -- a viz-data
 // leaf must stay inert in the browser so a stale reading cannot blank a lazy-loaded page). Checked
@@ -107,7 +107,7 @@ export const IMP96960_VALIDATION = Object.freeze({
     /NO QED/.test(IMP96950_SIGMA_DEEP_DECAY_CROSSING_CC_ELASTICITY.verdict),
   honestBannerPresent:
     /RH open/.test(IMP96960_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP96960_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96960_HONEST_BANNER) &&
     /NO QED/.test(IMP96960_HONEST_BANNER),
 });
 

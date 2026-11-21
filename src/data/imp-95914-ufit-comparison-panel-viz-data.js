@@ -49,8 +49,8 @@ export const IMP95914_CAVEAT_BANNER =
   'intervals across deltas (imp-95885 FINDING A); conditioning alone does not either ' +
   '-- imp-95895 refines the reading to a reach-to-conditioning interplay (ln 1.25 ' +
   'pairs a long reach with only moderate conditioning and is tightest of the three). ' +
-  'Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian ' +
-  'Lambda <= 0.2 remains SOTA; NO QED.';
+  'Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed' +
+  '; NO QED.';
 
 export const IMP95914_ASSERTIONS = [
   {

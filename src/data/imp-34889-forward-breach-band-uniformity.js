@@ -62,7 +62,7 @@
  * forward crossing is band-wide but does NOT instantiate the directed-rounding layer and does NOT discharge the
  * conditional. imp-34714a REMAINS OPEN. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb
  * GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no
- * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34865-forward-vs-contraction-width-inflation (the single-point N_cross forward-vs-contraction measurement this sweeps)
  * @see imp-34861-krawczyk-crosscheck-band-sensitivity (the imp-34693 band-sweep pattern reused here)
@@ -343,7 +343,7 @@ export const IMP34889_FORWARD_BREACH_BAND_UNIFORMITY = {
     'verbatim; does NOT instantiate the imp-34687a directed-rounding layer; SUB-GAP imp-34714a REMAINS OPEN. ' +
     'The C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 ' +
     'K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34865 (forward-vs-contraction width inflation at N_cross; the surrogate + routes reused here); ' +
     'imp-34861 (imp-34693 band-sensitivity sweep pattern); imp-34693 (admissible seed band rho(1,k) = ' +
@@ -388,15 +388,15 @@ export const IMP34889_FORWARD_BREACH_BAND_UNIFORMITY_ASSERTIONS = [
       BREACH_STEP_PUBLISHED === 5,
   },
   {
-    // Honesty gate: measurement/surrogate, not rigorous, sub-gap open, no QED, PT SOTA.
+    // Honesty gate: measurement/surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34889-honesty-gate-no-qed',
-    description: 'band-uniformity measurement: isRigorous false, imp-34714a open, no QED, PT stays SOTA',
+    description: 'band-uniformity measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34889_FORWARD_BREACH_BAND_UNIFORMITY.isRigorous === false &&
       /imp-34714a/.test(IMP34889_FORWARD_BREACH_BAND_UNIFORMITY.subGap) &&
       /REMAINS OPEN/.test(IMP34889_FORWARD_BREACH_BAND_UNIFORMITY.subGap) &&
       /NO QED/.test(IMP34889_FORWARD_BREACH_BAND_UNIFORMITY.verdict) &&
-      /remains SOTA/.test(IMP34889_FORWARD_BREACH_BAND_UNIFORMITY.verdict),
+      /refereed bound is changed/i.test(IMP34889_FORWARD_BREACH_BAND_UNIFORMITY.verdict),
   },
 ];
 

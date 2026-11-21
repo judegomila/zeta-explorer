@@ -10,7 +10,7 @@
  * module carries out the bounded elementary calculation imp-97423 deferred: it produces an EXPLICIT threshold
  * Q0 = 7 above which the now-explicit O(1/e^3) bracket remainder is dominated by the leading margin, uniformly
  * in (p1, q1), reducing the whole q1-tail to the finite check q1 < 7. RH open; NO QED; no bound on Lambda
- * moves; PT Lambda <= 0.2 SOTA. The upstream imp-97396 reduction (T(b) < 0 <=> (A) & (B)) is taken as given
+ * moves; no refereed bound is changed. The upstream imp-97396 reduction (T(b) < 0 <=> (A) & (B)) is taken as given
  * and NOT re-audited here, so this closes the NAMED sub-gap, not the omega = 5 sign law as an independent QED.
  *
  * -------------------------------------------------------------------------------
@@ -89,7 +89,7 @@
  * Q0 = 7 (certA > gA(q1) > 0 for q1 >= 7, uniform in p1 >= 2 and the tail primes) plus the closed-form gB(q2)
  * that settles certB for all q2 >= 5, and carries out the finite q1 < 7 residual (3 minimal-config certA checks
  * all positive). Closes the NAMED sub-gap; the omega = 5 sign law rests on the un-re-audited imp-97396
- * reduction, so NO independent QED; no bound moved; PT Lambda <= 0.2 SOTA; RH open.
+ * reduction, so NO independent QED; no bound moved; no refereed bound is changed; RH open.
  */
 
 const LOG2PI = Math.log(2 * Math.PI);
@@ -191,11 +191,11 @@ export const IMP97433_VERDICT = Object.freeze({
     '(p1,q1) in {(2,3),(2,5),(3,5)}, worst case = minimal config by the re-verified Dhi monotonicity, and all ' +
     'three certificates are strictly positive. So both (A),(B) hold for every omega = 5 config. This closes ' +
     'IMP97333_SIGN_TAIL_SUBGAP at omega = 5. The omega = 5 sign law itself rests on the un-re-audited imp-97396 ' +
-    'reduction, so NO independent QED is claimed; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open.',
+    'reduction, so NO independent QED is claimed; no bound on Lambda moves; no refereed bound is changed; RH open.',
 });
 
 export const IMP97433_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial: derives the explicit uniform-in-(p1,q1) tail ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial: derives the explicit uniform-in-(p1,q1) tail ' +
   'threshold Q0 = 7 (certA > gA(q1) = 1/(24 q1) - 1/(4(q1^2-1)) - cubics > 0 for all q1 >= 7, uniform in p1 and ' +
   'the tail primes), settles certB via gB(q2) > 0 for all q2 >= 5 (automatic), and carries out the finite q1 < 7 ' +
   'residual (3 minimal-config certA checks, all positive). Closes IMP97333_SIGN_TAIL_SUBGAP at omega = 5; the ' +
@@ -283,7 +283,7 @@ const IMP97433_ASSERTIONS = [
       IMP97433_VERDICT.rhResolved === false &&
       IMP97433_VERDICT.qed === false &&
       /NO QED/.test(IMP97433_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97433_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97433_HONEST_BANNER) &&
       /RH open/.test(IMP97433_HONEST_BANNER),
     why: 'honest partial: closes the NAMED tail sub-gap (Q0 = 7 + finite check) but the omega = 5 sign law rests on the un-re-audited imp-97396 reduction -- no independent QED, no bound moved, RH open.',
   },

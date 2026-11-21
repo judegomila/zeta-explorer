@@ -30,8 +30,8 @@
  * literals; recomputes the per-chart series itself with the same
  * closed-form arithmetic imp-95332 uses. Follows the imp-95349 import-light
  * viz-data pattern. MEASUREMENT / PRESENTATION ONLY. Changes no bound,
- * establishes no operator positivity, no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. NO QED.
+ * establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . NO QED.
  *
  * @see imp-95332-chart-tail-pencil-floor.js (LEMMA TAIL-CHART, function
  *   c3nChart, record fields c3nA6 / c3nChartA6K114 / bindingChartRhoE6)

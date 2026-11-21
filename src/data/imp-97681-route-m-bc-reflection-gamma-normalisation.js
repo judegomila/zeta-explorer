@@ -93,7 +93,7 @@
  *   but it sharpens the uncomputed primitive from an O(1e-3) normalisation to an O(1e-1) residual weight
  *   with its gamma half now pinned (RESULT 3). No value is pinned for kappaK, kappaK_period, kappaK_pole,
  *   or kappa_smooth. The rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916,
- *   imp-96352) binds first by >2600x; no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open;
+ *   imp-96352) binds first by >2600x; no operator positivity; no refereed bound is changed; RH open;
  *   NO QED.
  *
  *   SUB-GAP (carried forward from imp-97617 / imp-97663, gamma half factored out):
@@ -180,7 +180,7 @@ export const IMP97681_VERDICT = Object.freeze({
     'from an O(1e-3) normalisation to an O(1e-1) residual weight with its gamma half now pinned. No ' +
     'value is pinned for kappaK or kappa_smooth; the reflection index stays uncomputed; kappa_smooth ' +
     'stays measured. The rigorous anchor stays T = 2.594e7; compute binds first by >2600x; no operator ' +
-    'positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97681_SUBGAP = Object.freeze({
@@ -196,7 +196,7 @@ export const IMP97681_SUBGAP = Object.freeze({
 });
 
 export const IMP97681_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation only: the gamma-factor half of the ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation only: the gamma-factor half of the ' +
   'Bettin-Conrey reflection normalisation is computed as N(3)/N(1) = 1/(2 pi^2) = 0.0507, and the ' +
   'imp-97663 cap |kappaK_period| <~ 3.87e-3 is converted into a residual-weight bound |W_refl| <~ ' +
   '0.24/pi = 0.0764. The reflection normalisation does NOT pin kappa_smooth (the gamma factor ' +
@@ -259,7 +259,7 @@ const IMP97681_ASSERTIONS = [
       IMP97681_VERDICT.anyBoundMoved === false &&
       IMP97681_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97681_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97681_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97681_HONEST_BANNER) &&
       /RH open/.test(IMP97681_HONEST_BANNER) &&
       /reflection-residual-weight/.test(IMP97681_SUBGAP.id),
   },

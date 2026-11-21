@@ -61,7 +61,7 @@
  *     ~ 0.8980 the tightest LOCATED ceiling (imp-3270 closed form) and no proven
  *     lower bound beyond trivial ones. Both located onsets sit far above the
  *     Theorem-C basin 0.72 (margin > 0.17), so basin-conditional C_Lip is
- *     unaffected; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *     unaffected; no refereed bound is changed.
  *
  * @see sg1c-asym-onset-independent-integrator-2026-06-30 (imp-3200 RK4 two-family check)
  * @see sg1c-halflattice-lone-limit-closed-form-2026-07-02 (imp-3270 c_half closed form)
@@ -231,7 +231,7 @@ export const SG1C_ASYM_ONSET_THIRD_INTEGRATOR_SCAN = {
     + 'Establishes only that Config B (0.9015828) is beaten and that the located lower onset matches the imp-3270 '
     + 'closed form c_half. The global asymmetric constant c_glob stays OPEN with c_half ~ 0.8980 the tightest located '
     + 'ceiling; both onsets sit far above the Theorem-C basin 0.72 (margin > 0.17), so basin-conditional C_Lip is '
-    + 'unaffected; PT Lambda <= 0.2 remains the rigorous SOTA. NO false QED.',
+    + 'unaffected; no refereed bound is changed. NO false QED.',
 };
 
 export const SG1C_ASYM_ONSET_THIRD_INTEGRATOR_SCAN_ASSERTIONS = [
@@ -295,7 +295,7 @@ export const SG1C_ASYM_ONSET_THIRD_INTEGRATOR_SCAN_ASSERTIONS = [
     holds: () => Math.abs(SCAN_MIN - HALF_MIN) < 1e-12
       && SCAN_MIN - BASIN > 0.17
       && /stays OPEN/.test(SG1C_ASYM_ONSET_THIRD_INTEGRATOR_SCAN.honest)
-      && /Lambda <= 0.2/.test(SG1C_ASYM_ONSET_THIRD_INTEGRATOR_SCAN.honest)
+      && /Lambda <= 0.2|refereed bound is changed/.test(SG1C_ASYM_ONSET_THIRD_INTEGRATOR_SCAN.honest)
       && /NO false QED/.test(SG1C_ASYM_ONSET_THIRD_INTEGRATOR_SCAN.honest),
   },
 ];

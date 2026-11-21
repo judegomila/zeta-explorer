@@ -13,7 +13,7 @@
  * PRESENTATION ONLY. Imports the imp-36096 normalized contour points verbatim; derives
  * no new numerics; instantiates no directed-rounding interval; verifies no inequality;
  * changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-36096-w1-accumulator-joint-recovery-contour.js (source: joint (alpha,beta) recovery contour + non-convexity finding)
  * @see imp-36142-joint-basin-non-convex-single-axis-unsafe-honest-status.js (honest-status restatement of the same finding)
@@ -72,7 +72,7 @@ export const IMP36145_JOINT_RECOVERY_CONTOUR_VIZ_DATA = {
     'reference curves, so a viz page can render the lobed non-convexity (outer bulge ' +
     'u+v ~2.48/2.52 near v ~0.375, inner cave ~0.60/0.59 near v ~0.125) against both naive ' +
     'shapes. Changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
@@ -116,11 +116,11 @@ const IMP36145_ASSERTIONS = [
   },
   {
     id: 'imp36145-honesty-gate',
-    description: 'Presentation only; no re-derivation; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Presentation only; no re-derivation; no QED; no refereed bound is changed',
     holds: () =>
       IMP36145_JOINT_RECOVERY_CONTOUR_VIZ_DATA.isRigorous === false &&
       /NO QED/.test(IMP36145_JOINT_RECOVERY_CONTOUR_VIZ_DATA.verdict) &&
-      /remains SOTA/.test(IMP36145_JOINT_RECOVERY_CONTOUR_VIZ_DATA.verdict),
+      /refereed bound is changed/i.test(IMP36145_JOINT_RECOVERY_CONTOUR_VIZ_DATA.verdict),
   },
 ];
 

@@ -10,7 +10,7 @@
  * Phi(b) = Sum_{a=2,(a,b)=1}^{b-1} (V(a,b) + V(b,a)) was a candidate for closed-form evaluation via
  * reciprocity "as a ranges over reduced residues, m a permutes them" -- but did NOT carry it out. This
  * leaf carries it out and reports a genuine PARTIAL collapse plus the precise obstruction. No bound is
- * proved rigorous; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * proved rigorous; no refereed bound is changed; RH open; NO QED.
  *
  * Notation as imp-96750/imp-97071. V(a,q) = Sum_{m=1}^{q-1} frac(m a/q) cot(pi m/q) is the Vasyunin
  * cotangent sum; the cotangent part of I(a,b) is -(pi/2)(V(a,b) + V(b,a)), so the cotangent part of the
@@ -89,7 +89,7 @@
  * closed-form hope is REFUTED as stated and the cotangent leaf is sharpened to a single varying-modulus
  * Bettin-Conrey mean value; the sign kappa_cot ~ +0.12 (so kappa ~ 0.69 > 0, no cancellation of the
  * arithmetic part) is MEASURED, not proved. No rigorous ceiling posted; the trace ceiling T ~ 2.594e7
- * stays the anchor; compute (N ~ 9916) binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * stays the anchor; compute (N ~ 9916) binds first. No refereed bound is changed; RH open; NO QED.
  *
  * RESIDUAL SUB-GAP (below): imp-97097-cotangent-first-moment-varying-modulus -- an absolute lower bound
  * on the varying-modulus Vasyunin average Sum_{a=2,(a,b)=1}^{b-1} V(b,a) >= -c phi(b) b with an explicit
@@ -189,7 +189,7 @@ export const IMP97097_VERDICT = Object.freeze({
     'a period average -- and the cotangent leaf is sharpened to a single varying-modulus Bettin-Conrey ' +
     'mean value; the sign kappa_cot ~ +0.12 (kappa ~ 0.69 > 0, no cancellation of the arithmetic ' +
     '+0.5705 phi b) is MEASURED, not proved. No bound moved, no rigorous ceiling posted; T ~ 2.594e7 ' +
-    'anchor; compute N ~ 9916 binds first. PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'anchor; compute N ~ 9916 binds first. No refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97097_SUBGAP = Object.freeze({
@@ -206,7 +206,7 @@ export const IMP97097_SUBGAP = Object.freeze({
 });
 
 export const IMP97097_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + partial only: the cotangent first ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + partial only: the cotangent first ' +
   'moment reciprocity collapse is carried out -- its fixed-modulus half Sum_{a in R_b} V(a,b) = 0 ' +
   'EXACTLY (a <-> b-a antisymmetry), halving Phi(b) to -V(1,b) + Sum_a V(b,a) with -V(1,b) lower order. ' +
   'The operative varying-modulus half Sum_a V(b,a) carries the whole leading ~ -0.077 phi(b) b and is ' +
@@ -275,7 +275,7 @@ const IMP97097_ASSERTIONS = [
       /varying-modulus/.test(IMP97097_SUBGAP.id) &&
       /MEAN VALUE/.test(IMP97097_SUBGAP.statement) &&
       /NO QED/.test(IMP97097_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97097_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97097_HONEST_BANNER) &&
       /RH open/.test(IMP97097_HONEST_BANNER),
     why: 'derivation + partial: the fixed-modulus collapse to 0 is rigorous, but the operative varying-modulus half is not elementarised and the cotangent sign is measured, not proved -- no bound moved, no rigorous ceiling posted, honesty markers and the named residual sub-gap present.',
   },

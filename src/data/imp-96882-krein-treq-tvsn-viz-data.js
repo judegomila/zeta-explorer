@@ -12,7 +12,7 @@
  * T_req(100; 1e-3) in [2672.7, 4729] and diverge for N >> 100 (sub-gap
  * IMP96847_TVSN_LAW_THREE_POINT_ONLY: fit from only three N points). The
  * Rayleigh floor stays an upper bound; interval-rigorous certificate reach
- * stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96847-krein-tconv-tvsn-scaling-law.js (source scaling law + verdict)
  * @see imp-96881-krein-kmax-degree-frontier-viz-data.js (sibling viz-data leaf convention)
@@ -71,7 +71,7 @@ export const IMP96882_HONEST_BANNER =
   'eps=1e-3, but the conservative GEOM route (ratio r climbing with N) already reaches T_req~4729 ' +
   'by N=100 -- the two routes bracket T_req(100;1e-3) in [2672.7, 4729] and diverge for N >> 100. ' +
   'No new (N,T) solve was performed; the Rayleigh floor stays an upper bound; interval-rigorous ' +
-  'certificate reach stays 2a<=0.96; RH open; PT Lambda <= 0.2 remains SOTA; NO QED.';
+  'certificate reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -107,7 +107,7 @@ const IMP96882_ASSERTIONS = [
     id: 'imp96882-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96882_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96882_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96882_HONEST_BANNER) &&
       /NO QED/.test(IMP96882_HONEST_BANNER),
     why: 'every Route I viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

@@ -57,7 +57,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent
- * stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34710-sigma-exponent-knee-residual-decomposition (the ~99%/1% split whose 1% this quantifies)
  * @see imp-34694-sigma-exponent-knee-closed-form-location (first-order delta_1 and the original ~7.4e-3 gap)
@@ -265,7 +265,7 @@ export const IMP34756_SIGMA_KNEE_SECOND_ORDER_V_EXPANSION = {
     'which was the dropped E_flow all along. The component model is the inherited imp-3220/imp-3406 ' +
     'extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 ' +
-    '(imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    '(imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'CLOSES imp-34710s deferred quantification of its ~1% v-truncation balance: the second-order slowly-varying-v ' +
     'delta delta_2 = -3(v_prime/v^2)delta_1 - 2 delta_1^2 converges the analytic F-condition knee to ~1e-5, but ' +
@@ -326,15 +326,15 @@ export const IMP34756_SIGMA_KNEE_SECOND_ORDER_V_EXPANSION_ASSERTIONS = [
       LOG10_N_DIRECT < 9.5365,
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34756-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34756_SIGMA_KNEE_SECOND_ORDER_V_EXPANSION.isRigorous === false &&
       IMP34756_SIGMA_KNEE_SECOND_ORDER_V_EXPANSION.farTailExponent === 0.5 &&
       typeof IMP34756_SIGMA_KNEE_SECOND_ORDER_V_EXPANSION.subGap === 'string' &&
       /NO QED/.test(IMP34756_SIGMA_KNEE_SECOND_ORDER_V_EXPANSION.verdict) &&
-      /remains SOTA/.test(IMP34756_SIGMA_KNEE_SECOND_ORDER_V_EXPANSION.verdict),
+      /refereed bound is changed/i.test(IMP34756_SIGMA_KNEE_SECOND_ORDER_V_EXPANSION.verdict),
   },
 ];
 

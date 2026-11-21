@@ -66,7 +66,7 @@
  * MEASUREMENT / DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is the
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent
- * stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34797-sigma-knee-fourth-order-v-expansion (fourth order delta_4 and the deferred delta_5 rung this closes)
  * @see imp-34770-sigma-knee-third-order-v-expansion (third order delta_3 and the FD-noise-dominated non-monotonicity)
@@ -383,7 +383,7 @@ export const IMP34821_SIGMA_KNEE_FIFTH_ORDER_V_EXPANSION = {
     'not a missing v-order. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
     'positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   subGap:
     'CLOSES imp-34797s deferred delta_5 rung: delta_5 ~ +3.80e-12 (~two orders below delta_4) continues the ' +
     'rapidly-converging pattern (ratio ladder sub-unity and decreasing -- no divergence turn-up within five ' +
@@ -467,15 +467,15 @@ export const IMP34821_SIGMA_KNEE_FIFTH_ORDER_V_EXPANSION_ASSERTIONS = [
       LOG10_N_DIRECT < 9.5365,
   },
   {
-    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/derivation only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34821-honesty-gate-no-qed',
-    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement/derivation only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34821_SIGMA_KNEE_FIFTH_ORDER_V_EXPANSION.isRigorous === false &&
       IMP34821_SIGMA_KNEE_FIFTH_ORDER_V_EXPANSION.farTailExponent === 0.5 &&
       typeof IMP34821_SIGMA_KNEE_FIFTH_ORDER_V_EXPANSION.subGap === 'string' &&
       /NO QED/.test(IMP34821_SIGMA_KNEE_FIFTH_ORDER_V_EXPANSION.verdict) &&
-      /remains SOTA/.test(IMP34821_SIGMA_KNEE_FIFTH_ORDER_V_EXPANSION.verdict),
+      /refereed bound is changed/i.test(IMP34821_SIGMA_KNEE_FIFTH_ORDER_V_EXPANSION.verdict),
   },
 ];
 

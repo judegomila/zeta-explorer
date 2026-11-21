@@ -41,7 +41,7 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96773 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96773-route-m-mt-invariance-independent-pivot.js (source: the audit this glosses)
  * @see imp-96713-route-m-conditioning-ceiling-decomposition-reaudit.js (the original M/T=1.5842 invariance claim)
@@ -49,7 +49,7 @@
  * @see imp-96686-route-m-lammax-overstatement-figure-label-audit.js (the ~1.58x ceiling ratio label)
  *
  * Ticket: imp-96824 (content, low, sonnet-4-6). Documentation only; establishes
- * nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * nothing; NO QED; no refereed bound is changed.
  */
 
 // The fit-invariance headword, baked verbatim (no re-import).
@@ -87,8 +87,8 @@ const MT_RATIO_FIT_INVARIANT_HEADWORD = Object.freeze({
     'measurement and not a rigorous derivation. Both anchors still rest on ' +
     '~four-decade extrapolations -- T on the imp-96548 trace asymptotic and M on the ' +
     'imp-96443 measured lam_max log-fit (non-rigorous) -- so the ratio inherits that ' +
-    'sub-gap. Changes no bound; establishes no operator positivity; PT Lambda <= 0.2 ' +
-    'remains SOTA; RH open; NO QED.',
+    'sub-gap. Changes no bound; establishes no operator positivity; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP96824_MT_RATIO_FIT_INVARIANT_GLOSSARY_HEADWORD = Object.freeze({
@@ -109,7 +109,7 @@ export const IMP96824_MT_RATIO_FIT_INVARIANT_GLOSSARY_HEADWORD = Object.freeze({
     '(ws11, ws8) plus a fit-free geometric-mean pivot all reproduce ' +
     'M/T = 1.5841640857 to machine precision via different (P/T, M/P) splits -- the ' +
     'ratio is genuinely pivot-free. Establishes nothing; instantiates no interval; ' +
-    'moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96773 (the independent-pivot audit this glosses); imp-96713 (the original ' +
     'M/T=1.5842 invariance claim); imp-96684 (source of T, M, and the ' +
@@ -140,11 +140,11 @@ export const IMP96824_MT_RATIO_FIT_INVARIANT_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96824-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96824_MT_RATIO_FIT_INVARIANT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96824_MT_RATIO_FIT_INVARIANT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96824_MT_RATIO_FIT_INVARIANT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96824_MT_RATIO_FIT_INVARIANT_GLOSSARY_HEADWORD.verdict) &&
       IMP96824_MT_RATIO_FIT_INVARIANT_GLOSSARY_HEADWORD.glosses === 'imp-96773',
   },
 ];

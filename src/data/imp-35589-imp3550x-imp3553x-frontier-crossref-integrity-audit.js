@@ -49,7 +49,7 @@
  * (imp-35186 found and flagged; imp-35309 later fixed as a separate ticket), this audit FLAGS
  * the two dangling references but does not itself edit imp-35531/imp-35536 -- that correction is
  * left to a follow-up ticket. Changes no bound; establishes no operator positivity; no RH
- * verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35186-cross-reference-integrity-audit (the audit method this ticket repeats)
  * @see imp-35543-imp3544x-frontier-crossref-integrity-audit (prior batch in the same series, [35440,35487])
@@ -141,7 +141,7 @@ export const IMP35589_FRONTIER_CROSSREF_INTEGRITY_AUDIT = {
     'suffix) -- flagged here per the imp-35186/imp-35309 convention (audit flags, a follow-up ' +
     'ticket fixes); no source file was edited by this audit. No misnamed exports, no missing ' +
     'files otherwise. Changes no bound; establishes no operator positivity; no RH verdict, NO ' +
-    'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'QED. No refereed bound is changed.',
   citation:
     'imp-35186 (prior audit method), imp-35327/imp-35401/imp-35424/imp-35543 (prior batches in ' +
     'the same series), imp-35309 (precedent: audit-flags / follow-up-ticket-fixes pattern).',
@@ -172,11 +172,11 @@ export const IMP35589_FRONTIER_CROSSREF_INTEGRITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35589-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35589_FRONTIER_CROSSREF_INTEGRITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35589_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35589_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35589_FRONTIER_CROSSREF_INTEGRITY_AUDIT.verdict),
   },
 ];
 

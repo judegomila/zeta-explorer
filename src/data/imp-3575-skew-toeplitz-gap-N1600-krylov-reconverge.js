@@ -70,7 +70,7 @@
  *   non-monotone rung with a converged Krylov subspace and attributes the
  *   non-monotonicity to Lanczos truncation. Does NOT construct the missing
  *   magnitude and does NOT attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT.
- *   NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   NO RH verdict, NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -254,7 +254,7 @@ export const IMP3575_SKEW_TOEPLITZ_GAP_N1600_KRYLOV_RECONVERGE = Object.freeze({
     'artifact of the m=200 reference, NOT a gap reversal. The converged top-6 Ritz spectrum is skew-symmetry PAIRED ' +
     '(lambda_1=lambda_2, lambda_3=lambda_4) so lambda_3 is a genuine level, not a reorthogonalization ghost. ' +
     'Measurement only; does NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0 ' +
-    'positivity; RH-EQUIVALENT; NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'positivity; RH-EQUIVALENT; NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     gapQuantity: 'rho(N) = lambda_3/lambda_1 of the Gram S = T^T T of the skew-Toeplitz section Ttilde(u,v)=a(v-u)R(|v-u|)',
@@ -336,7 +336,7 @@ export const IMP3575_SKEW_TOEPLITZ_GAP_N1600_KRYLOV_RECONVERGE = Object.freeze({
       'a Krylov-under-resolved value: its convergence had been checked only on lambda_1, not lambda_3. The corrected ' +
       'value is rho=0.99975799. Downstream imp-3545/imp-3555 N=1600 gap literals are superseded by this measurement.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -383,7 +383,7 @@ export const IMP3575_SKEW_TOEPLITZ_GAP_N1600_KRYLOV_RECONVERGE_ASSERTIONS = [
   {
     id: 'imp3575-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT only -- corrects a Krylov-truncation deficit in a baked gap, positivity not ' +
-      'attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3575_SKEW_TOEPLITZ_GAP_N1600_KRYLOV_RECONVERGE.honestCaveat;
       return (
@@ -393,7 +393,7 @@ export const IMP3575_SKEW_TOEPLITZ_GAP_N1600_KRYLOV_RECONVERGE_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.correctsNotConstructs === 'string' &&
         typeof c.m200BakeWasUnderResolved === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

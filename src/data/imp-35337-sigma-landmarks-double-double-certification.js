@@ -55,8 +55,7 @@
  * imp-3220/imp-3406 surrogate; the dd path is the compact hand-rolled double-double reproduced VERBATIM from
  * imp-35109/imp-35174 (with a dd sqrt added for E_coll), self-checked below. The C_C = (1/8) sqrt(3 pi) ansatz
  * (imp-2642/imp-2643) is UNTOUCHED; E_trunc = 3.06e-5 (imp-2631) UNTOUCHED; the imp-398 C_F prefactor UNTOUCHED;
- * changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-3406-sigma-highN-extrapolation (interior MAX ~ 9.22e5, 2.1e-5 flat-cap margin, on double)
  * @see imp-3444-sigma-nshape-landmark-ladder (E_coll = E_trunc crossover ~ 3.280e9, on double)
@@ -399,7 +398,7 @@ export const IMP35337_SIGMA_LANDMARKS_DOUBLE_DOUBLE_CERTIFICATION = {
     '(inherits imp-3406 / imp-3444). MEASUREMENT / CERTIFICATION ONLY on the inherited imp-3220/imp-3406 ' +
     'surrogate, which is NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643), the E_trunc = ' +
     '3.06e-5 floor (imp-2631) and the imp-398 C_F prefactor are UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-3406 (interior MAX ~ 9.22e5, 2.1e-5 flat-cap margin, on double); imp-3444 (E_coll = E_trunc crossover ' +
     '~ 3.280e9, on double); imp-35109 (source dd toolkit / RvM Newton inverse); imp-35174 (same certification ' +
@@ -458,13 +457,13 @@ export const IMP35337_SIGMA_LANDMARKS_DOUBLE_DOUBLE_CERTIFICATION_ASSERTIONS = [
     holds: () => MAX_ABS_SIGMA_SHIFT < 1e-10 && ARTIFACT_FREE === true,
   },
   {
-    // Honesty gate: certification of a surrogate arithmetic, not rigorous, no QED, PT SOTA, sub-gap named.
+    // Honesty gate: certification of a surrogate arithmetic, not rigorous, no QED, no refereed bound is changed, sub-gap named.
     id: 'imp35337-honesty-gate-no-qed',
-    description: 'Certification only: isRigorous false, no QED, Platt-Trudgian stays SOTA, sub-gap imp-35337a named',
+    description: 'Certification only: isRigorous false, no QED, no refereed bound is changed, sub-gap imp-35337a named',
     holds: () =>
       IMP35337_SIGMA_LANDMARKS_DOUBLE_DOUBLE_CERTIFICATION.isRigorous === false &&
       /NO QED/.test(IMP35337_SIGMA_LANDMARKS_DOUBLE_DOUBLE_CERTIFICATION.verdict) &&
-      /remains SOTA/.test(IMP35337_SIGMA_LANDMARKS_DOUBLE_DOUBLE_CERTIFICATION.verdict) &&
+      /refereed bound is changed/i.test(IMP35337_SIGMA_LANDMARKS_DOUBLE_DOUBLE_CERTIFICATION.verdict) &&
       /imp-35337a/.test(IMP35337_SIGMA_LANDMARKS_DOUBLE_DOUBLE_CERTIFICATION.residual_sub_gap_imp_35337a),
   },
 ];

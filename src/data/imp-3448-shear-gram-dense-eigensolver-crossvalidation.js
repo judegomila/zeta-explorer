@@ -40,8 +40,8 @@
  *   structure: exactly N - 2 zero eigenvalues to machine precision, the nonzero pair equals
  *   +/- mu, and no intermediate eigenvalue survives. This is a certification of the
  *   imp-3404 measurement, not new positivity: the binding RH-equivalent K_a >= 0 residual
- *   (the imp-3066 off-diagonal endpoint-Hankel step) is untouched; Platt-Trudgian
- *   Lambda <= 0.2 stays SOTA. No QED.
+ *   (the imp-3066 off-diagonal endpoint-Hankel step) is untouched; no refereed bound is changed
+ *   . No QED.
  *
  *   @see imp-3404-shear-gram-full-spectrum-cell-independence.js (the Frobenius/power-iteration route this cross-validates)
  *   @see imp-3351-shear-gram-symmetric-spectrum-aU-grid.js (the extremal min eig = -||Gshear|| identity)
@@ -279,7 +279,7 @@ export const IMP3448_SHEAR_GRAM_DENSE_EIGENSOLVER_CROSSVALIDATION = Object.freez
       'Confirming the dense full spectrum is { +mu, -mu, 0^(N-2) } certifies the rank-2 structure; the off-diagonal ' +
       'endpoint-Hankel operator magnitude (imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -322,7 +322,7 @@ export const IMP3448_SHEAR_GRAM_DENSE_EIGENSOLVER_CROSSVALIDATION_ASSERTIONS = [
   {
     id: 'imp3448-honest-assessment-no-qed',
     why: 'Mandatory honesty: CROSS-VALIDATION only -- not a proof, not a reduction below RH, RH-equivalent, positivity ' +
-         'not attempted, PT 0.2 stays SOTA. Any flip is over-claiming.',
+         'not attempted, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3448_SHEAR_GRAM_DENSE_EIGENSOLVER_CROSSVALIDATION.honestCaveat;
       return (
@@ -330,7 +330,7 @@ export const IMP3448_SHEAR_GRAM_DENSE_EIGENSOLVER_CROSSVALIDATION_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

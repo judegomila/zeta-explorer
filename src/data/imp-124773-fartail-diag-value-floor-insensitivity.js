@@ -59,7 +59,7 @@
  * MEASUREMENT / SENSITIVITY ONLY. Conditional-share diagnostic, NOT an RH bound. Uses the inherited
  * imp-3406/imp-97723 component model and the imp-33708 floor swap, NOT a rigorous asymptotic; C_mb
  * stays GUE-conditional per imp-486; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-97802-fartail-hump-peak-sigma-value-elasticity (the hump peak diag-value elasticity -4.09; F3 asserts far-tail insensitivity)
  * @see imp-97795-fartail-diagnostic-three-landmark-floor-table (re-pinned local-minimum value elasticity -3.29e-3)
@@ -186,7 +186,7 @@ export const IMP124773_FARTAIL_DIAG_VALUE_FLOOR_INSENSITIVITY = {
     'the diagnostic only through sigma, which is negligible in the far tail. Measurement only; uses the ' +
     'inherited imp-3406/imp-97723 model and the imp-33708 floor swap, NOT a rigorous asymptotic; C_mb ' +
     'stays GUE-conditional (imp-486); changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-97802 (hump peak diag-value elasticity -4.09; F3 asserts far-tail insensitivity); imp-97795 ' +
     '(re-pinned local-minimum value elasticity -3.29e-3); imp-97777 (local-minimum height 18.77232); ' +
@@ -235,13 +235,13 @@ export const IMP124773_FARTAIL_DIAG_VALUE_FLOOR_INSENSITIVITY_ASSERTIONS = [
       Math.abs(CROSS_ROW.value_floor_elasticity) > Math.abs(DEEP60_ROW.value_floor_elasticity),
   },
   {
-    // Honesty gate: measurement/sensitivity only, no QED, PT stays SOTA.
+    // Honesty gate: measurement/sensitivity only, no QED, no refereed bound is changed.
     id: 'imp124773-honesty-gate-no-qed',
-    description: 'Measurement/sensitivity only: not rigorous, no QED, PT stays SOTA',
+    description: 'Measurement/sensitivity only: not rigorous, no QED, no refereed bound is changed',
     holds: () =>
       IMP124773_FARTAIL_DIAG_VALUE_FLOOR_INSENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP124773_FARTAIL_DIAG_VALUE_FLOOR_INSENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP124773_FARTAIL_DIAG_VALUE_FLOOR_INSENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP124773_FARTAIL_DIAG_VALUE_FLOOR_INSENSITIVITY.verdict),
   },
 ];
 

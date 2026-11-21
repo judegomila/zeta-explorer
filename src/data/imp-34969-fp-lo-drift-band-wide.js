@@ -67,7 +67,7 @@
  * is a first-order outward-rounding proxy) and does NOT discharge the conditional. imp-34714a REMAINS OPEN.
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED;
  * imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-34953-r-margin-dyadic-wall-across-N (held FP_LO fixed; argued ~0.5% drift -- measured here)
  * @see imp-34861-krawczyk-crosscheck-band-sensitivity (the g_prime chain and seed-band FP_LO drift, reused verbatim)
@@ -257,7 +257,7 @@ export const IMP34969_FP_LO_DRIFT_BAND_WIDE = {
     'imp-34861/imp-34889 g_prime literals verbatim; does NOT instantiate the imp-34687a directed-rounding ' +
     'layer; SUB-GAP imp-34714a REMAINS OPEN. The C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional ' +
     'per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator ' +
-    'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34953 (held FP_LO fixed at 0.954568; argued ~0.5% drift -- measured here); imp-34861 (the g_prime = ' +
     '2pi K/(T0 u) chain and seed-band FP_LO drift, reused verbatim); imp-34889 (the ~0.5% band-invariance ' +
@@ -321,15 +321,15 @@ export const IMP34969_FP_LO_DRIFT_BAND_WIDE_ASSERTIONS = [
       NEAREST_WALL_DOUBLINGS > 0.1,
   },
   {
-    // Honesty gate: measurement/surrogate, not rigorous, sub-gap open, no QED, PT stays SOTA.
+    // Honesty gate: measurement/surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34969-honesty-gate-no-qed',
-    description: 'measurement: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34969_FP_LO_DRIFT_BAND_WIDE.isRigorous === false &&
       /imp-34714a/.test(IMP34969_FP_LO_DRIFT_BAND_WIDE.subGap) &&
       /REMAINS OPEN/.test(IMP34969_FP_LO_DRIFT_BAND_WIDE.subGap) &&
       /NO QED/.test(IMP34969_FP_LO_DRIFT_BAND_WIDE.verdict) &&
-      /remains SOTA/.test(IMP34969_FP_LO_DRIFT_BAND_WIDE.verdict),
+      /refereed bound is changed/i.test(IMP34969_FP_LO_DRIFT_BAND_WIDE.verdict),
   },
 ];
 

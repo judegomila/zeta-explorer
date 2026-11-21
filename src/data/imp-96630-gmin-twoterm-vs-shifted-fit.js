@@ -2,7 +2,7 @@
  * imp-96630 -- Two-term N^{-1/3}(1+c/logN) vs shifted-power N^{-1/3+eps} refit of the imp-96616
  * g_min(N)/y_N extreme-gap ladder, to decide whether the measured -0.3953 exponent is a slow
  * pre-asymptotic logarithmic drift toward the GUE sine-kernel -1/3 or a genuinely steeper power.
- * Accuracy assessment only; conditional on GUE; NO QED. PT Lambda <= 0.2 stays SOTA.
+ * Accuracy assessment only; conditional on GUE; NO QED. No refereed bound is changed.
  *
  * SETUP. imp-96616 reports a single free-power fit log(ratio) = a + b logN with b = -0.3953,
  * steeper than the GUE extreme-gap law -1/3 = -0.3333, and a ratioOverGue that oscillates

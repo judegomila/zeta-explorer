@@ -15,7 +15,7 @@
  * IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER. rho is the theoretical GUE (sine-kernel,
  * universality) two-interval correlation for boxes of unfolded length L; there are no computed
  * Riemann zeros behind these values. Changes no bound; establishes no operator positivity;
- * RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * RH open; NO QED; no refereed bound is changed.
  *
  * HONESTY CARRY-FORWARD (imp-96448 reconciliation). The imp-96430 module quotes a PT-anchor
  * headroom of ~3.7e5 from its L-linear floor MODEL, but imp-96448 directly measured the
@@ -96,7 +96,7 @@ export const IMP96453_LANDMARKS = Object.freeze({
 });
 
 export const IMP96453_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every signal, floor and '
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every signal, floor and '
   + 'crossover value plotted here is copied verbatim from the imp-96430 baked object; the two '
   + 'floor-model lines are exact arithmetic (slope * L) on the copied slope constants, not a new '
   + 'measurement. rho is the theoretical GUE (sine-kernel, universality) two-interval correlation '

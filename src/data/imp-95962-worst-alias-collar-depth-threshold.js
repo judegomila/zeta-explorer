@@ -143,7 +143,7 @@ export const IMP95962_WORST_ALIAS_COLLAR_DEPTH = {
   obstruction:
     "This is the THRESHOLD side only: what collar depth the geometry must clear, computed exactly. It uses the alias SEAM depth d_h = k - h/p as the turning-point depth. Whether the actual Section 4.5 packet turning point sits at depth >= d_h is the unextracted-packet-constants leg (i), recorded in imp-95961 and STILL OPEN. If the true turning point is shallower than d_h the margins shrink.",
   verdict:
-    "MEASUREMENT (honest): the controlling alias is h = p-1 at every imp-95917 witness window; the binding collar-depth threshold d_min = a_1/mu_{p-1} decreases 2.660850 -> 2.176470 over (3,4)..(11,7); and the seam depth alone clears it with a strictly positive, growing margin (0.672..3.914). Tabulates the depth the imp-95961 leg (i) geometry must supply; the geometry side (does the true turning point reach d_h) is STILL OPEN. Changes no numeric bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT (honest): the controlling alias is h = p-1 at every imp-95917 witness window; the binding collar-depth threshold d_min = a_1/mu_{p-1} decreases 2.660850 -> 2.176470 over (3,4)..(11,7); and the seam depth alone clears it with a strictly positive, growing margin (0.672..3.914). Tabulates the depth the imp-95961 leg (i) geometry must supply; the geometry side (does the true turning point reach d_h) is STILL OPEN. Changes no numeric bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "d_h = k - h/p, mu_h = d_h^{1/3}/PORT_C and a_1/mu_h are EXACT closed forms (no quadrature). The comparison uses the alias seam depth as the turning-point depth; the true Section 4.5 turning-point depth is imp-95961 leg (i) and STILL OPEN. a_1 is the first Airy zero to 16 digits. Measurement only; changes no bound; NO QED.",
 };
@@ -224,13 +224,13 @@ export const IMP95962_ASSERTIONS = [
   {
     id: "imp95962-verdict-honesty",
     description:
-      "the verdict carries the honest scope: MEASUREMENT only, controlling alias h=p-1, positive growing margin, imp-95961 leg (i) STILL OPEN, no bound, NO QED, SOTA preserved",
+      "the verdict carries the honest scope: MEASUREMENT only, controlling alias h=p-1, positive growing margin, imp-95961 leg (i) STILL OPEN, no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /MEASUREMENT/.test(IMP95962_WORST_ALIAS_COLLAR_DEPTH.verdict) &&
       /STILL OPEN/.test(IMP95962_WORST_ALIAS_COLLAR_DEPTH.verdict) &&
       /STILL OPEN/.test(IMP95962_WORST_ALIAS_COLLAR_DEPTH.obstruction) &&
       /NO QED/.test(IMP95962_WORST_ALIAS_COLLAR_DEPTH.verdict) &&
-      /remains SOTA/.test(IMP95962_WORST_ALIAS_COLLAR_DEPTH.verdict),
+      /refereed bound is changed/i.test(IMP95962_WORST_ALIAS_COLLAR_DEPTH.verdict),
   },
 ];
 

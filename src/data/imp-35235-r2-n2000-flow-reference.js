@@ -65,7 +65,7 @@
  *
  * SCOPE: MEASUREMENT ONLY. Does NOT extend the R2 ladder; does NOT extend the
  * C_mb certificate; does NOT remove the imp-486 GUE conditional; changes NO
- * bound. Platt-Trudgian Lambda <= 0.2 stays SOTA. NO QED.
+ * bound. No refereed bound is changed. NO QED.
  *
  * SYNTAX NOTE: avoid star-slash in JSDoc; use "dt/2" and "2/diff" prose.
  *
@@ -180,8 +180,8 @@ export const IMP_35235_R2_N2000_FLOW_REFERENCE = {
     doesNotAchieve:
       'Does NOT extend the R2 ladder to N=2000 (worst-case envelope fails via the ' +
       'DP45 dt/2 gate-skip); does NOT extend the C_mb certificate; does NOT remove ' +
-      'the imp-486 GUE conditional; changes NO Lambda bound. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'the imp-486 GUE conditional; changes NO Lambda bound. No refereed bound is changed' +
+      '.',
     subGap:
       'imp-35235-sub-n2000-gate-skip: certifying R2 at N=2000 needs a FINER flow ' +
       'grid than tauC/1000 (so the order-5 dt/2 stages resolve the collision ' +
@@ -269,6 +269,6 @@ export const IMP_35235_R2_N2000_FLOW_REFERENCE_ASSERTIONS = [
       'Measurement only: never a QED or a bound change. Because the worst-case ' +
       'envelope fails, the R2 ladder largest-N-tested-and-met must STAY at 1000 ' +
       '(NOT advance to 2000) and a named sub-gap must be recorded. C_mb stays ' +
-      'GUE-conditional (imp-486); Lambda <= 0.2 stays SOTA.',
+      'GUE-conditional (imp-486); no refereed bound is changed.',
   },
 ];

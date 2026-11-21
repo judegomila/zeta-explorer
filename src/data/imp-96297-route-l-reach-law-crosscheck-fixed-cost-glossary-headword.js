@@ -42,14 +42,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96269 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96269-route-l-reach-law-crosscheck.js (source: the cross-check this glosses)
  * @see imp-96149-route-l-detector-reach-law-fit.js (source: empirical detector power law)
  * @see imp-96182-christoffel-reach-law.js (source: genuine Christoffel reach column)
  *
  * Ticket: imp-96297 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The fixed-cost-detector headword, baked verbatim (no re-import).
@@ -78,7 +78,7 @@ const ROUTE_L_REACH_LAW_CROSSCHECK_HEADWORD = Object.freeze({
     'gamma = 77.14, left OPEN.',
   verificationStatus:
     'Closed-form cross-check on baked literals only (reproduces the imp-96269 comparison ' +
-    'exactly). Establishes nothing new; changes no bound; PT Lambda <= 0.2 SOTA; RH open; ' +
+    'exactly). Establishes nothing new; changes no bound; no refereed bound is changed; RH open; ' +
     'NO QED.',
 });
 
@@ -102,7 +102,7 @@ export const IMP96297_ROUTE_L_REACH_LAW_CROSSCHECK_GLOSSARY_HEADWORD = Object.fr
     'that can be tuned to reduce Lambda. The agreement is contingent on both fits sharing ' +
     'the same narrow gamma window [14.13, 77.14] extrapolated ~13 orders of magnitude, left ' +
     'OPEN for confirmation at real higher-gamma scale. Establishes nothing; instantiates no ' +
-    'interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96269 (the reach-law cross-check this glosses); imp-96149 (empirical detector ' +
     'power-law fit); imp-96182 (genuine Christoffel reach column).',
@@ -129,11 +129,11 @@ export const IMP96297_ROUTE_L_REACH_LAW_CROSSCHECK_GLOSSARY_HEADWORD_ASSERTIONS 
   },
   {
     id: 'imp96297-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96297_ROUTE_L_REACH_LAW_CROSSCHECK_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96297_ROUTE_L_REACH_LAW_CROSSCHECK_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96297_ROUTE_L_REACH_LAW_CROSSCHECK_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96297_ROUTE_L_REACH_LAW_CROSSCHECK_GLOSSARY_HEADWORD.verdict) &&
       IMP96297_ROUTE_L_REACH_LAW_CROSSCHECK_GLOSSARY_HEADWORD.glosses === 'imp-96269',
   },
 ];

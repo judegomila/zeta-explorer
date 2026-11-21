@@ -59,7 +59,7 @@
  * extrapolation, NOT a rigorous asymptotic; the OLS surrogate is descriptive; the KPSS critical values are
  * the KPSS-1992 asymptotic tabulated values applied on N=21; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34155-kpss-l0-borderline-margin (the single-rung head shift ~0.00201 this multi-rung read extends)
  * @see imp-34024-kpss-stationarity-bracket (the l=0 eta_mu ~0.3483 borderline dissected; kpss reused)
@@ -311,7 +311,7 @@ export const IMP34231_KPSS_L0_MULTI_RUNG_JOINT_SHIFT = {
     'the KPSS critical values are asymptotic tabulated values applied on N=21; the component model is the ' +
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34155 (the single-rung head shift ~0.00201 this multi-rung read extends); imp-34024 (the l=0 ' +
     'eta_mu ~0.3483 borderline dissected; kpss reused); imp-34083 (R2 isolating the sole rejection to ' +
@@ -377,13 +377,13 @@ export const IMP34231_KPSS_L0_MULTI_RUNG_JOINT_SHIFT_ASSERTIONS = [
       Math.abs(LIN_FLOOR - FLOOR.norm) / FLOOR.norm < 6e-3,
   },
   {
-    // Honesty gate: isRigorous false, no QED, PT SOTA, RMSE-scale residual small, imp-3066 clause.
+    // Honesty gate: isRigorous false, no QED, no refereed bound is changed, RMSE-scale residual small, imp-3066 clause.
     id: 'imp34231-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, RMSE-scale residual small, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, RMSE-scale residual small, imp-3066 untouched',
     holds: () =>
       IMP34231_KPSS_L0_MULTI_RUNG_JOINT_SHIFT.isRigorous === false &&
       /NO QED/.test(IMP34231_KPSS_L0_MULTI_RUNG_JOINT_SHIFT.verdict) &&
-      /remains SOTA/.test(IMP34231_KPSS_L0_MULTI_RUNG_JOINT_SHIFT.verdict) &&
+      /refereed bound is changed/i.test(IMP34231_KPSS_L0_MULTI_RUNG_JOINT_SHIFT.verdict) &&
       /12% multiplicative/.test(IMP34231_KPSS_L0_MULTI_RUNG_JOINT_SHIFT.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34231_KPSS_L0_MULTI_RUNG_JOINT_SHIFT.verdict),
   },

@@ -60,8 +60,7 @@
  * (A_opt ~ 4.3e-22) needs correspondingly larger N (a quad-double / bigger-grid
  * offline run) -- named SUB-GAP: imp-95743-larger-DD-grid-for-sub-1pct-C. (c) Model
  * seam family only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase
- * legs stay OPEN. Changes NO bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * legs stay OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95727-szego-coefficient-eigensolver-crosscheck (the float64 check extended here)
  * @see imp-95704-rho1-szego-coefficient-delta-scaling (the dual-derived law checked)
@@ -140,7 +139,7 @@ export const IMP95743_SZEGO_COEFFICIENT_DOUBLE_DOUBLE_CROSSCHECK = {
     "offline DD grid (SUB-GAP imp-95743-larger-DD-grid-for-sub-1pct-C). Independent " +
     "cross-check of an established law; model seam family only; the imp-95212 envelope " +
     "port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes no bound of the " +
-    "Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95743"],
 };
 
@@ -308,7 +307,7 @@ export const IMP95743_ASSERTIONS = [
       REF.qed === false &&
       REF.lawConfirmed === true &&
       /CROSS-CHECKED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95743-closes-self",

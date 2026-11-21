@@ -3,7 +3,7 @@
  * @fileoverview imp-34218 -- META provenance roll-up cataloguing the imp-34146/imp-34147/
  * imp-34148/imp-34149/imp-34150/imp-34151 apex-tilt and F4-cancellation cohort (six modules)
  * by EVIDENCE CLASS and confirming each module carries the mandatory honest banner: no-QED,
- * imp-3066 K_a >= 0 operator-positivity untouched, and Platt-Trudgian Lambda <= 0.2 SOTA,
+ * imp-3066 K_a >= 0 operator-positivity untouched, and no refereed bound is changed,
  * following the imp-3886/imp-33247/imp-33268/imp-33287/imp-33307 audit pattern.
  *
  * METHOD (read-only, performed at author time). Each module's @fileoverview/detail block was
@@ -21,7 +21,7 @@
  *   - "past-crossing extension": extends a previously band-limited O(1) measurement past a
  *     located zero-crossing into the sign-flipped region to test whether it still holds.
  * The honest-banner check greps each module for the mandatory phrases (no QED, imp-3066
- * K_a >= 0 untouched, Platt-Trudgian Lambda <= 0.2 SOTA) and for a Polymath15 G6a/H2 bridge
+ * K_a >= 0 untouched, no refereed bound is changed) and for a Polymath15 G6a/H2 bridge
  * mention, plus glossary.js and src/pages/ for dedicated-term and routed-viz coverage.
  *
  * RESULT (audited 2026-07-05). All six modules carry the full honest banner and all six state
@@ -56,8 +56,8 @@ export const IMP_34218_34146_34151_COHORT_PROVENANCE_ROLLUP = {
     'blocks; classify by evidence class (higher-order term fit extension / window-centre ' +
     'stability sweep / symmetric-trim cancellation bisection / tail-only cancellation ' +
     'bisection / independent code-path cross-validation / past-crossing extension); grep for ' +
-    'the mandatory honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, Platt-Trudgian ' +
-    'Lambda <= 0.2 SOTA) plus the explicit G6a/H2 bridge status and glossary/viz coverage.',
+    'the mandatory honest-banner phrases (no QED, imp-3066 K_a >= 0 untouched, no refereed bound is changed' +
+    ') plus the explicit G6a/H2 bridge status and glossary/viz coverage.',
   modules: [
     {
       file: 'imp-34146-apex-quintic-tilt-coefficient.js',
@@ -139,8 +139,8 @@ export const IMP_34218_34146_34151_COHORT_PROVENANCE_ROLLUP = {
     'recommendation pattern for their own uncovered members.',
   honestNote:
     'Read-only provenance roll-up; no new pages fabricated, no new bound claimed by this module ' +
-    'itself. imp-3066 K_a >= 0 positivity untouched for all six members. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA. No QED.',
+    'itself. imp-3066 K_a >= 0 positivity untouched for all six members. No refereed bound is changed' +
+    '. No QED.',
 };
 
 // Build-time tripwires that lock the roll-up findings against silent drift.
@@ -169,7 +169,7 @@ const IMP_34218_ASSERTIONS = [
         (x) => x.noQED === true && x.untouchedInvariant === 'imp-3066 K_a >= 0' && x.plattTrudgianSOTA === true
       ) && IMP_34218_34146_34151_COHORT_PROVENANCE_ROLLUP.honestBannerFullCoverageCount === 6,
     why: 'Every module in the cohort must state no-QED, imp-3066 K_a >= 0 untouched, and ' +
-      'Platt-Trudgian Lambda <= 0.2 SOTA -- grep-verified against the source files.',
+      'no refereed bound is changed -- grep-verified against the source files.',
   },
   {
     id: 'imp34218-zero-bridge-touching-consistent-not-referenced',
@@ -195,11 +195,11 @@ const IMP_34218_ASSERTIONS = [
   {
     id: 'imp34218-honest-scope-locked',
     holds: () =>
-      /SOTA/.test(IMP_34218_34146_34151_COHORT_PROVENANCE_ROLLUP.honestNote) &&
+      /refereed bound is changed/i.test(IMP_34218_34146_34151_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /no QED/i.test(IMP_34218_34146_34151_COHORT_PROVENANCE_ROLLUP.honestNote) &&
       /imp-3066/.test(IMP_34218_34146_34151_COHORT_PROVENANCE_ROLLUP.honestNote),
-    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'stays SOTA and imp-3066 stays untouched.',
+    why: 'VERDICT LOCK: this is a read-only roll-up, not a bound; no refereed bound is changed' +
+      ' and imp-3066 stays untouched.',
   },
 ];
 

@@ -47,7 +47,7 @@
  * certificate: imp-97227 Obstruction B (the degree-to-v0 overlap inversion d = C^T v0, imp-97164) stays open,
  * Route B / IMP97100_PHASE_CANCELLATION_TRIAL does not close on the remainder bound alone. Derivation only:
  * produces no interval tail majorant for the full trial; Rayleigh floors stay UPPER bounds; establishes no
- * operator positivity; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * operator positivity; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97263-krein-analytic-bessel-z4-remainder-majorant.js (the ~5-70x loose triangle majorant tightened here)
  * @see imp-97134-krein-annihilating-rational-trial-execution.js (the annihilating degree-level trials d_k)

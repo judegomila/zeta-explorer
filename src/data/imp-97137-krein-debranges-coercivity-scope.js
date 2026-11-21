@@ -10,7 +10,7 @@
  *   coercivity constant c>0 would require.
  *
  *   Scoping only. Produces NO operator inequality and no coercivity constant; changes no bound;
- *   interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ *   interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * THE OPERATOR AND ITS de Branges FRAME. The pole-free Weil form is the truncated Wiener-Hopf / Toeplitz
  *   form <T_a[sigma_2] g, g> = (1/2pi) int sigma_2(t) |ghat(t)|^2 dt, with ghat = FT(g) ranging over the

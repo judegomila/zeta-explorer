@@ -69,7 +69,7 @@
  * It does NOT certify N-uniformity (imp-35218 R1 already refuted it), does NOT discharge M2
  * or M5, does NOT touch the imp-2563 sandwich (a valid CONDITIONAL bracket). Changes no
  * bound; establishes no operator positivity; I3 stays OPEN; C_mb GUE-conditional per imp-486
- * UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35239-min-gap-prefactor-real-spacing-reassessment (the two-point endpoint slope refined here)
  * @see imp-35218-real-ordinate-background-field-sup (the running-sup measurement re-run on a denser grid)
@@ -315,7 +315,7 @@ export const IMP35283_MIN_GAP_PREFACTOR_MULTIPOINT_REGRESSION = {
     'stays OPEN. This probe does NOT certify N-uniformity (imp-35218 R1 refuted it), does NOT ' +
     'discharge M2 or M5, does NOT touch the imp-2563 sandwich (a valid CONDITIONAL bracket). I3 ' +
     'stays OPEN; changes no bound; establishes no operator positivity; C_mb GUE-conditional per ' +
-    'imp-486 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-486 UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35239-min-gap-prefactor-real-spacing-reassessment (two-point endpoint slope refined here); ' +
     'imp-35218-real-ordinate-background-field-sup (running-sup beta measurement re-run denser); ' +
@@ -368,9 +368,9 @@ export const IMP35283_MIN_GAP_PREFACTOR_MULTIPOINT_REGRESSION_ASSERTIONS = [
     holds: () => REGRESSION_TABLE.every((r) => r.p_upper_100_200 <= r.p_lower_25_100 && !r.driftsTowardOne),
   },
   {
-    // Honesty gate: measurement only, grid capped, sub-gap named, I3 OPEN, NO QED, PT SOTA.
+    // Honesty gate: measurement only, grid capped, sub-gap named, I3 OPEN, NO QED, no refereed bound is changed.
     id: 'imp35283-honesty-gate-no-qed',
-    description: 'Measurement only: allSubLinear true, no drift, grid capped at 200, sub-gap named, I3 OPEN, isRigorous false, NO QED, PT SOTA',
+    description: 'Measurement only: allSubLinear true, no drift, grid capped at 200, sub-gap named, I3 OPEN, isRigorous false, NO QED, no refereed bound is changed',
     holds: () =>
       IMP35283_MIN_GAP_PREFACTOR_MULTIPOINT_REGRESSION.allFractionsSubLinear === true &&
       IMP35283_MIN_GAP_PREFACTOR_MULTIPOINT_REGRESSION.anyFractionDriftsTowardOne === false &&
@@ -379,7 +379,7 @@ export const IMP35283_MIN_GAP_PREFACTOR_MULTIPOINT_REGRESSION_ASSERTIONS = [
       IMP35283_MIN_GAP_PREFACTOR_MULTIPOINT_REGRESSION.i3Discharged === false &&
       IMP35283_MIN_GAP_PREFACTOR_MULTIPOINT_REGRESSION.isRigorous === false &&
       /NO QED/.test(IMP35283_MIN_GAP_PREFACTOR_MULTIPOINT_REGRESSION.verdict) &&
-      /remains SOTA/.test(IMP35283_MIN_GAP_PREFACTOR_MULTIPOINT_REGRESSION.verdict),
+      /refereed bound is changed/i.test(IMP35283_MIN_GAP_PREFACTOR_MULTIPOINT_REGRESSION.verdict),
   },
 ];
 

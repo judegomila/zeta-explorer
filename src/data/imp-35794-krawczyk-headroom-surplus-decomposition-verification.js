@@ -26,7 +26,7 @@
  *
  * VERIFICATION ONLY. No new bound; imp-34714a REMAINS OPEN; C_C = 1/8 (imp-2642/2643)
  * UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35266-krawczyk-headroom-surplus-decomposition (the module verified here)
  * @see imp-35438-krawczyk-headroom-cancellation-reconstruction-crosscheck (cross-checks the downstream imp-35404 viz literals, not imp-35266's own import closure)
@@ -66,7 +66,7 @@ export const IMP35794_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION_VERIFICATION = {
     'transitive modules) never touches zeros-to-1e6.js, improvements.js, or ' +
     'improvement-queue.js, so imp-35266 stays import-light. Verification only, changes no ' +
     'bound; imp-34714a REMAINS OPEN; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP35794_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION_VERIFICATION_ASSERTIONS = [
@@ -93,12 +93,12 @@ export const IMP35794_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION_VERIFICATION_ASSER
   },
   {
     id: 'imp35794-honesty-gate-no-qed',
-    description: 'verification: isRigorous false, imp-34714a open, no QED, Platt-Trudgian stays SOTA',
+    description: 'verification: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP35794_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION_VERIFICATION.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP35794_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION_VERIFICATION.verdict) &&
       /NO QED/.test(IMP35794_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION_VERIFICATION.verdict) &&
-      /remains SOTA/.test(IMP35794_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION_VERIFICATION.verdict),
+      /refereed bound is changed/i.test(IMP35794_KRAWCZYK_HEADROOM_SURPLUS_DECOMPOSITION_VERIFICATION.verdict),
   },
 ];
 

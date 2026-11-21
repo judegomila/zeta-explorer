@@ -60,7 +60,7 @@
  * MEASUREMENT ONLY, pure phase-condition geometry on the inherited imp-33924 / imp-34045 closed form for
  * the model cusp rho(x) = |x|^{-alpha}. It establishes NO operator positivity; does NOT discharge H4
  * (imp-33766); G6a_shock_lipschitz STAYS OPEN. C_mb GUE-conditional untouched; imp-3066 off-diagonal
- * endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed.
  *
  * @see imp-34045-phase-zero-endpoint-degeneracy (outer branch distance law d(alpha), reports linear pi/4 slope only)
  * @see imp-33970-joint-phase-zero-uniqueness (theta = pi/2 unique on (0,pi) for every alpha in (0,1))
@@ -201,8 +201,8 @@ export const IMP34103_ENDPOINT_DISTANCE_CURVATURE = {
     'thus confirmed, and the next cubic coefficient likewise converges to pi/16, verifying the full Taylor ' +
     'expansion. Pure phase-condition geometry on the inherited imp-33924 / imp-34045 closed form; establishes NO ' +
     'operator positivity; does NOT discharge H4 (imp-33766); G6a stays OPEN. C_mb GUE-conditional untouched; ' +
-    'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-    'rigorous SOTA.',
+    'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP34103_ENDPOINT_DISTANCE_CURVATURE_ASSERTIONS = [
@@ -245,15 +245,15 @@ export const IMP34103_ENDPOINT_DISTANCE_CURVATURE_ASSERTIONS = [
       Math.abs(IMP34103_ENDPOINT_DISTANCE_CURVATURE.endpointCurvatureFiniteDifferenceCheck - Math.PI / 4) < 1e-4,
   },
   {
-    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only, does NOT discharge H4; G6a OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp34103-honesty-gate-no-qed',
-    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34103_ENDPOINT_DISTANCE_CURVATURE.isRigorous === false &&
       IMP34103_ENDPOINT_DISTANCE_CURVATURE.dischargesH4 === false &&
       /NO QED/.test(IMP34103_ENDPOINT_DISTANCE_CURVATURE.verdict) &&
       /STAYS OPEN/.test(IMP34103_ENDPOINT_DISTANCE_CURVATURE.verdict) &&
-      /remains the rigorous SOTA/.test(IMP34103_ENDPOINT_DISTANCE_CURVATURE.verdict) &&
+      /refereed bound is changed/i.test(IMP34103_ENDPOINT_DISTANCE_CURVATURE.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP34103_ENDPOINT_DISTANCE_CURVATURE.verdict),
   },
 ];

@@ -37,7 +37,7 @@
  * @see imp-97649-tra2-trace-tail-algebraic-honest-status.js (prior algebraic-tail status note)
  *
  * Ticket: imp-97811 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The converged-limit-vs-named-figure headword, baked verbatim (no re-import).
@@ -70,7 +70,7 @@ const TRA2_CONVERGED_LIMIT_VS_NAMED_FIGURE_HEADWORD = Object.freeze({
     'line (4 prose occurrences, 0 exported occurrences) and cross-checked the ~0.331M gap ' +
     'against the imp-97684 measured gapGeomToNamed. Naming / glossary headword only; supplies ' +
     'no new bound; the imp-97538 lambda_2 floor is untouched; no bound moved; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP97811_TRA2_CONVERGED_LIMIT_VS_NAMED_FIGURE_GLOSSARY_HEADWORD = Object.freeze({
@@ -90,7 +90,7 @@ export const IMP97811_TRA2_CONVERGED_LIMIT_VS_NAMED_FIGURE_GLOSSARY_HEADWORD = O
     'imp-97455, never a computed export, and superseded by the converged limit per imp-97797. ' +
     'The ~0.331M gap between them is the eyeball tail-sum overshoot above Kbig=260 (~3.4x), not ' +
     'a precision defect. No bound moved; the imp-97538 lambda_2 floor is untouched; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   citation:
     'imp-97797 (the reclassification and origin diagnosis this glosses); imp-97482 (source of ' +
     'the ~4819.1M prose label); imp-97684 (converged ~4818.77M limit and measured gap); ' +
@@ -117,11 +117,11 @@ export const IMP97811_TRA2_CONVERGED_LIMIT_VS_NAMED_FIGURE_GLOSSARY_HEADWORD_ASS
   },
   {
     id: 'imp97811-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97811_TRA2_CONVERGED_LIMIT_VS_NAMED_FIGURE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97811_TRA2_CONVERGED_LIMIT_VS_NAMED_FIGURE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97811_TRA2_CONVERGED_LIMIT_VS_NAMED_FIGURE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97811_TRA2_CONVERGED_LIMIT_VS_NAMED_FIGURE_GLOSSARY_HEADWORD.verdict) &&
       IMP97811_TRA2_CONVERGED_LIMIT_VS_NAMED_FIGURE_GLOSSARY_HEADWORD.glosses === 'imp-97797',
   },
 ];

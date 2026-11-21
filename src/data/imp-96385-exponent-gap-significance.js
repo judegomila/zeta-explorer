@@ -45,7 +45,7 @@
  * this data. This CONFIRMS and QUANTIFIES the imp-96346 sub-gap IMP96346_EXPONENT_GAP_PERSISTENCE:
  * the sign/magnitude of the gap needs real higher-gamma detector rows (fresh Levinson/Christoffel
  * runs past gamma_5), which remain OPEN. Statistical assessment on baked literals only; changes NO
- * bound; RH open; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * bound; RH open; no refereed bound is changed; NO QED.
  *
  * Reproduce: tmp/imp-96385-scratch.mjs (pure-JS log-ratio OLS + t-CI + nonparametric bootstrap).
  *
@@ -118,6 +118,6 @@ export const IMP96385_VERDICT =
   + 'without new higher-gamma rows; the imp-96346 "slowly diverging" reading and the gap = 0 "constant '
   + '-8.198% offset" null are statistically indistinguishable on the 5 rows, confirming/quantifying the '
   + 'imp-96346 sub-gap IMP96346_EXPONENT_GAP_PERSISTENCE. Statistical assessment on baked literals only; '
-  + 'changes no bound; RH open; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.';
+  + 'changes no bound; RH open; no refereed bound is changed; NO QED.';
 
 export const IMP96385_SCRIPTS = Object.freeze(['tmp/imp-96385-scratch.mjs']);

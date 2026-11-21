@@ -42,7 +42,7 @@
  * reconstruction, not a Prop-6.3-certified statement at each m). The fit rests on 4 even-branch points, so
  * L and p carry the corresponding extrapolation uncertainty (p is 2 to within fit noise, not proven 2). The
  * reconstruction stays m=20-only certified. Catalan G irrationality OPEN; Sun arXiv:2609.04176
- * single-author, unrefereed; changes no bound; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.
+ * single-author, unrefereed; changes no bound; NO Lambda movement; no refereed bound is changed; NO QED.
  * Import-light: bakes the imp-95925 Q0_RECON literals + the certified kappa + the offline fit literals; no
  * heavy quadrature at import. SCRATCH: tmp/imp-95982-scratch.mjs.
  *
@@ -117,8 +117,8 @@ export const C_ODD_DEPARTURE_GROWTH_LAW_SATURATION = Object.freeze({
     + '(Q0_RECON(20)-L)/kappa = -1.832e-5 like ~m^-2, already ~98.0% reached at m=150: it SATURATES, does '
     + 'NOT diverge. The imp-95966 "growing with m" is a saturating power-law approach to a bounded '
     + '~-1.83e-5 rho-variation floor. Measurement of the reconstruction (m=20-only certified, imp-95966 '
-    + 'PIECE-A obstruction unchanged); changes no bound. G irrationality OPEN; Sun unrefereed; PT '
-    + 'Lambda<=0.2 SOTA; NO QED',
+    + 'PIECE-A obstruction unchanged); changes no bound. G irrationality OPEN; Sun unrefereed; no refereed bound is changed'
+    + '; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source: 'arXiv:2609.04176 Section 6, Proposition 6.3, eqs (6.11)-(6.23)',
   builtOn:
@@ -159,7 +159,7 @@ export const C_ODD_DEPARTURE_GROWTH_LAW_SATURATION = Object.freeze({
     + 'is certified only at m=20 (imp-95966 PIECE-A obstruction unchanged), so this fits the '
     + 'reconstruction, not a Prop-6.3-certified per-m quantity. L and p are extrapolated from 4 '
     + 'even-branch points (p is 2 to within fit noise, not proven 2). Catalan G irrationality OPEN; Sun '
-    + 'single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'single-author, unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const C_ODD_DEPARTURE_GROWTH_LAW_SATURATION_ASSERTIONS = Object.freeze([
@@ -200,13 +200,13 @@ export const C_ODD_DEPARTURE_GROWTH_LAW_SATURATION_ASSERTIONS = Object.freeze([
       && FRACTION_OF_LIMIT_AT_150 > 0.95 && FRACTION_OF_LIMIT_AT_150 < 1.05,
   },
   {
-    name: 'honest: fit only, m=20-only certified, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: fit only, m=20-only certified, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () => {
       const s = C_ODD_DEPARTURE_GROWTH_LAW_SATURATION.status;
       return /MEASURED\/FIT/.test(s)
         && /m=20-only certified/.test(s)
         && /G irrationality OPEN/.test(s)
-        && /PT Lambda<=0.2 SOTA/.test(s)
+        && /refereed bound is changed/i.test(s)
         && /NO QED/.test(s);
     },
   },

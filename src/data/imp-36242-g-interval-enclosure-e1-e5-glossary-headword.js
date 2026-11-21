@@ -35,8 +35,7 @@
  *   A glossary-style lookup restating the imp-36193 E1-E5 ingredient names
  *   for quick reference. It establishes nothing, encloses no collision time
  *   at any new N, certifies no seed. G-interval-enclosure stays OPEN;
- *   imp-2519 no-overclaim guard preserved; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   imp-2519 no-overclaim guard preserved; NO QED. No refereed bound is changed.
  *
  * @see imp-36193-step2-g-interval-enclosure-nuniform-scope (source: the E1-E5 requirements this glosses)
  * @see imp-36192-step2-g-step-error-apriori-truncation-scope (companion Step-2 scope; E4 couples to its step budget)
@@ -44,8 +43,7 @@
  * @see imp-36230-krawczyk-residual-node-glossary-headword.js (sibling glossary-headword pattern for an S-frontier requirement list)
  *
  * Ticket: imp-36242 (content, medium). Documentation only; establishes no
- * enclosure; G-interval-enclosure stays OPEN; NO QED; Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * enclosure; G-interval-enclosure stays OPEN; NO QED; no refereed bound is changed.
  */
 
 // The G-interval-enclosure E1-E5 glossary headword, baked verbatim (no re-import).
@@ -94,7 +92,7 @@ export const IMP36242_G_INTERVAL_ENCLOSURE_E1_E5_GLOSSARY_HEADWORD = Object.free
     'G-gronwall), N-uniform width control (E4, coupled to G-step-error), and the ' +
     'documented N-dependence deliverable (E5) -- for quick reference. Establishes ' +
     'nothing; encloses no collision time at any new N; certifies no seed; ' +
-    'G-interval-enclosure stays OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'G-interval-enclosure stays OPEN; NO QED. No refereed bound is changed.',
   citation:
     'imp-36193 (source E1-E5 requirements); imp-36192 (companion G-step-error scope, ' +
     'E4 coupling); imp-2520 (G-gronwall, E3 coupling); imp-362 (single-N witness).',
@@ -123,11 +121,11 @@ export const IMP36242_G_INTERVAL_ENCLOSURE_E1_E5_GLOSSARY_HEADWORD_ASSERTIONS = 
   },
   {
     id: 'imp36242-honesty-gate-no-qed',
-    why: 'Documentation only: no enclosure claimed established, G-interval-enclosure stays OPEN, no QED, PT SOTA line present.',
+    why: 'Documentation only: no enclosure claimed established, G-interval-enclosure stays OPEN, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP36242_G_INTERVAL_ENCLOSURE_E1_E5_GLOSSARY_HEADWORD.anyEnclosureEstablished === false &&
       /NO QED/.test(IMP36242_G_INTERVAL_ENCLOSURE_E1_E5_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP36242_G_INTERVAL_ENCLOSURE_E1_E5_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP36242_G_INTERVAL_ENCLOSURE_E1_E5_GLOSSARY_HEADWORD.verdict) &&
       /G-interval-enclosure stays OPEN/.test(IMP36242_G_INTERVAL_ENCLOSURE_E1_E5_GLOSSARY_HEADWORD.verdict) &&
       IMP36242_G_INTERVAL_ENCLOSURE_E1_E5_GLOSSARY_HEADWORD.glosses === 'imp-36193' &&
       IMP36242_G_INTERVAL_ENCLOSURE_E1_E5_GLOSSARY_HEADWORD.scopes === 'G-interval-enclosure',

@@ -61,7 +61,7 @@
  * beyond T_PT = 3e12 is RH-free-compute-or-RH-circular); certifies no assembled bound; supplies no
  * T_v(N) -> infinity; the C_mb GUE-conditional per imp-486 is UNTOUCHED and SEPARATE from R3; the
  * imp-2631 fixed strip is UNTOUCHED; C_C 1/8 ansatz (imp-2642) UNTOUCHED; imp-3066 K_a >= 0
- * untouched; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * untouched; changes no bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35149-vanishing-etrunc-strip-scope (Knob A named the only vanishing lever; R3 binding)
  * @see imp-35169-knobA-growth-law-crossover (closed-form growth law + amplitude-sensitivity study)
@@ -220,7 +220,7 @@ export const IMP36215_ETRUNC_STRIP_HEIGHT_SENSITIVITY_LADDER_CROSSOVER = {
     '(unconditional growing verified height past T_PT = 3e12 is RH-free-compute-or-RH-circular); the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED and SEPARATE from R3; the imp-2631 fixed strip is ' +
     'UNTOUCHED; C_C 1/8 ansatz (imp-2642) UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35164 (Step-4 honest status: E(N) floors at E_trunc); imp-35149 (Knob A only vanishing ' +
     'lever, R3 binding); imp-35169 (closed-form growth law + amplitude-sensitivity); imp-2631 ' +
@@ -272,15 +272,15 @@ export const IMP36215_ETRUNC_STRIP_HEIGHT_SENSITIVITY_LADDER_CROSSOVER_ASSERTION
       Math.abs(eColl(N_CROSS_FIXED_STRIP) / E_TRUNC_FIXED - 1) < 1e-6,
   },
   {
-    // Honesty gate: measurement only, no QED, R3 open, GUE-conditional noted, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, R3 open, GUE-conditional noted, no refereed bound is changed.
     id: 'imp36215-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, R3/GUE-conditional noted, PT stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, R3/GUE-conditional noted, no refereed bound is changed',
     holds: () =>
       IMP36215_ETRUNC_STRIP_HEIGHT_SENSITIVITY_LADDER_CROSSOVER.isRigorous === false &&
       /NO QED/.test(IMP36215_ETRUNC_STRIP_HEIGHT_SENSITIVITY_LADDER_CROSSOVER.verdict) &&
       /R3/.test(IMP36215_ETRUNC_STRIP_HEIGHT_SENSITIVITY_LADDER_CROSSOVER.verdict) &&
       /imp-486/.test(IMP36215_ETRUNC_STRIP_HEIGHT_SENSITIVITY_LADDER_CROSSOVER.verdict) &&
-      /remains SOTA/.test(IMP36215_ETRUNC_STRIP_HEIGHT_SENSITIVITY_LADDER_CROSSOVER.verdict),
+      /refereed bound is changed/i.test(IMP36215_ETRUNC_STRIP_HEIGHT_SENSITIVITY_LADDER_CROSSOVER.verdict),
   },
 ];
 

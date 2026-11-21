@@ -79,8 +79,7 @@
  *        the far-tail one-decade-of-sigma-per-2.16-decades-of-N reflects p -> 1/2.
  *
  * DERIVATION / MEASUREMENT ONLY. No positivity, no bridge closure, no RH claim, NO QED.
- * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3529-sigma-postpeak-decay-exponent (local decay exponent p(N), F4 read-off crossings)
  * @see imp-3444-sigma-nshape-landmark-ladder (E_coll = E_trunc crossover N ~ 3.280e9)
@@ -298,8 +297,8 @@ export const IMP3556_SIGMA_THRESHOLD_CROSSINGS_ROOTSOLVE = {
     '(sigma~0.496, under the ln10/8=0.288 logistic cap) and vanishing at both the flat cap ' +
     'and the far tail, where one decade of sigma spans ~2.16 decades of N as p -> 1/2. ' +
     'Measurement/certification only; no positivity, no bridge closure, no RH claim, NO QED. ' +
-    'imp-3066 off-diagonal endpoint-Hankel K_a>=0 positivity UNTOUCHED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'imp-3066 off-diagonal endpoint-Hankel K_a>=0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3529 (post-peak decay exponent, F4 read-off crossings); imp-3444 (E_coll=E_trunc ' +
     'crossover N ~ 3.280e9); imp-3463 (far-tail sqrt(logT0/N) leading form, p -> 1/2); ' +
@@ -379,13 +378,13 @@ export const IMP3556_SIGMA_THRESHOLD_CROSSINGS_ROOTSOLVE_ASSERTIONS = [
       Math.abs(PEAK_DROP_SIGMA - 0.5) < 2e-2,
   },
   {
-    // Honesty gate: measurement/certification only, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement/certification only, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp3556-honesty-gate-no-qed',
-    description: 'Measurement/certification only: no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Measurement/certification only: no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP3556_SIGMA_THRESHOLD_CROSSINGS_ROOTSOLVE.isRigorous === false &&
       /NO QED/.test(IMP3556_SIGMA_THRESHOLD_CROSSINGS_ROOTSOLVE.verdict) &&
-      /remains the rigorous SOTA/.test(IMP3556_SIGMA_THRESHOLD_CROSSINGS_ROOTSOLVE.verdict) &&
+      /refereed bound is changed/i.test(IMP3556_SIGMA_THRESHOLD_CROSSINGS_ROOTSOLVE.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3556_SIGMA_THRESHOLD_CROSSINGS_ROOTSOLVE.verdict),
   },
 ];

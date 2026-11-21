@@ -51,7 +51,7 @@
  *
  *   Assessment/derivation only, from committed constants (imp-97501 far-field; certificate lambda_min
  *   and split-bound tables). No coercivity constant is claimed; no operator positivity is proved; no
- *   bound moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA;
+ *   bound moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed;
  *   RH open; NO QED.
  *
  * @see imp-97501-sigma2-far-field-positivity-rigorous-margin.js (rigorous far-field, well left untouched)
@@ -59,7 +59,7 @@
  * @see imp-96769-krein-de-branges-uniform-gap-assessment.js (lambda_1 soft-positive, no rigorous gap)
  *
  * Ticket: imp-97537 (proof, opus-4-8, api-pool). Confined-well vs projected positivity assessed;
- * no coercivity constant; no bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no coercivity constant; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import { sigma2, TOEPLITZ_KREIN_LITERALS } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

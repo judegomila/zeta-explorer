@@ -54,7 +54,7 @@
  * MEASUREMENT ONLY. Conditional-share diagnostic on the inherited surrogate, NOT an RH bound. The component
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional
  * per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched;
- * far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34886-eflow-strength-knee-inflection-crossing (the s* ~ 0.78 crossing and the linear ~0.77 estimate whose curvature-vs-ramp sensitivity is swept here)
  * @see imp-34837-sigmoid-inflection-d2-eflow-reinstatement (the D2 inflection +9.03e-3 UP shift, ~101% first-order-captured)
@@ -266,7 +266,7 @@ export const IMP34899_EFLOW_CROSSING_STRENGTH_RAMP_POSITION_SWEEP = {
     'linear ~0.77 corroboration is robust, not fragile, to the first-order-capture curvature. The component ' +
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
   subGap:
     'ANSWERS the imp-34886 curvature-vs-ramp-position subGap: sweeping the E_flow/E_trunc ratio down the ramp, ' +
     's* DRIFTS as ~1/ratio (NOT flat ~0.78), but the product s*(E_flow/E_trunc) ~ 1.4366e-3 is ramp-invariant, ' +
@@ -316,15 +316,15 @@ export const IMP34899_EFLOW_CROSSING_STRENGTH_RAMP_POSITION_SWEEP_ASSERTIONS = [
     holds: () => MAX_REL_DEPARTURE_PHYS_TO_MODERATE < 1e-2,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34899-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34899_EFLOW_CROSSING_STRENGTH_RAMP_POSITION_SWEEP.isRigorous === false &&
       IMP34899_EFLOW_CROSSING_STRENGTH_RAMP_POSITION_SWEEP.farTailExponent === 0.5 &&
       typeof IMP34899_EFLOW_CROSSING_STRENGTH_RAMP_POSITION_SWEEP.subGap === 'string' &&
       /NO QED/.test(IMP34899_EFLOW_CROSSING_STRENGTH_RAMP_POSITION_SWEEP.verdict) &&
-      /remains SOTA/.test(IMP34899_EFLOW_CROSSING_STRENGTH_RAMP_POSITION_SWEEP.verdict),
+      /refereed bound is changed/i.test(IMP34899_EFLOW_CROSSING_STRENGTH_RAMP_POSITION_SWEEP.verdict),
   },
 ];
 

@@ -9,7 +9,7 @@
  * Documentation only. Restates the four imp-95046 requirements verbatim as checklist
  * items; adds no new math, discharges no requirement, closes no gap. The frozen
  * imp-95012 spec discharges NONE of the four; the slab hypothesis stays an
- * INDEPENDENT-CONDITIONAL-TARGET. NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * INDEPENDENT-CONDITIONAL-TARGET. NO QED; no refereed bound is changed.
  *
  * @see imp-95046 (source: SLAB_CERTIFICATION_REQUIREMENTS, this module's only input)
  * @see imp-95012 (frozen spec ROW_01399_DECISION that discharges none of the four)
@@ -53,8 +53,8 @@ export const IMP95084_SLAB_44_CERTIFICATION_CHECKLIST = {
     'y* <= v <= sqrt(1 - 2 t*) -- are laid out here as a checklist. The frozen imp-95012 spec ' +
     'discharges NONE of them, so hypothesis (a) of Theorem 4.5 stays an independent conditional ' +
     'target. This module restates the imp-95046 requirement text verbatim; it discharges no ' +
-    'requirement, instantiates no interval, and changes no bound. NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'requirement, instantiates no interval, and changes no bound. NO QED; no refereed bound is changed' +
+    '.',
   citation:
     'imp-95046 (SLAB_CERTIFICATION_REQUIREMENTS, this module’s only source); imp-95012 ' +
     '(frozen spec ROW_01399_DECISION, discharges none of the four); imp-95047 (tail lane, ' +
@@ -91,11 +91,11 @@ export const IMP95084_SLAB_44_CERTIFICATION_CHECKLIST_ASSERTIONS = [
   },
   {
     id: 'imp95084-honesty-gate-no-qed',
-    description: 'checklist only: not rigorous, discharges nothing, no QED, PT stays SOTA',
+    description: 'checklist only: not rigorous, discharges nothing, no QED, no refereed bound is changed',
     holds: () =>
       IMP95084_SLAB_44_CERTIFICATION_CHECKLIST.isRigorous === false &&
       /NO QED/.test(IMP95084_SLAB_44_CERTIFICATION_CHECKLIST.verdict) &&
-      /remains SOTA/.test(IMP95084_SLAB_44_CERTIFICATION_CHECKLIST.verdict),
+      /refereed bound is changed/i.test(IMP95084_SLAB_44_CERTIFICATION_CHECKLIST.verdict),
   },
 ];
 

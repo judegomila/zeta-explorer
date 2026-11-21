@@ -56,7 +56,7 @@
  *   different decaying tail ansatz, replacing the top-t^k periodic tail block itself rather than raising
  *   its degree) requires changing the lp13 design/tail structure and was not exercised here; whether such
  *   a genuinely different ansatz lifts the tail dip stays open.
- * RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * RH open; no refereed bound is changed; NO QED.
  *
  * @see imp-97032-krein-tail-parametrisation-lever.js (parent: tail-edge dip structural, needs a richer design family; sub-gap IMP97032_TAIL_EDGE_DIP_IS_STRUCTURAL_NOT_PARAMETRISATION)
  * @see imp-97013-krein-finer-fineh-3e5-convergence.js (kmax=5 FINEH=3e-5 baseline best -0.0557; design-F tail dip 0.80151 at t=35.206)

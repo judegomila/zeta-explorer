@@ -159,7 +159,7 @@
  * measured only). (c) Parity-pure only. (d) The frame root moved only
  * ~3e-5; the certified gain is mostly certification-side (stated
  * honestly above). (e) Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD. (1) Lemma DG approached termwise on
  * 200000 seeded Gram pairs (rates to 26x the floor, depths to 20, gaps
@@ -740,7 +740,7 @@ export const IMP95138_MASS_SPLIT_DEPTH_CAP = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM DS is unconditional given the sibling-chain witness conventions: Lemma DG is exact algebra on the carried excess identity and kernel factorization plus a two-case exponent inequality; Corollary DM is a termwise sum with nonnegative weights; Lemma MS is bilinearity plus the carried sharp cluster cap applied to pieces (any sub-interval cluster qualifies) plus kernel positivity; the tilt forms, TS budgets, spectral frame, parity and head/tail reductions are carried from imp-95134/95136/95137 (split terms dominate their odd-parity counterparts via g(2z) <= g(z), asserted below); the head certificate is an adaptive cell partition with per-term corner evaluation bounded by shifted Collatz-Wielandt through the single alternating-series constant U246 >= exp(-0.246) with explicit float slacks, terminating with zero unresolved cells. The batteries and scans are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure, model-family constants; the certified constant 123/500 is not the sharp threshold (sandwich [0.23, 0.246]; float landmarks 0.2321 and 0.2451 measured only); the frame root moved only ~3e-5, with the certified gain mostly certification-side; the probe-depth leg stays OPEN under the phantom-near-mass residual; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM DS is unconditional given the sibling-chain witness conventions: Lemma DG is exact algebra on the carried excess identity and kernel factorization plus a two-case exponent inequality; Corollary DM is a termwise sum with nonnegative weights; Lemma MS is bilinearity plus the carried sharp cluster cap applied to pieces (any sub-interval cluster qualifies) plus kernel positivity; the tilt forms, TS budgets, spectral frame, parity and head/tail reductions are carried from imp-95134/95136/95137 (split terms dominate their odd-parity counterparts via g(2z) <= g(z), asserted below); the head certificate is an adaptive cell partition with per-term corner evaluation bounded by shifted Collatz-Wielandt through the single alternating-series constant U246 >= exp(-0.246) with explicit float slacks, terminating with zero unresolved cells. The batteries and scans are CROSS-CHECKS; the theorem is the displayed lemma chain. Scope: parity-pure, model-family constants; the certified constant 123/500 is not the sharp threshold (sandwich [0.23, 0.246]; float landmarks 0.2321 and 0.2451 measured only); the frame root moved only ~3e-5, with the certified gain mostly certification-side; the probe-depth leg stays OPEN under the phantom-near-mass residual; parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -904,11 +904,11 @@ export const IMP95138_MASS_SPLIT_DEPTH_CAP_ASSERTIONS = [
   {
     id: "imp95138-ds-honesty-gate",
     description:
-      "the verdict is scoped: parity-pure, model family, 123/500 certified not sharp, the root moved only ~3e-5 (gain mostly certification-side, stated), the probe-depth leg stays OPEN under the phantom-near-mass residual, parent sub-gap stays OPEN; promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped: parity-pure, model family, 123/500 certified not sharp, the root moved only ~3e-5 (gain mostly certification-side, stated), the probe-depth leg stays OPEN under the phantom-near-mass residual, parent sub-gap stays OPEN; promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95138_MASS_SPLIT_DEPTH_CAP.promotesBound === false &&
       /NO QED/.test(IMP95138_MASS_SPLIT_DEPTH_CAP.rigorScope) &&
-      /remains SOTA/.test(IMP95138_MASS_SPLIT_DEPTH_CAP.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95138_MASS_SPLIT_DEPTH_CAP.rigorScope) &&
       /stays OPEN/.test(IMP95138_MASS_SPLIT_DEPTH_CAP.rigorScope) &&
       /certification-side/.test(IMP95138_MASS_SPLIT_DEPTH_CAP.rigorScope) &&
       /remains OPEN/.test(IMP95138_MASS_SPLIT_DEPTH_CAP.openResiduals[0]) &&

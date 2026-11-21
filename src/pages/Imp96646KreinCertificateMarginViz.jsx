@@ -230,7 +230,7 @@ export default function Imp96646KreinCertificateMarginViz() {
         viz-data (every number reused verbatim from the Route I Krein certificate literals). The
         double-precision LP wall is a conditioning symptom, not a positivity failure: lambda_min(T_a[sigma_2])
         stays positive well past 2a = 1.0. Changes no bound, establishes no operator positivity, no RH
-        claim; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA. RH open. NO QED.
+        claim. RH open. NO QED.
       </div>
     </div>
   );

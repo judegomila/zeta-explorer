@@ -170,7 +170,7 @@ export const IMP3507_P2_TAIL_BAND_CONTRIBUTION = Object.freeze({
     '1.77604136e-8 at N = 10), so the bands-n>=3 shift is dP2 ~ 2.8e-16 (~1.5e-11 of the p2AbsSum scale). The ' +
     'Gaussian tail exp(-pi n^2 e^{4u}) crushes band n = 3 by exp(-9 pi) ~ 5.2e-13 at u = 0. Measurement/' +
     'certification only; RH-equivalent; imp-3066 K_a >= 0 magnitude UNTOUCHED; NO RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   construction: Object.freeze({
     phiBandKernel: 'band n: (2 pi^2 n^4 e^{4u} - 3 pi n^2 e^{2u}) exp(-pi n^2 e^{4u})',
@@ -237,7 +237,7 @@ export const IMP3507_P2_TAIL_BAND_CONTRIBUTION = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -295,7 +295,7 @@ export const IMP3507_P2_TAIL_BAND_CONTRIBUTION_ASSERTIONS = [
   {
     id: 'imp3507-honest-assessment-no-qed',
     why: 'Mandatory honesty: CERTIFIES the tail but does NOT close (equation stays transcendental), tail negligible ' +
-      'not eliminated, positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'not eliminated, positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3507_P2_TAIL_BAND_CONTRIBUTION.honestCaveat;
       return (
@@ -305,7 +305,7 @@ export const IMP3507_P2_TAIL_BAND_CONTRIBUTION_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.certifiesTailNotCloses === 'string' &&
         typeof c.tailBoundNotEliminated === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

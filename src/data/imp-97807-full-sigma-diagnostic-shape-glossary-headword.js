@@ -39,7 +39,7 @@
  *   log10 N ~45)
  *
  * Ticket: imp-97807 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The full-shape headword, baked verbatim (no re-import).
@@ -67,7 +67,7 @@ const FULL_SIGMA_DIAGNOSTIC_SHAPE_HEADWORD = Object.freeze({
     'Re-cited from the imp-97806 curve-sampling module (src/data/imp-97806-full-sigma-diagnostic-' +
     'curve-viz-data.js) and its three source pins (imp-97782 hump, imp-97777 minimum, imp-97723 ' +
     'asymptote), with all landmark figures checked verbatim. Naming / glossary headword only; ' +
-    'supplies no new bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'supplies no new bound; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97807_FULL_SIGMA_DIAGNOSTIC_SHAPE_GLOSSARY_HEADWORD = Object.freeze({
@@ -83,7 +83,7 @@ export const IMP97807_FULL_SIGMA_DIAGNOSTIC_SHAPE_GLOSSARY_HEADWORD = Object.fre
     'GLOSSARY HEADWORD ONLY (documentation, not a proof). Names the imp-97806 joined shape of the ' +
     'imp-97723 sigma diagnostic: hump (diag ~14.89 at log10 N ~7.77) then local minimum (diag ' +
     '~0.976 at log10 N ~18.77) then slow rise to exactly 1 (0.99 only near log10 N ~45). No bound ' +
-    'moved; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'moved; RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97806 (the joined curve this glosses); imp-97782 (hump pin); imp-97777 (minimum pin); ' +
     'imp-97723 (asymptote-to-1 pin).',
@@ -110,11 +110,11 @@ export const IMP97807_FULL_SIGMA_DIAGNOSTIC_SHAPE_GLOSSARY_HEADWORD_ASSERTIONS =
   },
   {
     id: 'imp97807-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97806.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97806.',
     holds: () =>
       IMP97807_FULL_SIGMA_DIAGNOSTIC_SHAPE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97807_FULL_SIGMA_DIAGNOSTIC_SHAPE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97807_FULL_SIGMA_DIAGNOSTIC_SHAPE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97807_FULL_SIGMA_DIAGNOSTIC_SHAPE_GLOSSARY_HEADWORD.verdict) &&
       IMP97807_FULL_SIGMA_DIAGNOSTIC_SHAPE_GLOSSARY_HEADWORD.glosses === 'imp-97806',
   },
 ];

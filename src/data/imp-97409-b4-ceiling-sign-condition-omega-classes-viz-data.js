@@ -23,7 +23,7 @@
  *   @see imp-97393-route-m-omega3-delta-sign-magnitude-sweep.js (omega>=3 sweep; primorial magRatio ladder omega=3..10)
  *
  *   Ticket: imp-97409 (ux, low). Presentation of already-established results; adds no new Lambda
- *   bound. PT Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ *   bound. No refereed bound is changed. RH open. NO QED.
  */
 
 // -- omega=1 (primes) and omega=2 (semiprimes): PROVED. Representative b examples with the

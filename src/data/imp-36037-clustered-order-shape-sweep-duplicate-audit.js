@@ -71,8 +71,8 @@ export const IMP36037_CLUSTERED_ORDER_SHAPE_SWEEP_DUPLICATE_AUDIT = {
     'a permanent regression guard confirming the delivered sweep stays present and consistent. ' +
     'Measurement/presentation-only; certifies no W1 bound; instantiates no interval; changes no ' +
     'bound; the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A); C_mb ' +
-    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP36037_CLUSTERED_ORDER_SHAPE_SWEEP_DUPLICATE_AUDIT_ASSERTIONS = [
@@ -106,12 +106,12 @@ export const IMP36037_CLUSTERED_ORDER_SHAPE_SWEEP_DUPLICATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp36037-honesty-gate-no-qed',
-    description: 'Audit finding is non-rigorous scoping metadata; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Audit finding is non-rigorous scoping metadata; NO QED; no refereed bound is changed',
     holds: () =>
       IMP36037_CLUSTERED_ORDER_SHAPE_SWEEP_DUPLICATE_AUDIT.isRigorous === false &&
       /GREENFIELD/.test(IMP36037_CLUSTERED_ORDER_SHAPE_SWEEP_DUPLICATE_AUDIT.verdict) &&
       /NO QED/.test(IMP36037_CLUSTERED_ORDER_SHAPE_SWEEP_DUPLICATE_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP36037_CLUSTERED_ORDER_SHAPE_SWEEP_DUPLICATE_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP36037_CLUSTERED_ORDER_SHAPE_SWEEP_DUPLICATE_AUDIT.verdict),
   },
 ];
 

@@ -55,7 +55,7 @@
  * @see imp-97080-palm-mirror-baseline-vs-preq-measurement.js (two-height anchor)
  *
  * Ticket: imp-97189 (numerical, low, opus-4-8). Measurement only; no bound moves;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 const IMP97189_Y0 = 0.165;
@@ -108,7 +108,7 @@ export const IMP97189_EXTENDED_LADDER = Object.freeze({
 });
 
 export const IMP97189_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extending the imp-97101 neutral ' +
+  'RH open; no refereed bound is changed; NO QED. Extending the imp-97101 neutral ' +
   'rigid-lattice Palm 2-slot mirror-count frac-of-mean ladder past ln N = 22 (imp-97127 ' +
   'stopped at 0.535) shows frac APPROACHES 1 but never reaches it at any finite height: ' +
   'the count trails its own mean ln N/2 by a FIXED additive constant 1/y0 = 6.06 at every ' +
@@ -149,11 +149,11 @@ const IMP97189_ASSERTIONS = [
       IMP97189_EXTENDED_LADDER.anyBoundMoved === false &&
       IMP97189_EXTENDED_LADDER.reachesOneAtFiniteHeight === false &&
       /NO QED/.test(IMP97189_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97189_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97189_HONEST_BANNER) &&
       /RH open/.test(IMP97189_HONEST_BANNER) &&
       /HEIGHT-effect/.test(IMP97189_HONEST_BANNER),
     why:
-      'Measurement only: no bound moved, frac never reaches 1 at finite height, PT SOTA line ' +
+      'Measurement only: no bound moved, frac never reaches 1 at finite height, no-refereed-bound-change line ' +
       'present, and the height-effect reading stated explicitly.',
   },
 ];

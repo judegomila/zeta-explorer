@@ -21,7 +21,7 @@
 const SIGMA_3220_3406_HONEST_SCOPE_CORE =
   'The component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; ' +
   'C_mb stays GUE-conditional (imp-486); changes no bound; establishes no operator positivity; ' +
-  'imp-3066 K_a>=0 sign-positivity untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.';
+  'imp-3066 K_a>=0 sign-positivity untouched; no refereed bound is changed; NO QED.';
 
 export const glossary = [
   // ═══════════════════════════════════════════════════════════════════════
@@ -514,7 +514,7 @@ export const glossary = [
       '(trapped ceiling Theta = 1/4). OFF the basin (crowded near-uniform lattice, rho >= 2/3): ' +
       'C_Lip diverges due to the linear-N norm-mismatch (C_Lip ~ N g0 / (4(1-Theta))). ' +
       'This off-basin divergence is NOT resolved by the basin-conditional reconditioning; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-3006 (ch-lip-basin-conditional-2026-06-30)',
     relatedTerms: ['C_H wall', 'C_shock', 'C_Theta', 'Theta-trap', 'isolation ratio rho'],
     link: '/spectral-attack',
@@ -579,7 +579,7 @@ export const glossary = [
       "The sole surviving deterministic forward move is to close the multi-body isolation " +
       "constant c in closed form (currently bracketed at [0.927, 0.943], open; see isolation-constant " +
       "ladder), which would convert the route to a basin-conditional C_Lip bound. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; no QED.",
+      "No refereed bound is changed; no QED.",
     firstUsed: 'imp-3047 (ch-lip-impossibility-w1grid, 2026)',
     relatedTerms: ['C_Lip', 'C_H wall', 'C_shock', 'Holder-1/2 cusp', 'isolation-constant ladder', 'Theta-trap'],
     link: '/spectral-attack',
@@ -599,7 +599,7 @@ export const glossary = [
       '(3) LARGE-s decay constant K = 2 * (sqrt2 - arcsinh1) ~ 1.065680 -- for large overflow ' +
       'phi ~ K * e^{-s} (exponentially cheap: the cosh-completion costs almost nothing deep in the ' +
       'admissible range). Honest caveat: phi is a degree-0 SCALAR measure on the representative ' +
-      'truncation -- it carries no RH verdict. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'truncation -- it carries no RH verdict. No refereed bound is changed.',
     firstUsed: 'imp-3087/imp-3088 (excess-fraction phi asymptotics, 2026)',
     relatedTerms: ['a*U scale invariant', 'excess fraction phi', 'cosh-completion', 'overflow onset s0'],
     link: '/closure-routes',
@@ -623,8 +623,8 @@ export const glossary = [
       'Honest caveat: this is a DIAGNOSTIC structural tie, not a reduction -- the scalar side is a degree-0 ' +
       '(measure-only) quantity and the operator side is on the representative degree-4 monomial truncation, NOT the ' +
       'section-26 Gram; the exact a*U collapse is a toy artifact of the joint homogeneity of the monomial basis and ' +
-      'the bare hyperbolic weight (imp-3110), and carries NO RH verdict. Platt-Trudgian Lambda <= 0.2 remains the ' +
-      'rigorous SOTA.',
+      'the bare hyperbolic weight (imp-3110), and carries NO RH verdict. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-3085 (Hankel-gap a*U grid) cross-tied to imp-3064 (deficit/excess-fraction grid), 2026',
     relatedTerms: ['Excess-fraction asymptotics (s0, C, K)', 'excess fraction phi', 'cosh-completion', 'overflow onset s0'],
     link: '/closure-routes',
@@ -647,8 +647,8 @@ export const glossary = [
       'kernel anywhere in its definition, so it is NPHI-INDEPENDENT outright -- unlike the imp-3085 operator gap, ' +
       'which is computed on the Phi-weighted monomial Gram and only inherits s = a*U scale invariance as a property ' +
       'of that operator construction. Honest caveat: DIAGNOSTIC only, RH-equivalent, necessary-but-not-sufficient ' +
-      '(mass-feasibility B > D_0 does not touch the surviving operator-level K_a >= 0 sign-positivity); Platt-Trudgian ' +
-      'Lambda <= 0.2 remains the rigorous SOTA.',
+      '(mass-feasibility B > D_0 does not touch the surviving operator-level K_a >= 0 sign-positivity); no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-3255 (bridge-margin closed form, 2026), companion to imp-3251 resolution sweep',
     relatedTerms: ['a*U scale invariant', 'mu^pass overflow-cover vocabulary (D_raw, D_pass, E(a))', 'Operator-side mu^pass vocabulary (de-homogenized R, endpoint-Hankel gap)'],
     link: '/closure-routes',
@@ -673,7 +673,7 @@ export const glossary = [
       'even completion instead of the minimal kinked patch w^min. ' +
       'Honest note: this cover is SCALAR/diagnostic (degree-0, pointwise w^pass >= nu) and RH-EQUIVALENT, not an ' +
       'RH proof -- covering the degree-0 overflow is NECESSARY but NOT SUFFICIENT; the operator (section-26 Gram) ' +
-      'step is open and Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'step is open and no refereed bound is changed.',
     firstUsed: 'imp-3007 (mu^pass overflow cover), 2026',
     relatedTerms: ['a*U scale invariant', 'cosh-completion', 'overflow onset s0', 'Excess-fraction asymptotics (s0, C, K)'],
     link: '/closure-routes',
@@ -706,8 +706,8 @@ export const glossary = [
       'one structural tie between the scalar and operator sides. ' +
       'Honest scope caveat: the scalar cover is NECESSARY but NOT SUFFICIENT; this operator contraction step is ' +
       'the RH-hard residual and is OPEN, and these objects live on the representative monomial truncation, NOT ' +
-      'the section-26 Gram -- diagnostic only, no RH verdict. Platt-Trudgian Lambda <= 0.2 remains the rigorous ' +
-      'SOTA.',
+      'the section-26 Gram -- diagnostic only, no RH verdict. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-3066 (off-diagonal Hankel obstruction) / imp-3084 (operator/diagonal gap degree sweep), 2026',
     relatedTerms: ['mu^pass overflow-cover vocabulary (D_raw, D_pass, E(a))', 'a*U scale invariant', 'excess fraction phi', 'cosh-completion'],
     link: '/closure-routes',
@@ -743,7 +743,7 @@ export const glossary = [
       "orthogonalization, confirming the off-diagonal endpoint-Hankel obstruction is real but much smaller. " +
       "Honest scope: this is a STRUCTURAL/DIAGNOSTIC result on the representative monomial truncation (NOT " +
       "the section-26 Gram); the operator norm carries no RH verdict and positivity was not attempted. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3086 (orthogonalized basis conditioning), 2026",
     relatedTerms: ['Operator-side mu^pass vocabulary (de-homogenized R, endpoint-Hankel gap)', 'a*U scale invariant', 'excess fraction phi'],
     link: '/closure-routes',
@@ -838,7 +838,7 @@ export const glossary = [
       "class only. The GLOBAL asymmetric isolation constant, once bracketed ~(0.9016, 0.9028), was " +
       "closed 2026-08-28 at c_glob = c_half = 0.8980208880762339 (sg1c-cglo-closure-2026-08-28); " +
       "c_asym stays a valid class-specific onset above it. " +
-      "Basin preserved; Platt-Trudgian Lambda <= 0.2 stays SOTA. Not RH-hard; no QED.",
+      "Basin preserved; no refereed bound is changed. Not RH-hard; no QED.",
     firstUsed: "imp-3170 (sg1c-asym isolation closed-form), 2026",
     relatedTerms: [
       'asymmetric isolation onset (sg1c R2-T)',
@@ -878,8 +878,8 @@ export const glossary = [
       "asymmetric infimum — c_glob = c_half = 0.8980208880762339 exactly, via the universal " +
       "rate bound d_1^2 (drho/ds) <= R(rho), sharp along the one-sided half-lattice. " +
       "The Theorem-C basin constant 0.72 stays safely " +
-      "below with margin c_half - 0.72 = 0.178. Platt-Trudgian Lambda <= 0.2 remains the " +
-      "rigorous SOTA; no QED.",
+      "below with margin c_half - 0.72 = 0.178. No refereed bound is changed" +
+      "; no QED.",
     firstUsed: "imp-3270 (sg1c-halflattice-lone-limit-closed-form), 2026",
     relatedTerms: [
       'digamma transcendental isolation onset (c_asym)',
@@ -936,7 +936,7 @@ export const glossary = [
       "bounded below 1 by a complementary argument, the bridge would close. " +
       "Honest status: the magnitude obstruction is OPEN; no bound ||Gshear|| < 1 exists; " +
       "this is the residual sub-gap named in imp-3202. RH-EQUIVALENT; no QED; " +
-      "Platt-Trudgian Lambda <= 0.2 stays SOTA.",
+      "no refereed bound is changed.",
     firstUsed: "imp-3197 (mupass-bridge-sign-phi-only decomposition), 2026",
     relatedTerms: [
       'Gshear operator norm (||Gshear||)',
@@ -1295,7 +1295,7 @@ export const glossary = [
       "ratio touches the binding requirement. Both are necessary-but-not-sufficient " +
       "mass checks; the sole surviving obstruction across the whole section26-mupass " +
       "cluster is the single operator-positivity statement K_a >= 0, RH-equivalent, " +
-      "untouched. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; no QED.",
+      "untouched. No refereed bound is changed; no QED.",
     firstUsed: "imp-3397 (section26-mupass residual glossary), 2026",
     relatedTerms: [
       "mass-feasibility vs operator-positivity",
@@ -1337,7 +1337,7 @@ export const glossary = [
       "\n\nHonest scope: Theorem B is a RIGOROUS STATIC bound on the isolated-pair basin. " +
       "The real-zero configurations measured have Theta(0) in {0.167, 0.088, 0.046}, well " +
       "below both 1/4 and 0.443, so Theorem A already applies there unconditionally. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; no QED.",
+      "No refereed bound is changed; no QED.",
     firstUsed: "sg1c-theta-trap-theorems / imp-3042 (Theorem-B sharpness tabulation), 2026",
     relatedTerms: [
       "Theta-trap",
@@ -1435,7 +1435,7 @@ export const glossary = [
       "both horizons. It re-derives no absolute deficit magnitude and proves no positivity; " +
       "a nonzero overflow fraction is necessary-but-not-sufficient at operator order, and the " +
       "off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction. " +
-      "No RH verdict; Platt-Trudgian Lambda <= 0.2 stays SOTA.",
+      "No RH verdict; no refereed bound is changed.",
     firstUsed: "imp-3309 (closed-form derivation of both horizons), 2026",
     relatedTerms: [
       "IEEE-754 kernel underflow horizon (de Bruijn-Newman Phi)",
@@ -1467,7 +1467,7 @@ export const glossary = [
       "u_1* (irrelevant here since imp-3197 only needs [0,U], a subset of [u_1*, infinity)). " +
       "The bridge-MAGNITUDE half (the ||Gshear|| operator-norm question) remains entirely " +
       "open and untouched by this result. RH-EQUIVALENT; no QED; " +
-      "Platt-Trudgian Lambda <= 0.2 stays SOTA.",
+      "no refereed bound is changed.",
     firstUsed: "imp-3257 (termwise structural proof), 2026",
     relatedTerms: [
       'bridge-kernel sign-free / magnitude-binding split',
@@ -1500,8 +1500,8 @@ export const glossary = [
       "\n\nHonest scope: this rules out one entire recipe class (box truncation) but does not by " +
       "itself construct the exact out-of-repo assembly recipe -- the admissible Fejer-dominated " +
       "family matches the verdict's qualitative SHAPE but not its absolute scalars (see imp-3310). " +
-      "Diagnostic/constructive-constraint only; RH-equivalent; no QED; Platt-Trudgian Lambda <= 0.2 " +
-      "stays SOTA.",
+      "Diagnostic/constructive-constraint only; RH-equivalent; no QED; no refereed bound is changed" +
+      ".",
     firstUsed: "imp-3310 (mupass-passive-core-assembly-recipe, finding A), 2026",
     relatedTerms: [
       'bridge-kernel sign-free / magnitude-binding split',
@@ -1542,7 +1542,7 @@ export const glossary = [
       "extrapolated; matching the exact recorded constants needs the out-of-repo " +
       "extended-precision arbiter. MEASUREMENT/DIAGNOSTIC ONLY; RH-equivalent; the " +
       "off-diagonal endpoint-Hankel obstruction (imp-3066) is untouched; no QED; " +
-      "Platt-Trudgian Lambda <= 0.2 stays SOTA.",
+      "no refereed bound is changed.",
     firstUsed: "imp-3382 (rawdiagonal-R-degree-growth-law), 2026",
     relatedTerms: [
       'lag-band (box) truncation destroys Toeplitz positive-definiteness; Fejer stays PD',
@@ -1570,7 +1570,7 @@ export const glossary = [
       "independent Richardson extrapolation of a direct finite-eps evaluation of phi. The four " +
       "coefficients feed the imp-3383 higher-order Pade resummations ([2/1], [1/2], [2/2]) of the " +
       "onset signature. Degree-0 scalar diagnostic only; RH-equivalent; the off-diagonal " +
-      "endpoint-Hankel obstruction (imp-3066) is untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+      "endpoint-Hankel obstruction (imp-3066) is untouched; no refereed bound is changed.",
     firstUsed: "imp-3155 (A1), imp-3222 (A2), imp-3383 (A3, A4, sign-alternation), 2026",
     relatedTerms: ['onset quadratic-pole divergence', 'envelope crossover handoff (s_cross1)'],
     link: '/closure-routes',
@@ -1596,7 +1596,7 @@ export const glossary = [
       "second interior crossover could exist) but re-derives no absolute deficit magnitude " +
       "and proves no positivity. Diagnostic only, necessary-but-not-sufficient at operator " +
       "order -- the off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone " +
-      "obstruction. No RH verdict; Platt-Trudgian Lambda <= 0.2 stays SOTA.",
+      "obstruction. No RH verdict; no refereed bound is changed.",
     firstUsed: "imp-3384 (interior-crossover-below-horizon scan), 2026",
     relatedTerms: [
       "two-tail underflow horizons (tau_mu, tau_nu) and the (1/4)ln2 band",
@@ -1633,8 +1633,8 @@ export const glossary = [
       "compact edge, remains unconstructed. " +
       "\n\nHonest scope: diagnostic/constructive-constraint only -- no family in this ladder " +
       "reproduces the absolute verdict pair, and none bears on the endpoint-Hankel operator-norm " +
-      "step (imp-3066), the lone obstruction. RH-equivalent; no QED; Platt-Trudgian Lambda <= 0.2 " +
-      "stays SOTA.",
+      "step (imp-3066), the lone obstruction. RH-equivalent; no QED; no refereed bound is changed" +
+      ".",
     firstUsed: "imp-3310 / imp-3385 / imp-3427 (mupass passive-core family search), 2026",
     relatedTerms: [
       "lag-band (box) truncation destroys Toeplitz positive-definiteness; Fejer stays PD",
@@ -1665,8 +1665,8 @@ export const glossary = [
       "Platt-Trudgian)." +
       "\n\nHONEST SCOPE: assessment/scoping only -- no positivity, no reduction, no QED. " +
       "Confirms the full-route-map verdict of no hidden shortcut below RH inside the closure " +
-      "family; imp-3066 remains the lone operator obstruction; Platt-Trudgian Lambda <= 0.2 " +
-      "stays SOTA.",
+      "family; imp-3066 remains the lone operator obstruction; no refereed bound is changed" +
+      ".",
     firstUsed: "imp-3381 (PCC-free route enumeration), 2026",
     relatedTerms: [
       "section26-mupass ruled-out passive-core family ladder (band / additive-Fejer / smooth / sharp-compact)",
@@ -1693,7 +1693,7 @@ export const glossary = [
       "entire spectral energy to machine precision at every cell." +
       "\n\nHONEST SCOPE: structural/diagnostic only -- does not construct a dominating passive core and " +
       "does not attempt the K_a >= 0 positivity. The binding RH-equivalent residual (the imp-3066 " +
-      "off-diagonal endpoint-Hankel step) is untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA. No QED.",
+      "off-diagonal endpoint-Hankel step) is untouched; no refereed bound is changed. No QED.",
     firstUsed: "imp-3404 (rank-2 hollow-antisymmetry full-spectrum cell-independence), 2026",
     relatedTerms: [
       "cell-independent min-eig identity (imp-3351)",
@@ -1774,7 +1774,7 @@ export const glossary = [
       "half-share crossing essentially IS the floor-crossover, to sub-percent accuracy." +
       "\n\nHONEST SCOPE: measurement only, reusing exact imp-3220/imp-3323/imp-3406 sub-term formulas " +
       "with no re-derivation. Does not touch the imp-3066 off-diagonal endpoint-Hankel obstruction; " +
-      "no RH claim, no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+      "no RH claim, no QED. No refereed bound is changed.",
     firstUsed: "imp-3444 (sigma(N) N-shape landmark ladder bisected to machine precision), 2026",
     relatedTerms: [
       "sigma(N) N-shape (interior min ~97.8, interior max ~9.22e5) (imp-3406)",
@@ -1861,7 +1861,7 @@ export const glossary = [
       "(the untruncated de Bruijn-Newman Phi is positive on all of R). Leaves the imp-3197/imp-3257 " +
       "[0, U] window and the binding imp-3066 off-diagonal endpoint-Hankel K_a >= 0 operator-norm " +
       "obstruction entirely untouched. RH-equivalent; no positivity, no reduction, no RH verdict, NO " +
-      "QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "QED. No refereed bound is changed.",
     firstUsed: "imp-3441 (Gaussian-curvature coefficient closed form 5/(14 pi)), 2026",
     relatedTerms: [
       "Faulhaber-dominant leftmost-zero residual (residual*NPHI -> -1/2) (imp-3403)",
@@ -1890,7 +1890,7 @@ export const glossary = [
       "Mass-feasibility B > D_0 eliminates the impossibility option but is NECESSARY-BUT-NOT-SUFFICIENT " +
       "-- the degree-0 budget proxy is circular (its budget IS ||V||). The operator-level " +
       "K_a >= 0 off-diagonal endpoint-Hankel positivity (imp-3066) remains the lone RH obstruction, " +
-      "UNTOUCHED. No RH verdict, no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.",
+      "UNTOUCHED. No RH verdict, no QED; no refereed bound is changed.",
     firstUsed: "imp-3405 (general k-ladder lambda-scaling law), 2026",
     relatedTerms: [
       "two-point mass-scale identity (imp-3349)",
@@ -1918,7 +1918,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: numerical measurement only (fitted exponent over a finite U-grid, not a " +
       "symbolic identity; q sits ~4% short of exactly -1). Does not construct the missing off-diagonal " +
       "magnitude and does not attempt the imp-3066 K_a >= 0 positivity. RH-equivalent; no RH verdict, " +
-      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "no QED. No refereed bound is changed.",
     firstUsed: "imp-3442 (sinh-drift coefficient c(U) U-scaling sweep), 2026",
     relatedTerms: [
       "O(a^2) sinh-nonlinearity residual (imp-3409)",
@@ -1944,7 +1944,7 @@ export const glossary = [
       "these routes." +
       "\n\nHONEST SCOPE: tabulation of existing numerical results only -- no new computation, no closed " +
       "form, no RH claim. The imp-3066 off-diagonal endpoint-Hankel obstruction is untouched; " +
-      "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+      "no refereed bound is changed.",
     firstUsed: "imp-3475 (three-route C_inf consensus tabulation), 2026",
     relatedTerms: [
       "capture ratio C_inf (imp-3346)",
@@ -1972,7 +1972,7 @@ export const glossary = [
       "Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT, and the degree-2 face carries no feasibility " +
       "ratio at all (the overflow deficit D_2 = 0 identically). The operator-level K_a >= 0 off-diagonal " +
       "endpoint-Hankel positivity (imp-3066) remains the lone RH obstruction, UNTOUCHED. No RH verdict, " +
-      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "no QED. No refereed bound is changed.",
     firstUsed: "imp-3469 (degree-2 bridge-mass k-ladder scaling break), 2026",
     relatedTerms: [
       "General lambda-scaling law (B(a/k,kU) = k*B(a,U), D_0(a/k,kU) = k*D_0(a,U))",
@@ -2002,7 +2002,7 @@ export const glossary = [
       "entry above. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT, and the degree-2 face carries no " +
       "feasibility ratio at all (D_2 = 0 identically). The operator-level K_a >= 0 off-diagonal " +
       "endpoint-Hankel positivity (imp-3066) remains the lone RH obstruction, UNTOUCHED. No RH verdict, " +
-      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "no QED. No refereed bound is changed.",
     firstUsed: "imp-3469 (degree-2 bridge-mass k-ladder scaling break), 2026",
     relatedTerms: [
       "General lambda-scaling law (B(a/k,kU) = k*B(a,U), D_0(a/k,kU) = k*D_0(a,U))",
@@ -2085,7 +2085,7 @@ export const glossary = [
       "the straddling grid samples k=0 and k=0.2, and strictly below the large-N limit-flip " +
       "exponent k* = 1/2. Because the collapse is a boundary handover, k_c is a threshold FOR " +
       "the imp-3465 diagnostic window (N=1e2), not a window-free structural constant. " +
-      "Measurement only; RH-equivalent; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+      "Measurement only; RH-equivalent; NO QED; no refereed bound is changed.",
     firstUsed: "imp-3486 (critical capture-decay exponent k_c location and handover mechanism), 2026",
     relatedTerms: [
       "height-dependent n_max FLOOR mechanism (imp-3465)",
@@ -2117,7 +2117,7 @@ export const glossary = [
       "Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT, and the degree-2 face carries no feasibility " +
       "ratio at all (D_2 = 0 identically). The operator-level K_a >= 0 off-diagonal endpoint-Hankel " +
       "positivity (imp-3066) remains the lone RH obstruction, UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3481 (autocorrelation moment ladder extending the imp-3469 M_2 rung to n=0..4), 2026",
     relatedTerms: [
       "Second genuine-Phi autocorrelation moment M_2 and the degree-2 leading form B_2(a) ~ (a^2/2) M_2",
@@ -2148,8 +2148,8 @@ export const glossary = [
       "\n\nHONEST SCOPE: derivation/certification only. The degree-2 face carries no " +
       "feasibility ratio at all (D_2 = 0 identically, imp-3482), so this establishes NO " +
       "operator positivity. The off-diagonal endpoint-Hankel obstruction K_a >= 0 " +
-      "(imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 " +
-      "remains the rigorous SOTA.",
+      "(imp-3066) remains UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3488 (closed-form derivation of the degree-2 miss factor 1 - 1/k^3 and exponent p = 2), 2026",
     relatedTerms: [
       "genuine-Phi autocorrelation MOMENT LADDER M_0..M_4 (imp-3481)",
@@ -2182,7 +2182,7 @@ export const glossary = [
       "number requiring transcendental evaluation. This characterizes the numerator norm of the capture ratio; " +
       "it does NOT construct the missing magnitude or attempt the K_a >= 0 positivity. The off-diagonal " +
       "endpoint-Hankel obstruction (imp-3066) remains the lone RH obstruction, UNTOUCHED. No RH verdict, no " +
-      "QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "QED. No refereed bound is changed.",
     firstUsed: "imp-3489 and imp-3483 (U-independence certification and global-uniqueness certification of xi* = 12.0870439), 2026",
     relatedTerms: [
       "PSD peak-slope maximizer xi* = 12.0870439 (transcendental root of P2(xi) = 0) (imp-3470)",
@@ -2213,7 +2213,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: cross-validation/measurement only, no new closed form. C = 0.1751370 characterizes " +
       "the capture-ratio numerator norm, not positivity. The off-diagonal endpoint-Hankel obstruction " +
       "K_a >= 0 (imp-3066) remains the lone RH obstruction, UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3485 (solver-independent Lanczos/Jacobi cross-validation of the imp-3467 capture constant C = 0.1751370), 2026",
     relatedTerms: [
       "Ttilde closed-form C-assembly across the imp-3240 U-grid (imp-3467)",
@@ -2247,7 +2247,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: derivation/certification only. The degree-3 (odd) face carries no " +
       "feasibility ratio at all, so this establishes NO operator positivity. The off-diagonal " +
       "endpoint-Hankel obstruction K_a >= 0 (imp-3066) remains UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3510 (closed-form derivation of the degree-3 miss factor 1 - 1/k^4 and exponent p = 3), 2026",
     relatedTerms: [
       "closed-form degree-2 miss factor 1 - 1/k^3 (imp-3488)",
@@ -2281,7 +2281,7 @@ export const glossary = [
       "certifies the NPHI-robustness of a support-separation FACT; it establishes NO operator " +
       "positivity, and the degree-2 face carries no feasibility ratio at all (D_2 = 0). The " +
       "off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) remains UNTOUCHED. No RH verdict, " +
-      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "no QED. No refereed bound is changed.",
     firstUsed: "imp-3508 (NPHI-ladder robustness certification of the imp-3482 underflow point and imp-3469 degree-2 margin), 2026",
     relatedTerms: [
       "closed-form degree-2 miss factor 1 - 1/k^3 (imp-3488)",
@@ -2310,8 +2310,8 @@ export const glossary = [
       "confirming both solvers agree to machine precision once each is fully converged on its own terms." +
       "\n\nHONEST SCOPE: measurement/certification only -- separates two pre-existing solver error " +
       "sources and does not construct any new closed form. The off-diagonal endpoint-Hankel " +
-      "obstruction K_a >= 0 (imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
-      "Lambda <= 0.2 remains the rigorous SOTA.",
+      "obstruction K_a >= 0 (imp-3066) remains UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3505 (power-iteration budget sweep separating under-convergence from Lanczos Krylov-truncation deficit), 2026",
     relatedTerms: [
       "Solver-independent operator-norm cross-validation of the capture constant C = 0.1751370 (imp-3485)",
@@ -2343,8 +2343,8 @@ export const glossary = [
       "fixed-weight Taylor remainder and establishes NO operator positivity. Mass-feasibility is " +
       "NECESSARY-BUT-NOT-SUFFICIENT, and the degree-2 face carries no feasibility comparison at all " +
       "(imp-3469: D_2 = 0). The operator-level K_a >= 0 off-diagonal endpoint-Hankel obstruction " +
-      "(imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains " +
-      "the rigorous SOTA.",
+      "(imp-3066) remains UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3502 (fitted moment-remainder tail exponent certifying the imp-3481 order-a^2 residual decay), 2026",
     relatedTerms: [
       "genuine-Phi autocorrelation MOMENT LADDER M_0..M_4 and the moment-indexed leading form R_n(a) ~ (a^n/n!) M_n (imp-3481)",
@@ -2378,7 +2378,7 @@ export const glossary = [
       "operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT, and the degree-2 face " +
       "carries no feasibility comparison at all (imp-3469: D_2 = 0). The operator-level K_a >= 0 " +
       "off-diagonal endpoint-Hankel obstruction (imp-3066) remains UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3532 (closed error certificate promoting the imp-3501 O(a^{n+2}) moment-tail statement to an explicit all-n constant), 2026",
     relatedTerms: [
       "imp-3501 general-n moment-tail identity R_n(a) = (a^n/n!) M_n + O(a^{n+2})",
@@ -2413,8 +2413,8 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement/certification only -- certifies the floating-point cancellation-safety " +
       "of the degree-3 integrand across the k-ladder and establishes NO operator positivity. " +
       "Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 off-diagonal " +
-      "endpoint-Hankel obstruction (imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
-      "Lambda <= 0.2 remains the rigorous SOTA.",
+      "endpoint-Hankel obstruction (imp-3066) remains UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3527 (derivation and measurement of the odd-degree sinh cancellation safety k-ladder and closed crossover k*), 2026",
     relatedTerms: [
       "closed-form degree-3 (odd) miss factor 1 - 1/k^4 (imp-3510)",
@@ -2443,8 +2443,8 @@ export const glossary = [
       "1200, 1600) without re-sweeping." +
       "\n\nHONEST SCOPE: measurement/fit only -- closes a solver-cost predictor from the measured section " +
       "spectral gap and establishes NO operator positivity. The operator-level K_a >= 0 off-diagonal " +
-      "endpoint-Hankel obstruction (imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
-      "Lambda <= 0.2 remains the rigorous SOTA.",
+      "endpoint-Hankel obstruction (imp-3066) remains UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3530 (identification of the skew-forced top-pair degeneracy and the closed budget(N) ~ K N^2 power-iteration cost fit), 2026",
     relatedTerms: [
       "imp-3505 power-iteration budget-to-1e-9 convergence sweep (the ladder fit here)",
@@ -2505,7 +2505,7 @@ export const glossary = [
       "equation stays transcendental -- and the convergence remains an EMPIRICAL Cauchy/O(H^2) observation " +
       "over a finite ladder N <= 9600, not an analytic quadrature error bound. The imp-3066 off-diagonal " +
       "endpoint-Hankel K_a >= 0 magnitude remains the lone RH obstruction, UNTOUCHED. RH-equivalent; no RH " +
-      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA." +
+      "verdict, no QED. No refereed bound is changed." +
       "\n\nCAVEAT (imp-3647): the drift-0 discriminator is decisive here only because all four rungs " +
       "(N>=1200) sit above the imp-3582 worst-case floor N_replica~764. Below a feature-specific fold-in " +
       "floor a folded-in replica can co-locate with the genuine peak at equal height while a coarse scan " +
@@ -2569,8 +2569,8 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement/fit only -- extends a section-gap decay ladder and certifies q -> -2 " +
       "numerically (a finite-N trend, not a proven asymptotic), excludes one non-monotone rung as an artifact, " +
       "and establishes NO operator positivity. The operator-level K_a >= 0 off-diagonal endpoint-Hankel " +
-      "obstruction (imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains " +
-      "the rigorous SOTA.",
+      "obstruction (imp-3066) remains UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3555 (extension of the imp-3530 gap-decay ladder above N=800 and certification that the local log-log slope converges monotonically to the -2 section-gap heuristic), 2026",
     relatedTerms: [
       "Skew-Toeplitz top-singular-pair DEGENERACY and the power-iteration budget(N) ~ K N^2 law (imp-3530)",
@@ -2603,8 +2603,8 @@ export const glossary = [
       "does NOT give xi* or the sup an elementary closed form (the imp-3470 stationarity equation stays " +
       "transcendental), and it governs only the FINITE domain [0, 400] -- it is not a no-root proof at " +
       "arbitrarily large xi. RH-equivalent; the imp-3066 off-diagonal endpoint-Hankel K_a >= 0 magnitude " +
-      "remains the lone obstruction, UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 " +
-      "remains the rigorous SOTA.",
+      "remains the lone obstruction, UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3550 (Euler-Maclaurin midpoint analytic O(H^2) far-tail band-max error bound, upgrading the imp-3531 empirical Cauchy ladder), 2026",
     relatedTerms: [
       "far-tail xi* band-max grid ladder: four grid-invariant rungs to N=9600, xi_Nyq~5027 (imp-3558)",
@@ -2637,7 +2637,7 @@ export const glossary = [
       "masses and establishes NO operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT, " +
       "and the degree-2 face carries no feasibility comparison at all (imp-3469: D_2 = 0). The " +
       "operator-level K_a >= 0 off-diagonal endpoint-Hankel obstruction (imp-3066) remains UNTOUCHED. " +
-      "No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3552 (cosh-certificate over-estimation factor F_n(a), measuring how far the imp-3532 sharp certificate sits above the exact residual across the full a-ladder), 2026",
     relatedTerms: [
       "Moment-tail CLOSED error certificate |R_n(a)-(a^n/n!)M_n| <= (a^(n+2)/(n+2)!) M_(n+2) e^(a T_A), valid for ALL n",
@@ -2672,7 +2672,7 @@ export const glossary = [
       "domain systematics (constant across the ladder, cancelling in the spread), and does NOT give " +
       "xi* a closed form -- the imp-3470 stationarity equation stays transcendental. RH-EQUIVALENT; " +
       "the operator-level off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) remains " +
-      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3551 (SHARPENED xi*_inf quadrature residual band, tightening the imp-3523/imp-3548 conservative 1e-6 band to a measured 1e-9 via an extrapolation-free Gauss-Legendre convergence study), 2026",
     relatedTerms: [
       "PSD peak-slope maximizer xi* = 12.0870439 (transcendental root of P2(xi) = 0) (imp-3470)",
@@ -2704,8 +2704,8 @@ export const glossary = [
       "order of a fixed-weight Taylor remainder and establishes NO operator positivity. Mass-feasibility " +
       "is NECESSARY-BUT-NOT-SUFFICIENT, and the degree-2 face carries no feasibility comparison at all " +
       "(imp-3469: D_2 = 0). The operator-level K_a >= 0 off-diagonal endpoint-Hankel obstruction " +
-      "(imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
-      "rigorous SOTA.",
+      "(imp-3066) remains UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3553 (CANCELLATION-FREE odd degree-3 remainder R_3 recovering three deep ladder rungs and sharpening the tail exponent fit to p=1.99999), 2026",
     relatedTerms: [
       "Fitted moment-remainder tail EXPONENT p_n ~ 2, upgrading the imp-3481 worst-case ratio to a genuine decay law (imp-3502)",
@@ -2736,7 +2736,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement/correction only -- resolves a Krylov-truncation deficit in a previously " +
       "baked gap measurement and re-establishes monotonicity; does NOT construct the missing magnitude and " +
       "does NOT attempt the imp-3066 K_a >= 0 off-diagonal endpoint-Hankel positivity, which remains " +
-      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3575 (re-measurement of the imp-3555 N=1600 non-monotone rung with a Krylov depth grown past m=200, attributing the non-monotonicity to lambda_3 truncation and restoring the -log rho(N) monotone climb toward -2), 2026",
     relatedTerms: [
       "Skew-Toeplitz gap-exponent CONVERGENCE to the -2 section-gap heuristic (imp-3555)",
@@ -2771,7 +2771,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: certification/measurement only -- derives and characterizes a quadrature truncation " +
       "constant and explains an observed non-monotone fraction ladder; does NOT construct new structure and " +
       "does NOT attempt the imp-3066 K_a >= 0 off-diagonal endpoint-Hankel positivity, which remains " +
-      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3576 (Richardson-ladder derivation of the O(h^4) inner-A(tau) Simpson truncation constant K_n^inner, showing it is monotone decreasing and falsifying the imp-3547 tail-redistribution hypothesis by localizing the non-monotonicity to the outer-residual ratio), 2026",
     relatedTerms: [
       "imp-3547 lower-moment Simpson residual localization and inner-fraction ladder (imp-3547)",
@@ -2803,8 +2803,8 @@ export const glossary = [
       "\n\nHONEST SCOPE: certification/measurement only -- propagates a resolved quadrature-truncation correction " +
       "through existing miss-factor constants and adds NO new mathematical structure. Mass-feasibility remains " +
       "NECESSARY-BUT-NOT-SUFFICIENT (imp-3481); the operator-level K_a >= 0 off-diagonal endpoint-Hankel " +
-      "positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
-      "rigorous SOTA.",
+      "positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3579 (propagation of the imp-3557 refined M_4/M_3 moments into the imp-3488/imp-3510 degree-2/degree-3 miss-factor constants, showing the derived 1 - 1/k^(d+1) carries no moment and shifts exactly zero, with the two-term model shift ~1e-10 confined to the O(a^2) tail), 2026",
     relatedTerms: [
       "imp-3557 refined M_4 leading-form propagation (imp-3557)",
@@ -2838,8 +2838,8 @@ export const glossary = [
       "of that law, not a universal constant -- correcting a literal 'gap stays ~0.40%' expectation." +
       "\n\nHONEST SCOPE: measurement/certification only (400-iter bisection roots, residual < 1e-9) -- a " +
       "conditional-share diagnostic, NOT an RH bound. No positivity, no bridge closure, no RH claim, no QED. " +
-      "imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity remains UNTOUCHED. Platt-Trudgian Lambda <= 0.2 " +
-      "remains the rigorous SOTA.",
+      "imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity remains UNTOUCHED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3580 (re-root-solving the imp-3556 sigma=1/2 <=> E_coll=E_trunc crossover coincidence across the imp-3443 half-to-double E_trunc floor grid, showing the coincidence is exactly floor-invariant while the ~0.40% flow-gap is a baseline reading of a monotonically-growing structural law), 2026",
     relatedTerms: [
       "imp-3556 baseline half-decay <=> crossover certification (imp-3556)",
@@ -2876,7 +2876,7 @@ export const glossary = [
       "of a fixed-weight Taylor remainder and certifies the fitted values equal it; establishes NO operator " +
       "positivity. Mass-feasibility remains NECESSARY-BUT-NOT-SUFFICIENT (the degree-2 face carries no feasibility " +
       "comparison, imp-3469: D_2=0); the operator-level K_a >= 0 off-diagonal endpoint-Hankel positivity (imp-3066) " +
-      "is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3581 (closed derivation of the moment-remainder tail exponent p=2 and the fit-bias law p_fit=2+D_n cov(a^2,ln a)/var(ln a), certifying the imp-3553 fitted 1.99999 equals the derived 2 up to a fully-quantified O(a^2) curvature bias), 2026",
     relatedTerms: [
       "imp-3553 cancellation-free odd R_3 fit p=1.99999 (imp-3553)",
@@ -2917,7 +2917,7 @@ export const glossary = [
       "stays transcendental), does not extend the finite domain (0,400], and measures the tail ratio, not " +
       "operator positivity. RH-EQUIVALENT necessary-but-not-sufficient; the imp-3066 off-diagonal " +
       "endpoint-Hankel K_a >= 0 magnitude is the lone obstruction, UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3582 (analytic replica-hiding grid threshold N_replica = xi_max U/pi ~ 764 hardening the imp-3558 argmax-drift-0 discriminator with an a-priori floor, all four ladder rungs sitting ~1.57x above it), 2026",
     relatedTerms: [
       "imp-3558 far-tail band-max grid ladder N=1200..9600 (imp-3558)",
@@ -2952,8 +2952,8 @@ export const glossary = [
       "by measuring the full alias-image ladder, not a new closed form (the imp-3470 stationarity " +
       "equation stays transcendental) and not an extension of the finite-domain (0,400] measurement. " +
       "RH-EQUIVALENT necessary-but-not-sufficient; the imp-3066 off-diagonal endpoint-Hankel K_a >= 0 " +
-      "magnitude is the lone obstruction, UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= " +
-      "0.2 remains the rigorous SOTA.",
+      "magnitude is the lone obstruction, UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3601 (second-fold and general m-fold aliasing replica threshold ladder N_m=N_replica/m, certifying sup_m N_m=N_1~764 stays binding and no higher fold raises the imp-3582 floor), 2026",
     relatedTerms: [
       "analytic replica-hiding grid threshold N_replica = xi_max U/pi ~ 764 (imp-3582)",
@@ -2984,7 +2984,7 @@ export const glossary = [
       "fixed-weight Taylor-remainder decay ORDER and its leading coefficient; establishes NO operator " +
       "positivity. Mass-feasibility remains NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a >= 0 " +
       "off-diagonal endpoint-Hankel positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3600 (extends the imp-3581 closed moment-remainder tail exponent ladder to rungs n=5,6, certifying the fit-bias law reproduces the actual least-squares slope to ~1e-9 at both), 2026",
     relatedTerms: [
       "imp-3581 closed C_n/D_n derivation and fit-bias law, n=3,4 (imp-3581)",
@@ -3025,8 +3025,8 @@ export const glossary = [
       "identity remains the complete closed object; only the perturbative expansion is now truncated one " +
       "order further. Derivation/measurement only; no positivity, no bridge closure, no RH claim, NO QED. " +
       "RH-EQUIVALENT necessary-but-not-sufficient; the imp-3066 off-diagonal endpoint-Hankel K_a >= 0 " +
-      "magnitude is the lone obstruction, UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous " +
-      "SOTA.",
+      "magnitude is the lone obstruction, UNTOUCHED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3617 (self-consistent O(eps^3) flow-gap expansion of the imp-3599 exact identity, driving the residual ~5-6 orders below the imp-3599 crude O(eps^2) tail toward the ~1e-13 exact floor), 2026",
     relatedTerms: [
       "imp-3599 exact flow-gap identity and O(eps^2) crude model (imp-3599)",
@@ -3059,7 +3059,7 @@ export const glossary = [
       "fixed-weight Taylor-remainder decay ORDER and its leading coefficient; establishes NO operator " +
       "positivity. Mass-feasibility remains NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a >= 0 " +
       "off-diagonal endpoint-Hankel positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3618 (extends the imp-3581/imp-3600 closed moment-remainder tail exponent ladder to rungs n=7,8, certifying the fit-bias law reproduces the actual least-squares slope to ~1e-9 at both), 2026",
     relatedTerms: [
       "imp-3600 remainder-tail exponent ladder n=5,6 (imp-3600)",
@@ -3092,7 +3092,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement only -- extends a section-gap decay exponent one pair further and reports an " +
       "empirical amplitude ordering; establishes NO operator positivity. Mass-feasibility remains NECESSARY-BUT-" +
       "NOT-SUFFICIENT; the operator-level K_a >= 0 off-diagonal endpoint-Hankel positivity (imp-3066) is UNTOUCHED. " +
-      "No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3602 (measures the second skew-Toeplitz gap sigma_2=lambda_5/lambda_1, certifies its convergence to the -2 section-gap heuristic, and reports the near-constant ~8/3 amplitude ratio against the first gap), 2026",
     relatedTerms: [
       "Skew-Toeplitz gap-exponent CONVERGENCE to the -2 section-gap heuristic (imp-3555)",
@@ -3123,8 +3123,8 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement/corroboration only -- extends a section-gap decay exponent and an EMPIRICAL " +
       "amplitude ordering one pair further; the j^2-1 law is still a candidate observation, NOT a derived law, " +
       "and establishes NO operator positivity. The operator-level K_a >= 0 off-diagonal endpoint-Hankel " +
-      "obstruction (imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains " +
-      "the rigorous SOTA.",
+      "obstruction (imp-3066) remains UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3619 (measures the third skew-Toeplitz gap sigma_3=lambda_7/lambda_1, certifies its convergence to the -2 section-gap heuristic, and corroborates the imp-3602 j^2-1 amplitude law at pair j=4 via two independent ratios), 2026",
     relatedTerms: [
       "Skew-Toeplitz gap-exponent CONVERGENCE to the -2 section-gap heuristic (imp-3555)",
@@ -3156,7 +3156,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: derivation/measurement only -- pins a Gronwall flow-factor sub-bracket using a " +
       "named closed-form collision-time law; establishes NO operator positivity. Mass-feasibility remains " +
       "NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a >= 0 off-diagonal endpoint-Hankel positivity " +
-      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3620 (derives the crossover-scale Gronwall flow factor from the imp-398 t_c(N)~1/log gamma_N closed form, pinning the imp-3604 flat flow-factor bracket to a single per-floor N_half/N_x value with ~4e-7 residual C_G spread), 2026",
     relatedTerms: [
       "imp-3604 sigma-crossover flow-factor bracket invariance [1,1.000474] (imp-3604)",
@@ -3187,7 +3187,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: cross-validation/measurement only -- bounds an outer quadrature-truncation error against " +
       "an independent reference; establishes NO operator positivity. Mass-feasibility remains NECESSARY-BUT-NOT-" +
       "SUFFICIENT; the operator-level K_a >= 0 off-diagonal endpoint-Hankel positivity (imp-3066) is UNTOUCHED. " +
-      "No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3621 (bounds the imp-3600 M_5..M_10 outer composite-Simpson truncation against an independent Gauss-Legendre outer reference, certifying the max per-moment gap ~1.31e-10 sits over an order of magnitude below the ~1e-9 fit tolerance), 2026",
     relatedTerms: [
       "imp-3600 remainder-tail exponent ladder n=5,6 (imp-3600)",
@@ -3221,7 +3221,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: cross-validation/measurement only -- confirms a spectral degeneracy and its solver-dependent " +
       "artifact, establishes NO operator positivity. Mass-feasibility remains NECESSARY-BUT-NOT-SUFFICIENT; the " +
       "operator-level K_a >= 0 off-diagonal endpoint-Hankel positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3623/imp-3625 (dense Householder+QL cross-validation and Krylov-depth sweep jointly certify the imp-3602 N=2000 third-pair loss as a Lanczos reorthogonalization artifact, not a genuine splitting), 2026",
     relatedTerms: [
       "imp-3602 second skew-Toeplitz gap sigma_2 and (j^2-1) amplitude law (imp-3602)",
@@ -3252,8 +3252,8 @@ export const glossary = [
       "matched fits extrapolate N=3200 to ~706-767, far below imp-3645s linear-slope prediction of 1080." +
       "\n\nHONEST SCOPE: measurement/fit only -- discriminates the depth-law form as far as the grid allows (linear " +
       "ruled out; log vs sqrt left open); does NOT construct the missing magnitude and does NOT attempt the " +
-      "imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains " +
-      "the rigorous SOTA.",
+      "imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3663 (matched-pair Krylov depth sweep at fixed pair index 3 across N=1600/2000/2400, closing sg-3645-matched-pair-depth-sweep), 2026",
     relatedTerms: [
       "imp-3645 skew-Toeplitz Krylov depth-vs-N law, two-anchor bracket (imp-3645)",
@@ -3287,8 +3287,8 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement/cross-check only -- confirms (and lightly corrects) the decay rate of a fixed " +
       "autocorrelation weight used inside a mass-feasibility diagnostic; establishes NO operator positivity. " +
       "Mass-feasibility remains NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a >= 0 off-diagonal " +
-      "endpoint-Hankel positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 " +
-      "remains the rigorous SOTA.",
+      "endpoint-Hankel positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3665 (log-domain cross-check of the imp-3646 A-weight super-exponential decay claim at tau in {0.5,1,1.5,2}), 2026",
     relatedTerms: [
       "imp-3646 remainder-tail moment-ratio asymptotics and C_n ~ (ln n)^2/(16 n^2) (imp-3646)",
@@ -3320,8 +3320,8 @@ export const glossary = [
       "t_c ~ 1/(2 V0), which per imp-2564 feeds the E(N) bridge CONSTANTS (imp-3661 already propagated it), " +
       "not the shock-front modulus. G6a_shock_lipschitz therefore stays OPEN." +
       "\n\nHONEST SCOPE: assessment/derivation only -- no positivity, no bridge closure, no RH claim, no QED. " +
-      "imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 " +
-      "remains the rigorous SOTA.",
+      "imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3671 (assessing whether the imp-3642 mesoscopic V0 profile supplies a G6a_shock_lipschitz modulus), 2026",
     relatedTerms: [
       "imp-3642 sigma-crossover t_c direct-Dyson cross-check, V0 linear in log(gamma/2pi) (imp-3642)",
@@ -3351,8 +3351,8 @@ export const glossary = [
       "deep top-6 to all printed digits (same-solver self-check)." +
       "\n\nHONEST SCOPE: dense cross-validation/measurement only -- certifies the imp-3619 deep sigma_3 and the " +
       "fourth-pair pairing against an independent solver; does NOT construct the missing magnitude and does NOT " +
-      "attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 " +
-      "remains the rigorous SOTA.",
+      "attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3643 (dense Householder+QL cross-validation extends the imp-3623 second-gap certification two levels to certify the fourth pair lambda_7=lambda_8, resolving the imp-3619 N=2000 loss as a Krylov artifact), 2026",
     relatedTerms: [
       "imp-3619 third skew-Toeplitz gap sigma_3 and pair j=4 amplitude corroboration (imp-3619)",
@@ -3382,8 +3382,8 @@ export const glossary = [
       "\n\nHONEST SCOPE: pairing-STRUCTURE cross-check/measurement only -- certifies the fifth-pair adjacent-" +
       "pairing degeneracy against an independent dense full-spectrum solver; does NOT establish the fifth-pair " +
       "amplitude LAW (a distinct pending Lanczos ticket), does NOT construct the missing magnitude, and does " +
-      "NOT attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. No RH verdict, no QED. Platt-Trudgian " +
-      "Lambda <= 0.2 remains the rigorous SOTA.",
+      "NOT attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3668 (dense Householder+QL cross-validation extends the imp-3643 fourth-pair certification one level to certify the fifth pair lambda_9=lambda_10 at the deep rungs), 2026",
     relatedTerms: [
       "imp-3643 dense certification of the fourth-pair lambda_7=lambda_8 Krylov artifact (imp-3643)",
@@ -3415,7 +3415,7 @@ export const glossary = [
       "fixed-weight Taylor-remainder decay-order read-out against a derived slowly-varying rate; it establishes NO " +
       "operator positivity. Mass-feasibility is necessary-but-not-sufficient. The operator-level K_a >= 0 " +
       "sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is untouched. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3670 (measures the observable |p_fit-2| fit-bias decay against the imp-3646-derived (ln n)^2/n^3 rate across rungs n=3..18, confirming the law but finding the naive rate still pre-asymptotic), 2026",
     relatedTerms: [
       "imp-3646 remainder-tail moment-ratio asymptotics and the C_n/D_n log-divergent prefactor laws (imp-3646)",
@@ -3470,7 +3470,7 @@ export const glossary = [
       "minimal lattice. CONSEQUENCE: with the static route fully accounted for, the only residual " +
       "is DYNAMICAL -- whether the attractive CM flow from generic (real-zero-like) data can ever " +
       "drive finite N-particle data onto such a long uniform minimal lattice (the R1-T4 / R2-T " +
-      "reachability question). Unconditional; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "reachability question). Unconditional; no refereed bound is changed.",
     firstUsed: "SG1C_R1_FINITE_N_CAP (closes the static half of the R1 excursion-cap question in sharp closed form; per-N table added by imp-3363), 2026",
     relatedTerms: [
       "R1-T2 uniform K-shell lattice ladder Theta_K = K/(K+1) (imp-2608)",
@@ -3513,7 +3513,7 @@ export const glossary = [
       "ruled out; none is fully present in the repo, and G6a_shock_lipschitz stays OPEN." +
       "\n\nHONEST SCOPE: consolidated status/reference only -- no positivity, no bridge closure, no RH " +
       "claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3714 (deriving the joint REQ-i/REQ-ii requirement-set and enumerating K1-K4), 2026",
     relatedTerms: [
       "imp-3671 G6a_shock_lipschitz structural-silence verdict (imp-3671)",
@@ -3544,8 +3544,8 @@ export const glossary = [
       "per-site depth (N2), and the two-point pair-separation extension REQ-i still needs on top (N3)." +
       "\n\nHONEST SCOPE: derivation/scoping of the depth schedule only; no construction shipped, no " +
       "numerical verification of the heterogeneous-depth flow, no positivity, no bridge closure. " +
-      "imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains " +
-      "the rigorous SOTA. NO QED.",
+      "imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. No refereed bound is changed" +
+      ". NO QED.",
     firstUsed: "imp-3726 (deriving the self-similar depth schedule s_k = c g_k^2 that makes the Lemma B Gronwall floor scale-invariant, the escape from the imp-3708 floor_meso^{k^2} collapse of a single global depth), 2026",
     relatedTerms: [
       "imp-3714 G6a_shock_lipschitz modulus candidates K1-K4: consolidated status table (imp-3714)",
@@ -3579,8 +3579,8 @@ export const glossary = [
       "in flow form by imp-3726) and any two-point pair-separation extension are NEW for K1/K2; K4 needs " +
       "an entirely new entropy-solution regularity estimate. No candidate is fully in-repo. Concept-only; " +
       "no construction shipped, no positivity, no bridge closure, no RH claim, NO QED. imp-3066 " +
-      "off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains " +
-      "the rigorous SOTA.",
+      "off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3714 (REQUIREMENTS_COUPLED derivation and couplingReason), 2026",
     relatedTerms: [
       "imp-3714 G6a_shock_lipschitz modulus candidates K1-K4: consolidated status table (imp-3714)",
@@ -3643,7 +3643,7 @@ export const glossary = [
       "is truncated at O(eps^2) (imp-3617 later pushes this to O(eps^3), shrinking the tail a " +
       "further ~5-6 orders). Derivation/measurement only; no positivity, no bridge closure, no RH " +
       "claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3599 (dividing the imp-3580 root conditions into the exact flow-gap identity and its O(eps^2) next-order correction closing ~95% of the residual), 2026",
     relatedTerms: [
       "imp-3580 sigma-crossover floor invariance / leading gap law (imp-3580)",
@@ -3679,7 +3679,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement/certification only (400-iter bisection roots, residual < 1e-9) -- a " +
       "conditional-share diagnostic, NOT an RH bound. No positivity, no bridge closure, no RH claim, no " +
       "QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity remains UNTOUCHED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3604 (re-root-solving the imp-3580 sigma-crossover floor-invariance across a rigorous N-varying flow-factor bracket [1, exp(4.74e-4)] in place of the frozen exp(2.37e-4), showing the x(N_x)=1 coincidence is 0% a frozen-constant artifact and the ~0.996 N_half/N_x band shifts by less than 1e-5), 2026",
     relatedTerms: [
       "sigma=1/2 <=> E_coll=E_trunc crossover coincidence (imp-3580)",
@@ -3719,7 +3719,7 @@ export const glossary = [
       "constant c_sh (imp-2520 SG1, OPEN) is untouched and the scale stays pinned to 2.37e-4 exactly as " +
       "imp-398 does. Measurement/derivation only, RH-equivalent, necessary-but-not-sufficient; no " +
       "positivity, no bridge closure, no RH claim, no QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 " +
-      "positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "positivity UNTOUCHED. No refereed bound is changed.",
     firstUsed: "imp-3642 (direct RK4 backward-Dyson integration cross-checking the imp-3620/imp-398 1/log gamma_N shrink shape: confirms the shape but corrects the anchor-to-crossover factor from the bare-height 0.4410 to the density-corrected 0.3870, moving the crossover flow-factor pin from 1.0001045 toward 1.0000917), 2026",
     relatedTerms: [
       "sigma-crossover flow factor PINNED via the imp-398 closed form t_c(N)~1/log gamma_N (imp-3620)",
@@ -3753,8 +3753,8 @@ export const glossary = [
       "n -> inf limit for Q_n or n^2 C_n." +
       "\n\nHONEST SCOPE: measurement/derivation of a mass-feasibility diagnostic's large-n rate only; establishes NO " +
       "operator positivity. Mass-feasibility remains NECESSARY-BUT-NOT-SUFFICIENT; the off-diagonal endpoint-Hankel " +
-      "obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
-      "rigorous SOTA.",
+      "obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3646 (measuring the driving moment ratio Q_n=M_(n+2)/M_n across n=3..18, refuting the fixed-b^2/n^2 saturation guess and deriving the closed log-divergent-prefactor decay laws C_n~(ln n)^2/(16 n^2), D_n and |p_fit-2| -> 0 as O((ln n)^2/n^3)), 2026",
     relatedTerms: [
       "imp-3665 A-weight super-exponential decay confirmation: exp(-pi e^{4 tau}), no hard support endpoint (imp-3665)",
@@ -3788,8 +3788,8 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement/certification of a synthetic planted feature only, sharpening WHERE the " +
       "generic imp-3582 floor is conservative; establishes no new bound on the |P1| objective itself and " +
       "gives xi* no closed form. RH-equivalent; the imp-3066 off-diagonal endpoint-Hankel K_a >= 0 magnitude " +
-      "is the lone obstruction, UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
-      "rigorous SOTA.",
+      "is the lone obstruction, UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3647 (measuring the sub-floor fold-in crossover of the imp-3622 planted feature at xi_true=250, locating its feature-specific floor N_fold~620.70 strictly below the imp-3582 generic worst-case N_replica~764), 2026",
     relatedTerms: [
       "imp-3582 analytic replica-hiding grid threshold N_replica~764 (imp-3582)",
@@ -3852,8 +3852,8 @@ export const glossary = [
       "the constant's own VALUE is a finite-block artifact of the true universal 1/2 (imp-3707)." +
       "\n\nHONEST SCOPE: measurement/derivation of a mesoscopic density-floor diagnostic only; establishes " +
       "no operator positivity. RH-equivalent, necessary-but-not-sufficient; the off-diagonal endpoint-" +
-      "Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
-      "Lambda <= 0.2 remains the rigorous SOTA.",
+      "Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3642 (measuring V0(gamma)/log(gamma/2pi) constant to machine epsilon across an eleven-log-unit height ladder; imp-3707 later derived the exact continuum value 1/2 and identified 0.48458 as its M=161 finite-block truncation), 2026",
     relatedTerms: [
       "density-corrected crossover collision time t_c(N_x)~9.17e-5: the 2pi-in-the-log correction (imp-3642)",
@@ -3896,7 +3896,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement/characterization of a mass-feasibility diagnostic's finite-n " +
       "convergence shape only; establishes no operator positivity. RH-equivalent, necessary-but-not-" +
       "sufficient; the off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No " +
-      "RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3713 (extending the exact-saddle ratio R_n to n=3..230, rejecting both c/n and c/ln n residual laws, and discovering the finite-n overshoot through 1 at n* ~ 226; imp-3731 and imp-3849 later refined the crossing location and well depth via compensated and inner-quadrature-converged re-measurement), 2026",
     relatedTerms: [
       "imp-3646 remainder-tail moment-ratio asymptotics: LOG-DIVERGENT C_n ~ (ln n)^2/(16 n^2), NOT a fixed b^2/n^2 saturation (imp-3646)",
@@ -3932,7 +3932,7 @@ export const glossary = [
       "from the imp-3692 independent Sturm-bisection verify of the same literals. Establishes no " +
       "fifth-pair amplitude law and attempts no operator positivity. RH-equivalent, necessary-but-not-" +
       "sufficient; the off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No " +
-      "RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3715 (measuring the imp-3668 fifth-pair Gram-spread scaling across N=1200/1600/2000, falsifying the linear N*eps model, and projecting the few-ULP floor safe at N=2400/2800), 2026",
     relatedTerms: [
       "imp-3668 dense fifth-pair Gram degeneracy cross-validation (imp-3668)",
@@ -3961,7 +3961,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: MODEL-ONLY continuation of the imp-3406 analytic curve -- the true empirical " +
       "E_coll(N) needs an O(N^2) Dyson/spectral run, infeasible past N ~ 10^5 on the active pool " +
       "(imp-1082), so none of these rungs are freshly-measured spectral rows. No positivity, no " +
-      "bridge closure, no RH claim, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "bridge closure, no RH claim, no QED. No refereed bound is changed.",
     firstUsed: "imp-3711 (continuing the imp-3406 sigma(N) ladder past its 10^6 endpoint, adding the 5e6 rung, characterizing the sqrt-law decay shape, and locating the peak half-life at N ~ 4.04e9), 2026",
     relatedTerms: [
       "sigma(N) N-shape (interior min ~97.8, interior max ~9.22e5) (imp-3406)",
@@ -4033,8 +4033,8 @@ export const glossary = [
       "have a second, structurally-distinct reproduction path and to what tolerance, so downstream " +
       "tickets can see verification coverage at a glance. No new derivation, no re-solve, and no " +
       "operator positivity; the off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is " +
-      "UNTOUCHED. RH-EQUIVALENT; no RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
-      "rigorous SOTA.",
+      "UNTOUCHED. RH-EQUIVALENT; no RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3746 (cataloguing the imp-3669 Sturm-bisection third-gap, imp-3709 graded-Gauss-Legendre A-weight, and imp-3692 Sturm-bisection fifth-pair independent reproductions against the still-single-source imp-3623/imp-3625 third-pair and imp-3688 sixth-pair dense literals; imp-3930 later added imp-3895's Clenshaw-Curtis rule as a THIRD independent reproduction of the imp-3849/imp-3868 exact-saddle R_n crossing, the catalog's first triple-source upgrade), 2026",
     relatedTerms: [
       "imp-3643 dense-solver certifies skew-Toeplitz FOURTH pair lambda_7=lambda_8; N=2000 imp-3619 loss is a Krylov artifact (imp-3643)",
@@ -4081,8 +4081,8 @@ export const glossary = [
       "G6a_shock_lipschitz stays OPEN." +
       "\n\nHONEST SCOPE: literature-anchored hypothesis scoping/derivation only -- no estimate " +
       "shipped, no positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal " +
-      "endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the " +
-      "rigorous SOTA.",
+      "endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3727 (scoping the six hypotheses H1-H6 a Burgers/CM entropy-solution regularity argument for tau_c(x) would require, and finding only H6 partial and H2 latent against the imp-3642 CM-flow machinery, with H1/H3/H4/H5 wholly absent), 2026",
     relatedTerms: [
       "imp-3714 G6a_shock_lipschitz modulus candidates K1-K4: consolidated status table (imp-3714)",
@@ -4120,7 +4120,7 @@ export const glossary = [
       "/ imp-3727) and G6a_shock_lipschitz stays OPEN." +
       "\n\nHONEST SCOPE: literature-anchored scoping/derivation only -- no estimate shipped, no " +
       "positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel " +
-      "K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA." +
+      "K_a >= 0 positivity UNTOUCHED. No refereed bound is changed." +
       "\n\nSTATUS UPDATE (imp-3872): the H2 root named here is no longer merely 'latent' -- imp-3872 " +
       "empirically PROBES it, sampling kappa = (m_s - m_zz)/(m m_z) at 325 (height, time, z) points " +
       "along the imp-3642 RK4 flow and finding it single-signed at exactly 2 (the discrete analog of a " +
@@ -4171,7 +4171,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement/numerical result (later closed-form-derived), RH-equivalent, " +
       "necessary-but-not-sufficient; establishes NO operator positivity. The operator-level K_a >= 0 " +
       "off-diagonal endpoint-Hankel positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3730 (peak-adapted graded-GL measurement determining c(tau) approaches the positive constant c_inf ~ 0.3543 rather than decaying to 0, resolving the imp-3716 open sub-gap sg-3716-correction-limit), 2026",
     relatedTerms: [
       "imp-3665 A-weight super-exponential decay confirmation: exp(-pi e^{4 tau}), no hard support endpoint (imp-3665)",
@@ -4203,8 +4203,8 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement/characterization of a mass-feasibility diagnostic's finite-n " +
       "correction-term decay order only; establishes no operator positivity. RH-equivalent, " +
       "necessary-but-not-sufficient; the off-diagonal endpoint-Hankel obstruction K_a >= 0 " +
-      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
-      "rigorous SOTA.",
+      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3735 (measuring the eps_n = Q_n/tau*(n)^2 - 1 moment-ratio correction across n=6..80, rejecting both the slow 16/(ln n)^2 and faster c/n decay laws in favor of the intermediate Laplace-variance order 1/(n(1+4 tau*)), and identifying the unbounded local exponent that drives the imp-3713 finite-n saddle-ratio crossing), 2026",
     relatedTerms: [
       "imp-3646 remainder-tail moment-ratio asymptotics: LOG-DIVERGENT C_n ~ (ln n)^2/(16 n^2) (imp-3646)",
@@ -4241,8 +4241,8 @@ export const glossary = [
       "-ln A(2)=9365.3190." +
       "\n\nHONEST SCOPE: a convergence-provenance record only, at the RH-equivalent scale class. " +
       "No new derivation, no re-solve, and no operator positivity; the off-diagonal endpoint-Hankel " +
-      "obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
-      "Lambda <= 0.2 remains the rigorous SOTA.",
+      "obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3736 (driving imp-3665's uniform log-Simpson ladder past imp-3709's partial n=2e5 Richardson stop to full n=3.2e6 convergence, confirming the ~2.6-log-unit -ln A(2) gap is grid residual and both paths agree to ~10 sig figs), 2026",
     relatedTerms: [
       "imp-3665 A-weight super-exponential decay confirmation: exp(-pi e^{4 tau}), no hard support endpoint (imp-3665)",
@@ -4280,7 +4280,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: a provenance/status note only. It establishes NO operator positivity; the " +
       "off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED, the NPHI=10 kernel " +
       "truncation remains an upstream modeling choice, and this is a diagnostic-limit asymptotic, not " +
-      "a theorem about zeros. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+      "a theorem about zeros. No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-33223 (recording that imp-3866's three-remainder reduction plus imp-3892's closed pin K0=3.46 together certify sg-3844-watson-tail, and that consumers citing it as open predate that chain), 2026",
     relatedTerms: [
       "imp-3844 A-weight correction limit closed form: c_inf, B (imp-3844)",
@@ -4314,7 +4314,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: a constant-pin/asymptotic result only. Operator positivity -- the " +
       "off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) -- is UNTOUCHED, the NPHI=10 " +
       "kernel truncation remains an upstream modeling choice, and this is necessary-but-not-sufficient " +
-      "for RH. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "for RH. No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3892 (deriving the closed leading Watson coefficient K_lead=2 phi'(0)/Phi(0)=-3.4120570431 and certified majorant K0=3.46 closing |rho(tau)|<=K0 e^{-4tau}), 2026",
     relatedTerms: [
       "imp-3866 Watson-tail bound assessment: three-remainder reduction of sg-3844-watson-tail (imp-3866)",
@@ -4355,7 +4355,7 @@ export const glossary = [
       "certified error bound. imp-3731 assertions are LEFT INTACT: this is a corrected re-reading at " +
       "higher inner resolution, alongside it, not an edit of it. Mass-feasibility is necessary-but-not-" +
       "sufficient; the off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH " +
-      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3849 (converging the inner A(tau) quadrature of the imp-3731 exact-saddle ratio measurement, moving the crossing to n*=215.231, deepening the well ~5x to r_min=-5.845e-4 at n~500, and locating the eps_n sign-change at n~149), 2026",
     relatedTerms: [
       "imp-3713 exact-saddle ratio finite-n overshoot: R_n crosses 1 and dips BELOW at n* ~ 226 (imp-3713)",
@@ -4391,7 +4391,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement/characterization of a next-order saddle correction only; " +
       "establishes no operator positivity. RH-equivalent, necessary-but-not-sufficient; the " +
       "off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH verdict, " +
-      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "no QED. No refereed bound is changed.",
     firstUsed: "imp-3848 (deriving the closed-form third/fourth-derivative saddle corrections to the imp-3735 moment-ratio drift factor L_n, showing the f_ppp sign change at tau*=1/sqrt(8) drives the measured crossing through 1 and the reconstructed C1 grows without bound toward -4 tau*, predicting continued descent rather than a plateau), 2026",
     relatedTerms: [
       "imp-3735 moment-ratio correction eps_n = Q_n/tau*(n)^2 - 1: Laplace-variance decay order (imp-3735)",
@@ -4450,8 +4450,8 @@ export const glossary = [
       "imp-3728 measured relative K_paper change on all 10 plateaus to within a factor in " +
       "[0.79, 1.56], and the largest feasible relative K_paper shift is 1.4e-5, so the imp-3728 " +
       "carryforward margin 8.31e4x is stable to its fifth significant figure under ANY feasible " +
-      "thetaBar. Derivation-only: no new Lambda bound, imp-3066 untouched, Platt-Trudgian " +
-      "Lambda <= 0.2 remains SOTA, NO QED.",
+      "thetaBar. Derivation-only: no new Lambda bound, imp-3066 untouched, no refereed bound is changed" +
+      ", NO QED.",
     firstUsed: "imp-3854 (deriving the closed-form horizon-sensitivity bound dPsi_N/dT <= (8/smin^2) Psi_N and confirming the resulting O((H/Dmin)^2) prediction against the imp-3728 measured thetaBar-insensitivity), 2026",
     relatedTerms: [
       "imp-3728 fmb thetaBar-sensitivity measurement: moving thetaBar to its feasibility fixed point improves sup K_paper by only 1.000014x (imp-3728)",
@@ -4491,7 +4491,7 @@ export const glossary = [
       "constraint entirely: it can no longer degrade the certificate short of ~400x its actual " +
       "size. The ACTUAL per-gap eps'_l values (O(1e-3) near record pair, O(10) at edge) still await " +
       "the deterministic field-error certificate imp-3933-sub-eps-certificate; no new Lambda bound, " +
-      "Platt-Trudgian Lambda <= 0.2 remains SOTA, NO QED.",
+      "no refereed bound is changed, NO QED.",
     firstUsed: "imp-33225 (formalising and re-certifying the per-gap eps'_l variant of the imp-3933 field-robust bootstrap: the record-pair direct term and the near-inert retardation sum Psi decouple, so only eps'_a binds; all 10 plateaus certify with record-pair budget >=22.9 and far-gap ceiling >=3.99e3), 2026",
     relatedTerms: [
       "imp-3933 field-channel reroute: the C_Lip/C_H wall is bypassed in the vector-FIELD-error channel with deterministic N-uniform transfer modulus 3H^4/64 (imp-3933)",
@@ -4545,7 +4545,7 @@ export const glossary = [
       "new binding leg reverts to E_trunc). The eps'=0 column reproduces the imp-3725 " +
       "enclosures exactly (cross-pinned). This is NOT a Lambda bound: the W_1-channel " +
       "C_Lip verdicts (RH-HARD-CONFIRMED) are NOT overturned, weakened, or bypassed " +
-      "IN THAT CHANNEL, and Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA. " +
+      "IN THAT CHANNEL, and no refereed bound is changed. " +
       "NO false QED.",
     firstUsed: "imp-3933 (eps'-field-robust plateau-domination bootstrap: a deterministic N-uniform collision-time transfer modulus in the vector-field-error channel, certified on all 10 plateaus of [1e4,1e6], rerouting the C_Lip crossing point around the still-divergent W_1-channel), 2026",
     relatedTerms: [
@@ -4584,7 +4584,7 @@ export const glossary = [
       "the leading term (c_inf) and first subleading coefficient (B) are derived and confirmed; " +
       "the all-orders O(e^{-4 tau}) tail bound is left open as sg-3844-watson-tail. This is a " +
       "derivation of a diagnostic limit, not a theorem about zeros: no RH verdict, no QED. " +
-      "Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3844 (Watson/Laplace endpoint-expansion derivation of the imp-3730 A-weight correction limit c_inf and approach coefficient B in closed form, resolving them from fitted numerics to exact constants), 2026",
     relatedTerms: [
       "imp-3730 A-weight subleading correction limit c_inf ~ 0.3543: the numerical extrapolation this closed form derives exactly (imp-3730)",
@@ -4620,7 +4620,7 @@ export const glossary = [
       "relies on the imp-3844 n=1-tail approximation and t = e^{4s}-1 substitution, and does NOT " +
       "bound the all-orders O(e^{-4 tau}) tail (sg-3844-watson-tail stays open). Establishes NO " +
       "operator positivity; the off-diagonal endpoint-Hankel K_a &gt;= 0 step (imp-3066) is " +
-      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.",
+      "UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3867 (independent structurally-distinct reproduction of the imp-3844 A-weight closed-form constants c_inf and B via a direct completed-Riemann kernel evaluation and a Gauss-Laguerre collapsed-Laplace quadrature), 2026",
     relatedTerms: [
       "imp-3844 closed-form derivation of the A-weight correction limit: c_inf, B (imp-3844)",
@@ -4696,7 +4696,7 @@ export const glossary = [
       "(0 <= dPsi_N/dT <= (8/smin^2)Psi_N) stays a valid over-bound, and imp-3894 " +
       "went on to show the residual is ~99% the (H/Dmin)^2 proxy-accuracy factor " +
       "plus only a uniform ~1% endpoint-concavity slack. Measurement only; " +
-      "imp-3066 untouched; Platt-Trudgian Lambda<=0.2 remains SOTA; NO QED.",
+      "imp-3066 untouched; no refereed bound is changed; NO QED.",
     firstUsed: "imp-3870 (scanning all 10 imp-3725 plateaus for the smallest individual shrunk gap smin and its offset from the record pair, refuting the imp-3854 smin~=Dmin note and relocating its predictionRatio residual to endpoint-concavity/dominant-term structure), 2026",
     relatedTerms: [
       "imp-3854 thetaBar double-inertness: d theta_N/d thetaBar = O((H/Dmin)^2 (1-theta_N)), so the certified K_paper elasticity is thetaBar-robust to its fifth significant figure (imp-3854)",
@@ -4730,7 +4730,7 @@ export const glossary = [
       "was pure under-resolution of the collapsing peak, not bias." +
       "\n\nACCURACY/PROVENANCE REPRODUCTION only, RH-equivalent, necessary-but-not-sufficient; the " +
       "off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH verdict, " +
-      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "no QED. No refereed bound is changed.",
     firstUsed: "imp-3873 (closing the imp-3850 offline-verified-literal provenance gap by reproducing its uniform-Simpson anchors at tau in {2.5,3.0} with a third, structurally independent, self-computing peak-scaled substitution Simpson, converging all three paths onto -ln A(2.5)=69198.540665 and -ln A(3.0)=511309.612538), 2026",
     relatedTerms: [
       "imp-3850 dual-path -ln A(tau) reconciliation window extended to [1.5,3.0]: c(2.5)=+0.357539 and c(3.0)=+0.355480 gain an independent second-path anchor (imp-3850)",
@@ -4769,7 +4769,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: an assessment with numerical corroboration, not a proof; mass-feasibility is " +
       "necessary-but-not-sufficient and the operator-level positivity obstruction K_a >= 0 " +
       "(imp-3066) is UNTOUCHED. NPHI=10 kernel truncation is an upstream modeling choice. No RH " +
-      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-3866 (assessing whether sg-3844-watson-tail is certifiable, and reducing it to three standard Watson-lemma remainder estimates corroborated numerically on the clean tau in {2.5,3,3.5} window), 2026",
     relatedTerms: [
       "imp-3844 A-weight correction limit closed form: c_inf, B (imp-3844)",
@@ -4799,8 +4799,8 @@ export const glossary = [
       "produce it -- confirming and quantifying imp-3871." +
       "\n\nHONEST SCOPE: measurement/characterization only, RH-equivalent scale class; establishes NO " +
       "operator positivity. Mass-feasibility is necessary-but-not-sufficient; the operator-level " +
-      "K_a >= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
-      "Lambda <= 0.2 remains the rigorous SOTA.",
+      "K_a >= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3893 (quantifying the imp-3871 model-fidelity gap moment-by-moment as a sub-3% multiplicative moment-ratio tilt T_n leveraged by the eps_n near-cancellation into an additive drift offset that supplies 94-99.8% of the crossing gap and moves the L_n=1 crossing from n~18.4 to n~48.6), 2026",
     relatedTerms: [
       "imp-3871 fifth/sixth-derivative saddle corrections: C4,C5 SHRINK (refuting imp-3848), and the residual L_n=1 crossing gap (n~18.4 vs n~48.6) is a MODEL-FIDELITY gap, not a truncation artifact (imp-3871)",
@@ -4834,7 +4834,7 @@ export const glossary = [
       "reproduces the imp-3854 predictionRatio on every plateau to within imp-3728 " +
       "improveFactor rounding. Measurement only; closes imp-3870-sub-concavity-fit " +
       "by decomposition, not elimination; no imp-3854 inequality is touched; " +
-      "imp-3066 untouched; Platt-Trudgian Lambda<=0.2 remains SOTA; NO QED.",
+      "imp-3066 untouched; no refereed bound is changed; NO QED.",
     firstUsed: "imp-3894 (directly measuring the endpoint-concavity slack per imp-3725 plateau and decomposing the imp-3854/imp-3870 predictionRatio residual into concavityFactor x proxyAccuracyFactor), 2026",
     relatedTerms: [
       "imp-3870 smin/Dmin slack REFUTATION: imp-3854's 'nearest zero is also the tightest gap, so smin~=Dmin' note is FALSE (imp-3870)",
@@ -4875,8 +4875,8 @@ export const glossary = [
       "kernel-truncation floor -- all three solvers share that truncation, so this " +
       "pins the crossing to the truncated-kernel model, not to a certified error bound. " +
       "Mass-feasibility is necessary-but-not-sufficient; the operator-level K_a>=0 " +
-      "sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
-      "Lambda<=0.2 remains the rigorous SOTA. imp-3849, imp-3868 and imp-3731 " +
+      "sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ". imp-3849, imp-3868 and imp-3731 " +
       "assertions are LEFT INTACT.",
     firstUsed: "imp-3895 (re-deriving the imp-3849/imp-3868 exact-saddle crossing and eps_n sign-change through a third, structurally-distinct quadrature rule family -- composite Clenshaw-Curtis with Chebyshev-extrema nodes -- to retire the quadrature-order-artifact worry), 2026",
     relatedTerms: [
@@ -4919,7 +4919,7 @@ export const glossary = [
       "WHOLLY NEW (consistent with imp-3714/3727/3846/3872/3891), and " +
       "G6a_shock_lipschitz stays OPEN. No positivity, no bridge closure, no RH " +
       "claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a>=0 UNTOUCHED; " +
-      "Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.",
+      "no refereed bound is changed.",
     firstUsed: "imp-3896 (measuring how the imp-3872 clean inviscid window widens with block size M>161 and whether the ~500x m_zz viscosity-fraction shrinkage persists at heights beyond the imp-3642 ladder), 2026",
     relatedTerms: [
       "imp-3872 discrete-flux convexity probe -- the [2, 8] clean inviscid window and ~500x m_zz shrinkage this extends",
@@ -4962,7 +4962,7 @@ export const glossary = [
       "class -- it establishes NO operator positivity. Mass-feasibility remains " +
       "necessary-but-not-sufficient; the operator-level K_a>=0 sign-positivity (imp-3066 " +
       "off-diagonal endpoint-Hankel step) stays the lone obstruction, UNTOUCHED. No RH verdict, " +
-      "NO QED; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.",
+      "NO QED; no refereed bound is changed.",
     firstUsed: "imp-3897 (pushing the imp-3873 peak-scaled substitution-Simpson -ln A self-computation from tau=3.0 to the imp-3730 cancellation floor tau=6.0 to locate where import-time double precision breaks down, and diagnosing the apparent tau~4 breakdown as a fixed graded-GL companion rule's innermost-panel under-resolution rather than a precision floor), 2026",
     relatedTerms: [
       "imp-3873 offline-literal-independent reproduction -- the tau in {2.5, 3.0} substitution-Simpson scheme this extends to tau=6",
@@ -5006,7 +5006,7 @@ export const glossary = [
       "imp-3910 at C<=54.56, and cross-validated term-by-term by imp-3917). " +
       "LEMMA 3854 stays a valid over-bound; RH-free necessary-but-not-sufficient " +
       "measurement; imp-3066 off-diagonal endpoint-Hankel K_a>=0 UNTOUCHED; " +
-      "Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+      "no refereed bound is changed; NO QED.",
     firstUsed: "imp-3898 (deriving the rigorous per-term path-local horizon-elasticity majorant and its sharp Dmin proxy, sharpening imp-3854/imp-3870/imp-3874), 2026",
     relatedTerms: [
       "imp-3870 refutation that smin~=Dmin -- the nearest-neighbour path-local scale this majorant formalizes",
@@ -5054,8 +5054,8 @@ export const glossary = [
       "strip rather than the microscopic y->0 continuum. H2 stays UNWRITTEN " +
       "as a certificate, the K4 route stays WHOLLY NEW and " +
       "G6a_shock_lipschitz stays OPEN. imp-3066 off-diagonal endpoint-Hankel " +
-      "K_a>=0 positivity UNTOUCHED; Platt-Trudgian Lambda<=0.2 remains the " +
-      "rigorous SOTA; NO QED.",
+      "K_a>=0 positivity UNTOUCHED; no refereed bound is changed" +
+      "; NO QED.",
     firstUsed: "imp-3899 (stress-testing the imp-3872 exact finite-N resolvent-flux identity near the caustic and at larger block sizes, finding it survives the near-collision velocity blow-up in double precision), 2026",
     relatedTerms: [
       "imp-3872 the P1 exact finite-N flux identity verification this extends to the caustic",
@@ -5092,8 +5092,8 @@ export const glossary = [
       "simply asymptote to 1 along the naive 4/(n ln n) law -- see imp-33211/imp-33230 for the rate " +
       "fit and the P_r crossing of 1 near n ~ 1457; this entry documents the imp-3869 n<=1424 reading " +
       "only. No operator positivity established; the off-diagonal endpoint-Hankel obstruction K_a >= 0 " +
-      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
-      "rigorous SOTA.",
+      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3869 (extending the imp-3849 inner-converged exact-saddle ratio ladder from n=624 to n=1424, finding R_n stays below 1 and recovers monotonically with a single recovery-rate shoulder near n~790, tracking the imp-3735 |eps_n|->0 Laplace tail), 2026",
     relatedTerms: [
       "imp-3849 inner-quadrature-converged exact-saddle ratio: crossing moves to n*=215.231, well deepens ~5x to r_min=-5.845e-4 at n~500 (imp-3849)",
@@ -5132,8 +5132,8 @@ export const glossary = [
       "lives." +
       "\n\nHONEST SCOPE: scoping/derivation only, RH-equivalent scale class -- establishes no operator " +
       "positivity, no bridge closure, no RH claim, NO QED. K4 stays WHOLLY NEW, G6a_shock_lipschitz stays " +
-      "OPEN. The off-diagonal endpoint-Hankel obstruction K_a>=0 (imp-3066) is UNTOUCHED. Platt-Trudgian " +
-      "Lambda<=0.2 remains the rigorous SOTA.",
+      "OPEN. The off-diagonal endpoint-Hankel obstruction K_a>=0 (imp-3066) is UNTOUCHED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3891 (writing the H2a continuum complex-inviscid-Burgers limit of the imp-3642 attractive-CM flow and scoping the open H2b empirical-measure mean-field convergence theorem behind three named obstructions), 2026",
     relatedTerms: [
       "imp-3872 discrete-flux convexity probe -- the empirical kappa=2 result whose unwritten certificate H2a/H2b splits",
@@ -5172,8 +5172,8 @@ export const glossary = [
       "re-certify the pairing (imp-3668), does NOT establish the fifth-pair amplitude law sigma_4, and " +
       "does NOT attempt the imp-3066 K_a >= 0 positivity. The imp-33209/imp-33231 later rungs (N=2400, " +
       "N=2800) extend this same ladder and find it DIPS rather than grows, strengthening the floor " +
-      "reading. RH-EQUIVALENT. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous " +
-      "SOTA.",
+      "reading. RH-EQUIVALENT. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-3851 (adding the N=2200 resolved dense fifth-pair rung to the imp-3733 sample and discriminating the few-ULP floor from residual growth via exponent inconsistency), 2026",
     relatedTerms: [
       "imp-3668 dense fifth-pair Gram degeneracy cross-validation (imp-3668)",
@@ -5225,7 +5225,7 @@ export const glossary = [
       "floor U = pi*M_sc/T0 that tracks (1/2)log(T0/2pi) - 1/2 exactly, verified " +
       "against the Riemann-von Mangoldt count and the omitted S(T) term); (3) at " +
       "small fixed heights the conjecture reduces to open constant-chasing. NO " +
-      "Lambda bound is claimed; Platt-Trudgian Lambda <= 0.2 remains SOTA; imp-3066 " +
+      "Lambda bound is claimed; no refereed bound is changed; imp-3066 " +
       "is untouched; NO false QED on Conjecture 22.1 in full generality.",
     firstUsed: "imp-3932 (coefficient-dimension obstruction to Conjecture 22.1, the sole never-pushed INDEPENDENT-NOVEL v52 conjecture per the imp-1210 audit, independently refereed with the comparison-form repair), 2026",
     relatedTerms: [
@@ -5322,7 +5322,7 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement/verification only, certifying a bound literal, not RH; " +
       "NPHI=10 kernel truncation upstream; operator positivity -- the off-diagonal endpoint-Hankel " +
       "obstruction K_a >= 0 (imp-3066) -- UNTOUCHED; necessary-but-not-sufficient; no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-33208 (numerically verifying the imp-3892 pinned Watson majorant across the full tau in {1.5,...,6} grid on the imp-3850 graded-GL -ln A ladder), 2026",
     relatedTerms: [
       "imp-3892 Watson majorant constant: closed pin K_lead=-3.4120570431, K0=3.46 (imp-3892)",
@@ -5357,8 +5357,8 @@ export const glossary = [
       "n=1424 and found P_r CROSSES 1 at n~1457, immediately above where imp-33211 stopped, so the " +
       "below-1 reading was a finite-window artifact of stopping one step short, not a genuine asymptote. " +
       "No operator positivity established; the off-diagonal endpoint-Hankel obstruction K_a >= 0 " +
-      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
-      "rigorous SOTA.",
+      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-33211 (fitting the imp-3869 deep-tail exact-saddle ratio recovery rate against the imp-3735 Laplace-variance law 4/(n ln n) on n in [624,1424], finding P_r climbing to 0.990 with no floor detected as measured), 2026",
     relatedTerms: [
       "imp-3869 deep-tail exact-saddle ratio recovery: R_n stays below 1 through n=1424 (imp-3869)",
@@ -5396,7 +5396,7 @@ export const glossary = [
       "NOT re-derive the Watson expansion symbolically and does NOT bound the all-orders " +
       "O(e^{-4 tau}) tail (sg-3844-watson-tail stays open). Establishes NO operator positivity; the " +
       "off-diagonal endpoint-Hankel K_a &gt;= 0 step (imp-3066) is UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-33210 (direct-route reproduction of the imp-3844 subleading A-weight coefficient B via a structurally-distinct per-term log-sum-exp completed-Riemann kernel and full two-factor autocorrelation, extending imp-3867 from the leading c_inf to B), 2026",
     relatedTerms: [
       "imp-3844 closed-form derivation of the A-weight correction limit: c_inf, B (imp-3844)",
@@ -5431,8 +5431,8 @@ export const glossary = [
       "\n\nHONEST SCOPE: measurement only, RH-equivalent, model-systematic not a certified error bound. " +
       "This retires exactly ONE residual-floor question imp-3849 flagged; it establishes NO operator " +
       "positivity. Mass-feasibility is necessary-but-not-sufficient; the operator-level K_a &gt;= 0 " +
-      "sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) remains UNTOUCHED. Platt-Trudgian " +
-      "Lambda &lt;= 0.2 remains the rigorous SOTA. No RH verdict, no QED. imp-3849 / imp-3868 / imp-3895 " +
+      "sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) remains UNTOUCHED. No refereed bound is changed" +
+      ". No RH verdict, no QED. imp-3849 / imp-3868 / imp-3895 " +
       "/ imp-3918 assertions are left intact -- this is a sensitivity measurement alongside them.",
     firstUsed: "imp-33212 (NPHI-truncation-stability sweep of the imp-3849 inner-converged exact-saddle features, showing NPHI=10 was not a limiting residual floor), 2026",
     relatedTerms: [
@@ -5475,8 +5475,8 @@ export const glossary = [
       "but-not-sufficient. This audits a QUADRATURE node budget, not a mathematical floor -- it says " +
       "nothing about the imp-3730 cancellation floor near tau~6, which remains the binding limit on " +
       "the clean window. Establishes NO operator positivity; the off-diagonal endpoint-Hankel " +
-      "K_a &gt;= 0 step (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda " +
-      "&lt;= 0.2 remains the rigorous SOTA.",
+      "K_a &gt;= 0 step (imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-33232 (independently verifying the imp-3919 fixed graded-GL crossover and minimal node-budget table across the full clean window tau in [0.5,6], not just the single tau=6 endpoint imp-3919 measured, and refuting the headline node-savings collapse for the steep-grade rows), 2026",
     relatedTerms: [
       "imp-3919 fixed-companion crossover and minimal graded-GL node budget (imp-3919)",
@@ -5528,7 +5528,7 @@ export const glossary = [
       "effective-support bound for a Gaussian window, at the level of the eq (22) tail truncation " +
       "already carried by the paper. NO false QED: Conjecture 22.1 in full generality is NOT " +
       "resolved, and the named residual (runtime-model + small-height regime) is not hidden. " +
-      "Independent of the de Bruijn-Newman constant; Polymath15 Lambda &lt;= 0.2 remains SOTA and " +
+      "Independent of the de Bruijn-Newman constant; no refereed bound is changed and " +
       "is untouched. The imp-1210 novelty verdict is unchanged.",
     firstUsed: "imp-33233 (quantitatively pinning the imp-3932 windowed/modulated proxy escape hatch for Conjecture 22.1 via a Polya-Szego zero-free-multiplier reduction for single-width modulation and a Paley-Wiener/Nyquist bound for multi-width/windowed modulation), 2026",
     relatedTerms: [
@@ -5563,8 +5563,8 @@ export const glossary = [
       "than bottoming out." +
       "\n\nHONEST SCOPE: cross-validation/consistency only, RH-equivalent, necessary-but-not-sufficient; " +
       "establishes NO operator positivity. The off-diagonal endpoint-Hankel K_a >= 0 sign-positivity " +
-      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
-      "rigorous SOTA.",
+      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-33234 (extending the imp-33213 direct-vs-log A(tau) cross-validation below the tau~1.37 direct-underflow edge into the saddle window tau*(n) in [0.27,0.59] for n=10..80, where both machineries are representable and agree to <1e-6 relative per rung, the direct form converging to the log value at the Simpson O(h^4) rate), 2026",
     relatedTerms: [
       "imp-33213 cross-validation that the imp-3893 moment weight and the imp-3850 dual-path -ln A(tau) ladder rest on the same autocorrelation (imp-33213)",
@@ -5602,8 +5602,8 @@ export const glossary = [
       "quadrature spelled differently." +
       "\n\nHONEST SCOPE: cross-check/consistency only, RH-equivalent, necessary-but-not-sufficient; " +
       "establishes NO operator positivity. The off-diagonal endpoint-Hankel K_a >= 0 sign-positivity " +
-      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
-      "rigorous SOTA.",
+      "(imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-33235 (cross-checking the four imp-33213 log-domain reconciled -ln A(tau) literals against the imp-3736/imp-3850 ladder, pinning the sub-5e-7 residual as pure 6-decimal storage rounding and confirming configuration invariance across three disjoint graded-GL grids plus genuine node-abscissa independence between the imp-33213 and imp-3850 paths), 2026",
     relatedTerms: [
       "imp-33213 cross-validation that the imp-3893 moment weight and the imp-3850 dual-path -ln A(tau) ladder rest on the same autocorrelation (imp-33213)",
@@ -5638,7 +5638,7 @@ export const glossary = [
       "instead of silently patching either module's literal." +
       "\n\nHONEST SCOPE: read-only verification/audit only; no bound changed; the off-diagonal " +
       "endpoint-Hankel K_a >= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-3888 (auditing whether the imp-3849 R_3/R_40/eps_40 cross-check literals tie to their certified imp-3670/imp-3685/imp-3735 source modules, finding R_40 sits just above the ticket's informal ~1e-5 bar but inside imp-3849's own 1e-4 assertion tolerance), 2026",
     relatedTerms: [
       "imp-3849 saddle-ratio well-depth inner-converged ladder (imp-3849)",
@@ -5680,7 +5680,7 @@ export const glossary = [
       "(qModel/ts^2 - 1)*(T_n - 1) itself, absorbed exactly by the extended reconstruction." +
       "\n\nHONEST SCOPE: measurement/fit only, run on the imp-33317 machinery verbatim (T_A=8, NM=3200, " +
       "INNER_FINE=4800, QUAD_N=150000, QUAD_W=16); delivers NO N-uniform certified constant and NO " +
-      "operator bound. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "operator bound. No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-33531 (measuring whether adding the next higher moment term to the imp-3893 tilt closes the imp-33317 0.0857-unit L_n=1 crossing residual, finding the extended reconstruction closes it to -3.7e-13 machine precision and that the residual is a model-side saddle multiplier, not a discarded true higher moment), 2026",
     relatedTerms: [
       "imp-33317 tilt-closure crossing gap (imp-33317)",
@@ -5716,8 +5716,8 @@ export const glossary = [
       "sigma_4 amplitude law, and does NOT attempt the imp-3066 K_a >= 0 positivity. imp-33253 later " +
       "derives the 10-ULP line itself from the fifth-pair condition number kappa_pair via the Wilkinson " +
       "backward-error bound, showing the floor and its non-growth both FOLLOW from kappa*u rather than " +
-      "being asserted. RH-EQUIVALENT. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
-      "rigorous SOTA.",
+      "being asserted. RH-EQUIVALENT. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-33231 (resolving the N=2800 dense full-spectrum fifth-pair Gram-degeneracy rung the imp-33209/imp-3851 floor-model bound had left open, finding an order-of-magnitude dip back to the N=1800 level), 2026",
     relatedTerms: [
       "imp-3851 fourth fifth-pair Gram-spread rung (imp-3851)",
@@ -5755,7 +5755,7 @@ export const glossary = [
       "beyond the shared plateaus, does NOT certify an N-uniform tail constant (bounded on the " +
       "sample only), does NOT tighten the imp-3910 C<=54.56 bound. Establishes no operator " +
       "positivity; the off-diagonal endpoint-Hankel K_a >= 0 step (imp-3066) is UNTOUCHED. No RH " +
-      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-33250 (consolidating the imp-3898 realised tail-weight ratio and imp-3910 certified majorant ratio against N on the shared imp-3725 plateaus, finding the realised ratio N-flat while the majorant attains its sample max at the largest-N plateau), 2026",
     relatedTerms: [
       "imp-3898 path-local horizon-elasticity majorant (imp-3898)",
@@ -5790,7 +5790,7 @@ export const glossary = [
       "intact. Reported values are grid-CONVERGENCE stable, not certified error bounds -- the shared " +
       "finite NPHI = 10 kernel truncation and Simpson order remain the residual floor. Establishes no " +
       "operator positivity; the off-diagonal endpoint-Hankel K_a >= 0 step (imp-3066) is UNTOUCHED. " +
-      "No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-33256 (sweeping the imp-3888 R_40 inner-quadrature residual against inner panel count, isolating the drift to the inner A(tau) axis via a cross-outer control), 2026",
     relatedTerms: [
       "imp-3888 cross-check provenance audit naming the un-tabulated ~1.21e-5 R_40 residual (imp-3888)",
@@ -5825,7 +5825,7 @@ export const glossary = [
       "in {4,5,6} (|.| in [3.4114,3.4120]). The shared NPHI=10 Phi-series truncation is inherited by " +
       "both routes and by the closed-model constants, so agreement does not certify the exact analytic " +
       "limit. The off-diagonal endpoint-Hankel K_a >= 0 step (imp-3066) is UNTOUCHED. No RH verdict, " +
-      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "no QED. No refereed bound is changed.",
     firstUsed: "imp-33248 (running the imp-33229-predicted extended-precision ladder at tau in {4,5,6} and isolating the reformulation, not the precision, as the actual lever), 2026",
     relatedTerms: [
       "imp-33229 extended-precision onset assessment predicting the double-double lever (imp-33229)",
@@ -5864,7 +5864,7 @@ export const glossary = [
       "[0.088, 0.884] is the empirical QL convergence quality, not derived from first principles. Adds " +
       "no new Lambda bound, does not re-certify the pairing (imp-3668), does not establish the sigma_4 " +
       "amplitude law, and does not attempt the imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. No RH " +
-      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-33253 (deriving the imp-33231 fifth-pair Gram-spread few-ULP floor from the fifth-Gram-pair condition number via Wilkinson backward-error theory for the fixed 10x10 Gram eigensolve, showing all five measured rungs sit inside the c<=1 worst-case envelope), 2026",
     relatedTerms: [
       "imp-33231 fifth-pair Gram-spread N=2800 rung: order-of-magnitude dip (imp-33231)",
@@ -5898,7 +5898,7 @@ export const glossary = [
       "widening it from N_cross makes p_eff converge monotonically to 1/2 from below, gap 2.68e-2 -> " +
       "3.48e-3, but that is a separate, later module.) Measurement/fit only; conditional-share diagnostic, " +
       "NOT an RH bound; C_mb GUE-conditional (imp-486) untouched; imp-3066 K_a >= 0 untouched; RH-EQUIVALENT. " +
-      "No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-33255 (fitting a single OLS decay exponent to the E_trunc-outlives-E_coll post-peak regime of sigma(N), anchored at the imp-3444 crossover, finding the exponent window-dependent per the imp-3529 local-drift caveat), 2026",
     relatedTerms: [
       "imp-3529 post-peak conditional-share decay: local exponent p(N) climbing 0 -> 1/2 (imp-3529)",
@@ -5934,7 +5934,7 @@ export const glossary = [
       "not unresolved imp-3529 drift), it does not newly derive or certify the 1/2 exponent -- that asymptote " +
       "is imp-3463's. Measurement/fit only; conditional-share diagnostic, NOT an RH bound; C_mb GUE-" +
       "conditional (imp-486) untouched; imp-3066 K_a >= 0 untouched; RH-EQUIVALENT. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-33274 (sliding the imp-33255 post-crossover OLS fit window start past N_cross at fixed 12-decade span, showing p_eff converges monotonically to the imp-3463 1/2 asymptote and localizing imp-33255's window-dependence to the crossover ramp), 2026",
     relatedTerms: [
       "imp-33255 sigma(N) post-peak effective decay exponent: window-dependent OLS fit (imp-33255)",
@@ -5975,8 +5975,8 @@ export const glossary = [
       "imp-33253 already flagged as empirical. (The follow-up imp-33289 later measured c with the ACTUAL " +
       "Gram eigenvectors instead of this surrogate, finding an overlapping range [0.133, 1.417].) Re-runs " +
       "no N x N offline dense solve, re-certifies no pairing, establishes no sigma_4 amplitude law, adds no " +
-      "new Lambda bound. imp-3066 K_a >= 0 UNTOUCHED. RH-EQUIVALENT. No RH verdict, no QED. Platt-Trudgian " +
-      "Lambda <= 0.2 remains the rigorous SOTA.",
+      "new Lambda bound. imp-3066 K_a >= 0 UNTOUCHED. RH-EQUIVALENT. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-33272 (cross-checking the imp-33253 derived Wilkinson kappa*u fifth-pair floor against an independent extended-precision double-double eigensolve of the identical near-degenerate pair matrix, confirming the floor moves with working precision as predicted), 2026",
     relatedTerms: [
       "imp-33253 Wilkinson kappa*u fifth-pair condition-number floor derivation (imp-33253)",
@@ -6018,7 +6018,7 @@ export const glossary = [
       "the tail weight certifiable at all -- quantified here, not removed. The N->infinity " +
       "split remains un-certified from a finite 10-plateau measurement. Establishes no " +
       "operator positivity; the off-diagonal endpoint-Hankel K_a >= 0 step (imp-3066) is " +
-      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-33273 (decomposing the imp-3910 certified majorant ratio into genuine realised tail contribution plus far-term majorant over-charge via exact live reframing of the imp-33269 aggregates, quantifying the imp-33250 residual #2), 2026",
     relatedTerms: [
       "imp-33250 realised-vs-certified tail-weight separation (imp-33250)",
@@ -6051,7 +6051,7 @@ export const glossary = [
       "evaluations of a fixed autocorrelation weight A(tau) agree at the extrapolated limit across all saddle " +
       "rungs, establishes NO operator positivity. Mass-feasibility is necessary-but-not-sufficient; the " +
       "operator-level K_a >= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) remains " +
-      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-33275 (extending the imp-33252 endpoint-only repeated-Richardson saddle-A extrapolation to all eight saddle-support rungs tau*(10..80), finding the arithmetic-floor agreement with the log-domain A_log holds at every rung and the endpoint result was typical), 2026",
     relatedTerms: [
       "imp-33252 Richardson-extrapolated saddle-A endpoint agreement (imp-33252)",
@@ -6094,8 +6094,8 @@ export const glossary = [
       "every exact panel count in imp-33249/imp-33277/imp-33293, and is quantified (not just asserted) " +
       "only by imp-33296. All five modules are accuracy/rule-design measurement only, at the RH-" +
       "equivalent scale class; mass-feasibility is necessary-but-not-sufficient; NPHI=10 truncation is " +
-      "inherited; operator positivity (imp-3066 K_a >= 0) is UNTOUCHED. No RH verdict, no QED. Platt-" +
-      "Trudgian Lambda <= 0.2 remains the rigorous SOTA throughout.",
+      "inherited; operator positivity (imp-3066 K_a >= 0) is UNTOUCHED. No RH verdict, no QED. " +
+      "no refereed bound is changed throughout.",
     firstUsed: "imp-33327 (consolidating the imp-33249/33277/33293/33295/33296 graded-quadrature node-" +
       "budget cohort into one cross-linked index), 2026",
     relatedTerms: [
@@ -6135,7 +6135,7 @@ export const glossary = [
       "hits later characterized by imp-33296's latticeJitterCaveat, so the robust reading is the widening " +
       "direction and the grade-ordering, not the precise panel count. Mass-feasibility is necessary-but-" +
       "not-sufficient; operator positivity (imp-3066 K_a >= 0) is UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-33277 (extending the imp-33249 full-window graded-GL <1 ULP node budget for -ln A(tau) to tau in {7,8} in both single-double and double-double arithmetic, finding SD/DD bit-identity and a floor that widens above tau=6), 2026",
     relatedTerms: [
       "imp-33249 full-window graded-GL <1 ULP node budget (imp-33249)",
@@ -6172,8 +6172,8 @@ export const glossary = [
       "the ceiling is the shippable guarantee). Accuracy/rule-design measurement only, RH-equivalent scale " +
       "class; cross-platform libm variation is caveated (later quantified by imp-33314/imp-33534); mass-" +
       "feasibility is necessary-but-not-sufficient; NPHI=10 truncation inherited; imp-3066 K_a >= 0 " +
-      "operator positivity remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains " +
-      "the rigorous SOTA.",
+      "operator positivity remains UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-33296 (converting the imp-33249/imp-33277 latticeJitterCaveat from a stated caveat into a quantified statistic via a +/-2-panel neighbourhood scan), 2026",
     relatedTerms: [
       "imp-33249 full-window graded-GL <1 ULP node budget (imp-33249)",
@@ -6213,8 +6213,8 @@ export const glossary = [
       "imp-33251 measured, though the growth-order conclusion is insensitive to it. NO QED on " +
       "Conjecture 22.1: the imp-33233 residual sub-gap (algebraic-complexity per-evaluation lower " +
       "bound + small-height regime) remains open. imp-3932 partial-falsification stands; imp-3066 " +
-      "K_a >= 0 UNTOUCHED; the imp-1210 novelty verdict is unchanged; Polymath15 Lambda <= 0.2 " +
-      "remains the rigorous SOTA de Bruijn-Newman bound.",
+      "K_a >= 0 UNTOUCHED; the imp-1210 novelty verdict is unchanged; no refereed bound is changed" +
+      ".",
     firstUsed: "imp-33278 (sweeping the imp-33251/imp-33233 modulation Nyquist bandwidth floor U = pi M_sc/T0 across heights T0 in [1e4,1e13], confirming it tracks (1/2)log(T0/2pi) with an offset converging to exactly -1/2 rather than shrinking), 2026",
     relatedTerms: [
       "imp-33251 independent Nyquist-floor re-derivation from the raw Platt-Trudgian inputs (imp-33251)",
@@ -6255,8 +6255,8 @@ export const glossary = [
       "imp-33296) -- neighbouring panel counts bounce above/below the bar, so the robust reading is the " +
       "~9.3x plateau saving and the graded-is-cheaper ORDERING, not the exact 120-140 node counts. NPHI=10 " +
       "truncation inherited; mass-feasibility NECESSARY-BUT-NOT-SUFFICIENT; imp-3066 K_a >= 0 operator " +
-      "positivity remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the " +
-      "rigorous SOTA.",
+      "positivity remains UNTOUCHED. No RH verdict, no QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-33295 (measuring whether a graded inner quadrature grid reaches the imp-33275 A_log double-precision arithmetic floor at materially fewer inner nodes than the imp-33275/imp-33276 uniform-Simpson ladder), 2026",
     relatedTerms: [
       "imp-33275 rung-uniform repeated Richardson to the A_log double-precision floor (imp-33275)",
@@ -6291,7 +6291,7 @@ export const glossary = [
       "latticeJitterCaveat, later quantified by imp-33296), so the robust reading is the saturation " +
       "direction and the grade-ordering, not the precise panel count. Mass-feasibility is necessary-but-" +
       "not-sufficient; operator positivity (imp-3066 K_a >= 0) is UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-33293 (extending the imp-33277 tau in {7,8} graded-GL <1 ULP node-budget measurement for -ln A(tau) to tau in {9,10}, finding the crossover tau* saturates near ~6.95 instead of tracking tau), 2026",
     relatedTerms: [
       "imp-33277 tau in {7,8} extension of the -ln A(tau) graded-GL node budget (imp-33277)",
@@ -6326,7 +6326,7 @@ export const glossary = [
       "baked literals are left untouched (imp-33310 separately assessed, and imp-33530 separately minted, " +
       "the converged value as a new stored field). Measurement/rule-design only, at the RH-equivalent " +
       "NPHI=10 truncated-kernel scale; operator positivity (imp-3066 K_a >= 0) is UNTOUCHED. No RH " +
-      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-33292 (applying the imp-33252 repeated-Richardson tableau to the inner A(tau) Simpson grid of the full R_40 moment-ratio machinery, collapsing the imp-3888/imp-33256 inner-resolution drift to a ladder-independent converged value), 2026",
     relatedTerms: [
       "imp-3888 provenance audit of the imp-3849 R_40 cross-check (imp-3888)",
@@ -6370,7 +6370,7 @@ export const glossary = [
       "HONEST SCOPE: measurement + derivation on the 10 plateaus of [1e4,1e6]; R_tight is " +
       "re-derived LIVE from the imp-33269 baked realisedScan (R_tight == K_real to 1e-5), maxBj " +
       "is baked from the offline term-by-term guard sweep. No new Lambda bound; imp-3910 " +
-      "C <= 54.56 stands; imp-3066 K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains SOTA; " +
+      "C <= 54.56 stands; imp-3066 K_a >= 0 UNTOUCHED; no refereed bound is changed; " +
       "NO QED.",
     firstUsed: "imp-33290 (feasibility assessment of the realised-gap-aware per-term majorant swap 8/s_min(j)^2 -> 8*B_j, showing it collapses R_maj onto the K_real floor while relocating N-uniform certification onto sup B_j), 2026",
     relatedTerms: [
@@ -6405,7 +6405,7 @@ export const glossary = [
       "how the half-power hid inside the imp-33274 single fit's residual drift.\n\n" +
       "HONEST SCOPE: measurement/fit only, a conditional-share diagnostic, NOT an RH bound. C_C is " +
       "GUE-conditional (imp-486), untouched. Changes no bound; imp-3066 K_a>=0 untouched; the imp-3932 " +
-      "partial-falsification result stands; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; " +
+      "partial-falsification result stands; no refereed bound is changed; " +
       "NO QED.",
     firstUsed: "imp-33291 (two-regressor OLS ln sigma = a + b1 ln N + b2 ln(log T0) on the imp-33274 sliding far-tail windows, recovering the analytic (-1/2,+1/2) power pair and isolating the sqrt(log T0) half-power the single-slope fit folded into residual drift), 2026",
     relatedTerms: [
@@ -6442,7 +6442,7 @@ export const glossary = [
       "HONEST SCOPE: measurement/fit only, a conditional-share diagnostic, NOT an RH bound. The " +
       "component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; " +
       "C_mb is GUE-conditional (imp-486), untouched; changes no bound; imp-3066 K_a>=0 untouched; " +
-      "Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+      "no refereed bound is changed; NO QED.",
     firstUsed: "imp-33582 (per-decade OLS local exponent ladder and threshold-crossing bisection on the imp-3406 sigma(N) post-peak downslope, N in {1e6..1e12}, showing the decay accelerates toward the imp-3463 1/2 asymptote and halves exactly at the imp-3444 crossover), 2026",
     relatedTerms: [
       "imp-3406 interior maximum sigma_max ~ 0.9494 at N ~ 9.22e5, the peak this ladder measures past (imp-3406)",
@@ -6476,8 +6476,8 @@ export const glossary = [
       "so the approach is asymptotic-in-1/log, not merely slow.\n\n" +
       "HONEST SCOPE: measurement/fit only, a conditional-share diagnostic, inherited imp-3220/imp-3406 " +
       "extrapolation NOT a rigorous asymptotic; C_mb is GUE-conditional (imp-486), untouched; changes " +
-      "no bound; establishes no operator positivity; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian " +
-      "Lambda<=0.2 remains SOTA.",
+      "no bound; establishes no operator positivity; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed" +
+      ".",
     firstUsed: "imp-33722 (extending the imp-33582 per-decade sigma(N) OLS exponent ladder from decades 12..16 and deriving the first decade k*=44 where p_dec sits within 1% of the imp-3463 far-tail 1/2), 2026",
     relatedTerms: [
       "imp-33582 accelerating per-decade sigma(N) exponent ladder over decades k=6..11, the endpoint this extends past (imp-33582)",
@@ -6509,7 +6509,7 @@ export const glossary = [
       "arithmetic-floor lattice quantities (libm exp/pow/cos variation can shift the exact 97/129/257/513 " +
       "counts); the robust reading is the qualitative flat-vs-climb separation. Changes no bound, patches " +
       "no literal (imp-3685/imp-3849/imp-33213/imp-33316/imp-33539/imp-33560 intact); imp-3066 K_a>=0 " +
-      "untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+      "untouched; no refereed bound is changed; NO QED.",
     firstUsed: "imp-33580 (composing the imp-33539 origin-concentrating grading map onto the imp-33560 Clenshaw-Curtis deep-tail single-grid sweep at n in {350,375,400}, testing whether the CC climbing node budget is an abscissa artifact), 2026",
     relatedTerms: [
       "imp-33560 climbing CC single-grid deep-tail budget, the attribution this module tests directly (imp-33560)",
@@ -6544,7 +6544,7 @@ export const glossary = [
       "platform libm exp/pow variation can shift the exact n~531/n~526 crossings and the ULP values, " +
       "but not the qualitative non-monotone-envelope structure); NPHI=10 truncation inherited; changes " +
       "no bound, patches no literal (imp-33557/imp-33537/imp-33316/imp-33213 intact); imp-3066 K_a>=0 " +
-      "untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+      "untouched; no refereed bound is changed; NO QED.",
     firstUsed: "imp-33579 (dense every-integer bisection of floorUlp(n) over the imp-33557 band-crossing bracket [510,596], finding the crossing is a non-monotone envelope phenomenon, not a locatable rung), 2026",
     relatedTerms: [
       "imp-33557 band-crossing three-rung sample, the measurement this bisection densifies (imp-33557)",
@@ -6583,7 +6583,7 @@ export const glossary = [
       "is the qualitative smallest-clearing-grid separation, not the precise node counts. Changes no " +
       "bound, patches no literal (imp-3685/imp-3849/imp-33213/imp-33316/imp-33539/imp-33557 intact); " +
       "NPHI=10 truncation inherited; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 " +
-      "untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+      "untouched; no refereed bound is changed; NO QED.",
     firstUsed: "imp-33577 (independent Clenshaw-Curtis single-grid cross-solve of the imp-33557 band-crossing rungs n in {495,510,596}, finding CC clears the <64 ULP band at all three including n=596 where the graded-GL grade-4 ladder failed), 2026",
     relatedTerms: [
       "imp-33557 band-crossing three-rung graded minimum, the measurement this cross-solves (imp-33557)",
@@ -6621,7 +6621,7 @@ export const glossary = [
       "establishes NO operator positivity. Necessary-but-not-sufficient at the RH-equivalent scale " +
       "class. NPHI=10 kernel truncation inherited; grid-convergence stability only. Off-diagonal " +
       "endpoint-Hankel K_a >= 0 positivity (imp-3066) UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-33317 (measuring on a finer/deeper n=10..120 grid whether the imp-3893 moment tilt closes the ~30.2-unit imp-3871 model-fidelity L_n=1 crossing gap, finding it closes 99.716% of the shift to a 0.0857-unit residual while offsetFractionOfGap crosses 1 at n~74.1 rather than asymptoting to it), 2026",
     relatedTerms: [
       "imp-3893 moment-fidelity tilt T_n (imp-3893)",
@@ -6662,7 +6662,7 @@ export const glossary = [
       "y_N^sharp -> 0 front demands -- the port is NECESSARY but NOT SUFFICIENT to close G6a. HONEST " +
       "SCOPE: assessment / literature-scoping only, no positivity, no bridge closure, no RH claim, NO " +
       "QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED; C_mb share untouched; " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "no refereed bound is changed.",
     firstUsed: "imp-33603 (scoping the direct port of Polymath15 Lemma 5.2 as candidate closure of G6a_shock_lipschitz, enumerating H1..H5 + H0 and isolating H4 strip-height-uniformity as the precise residual, identical to the imp-3708 y2-adapted-flow-depth still-missing object), 2026",
     relatedTerms: [
       "imp-3708 y2-adapted flow depth s(y) ~ y^2, the same still-missing object named from the imp-345/imp-354 side (imp-3708)",
@@ -6695,8 +6695,8 @@ export const glossary = [
       "rather than two views of one law.\n\n" +
       "HONEST SCOPE: derivation/measurement only, a conditional-share diagnostic, NOT an RH bound. C_C " +
       "is GUE-conditional per imp-486; changes no bound; imp-3066 off-diagonal endpoint-Hankel K_a>=0 " +
-      "positivity UNTOUCHED; no positivity, no bridge closure, no RH claim, NO QED. Platt-Trudgian " +
-      "Lambda <= 0.2 remains the rigorous SOTA.",
+      "positivity UNTOUCHED; no positivity, no bridge closure, no RH claim, NO QED. No refereed bound is changed" +
+      ".",
     firstUsed: "imp-33315 (deriving the closed-form imp-33291 far-tail asymptotic and measuring its residual against the imp-3406 interior-max reconciliation, finding the joint power pair cannot reproduce the peak location and overshoots the peak value by ~3.0e-2, 3.55 decades off-regime), 2026",
     relatedTerms: [
       "imp-33291 far-tail sigma(N) two-regressor fit recovering the (-1/2,+1/2) power pair (imp-33291)",
@@ -6727,7 +6727,7 @@ export const glossary = [
       "is carried almost entirely by the N^(-1/2) slope, not the sqrt(log T0) half-power.\n\n" +
       "HONEST SCOPE: measurement/decomposition only, a conditional-share diagnostic, NOT an RH bound. C_C " +
       "is GUE-conditional per imp-486; changes no bound; imp-3066 K_a>=0 untouched; no positivity, no " +
-      "bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "bridge closure, no RH claim, NO QED. No refereed bound is changed.",
     firstUsed: "imp-33540 (decomposing the imp-33315 far-tail-law overshoot into a closed-form product identity and an additive two-power log-factor split, finding an ~18:1 dominance of the N^(-1/2) slope over the sqrt(log T0) half-power), 2026",
     relatedTerms: [
       "imp-33315 far-tail-law vs interior-max reconciliation deriving the ~3.0e-2 overshoot decomposed here (imp-33315)",
@@ -6760,7 +6760,7 @@ export const glossary = [
       "floor lattice property (the imp-33249/imp-33277 latticeJitterCaveat), so the robust reading is the " +
       "flat crossover tau*, the tau-invariant grade6 budget and the linear margin law, not the precise panel " +
       "count. Mass-feasibility is necessary-but-not-sufficient; operator positivity (imp-3066 K_a >= 0) is " +
-      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-33313 (extending the imp-33293 tau in {9,10} graded-GL <1.5 ULP node-budget saturation test for -ln A(tau) to tau in {11,12}, confirming the ~6.95 crossover plateau and the const grade6/2430-node budget persist deeper), 2026",
     relatedTerms: [
       "imp-33293 tau in {9,10} crossover-tau* saturation (imp-33293)",
@@ -6798,7 +6798,7 @@ export const glossary = [
       "height-dependence of a quadrature node-budget jitter for a fixed autocorrelation weight inside a " +
       "mass-feasibility diagnostic; it establishes NO operator positivity. Mass-feasibility is necessary-" +
       "but-not-sufficient; the operator-level K_a &gt;= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH " +
-      "verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.",
+      "verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-33312 (measuring whether the imp-33296 min-node graded-GL lattice-jitter band is tau-independent across tau in {7,8,9,10}, finding the band collapses with height and only a conservative low-height ceiling is tau-uniform), 2026",
     relatedTerms: [
       "imp-33296 min-node graded-GL lattice-jitter characterization (imp-33296)",
@@ -6833,7 +6833,7 @@ export const glossary = [
       "peak and no growth law fits) -- the obstruction stays OPEN both ways.\n\n" +
       "HONEST SCOPE: measurement + curve-fit on the 10 plateaus of [1e4,1e6]. maxBj/endN baked from the " +
       "imp-33290 sweep; the four fits and their R^2 re-derived LIVE. No new Lambda bound; imp-3910 " +
-      "C <= 54.56 stands; imp-3066 K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.",
+      "C <= 54.56 stands; imp-3066 K_a >= 0 UNTOUCHED; no refereed bound is changed; NO QED.",
     firstUsed: "imp-33309 (tabulating and fitting the growth law of sup_j B_j across all 10 imp-3725 plateaus of [1e4,1e6], finding it non-monotone with every candidate fit poor, so the relocated imp-33250 obstruction stays open both ways), 2026",
     relatedTerms: [
       "imp-33290 far-term tighter-majorant feasibility verdict, source of the relocated sup_{N,j} B_j obstruction (imp-33290)",
@@ -6872,7 +6872,7 @@ export const glossary = [
       "imp-33295 latticeJitterCaveat), so the robust reading is the ~63x plateau saving and the " +
       "graded-is-cheaper ordering, not the exact 80-node count. Mass-feasibility is necessary-but-not-" +
       "sufficient; the operator-level K_a >= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no " +
-      "QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "QED. No refereed bound is changed.",
     firstUsed: "imp-33308 (carrying the imp-33295 graded-cheaper scalar A(tau) node saving through the full imp-33292 R_40 moment-ratio machinery, finding the saving persists at ~63x fewer nodes for a robust plateau rule), 2026",
     relatedTerms: [
       "imp-33295 graded-inner-grid A(tau) node-budget saving (imp-33295)",
@@ -6912,7 +6912,7 @@ export const glossary = [
       "shift under cross-platform libm exp/pow variation, so the robust reading is the qualitative " +
       "recurrence-and-intensification with depth, not the exact per-rung ULP. Mass-feasibility is " +
       "necessary-but-not-sufficient; the operator-level K_a >= 0 sign-positivity (imp-3066) remains " +
-      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.\n\n" +
+      "UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.\n\n" +
       "AUDIT (imp-33576): swept every glossary entry and viz page citing the imp-33316 <64 ULP band " +
       "(imp-33548/33571/33609/33611/33613/33629/33630 and the glossary entries above) for a restated " +
       "constant-band-at-every-deep-rung claim that omits this correction. Found none -- each either " +
@@ -6965,7 +6965,7 @@ export const glossary = [
       "sit firmly inside the band, so the minimum-budget reading is unaffected, but the <64 band is NOT " +
       "claimed to hold at every deep rung. Mass-feasibility is necessary-but-not-sufficient; the " +
       "operator-level K_a >= 0 sign-positivity (imp-3066) remains UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-33539 (sweeping the graded plateau node budget at the deeper deep-tail rungs n in {350,375,400} to locate the minimum budget reaching the imp-33275 A_log floor band, finding it flat at ~200 nodes and that the imp-33316 ~9.3x ratio understates a true ~186x minimum-budget saving), 2026",
     relatedTerms: [
       "imp-33316 fixed 4000-node graded plateau deep-tail measurement, the budget this sweeps for a true minimum (imp-33316)",
@@ -7009,7 +7009,7 @@ export const glossary = [
       "mass-feasibility is necessary-but-not-sufficient; establishes no operator positivity and no new " +
       "bound; NPHI=10 truncation, fixed-neighbourhood, and cross-platform libm caveats are inherited " +
       "from imp-33312. The operator-level K_a >= 0 sign-positivity (imp-3066) remains UNTOUCHED. No RH " +
-      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-33538 (deriving the imp-33312 tau-uniform conservative envelope as the explicit named constant E = max_tau maxUlp(tau) ~= 10.78 ULP, binding at tau=8, and measuring the per-height conservativeness margin at every surveyed height), 2026",
     relatedTerms: [
       "imp-33312 tau-uniform lattice-jitter band collapse with height, the source measurement this envelope names (imp-33312)",
@@ -7049,7 +7049,7 @@ export const glossary = [
       "imp-33277/imp-33296 latticeJitterCaveat), so the robust reading is the qualitative baseline-" +
       "relative ordering, not the exact node counts. Mass-feasibility is necessary-but-not-sufficient; " +
       "the operator-level K_a >= 0 sign-positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-33536 (verifying the imp-33308 ~63x graded-vs-uniform R_40 node saving on an independent Clenshaw-Curtis cross-solver inner grid, finding the converged floor carries cross-solver but that a single CC grid alone is node-competitive with the graded minimum -- the ~63x saving is baseline-relative to the weak Simpson ladder, not an intrinsic graded advantage), 2026",
     relatedTerms: [
       "imp-33308 graded-inner-grid R_40 node-budget carry-through, the ~63x saving this re-scores against an independent solver (imp-33308)",
@@ -7095,7 +7095,7 @@ export const glossary = [
       "precision reordering, so it upgrades the imp-33314 proxy to a measured error. It establishes NO " +
       "operator positivity and NO new bound. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT; the " +
       "operator-level K_a >= 0 sign-positivity (imp-3066) is UNTOUCHED. NPHI=10 truncation inherited. No " +
-      "RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "RH verdict, no QED. No refereed bound is changed.",
     firstUsed: "imp-33534 (recomputing the imp-33249/imp-33296 grade6/171p min-node single-hit -ln A(tau) log-sum-exp under a ~106-bit double-double reference-precision libm, finding the single-hit sub-1-ULP margin does not survive but the imp-33296 band does), 2026",
     relatedTerms: [
       "imp-33314 same-precision exp/log evaluation-order proxy for libm sensitivity (imp-33314)",
@@ -7127,7 +7127,7 @@ export const glossary = [
       "quantity (libm exp/pow/cos variation can shift the exact 200/500/Infinity node counts and ULP " +
       "values, but not the qualitative in-band/edge/fails separation); NPHI=10 truncation inherited; " +
       "changes no bound, patches no literal (imp-33316/imp-33537/imp-33539/imp-33213 intact); imp-3066 " +
-      "K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+      "K_a>=0 untouched; no refereed bound is changed; NO QED.",
     firstUsed: "imp-33557 (sweeping the imp-33539 graded-GL grade-4 node budget at the imp-33316 band-crossing rungs n in {495,510,596}, finding the flat ~200-node resolution wall is band-conditional -- in-band at n=495, edge at n=510, undefined at n=596), 2026",
     relatedTerms: [
       "imp-33539 flat ~200-node graded-plateau minimum, the resolution-wall reading this bounds to in-band rungs (imp-33539)",
@@ -7162,7 +7162,7 @@ export const glossary = [
       "HONEST SCOPE: measurement only, not a bound. Consistent with the imp-33599/imp-33621/imp-33638/" +
       "imp-33639 latticeJitter caveat -- the clustered-spike heights are jitter-driven, so the exact fit " +
       "coefficients are not robust; NPHI=10 truncation inherited; changes no bound, patches no literal; " +
-      "imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+      "imp-3066 K_a>=0 untouched; no refereed bound is changed; NO QED.",
     firstUsed: "imp-33660 (fitting the imp-33599/imp-33621/imp-33638 sixteen band-clearing cluster-peak envelope heights over [400,1200] to growth laws, finding a weak positive trend with no growth class decisively selected), 2026",
     relatedTerms: [
       "imp-33639 cluster-peak spacing periodicity fit, which left the height growth unmeasured (imp-33639)",
@@ -7198,7 +7198,7 @@ export const glossary = [
       "R^2 can shift under cross-platform libm variation, but the qualitative conclusion (no fixed period, " +
       "spacing irregular, CV persists under a doubled sample) is robust; NPHI=10 truncation inherited; " +
       "changes no bound, patches no literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 " +
-      "untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+      "untouched; no refereed bound is changed; NO QED.",
     firstUsed: "imp-33661 (re-fitting the imp-33639 cluster-peak spacing periodicity across the extended sixteen-cluster set over [400,1200], finding the gap CV persists at ~0.47 with no growth law resolving a quasi-period), 2026",
     relatedTerms: [
       "imp-33639 nine-peak cluster spacing fit over [400,900], whose CV~0.46 reading this extends and confirms (imp-33639)",
@@ -7234,8 +7234,8 @@ export const glossary = [
       "imp-33599/imp-33621/imp-33638/imp-33660 latticeJitter caveat -- exact trough rungs, depths, slope, " +
       "and R^2 can shift under cross-platform libm variation, but the qualitative reading (flat trough, " +
       "growth peak-only) is robust; NPHI=10 truncation inherited; changes no bound, patches no literal; " +
-      "mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 " +
-      "remains the rigorous SOTA; NO QED.",
+      "mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; no refereed bound is changed" +
+      "; NO QED.",
     firstUsed: "imp-33662 (tabulating the inter-cluster trough floor of the imp-33660/imp-33661 sixteen-peak [400,1200] band-clearing envelope, finding it flat while the peaks weakly rise), 2026",
     relatedTerms: [
       "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, whose peak-only growth this isolates (imp-33660)",
@@ -7274,8 +7274,8 @@ export const glossary = [
       "correlation coefficients, and the single grade-5 exception can shift under cross-platform libm " +
       "variation, but the qualitative reading (exact-rung tautology holds, envelope-height still fails to " +
       "predict) is robust; NPHI=10 truncation inherited; changes no bound, patches no literal; " +
-      "mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 " +
-      "remains the rigorous SOTA; NO QED.",
+      "mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; no refereed bound is changed" +
+      "; NO QED.",
     firstUsed: "imp-33663 (extending the imp-33640 recovery-grade-vs-spike-height correlation from three cluster peaks to the full sixteen-peak [400,1200] sample, finding the exact-rung tautology persists while the envelope-height reading still fails), 2026",
     relatedTerms: [
       "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, the envelope-height series whose predictive failure this confirms (imp-33660)",
@@ -7309,8 +7309,8 @@ export const glossary = [
       "of the weak positive correlation is not robust, only the qualitative negligible-correlation reading " +
       "is. Consistent with the imp-33249/imp-33537/imp-33557/imp-33599/imp-33621/imp-33638/imp-33639/" +
       "imp-33660/imp-33661 latticeJitter caveat; NPHI=10 truncation inherited; changes no bound, patches no " +
-      "literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; Platt-Trudgian " +
-      "Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+      "literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; no refereed bound is changed" +
+      "; NO QED.",
     firstUsed: "imp-33682 (correlating the imp-33661 fifteen inter-peak gaps against the imp-33660 sixteen cluster-peak heights at the shared [400,1200] peaks, finding them independent), 2026",
     relatedTerms: [
       "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, the height series this correlates (imp-33660)",
@@ -7353,8 +7353,8 @@ export const glossary = [
       "slope, and R^2 can shift under cross-platform libm variation, but the qualitative reading " +
       "(amplitude weakly grows but stays below the peak growth, tail-outlier-driven) is robust; " +
       "NPHI=10 truncation inherited; changes no bound, patches no literal; mass-feasibility " +
-      "necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains the " +
-      "rigorous SOTA; NO QED.",
+      "necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; no refereed bound is changed" +
+      "; NO QED.",
     firstUsed: "imp-33681 (differencing the imp-33660 sixteen cluster-peak heights against the imp-33662 fifteen inter-cluster trough floors to form the [400,1200] peak-to-trough amplitude series), 2026",
     relatedTerms: [
       "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, the peak-height series this differences (imp-33660)",
@@ -7389,7 +7389,7 @@ export const glossary = [
       "it is a two-point artifact -- is robust. Consistent with the imp-33249/imp-33537/imp-33557/imp-33599/" +
       "imp-33621/imp-33638/imp-33660/imp-33662 latticeJitter caveat; NPHI=10 truncation inherited; changes no " +
       "bound, patches no literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; " +
-      "Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+      "no refereed bound is changed; NO QED.",
     firstUsed: "imp-33680 (leave-two-out refit of the imp-33660 sixteen cluster-peak heights excluding the two tallest imp-33638 tail clusters, finding the trend collapses), 2026",
     relatedTerms: [
       "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, the full-sixteen fit this refits robustly (imp-33660)",
@@ -7431,7 +7431,7 @@ export const glossary = [
       "cross-platform libm variation, but the qualitative reading -- saturation at a high plateau, neither " +
       "reversion nor persistent growth -- is robust. NPHI=10 truncation inherited; changes no bound, patches " +
       "no literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; " +
-      "Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+      "no refereed bound is changed; NO QED.",
     firstUsed: "imp-33679 (extending the imp-33660 [400,1200] cluster-peak envelope-height fit into a fresh [1200,1600] window past the imp-33638 sample edge), 2026",
     relatedTerms: [
       "imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, the [400,1200] fit this extends past its sample edge (imp-33660)",
@@ -7472,7 +7472,7 @@ export const glossary = [
       "ACCURACY/RULE-DESIGN CROSS-CHECK ONLY, RH-equivalent: reads two published diagnostics unchanged, " +
       "runs no new saddle sweep, changes no bound, patches no literal; mass-feasibility remains " +
       "necessary-but-not-sufficient; the operator-level K_a>=0 sign-positivity (imp-3066) is UNTOUCHED; no " +
-      "RH verdict; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.",
+      "RH verdict; no refereed bound is changed; NO QED.",
     firstUsed: "imp-33667 (cross-validating the imp-33641 dense grade-6 floor argmin against the imp-33627 grade-4 Q-vs-floor crossover at the shared rung n=596), 2026",
     relatedTerms: [
       "imp-33641 grade-6 dense-panel node-budget non-monotonicity, the floor-argmin method this cross-validates (imp-33641)",
@@ -7519,7 +7519,7 @@ export const glossary = [
       'ACCURACY/RULE-DESIGN CROSS-SOLVER MEASUREMENT ONLY, RH-equivalent: changes no bound, patches no ' +
       'literal (imp-3685/imp-3849/imp-33213/imp-33316/imp-33539 all intact); mass-feasibility remains ' +
       'necessary-but-not-sufficient; the operator-level K_a>=0 sign-positivity (imp-3066) is UNTOUCHED; no ' +
-      'RH verdict, no QED; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.',
+      'RH verdict, no QED; no refereed bound is changed.',
     firstUsed: 'imp-33560 (extending the imp-33536 R_40 baseline-relative cross-solver finding to the deep-tail A(tau) weight at n in {350,375,400}), 2026',
     relatedTerms: [
       'imp-33536 R_40 graded-vs-CC cross-solver node budget, the baseline-relative finding this extends (imp-33536)',
@@ -7552,8 +7552,8 @@ export const glossary = [
       'nodes but bounces to ~100 at 300); the robust reading is the qualitative grade-4/5-fail-vs-grade-6/8-' +
       'clear separation, not the exact ULP. Changes no bound, patches no literal (imp-3685/imp-3849/' +
       'imp-33213/imp-33316/imp-33539/imp-33557/imp-33577 intact); NPHI=10 truncation inherited; mass-' +
-      'feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; Platt-Trudgian ' +
-      'Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33600 (grade-vs-node-count isolation at the imp-33577 graded-GL-failing rung n=596, sweeping the graded-GL origin-concentration grade in {4,5,6,8} at fixed node budget), 2026',
     relatedTerms: [
       'imp-33577 cross-solver-refutes-the-arithmetic-floor verdict, the CC-vs-graded finding this isolates the driver of (imp-33577)',
@@ -7594,7 +7594,7 @@ export const glossary = [
       'variation, so the robust reading is the qualitative structure -- three disjoint clusters riding a weak ' +
       'positive jitter trend, no monotone threshold -- not the exact per-rung ULP. Changes no bound, patches ' +
       'no literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; ' +
-      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33599 (dense every-integer floorUlp(n) scan extending the imp-33579 narrow [510,596] bracket to the wide window n in [400,700], grade 4, budgets >= 200 nodes), 2026',
     relatedTerms: [
       'imp-33579 crossing-is-an-envelope-not-a-rung verdict, the narrow-bracket finding this wide-range scan extends (imp-33579)',
@@ -7627,8 +7627,8 @@ export const glossary = [
       'HONEST SCOPE: derivation/measurement only, NOT rigorous. The component model is the inherited ' +
       'imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb stays GUE-conditional (imp-486); ' +
       'the C_C 1/8 ansatz (imp-2642/imp-2643) is untouched; changes no bound; establishes no operator ' +
-      'positivity; imp-3066 K_a>=0 sign-positivity untouched; Platt-Trudgian Lambda<=0.2 remains the ' +
-      'rigorous SOTA; NO QED.',
+      'positivity; imp-3066 K_a>=0 sign-positivity untouched; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33723 (deriving the imp-3444 E_coll=E_trunc crossover as a Banach-contracting fixed point N_cross = (C_C_PINNED/E_trunc)^2 log T0(N_cross), reproducing bisection to ~1.7e-15 and re-measuring the imp-33582 halving offset from the closed-form value), 2026',
     relatedTerms: [
       'imp-3444 E_coll=E_trunc crossover landmark, the bisected root this module re-derives in closed form (imp-3444)',
@@ -7658,7 +7658,7 @@ export const glossary = [
       'error, NO E_flow-attribution surprise.\n\n' +
       'HONEST SCOPE: verification/measurement only. Reuses the inherited imp-3220/imp-3406 component model ' +
       '(not a rigorous asymptotic); C_mb stays GUE-conditional (imp-486); the C_C 1/8 ansatz is untouched; ' +
-      'changes no bound; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'changes no bound; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-97403 (independent extended-precision cross-check of the imp-33723 closed-form E_coll=E_trunc crossover N_cross ~ 3.280294e9 and the 0.4% gap to the imp-33582 sigma=1/2 halving landmark, confirming the 1.7e-15 agreement and the E_flow attribution with an explicit factor-2 N^-1/2 chain rule), 2026',
     relatedTerms: [
       'imp-33723 CLOSED-FORM crossover: the imp-3444 E_coll=E_trunc landmark as a Banach fixed point, the result this module independently reproduces (imp-33723)',
@@ -7746,8 +7746,8 @@ export const glossary = [
       '(and the load-bearing H4 residual) untouched -- MILDEST-MEMBER-DROPPABLE, with the value term ' +
       'separately discharged pointwise by imp-394.\n\n' +
       'HONEST SCOPE: bookkeeping / assessment only, NOT rigorous. G6a_shock_lipschitz stays OPEN; ' +
-      'imp-3066 K_a>=0 sign-positivity UNTOUCHED; C_mb share untouched; Platt-Trudgian Lambda<=0.2 remains ' +
-      'the rigorous SOTA; NO QED.',
+      'imp-3066 K_a>=0 sign-positivity UNTOUCHED; C_mb share untouched; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33706 (scoping whether formalizing the imp-33668 SUBSUMED-BY-H3/H4 selection verdict reduces the imp-33603 H0..H5 catalogue count, and whether the k=0 mildest tower member is droppable), 2026',
     relatedTerms: [
       'imp-33668 part-(b) selection-residual scoping, the SUBSUMED-BY-H3/H4 verdict this module formalizes (imp-33668)',
@@ -7785,7 +7785,7 @@ export const glossary = [
       'HONEST SCOPE: verification/provenance-audit only. G6a_shock_lipschitz stays OPEN regardless of ' +
       'this citation finding; the H4 strip-height-uniformity residual (imp-33603) is unaffected; no ' +
       'positivity, no bridge closure, no RH claim, NO QED; imp-3066 off-diagonal endpoint-Hankel ' +
-      'K_a >= 0 UNTOUCHED; C_mb share untouched; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'K_a >= 0 UNTOUCHED; C_mb share untouched; no refereed bound is changed.',
     firstUsed: 'imp-33637 (verifying the imp-33603 H0 provenance residual against the arXiv source and finding a double mis-citation: wrong paper id and a nonexistent Lemma 5.2), 2026',
     relatedTerms: [
       'imp-33603 G6a Lemma-5.2 port residual, the H1..H5 catalogue whose H0 provenance gap this finding closes negatively (imp-33603)',
@@ -7823,7 +7823,7 @@ export const glossary = [
       'cross-platform libm exp/pow variation, so the robust reading is the qualitative re-intensification ' +
       '-- not a monotone subsidence -- not the exact per-rung ULP. Changes no bound, patches no literal; ' +
       'mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; ' +
-      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33621 (dense every-integer floorUlp(n) scan extending the imp-33599 [400,700] three-cluster downtrend into the tail n in [700,900], grade 4, budgets >= 200 nodes), 2026',
     relatedTerms: [
       'imp-33599 NO-MONOTONE-WIDE-RANGE-BAND-CROSSING verdict, the three-cluster downtrend this tail scan finds to be a local feature of (imp-33599)',
@@ -7857,8 +7857,8 @@ export const glossary = [
       'latticeJitterCaveat): the exact floors and recovery grades can shift with cross-platform libm exp/pow ' +
       'variation, so the robust reading is the qualitative separation -- grade-4 clears at n=526/634 but fails at ' +
       'n=596 -- not the exact per-budget ULP. Changes no bound, patches no literal; mass-feasibility ' +
-      'necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; Platt-Trudgian Lambda<=0.2 remains ' +
-      'the rigorous SOTA; NO QED.',
+      'necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33622 (extending the imp-33600 single-rung n=596 grade sweep {4,5,6,8} to the flanking imp-33599 cluster peaks n=526 and n=634), 2026',
     relatedTerms: [
       'imp-33600 GRADE-ALONE-RECOVERS-THE-BAND verdict, the single-rung n=596 finding this extends to the flanking cluster peaks (imp-33600)',
@@ -7890,8 +7890,8 @@ export const glossary = [
       'reaching it on the tested range, and the new sigma < 0.01 threshold slots into the same landmark ' +
       'spacing as sigma > 0.9 (~2.57e7), sigma = 0.5 (~3.27e9), and sigma < 0.1 (~3.21e11).\n\n' +
       'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 extrapolation; changes no bound; ' +
-      'C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 sign-positivity untouched; Platt-Trudgian ' +
-      'Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 sign-positivity untouched; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33620 (extending the imp-33602/imp-33582 separated E_trunc/E_coll ladder three decades past 1e12 to N=1e15), 2026',
     relatedTerms: [
       'imp-33582 sigma-postpeak-nearpeak-threshold-decay, the sigma<0.1 @ ~3.21e11 landmark this extends to sigma<0.01 (imp-33582)',
@@ -7928,7 +7928,7 @@ export const glossary = [
       'obligation.\n\n' +
       'HONEST SCOPE: bookkeeping / assessment only, at the frontier-direction level, not rigorous. ' +
       'G6a_shock_lipschitz stays OPEN; no positivity; imp-3066 K_a>=0 off-diagonal endpoint-Hankel sign ' +
-      'positivity UNTOUCHED; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'positivity UNTOUCHED; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33745 (scoping the imp-33706 open-residual-tower H0 rung for independence from H3/H4), 2026',
     relatedTerms: [
       'imp-33706 selection-catalogue-count-scoping, the open-residual analytic tower {1/4, 3/4, 5/4} and the k = 0 selection-fold into H3/H4 (imp-33706)',
@@ -7971,7 +7971,7 @@ export const glossary = [
       'HONEST SCOPE: source-assessment / scoping only, at the frontier-direction level -- not a proof and ' +
       'not a literature-exhaustive survey. G6a_shock_lipschitz stays OPEN; the H0/H3/H4/H5 catalogue is ' +
       'unchanged (still four open rows); no positivity; imp-3066 K_a >= 0 off-diagonal endpoint-Hankel ' +
-      'positivity UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; NO QED.',
+      'positivity UNTOUCHED; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33764 (assessing whether an alternative primary source can supply the H0 Holder-1/2 blow-up modulus provenance independently of Polymath15 Lemma 5.2), 2026',
     relatedTerms: [
       'imp-33745 H0-provenance DISTINCT-BUT-ORTHOGONAL verdict, the sibling scoping this source survey confirms from the citation side (imp-33745)',
@@ -8002,8 +8002,8 @@ export const glossary = [
       'dominant and E_flow subdominant.\n\n' +
       'HONEST SCOPE: derivation/measurement only, a conditional-share curvature diagnostic inheriting the ' +
       'imp-3220/imp-3406 extrapolation (not a rigorous asymptotic); C_mb stays GUE-conditional per ' +
-      'imp-486; changes no bound; imp-3066 K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains the ' +
-      'rigorous SOTA; NO QED.',
+      'imp-486; changes no bound; imp-3066 K_a >= 0 UNTOUCHED; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33744 (deriving whether the imp-33721 sigma-ramp inflection knee algebraically coincides with the sigma = 1/2 halving point), 2026',
     relatedTerms: [
       'imp-33721 KNEE-A-DECADE-BELOW, the sub-decade relocation of the sigma-ramp inflection to N* ~ 3.38e9 whose ~3.3% halving offset this closed form explains (imp-33721)',
@@ -8032,7 +8032,7 @@ export const glossary = [
       'HONEST SCOPE: derivation/measurement only, a conditional-share diagnostic inheriting the ' +
       'imp-3220/imp-3406 extrapolation (not a rigorous asymptotic); C_mb stays GUE-conditional per ' +
       'imp-486; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; imp-3066 ' +
-      'K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; NO QED.',
+      'K_a >= 0 UNTOUCHED; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33743 (extending the imp-33723 closed-form crossover from the sigma = 1/2 halving landmark to the imp-33582 sigma < 0.1 far-tail landmark), 2026',
     relatedTerms: [
       'imp-33723 sigma = 1/2 halving crossover CLOSED FORM, the thr = 1/2 special case this generalizes (imp-33723)',
@@ -8060,7 +8060,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/cross-check only, a reproduction audit inheriting the ' +
       'imp-3220/imp-3406 extrapolation (not a rigorous asymptotic); C_mb stays GUE-conditional per ' +
       'imp-486; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 UNTOUCHED; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; NO QED.',
+      'no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33730 (tabulating the per-decade residual behind the imp-33701 "reproduces to the printed 4 decimals" reuse gate against the imp-33582 published perDecadeLadder), 2026',
     relatedTerms: [
       'imp-33701 SIGMOID-NOT-STRAIGHT verdict, whose reuse-gate boolean this tabulates into a six-row residual table (imp-33701)',
@@ -8090,8 +8090,8 @@ export const glossary = [
       'truncation-size-fixed ceiling.\n\n' +
       'HONEST SCOPE: structural/diagnostic on the SAME representative monomial truncation as imp-3066 / ' +
       'imp-33704, NOT the section-26 Gram; ||R|| carries NO RH verdict; imp-3066 / imp-33704 / G7 are ' +
-      'UNTOUCHED as a proof; the K_a >= 0 positivity step is NOT attempted; Platt-Trudgian Lambda <= 0.2 ' +
-      'remains the rigorous SOTA; NO QED.',
+      'UNTOUCHED as a proof; the K_a >= 0 positivity step is NOT attempted; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33725 (sweeping the shear weight a at fixed U = 6 across the imp-3066 representative degree-4 truncation to derive whether any a-window softens the G7 K_a >= 0 obstruction), 2026',
     relatedTerms: [
       'imp-33704 G7 obstruction U-scaling, the complementary U ladder at fixed a = 0.5 tracing the same s = a*U curve (imp-33704)',
@@ -8131,8 +8131,8 @@ export const glossary = [
       'imp-33579/imp-33599/imp-33621 latticeJitterCaveat): exact cluster edges, peak ULP, and trend slopes ' +
       'can shift with cross-platform libm exp/pow variation, so the robust reading is the qualitative ' +
       'structure, not the exact per-rung values. Changes no bound, patches no literal; mass-feasibility ' +
-      'necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; Platt-Trudgian Lambda<=0.2 ' +
-      'remains the rigorous SOTA; NO QED.',
+      'necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33638 (extending the imp-33621 dense every-integer floorUlp(n) band-clearing scan from the tail n in [700,900] into the deeper window n in [900,1200], grade 4, budgets >= 200 nodes), 2026',
     relatedTerms: [
       'imp-33621 TAIL-RE-INTENSIFICATION verdict, the [700,900] scan this module extends into [900,1200] (imp-33621)',
@@ -8169,7 +8169,7 @@ export const glossary = [
       'variation can shift the exact peak rungs, gaps, and hence every fit coefficient -- the robust reading is ' +
       'the qualitative conclusion (no fixed period, spacing irregular), not the exact R^2 or period value. ' +
       'Changes no bound, patches no literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 ' +
-      'sign-positivity untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'sign-positivity untouched; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33639 (fitting the combined imp-33599 [400,700] + imp-33621 [700,900] nine band-clearing cluster peaks to arithmetic-progression, linear-in-index, and sqrt(n)-scaled spacing models), 2026',
     relatedTerms: [
       'imp-33621 TAIL-RE-INTENSIFICATION verdict, source of six of the nine peaks this module fits a spacing law to (imp-33621)',
@@ -8208,7 +8208,7 @@ export const glossary = [
       'latticeJitterCaveat): correlation over only three cluster peaks means the robust reading is the SIGN ' +
       '(tallest envelope has the lowest recovery grade), not the exact coefficient. Changes no bound, patches ' +
       'no literal; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a>=0 sign-positivity untouched; ' +
-      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33640 (correlating the imp-33622 grade 4/6/4 recovery-grade drift across the three imp-33599 cluster peaks n=526/596/634 against cluster-envelope and exact-rung floorUlp height readings), 2026',
     relatedTerms: [
       'imp-33622 grade 4/6/4 recovery-grade drift, the conjecture this module tests (imp-33622)',
@@ -8248,8 +8248,8 @@ export const glossary = [
       'latticeJitterCaveat): the exact per-panel ULP and floor location can shift under cross-platform libm exp/pow ' +
       'variation, so the robust reading is the qualitative separation (single-panel spike, in-band floor, weak ' +
       'trend), not the exact ULP or node count. Changes no bound, patches no literal; mass-feasibility necessary-' +
-      'but-not-sufficient; imp-3066 K_a&gt;=0 sign-positivity untouched; Platt-Trudgian Lambda&lt;=0.2 remains the ' +
-      'rigorous SOTA; NO QED.',
+      'but-not-sufficient; imp-3066 K_a&gt;=0 sign-positivity untouched; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33641 (densifying the imp-33630 grade-6 n=596 coarse {200,300,...}-node budget row to every integer panel P in [15,60] to test whether the 200->300-node ULP re-exit is lattice jitter or genuine anti-convergence), 2026',
     relatedTerms: [
       'imp-33630 grade-vs-node-budget viz-data, source of the coarse {200,300}-node bounce this module densifies (imp-33630)',
@@ -8289,7 +8289,7 @@ export const glossary = [
       'CONDITIONAL fraction, not the exact per-rung 513/1025 counts. Changes no bound, patches no literal (imp-3685/' +
       'imp-3849/imp-33213/imp-33316/imp-33539/imp-33557/imp-33560/imp-33584/imp-33623 intact); NPHI=10 truncation ' +
       'inherited; mass-feasibility necessary-but-not-sufficient; imp-3066 K_a&gt;=0 sign-positivity untouched; ' +
-      'Platt-Trudgian Lambda&lt;=0.2 remains the rigorous SOTA; NO QED.',
+      'no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33642 (dense per-rung scan across n in [490,530] of the imp-33623 Clenshaw-Curtis-vs-graded 4x node-competitiveness crossing, tabulating per-rung hold-vs-conditional status and the graded-floor band-clear fraction), 2026',
     relatedTerms: [
       'imp-33623 first-observed CC-vs-graded 4x node-competitiveness crossing, the conjecture this module densifies (imp-33623)',
@@ -8320,8 +8320,8 @@ export const glossary = [
       'lattice property (imp-33249/imp-33277/imp-33296/imp-33537 latticeJitterCaveat); the robust reading is the ' +
       'crossover BRACKET [150,200], not the exact ~186 node count. The follow-up imp-33666 later found this flat ' +
       'reading does NOT survive into the deep tail. Changes no bound, patches no literal; mass-feasibility ' +
-      'necessary-but-not-sufficient; imp-3066 K_a&gt;=0 sign-positivity untouched; Platt-Trudgian Lambda&lt;=0.2 ' +
-      'remains the rigorous SOTA; NO QED.',
+      'necessary-but-not-sufficient; imp-3066 K_a&gt;=0 sign-positivity untouched; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33627 (measuring the imp-33583 Q(nodes)-vs-floor(n) saturation-budget crossover directly at the imp-33557 band-crossing rungs n in {495,510,596}), 2026',
     relatedTerms: [
       'imp-33583 node-budget-vs-arithmetic-floor separation model, the crossover this module quantifies (imp-33583)',
@@ -8358,7 +8358,7 @@ export const glossary = [
       'HONEST SCOPE: structural/diagnostic on the SAME representative degree-4 monomial truncation as ' +
       'imp-3066 / imp-33704 / imp-33725 / imp-33765, NOT the section-26 Gram; ||R|| carries NO RH verdict; ' +
       'K_a&gt;=0 positivity step is NOT attempted; imp-3066 / imp-33765 / G7 are UNTOUCHED as a proof; ' +
-      'Platt-Trudgian Lambda&lt;=0.2 remains the rigorous SOTA; NO QED.',
+      'no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33787 (assessing whether the imp-33765 s = a*U one-dimensionality plus monotone-in-s Perron structure yields a rigorous positive lower bound inf_{s&gt;0} ||R(s)|| -- the dual of the imp-33765 ceiling question), 2026',
     relatedTerms: [
       'imp-33765 G7 obstruction one-dimensionality in s, the derived monotone ceiling curve this module dualises to the low end (imp-33765)',
@@ -8397,7 +8397,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/attribution only, RH-equivalent, NOT rigorous. The component model is ' +
       'the inherited imp-3220/imp-3406 extrapolation, not a fresh asymptotic; the C_mb GUE-conditional ' +
       'per imp-486 is untouched; changes no bound; establishes no operator positivity; imp-3066 K_a&gt;=0 ' +
-      'untouched; no RH verdict; Platt-Trudgian Lambda&lt;=0.2 remains the rigorous SOTA; NO QED.',
+      'untouched; no RH verdict; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33773 (testing the imp-33727 E_flow attribution of the sub-leading p_sigma/p_ecoll offset residual against the actual E_flow contribution), 2026',
     relatedTerms: [
       'imp-33727 sigma-E_coll exponent-ladder cross-validation, the offset ladder and E_flow attribution this module tests (imp-33727)',
@@ -8430,7 +8430,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/cross-validation only, NOT rigorous. The component model is the ' +
       'inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb stays GUE-conditional ' +
       '(imp-486); changes no bound; establishes no operator positivity; imp-3066 K_a>=0 sign-positivity ' +
-      'untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'untouched; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33771 (cross-validating the imp-33744 closed-form sigma-inflection against the imp-33721 direct sub-decade D2-zero knee, finding ~1.5% agreement in N and a genuine two-notion residual), 2026',
     relatedTerms: [
       'imp-33744 closed-form sigma-inflection sigma_infl = 1/2 - g_prime/(2 g^2), the analytic value inverted to an N location here (imp-33744)',
@@ -8462,7 +8462,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/fit only, NOT rigorous. The component model is the inherited ' +
       'imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb stays GUE-conditional ' +
       '(imp-486); changes no bound; establishes no operator positivity; imp-3066 K_a>=0 ' +
-      'sign-positivity untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'sign-positivity untouched; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33701 (differencing the imp-33582 six-decade sigma(N) local-exponent ladder to resolve its curvature, finding a monotone-value but SIGMOID-shaped ramp with exactly one D2-sign-change knee in [1e10,1e11]), 2026',
     relatedTerms: [
       'imp-33582 accelerating sigma(N) post-peak decay, the six-decade exponent ladder whose curvature this differences (imp-33582)',
@@ -8494,8 +8494,8 @@ export const glossary = [
       'as a dead-end-fornow diagnostic thread on the shared arithmetic-floor lattice-jitter statistic ' +
       '(imp-33249/imp-33537/imp-33557/imp-33599/imp-33621/imp-33638/imp-33660/imp-33661/' +
       'imp-33662/imp-33680/imp-33681/imp-33682 latticeJitter caveat); C_mb remains ' +
-      'GUE-conditional (imp-486); imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains ' +
-      'the rigorous SOTA; NO QED.',
+      'GUE-conditional (imp-486); imp-3066 K_a>=0 untouched; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33736 (recording the imp-33660..imp-33682 lattice-floor cohort as a closed dead-end-fornow diagnostic thread, per the currentStatus honest-status note), 2026',
     relatedTerms: [
       'imp-33660 height-grows-weakly-positive-growth-class-unresolved verdict, the cohort-opening height fit later shown to be a two-point artifact (imp-33660)',
@@ -8526,8 +8526,8 @@ export const glossary = [
       'ANALYTIC tracking of C_ren through the fold-modulus back-conversion, not a fitted onset rate at ' +
       'finite N, and it says nothing about the coupled H3 curvature rung (N-exponent 5/4, imp-33786) ' +
       'that jointly governs the discharge. G6a_shock_lipschitz STAYS OPEN. No positivity; imp-3066 ' +
-      'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains the ' +
-      'rigorous SOTA; NO QED.',
+      'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33845 (characterizing the imp-33794 C_ren(N) approach-rate to C_PS on a finer eps ladder, measuring the gap exponent to a fixed 3/2 onset rate with 4/3 amplitude), 2026',
     relatedTerms: [
       'imp-33794 C_ren finite-window measurement, the coarser tail-slope reading this sharpens (imp-33794)',
@@ -8559,7 +8559,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/fit only, on the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
       'rigorous asymptotic. The empirical-vs-analytic conditional gap closes but glacially. C_mb stays ' +
       'GUE-conditional (imp-486); changes no bound; establishes no operator positivity; imp-3066 ' +
-      'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-33816 (extending the imp-33582 sigma(N) post-peak local exponent past its 1e12 stopping point, measuring the approach rate to the imp-3463 far-tail 1/2 asymptote), 2026',
     relatedTerms: [
       'imp-33582 per-decade ramp 0.0105 -> 0.4310 by [1e11,1e12], the coarser stopping point this extends (imp-33582)',
@@ -8590,7 +8590,7 @@ export const glossary = [
       'HONEST SCOPE: derivation/measurement only, on the inherited imp-3220/imp-3406 extrapolation, ' +
       'NOT a rigorous asymptotic. C_mb stays GUE-conditional (imp-486); the C_C 1/8 ansatz ' +
       '(imp-2642/imp-2643) is untouched; changes no bound; establishes no operator positivity; ' +
-      'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-33844 (deriving the imp-33809 M3 hump-peak closed form as the logistic curvature maximum of sigma at the E_coll=E_trunc crossover), 2026',
     relatedTerms: [
       'imp-33809 M3 hump peak located numerically at k=9, the tabulated measurement this closed-forms (imp-33809)',
@@ -8618,7 +8618,7 @@ export const glossary = [
       'consumer that adopts the 0.137 value, trips the tripwire.\n\n' +
       'HONEST SCOPE: executable naming/accuracy guard only, pins no new bound. C_mb stays ' +
       'GUE-conditional (imp-486); establishes no operator positivity; imp-3066 K_a >= 0 untouched; no ' +
-      'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-33818 (formalizing the imp-33772 prose E_trunc distinct-quantity caveat as an executable cross-check pinning the 3.06e-5 bridge floor against the separate ~0.137 lambda-bound value), 2026',
     relatedTerms: [
       'imp-33772 prose caveat tabulating the four sigma(N)-bridge consumers this guard cross-checks (imp-33772)',
@@ -8644,8 +8644,8 @@ export const glossary = [
       'modules, all reading their magnitudes live from their source records (no hard-coded literals), so ' +
       'a future drift that collapsed the separation would trip the tripwire.\n\n' +
       'HONEST SCOPE: executable coverage-extension guard only, pins no new bound. C_mb stays ' +
-      'GUE-conditional (imp-486); imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'GUE-conditional (imp-486); imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-33861 (extending the imp-33818 four-consumer E_trunc name-collision guard cohort-wide across 81 additional sigma(N)-decay modules, confirming all 85 total declare the 3.06e-5 fixed-strip floor and none conflate it with the separate ~0.137 lambda-bound value), 2026',
     relatedTerms: [
       'imp-33818 the four-consumer E_TRUNC-NAME-COLLISION guard this module extends cohort-wide (imp-33818)',
@@ -8675,8 +8675,8 @@ export const glossary = [
       'monotone-from-above E_coll residual are ONE log-saturation mechanism expressed two ways.\n\n' +
       'HONEST SCOPE: measurement/derivation only, on the inherited imp-3220/imp-3406 extrapolation, ' +
       'NOT a rigorous asymptotic. C_mb stays GUE-conditional (imp-486); changes no bound; establishes ' +
-      'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-33854 (reconciling the imp-33816 gap_sigma and imp-33620 gap_ecoll slow-approach shortfalls into the single log-saturation object g(N)), 2026',
     relatedTerms: [
       'imp-33816 sigma-exponent shortfall gap_sigma ~ 1/(2 log T0), the law g(N) converges to (imp-33816)',
@@ -8706,7 +8706,7 @@ export const glossary = [
       '(~0.063x), the two combining to ~918x (matching to within toFixed(1) rounding).\n\n' +
       'HONEST SCOPE: measurement/derivation only, on the inherited imp-3220/imp-3406/imp-33773 ' +
       'component model, NOT a rigorous asymptotic. Changes no bound; establishes no operator positivity; ' +
-      'imp-3066 K_a &gt;= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.',
+      'imp-3066 K_a &gt;= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-33810 (tracking the eflow_attr/resid_exp ratio across a fine N ladder to lock the imp-33773 E_flow-attribution refutation as a monotone-widening magnitude separation), 2026',
     relatedTerms: [
       'imp-33773 SUB-LEADING-RESIDUAL-IS-CURVATURE-NOT-EFLOW verdict, the refutation this ratio quantifies across N (imp-33773)',
@@ -8740,7 +8740,7 @@ export const glossary = [
       'HONEST SCOPE: accuracy/rule-design measurement only, on the jittery floorUlp(n) arithmetic-' +
       'floor lattice statistic (imp-33249/imp-33660/imp-33679 latticeJitterCaveat). Mass-feasibility ' +
       'is necessary-but-not-sufficient; establishes no operator positivity; imp-3066 K_a >= 0 stays ' +
-      'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'untouched; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-33700 (leave-two-out refit of the imp-33679 [1200,1600] extension four-peak envelope-height slope, finding the imp-33680 collapse test is degenerate and underpowered on four peaks), 2026',
     relatedTerms: [
       'imp-33680 slope-collapses-trend-is-a-two-point-artifact verdict, the [400,1200] collapse this test tried to replicate (imp-33680)',
@@ -8777,7 +8777,7 @@ export const glossary = [
       '(mandatory small-sample caveat) -- the robust reading is the qualitative regime change, not ' +
       'the exact coefficients. Mass-feasibility is necessary-but-not-sufficient; establishes no ' +
       'operator positivity; imp-3066 K_a >= 0 stays untouched; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-33698 (measuring the inter-peak gap series of the imp-33679 [1200,1600] extension cluster peaks and comparing its dispersion against the imp-33661 [400,1200] fifteen-gap baseline, finding a regime change rather than a continuation), 2026',
     relatedTerms: [
       'imp-33661 spacing-irregular-CV-persists-on-sixteen-peaks verdict, the [400,1200] gap baseline this regime-changes from (imp-33661)',
@@ -8815,8 +8815,8 @@ export const glossary = [
       "can shift under cross-platform libm variation, but the qualitative reading (the amplitude " +
       "trend collapses when the two tallest are removed, at least as hard as the height did) is " +
       "robust; NPHI=10 truncation inherited; changes no bound, patches no literal; mass-feasibility " +
-      "necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains " +
-      "the rigorous SOTA; NO QED.",
+      "necessary-but-not-sufficient; imp-3066 K_a>=0 untouched; no refereed bound is changed" +
+      "; NO QED.",
     firstUsed: "imp-33707 (leave-two-out refit of the imp-33681 sixteen peak-minus-trough amplitudes excluding the two tallest imp-33638 tail clusters, cross-checked against the imp-33680 height leave-two-out), 2026",
     relatedTerms: [
       "imp-33681 amplitude-grows-weakly-positive-but-below-the-peak-growth verdict, the full-sixteen amplitude fit this refits robustly (imp-33681)",
@@ -8841,7 +8841,7 @@ export const glossary = [
       'HONEST SCOPE: a structural/scoping verdict, not a discharge. H0 (provenance) and H5 ' +
       '(transcription) remain on orthogonal/downstream axes, unaffected by the coupling. ' +
       'G6a_shock_lipschitz stays OPEN; no positivity step is attempted; imp-3066 K_a>=0 is ' +
-      'untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'untouched; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33766 (scoping the minimal analytic input for the G6a_shock_lipschitz H4 strip-height residual and finding it collapses with H3 into one coupled object), 2026',
     relatedTerms: [
       'imp-33646 H4 fold-reading derivative rung m_prime, N-exponent 3/4 (imp-33646)',
@@ -8871,8 +8871,8 @@ export const glossary = [
       'imp-3066 / imp-33704 / imp-33725, not the section-26 Gram; ||R|| carries no RH verdict; the ' +
       'decoupled-rate probe deliberately breaks the exponential shear as a locating device, not an ' +
       'admissible modification; imp-3066 / imp-33704 / imp-33725 / G7 remain untouched as a proof; ' +
-      'the K_a>=0 positivity step is not attempted; Platt-Trudgian Lambda<=0.2 remains the rigorous ' +
-      'SOTA; NO QED.',
+      'the K_a>=0 positivity step is not attempted; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33765 (deriving whether the imp-3066 / G7 shear obstruction admits any orthogonal lever off the s = a*U axis, following imp-33725 empirical one-dimensionality), 2026',
     relatedTerms: [
       'imp-33725 G7 obstruction a-scaling ladder, the empirical "both act only through s" finding this derives (imp-33725)',
@@ -8907,7 +8907,7 @@ export const glossary = [
       'HONEST SCOPE: reconciliation/measurement only, on the inherited imp-3220/imp-3406 ' +
       'extrapolation, NOT a rigorous asymptotic. C_mb stays GUE-conditional (imp-486); changes no ' +
       'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO ' +
-      'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'QED. No refereed bound is changed.',
     firstUsed: 'imp-33887 (reconciling the imp-33854 I1 pointwise identity and imp-33856 discrete endpoint-fit agreement claims for gap_ecoll vs 1/(2 log T0) as different estimator/reference pairs, not inconsistent precisions), 2026',
     relatedTerms: [
       'imp-33854 log-saturation object g(N), source of the I1 pointwise identity gap_ecoll = g (imp-33854)',
@@ -8939,8 +8939,8 @@ export const glossary = [
       'to <1e-5.\n\n' +
       'HONEST SCOPE: derivation/measurement only. Does NOT re-derive the m_prime -> C_ren map ' +
       'off-axis and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz stays OPEN; imp-3066 ' +
-      'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-33883 (testing whether the imp-33853 on-axis C_PS amplitude and 4/3 onset coefficient are angle-robust or imaginary-axis artifacts), 2026',
     relatedTerms: [
       'imp-33853 on-axis fold-modulus asymptotics pinning C_PS = pi/sqrt(2) and the 4/3 onset coefficient at z_0*=i*eps (imp-33853)',
@@ -8965,7 +8965,7 @@ export const glossary = [
       'small ~12% multiplicative effect, and the imp-33843 log-linear-over-power-law form selection is ' +
       'NOT reopened. The runs-test p-value uses the N=21 normal approximation (later exact-permutation ' +
       'and AR(1) follow-ups refine this). Component model NOT a rigorous asymptotic; changes no bound; ' +
-      'NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33886 (calibrating the imp-33858 eyeballed "structured" residual verdict with a formal runs-test and Durbin-Watson p-value), 2026',
     relatedTerms: [
       'imp-33858 localization of the imp-33843 residual as a mid-ladder trough plus k=11 far-tail excursion, the qualitative verdict this calibrates (imp-33858)',
@@ -8991,7 +8991,7 @@ export const glossary = [
       'HONEST SCOPE: an exact within-component-model identity, not new physics or a tighter bound -- the ' +
       'inherited imp-3406 flow prefactor and RvM height substitution remain component-model choices, NOT a ' +
       'rigorous asymptotic; establishes no operator positivity; imp-3066 off-diagonal endpoint-Hankel ' +
-      'K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'K_a >= 0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33885 (cross-validating the imp-28895 (log N)^3/N E_flow closed form against a direct evaluation at every one of the 21 imp-33810 rungs rather than only the k=6/k=11 endpoints), 2026',
     relatedTerms: [
       'imp-28895 closed-form E_flow = G L (L0^2-1)/(4 pi^2 N) ~ (log N)^3/N derivation, validated here across the full interior (imp-28895)',
@@ -9020,7 +9020,7 @@ export const glossary = [
       'fold-modulus back-conversion, not an empirical band on a finite ladder, and it says nothing ' +
       'about the coupled H3 curvature rung (N-exponent 5/4, imp-33786) that jointly governs the ' +
       'discharge. G6a_shock_lipschitz STAYS OPEN. No positivity; imp-3066 off-diagonal endpoint-Hankel ' +
-      'K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; NO QED.',
+      'K_a >= 0 UNTOUCHED; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-33794 (measuring the imp-33766 minimal H4-axis renormalized fold-reading amplitude C_ren(N) across an N ladder, finding a finite monotone-decreasing band toward C_PS), 2026',
     relatedTerms: [
       'imp-33845 FIXED-3/2-ONSET verdict, sharpening this tail-slope reading to a measured 3/2 gap-approach rate (imp-33845)',
@@ -9051,7 +9051,7 @@ export const glossary = [
       'well-resolved second-difference value (~2.34e-3); plugging the resolved g_prime into the closed ' +
       'form lands on the true continuous inflection to <1e-3. Derivation/measurement only on the ' +
       'inherited imp-3220/imp-3406 component model, NOT a rigorous asymptotic; establishes no operator ' +
-      'positivity; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'positivity; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33808 (deriving the leading O(1/t^2) analytic separation between the imp-33744 sigmoid inflection and the imp-33721 exponent-ramp D2 knee, and tracing the imp-33771 ~1.5% offset to a finite-difference artifact), 2026',
     relatedTerms: [
       'imp-33771 closed-form-inflection-vs-D2-knee cross-check, whose ~1.5% offset this derivation explains as a scheme artifact (imp-33771)',
@@ -9081,8 +9081,8 @@ export const glossary = [
       'imp-3066 / imp-33704 / imp-33725 / imp-33765, not the section-26 Gram; it VALIDATES the ' +
       'monotone-curve premise the imp-33765 one-dimensionality argument rests on but discharges ' +
       'nothing new -- ||R|| carries no RH verdict, K_a >= 0 was not attempted, and imp-3066 / ' +
-      'imp-33704 / imp-33725 / imp-33765 / G7 remain UNTOUCHED as proofs; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains the rigorous SOTA; NO QED.',
+      'imp-33704 / imp-33725 / imp-33765 / G7 remain UNTOUCHED as proofs; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33795 (measuring the imp-33765 monotone-in-s ||R(s)|| shape premise on a fine 400-point s-grid at the DEG=4 anchor), 2026',
     relatedTerms: [
       'imp-33765 G7 one-dimensionality-in-s verdict, whose monotone-curve premise this fine-grid sweep validates (imp-33765)',
@@ -9117,7 +9117,7 @@ export const glossary = [
       'HONEST SCOPE: derivation/measurement only, on the model cusp rho(x) = |x|^{-alpha}. Does NOT ' +
       're-derive the m_prime -> C_ren map off-axis/off-exponent and does NOT discharge H4 ' +
       '(imp-33766); G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal endpoint-Hankel ' +
-      'K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'K_a >= 0 UNTOUCHED; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33924 (building a 2D robustness map of the imp-33853 fold-modulus onset jointly over the imp-33882 cusp exponent and imp-33883 evaluation angle, testing for alpha-theta interaction), 2026',
     relatedTerms: [
       'imp-33853 on-axis fold-modulus asymptotics pinning C_PS = pi/sqrt(2) and the 4/3 onset coefficient at z_0*=i*eps (imp-33853)',
@@ -9147,7 +9147,7 @@ export const glossary = [
       'the E_N normaliser collapse F2, not the slope or residual factors.\n\n' +
       'HONEST SCOPE: accuracy/measurement cross-check only, on the inherited imp-3220/imp-3406 ' +
       'component model (NOT a rigorous asymptotic). Establishes no operator positivity; imp-3066 ' +
-      'K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'K_a >= 0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33922 (cross-checking whether the imp-33885 analytic (log N)^3/N E_flow decay law reproduces the imp-33884 exact head-to-tail widening of the attributed roe ratio, and decomposing the gap into the four imp-28895 multiplicative factors), 2026',
     relatedTerms: [
       'imp-33885 the (log N)^3/N per-rung machine-floor match confirming F1 to machine precision (imp-33885)',
@@ -9176,7 +9176,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
       'rigorous asymptotic; the closed form is a MATCH to the measured decay, not a proven bound; the ' +
       'C_mb GUE-conditional share per imp-486 is untouched; changes no bound; imp-3066 K_a >= 0 ' +
-      'untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33918 (measuring the decade-scaling convergence rate of the imp-33887 g-vs-law reference offset on an extended 1e12..1e280 ladder, and matching it to a closed form), 2026',
     relatedTerms: [
       'imp-33887 the three-way endpoint-residual split identifying the I3 g-vs-law reference offset this module measures the convergence rate of (imp-33887)',
@@ -9208,7 +9208,7 @@ export const glossary = [
       'log-linear-vs-power-law form-selection reopening; component residual signs are inherited from ' +
       'the imp-3220/imp-3406 extrapolation via imp-33810, NOT a rigorous asymptotic; C_mb ' +
       'GUE-conditional share per imp-486 untouched; imp-3066 K_a >= 0 untouched; NO QED; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-33920 (replacing the imp-33886 normal-approximation Wald-Wolfowitz runs-test p-value with the exact permutation null over all C(21,11) sign-arrangements of the 21 imp-33858 residual signs), 2026',
     relatedTerms: [
       'imp-33886 the Wald-Wolfowitz runs test and normal-approximation p-value bracket this exact enumeration sits inside (imp-33886)',
@@ -9245,7 +9245,7 @@ export const glossary = [
       'residual series, not a new claim -- changes no RMSE (~0.116), reopens no imp-33843 ' +
       'log-linear-vs-power-law form selection, and touches no bound; the AR(1) CI is a small-sample ' +
       'normal-theory interval on N=21 (hence its unit-root-spanning width); C_mb GUE-conditional per ' +
-      'imp-486 untouched; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'imp-486 untouched; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33921 (fitting the explicit AR(1) model e_k=rho e_{k-1}+u_k to the 21 imp-33858 signed residuals and reconciling the Yule-Walker, DW-implied, and AR(1)-MLE rho estimates via the exact DW identity), 2026',
     relatedTerms: [
       'imp-33886 the naive DW~2(1-rho) prediction and observed DW~0.222 gap this AR(1) fit reconciles (imp-33886)',
@@ -9272,7 +9272,7 @@ export const glossary = [
       "interior peak (imp-3444 F3). No value is derived and no bound changes -- it is a pure " +
       "cross-reference collecting figures already on record.\n\n" +
       "HONEST SCOPE: reference-only assessment, NO QED. C_mb is GUE-conditional (imp-486), untouched; " +
-      "imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+      "imp-3066 K_a >= 0 untouched; no refereed bound is changed.",
     firstUsed: "imp-33828 (collecting the six sigma(N)-decay landmarks already recorded across lambda-roadmap.js currentStatus PHASEs into one N-ordered, provenance-tagged reference table), 2026",
     relatedTerms: [
       "imp-3406 interior maximum sigma_max ~ 0.9494 at N ~ 9.22e5, the first landmark on the ladder (imp-3406)",
@@ -9305,8 +9305,8 @@ export const glossary = [
       'bounded/vanishing envelope reading holds; the proportional-shrink reading does not). The ' +
       'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
       'the surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 ' +
-      'is UNTOUCHED; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'is UNTOUCHED; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-33942 (testing whether the imp-33905 R2 hump-argmax grid-vs-continuum gap shrinks proportionally to the grid step, reusing the imp-33878 ladder verbatim), 2026',
     relatedTerms: [
       'imp-33905 the grid-vs-continuum reconciliation whose R2 proportional-shrink reading this ticket refines (imp-33905)',
@@ -9339,8 +9339,8 @@ export const glossary = [
       'the OLS surrogate is descriptive not derived; the underlying component model is the inherited ' +
       'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the edge-artifact reading and the ' +
       'imp-33843 log-linear-vs-power-law FORM verdict are UNTOUCHED; C_mb GUE-conditional per imp-486 ' +
-      'UNTOUCHED; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'UNTOUCHED; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-33941 (deciding via formal AIC/BIC/AICc/RMSE model selection whether the imp-33917 boundary-locked endpoint peak grows linearly or logarithmically, reusing the imp-33917 9-window peaks verbatim), 2026',
     relatedTerms: [
       'imp-33917 the boundary sweep whose two descriptive linear-vs-log fits this ticket formally decides between (imp-33917)',
@@ -9369,7 +9369,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/residual-localization only; the OLS surrogate and growth classifications ' +
       'are descriptive not derived; the component model is the inherited imp-3220/imp-3406 extrapolation, ' +
       'NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 ' +
-      'K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'K_a >= 0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33940 (measuring whether the interior residual structure of the imp-33843 widening fit is boundary-stable across the imp-33917 9-window kEnd=11..13 sweep, finding it is not), 2026',
     relatedTerms: [
       'imp-33917 the boundary sweep and endpoint-peak growth this refinement reuses, whose R3 boundary-stability assertion is corrected here (imp-33917)',
@@ -9395,8 +9395,8 @@ export const glossary = [
       'individually-honest modules and a reader mistakenly inferring a combined, stronger claim from ' +
       'their union.\n\n' +
       'HONEST SCOPE: this is a bookkeeping/consolidation note only; it changes no bound and derives no ' +
-      'new result; imp-3066 K_a >= 0 stays untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains the ' +
-      'rigorous SOTA.',
+      'new result; imp-3066 K_a >= 0 stays untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-33976 (consolidating the imp-33853/33882/33883/33924 model-cusp onset family into one honest banner), 2026',
     relatedTerms: [
       'imp-33853 the closed-form 4/3 onset coefficient, on-axis anchor (imp-33853)',
@@ -9429,7 +9429,7 @@ export const glossary = [
       'imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; the surrogate resid_exp(k) is ' +
       'descriptive, not derived; C_mb is GUE-conditional (imp-486), untouched; the C_C 1/8 ansatz ' +
       '(imp-2642/imp-2643) is untouched; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-33878 (refining the resid_exp(k) sliding-window grid below quarter-decade to test whether the imp-33857 X3 hump-argmax-vs-crossover offset vanishes in the continuum limit), 2026',
     relatedTerms: [
       'imp-33857 the X3 module that booked the +0.52-decade integer-label offset refined here (imp-33857)',
@@ -9461,8 +9461,8 @@ export const glossary = [
       'and E_flow-on) bracketing the same knee from either side.\n\n' +
       'HONEST SCOPE: measurement/cross-validation only, isRigorous false. Component model is the ' +
       'inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb is GUE-conditional ' +
-      '(imp-486), untouched; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      '(imp-486), untouched; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-33862 (cross-validating the ~1.5% closed-form-sigmoid-vs-ramp-knee separation with a second grid-free knee locator, and flagging the full-model direct inflection as a third landmark), 2026',
     relatedTerms: [
       'imp-33744 the closed-form E_flow-off sigmoid inflection (landmark 1) (imp-33744)',
@@ -9494,8 +9494,8 @@ export const glossary = [
       'uniform bound needs the ANALYTIC fold-modulus back-conversion tracking, not a mesh-converged ' +
       'finite-ladder fit -- and says nothing about the coupled H3 curvature rung (N-exponent 5/4, ' +
       'imp-33786) that jointly governs the discharge. G6a_shock_lipschitz STAYS OPEN. No positivity; ' +
-      'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; Platt-Trudgian Lambda <= 0.2 remains ' +
-      'the rigorous SOTA; NO QED.',
+      'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-33863 (re-measuring the imp-33845 fixed-3/2 (C_ren - C_PS) tail-rung onset exponent under a 32x inner-Simpson panel-doubling sweep, confirming quadrature convergence rather than a mesh-resolution artifact), 2026',
     relatedTerms: [
       'imp-33845 FIXED-3/2-ONSET verdict, the single-mesh reading this panel-refinement sweep confirms (imp-33845)',
@@ -9523,7 +9523,7 @@ export const glossary = [
       'HONEST SCOPE: derivation/measurement only, on the inherited imp-3220/imp-3406 extrapolation, ' +
       'NOT a rigorous asymptotic. C_mb stays GUE-conditional (imp-486); changes no bound; ' +
       'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-33879 (deriving the imp-33856 ~4% midpoint-vs-endpoint anchoring offset as the closed-form half-log-decade Taylor step of 1/(2 log T0), closing the discretization caveat), 2026',
     relatedTerms: [
       'imp-33856 discrete-slope endpoint fit of gap_ecoll to 1/(2 log T0) that first flagged the ~4% caveat this closes (imp-33856)',
@@ -9551,7 +9551,7 @@ export const glossary = [
       'HONEST SCOPE: viz-data/structural-diagnostic packaging only, on the SAME representative ' +
       'DEG=4 truncation as imp-33765/imp-33789, NOT the section-26 Gram. No fresh derivation, no ' +
       'positivity attempted, imp-3066/imp-33765/imp-33789 untouched, no RH verdict, NO QED. ' +
-      'C_mb stays GUE-conditional (imp-486); Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'C_mb stays GUE-conditional (imp-486); no refereed bound is changed.',
     firstUsed: 'imp-33802 (packaging the imp-33765 G7 ||R||(s) monotone curve toward the DEG+1 all-ones Perron ceiling and the fixed-s_a=3 decoupled softening series as self-computing viz-data), 2026',
     relatedTerms: [
       'imp-33765 the G7/imp-3066 orthogonal-lever derivation establishing ||R|| is one-dimensional in s = a*U (imp-33765)',
@@ -9583,7 +9583,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/growth-law-fit only; the component model is the inherited ' +
       'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate and growth fits ' +
       'are descriptive not derived; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
-      'imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33917 (fitting the growth law of the imp-33877 boundary-locked endpoint peak residual over a 9-window kEnd=11..13 sweep, finding unbounded sub-linear growth rather than saturation), 2026',
     relatedTerms: [
       'imp-33877 the boundary-locked endpoint residual peak whose growth law this ticket fits (imp-33877)',
@@ -9618,7 +9618,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/derivation only, on the model cusp rho(x) = |x|^{-alpha}. Does NOT ' +
       're-derive the m_prime -> C_ren map off-axis/off-exponent and does NOT discharge H4 ' +
       '(imp-33766); G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal endpoint-Hankel ' +
-      'K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'K_a >= 0 UNTOUCHED; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33970 (assessing whether theta = pi/2 is the unique phase-zero of the imp-33924 joint leading amplitude -A(alpha,theta) on (0,pi) for every cusp exponent alpha in (0,1), extending the imp-33927 single-anchor check), 2026',
     relatedTerms: [
       'imp-33924 JOINT cusp-angle leading-amplitude factorization, the closed form A(alpha,theta) whose phase-zero uniqueness this ticket settles (imp-33924)',
@@ -9647,7 +9647,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only, on the model cusp rho(x) = |x|^{-alpha}. It re-measures a phase ' +
       'slope already derived in closed form by imp-33924; it does NOT re-derive the m_prime -> C_ren map ' +
       'and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal ' +
-      'endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33968 (tabulating the imp-33924 phase winding rate d arg(-A)/d theta = -(1+alpha) as an explicit rate-vs-alpha curve across an extended alpha grid 0.1..0.9, upgrading the imp-33924 cross-check (a) pass/fail into a tabulated affine law), 2026',
     relatedTerms: [
       'imp-33924 the joint closed-form amplitude A(alpha,theta) and its cross-check (a) winding-rate tolerance this ticket tabulates explicitly (imp-33924)',
@@ -9681,7 +9681,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/derivation only, on the model cusp rho(x) = |x|^{-alpha}. It tabulates and ' +
       'characterizes a modulus already written in closed form by imp-33924; it does NOT re-derive the ' +
       'm_prime -> C_ren map and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz stays OPEN; imp-3066 ' +
-      'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34021 (tabulating the imp-33924 theta-independent leading-amplitude modulus |A(alpha)| = pi*alpha/cos(pi*alpha/2) as an explicit alpha-curve and measuring its alpha->1- divergence as a simple pole |A| ~ 2/(1-alpha) - 2, upgrading the imp-33968 winding-slope tabulation to cover the modulus tier), 2026',
     relatedTerms: [
       'imp-33924 the joint closed-form amplitude A(alpha,theta) whose theta-independent modulus tier this ticket tabulates and whose alpha->1- pole it characterizes (imp-33924)',
@@ -9708,7 +9708,7 @@ export const glossary = [
       'HONEST SCOPE: a calibration re-reading imp-33921 own (rho_AR - 1)/SE against the correct reference ' +
       'distribution; changes no RMSE (~0.116), reopens no imp-33843 log-linear-vs-power-law form ' +
       'selection, and touches no bound; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 ' +
-      'untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33963 (running the Dickey-Fuller regression Delta e_k = phi e_{k-1} + u_k on the 21 imp-33858 signed residuals and comparing tau against the Fuller 1976 tau_nc critical values rather than the imp-33921 t-CI), 2026',
     relatedTerms: [
       'imp-33921 the AR(1) rho_AR ~ 0.968 and t-CI spanning the unit root that this DF test re-reads against the correct distribution (imp-33921)',
@@ -9737,7 +9737,7 @@ export const glossary = [
       'HONEST SCOPE: re-reads the same residual ACF at higher lags; changes no RMSE (~0.116), reopens no ' +
       'imp-33843 form selection, touches no bound; small-N caveat, since higher-lag r_k rest on few pairs ' +
       'and the chi-square_m reference is asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066 ' +
-      'K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'K_a >= 0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33964 (computing the sample autocorrelations r_1..r_5 and Ljung-Box Q_1..Q_5 on the 21 imp-33858 signed residuals, rejecting white noise at every lag horizon and finding the ACF crosses zero by lag 4, defeating the pure AR(1) geometric-decay model), 2026',
     relatedTerms: [
       'imp-33921 the AR(1) rho_AR ~ 0.968 whose geometric-decay adequacy is tested and found inadequate here (imp-33921)',
@@ -9767,7 +9767,7 @@ export const glossary = [
       'exact-mean-plus-bounded permutation p-value; changes no RMSE (~0.116), reopens no imp-33843 form ' +
       'selection, and touches no bound; residual stays small (~12% multiplicative) -- "significant" means ' +
       '"not white noise", not "large"; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 ' +
-      'untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33965 (permuting the 21 imp-33858 residual VALUES to build an exact-mean-plus-Monte-Carlo permutation null for the Durbin-Watson statistic, replacing the imp-33886 asymptotic d_L table bound with a rule-of-three upper bound p < 1.5e-6), 2026',
     relatedTerms: [
       'imp-33886 the asymptotic Savin-White d_L ~ 1.22 Durbin-Watson table bound made exact here (imp-33886)',
@@ -9797,7 +9797,7 @@ export const glossary = [
       'drift-dominant factors are different.\n\n' +
       'HONEST SCOPE: window-stability cross-check of an inherited surrogate ratio, on the inherited ' +
       'imp-3220/imp-3406 component model (NOT a rigorous asymptotic). Establishes no operator ' +
-      'positivity; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'positivity; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33969 (testing window-stability of the imp-33922 ~19.9x F1/widening over-prediction across the imp-33917 boundary sweep kEnd = 11..13, and identifying which of F2/F3/F4 drives the drift), 2026',
     relatedTerms: [
       'imp-33922 four-factor widening decomposition (E_flow analytic decay vs. attributed widening), the fixed-kEnd=11 ~19.9x over-prediction reordered here (imp-33922)',
@@ -9829,8 +9829,8 @@ export const glossary = [
       'flattens further.\n\n' +
       'HONEST SCOPE: a measurement/fit ladder on the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
       'rigorous asymptotic; a conditional-share diagnostic, NOT an RH bound. C_mb stays GUE-conditional ' +
-      '(imp-486); changes no bound; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      '(imp-486); changes no bound; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-33816 (the logarithmic gap law), with the crossing ladder pinned by imp-33904 (90% mark) and imp-33943 (50%/95% marks), 2026',
     relatedTerms: [
       'imp-33816 LOGARITHMIC-ASYMPTOTE-APPROACH verdict, the underlying gap(N) ~ 1/(2 log T0) law this ladder makes concrete (imp-33816)',
@@ -9855,7 +9855,7 @@ export const glossary = [
       "reason or in a way already consistent with the split. Recorded here as a short pointer so this " +
       "citation audit is not silently re-run." +
       "\n\nHONEST SCOPE: read-only citation audit only; no bound changed; imp-3066 K_a >= 0 untouched; " +
-      "NO QED; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "NO QED; no refereed bound is changed.",
     firstUsed: "imp-33936 (sigma-decay cohort citation audit, CLEAN), 2026",
     relatedTerms: [
       "imp-33759 sigma-decay cohort provenance rollup, the honesty correction this audit checked for unrepaired propagation of (imp-33759)",
@@ -9885,7 +9885,7 @@ export const glossary = [
       "HONEST SCOPE: measurement/reproduction only, on the inherited imp-3220/imp-3406 " +
       "extrapolation, NOT a rigorous asymptotic. C_mb stays GUE-conditional (imp-486); changes no " +
       "bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO " +
-      "QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+      "QED. No refereed bound is changed.",
     firstUsed: "imp-33903 (independently reproducing the imp-33879 geometric-center offset via a direct finite-difference code path and disclosing the plain-derivative undershoot), 2026",
     relatedTerms: [
       "imp-33879 geometric-center correction for the endpoint-vs-midpoint anchoring offset, the analytic factor reproduced here (imp-33879)",
@@ -9917,8 +9917,8 @@ export const glossary = [
       "HONEST SCOPE: this is a cross-reference/discoverability rollup, not a new measurement -- it " +
       "adds no data and changes no verdict from imp-33858/imp-33877/imp-33917. The component model " +
       "is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional " +
-      "per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; Platt-Trudgian " +
-      "Lambda <= 0.2 remains SOTA.",
+      "per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a >= 0 untouched; NO QED; no refereed bound is changed" +
+      ".",
     firstUsed: "imp-33959 (consolidating the imp-33858 far-tail excursion, imp-33877 boundary-locked localization, and imp-33917 endpoint-growth edge-artifact verdict into a single discoverable rollup), 2026",
     relatedTerms: [
       "imp-33858 the far-tail k=11 residual excursion first flagged, part of the structured-residual verdict (imp-33858)",
@@ -9951,7 +9951,7 @@ export const glossary = [
       "HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 extrapolation, NOT a " +
       "rigorous asymptotic. C_mb stays GUE-conditional (imp-486); changes no bound; establishes " +
       "no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. " +
-      "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+      "No refereed bound is changed.",
     firstUsed: "imp-33947 (writing out the third-order half-log-decade Taylor term S3 of the imp-33879/imp-33900 geometric-center offset and confirming the ~4% offset is the leading term of a convergent, not terminating, Taylor series), 2026",
     relatedTerms: [
       "imp-33879 geometric-center correction for the endpoint-vs-midpoint anchoring offset, the closed-form leading term this series extends (imp-33879)",
@@ -9983,7 +9983,7 @@ export const glossary = [
       "HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 extrapolation, NOT a " +
       "rigorous asymptotic; L1..L4 are finite-difference measurements. C_mb stays GUE-conditional " +
       "(imp-486); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 " +
-      "untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+      "untouched; no RH verdict, NO QED. No refereed bound is changed.",
     firstUsed: "imp-34000 (writing out the fourth-order half-log-decade Taylor term S4 of the imp-33947 geometric-center offset and confirming a surviving fifth-order tail), 2026",
     relatedTerms: [
       "imp-33947 geometric-center half-log-decade third-order Taylor tail, the residual this term extends (imp-33947)",
@@ -10014,7 +10014,7 @@ export const glossary = [
       "HONEST SCOPE: measurement/fit only, on the inherited imp-3220/imp-3406 extrapolation, NOT a " +
       "rigorous asymptotic; L1..L4 are finite-difference measurements reproducing imp-34000. C_mb " +
       "stays GUE-conditional (imp-486); changes no bound; establishes no operator positivity; " +
-      "imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+      "imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.",
     firstUsed: "imp-34001 (fitting the per-order geometric reduction ratio of the imp-33947/imp-34000 half-log-decade Taylor series and showing it drifts as ~1/log T0 rather than sitting at a fixed ~1/25), 2026",
     relatedTerms: [
       "imp-34000 geometric-center half-log-decade fourth-order Taylor tail, the series whose per-order ratio this fits (imp-34000)",
@@ -10044,8 +10044,8 @@ export const glossary = [
       'HONEST SCOPE: measurement/derivation only, on the model cusp rho(x) = |x|^{-alpha}. Upgrades the ' +
       'imp-33924 single-eps cross-check to an explicit rate; does NOT re-derive the m_prime -> C_ren map ' +
       'off-axis/off-exponent and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz stays OPEN; ' +
-      'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-33961 (measuring the eps^2 approach rate of the imp-33924 joint onset residual to -2/(alpha+1) across the eps ladder {1e-3,1e-4,1e-5} on the joint (alpha,theta) grid, upgrading the imp-33924 single-eps cross-check (b) to an explicit per-cell rate), 2026',
     relatedTerms: [
       'imp-33924 JOINT cusp-angle leading-amplitude factorization, whose single-eps cross-check (b) this ticket upgrades to an explicit rate (imp-33924)',
@@ -10077,7 +10077,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only, on the model cusp rho(x) = |x|^{-alpha}. Upgrades the imp-33961 ' +
       'eps^2 rate with the next even-power term; does NOT re-derive the m_prime -> C_ren map off-axis/' +
       'off-exponent and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz stays OPEN; imp-3066 ' +
-      'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34002 (measuring the eps^4 sub-sub-leading onset coefficient 10/(alpha+5) predicted by the imp-33961 tail expansion, jointly over the imp-33924 (alpha,theta) grid via the same 200000-panel complex-Simpson tail quadrature, upgrading the imp-33961 eps^2 rate with the next even-power term), 2026',
     relatedTerms: [
       'imp-33961 joint onset-residual eps^2 CONVERGENCE RATE, whose eps^2 term this ticket extends with the next even-power coefficient (imp-33961)',
@@ -10107,8 +10107,8 @@ export const glossary = [
       'HONEST SCOPE: qualifies, does not overturn, the imp-33922 aggregate headline (the 903.538 widening ' +
       'and the 0.05022 attenuation product are unchanged). Cross-check/measurement only, on the inherited ' +
       'imp-3220/imp-3406 component model, NOT a rigorous asymptotic; changes no bound; imp-3066 K_a >= 0 ' +
-      'untouched; C_mb GUE-conditional share per imp-486 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'untouched; C_mb GUE-conditional share per imp-486 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-33962 (decomposing the imp-33922 F2*F3*F4=0.05022 attribution attenuation rung-by-rung across the 20 adjacent-rung steps of the imp-33810 quarter-decade ladder, testing whether the E_N normaliser dominance is boundary-stable or drifts along N), 2026',
     relatedTerms: [
       'imp-33922 the four-factor widening decomposition and its aggregate 92%-is-F2 endpoint-slice reading, qualified here as a net aggregate rather than a per-rung property (imp-33922)',
@@ -10149,8 +10149,8 @@ export const glossary = [
       'alpha_* = 0.9874 for delta = 0.01.\n\n' +
       'HONEST SCOPE: measurement/derivation only, on the model cusp rho(x) = |x|^{-alpha}. Does NOT ' +
       're-derive the m_prime -> C_ren map and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz ' +
-      'stays OPEN; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'stays OPEN; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34020 (tracking the alpha->1- emergence of the imp-33970 second phase-zero of the imp-33924 joint amplitude -A(alpha,theta): measuring the collapse rate of the realness-residual-outside-window floor and the approach of the two limiting phase-zeros theta->0+, theta->pi- as the winding span (1+alpha)*pi -> 2*pi), 2026',
     relatedTerms: [
       'imp-33970 the joint phase-zero uniqueness-over-alpha result whose endpoint degeneracy this ticket quantifies (imp-33970)',
@@ -10176,8 +10176,8 @@ export const glossary = [
       'validating the machine-epsilon cancellation model to within a factor ~5. Measurement ' +
       'only, on the imp-3220/imp-3406 component model; realized round-off is platform-dependent ' +
       'so the coefficient is asserted only to order; C_mb GUE-conditional share per imp-486 ' +
-      'UNTOUCHED; imp-3066 K_a>=0 untouched; no bound changed; NO QED; Platt-Trudgian ' +
-      'Lambda<=0.2 remains SOTA.',
+      'UNTOUCHED; imp-3066 K_a>=0 untouched; no bound changed; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-33960 (fitting the imp-33925 I1-residual round-off coefficient by regressing r(DL) against 1/DL over five steps on the shared imp-33854 grid), 2026',
     relatedTerms: [
       'imp-33925 the DL-sweep that first showed the I1 identity residual growing as ~1/DL, the round-off signature this ticket fits a coefficient to (imp-33925)',
@@ -10208,7 +10208,7 @@ export const glossary = [
       'same-sign. Same inherited imp-3220/imp-3406 component model as imp-33854/imp-33925/imp-33960; ' +
       'realized round-off magnitudes are platform-dependent so slopes/coefficients are asserted only to ' +
       'order; C_mb GUE-conditional share per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 ' +
-      'untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34007 (recomputing the imp-33960 I1 round-off floor r(DL)~eps|ln N|/(2 DL) at every rung of the shared imp-33854 grid, rather than only the dominant N=1e200 rung, and testing the |ln N|-proportionality across rungs), 2026',
     relatedTerms: [
       'imp-33960 the single-rung round-off coefficient fit at N=1e200 this ticket generalizes rung by rung (imp-33960)',
@@ -10233,7 +10233,7 @@ export const glossary = [
       'log-log OLS returns a SUPER-linear exponent b ~ 3.69 -- a convex shape bending the opposite way ' +
       'to the concave saturation the peaks actually show. Measurement / model-selection only; all ' +
       'three forms remain descriptive, not derived; C_mb GUE-conditional per imp-486 and imp-3066 ' +
-      'K_a>=0 UNTOUCHED; no bound changed; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'K_a>=0 UNTOUCHED; no bound changed; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-33982 (admitting the curved power-law form peak = a*kEnd^b to the imp-33941 linear-vs-log endpoint-peak tournament and rescoring all three on the imp-33917 peaks), 2026',
     relatedTerms: [
       'imp-33941 the two-form linear-vs-log selection extended here with a third, curved candidate (imp-33941)',
@@ -10264,7 +10264,7 @@ export const glossary = [
       'log-linear-over-power-law verdict and the imp-33940 R2 finding it extends are untouched; the ' +
       'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
       'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 untouched; NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-33987 (extending the imp-33940 R2 fixed-band k<=10 convex residual drift across a wider kEnd=11..14 sweep and fitting its growth exponent), 2026',
     relatedTerms: [
       'imp-33940 the R2 convex low-k drift over kEnd=11..13 this ticket extends and confirms (imp-33940)',
@@ -10298,7 +10298,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/cross-check only; a conditional-share diagnostic, NOT an RH bound. The ' +
       'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
       'C_mb stays GUE-conditional (imp-486); changes no bound; imp-3066 K_a >= 0 untouched; NO QED; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-33988 (three-way log-space recompute of the imp-33816 F3 landmarks with an independent Newton cross-check), 2026',
     relatedTerms: [
       'imp-33816 LOGARITHMIC-ASYMPTOTE-APPROACH verdict, the source of the F3 landmarks recomputed here (imp-33816)',
@@ -10325,7 +10325,7 @@ export const glossary = [
       'the decision is not carried by the boundary-most rung. Measurement only; both forms remain ' +
       'descriptive not derived; the imp-33843 log-linear-vs-power-law FORM verdict UNTOUCHED; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; no bound changed; NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-33985 (leave-one-out sensitivity of the imp-33941 log-vs-linear endpoint-peak model-selection decision across all 9 imp-33917 boundary-sweep folds), 2026',
     relatedTerms: [
       'imp-33941 the full-sample log-vs-linear model-selection decision whose robustness this ticket measures (imp-33941)',
@@ -10355,7 +10355,7 @@ export const glossary = [
       'artifact and extending its phase-alignment reading two rungs deeper. The surrogate resid_exp(k) ' +
       'remains descriptive not derived; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz ' +
       '(imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a>=0 untouched; changes no bound; NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-33983 (verifying the imp-33942 sawtooth-residue closed form at grid steps finer than the imp-33878 floor of 1/128 by extending the resid_exp(k) argmax ladder to 1/256 and 1/512 on the same imp-33810 model), 2026',
     relatedTerms: [
       'imp-33942 the sawtooth-residue closed form for the grid-vs-continuum gap this ticket verifies below its original ladder floor (imp-33942)',
@@ -10384,8 +10384,8 @@ export const glossary = [
       'per-step tail attenuation.\n\n' +
       'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 component model, NOT a rigorous ' +
       'asymptotic; resid(k) surrogate and factor identity exact WITHIN the model only; changes no bound; ' +
-      'imp-3066 K_a >= 0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'imp-3066 K_a >= 0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34003 (refining the imp-33962 R3 F4-unity crossing, reported only as k~8.9 off the discrete ladder, to full precision by bisecting the continuous per-step residual ratio resid(k+dk)/resid(k)-1 on the inherited imp-3220/imp-3406/imp-33810 sub-terms), 2026',
     relatedTerms: [
       'imp-33962 per-step attenuation decomposition (the 92%-is-F2 headline is a net aggregate, not a per-rung property), the R3 reading this ticket refines to full precision (imp-33962)',
@@ -10412,7 +10412,7 @@ export const glossary = [
       'sigma, and saturates in the tail because sigma itself saturates as the E_trunc floor comes to ' +
       'dominate E_N. MEASUREMENT/FIT ONLY: descriptive fit on the inherited imp-3220/imp-3406 component ' +
       'model, NOT a rigorous asymptotic; changes no bound; imp-3066 K_a>=0 untouched; C_mb GUE-' +
-      'conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'conditional per imp-486 UNTOUCHED; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34004 (fitting the saturation law of the imp-33962 per-step normaliser log-attenuation ln F2 against 1/log T0, power-N, geometric, and collision-share candidate laws on the 20-step imp-33810 ladder), 2026',
     relatedTerms: [
       'imp-33962 per-step attenuation decomposition, whose monotone ln F2 rise this ticket fits a functional form to (imp-33962)',
@@ -10441,8 +10441,8 @@ export const glossary = [
       '1% level is crossed at W~0.255 (full width ~0.51 decade) beyond which the single quadratic can ' +
       'no longer represent the hump. MEASUREMENT/FIT ONLY: descriptive fit on the inherited imp-3220/' +
       'imp-3406 component model, NOT a rigorous asymptotic; changes no bound; imp-3066 K_a>=0 ' +
-      'untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; Platt-Trudgian Lambda<=0.2 ' +
-      'remains SOTA.',
+      'untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34005 (sweeping the fit-window half-width of the imp-33948 apex-curvature fit to test whether resid double-prime(k*) plateaus or drifts), 2026',
     relatedTerms: [
       'imp-33948 apex curvature single-window fit, whose half-width robustness this ticket tests (imp-33948)',
@@ -10474,8 +10474,8 @@ export const glossary = [
       'HONEST SCOPE: measurement only, on the inherited imp-33924 closed form for the model cusp ' +
       'rho(x)=|x|^{-alpha}; establishes NO operator positivity; does NOT re-derive the m_prime->C_ren ' +
       'map off-axis/off-exponent and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz STAYS OPEN; ' +
-      'C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian ' +
-      'Lambda<=0.2 remains SOTA.',
+      'C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34045 (characterizing the imp-33970 alpha->1 (p->2) boundary degeneracy of the joint phase-zero by tabulating both flanking real-axis crossing families and their approach to the endpoints), 2026',
     relatedTerms: [
       'imp-33970 joint phase-zero UNIQUENESS-over-alpha, whose excluded alpha=1 endpoint degeneracy this ticket characterizes (imp-33970)',
@@ -10508,7 +10508,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 surrogate resid_exp(k) model, ' +
       'NOT a rigorous asymptotic; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ' +
       'ansatz (imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-34044 (tabulating the imp-33983 sawtooth phase-realignment schedule across the dyadic ladder 1/128..1/32768 as a closed-form doubling-map sequence), 2026',
     relatedTerms: [
       'imp-33983 FROZEN sawtooth argmax-gap verdict, whose realignment schedule this ticket closes into a doubling-map form (imp-33983)',
@@ -10543,7 +10543,7 @@ export const glossary = [
       'model, NOT a rigorous asymptotic; the fitted cap is a narrow-window extrapolation asserting no ' +
       'physical plateau; the imp-33843 log-linear-vs-power-law FORM verdict UNTOUCHED; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-34043 (admitting a bounded/saturating fourth family to the imp-33982 endpoint-peak model tournament), 2026',
     relatedTerms: [
       'imp-33982 endpoint-peak lin/log/power model tournament, whose concave-log winner this ticket dethrones with a fourth saturating family (imp-33982)',
@@ -10576,7 +10576,7 @@ export const glossary = [
       'selection valid only up to that boundary, not an unconditional asymptotic. Descriptive growth-law ' +
       'model selection on the inherited imp-3220/imp-3406 component model, NOT a rigorous asymptotic; ' +
       'changes no bound; establishes no operator positivity; imp-3066 K_a>=0 untouched; NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-34041 (fitting a growth law to the imp-33969 F4/widening over-prediction ratio drift across kEnd=11..13), 2026',
     relatedTerms: [
       'imp-33969 F1/widening drift verdict, whose ratio and attenuation sequences this ticket fits growth laws to (imp-33969)',
@@ -10603,7 +10603,7 @@ export const glossary = [
       '(4.59:1). So the two most-influential low rungs together still do NOT overturn the decision. ' +
       'Measurement only; both forms remain descriptive not derived; the imp-33843 log-linear-vs-power-law ' +
       'FORM verdict UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; no ' +
-      'bound changed; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'bound changed; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34042 (extending the imp-33985 leave-one-out sensitivity of the imp-33941 log-vs-linear endpoint-peak decision to the full leave-two-out 36-fold test across the imp-33917 boundary sweep), 2026',
     relatedTerms: [
       'imp-33985 the leave-one-out sensitivity test this ticket extends to dropped pairs (imp-33985)',
@@ -10632,8 +10632,8 @@ export const glossary = [
       'its measured kEnd=11..14 window and is not overturned, only its extrapolation beyond kEnd=14; the ' +
       'imp-33843 log-linear-over-power-law verdict is untouched; the component model is the inherited ' +
       'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 ' +
-      'UNTOUCHED; changes no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains ' +
-      'SOTA.',
+      'UNTOUCHED; changes no bound; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34040 (pushing the imp-33987 fixed-band k<=10 convex residual-drift sweep one further decade to kEnd=14..17 and finding the convex regime saturates), 2026',
     relatedTerms: [
       'imp-33987 the kEnd=11..14 convex-drift sweep this ticket continues one decade and finds saturating past (imp-33987)',
@@ -10663,7 +10663,7 @@ export const glossary = [
       'window at its centre (collapsing the lead to a fraction of a decade).\n\n' +
       'HONEST SCOPE: conditional-share/exponent diagnostic reusing the inherited imp-3220/imp-3406 ' +
       'component model, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes ' +
-      'no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no bound; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34006 (cross-tabulating the imp-33274 windowed effective exponent against the imp-33816 pointwise exponent on a shared N ladder), 2026',
     relatedTerms: [
       'imp-33816 the pointwise gap law gap~1/(2 log T0) this ticket cross-tabulates against (imp-33816)',
@@ -10695,7 +10695,7 @@ export const glossary = [
       '1e38.337+6, 1e436.076 = 1e430.076+6): the re-anchoring is exactly a half-span shift.\n\n' +
       'HONEST SCOPE: conditional-share/exponent diagnostic reusing the inherited imp-3220/imp-3406 ' +
       'component model, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes ' +
-      'no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no bound; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34066 (directly testing the imp-34006 F3 window-reads-pointwise-at-centre claim by re-anchoring the fixed 12-decade OLS window at its centre), 2026',
     relatedTerms: [
       'imp-34006 the F3 START-anchored window lead this ticket directly re-tests by re-centring (imp-34006)',
@@ -10723,7 +10723,7 @@ export const glossary = [
       'confirmed the centroid-reading mechanism by re-anchoring the window at its centre.\n\n' +
       'HONEST SCOPE: conditional-share/exponent diagnostic reusing the inherited imp-3220/imp-3406 ' +
       'component model, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes ' +
-      'no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no bound; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34065 (measuring the OLS window-span dependence of the imp-34006 pointwise-vs-window exponent offset across S in {6,12,24} decades), 2026',
     relatedTerms: [
       'imp-34006 the single-span (S=12) F2/F3 offset and lead this ticket generalizes to a span law (imp-34006)',
@@ -10752,7 +10752,7 @@ export const glossary = [
       'HONEST SCOPE: a wing-fidelity diagnostic of an inherited surrogate (imp-3220/imp-3406 extrapolation), ' +
       'NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz (imp-2642/' +
       'imp-2643) UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a>=0 untouched; ' +
-      'NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34008 (testing the imp-33948 apex parabola against the true imp-33878 resid_exp(k) hump in the wings, to bound the validity range of the quadratic fit), 2026',
     relatedTerms: [
       'imp-33948 the apex-curvature quadratic fit and E2 flat-top half-widths this ticket wing-tests (imp-33948)',
@@ -10783,7 +10783,7 @@ export const glossary = [
       'HONEST SCOPE: a migration-contrast/boundary-invariance diagnostic reusing the inherited ' +
       'imp-3220/imp-3406 extrapolation component model verbatim, NOT a rigorous asymptotic; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 untouched; NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-34022 (contrasting the imp-33877 endpoint-peak and interior-trough migration rates and testing interior boundary-invariance after stripping both edge excursions), 2026',
     relatedTerms: [
       'imp-33877 the widening-fit tail endpoint-artifact test whose peak/trough sequences this ticket contrasts (imp-33877)',
@@ -10813,8 +10813,8 @@ export const glossary = [
       'HONEST SCOPE: refines, does not overturn, imp-33962 (the full-window share still reproduces ' +
       '0.9225). Measurement only, on the inherited imp-3220/imp-3406 component model, NOT a rigorous ' +
       'asymptotic; factor identity exact WITHIN the model only; C_mb GUE-conditional per imp-486 ' +
-      'untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains ' +
-      'SOTA.',
+      'untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34009 (measuring the window-endpoint sensitivity of the imp-33962 aggregate |ln|-share 0.9225 by shrinking the imp-33810 head-to-tail window symmetrically inward, m=0..9 rungs trimmed each end), 2026',
     relatedTerms: [
       'imp-33962 the per-step attenuation decomposition establishing the 92%-is-F2 aggregate headline this ticket tests for endpoint-contingency (imp-33962)',
@@ -10838,7 +10838,7 @@ export const glossary = [
       'entry is a short cross-reference closing the discoverability gap imp-34097 flagged, without ' +
       'restating the verdict.\n\n' +
       'HONEST SCOPE: bookkeeping/cross-reference only; changes no bound; establishes no operator ' +
-      'positivity; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'positivity; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34097 (auditing whether the imp-34009 window-endpoint sensitivity verdict already has glossary coverage), 2026',
     relatedTerms: [
       'imp-34009 window-endpoint sensitivity of the imp-33962 92%-is-F2 aggregate share, the pre-existing full entry this audit found (imp-34009)',
@@ -10874,7 +10874,7 @@ export const glossary = [
       'inherited surrogate ratio, on the inherited imp-3220/imp-3406 component model (NOT a rigorous ' +
       'asymptotic); the geometric F4 fit and digit-loss profile are descriptive within the model only; ' +
       'C_C 1/8 ansatz UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a>=0 ' +
-      'untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34023 (fitting the geometric collapse of F4 and extrapolating the F1/widening ratio past kEnd=13 to the kEnd*~21.281 M2-residual sign-crossing ceiling), 2026',
     relatedTerms: [
       'imp-33969 the F1/widening=1/(F2*F3*F4) identity and F2/F3/F4 factor definitions this ticket extrapolates (imp-33969)',
@@ -10899,8 +10899,8 @@ export const glossary = [
       'boundary-invariant interior: the deep-interior residual still drifts as the window recedes.\n\n' +
       'HONEST SCOPE: a glossary record of an inherited measurement (imp-34022), not a new fit; on the ' +
       'imp-3220/imp-3406 component model only, NOT a rigorous asymptotic; C_mb GUE-conditional per ' +
-      'imp-486 untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian ' +
-      'Lambda<=0.2 remains SOTA.',
+      'imp-486 untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34091 (glossary entry recording the imp-34022 asymmetric-rate, near-constant-ratio peak/trough migration verdict and its non-boundary-invariant interior finding), 2026',
     relatedTerms: [
       'imp-34022 the migration-contrast/boundary-invariance measurement this entry records (imp-34022)',
@@ -10932,7 +10932,7 @@ export const glossary = [
       're-opens no imp-33843 form selection; the KPSS critical values are asymptotic tabulated values ' +
       'applied at N=21; the inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; ' +
       'C_mb GUE-conditional per imp-486 untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-34024 (running the companion KPSS stationarity test on the 21 imp-33858 residuals and combining it with the imp-33963 Dickey-Fuller test into a DF/KPSS confirmatory-classification cell), 2026',
     relatedTerms: [
       'imp-33858 the source of the 21 signed residuals both tests probe (imp-33858)',
@@ -10957,7 +10957,7 @@ export const glossary = [
       'entry is a short cross-reference closing the discoverability gap imp-34092 flagged, without ' +
       'restating the verdict.\n\n' +
       'HONEST SCOPE: bookkeeping/cross-reference only; changes no bound; establishes no operator ' +
-      'positivity; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'positivity; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34092 (auditing whether the imp-34023 F4-collapse verdict already has glossary coverage), 2026',
     relatedTerms: [
       'imp-33810 M2-residual surrogate factor family F2/F3/F4 and the kEnd*~21.281 cancellation ceiling, the pre-existing full entry this audit found (imp-33810)',
@@ -10980,7 +10980,7 @@ export const glossary = [
       'entry here would duplicate that content, so this entry is a short cross-reference closing the ' +
       'discoverability gap imp-34096 flagged, without restating the verdict.\n\n' +
       'HONEST SCOPE: bookkeeping/cross-reference only; changes no bound; establishes no operator ' +
-      'positivity; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'positivity; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34096 (auditing whether the imp-34008 apex-parabola wing-fidelity verdict already has glossary coverage), 2026',
     relatedTerms: [
       'imp-34008 apex-parabola wing-fidelity radius of the imp-33878 resid_exp(k) hump, the pre-existing full entry this audit found (imp-34008)',
@@ -11010,8 +11010,8 @@ export const glossary = [
       'no RMSE (~0.116, ~12% multiplicative) and re-opens no imp-33843 form selection; the inherited ' +
       'imp-3220/imp-3406 component model is NOT a rigorous asymptotic; the AR(2) rests on only 19 lagged ' +
       'triples and the BG chi-square reference is a small-sample asymptotic on N=21; C_mb GUE-conditional ' +
-      'per imp-486 untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian ' +
-      'Lambda<=0.2 remains SOTA.',
+      'per imp-486 untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34025 (fitting a second-order autoregression and Breusch-Godfrey LM test to the 21 imp-33858 residuals, showing complex-conjugate roots reproduce the sign-changing ACF lobe as a curved-trend artifact, not a genuine cycle), 2026',
     relatedTerms: [
       'imp-33964 the sign-changing sample ACF (r_4/r_5<0) that defeats AR(1), fit here at second order (imp-33964)',
@@ -11043,7 +11043,7 @@ export const glossary = [
       '(~0.116, ~12% multiplicative); n=21 higher-lag r_k rest on few pairs and the Q_m chi-square is a ' +
       'small-sample asymptotic; inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
       'asymptotic; C_mb GUE-conditional per imp-486 untouched; changes no bound; imp-3066 K_a>=0 ' +
-      'untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34026 (applying the classic quadratic-detrend remedy to the imp-33964 rejected white-noise null on the 21 imp-33858 residuals, finding the curvature term real but the whitening remedy failing and the far ACF lobe deepening), 2026',
     relatedTerms: [
       'imp-33964 the sign-changing sample ACF and rejected white-noise null this quadratic detrend attempts to remedy (imp-33964)',
@@ -11069,7 +11069,7 @@ export const glossary = [
       'O((eD)^2) window-width correction of the Taylor-in-D expansion (e*D/4~0.28 at a full-decade window).\n\n' +
       'HONEST SCOPE: derivation/measurement within the inherited imp-3406/imp-33810 component model only; ' +
       'NOT a rigorous asymptotic; changes no bound; establishes no operator positivity; C_mb GUE-conditional ' +
-      'per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34127 (deriving the imp-34023 M2-residual sign-change ceiling in closed form and identifying it as an estimator-discretization artifact), 2026',
     relatedTerms: [
       'imp-34023 the bisected kEnd*~21.281 M2-residual sign-change ceiling this closed form derives (imp-34023)',
@@ -11090,7 +11090,7 @@ export const glossary = [
       '(lower=0, upper=pi) exactly only at alpha=3 (p=4).\n\n' +
       'HONEST SCOPE: measurement only, pure phase-condition geometry on the inherited imp-33924 closed ' +
       'form; establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 ' +
-      'K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34104 (characterising the second real-positive phase-zero branch distance law across the cusp range and its alpha=3 endpoint touch), 2026',
     relatedTerms: [
       'imp-34045 the outer branch family this second-positive branch belongs to (imp-34045)',
@@ -11113,7 +11113,7 @@ export const glossary = [
       'HONEST SCOPE: curve-fit extrapolation only, ~72x-716x beyond the fitted data; asserts NO physical ' +
       'plateau; the inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; C_mb ' +
       'GUE-conditional per imp-486 untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-34108 (extrapolating the imp-34043 saturating endpoint-peak fit to its 1%/0.1% approach kEnds and finding them ~72x/~716x beyond the fit window), 2026',
     relatedTerms: [
       'imp-34043 the AIC/BIC/AICc tournament and saturating-fit parameters this ticket extrapolates verbatim (imp-34043)',
@@ -11137,7 +11137,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only; the OLS/bounded-ceiling fit and growth-form classification are ' +
       'descriptive, not derived; the inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
       'asymptotic; C_mb GUE-conditional per imp-486 untouched; changes no bound; imp-3066 K_a>=0 ' +
-      'untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34109 (extending the fixed-band peak-amplitude sweep past kEnd~18 and finding the imp-34040 saturation onset reverses into unbounded log growth), 2026',
     relatedTerms: [
       'imp-34040 the kEnd=14..17 saturation-onset reading this ticket extends and partially overturns (imp-34040)',
@@ -11160,8 +11160,8 @@ export const glossary = [
       'imp-34023.\n\n' +
       'HONEST SCOPE: curve-fit/measurement only within the inherited imp-3220/imp-3406 component model, ' +
       'which is NOT a rigorous asymptotic; establishes no operator positivity; C_mb GUE-conditional per ' +
-      'imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 ' +
-      'remains SOTA.',
+      'imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34133 (fitting the asymptotic limits of the imp-34023 F2/F3 attenuation factors and confirming F4 alone drives the divergence), 2026',
     relatedTerms: [
       'imp-34023 the per-unit F2/F3/F4 factor decomposition this ticket extends with asymptotic-limit fits (imp-34023)',
@@ -11182,7 +11182,7 @@ export const glossary = [
       'HONEST SCOPE: a higher-order odd-term fit of an inherited surrogate, NOT an RH bound; confirms and ' +
       'refines, does not overturn, imp-34084; the surrogate resid_exp(k) is descriptive not derived; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 untouched; no RH verdict, ' +
-      'NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34146 (fitting the apex quintic term imp-34084 named but never fit and finding it POSITIVE, opposite the cubic), 2026',
     relatedTerms: [
       'imp-34084 the apex cubic-tilt fit this ticket extends to the quintic term (imp-34084)',
@@ -11205,7 +11205,7 @@ export const glossary = [
       'HONEST SCOPE: a window-centre sweep of an inherited surrogate, NOT an RH bound; refines, does not ' +
       'overturn, imp-34084 (its d(k*) is correct but a small near-crossing value); the surrogate ' +
       'resid_exp(k) is descriptive not derived; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no ' +
-      'bound; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'bound; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34147 (sweeping the apex cubic-tilt fit across window centres and finding the negative sign is local, not stable), 2026',
     relatedTerms: [
       'imp-34084 the fixed-centre apex cubic-tilt fit this ticket sweeps across window centres (imp-34084)',
@@ -11226,7 +11226,7 @@ export const glossary = [
       'HONEST SCOPE: locating a minimum of an inherited imp-34086 endpoint-sensitivity diagnostic, NOT an ' +
       'RH bound; locates and confirms, does not overturn, imp-34086; the factor identity is exact WITHIN ' +
       'the model only; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 ' +
-      'untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'untouched; no RH verdict, NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34148 (bisecting the symmetric-trim F4 cancellation to a continuous m*~0.679085), 2026',
     relatedTerms: [
       'imp-34086 the head-down/tail-up cancellation mechanism this ticket locates exactly (imp-34086)',
@@ -11248,7 +11248,7 @@ export const glossary = [
       'HONEST SCOPE: locating a crossing of an inherited imp-34086 endpoint-sensitivity diagnostic, NOT an ' +
       'RH bound; locates and confirms, does not overturn, imp-34086; the factor identity is exact WITHIN ' +
       'the model only; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 ' +
-      'untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'untouched; no RH verdict, NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34149 (bisecting the tail-only F4 unity crossing to a continuous m*~0.606341), 2026',
     relatedTerms: [
       'imp-34086 the tail-only F4 crossing this ticket locates exactly (imp-34086)',
@@ -11269,7 +11269,7 @@ export const glossary = [
       'HONEST SCOPE: cross-validation/measurement only; confirms not overturns imp-34023/imp-34087; the ' +
       'crossing is descriptive within the inherited imp-3220/imp-3406 component model only; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 untouched; no RH verdict, ' +
-      'NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34150 (cross-validating the imp-34023/imp-34087 kEnd*~21.281 crossing via direct bisection and secant), 2026',
     relatedTerms: [
       'imp-34023 the F4-sign-flip reading of the M2-residual crossing this ticket cross-validates (imp-34023)',
@@ -11292,7 +11292,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only; confirms not overturns imp-34087; the numerator profile is ' +
       'descriptive within the inherited imp-3220/imp-3406 component model only; C_mb GUE-conditional per ' +
       'imp-486 UNTOUCHED; changes no bound; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-34151 (verifying the imp-34087 O(1) cancellation numerator survives past the M2-residual crossing), 2026',
     relatedTerms: [
       'imp-34087 the reciprocal-cancellation identity whose numerator this ticket tracks past the crossing (imp-34087)',
@@ -11318,7 +11318,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only, tabulating the inherited component model, no new mathematical claim; ' +
       'E_flow is the benign mesoscopic-Gronwall term (imp-2845), its negligibility does NOT touch the ' +
       'divergent C_Lip collision-Gronwall; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 ' +
-      'untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains the SOTA unconditional bound.',
+      'untouched; no RH verdict, NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34134 (tabulating the E_flow/E_trunc ratio decay ladder N=1e6..1e18 and its onset landmarks), 2026',
     relatedTerms: [
       'imp-3444 the E_coll=E_trunc crossover N~3.280e9 this onset is measured against (imp-3444)',
@@ -11348,8 +11348,8 @@ export const glossary = [
       'HONEST SCOPE: numerical cross-check only, on the inherited imp-33924/imp-34045 closed form; ' +
       'establishes NO operator positivity; does NOT re-derive the m_prime->C_ren map off-axis/off-' +
       'exponent and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz STAYS OPEN; C_mb GUE-' +
-      'conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 ' +
-      'remains SOTA.',
+      'conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34105 (cross-validating the imp-34045 closed-form phase-zero branch angles against an independent bracket-and-bisect root-find of Im(-A)(theta)), 2026',
     relatedTerms: [
       'imp-34045 joint phase-zero outer-branch endpoint-collapse identification, whose closed-form angles this ticket cross-validates from a second code path (imp-34045)',
@@ -11382,8 +11382,8 @@ export const glossary = [
       'per-step vs k_lo/k_hi symmetric about k~8.5 aggregate) but are computed from different pairs ' +
       'of rungs and answer different questions; neither crossing implies the other.\n\n' +
       'HONEST SCOPE: disambiguation only, no new computation. Both objects remain measurements on the ' +
-      'inherited imp-3220/imp-3406/imp-33810 component model; NO QED; Platt-Trudgian Lambda<=0.2 ' +
-      'remains SOTA.',
+      'inherited imp-3220/imp-3406/imp-33810 component model; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34204 (recording the AGGREGATE-vs-PER-STEP F4 naming collision that imp-34128 and imp-34003 each flag independently, so future readers do not conflate the two crossings), 2026',
     relatedTerms: [
       'imp-34003 the PER-STEP F4(k)=1 adjacent-rung crossing this entry distinguishes from the aggregate object (imp-34003)',
@@ -11409,8 +11409,8 @@ export const glossary = [
       'once cross-checked against each other, agree the answer is CONVERGE, not diverge -- no ' +
       'quantity in the cohort drifts indefinitely.\n\n' +
       'HONEST SCOPE: measurement/fit only, not a bound. Conditional-share diagnostic; C_mb remains ' +
-      'GUE-conditional (imp-486); changes no bound; imp-3066 K_a>=0 untouched; Platt-Trudgian ' +
-      'Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'GUE-conditional (imp-486); changes no bound; imp-3066 K_a>=0 untouched; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-34206 (cross-linking the imp-34126/imp-34129/imp-34130 convergence-fit trio and their shared imp-33816 approach-law source as a coherent asymptote-approach cohort), 2026',
     relatedTerms: [
       'imp-33816 the sigma-share exponent gap ~1/(2 log T0) approach-rate law shared across the cohort (imp-33816)',
@@ -11443,8 +11443,8 @@ export const glossary = [
       'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 extrapolation surrogate; the ' +
       'surrogate resid_exp(k) is descriptive not derived; changes no bound; establishes no operator ' +
       'positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz (imp-2642/imp-2643) ' +
-      'UNTOUCHED; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains ' +
-      'SOTA.',
+      'UNTOUCHED; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34168 (re-running the imp-34106 doubling-map ladder with a higher-precision stored k_true~8.8210915879 over an extended e=15..22 ladder to test whether the predictive floor extends past 1/262144), 2026',
     relatedTerms: [
       'imp-34106 the 1/524288 departure and its stored-k* precision-floor diagnosis, confirmed here (imp-34106)',
@@ -11472,7 +11472,7 @@ export const glossary = [
       'cusp rho(x)=|x|^{-alpha}; establishes NO operator positivity; does NOT re-derive the m_prime->' +
       'C_ren map off-axis/off-exponent and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz STAYS ' +
       'OPEN; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-34240 (glossary entry consolidating the imp-34173 unified endpoint-distance law d_k(alpha) and its alpha_k=2k-1 onset ladder across outer phase-zero branch families (i)/(ii)/(iii)), 2026',
     relatedTerms: [
       'imp-34045 joint phase-zero outer-branch endpoint-collapse identification, family (i) k=1 (imp-34045)',
@@ -11502,7 +11502,7 @@ export const glossary = [
       'A calibration/sensitivity read of an inherited un-HAC diagnostic, not a new claim; reproduces ' +
       'imp-34024/imp-34083 at baseline; the inherited imp-3220/imp-3406 component model is NOT a ' +
       'rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; changes no bound; imp-3066 ' +
-      'K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34155 (measuring the per-rung KPSS l=0 sensitivity and the smallest single-rung shift that flips the imp-34083/imp-34024 borderline rejection), 2026',
     relatedTerms: [
       'imp-34024 the l=0 eta_mu~0.3483 borderline and the HAC-corrected eta_mu~0.149 primary reading this entry contrasts (imp-34024)',
@@ -11528,8 +11528,8 @@ export const glossary = [
       'A surrogate-domain probe, not a form selection or a new claim; the imp-33843 log-linear-over-' +
       'power-law verdict and the imp-34109 findings it extends are untouched; the inherited imp-3220/' +
       'imp-3406 component model is NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 ' +
-      'untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 ' +
-      'remains SOTA.',
+      'untouched; changes no bound; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34169 (locating the resid_exp(k) zero-crossing k*~21.28095 that terminates the imp-33810/imp-33843 log-linear surrogate domain), 2026',
     relatedTerms: [
       'imp-34109 the kEnd=14..20 fixed-band peak sweep imp-34169 continues one decade past (imp-34109)',
@@ -11555,7 +11555,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/localisation and fit only; the OLS surrogate, parabolic inflection, and ' +
       're-acceleration fit are descriptive, not derived; the inherited imp-3220/imp-3406 component model is ' +
       'NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; imp-3066 ' +
-      'K_a>=0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'K_a>=0 untouched; no RH verdict, NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34196 (refining the imp-34109 fixed-band peak increment minimum to a 0.25 kEnd grid and locating the sub-window inflection kEnd*~18.64), 2026',
     relatedTerms: [
       'imp-34109 the coarse 0.5-grid sweep whose F1 minimum this refines (imp-34109)',
@@ -11603,7 +11603,7 @@ export const glossary = [
       'quoted number is reproduced verbatim from the cited modules. Entirely within the inherited ' +
       'imp-3220/imp-3406/imp-33810 component model, which is NOT a rigorous asymptotic; changes no ' +
       'bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 ' +
-      'K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34278 (writing the single canonical honest-status note for the kEnd*~21.281 surrogate hard-right-edge, cross-referencing the full M2-ceiling cohort), 2026',
     relatedTerms: [
       'imp-33810 M2-residual surrogate factor family F2/F3/F4 and the kEnd*~21.281 cancellation ceiling, the origin of the edge (imp-33810)',
@@ -11636,7 +11636,7 @@ export const glossary = [
       'aspect the imp-34173/imp-34240 pair does not cover.\n\n' +
       'HONEST SCOPE: cohort-mapping and cross-check only; no new bound; measurement/derivation stays on ' +
       'the inherited imp-33924 closed form; establishes no operator positivity; C_mb GUE-conditional per ' +
-      'imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34298 (mapping the imp-34045/34104/34166/34167 outer phase-zero branch cohort and flagging that the pending imp-34229 unification duplicates the already-derived imp-34173/imp-34240 law), 2026',
     relatedTerms: [
       'imp-34045 family n=1 real-negative endpoint-collapsing branch (imp-34045)',
@@ -11675,7 +11675,7 @@ export const glossary = [
       'imp-3220/imp-3406 extrapolation; E_flow is the benign mesoscopic-Gronwall term (imp-2845), NOT ' +
       'the divergent C_Lip collision-Gronwall; C_mb GUE-conditional per imp-486 UNTOUCHED (E_coll ' +
       'untouched); imp-3066 K_a>=0 untouched; changes no bound; establishes no operator positivity; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA; NO QED.',
+      'no refereed bound is changed; NO QED.',
     firstUsed: 'imp-34213 (deriving the imp-34134 E_flow=alpha*E_trunc onset as a Banach-contracting HEIGHT fixed point T0*=A(alpha)(log(T0*/2pi)+1)log T0*, distinct in kind from the imp-33723 sibling fixed point in N, reproducing bisection to ~1e-15), 2026',
     relatedTerms: [
       'imp-34134 E_flow=alpha*E_trunc onset landmarks, the bisected roots this module re-derives in closed form (imp-34134)',
@@ -11726,7 +11726,7 @@ export const glossary = [
       'derivation or bound. Pure phase-condition geometry on the inherited imp-33924 closed form; ' +
       'establishes NO operator positivity; does NOT re-derive the m_prime->C_ren map off-axis/off-exponent ' +
       'and does NOT discharge H4 (imp-33766); G6a_shock_lipschitz STAYS OPEN; C_mb GUE-conditional per ' +
-      'imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34315 (glossary entry naming the pi/(4k^2) endpoint-curvature ladder spanning imp-34103, imp-34166 and imp-34230), 2026',
     relatedTerms: [
       'imp-34103 k=1 endpoint curvature pi/4 at onset alpha=1 (imp-34103)',
@@ -11754,8 +11754,8 @@ export const glossary = [
       'analytic-derivative evaluation of resid_exp lowers this floor is left OPEN.\n\n' +
       'MEASUREMENT ONLY -- a closed-form-vs-measurement comparison on an inherited surrogate argmax gap, ' +
       'not an RH bound. The component model is the inherited imp-3220/imp-3406 extrapolation; C_mb ' +
-      'GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian ' +
-      'Lambda<=0.2 remains SOTA.',
+      'GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34228 (extending the imp-34168 doubling-map floor test to a full double-precision live anchor and e=15..28), 2026',
     relatedTerms: [
       'imp-34168 the 10-sig-fig stored-anchor floor test this extends (imp-34168)',
@@ -11793,7 +11793,7 @@ export const glossary = [
       'slope) on a 5x-finer grid.\n\n' +
       'MEASUREMENT / STITCH-AND-CONVEXITY PROBE ONLY, NOT an RH bound. The inherited imp-3220/imp-3406 ' +
       'component model is NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 ' +
-      'K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34268 (stitching the imp-34196 and imp-34169 fixed-band-peak increment grids and measuring third differences), 2026',
     relatedTerms: [
       'imp-34196 the local 4-point linear re-accel slope this shows is only a local descriptor (imp-34196)',
@@ -11825,7 +11825,7 @@ export const glossary = [
       'percentage split, and leaves a well-conditioned per-estimator decomposition OPEN.\n\n' +
       'NUMERICAL / DECOMPOSITION ONLY, NOT an RH bound. The inherited imp-3220/imp-3406 component model is ' +
       'NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO ' +
-      'QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'QED; no refereed bound is changed.',
     firstUsed: 'imp-34285 (decomposing the imp-34211 closed-form-vs-bisection kEnd gap into its dA/dB estimator biases), 2026',
     relatedTerms: [
       'imp-34211 the ~0.278 kEnd gap decomposed here (imp-34211)',
@@ -11853,7 +11853,7 @@ export const glossary = [
       'MEASUREMENT / LOCAL-EXPONENT RECONCILIATION ONLY, NOT an RH bound. imp-34196 and imp-34109 are not ' +
       'overturned, only reframed. The inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
       'asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-34287 (reconciling the imp-34196 rising-increment / imp-34109 unbounded-log tension via the local log-derivative), 2026',
     relatedTerms: [
       'imp-34196 the rising-increment re-acceleration this reconciles (imp-34196)',
@@ -11901,7 +11901,7 @@ export const glossary = [
       'number is reproduced verbatim from the cited modules. Entirely within the inherited imp-3220/imp-3406 ' +
       'component model, which is NOT a rigorous asymptotic; changes no bound; establishes no operator ' +
       'positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-34384 (writing the honest-status note reconciling the imp-34288 measured ceiling with the imp-34214 non-physical extrapolation), 2026',
     relatedTerms: [
       'imp-34085 the |trough|/|peak| ratio sequence both modules build on (imp-34085)',
@@ -11927,8 +11927,8 @@ export const glossary = [
       'imp-34237 viz page and honest-status callouts across the resid_exp-pole cohort.\n\n' +
       'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406/imp-33773 component model, NOT a ' +
       'rigorous asymptotic. Changes no bound; establishes no operator positivity; C_mb GUE-conditional per ' +
-      'imp-486 untouched; imp-3066 K_a>=0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda<=0.2 ' +
-      'remains SOTA.',
+      'imp-486 untouched; imp-3066 K_a>=0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34169 (pushing the fixed-band peak-amplitude sweep one decade to kEnd=20..26 and locating the resid_exp(k) zero at k*~21.28095 where the log surrogate breaks), 2026',
     relatedTerms: [
       'eflow_over_resid = eflow_attr/resid_exp, the E_flow-attribution-vs-offset-residual separation-widening quantity, whose pole sits at this surrogate zero (eflow_over_resid)',
@@ -11963,8 +11963,8 @@ export const glossary = [
       'coming entirely from the resid_exp zero.\n\n' +
       'HONEST SCOPE: three finite-difference measurements stacked on the same inherited imp-3220/' +
       'imp-3406 surrogate, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
-      'imp-3066 K_a>=0 untouched; changes no bound; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 ' +
-      'remains SOTA.',
+      'imp-3066 K_a>=0 untouched; changes no bound; no RH verdict, NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34577 (consolidating the imp-34237 pole-location, imp-34310 residue, and imp-34406 genuine-pole-not-removable readings of the same k*~21.28095 singularity), 2026',
     relatedTerms: [
       'surrogate zero k* ~ 21.28095, the resid_exp(k) zero-crossing that hard-edges the fixed-band-peak log surrogate (surrogate zero)',
@@ -11993,8 +11993,8 @@ export const glossary = [
       'different orders of approximation, not competing claims about where the ceiling sits.\n\n' +
       'HONEST SCOPE: measurement/derivation only, on the inherited imp-3220/imp-3406/imp-33773 component ' +
       'model, NOT a rigorous asymptotic; changes no bound; establishes no operator positivity; C_mb ' +
-      'GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian ' +
-      'Lambda<=0.2 remains SOTA.',
+      'GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34388 (adding a glossary headword distinguishing the imp-34023 bisected kEnd*~21.28095 M2 ceiling from the imp-34127 closed-form kEnd_cf~21.00 estimate, per the imp-34311 cohort), 2026',
     relatedTerms: [
       'imp-34023 the bisected kEnd*~21.28095 M2-residual sign-change ceiling (imp-34023)',
@@ -12022,7 +12022,7 @@ export const glossary = [
       'coincidence.\n\n' +
       'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 component model, NOT a ' +
       'rigorous asymptotic; changes no bound; C_mb GUE-conditional per imp-486 untouched; imp-3066 ' +
-      'K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'K_a>=0 untouched; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34462 (adding a glossary headword defining the imp-34372 coupling ratio ~2 constant in one place), 2026',
     relatedTerms: [
       'imp-34355 the two-landmark ~54x lockstep first observed between halving and far-tail (imp-34355)',
@@ -12051,8 +12051,8 @@ export const glossary = [
       '< N_knee_sigmoid, matching the imp-3444 monotone N-shape ordering on the decaying right arm.\n\n' +
       'HONEST SCOPE: tabulation only, a conditional-share diagnostic, NOT an RH bound. The component model ' +
       'is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb is GUE-conditional ' +
-      '(imp-486), untouched; changes no bound; imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains ' +
-      'the rigorous SOTA; NO QED.',
+      '(imp-486), untouched; changes no bound; imp-3066 K_a>=0 untouched; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-34441 (tabulating the four independent ~3.28e9-cluster locators -- imp-33723 closed-form ' +
       'crossover, imp-33721 sigmoid-knee inflection, imp-3444 bisected crossover, imp-3444/imp-33582 halving ' +
       'landmark -- on one shared axis with every pairwise relative offset, finding they collapse to two ' +
@@ -12108,7 +12108,7 @@ export const glossary = [
       'conditional E_coll while L_pt is fully unconditional, so the R(N) separation measures conditional ' +
       'headroom, not a proof gain; per imp-2564, the E(N) values are bridge (assembly-error) constants, ' +
       'not the headline Lambda<=... inequality itself. C_mb remains GUE-conditional (imp-486) throughout; ' +
-      'changes no bound; imp-3066 K_a>=0 untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'changes no bound; imp-3066 K_a>=0 untouched; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-34453 (assembling the headline E(N) at the imp-3444 sigma-halving crossover and comparing ' +
       'it to L_pt, finding the ~1975x factor)',
     relatedTerms: [
@@ -12138,7 +12138,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/cross-validation only; the underlying numerator still uses the inherited ' +
       'imp-3220/imp-3406/imp-33810 quarter-decade OLS exponent estimators verbatim -- this refines only the ' +
       'approach-rate fit, not the numerator internals. C_mb GUE-conditional per imp-486 UNTOUCHED; changes ' +
-      'no bound; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no bound; imp-3066 K_a>=0 untouched; no RH verdict, NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34286 (bias-correcting the imp-34210 OLS intercept via a direct finite-difference ' +
       'derivative, landing at a ~ 0.437-0.438), 2026',
     relatedTerms: [
@@ -12171,7 +12171,7 @@ export const glossary = [
       'E_flow is the benign mesoscopic-Gronwall term (imp-2845) and this amplitude does NOT touch the ' +
       'divergent C_Lip collision-Gronwall; C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 ' +
       'untouched; establishes no operator positivity; changes no bound; no RH verdict, NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA unconditional bound.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-34473 (assembling A_r = GRONWALL/((2pi)^2 K_AMPL E_trunc) = 5.264698e-6 in closed ' +
       'numeric form and deriving the primitive-identity form), 2026',
     relatedTerms: [
@@ -12199,8 +12199,8 @@ export const glossary = [
       'HONEST SCOPE: a numerical/structural observation (floating-point cancellation zero of an inherited ' +
       'surrogate), not a derivation. The component model is the inherited imp-3220/imp-3406 extrapolation, ' +
       'NOT a rigorous asymptotic; C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 untouched; ' +
-      'establishes no operator positivity; changes no bound; no RH verdict, NO QED; Platt-Trudgian ' +
-      'Lambda<=0.2 remains the rigorous SOTA unconditional bound.',
+      'establishes no operator positivity; changes no bound; no RH verdict, NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34023 (bisecting the residExp zero crossing at k* ~ 21.28095), 2026',
     relatedTerms: [
       'imp-34247 the simple-pole characterization of dy/dk (residue +1) forced by this zero (imp-34247)',
@@ -12227,8 +12227,8 @@ export const glossary = [
       'HONEST SCOPE: a numerical/structural deviation metric on an inherited surrogate, not a derivation. ' +
       'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
       'C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 untouched; establishes no operator ' +
-      'positivity; changes no bound; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains the ' +
-      'rigorous SOTA unconditional bound.',
+      'positivity; changes no bound; no RH verdict, NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34247 (first measured as contaminationLadder devPct); formalized and bisected as ' +
       'leak(k) starting imp-34413, 2026',
     relatedTerms: [
@@ -12263,8 +12263,8 @@ export const glossary = [
       'the dyadic lattice at higher-than-double precision could settle it. Direct measurement/cross-check ' +
       'only; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
       'asymptotic; C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 untouched; establishes no ' +
-      'operator positivity; changes no bound; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains ' +
-      'the rigorous SOTA unconditional bound.',
+      'operator positivity; changes no bound; no RH verdict, NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34508 (directly computing the imp-34411 e=23/e=24 margins to confirm/refute the ' +
       'imp-34472 extrapolated ULP-floor crossing), 2026',
     relatedTerms: [
@@ -12296,7 +12296,7 @@ export const glossary = [
       'component model, which is NOT a rigorous asymptotic; the -2 asymptote and C_C = (1/8)sqrt(3 pi) ' +
       '(imp-2714, C_H = 1/8) ansatz are UNTOUCHED; C_mb remains GUE-conditional per imp-486; imp-3066 ' +
       'K_a>=0 untouched; establishes no operator positivity; changes no bound; no RH verdict, NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA unconditional bound.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-34486 (deriving the closed-form sub-leading correction to the imp-34446 crossover ' +
       'exponent), 2026',
     relatedTerms: [
@@ -12335,7 +12335,7 @@ export const glossary = [
       'a derivation. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
       'asymptotic; the resid_exp(k) surrogate is descriptive, not derived; C_mb remains GUE-conditional ' +
       'per imp-486; imp-3066 K_a>=0 untouched; establishes no operator positivity; changes no bound; no ' +
-      'RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA unconditional bound.',
+      'RH verdict, NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34533 (two-layer resolution of the imp-34508 deep-rung argmax jitter question), 2026',
     relatedTerms: [
       'imp-34524 the non-dyadic continuum vertex k* = 8.821091375252 whose irrationality forces the never-locking layer (imp-34524)',
@@ -12371,7 +12371,7 @@ export const glossary = [
       'snapshot, not sigma-uniform constants. This is a decomposition of an already-certified O(h^2) ' +
       'coefficient, not a new derivation; the inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
       'asymptotic; C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 untouched; changes no bound; no ' +
-      'RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA unconditional bound.',
+      'RH verdict, NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34531 (verifying the raw drift residual is curvature-driven) and imp-34543 (isolating ' +
       'the pure q2/q3 shares of the O(h^2) coefficient), 2026',
     relatedTerms: [
@@ -12509,7 +12509,7 @@ export const glossary = [
       'them verbatim; not a new derivation; the inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
       'asymptotic; the analytic E_flow slope -1 is a property of that surrogate, not of the true residual; ' +
       'C_mb remains GUE-conditional per imp-486; changes no bound; establishes no operator positivity; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34590 (deflow residual 1/log(N) scaling and the intercept-SE finite-rung-vs-floor test), 2026',
     relatedTerms: [
       'imp-34571 the observed-only pInf fit and the two fixed-reference residuals this extrapolates (imp-34571)',
@@ -12573,7 +12573,7 @@ export const glossary = [
       'HONEST SCOPE: a design-matrix conditioning measurement reusing the imp-34448 rungs verbatim; ' +
       'not a new derivation; the inherited imp-3220/imp-3406 component model is NOT a rigorous ' +
       'asymptotic; C_mb remains GUE-conditional per imp-486; changes no bound; establishes no operator ' +
-      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34607 (deflow second-order identifiability window), 2026',
     relatedTerms: [
       'imp-34584 the overfit and ~0.9995 predictor collinearity this quantifies (imp-34584)',
@@ -12608,8 +12608,8 @@ export const glossary = [
       'analytic closed forms, so this is a conditioning diagnostic OF the finite-difference ' +
       'measurement -- it does not rehabilitate the surrogate, and the sigma -> 1 deep-tail regime ' +
       'remains the component model\'s least-trustworthy range. Changes no bound; imp-3066 K_a >= 0 ' +
-      'untouched; C_mb remains GUE-conditional per imp-486; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'untouched; C_mb remains GUE-conditional per imp-486; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34657 (consolidating the imp-34606 power ladder and imp-34633 amplitude match into one dual machine-epsilon signature), 2026',
     relatedTerms: [
       'imp-34606 the {2,3,4} exponent-ladder POWER half of this dual signature (imp-34606)',
@@ -12654,7 +12654,7 @@ export const glossary = [
       'HONEST SCOPE: a measurement-methodology headword, not a new derivation; reuses the imp-34611/' +
       'imp-34630 literals verbatim; q1,q2,q3 are the inherited imp-3220/imp-3406 central differences, ' +
       'NOT fresh analytic closed forms; changes no bound; imp-3066 K_a >= 0 untouched; C_mb remains ' +
-      'GUE-conditional per imp-486; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'GUE-conditional per imp-486; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34658 (consolidating the imp-34630 plateau-vs-truncation distinction and imp-34611 F2 roundoff-valley correction), 2026',
     relatedTerms: [
       'imp-34630 the local scaling-exponent fit that resolves the plateau-vs-truncation question (imp-34630)',
@@ -12696,7 +12696,7 @@ export const glossary = [
       'HONEST SCOPE: a measurement-methodology headword, not a new derivation; eflow_attr, resid_exp, ' +
       'and k* = 21.28095 are the inherited imp-3220/imp-3406/imp-34169 surrogate quantities, NOT fresh ' +
       'closed forms; changes no bound; imp-3066 K_a >= 0 untouched; C_mb remains GUE-conditional per ' +
-      'imp-486; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'imp-486; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34661 (documenting the imp-34636 SE inflation and its imp-34653/imp-34645 explanation), 2026',
     relatedTerms: [
       'imp-34636 the pole-centred 5-rung window whose ~7e-5 SE this conditioning explains (imp-34636)',
@@ -12729,7 +12729,7 @@ export const glossary = [
       'HONEST SCOPE: an attribution consolidating imp-34612/imp-34635 measurements reusing their ' +
       'literals verbatim; not a new derivation; the inherited imp-3220/imp-3406 surrogate is NOT a ' +
       'rigorous asymptotic; C_mb remains GUE-conditional per imp-486; imp-3066 K_a>=0 untouched; ' +
-      'changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34662 (consolidating the imp-34635 E_N-retained log-curvature measurement against the imp-34612 residual), 2026',
     relatedTerms: [
       'imp-34612 RAW-VALUE convexity vs LOG-curvature: two different second-derivatives of eflow_attr, only one is a log^3(N)/N fingerprint (imp-34612)',
@@ -12768,7 +12768,7 @@ export const glossary = [
       'tight pairing was a conditioning-floor coincidence, not a signature of increasing resolution.\n\n' +
       'HONEST SCOPE: a measurement-methodology headword consolidating imp-34611/imp-34626 findings ' +
       'verbatim, not a new derivation; changes no bound; imp-3066 K_a >= 0 untouched; C_mb remains ' +
-      'GUE-conditional per imp-486; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'GUE-conditional per imp-486; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34663 (consolidating the imp-34626 F2/F3 conditioning-floor finding against the imp-34611 tight 2nd-vs-4th agreement), 2026',
     relatedTerms: [
       'imp-34611 the 2nd-vs-4th plateau agreement (~4.2e-6) this headword shows is not a tightening trend (imp-34611)',
@@ -12811,7 +12811,7 @@ export const glossary = [
       'HONEST SCOPE: a measurement-methodology headword consolidating the imp-34673 findings verbatim, ' +
       'not a new derivation; q1,q2,q3 are inherited central differences, NOT fresh analytic closed ' +
       'forms; changes no bound; imp-3066 K_a >= 0 untouched; C_mb remains GUE-conditional per imp-486; ' +
-      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34695 (consolidating the imp-34673 Kahan-vs-naive summation-order probe), 2026',
     relatedTerms: [
       'imp-34673 the Kahan-vs-naive probe finding the ~2e-5 jitter is conditioning, not accumulation order (imp-34673)',
@@ -12852,7 +12852,7 @@ export const glossary = [
       'a new derivation; q1..q4 are inherited central differences, NOT fresh analytic closed forms; the ' +
       'sigma -> 1 deep-tail regime (imp-3220/imp-3406 component model) is inherited as-is; changes no ' +
       'bound; imp-3066 K_a >= 0 untouched; C_mb remains GUE-conditional per imp-486; no RH verdict, NO ' +
-      'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'QED. No refereed bound is changed.',
     firstUsed: 'imp-34698 (glossary headword for the imp-34679 statistic-resolution caveat), 2026',
     relatedTerms: [
       'imp-34679 the collapse-factor-vs-1/dp^k quantitative test finding ordering only, slope ~0.595 vs ln 2, R^2 ~ 0.897 (imp-34679)',
@@ -12898,8 +12898,8 @@ export const glossary = [
       'verbatim, not a new derivation; q1, q2, q3 remain inherited central differences, NOT fresh analytic ' +
       'closed forms; the inherited imp-3220/imp-3406 surrogate is NOT rigorous; changes no bound; ' +
       'C_C = (1/8)sqrt(3pi) (imp-2714) UNTOUCHED; C_mb remains GUE-conditional per imp-486; imp-3066 ' +
-      'K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34700 (glossary headword for the imp-34684 stencil-width dependence of q3-share conditioning), 2026',
     relatedTerms: [
       'imp-34654 the 6th-order 9-point cross-validation that found the ~1e9x Fornberg-residual amplification this headword contrasts against (imp-34654)',
@@ -12940,7 +12940,7 @@ export const glossary = [
       'surrogate crossover map only, adds no new bound, and does not touch the imp-34650a interval-arithmetic ' +
       'upgrade (still OPEN); C_C = (1/8)sqrt(3pi) ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per ' +
       'imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-34702 (glossary headword for the imp-34685 numerical-vs-analytic derivative cross-check methodology), 2026',
     relatedTerms: [
       'imp-34650 the Banach contraction certificate whose derivative formula this methodology cross-checks (imp-34650)',
@@ -12983,7 +12983,7 @@ export const glossary = [
       'INHERITED imp-3220/imp-3406 surrogate crossover map, not interval-enclosed (imp-34650a/imp-34675a remain ' +
       'OPEN); C_C = (1/8)sqrt(3pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 ' +
       'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-34705 (glossary headword for the asymmetry of the imp-34650 Banach contraction region), 2026',
     relatedTerms: [
       'imp-34650 the Banach L-contraction certificate on I = [1e9, 1e10] whose asymmetric extent this headword explains (imp-34650)',
@@ -13019,7 +13019,7 @@ export const glossary = [
       'q1..q3 are inherited central differences on the surrogate component model, not fresh analytic closed ' +
       'forms; the -2 asymptote and C_C = (1/8)sqrt(3 pi) ansatz (imp-2714) are UNTOUCHED; C_mb GUE-conditional ' +
       'per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-34691 (q3 cancellation-floor trust boundary dp*(N) closed form), 2026',
     relatedTerms: [
       'imp-34673 the F3 catastrophic-cancellation conditioning floor ~1.87e-4 this headword makes explicit as a function of dp and N (imp-34673)',
@@ -13058,8 +13058,8 @@ export const glossary = [
       'the log-log slopes still round to the exact integers {2, 3, 4}.\n\n' +
       'HONEST SCOPE: a measurement-methodology headword consolidating the imp-34679/imp-34689 findings ' +
       'verbatim, not a new derivation; q1..q4 remain inherited central differences; changes no bound; ' +
-      'C_mb remains GUE-conditional per imp-486; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'C_mb remains GUE-conditional per imp-486; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34721 (glossary headword distinguishing imp-34679 coarse vs imp-34689 resolution-matched collapse), 2026',
     relatedTerms: [
       'imp-34679 the coarse spread-ratio statistic that only orders the ladder, slope ~0.595 vs ln 2, R^2 ~ 0.897 (imp-34679)',
@@ -13108,7 +13108,7 @@ export const glossary = [
       'HONEST SCOPE: a methodology headword consolidating the imp-34687 findings verbatim, not a new ' +
       'derivation; the crossover map remains the inherited imp-3220/imp-3406 double-precision surrogate; ' +
       'C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 untouched; changes ' +
-      'no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34722 (glossary headword distinguishing double-precision surrogate vs certified interval-arithmetic enclosure), 2026',
     relatedTerms: [
       'imp-34687 scoped the interval-arithmetic upgrade and measured surrogate enclosure widths at a = 1e9 (imp-34687)',
@@ -13149,7 +13149,7 @@ export const glossary = [
       'new derivation; q1, q2, q3 remain inherited central differences, NOT fresh analytic closed forms; the ' +
       'inherited imp-3220/imp-3406 surrogate is NOT rigorous; changes no bound; C_C = (1/8)sqrt(3pi) ' +
       '(imp-2714) UNTOUCHED; C_mb remains GUE-conditional per imp-486; imp-3066 K_a >= 0 untouched; no ' +
-      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34723 (glossary headword isolating the imp-34690 conditioning-floor law from the weights-representability effect), 2026',
     relatedTerms: [
       'imp-34690 derived the closed-form maxNum/denom = 1.25128 floor-ratio law this headword isolates (imp-34690)',
@@ -13188,8 +13188,8 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34714 separation-of-concerns finding verbatim, ' +
       'not a new derivation; sub-gap imp-34714a REMAINS OPEN; the inherited imp-3220/imp-3406 surrogate ' +
       'crossover map is NOT rigorous; C_C = (1/8)sqrt(3pi) (imp-2642/imp-2643) and C_mb GUE-conditional per ' +
-      'imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34738 (glossary headword for the imp-34714 separation-of-concerns distinction), 2026',
     relatedTerms: [
       'imp-34714 formalized the exact Krawczyk existence-uniqueness lemma and named the sub-gap imp-34714a (imp-34714)',
@@ -13226,7 +13226,7 @@ export const glossary = [
       'evaluations, the defect linearization is not interval-enclosed); the inherited imp-3220/imp-3406 ' +
       'surrogate crossover map is NOT rigorous; C_C = (1/8)sqrt(3pi) (imp-2642/imp-2643) and C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO ' +
-      'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'QED. No refereed bound is changed.',
     firstUsed: 'imp-34739 (glossary headword for the imp-34693 admissible-seed-band concept), 2026',
     relatedTerms: [
       'imp-34693 derived the closed-form admissible seed band rho(tol,k) = tol(1-L)/[(1-L_c)L^k], widening 1/L ~ 6.7348 per iterate (imp-34693)',
@@ -13263,7 +13263,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34712 sign-flip diagnostic verbatim, not a ' +
       'new derivation; changes no bound; the inherited imp-3220/imp-3406 surrogate crossover map is ' +
       'NOT rigorous; C_mb GUE-conditional per imp-486 UNTOUCHED; no operator positivity; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34742 (glossary headword for the imp-34712 sign-flip ULP-stochastic diagnostic), 2026',
     relatedTerms: [
       'imp-34689 recovered the {2,3,4} exponent ladder with an imperfect r_k ~ {4,7,17.9} residual on the first footing (imp-34689)',
@@ -13303,7 +13303,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34713 multi-node V-curve verdict verbatim, ' +
       'not a new derivation; adds no RH bound; leaves the imp-34650a interval-arithmetic sub-gap OPEN; ' +
       'the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are ' +
-      'UNTOUCHED; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'UNTOUCHED; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34743 (glossary headword for the imp-34713 genuine-V-curve diagnostic), 2026',
     relatedTerms: [
       'imp-34692 traced the single-node V-curve at N_cross that imp-34713 widens to multiple nodes (imp-34692)',
@@ -13339,7 +13339,7 @@ export const glossary = [
       'concept for reuse elsewhere; not a new derivation; changes no bound; the component model is ' +
       'the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb stays ' +
       'GUE-conditional (imp-486); no operator positivity; imp-3066 K_a>=0 sign-positivity ' +
-      'untouched; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'untouched; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-34746 (glossary headword generalizing the imp-33701/imp-33721 sigma(N) sigmoid-knee curvature diagnostic into a reusable concept), 2026',
     relatedTerms: [
       'imp-33701 SIGMOID-NOT-STRAIGHT sigma-ramp knee, the whole-decade [1e10,1e11] localization this concept generalizes (imp-33701)',
@@ -13376,7 +13376,7 @@ export const glossary = [
       'measurement as a reusable concept; not a new derivation; adds no RH bound; the component model ' +
       'is the inherited imp-3220/imp-3406 extrapolation, the C_C = (1/8) sqrt(3 pi) ansatz ' +
       '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; no operator positivity; ' +
-      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34760 (glossary headword for the imp-34733 two-route distinction), 2026',
     relatedTerms: [
       'imp-33723 the closed-form Banach fixed point route (route A) to N_cross (imp-33723)',
@@ -13413,7 +13413,7 @@ export const glossary = [
       'reusable concept; not a new derivation; adds no RH bound; the component model is the inherited ' +
       'imp-3220/imp-3406 extrapolation, the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and C_mb ' +
       'GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; ' +
-      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34762 (glossary headword for the imp-34726 slack-vs-certificate distinction), 2026',
     relatedTerms: [
       'imp-34714 the exact Krawczyk existence-uniqueness lemma and its named sub-gap imp-34714a (imp-34714)',
@@ -13452,7 +13452,7 @@ export const glossary = [
       'as a reusable concept; not a new derivation; adds no RH bound; the component model is the inherited ' +
       'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
       'UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no operator ' +
-      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34764 (glossary headword for the imp-34729 C_F-elasticity robustness distinction), 2026',
     relatedTerms: [
       'imp-34710 the residual decomposition finding ~99% of the knee gap is the dropped E_flow term (imp-34710)',
@@ -13495,8 +13495,8 @@ export const glossary = [
       'reusable methodology, not a new derivation; the underlying imp-3220/imp-3406 crossover-map ' +
       'surrogate is unchanged and untrustworthy in the sigma->1 deep-tail regime; C_C = (1/8)sqrt(3pi) ' +
       '(imp-2714) and C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; changes ' +
-      'no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-      'SOTA.',
+      'no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34785 (glossary headword for the imp-34751 eyeball-to-ensemble methodology upgrade), 2026',
     relatedTerms: [
       'imp-34712 the original eyeballed three-footing sign-flip diagnostic this methodology formalizes (imp-34712)',
@@ -13543,7 +13543,7 @@ export const glossary = [
       'q1..q3 central differences are unchanged and untrustworthy in the sigma->1 deep-tail regime; ' +
       'C_C = (1/8)sqrt(3pi) (imp-2714) and C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 ' +
       'K_a >= 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-34786 (glossary headword for the imp-34735/imp-34754 dp-star trust-boundary edge-ratio and no-crossing verdict), 2026',
     relatedTerms: [
       'imp-34711 derived the rising smallest-usable step dp-star(N) ~ (log N)^(4/3) this boundary tracks (imp-34711)',
@@ -13589,7 +13589,7 @@ export const glossary = [
       'its inherited q1..q3 central differences are unchanged and untrustworthy in the sigma->1 ' +
       'deep-tail regime; C_C = (1/8)sqrt(3pi) (imp-2714) and C_mb GUE-conditional per imp-486 ' +
       'UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no operator positivity; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34787 (glossary headword for the imp-34753 stencil-order discriminator), 2026',
     relatedTerms: [
       'imp-34711 derived the (log N)^(4/3) far-tail trust-boundary law this discriminator was applied to (imp-34711)',
@@ -13627,7 +13627,7 @@ export const glossary = [
       'outward-widening rule is not that layer), and sub-gap imp-34714a REMAINS OPEN; the inherited ' +
       'imp-3220/imp-3406 surrogate crossover map is NOT rigorous; C_C = (1/8)sqrt(3pi) (imp-2642/imp-2643) and ' +
       'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO ' +
-      'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'QED. No refereed bound is changed.',
     firstUsed: 'imp-34803 (glossary headword for the imp-34774 fixed-point-map vs ordinary root enclosure distinction), 2026',
     relatedTerms: [
       'imp-34774 applied the Krawczyk operator to F(N) = N - g(N), finding (H1) held by the contraction gap and (H2) binding at k* ~ 4.5034e11 (imp-34774)',
@@ -13661,8 +13661,8 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34777 accuracy-tripwire finding, not a new ' +
       'derivation; the underlying imp-3220/imp-3406 crossover-map surrogate is unchanged and NOT ' +
       'rigorous; C_C = (1/8)sqrt(3pi) (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 ' +
-      'UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34804 (glossary headword distinguishing the imp-34777 cross-band collapse from the imp-34757 per-band supremum), 2026',
     relatedTerms: [
       'imp-34757 established the per-band sharp supremum, monotone WITHIN each single decade only (imp-34757)',
@@ -13697,7 +13697,7 @@ export const glossary = [
       'derivation or bound; the underlying imp-3220/imp-3406 collapse-ladder surrogate (q1..q5 inherited ' +
       'central differences) is unchanged and NOT rigorous; C_C = (1/8)sqrt(3pi) (imp-2714) and C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO ' +
-      'QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'QED. No refereed bound is changed.',
     firstUsed: 'imp-34805 (glossary headword for the failure-to-reject-is-not-acceptance caveat across the imp-34778/imp-34771 collapse-ladder q4/q5 channel tests), 2026',
     relatedTerms: [
       'imp-34778 measured the q4 channel sigma (~2.6x the q3 sigma) and the ~16% minimum detectable offset at N_F=24 (imp-34778)',
@@ -13735,7 +13735,7 @@ export const glossary = [
       'the crossover N is an asymptotic extrapolation hundreds of decades past the imp-34711-validated 1e100 ' +
       'window and certifies nothing about the true q3; C_C = (1/8)sqrt(3pi) (imp-2714) and C_mb GUE-' +
       'conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-34806 (glossary headword recording the imp-34772 finding that the ~7.7% dp-star excess is a finite-difference roundoff artifact, not a genuine correction), 2026',
     relatedTerms: [
       'imp-34772 the closed-form q3 re-derivation diagnosing the ~7.7% excess as a probe-band roundoff artifact and finding the crossover moves later (imp-34772)',
@@ -13819,7 +13819,7 @@ export const glossary = [
       'tunable precision setting. So the evaluator is properly read as an infinite-system COLLISION METER on a ' +
       '~10-zero window (gamma <~ 52), the ground-truth clock behind the Exact-Flow Collision-Time Meter -- it is ' +
       'not, and cannot by any attainable precision be widened into, a T_PT = 3e12 height-verification tool. ' +
-      'Measurement + OOM cross-check only; no new bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+      'Measurement + OOM cross-check only; no new bound; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-34813 (evaluator origin); x <~ 104 cap named by imp-35726 Part D(2); costed by imp-35759; empirically measured by imp-35781, 2026',
     relatedTerms: [
       'imp-34813 the exact de Bruijn flow evaluator whose double-precision ceiling this headword documents (imp-34813)',
@@ -13855,7 +13855,7 @@ export const glossary = [
       'not instantiate the imp-34687a directed-rounding layer, so sub-gap imp-34714a REMAINS OPEN; the ' +
       'inherited imp-3220/imp-3406 surrogate crossover map is NOT rigorous; C_C = (1/8)sqrt(3pi) ' +
       '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator ' +
-      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34829 (glossary headword for the imp-34799 contraction-gap amplification factor 1/(1-|g_prime|) ~ 1.0476), 2026',
     relatedTerms: [
       'imp-34799 derived the a-priori directed-rounding width bound r_image(n_op) <= gamma(n_op) N_cross / (1-|g_prime|) (imp-34799)',
@@ -13890,7 +13890,7 @@ export const glossary = [
       'the inherited imp-3220/imp-3406 surrogate crossover map is NOT rigorous; the Krawczyk enclosure is the ' +
       'imp-34774 double-precision surrogate with sub-gap imp-34714a REMAINS OPEN; C_C = (1/8)sqrt(3pi) ' +
       '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator ' +
-      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34831 (glossary headword for the imp-34800 landmark-definition residual distinguishing the sigmoid D2-zero inflection knee from the Banach/Krawczyk fixed-point N_cross), 2026',
     relatedTerms: [
       'imp-34800 three-way N_cross cross-validation tabulating Banach (R1), Krawczyk (R2) and sigmoid-inflection (R3) on one axis (imp-34800)',
@@ -13936,7 +13936,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword synthesizing three prior findings (imp-34733, imp-34800, imp-34772) ' +
       'into one reusable diagnostic; not a new derivation or bound; the inherited imp-3220/imp-3406 surrogate ' +
       'crossover map, C_C = (1/8)sqrt(3pi) (imp-2642/imp-2643), and C_mb GUE-conditional per imp-486 remain ' +
-      'UNTOUCHED; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'UNTOUCHED; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34835 (Concepts/Docs explainer tying together the imp-34800/imp-34733/imp-34772 definitional-gap-vs-measurement-error pattern), 2026',
     relatedTerms: [
       'imp-34800 landmark-definition residual: why the sigmoid D2-zero knee sits ~+2.95% above N_cross (imp-34800)',
@@ -13970,8 +13970,8 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword synthesizing the imp-34824 verdict (already itself measurement-only); ' +
       'no new derivation; the inherited imp-3220/imp-3406 surrogate crossover map, C_C = (1/8)sqrt(3pi) ' +
       '(imp-2642/imp-2643), and C_mb GUE-conditional per imp-486 remain UNTOUCHED, with C_mb treated as a free ' +
-      'knob; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'knob; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34847 (glossary headword for the imp-34824 definitional-existence vs GUE-conditional-magnitude split), 2026',
     relatedTerms: [
       'imp-34824 the C_mb sweep finding the inflection-vs-crossover gap ladder and its sign change near C_mb~0.512 (imp-34824)',
@@ -14010,7 +14010,7 @@ export const glossary = [
       'only, answering a question left open by imp-34796/imp-34746); no new derivation; the inherited ' +
       'imp-3220/imp-3406 surrogate crossover map and C_mb GUE-conditional per imp-486 remain UNTOUCHED; changes ' +
       'no bound; no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-34848 (glossary headword distinguishing the imp-34820 second-order sibling identity from the imp-34796 third-order identity), 2026',
     relatedTerms: [
       'imp-34796 the exact third-order identity F = -g_thirdDeriv/(1-S) locating the sigma-KNEE (imp-34796)',
@@ -14046,7 +14046,7 @@ export const glossary = [
       'reading as a reusable concept; not a new derivation; adds no RH bound; the component model is the ' +
       'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
       'imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no operator ' +
-      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34849 (glossary headword for the imp-34821 convergent-series-no-optimal-truncation reading), 2026',
     relatedTerms: [
       'imp-34821 the fifth-order v-expansion measuring the decreasing ratio ladder and FD-floor plateau (imp-34821)',
@@ -14082,7 +14082,7 @@ export const glossary = [
       'ceilings are DERIVATIONS on the inherited k*eps/gamma(n) surrogate models of the imp-34687a directed-' +
       'rounding layer, not an instantiation of that layer, so sub-gap imp-34714a REMAINS OPEN; C_C = (1/8)sqrt(3pi) ' +
       '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator ' +
-      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34850 (glossary headword distinguishing the imp-34817 contraction-validity ceiling from the (H2)-margin ceiling), 2026',
     relatedTerms: [
       'imp-34817 derived n_op* = G/((1+G)*eps) ~ 2.20e15, the ~2558x headroom over the binding n_op^max (imp-34817)',
@@ -14119,7 +14119,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34798 measurement verbatim, not a new bound; the ' +
       'component model is the inherited imp-3220/imp-3406 extrapolation; C_C = (1/8)sqrt(3pi) (imp-2642) and ' +
       'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, ' +
-      'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34851 (glossary headword for the imp-34798 iters-to-floor log-law constant c_law), 2026',
     relatedTerms: [
       'imp-34798 measured c_law ~ 0.323444 explicitly and confirmed the +/-1 two-route agreement stays bounded across dense higher-N sweeps (imp-34798)',
@@ -14151,8 +14151,8 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34846 measurement verbatim, not a new bound; the ' +
       'closed form is on the no-E_flow surrogate (the E_flow-reinstatement sub-gap imp-34796/imp-34820/imp-34837 ' +
       'left open stays open here too); component model inherited imp-3220/imp-3406; C_mb GUE-conditional per ' +
-      'imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34980 (glossary headword for the imp-34846 sigma-knee vs sigma-third-derivative distinction), 2026',
     relatedTerms: [
       'imp-34846 derived both closed forms and measured the ~1.21 dex separation between the two landmarks (imp-34846)',
@@ -14186,7 +14186,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34842 measurement verbatim, not a new bound; ' +
       'the closed forms are on the INHERITED imp-3220/imp-3406 surrogate crossover map; the C_mb ' +
       'GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no ' +
-      'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34869 (glossary headword for the imp-34842 alternating definite-sign derivative ladder), 2026',
     relatedTerms: [
       'imp-34842 derived g_fifth_deriv in closed form and measured the ladder persisting to fifth order with no interior sign change (imp-34842)',
@@ -14219,7 +14219,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34844 measurement verbatim, not a new bound; C_mb is ' +
       'treated as a free knob and the GUE conditional (imp-486) is NOT tightened or discharged; the C_C 1/8 ' +
       'ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-34870 (glossary headword for the imp-34844 GUE-bound elasticity plateau vs accelerating slope), 2026',
     relatedTerms: [
       'imp-34844 measured the ~25x elasticity rise and ~58x curvature strengthening, and the linear-read miss of the sign-flip (imp-34844)',
@@ -14260,7 +14260,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34845 interval-enclosure finding verbatim, not a ' +
       'new bound; the component model is the inherited imp-3220/imp-3406 extrapolation; C_C = (1/8)sqrt(3pi) ' +
       '(imp-2642) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; ' +
-      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34871 (glossary headword distinguishing an intrinsic model offset from a ceil-rounding ambiguity, recording the imp-34845 finding), 2026',
     relatedTerms: [
       'imp-34845 built the interval-ceil enclosure and found ZERO of 31 off-by-one seeds straddle an integer, MIN_GAP_TO_INTEGER ~238x the interval half-width (imp-34845)',
@@ -14297,8 +14297,8 @@ export const glossary = [
       'landmarks even when each individual shift is small.\n\n' +
       'HONEST SCOPE: a glossary headword restating the imp-34837 measurement verbatim, not a new bound; the ' +
       'component model is the inherited imp-3220/imp-3406 extrapolation; C_mb GUE-conditional (imp-486) ' +
-      'UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'UNTOUCHED; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34872 (glossary headword for the imp-34837 knee-vs-inflection ordering reversal under E_flow reinstatement), 2026',
     relatedTerms: [
       'imp-34837 measured the opposite-signed shifts (-7.32e-3 knee, +9.03e-3 inflection) and the resulting ordering flip (imp-34837)',
@@ -14337,7 +14337,7 @@ export const glossary = [
       'derivation verbatim, not a new bound; the component model is the inherited imp-3220/imp-3406/imp-34731/ ' +
       'imp-34757/imp-34768 surrogate crossover map; the far-tail exponent stays 1/2 (imp-3463); C_C = ' +
       '(1/8)sqrt(3pi) (imp-2642) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes ' +
-      'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34895 (glossary headword unifying the imp-34839/imp-34864/imp-34881 crossover-envelope 10^n-per-decade shrink-ratio law), 2026',
     relatedTerms: [
       'imp-34839 measured the n=2 case: limit EXACTLY 100, residual (100 log 10)/u^2 = 230.2585/u^2, approaching from below (imp-34839)',
@@ -14372,7 +14372,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34886 measurement verbatim, not a new bound; the ' +
       'component model is the inherited imp-3220/imp-3406 extrapolation; C_mb GUE-conditional (imp-486) ' +
       'UNTOUCHED; changes no bound; no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34917 (glossary headword for the imp-34886 E_flow crossing strength s* ~ 0.78), 2026',
     relatedTerms: [
       'imp-34886 solved for and measured the crossing strength s* ~ 0.78 and the transversal slope (imp-34886)',
@@ -14411,7 +14411,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34863/imp-34882 measurements verbatim, not a new bound; ' +
       'the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; far-tail ' +
-      'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34918 (glossary headword distinguishing the imp-34882 Domb-Sykes extrapolated radius from the imp-34863 plain Cauchy-Hadamard limsup radius), 2026',
     relatedTerms: [
       'imp-34863 the plain Cauchy-Hadamard root test taking limsup as the max over k=1..9, R ~ 138.7 (imp-34863)',
@@ -14451,8 +14451,8 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34885/imp-34910 findings verbatim, not a new bound; ' +
       'this measures ONE primitive of the directed-rounding checklist and does NOT instantiate the full ' +
       'imp-34687a layer (still gated on an external proven-ULP log binding); imp-34714a and imp-34687a REMAIN ' +
-      'OPEN; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'OPEN; changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-34941 (glossary headword for the residual-corrected directed quotient as the sole non-IEEE-754-exposed basic interval op), 2026',
     relatedTerms: [
       'imp-34885 the directed-rounding instantiation checklist flagging / as the sole non-IEEE-754-exposed basic op (imp-34885)',
@@ -14493,7 +14493,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34909 reconciliation verbatim, not a new bound; ' +
       'reconciliation/measurement only on the inherited imp-3220/imp-3406 surrogate crossover map; does NOT ' +
       'instantiate the imp-34687a directed-rounding layer; imp-34714a REMAINS OPEN; no operator positivity; ' +
-      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34942 (glossary headword distinguishing op-DAG depth from Newton step as two crossing axes reconciled by imp-34909), 2026',
     relatedTerms: [
       'imp-34884 op-DAG DEPTH forward crossing at d*=8, the first [T]-dT subtraction (imp-34884)',
@@ -14533,7 +14533,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34904 attribution verbatim, not a new derivation; ' +
       'no landmark is recomputed and no bound is changed; C_mb remains GUE-conditional (imp-486); the ' +
       'imp-3220/imp-3406 surrogate is UNTOUCHED; establishes no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-34943 (glossary headword for the imp-34904 landmark-cluster gap taxonomy), 2026',
     relatedTerms: [
       'imp-34904 assembles the four ~3.3e9 landmarks and their six pairwise gaps into one reconciliation table (imp-34904)',
@@ -14583,7 +14583,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34932/imp-34947 measurements verbatim, not a new ' +
       'bound; the component model is the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per ' +
       'imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; far-tail exponent stays 1/2 ' +
-      '(imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      '(imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34966 (glossary headword for the imp-34932 complex-conjugate singularity-pair sign-cycle fingerprint), 2026',
     relatedTerms: [
       'imp-34932 measures the periodic +5/-4 sign cycle (P ~ 9 -> theta ~ 40 deg) and the diverging Neville tail intercept (imp-34932)',
@@ -14629,7 +14629,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34952 finding and the imp-34687a/imp-34714a scope ' +
       'verbatim, not a new derivation; no bound is recomputed; the crossover map remains the inherited ' +
       'imp-3220/imp-3406 double-precision surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; establishes no ' +
-      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34979 (glossary headword distinguishing the imp-34952 measured correct-rounding from the imp-34687a proven-ULP certificate), 2026',
     relatedTerms: [
       'imp-34952 measures band-wide correct-rounding, native-agreement and 1-ulp bracketing of the double-double log at the four crossover-map sites (imp-34952)',
@@ -14670,7 +14670,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34954 measurement verbatim, not a new bound; no ' +
       'quantity is re-derived; the component model is the inherited imp-3220/imp-3406/imp-33601 extrapolation; ' +
       'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-      'far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34982 (glossary headword for the imp-34954 exact surplus closed form vs the ~4.6% conversion residual), 2026',
     relatedTerms: [
       'imp-34954 measures the exact surplus, the ~4.6% leading-conversion residual, and closes it via the measured E_coll log-slope and E_flow drift (imp-34954)',
@@ -14717,7 +14717,7 @@ export const glossary = [
       'bound; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
       'the C_mb GUE-conditional constant per imp-486 is swept as a sensitivity knob but its pinned value is ' +
       'UNTOUCHED; changes no bound; establishes no operator positivity; far-tail exponent stays 1/2 (imp-3463); ' +
-      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34984 (glossary headword distinguishing the imp-34955 range-level robust coincidence from the point-level C_mb-specific coincidence), 2026',
     relatedTerms: [
       'imp-34955 sweeps C_mb over [0.5,1] and separates the robust range-level crossing/Domb-Sykes coincidence from the C_mb-specific point-level landing (imp-34955)',
@@ -14760,7 +14760,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34947 cross-check verbatim, not a new bound; the ' +
       'component model is the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
       'changes no bound; establishes no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35002 (glossary headword for the imp-34947 conjugate-pair singularity-angle cross-check), 2026',
     relatedTerms: [
       'imp-34947 measures theta two independent ways (sign-cycle 40.0 deg vs recurrence Darboux ~39.0 deg, ~2.4% agreement) and cross-checks R ~ 85.6 (imp-34947)',
@@ -14804,7 +14804,7 @@ export const glossary = [
       'SWEEPS C_mb as a free knob and does NOT discharge the GUE conditional (C_mb GUE-conditional per ' +
       'imp-486); the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
       'asymptotic; changes no bound; establishes no operator positivity; far-tail exponent stays 1/2 ' +
-      '(imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      '(imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35003 (glossary headword for the imp-34950 surrogate-dependent non-structural crossing exponent), 2026',
     relatedTerms: [
       'imp-34950 pins p = 1.5493 +/- 8.9e-4 (95% CI excludes 3/2, 8/5) yet finds only ~88% of the naive translation x local-exponent product transmits (imp-34950)',
@@ -14847,7 +14847,7 @@ export const glossary = [
       'the uniform-in-N lower bound stays OPEN (reduces to imp-34926a); measurement stays on the inherited ' +
       'imp-3220/imp-3406 surrogate, IEEE-754 double precision; C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb ' +
       'GUE-conditional per imp-486 untouched; changes no bound; establishes no operator positivity; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35004 (glossary headword for the imp-34951a named residual sub-gap), 2026',
     relatedTerms: [
       'imp-34951 tabulates the impossibility margin rung-by-rung, finding it exactly uniform across all 34 off-by-one seeds (imp-34951)',
@@ -14888,7 +14888,7 @@ export const glossary = [
       'derivation; sub-gap imp-34714a REMAINS OPEN; the headroom rests on the gamma(n)/k eps surrogate of the ' +
       'imp-34687a layer; the inherited imp-3220/imp-3406 surrogate crossover map is NOT rigorous; C_C = ' +
       '(1/8)sqrt(3pi) (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
-      'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35005 (glossary headword distinguishing the imp-34949 boundary-attained infimum from a machine certificate), 2026',
     relatedTerms: [
       'imp-34949 independently re-derived the exact margin m(N) and confirmed its band-lo boundary infimum 0.4878337 (imp-34949)',
@@ -14946,7 +14946,7 @@ export const glossary = [
       '~3% excess is dominated by surrogate curvature ~+5.02%, not the log-odds-derivative ~-1.84%); the ' +
       'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; far-tail ' +
-      'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35006 (glossary headword mechanistically explaining the imp-34950 F3 landmark-translation coefficient), 2026',
     relatedTerms: [
       'imp-34950 measures the landmark-translation coefficient dx*/d ln(C_mb) ~ 2.06 and the local E_flow exponent q_eff ~ 0.855 (imp-34950)',
@@ -14985,7 +14985,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34948 verdict verbatim, not a new measurement or ' +
       'bound; the component model is the inherited imp-3220/imp-3406 extrapolation reusing imp-34933 locators ' +
       'verbatim, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
-      'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35031 (glossary headword for the imp-34948 exponent-vs-diagnostic-band tension), 2026',
     relatedTerms: [
       'imp-34948 extended the imp-34933 ladder to far-tail rungs 1e14..1e18 and measured the exponent drift toward -2 (imp-34948)',
@@ -15029,7 +15029,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34956 verdict verbatim, not a new measurement or ' +
       'bound; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
       'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; far-tail ' +
-      'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35019 (glossary headword for the imp-34956 g*-landmark-window-independence), 2026',
     relatedTerms: [
       'imp-34956 measured the window sensitivity of the pinned product P = g* r0 and bounded the fixed-window contribution (imp-34956)',
@@ -15073,7 +15073,7 @@ export const glossary = [
       'rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED (E_coll untouched); C_C 1/8 ansatz ' +
       '(imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a>=0 untouched; establishes no operator positivity; E_flow is ' +
       'the benign mesoscopic-Gronwall term (imp-2845), its vanishing here does NOT touch the divergent C_Lip ' +
-      'collision-Gronwall; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'collision-Gronwall; changes no bound; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-34423 (glossary headword for the imp-34174/imp-34248/imp-34329 crossover surplus cohort), 2026',
     relatedTerms: [
       'imp-34174 gave the closed form surplus(thr) = thr(1-thr)r/(1+(1-thr)r) and tabulated its collapse (imp-34174)',
@@ -15110,7 +15110,7 @@ export const glossary = [
       'imp-34884/34889/34909/34930 literals verbatim; does not instantiate the imp-34687a directed-rounding ' +
       'layer; imp-34714a remains OPEN; C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per ' +
       'imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; changes no bound; establishes no operator positivity; no ' +
-      'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35044 (glossary headword for the imp-34953 R_margin dyadic-wall sweep), 2026',
     relatedTerms: [
       'imp-34953 measured R_margin(N) and its dyadic-wall crossing count across N in [1e6,1e13] (imp-34953)',
@@ -15144,8 +15144,8 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34957 verdict verbatim, not a new bound; ' +
       'VERIFICATION/EXTENSION only on the inherited imp-3220/imp-3406/imp-33723 surrogate crossover-map ' +
       'derivative signs; establishes NO operator positivity; changes no bound; C_mb GUE-conditional per imp-486, ' +
-      'C_C 1/8 ansatz (imp-2642/imp-2643), imp-3066 K_a>=0 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'C_C 1/8 ansatz (imp-2642/imp-2643), imp-3066 K_a>=0 UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35044 (glossary headword for the imp-34957 crossover-map numerator-polynomial ladder), 2026',
     relatedTerms: [
       'imp-34957 extended the numerator-polynomial ladder to P_11/P_12 by both recurrences (imp-34957)',
@@ -15182,7 +15182,7 @@ export const glossary = [
       "analytic forms; this is a conditioning diagnostic of the finite-difference measurement, not a " +
       "rehabilitation of the surrogate, and the sigma -> 1 deep-tail regime remains the component " +
       "model's least-trustworthy range. Changes no bound; imp-3066 K_a >= 0 untouched; C_mb remains " +
-      "GUE-conditional per imp-486; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+      "GUE-conditional per imp-486; no RH verdict, NO QED. No refereed bound is changed.",
     firstUsed: "imp-34668 (headwording the imp-34646 denominator-vs-numerator conditioning split), 2026",
     relatedTerms: [
       "imp-34646 the q1 first-difference deep-tail roundoff floor measurement this headword explains (imp-34646)",
@@ -15222,7 +15222,7 @@ export const glossary = [
       "itself, not a rehabilitation of the underlying surrogate; the sigma -> 1 deep-tail regime " +
       "remains the component model's least-trustworthy range. Changes no bound; the C_C = (1/8)sqrt(3 pi) " +
       "ansatz (imp-2714) and C_mb GUE-conditional share (imp-486) are untouched; imp-3066 K_a >= 0 " +
-      "untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+      "untouched; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.",
     firstUsed: "imp-34670 (explainer for the imp-34647 wide-window-averaging recovery), 2026",
     relatedTerms: [
       "imp-34647 the direct test measuring the wide-vs-narrow window divergence this headword explains (imp-34647)",
@@ -15269,7 +15269,7 @@ export const glossary = [
       "precision via effectiveHeightForN (imp-34650a), not a machine-checked interval-arithmetic proof. " +
       "Changes no bound; the C_C=(1/8)sqrt(3pi) ansatz (imp-2642/imp-2643) and C_mb GUE-conditional " +
       "share (imp-486) are untouched; imp-3066 K_a>=0 untouched; no operator positivity; no RH verdict, " +
-      "NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.",
+      "NO QED. No refereed bound is changed.",
     firstUsed: "imp-34678 (headwording the imp-34650-vs-imp-33723 pointwise/certificate distinction), 2026",
     relatedTerms: [
       "imp-34650 the Banach contraction certificate this headword contrasts with a pointwise reading (imp-34650)",
@@ -15305,7 +15305,7 @@ export const glossary = [
       "ladders agree and reproducing a sign change already read off the spliced data, not a fresh " +
       "derivation. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a " +
       "rigorous asymptotic; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; " +
-      "changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.",
+      "changes no bound; no RH verdict, NO QED. No refereed bound is changed.",
     firstUsed: "imp-34683 (headwording the imp-34653 F1/F2 component-model cross-validation), 2026",
     relatedTerms: [
       "imp-34653 the cross-validation module this headword summarizes (imp-34653)",
@@ -15340,8 +15340,8 @@ export const glossary = [
       "HONEST SCOPE: a naming/lookup headword only, restating the imp-35009/imp-34441/imp-34904 " +
       "tabulations verbatim -- no landmark is recomputed and no bound changes. The component model is " +
       "the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb remains " +
-      "GUE-conditional (imp-486); imp-3066 K_a>=0 untouched; no RH verdict, NO QED; Platt-Trudgian " +
-      "Lambda<=0.2 remains SOTA.",
+      "GUE-conditional (imp-486); imp-3066 K_a>=0 untouched; no RH verdict, NO QED; no refereed bound is changed" +
+      ".",
     firstUsed: "imp-35082 (glossary headword naming and ordering the N_half/N_cross/N_star landmark triple), 2026",
     relatedTerms: [
       "imp-35009 tabulates all six pairwise relative spreads across this triple plus the seed band (imp-35009)",
@@ -15406,7 +15406,7 @@ export const glossary = [
       'classification (it is not a separate prerequisite). HONEST SCOPE: this is a SURROGATE structural ' +
       'property only -- it establishes NO operator positivity and NO spectral/RH consequence. The C_mb ' +
       'GUE-conditional (imp-486) and imp-3066 K_a>=0 are untouched; changes no bound; no RH verdict, ' +
-      'NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'NO QED; no refereed bound is changed.',
     firstUsed: 'imp-35012 (classification assessment of the imp-34957 crossover-map derivative signs), 2026',
     relatedTerms: [
       'imp-34957 all-positive numerator polynomials P_n and the alternating derivative sign (-1)^(n+1) (imp-34957)',
@@ -15430,7 +15430,7 @@ export const glossary = [
       'worst case (band-top 2555.18x) down to the floor closes only 2555.18 - 2500 = 55.18 of headroom over ' +
       'the whole infinite N-range. HONEST SCOPE: measurement/extrapolation only on the inherited imp-3220/ ' +
       'imp-3406 surrogate crossover map; the imp-34714a machine certificate remains OPEN; changes no bound; ' +
-      'establishes no operator positivity; no RH verdict, NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'establishes no operator positivity; no RH verdict, NO QED; no refereed bound is changed.',
     firstUsed: 'imp-34996 (closed-form N -> infinity extrapolation of the imp-34929 monotone-decreasing Krawczyk headroom), 2026',
     relatedTerms: [
       'imp-34929 Krawczyk headroom monotonicity derivative: closed-form dS/dN < 0, strictly decreasing S',
@@ -15475,7 +15475,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-34997/imp-35109/imp-35111/imp-35332 findings verbatim, ' +
       'not a new bound; measurement only on the inherited imp-3220/imp-3406 surrogate; C_C = (1/8)sqrt(3pi) ' +
       '(imp-2642) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator ' +
-      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35124 (glossary headword recording the imp-34997 finite ceil-phase gap finding), 2026',
     relatedTerms: [
       'imp-34997 refined the seed grid 50x above 1e12, found the zero off-by-one tail is genuine depletion but a FINITE ceil-phase gap, not asymptotic vanishing, with reentry at N~10^27.08 (imp-34997)',
@@ -15510,7 +15510,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per ' +
       'imp-486 UNTOUCHED; C_C 1/8 (imp-2642/imp-2643) untouched; imp-3066 K_a>=0 untouched; far-tail exponent ' +
       'stays 1/2 (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35125 (glossary headword recording the imp-35011 direct g* window-independence measurement), 2026',
     relatedTerms: [
       'imp-35011 reran the g* bisection at 21 X_CROSS windows across [1e9,1e11], finding it bit-identical (max relative variation exactly 0) while r0 swings ~52.8x (imp-35011)',
@@ -15543,7 +15543,7 @@ export const glossary = [
       'the E(N) bridge constants (Step 4), not the Λ inequality itself.\n\n' +
       'HONEST SCOPE: none of the three obligations is closed; this entry records a scoping map only; ' +
       'C_mb stays GUE-conditional (imp-486); changes no bound; establishes no operator positivity; ' +
-      'Platt-Trudgian Λ<=0.2 remains the rigorous SOTA; NO QED.',
+      'no refereed bound is changed; NO QED.',
     firstUsed: 'imp-35141 (glossary headword recording the imp-35058 Step-2 rigorous-upgrade gap), 2026',
     relatedTerms: [
       'imp-35058 is the source scoping map in lambda-roadmap.js LAMBDA_CHAIN_STEPS step 2 rigorousUpgradeGap (imp-35058)',
@@ -15574,7 +15574,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/derivation on the inherited imp-3220/imp-3406 component model only; ' +
       'C_mb stays GUE-conditional (imp-486); the imp-3463 far-tail 1/2 exponent is untouched (it now ' +
       'attaches to E_coll, not E_flow); changes no bound; establishes no operator positivity; ' +
-      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'no refereed bound is changed; NO QED.',
     firstUsed: 'imp-35142 (glossary headword recording the imp-35039 exponent-ownership correction), 2026',
     relatedTerms: [
       'imp-35039 measured q_eff(x) rising monotonically toward 1 with the single 0.6 crossing upward and below the band (imp-35039)',
@@ -15602,7 +15602,7 @@ export const glossary = [
       'derivation of the ~2-decade constant and its log-running residual.\n\n' +
       'HONEST SCOPE: measurement/derivation on the inherited imp-3220/imp-3406 component model only; ' +
       'C_mb stays GUE-conditional (imp-486); changes no bound; establishes no operator positivity; ' +
-      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+      'no refereed bound is changed; NO QED.',
     firstUsed: 'imp-35143 (glossary headword recording the imp-35041 far-tail crossing-spacing signature), 2026',
     relatedTerms: [
       'imp-35041 measured the 1.99/2.16/2.07 decade crossing spacings two decades past the imp-33582 endpoint (imp-35041)',
@@ -15637,8 +15637,8 @@ export const glossary = [
       'only in the near-front DOMINANT-BALANCE leading asymptotic, NOT N-uniformly at finite gap. The finite-gap ' +
       'signed aggregate over N poles remains un-certified: I1 is scoped to a single finite constant sign(K) plus ' +
       'an un-discharged near-front dominant-balance step, not closed. Scoping/assessment only; certifies nothing; ' +
-      'discharges no bound; R2 stays OPEN past N=200; C_mb GUE-conditional per imp-486; NO QED; Platt-Trudgian ' +
-      'Lambda<=0.2 remains SOTA.',
+      'discharges no bound; R2 stays OPEN past N=200; C_mb GUE-conditional per imp-486; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35212 (assessing the per-step RK4 truncation-SIGN ingredient I1 on the scalar Dyson desingularization proxy f=1/(y-a)), 2026',
     relatedTerms: [
       'imp-35197 reduced R2 past N=200 to the sign statement (S) and named I1 as the first un-supplied per-step-sign ingredient (imp-35197)',
@@ -15678,8 +15678,8 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-35034/imp-35133 verdicts verbatim, not a new ' +
       'measurement or bound; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
       'rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator ' +
-      'positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35145 (glossary headword cross-linking the imp-35034 fixed-window residual against the across-m ramp-invariance residual), 2026',
     relatedTerms: [
       'imp-35034 certified the fixed-window localization residual |dP/P| <= ~1.53e-6 on the r0 factor (imp-35034)',
@@ -15711,8 +15711,8 @@ export const glossary = [
       'is scoped to the imp-3066 exponential-shear metric-pair family and does NOT rule out entirely ' +
       'different kernel classes (non-exponential multiplier, non-monomial basis); a monotone ' +
       'increase carries NO RH verdict either way. imp-3066 K_a>=0 and G7 remain OPEN and untouched; ' +
-      'changes no bound; establishes no operator positivity; NO QED. Platt-Trudgian Lambda<=0.2 ' +
-      'remains the rigorous SOTA.',
+      'changes no bound; establishes no operator positivity; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35148 (measuring the discrete DEG-axis forward difference at the imp-3066 anchor to close the last un-probed admissible softening axis), 2026',
     relatedTerms: [
       'imp-35075 proved the two ruled-out continuous levers exhaust the 2-D off-orbit tangent space, leaving DEG as the only un-probed axis (imp-35075)',
@@ -15770,8 +15770,8 @@ export const glossary = [
       'razor-thin/grid-artifact-sensitive whenever N=2000 is mentioned.\n\n' +
       'HONEST SCOPE: measurement/certification only on the inherited backward-' +
       'Dyson map/flow surrogate; C_mb stays GUE-conditional (imp-486); changes ' +
-      'no bound; establishes no operator positivity; Platt-Trudgian Lambda<=0.2 ' +
-      'remains the rigorous SOTA; NO QED.',
+      'no bound; establishes no operator positivity; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-35201 (glossary headword recording the current, post-imp-35235 honest status of the imp-35104 R2 true-flow-bound ladder), 2026, updated imp-35361 (post-imp-35324/imp-35278 grid-artifact-sensitive reclassification)',
     relatedTerms: [
       'imp-35150 first capped R2 at N=200 by flow-reference availability, not by violation (imp-35150)',
@@ -15817,8 +15817,8 @@ export const glossary = [
       'tail complement) rather than reducing conditional strength.\n\n' +
       'HONEST SCOPE: classification/assessment only; changes no bound; C_mb ' +
       'stays GUE-conditional per imp-486; establishes no operator positivity; ' +
-      'no reduction of conditional strength; NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains the rigorous SOTA.',
+      'no reduction of conditional strength; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35202 (glossary headword recording the imp-35151 R5 separability verdict), 2026',
     relatedTerms: [
       'imp-35104 tagged R5 tail-monotonicity as IRREDUCIBLE per imp-486, the premise imp-35151 sharpens (imp-35104)',
@@ -15853,7 +15853,7 @@ export const glossary = [
       'imp-2563 sandwich is UNTOUCHED and remains a valid CONDITIONAL ' +
       'bracket; C_mb stays GUE-conditional per imp-486; changes no bound; ' +
       'establishes no operator positivity; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35203 (glossary headword recording the imp-35167 I2 g_min separation-certificate scope), 2026',
     relatedTerms: [
       'imp-35127 named I2 the hardest ingredient of the RK4/DP5 truncation error certificate (imp-35127)',
@@ -15889,8 +15889,8 @@ export const glossary = [
       'particles.\n\n' +
       'HONEST SCOPE: assessment only; I3 stays OPEN; discharges nothing; ' +
       'changes no bound; establishes no operator positivity; C_mb stays ' +
-      'GUE-conditional per imp-486; no RH verdict; NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains the rigorous SOTA.',
+      'GUE-conditional per imp-486; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35204 (glossary headword recording the imp-35168 mesoscopic-strip asymmetry), 2026',
     relatedTerms: [
       'imp-35127 named I3 the N-uniform field-Lipschitz accumulation ingredient the RK4 truncation-error certificate needs (imp-35127)',
@@ -15919,7 +15919,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only, on the inherited imp-3220/imp-3406 extrapolation, NOT a ' +
       'rigorous asymptotic; C_mb stays GUE-conditional per imp-486; C_C 1/8 ansatz (imp-2642) and ' +
       'E_trunc fixed strip (imp-2631) untouched; changes no bound; establishes no operator ' +
-      'positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'positivity; no RH verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35205 (glossary headword recording the imp-35154 E_flow negligibility thresholds), 2026',
     relatedTerms: [
       'imp-35100 established E_flow/E_coll -> 0 only at the endpoint (~8e-5 by 1e13), the ratio this headword pins a threshold N for (imp-35100)',
@@ -15952,7 +15952,7 @@ export const glossary = [
       'NOT a rigorous asymptotic; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional ' +
       'per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463 untouched; imp-3066 K_a >= 0 ' +
       'untouched; changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35223 (glossary headword recording the imp-35198 E_flow far-tail exponent correction), 2026',
     relatedTerms: [
       'imp-35135 measured the E_flow far-tail exponent drift (-0.77 at N=1e6 to -0.91 at N=1e16) this ticket derives in closed form (imp-35135)',
@@ -15986,7 +15986,7 @@ export const glossary = [
       'the choice of strip height.\n\n' +
       'HONEST SCOPE: assessment only; I3 stays OPEN; discharges nothing; changes no bound; ' +
       'establishes no operator positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; ' +
-      'NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35224 (glossary headword recording the imp-35196 verdict), 2026',
     relatedTerms: [
       'imp-35168 showed the fixed-height version of this asymmetry, the precursor this ticket generalizes to any schedule (imp-35168)',
@@ -16021,8 +16021,8 @@ export const glossary = [
       'point to I1 (imp-35212 scoped I1 on the scalar proxy) and I2 (imp-35213 scoped I2, finding no free ' +
       'monotone lemma) as the sub-tickets narrowing the outstanding gap; I3 remains fully open.\n\n' +
       'HONEST SCOPE: assessment/scoping only; certifies nothing; discharges no bound; R2 stays OPEN past ' +
-      'N=200; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. Platt-Trudgian Lambda<=0.2 ' +
-      'remains the rigorous SOTA.',
+      'N=200; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35225 (glossary headword recording the imp-35197 R2-to-sign reduction), 2026',
     relatedTerms: [
       'imp-35150 found R2 MET at every rung WITH a flow reference but untested at N>=500, the gate this reduction replaces (imp-35150)',
@@ -16054,7 +16054,7 @@ export const glossary = [
       'RvM density MODEL, not a certified sup over the true backward flow, and t_c(N) is an empirical ' +
       'OLS fit, so this changes no bound and certifies nothing; the sandwich remains a valid ' +
       'CONDITIONAL bracket; I2/M5 stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH ' +
-      'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35226 (glossary headword recording the imp-35195 M5 finding), 2026',
     relatedTerms: [
       'imp-35167 named M5 the horizon-reaches-front obstruction this ratio measures (imp-35167)',
@@ -16092,7 +16092,7 @@ export const glossary = [
       'imp-35218 subsequently found the F1 N-uniformity does NOT survive on real Riemann zero ' +
       'ordinates (beta grows with N there), though the beta ~ 1/g_min front law does survive with a ' +
       'smaller N-dependent prefactor; M2/M5 stay OPEN; changes no bound; C_mb GUE-conditional per ' +
-      'imp-486 UNTOUCHED; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'imp-486 UNTOUCHED; no RH verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35227 (glossary headword recording the imp-35194 M2/M5 inseparability), 2026',
     relatedTerms: [
       'imp-35167 named M2 (finite background-field sup) and M5 (horizon-front mismatch), the two obstructions this entry links (imp-35167)',
@@ -16128,7 +16128,7 @@ export const glossary = [
       'surrogate; no certified constant, no error bars, finite 9-rung sample cannot exclude a ' +
       'between-rung excursion; O3 and G6a_shock_lipschitz stay OPEN; imp-3066 K_a >= 0 untouched; ' +
       'C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator ' +
-      'positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'positivity; no RH verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35228 (glossary headword recording the imp-35193 O3 empirical modulus of convergence), 2026',
     relatedTerms: [
       'imp-35152 named O3 (a certified rate |rho(eps) - 2/3| <= K eps^theta) the load-bearing missing ingredient this measurement targets (imp-35152)',
@@ -16169,8 +16169,8 @@ export const glossary = [
       'rigorous asymptotic; OPEN sub-gap: no closed form for the ramp coefficient ~5.6 (only the ' +
       'sigmoid coefficient 2 is derived, imp-33808), hence no closed 2.78; C_mb GUE-conditional per ' +
       'imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes ' +
-      'no bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains the rigorous SOTA.',
+      'no bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35229 (glossary headword recording the imp-35177 offset/split reconciliation), 2026',
     relatedTerms: [
       'imp-35042 derives the sigmoid-inflection offset closed margin 2 g_prime/g^3 that this entry shows also governs the ramp knee (imp-35042)',
@@ -16216,7 +16216,7 @@ export const glossary = [
       'computation; changes no bound; does not affect the R2 ladder ceiling ' +
       'recorded in imp-35104/imp-35201; C_mb stays GUE-conditional (imp-486); ' +
       'establishes no operator positivity; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35230 (honest-status note on the imp-35190 order-robust N=500 gate-quantization caveat), 2026',
     relatedTerms: [
       'imp-35190 computed the N=500 cross-family cross-grid flow reference and flagged the same-grid tie as gate-quantization (imp-35190)',
@@ -16256,7 +16256,7 @@ export const glossary = [
       'diverges as g_min -> 0); does not discharge M2 or M5, which stay OPEN; does not touch the ' +
       'imp-2563 sandwich (a valid CONDITIONAL bracket); changes no bound; establishes no operator ' +
       'positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35245 (glossary headword recording the imp-35218 real-ordinate finding), 2026',
     relatedTerms: [
       'imp-35194 measured the unit-spacing beta(N) N-uniformity that this entry shows is an artifact on real ordinates (imp-35194)',
@@ -16292,7 +16292,7 @@ export const glossary = [
       'certify N-uniformity of beta itself (still diverges as g_min -> 0); does not discharge M2 or M5, ' +
       'which stay OPEN; does not touch the imp-2563 sandwich (a valid CONDITIONAL bracket); changes no ' +
       'bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH ' +
-      'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35246 (glossary headword recording the imp-35215 exact near-front rational identity), 2026',
     relatedTerms: [
       'imp-35194 measured the pre-asymptotic beta * g_min band (1.33 -> 1.04) that this identity sharpens to the exact limit 1 (imp-35194)',
@@ -16330,7 +16330,7 @@ export const glossary = [
       'an asymptotic leading coefficient is not the certified uniform inequality O3 asks for, and does ' +
       'not bound the true RvM cusp jet; O3 and G6a_shock_lipschitz stay OPEN; imp-3066 K_a >= 0 ' +
       'UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator ' +
-      'positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'positivity; no RH verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35247 (glossary headword recording the imp-35216 closed-form model-cusp margin-ratio prefactor), 2026',
     relatedTerms: [
       'imp-35193 measured the empirical prefactor K ~ 0.400 this entry identifies in closed form (imp-35193)',
@@ -16366,7 +16366,7 @@ export const glossary = [
       'rigorous asymptotic; the sign-changing correction confirms rather than resolves the imp-35198 ' +
       'residual; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463 ' +
       'untouched; changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35248 (glossary headword recording the imp-35217 E_flow far-tail exponent next-order term), 2026',
     relatedTerms: [
       'imp-35198 derives the leading -1 + 3/log N term this ticket extends to next order (imp-35198)',
@@ -16411,7 +16411,7 @@ export const glossary = [
       'beta itself still diverges as g_min -> 0, so M2/M5 stay bound); does not touch the imp-2563 ' +
       'sandwich (a valid CONDITIONAL bracket); changes no bound; establishes no operator ' +
       'positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35249 (glossary headword recording the imp-35219 beta-source insensitivity result), 2026',
     relatedTerms: [
       'imp-35195 measured the M5 horizon-front ratio with the RvM density beta that this entry stress-tests (imp-35195)',
@@ -16452,7 +16452,7 @@ export const glossary = [
       'HONEST SCOPE: measurement/tabulation only, on the inherited imp-3220/imp-3406/imp-35196 ' +
       'surrogate; discharges nothing; I3 stays OPEN; establishes no operator positivity; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; changes no bound; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35250 (glossary headword recording the imp-35220 schedule-corridor collapse robustness), 2026',
     relatedTerms: [
       'imp-35196 proved the single-triple I3 strip-corridor collapse this entry confirms is robust (imp-35196)',
@@ -16488,7 +16488,7 @@ export const glossary = [
       'HONEST SCOPE: a correction of an existing heuristic via measurement on the inherited ' +
       'imp-3220/imp-3406 surrogate crossover map; the imp-34714a machine certificate remains ' +
       'OPEN; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35251 (honest-status note recording the imp-35176 correction of the imp-34996 S~100 heuristic), 2026',
     relatedTerms: [
       'imp-35176 swept the full physical-branch FP_LO dependence and found no genuine 100x crossing (imp-35176)',
@@ -16523,8 +16523,8 @@ export const glossary = [
       'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; ' +
       'does NOT certify a uniform modulus, does not discharge O3 or G6a_shock_lipschitz, both stay ' +
       'OPEN; establishes no operator positivity; imp-3066 K_a >= 0 UNTOUCHED; C_mb GUE-conditional per ' +
-      'imp-486 UNTOUCHED; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-      'the rigorous SOTA.',
+      'imp-486 UNTOUCHED; changes no bound; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35267 (glossary headword recording the imp-35240 finer-grid prefactor confirmation), 2026',
     relatedTerms: [
       'imp-35216 derived the closed form K = 8 sqrt(2)/(9 pi) this entry confirms on a deeper grid (imp-35216)',
@@ -16562,7 +16562,7 @@ export const glossary = [
       'certified uniform inequality nor a rigorous remainder bound; does NOT discharge O3 or ' +
       'G6a_shock_lipschitz, both stay OPEN; establishes no operator positivity; imp-3066 K_a >= 0 ' +
       'UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35268 (glossary headword recording the imp-35244 corrected rho expansion), 2026',
     relatedTerms: [
       'imp-35216 derived the leading K = 8 sqrt(2)/(9 pi) and the R_3 tail this entry corrects at next order (imp-35216)',
@@ -16592,8 +16592,8 @@ export const glossary = [
       'cancellation as an exact identity rather than the 4-sig-fig grid confirmation reported here.\n\n' +
       'HONEST SCOPE: content/glossary only, isolating a mechanism already reported inside the imp-35244 ' +
       'measurement; establishes no operator positivity; does not discharge O3 or G6a_shock_lipschitz, ' +
-      'both stay OPEN; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-      'rigorous SOTA.',
+      'both stay OPEN; changes no bound; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35313 (glossary headword isolating the imp-35244 odd-p branch-cancellation mechanism), 2026',
     relatedTerms: [
       'imp-35244 reports the RESULT (eps^{5/2} slot empty, eps^{7/2} = -8 sqrt(2)/(3 pi)) this entry explains the mechanism for (imp-35244)',
@@ -16627,7 +16627,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 component model, not a ' +
       'rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; establishes no operator ' +
       'positivity; imp-3066 K_a >= 0 UNTOUCHED; changes no bound; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35269 (glossary headword recording the imp-35242 E_coll exponent-residual landmark), 2026',
     relatedTerms: [
       'imp-33620 established the ladder through N=1e15 with residual ~0.0152, monotone from above (imp-33620)',
@@ -16659,8 +16659,8 @@ export const glossary = [
       'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate; the imp-34714a ' +
       'machine certificate remains OPEN and F(m)=0 stays a double-precision artifact; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-      'UNTOUCHED; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-      'rigorous SOTA.',
+      'UNTOUCHED; changes no bound; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35270 (glossary headword recording the imp-35241 Krawczyk headroom band profile), 2026',
     relatedTerms: [
       'imp-35176 reported the far-tail physical-branch minimum ~2500.02, outside the admissible band this entry profiles (imp-35176)',
@@ -16698,7 +16698,7 @@ export const glossary = [
       'HONEST SCOPE: an assessment on the inherited single-rate log-law surrogate; discharges nothing; the ' +
       'C_C = (1/8)sqrt(3 pi) ansatz (imp-2642/2643) and the C_mb GUE-conditional caveat (imp-486) are UNTOUCHED; ' +
       'imp-3066 K_a >= 0 untouched; the far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes ' +
-      'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35271 (honest-status note recording the imp-35243 surrogate-fidelity verdict), 2026',
     relatedTerms: [
       'imp-35243 assessed the surrogate-fidelity half of imp-35111a and found the reentry band unestablished for the true dynamic (imp-35243)',
@@ -16739,8 +16739,8 @@ export const glossary = [
       'unless R2-R4 are addressed too; R4 in particular requires new verified height, not new analysis.\n\n' +
       'HONEST SCOPE: enumeration only, mirroring the imp-35243 module; discharges none of R1-R4; the reentry ' +
       'band verdict stays NOT ESTABLISHED for the true dynamic; C_mb GUE-conditional (imp-486) and imp-3066 ' +
-      'K_a >= 0 UNTOUCHED; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-      'rigorous SOTA.',
+      'K_a >= 0 UNTOUCHED; changes no bound; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35277 (glossary headword enumerating the imp-35243 surrogate-fidelity certificate requirements), 2026',
     relatedTerms: [
       'imp-35243 enumerated these four requirements and flagged R1/R4 as binding and presently unreachable (imp-35243)',
@@ -16770,7 +16770,7 @@ export const glossary = [
       'in the imp-35243 surrogate-fidelity certificate; it is presently unreachable with existing verified data.\n\n' +
       'HONEST SCOPE: restates the imp-35243 D2 literals only; discharges nothing; the reentry band verdict stays ' +
       'NOT ESTABLISHED for the true dynamic; C_mb GUE-conditional (imp-486) and imp-3066 K_a >= 0 UNTOUCHED; ' +
-      'changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'changes no bound; no RH verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35311 (glossary headword isolating the imp-35243 D2 unmeasurability finding), 2026',
     relatedTerms: [
       'imp-35243 demonstration D2 measured the ~14.6/~24.7-decade gaps this entry restates (imp-35243)',
@@ -16805,7 +16805,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only (frontier-direction, NOT rigorous), on the inherited imp-3220/imp-3406 ' +
       'extrapolation; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; ' +
       'E_coll far-tail exponent 1/2 per imp-3463 untouched; imp-3066 K_a >= 0 untouched; changes no bound; no ' +
-      'operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'operator positivity; no RH verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35289 (glossary headword recording the imp-35236 inverse-swap isolation finding), 2026',
     relatedTerms: [
       'imp-35217 attributed the residual to the surrogate-vs-true-inverse gap, isolated directly here (imp-35217)',
@@ -16840,8 +16840,8 @@ export const glossary = [
       'coincidence.\n\n' +
       'HONEST SCOPE: cross-check only (independent code path), NOT rigorous; component model is the inherited ' +
       'imp-3220/imp-3406 extrapolation; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per ' +
-      'imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict; NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains the rigorous SOTA.',
+      'imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35290 (glossary headword recording the imp-35237 monotone-shrinking ladder check), 2026',
     relatedTerms: [
       'imp-35222 pinned the two-anchor (N=1e6, N=1e16) residual this ladder check extends to four anchors (imp-35222)',
@@ -16878,8 +16878,8 @@ export const glossary = [
       'bound; certifies no N-uniformity of beta itself (beta still diverges ~1/g_min toward the front, ' +
       'imp-35218 R1); does not discharge M2 or M5, which stay OPEN and INSEPARABLE (imp-35227); does not ' +
       'touch the imp-2563 sandwich (a valid CONDITIONAL bracket); establishes no operator positivity; ' +
-      'C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains the rigorous SOTA.',
+      'C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35291 (glossary headword recording the imp-35238 three-factor invariant survival on real ordinates), 2026',
     relatedTerms: [
       'imp-35215 derived the exact three-factor identity on unit spacing that this entry shows survives real spacings (imp-35215)',
@@ -16919,7 +16919,7 @@ export const glossary = [
       'HONEST SCOPE: assessment/measurement only, on the same self-contained backward-RK4 surrogate as ' +
       'imp-35194/imp-35218; discharges nothing; I3 stays OPEN; does not discharge M2 or M5, which stay ' +
       'OPEN and INSEPARABLE (imp-35227); establishes no operator positivity; C_mb GUE-conditional per ' +
-      'imp-486 UNTOUCHED; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'imp-486 UNTOUCHED; no RH verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35292 (glossary headword recording the imp-35239 min-gap-route reassessment on real spacings), 2026',
     relatedTerms: [
       'imp-35214 rated the min-gap prefactor N-uniformity PRESENT on unit-spacing data, the claim split here (imp-35214)',
@@ -16959,7 +16959,7 @@ export const glossary = [
       'different kernel classes (non-exponential multiplier, non-monomial basis), which remain the ' +
       'discrete truncation axis; establishes no operator positivity; imp-3066 K_a&gt;=0 and G7 stay ' +
       'OPEN; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35165 (glossary headword surfacing the imp-35075 G7 tangent-space completeness verdict in the proof-chain narrative), 2026',
     relatedTerms: [
       'imp-35075 proved the two ruled-out continuous levers exhaust the 2-D off-orbit tangent space, the verdict this entry surfaces (imp-35075)',
@@ -16998,7 +16998,7 @@ export const glossary = [
       'HONEST SCOPE: a SCOPING entry only; discharges NONE of I1..I5; the imp-2466 cross-check is ' +
       'UNTOUCHED and remains a valid non-certifying cross-check; C_mb GUE-conditional per imp-486 ' +
       'UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35178 (glossary headword enumerating the imp-35127 five-ingredient scope), 2026',
     relatedTerms: [
       'imp-35127 scoped the five I1-I5 ingredients this entry enumerates and ran the S1/S2 illustrations (imp-35127)',
@@ -17039,8 +17039,8 @@ export const glossary = [
       'that binds E_coll.\n\n' +
       'HONEST SCOPE: a SCOPING entry only; discharges NONE of R1..R5; the imp-2631 fixed strip is ' +
       'UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; establishes no operator positivity; ' +
-      'changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the ' +
-      'rigorous SOTA.',
+      'changes no bound; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35179 (glossary headword for the imp-35149 two-knob vanishing-E_trunc-strip scope), 2026',
     relatedTerms: [
       'imp-35149 ran the two-knob scope and named R1-R5, the entry this headword surfaces (imp-35149)',
@@ -17070,8 +17070,8 @@ export const glossary = [
       'a-priori bound against the true flow (imp-35127 ingredient I4) closes this gap.\n\n' +
       'HONEST SCOPE: a documentation/headword entry only; discharges no ingredient of imp-35127 I1-I5; ' +
       'the imp-2466 cross-check remains valid as a non-certifying consistency check; changes no bound; ' +
-      'establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 ' +
-      'remains the rigorous SOTA.',
+      'establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35180 (glossary headword for the imp-35127 I4/S1 common-mode-blindness distinction), 2026',
     relatedTerms: [
       'imp-35127 ran the S1 illustration and named I4, the ingredient this headword highlights (imp-35127)',
@@ -17101,8 +17101,8 @@ export const glossary = [
       'crossed again.\n\n' +
       'HONEST SCOPE: a documentation/headword entry restating the imp-34997/imp-35109/imp-35111 mechanism with ' +
       'the (W, 1) window made explicit; not a new bound; measurement only on the inherited imp-3220/imp-3406 ' +
-      'surrogate; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda &lt;= 0.2 remains SOTA.',
+      'surrogate; changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35188 (glossary headword naming the imp-34997/imp-35111 reentry as a fixed-window (W,1) recrossing), 2026',
     relatedTerms: [
       'imp-34997 Finite Ceil-Phase Gap vs Asymptotic Extinction: the broader headword this entry sharpens (imp-34997)',
@@ -17133,7 +17133,7 @@ export const glossary = [
       'HONEST SCOPE: a narrative note restating the imp-35133 composed figure verbatim, not a new measurement; ' +
       'the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; far-tail ' +
-      'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.',
+      'exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35211 (narrative note recording the imp-35133 combined pinned-product uncertainty), 2026',
     relatedTerms: [
       'imp-35133 composed the two residuals in quadrature into this combined figure (imp-35133)',
@@ -17165,7 +17165,7 @@ export const glossary = [
       'HONEST SCOPE: a verification/cross-check note; the imp-33601/imp-3220/imp-3406 component model is ' +
       'inherited and NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz ' +
       '(imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, ' +
-      'NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.',
+      'NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35255 (glossary headword for the imp-35199 independent cross-check), 2026',
     relatedTerms: [
       'imp-35199 ran the fully-independent height-solve-plus-inline-RvM-count cross-check this entry documents (imp-35199)',
@@ -17208,7 +17208,7 @@ export const glossary = [
       'headword; not a new measurement or bound; assessment only on the inherited imp-3220/imp-3406/' +
       'imp-33646 model-cusp surrogate; O3 and G6a_shock_lipschitz stay OPEN; C_mb GUE-conditional per ' +
       'imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35312 (glossary headword disambiguating 2/5 from the model-cusp margin-ratio prefactor K), 2026',
     relatedTerms: [
       'imp-35193 measured the empirical prefactor K ~ 0.400 that drifted toward citing 2/5 (imp-35193)',
@@ -17234,7 +17234,7 @@ export const glossary = [
       'ladder: the exact all-orders sign result holds for every n by the imp-34880 coefficient-' +
       'positivity induction, re-verified exactly to n=22 by imp-35107. HONEST SCOPE: a measurement on ' +
       'the SURROGATE map only; establishes no operator positivity; changes no bound; NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-35319 (glossary headword for the imp-35113 round-off ceiling finding), 2026',
     relatedTerms: [
       'imp-35113 direct finite-difference cross-check that located the n* = 4 ceiling (imp-35113)',
@@ -17262,7 +17262,7 @@ export const glossary = [
       'triple near N ~ 3.3e9. HONEST SCOPE: a documentation headword reproducing the imp-35153/' +
       'imp-35154/imp-33723/imp-35210 literals verbatim; not a new measurement or bound; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-      'no RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.',
+      'no RH verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35321 (glossary headword for the imp-35210 four E-component landmark ordering), 2026',
     relatedTerms: [
       'imp-35153 derived the closed-form L1 E_flow = E_trunc crossover (imp-35153)',
@@ -17309,8 +17309,8 @@ export const glossary = [
       'individually.\n\n' +
       'HONEST SCOPE: content/glossary only, reproducing existing literals verbatim from the cited ' +
       'source modules; no new measurement; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no ' +
-      'bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains the rigorous SOTA.',
+      'bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35328 (glossary disambiguation headword for the three exponent-drift closing laws), 2026',
     relatedTerms: [
       'imp-35242 E_coll exponent-residual landmark, law (1) above (imp-35242)',
@@ -17344,7 +17344,7 @@ export const glossary = [
       'OPEN does not reopen the arithmetic half.\n\n' +
       'HONEST SCOPE: glossary disambiguation only, reproducing existing verdicts verbatim from imp-35174 and ' +
       'imp-35243; no new measurement; changes no bound; establishes no operator positivity; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35340 (glossary disambiguation headword separating the arithmetic and surrogate-fidelity halves of imp-35111a), 2026',
     relatedTerms: [
       'imp-35174 discharged the arithmetic half of imp-35111a, re-pointing the fidelity half as imp-35174a (imp-35174)',
@@ -17375,8 +17375,8 @@ export const glossary = [
       'per the D1/D2 demonstrations in imp-35243; progress on R2 (imp-35259) or R3 (imp-35260) alone does not move ' +
       'the reentry-band verdict, since a certificate needs all four requirements discharged together.\n\n' +
       'HONEST SCOPE: routing/documentation only, reusing terminology and statuses already established in imp-35243 ' +
-      'and imp-35277; discharges none of R1-R4; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= ' +
-      '0.2 remains the rigorous SOTA.',
+      'and imp-35277; discharges none of R1-R4; changes no bound; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35341 (glossary headword routing the four imp-35243 certificate requirements to their tickets), 2026',
     relatedTerms: [
       'imp-35277 first enumerated the four requirements R1-R4 in full with their status (imp-35277)',
@@ -17399,7 +17399,7 @@ export const glossary = [
       'cite the imp-35243 D2 UNMEASURABILITY headword for the full literals and derivation.\n\n' +
       'HONEST SCOPE: naming/routing only, restates no new literals beyond the existing D2 headword; discharges ' +
       'nothing; the reentry band verdict stays NOT ESTABLISHED for the true dynamic; changes no bound; no RH ' +
-      'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35342 (glossary headword naming the imp-35243 D2 unmeasurable regime), 2026',
     relatedTerms: [
       'imp-35243 D2 UNMEASURABILITY records the full literals and derivation this term names (imp-35243)',
@@ -17433,8 +17433,8 @@ export const glossary = [
       'factor-2) or the R1-R4 routing headword (WHERE the fix is being attempted).\n\n' +
       'HONEST SCOPE: naming/documentation only, restating literals already established in imp-34926, ' +
       'imp-34951, imp-34997, and imp-35243; discharges no requirement; the reentry band verdict stays NOT ' +
-      'ESTABLISHED for the true dynamic; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains the rigorous SOTA.',
+      'ESTABLISHED for the true dynamic; changes no bound; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35343 (glossary headword naming the imp-35243 machine-epsilon-floor mechanism), 2026',
     relatedTerms: [
       'imp-35243 demonstration D1 measures the ~12-decades-per-factor-2 sensitivity this mechanism produces (imp-35243)',
@@ -17464,7 +17464,7 @@ export const glossary = [
       'deeper numerical read of the same surrogate, certifying no constant, no N-uniform inequality, and no ' +
       'error bar; does NOT discharge O3 or G6a_shock_lipschitz, both stay OPEN; establishes no operator ' +
       'positivity; imp-3066 K_a >= 0 UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
-      'no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'no RH verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35403 (glossary headword summarising the imp-35261 verdict), 2026',
     relatedTerms: [
       'imp-35244 established the K_{7/2} value this entry independently confirms on deeper rungs (imp-35244)',
@@ -17494,8 +17494,8 @@ export const glossary = [
       'HONEST SCOPE: derivation only on the inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate; pins ' +
       'the remainder SHAPE an O3 proof must target but supplies neither the uniform inequality nor a certified ' +
       'bound, so O3/G6a_shock_lipschitz stay OPEN; imp-3066 K_a >= 0 UNTOUCHED; C_mb GUE-conditional per ' +
-      'imp-486 UNTOUCHED; changes no bound; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-      'rigorous SOTA.',
+      'imp-486 UNTOUCHED; changes no bound; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35403 (glossary headword summarising the imp-35265 verdict), 2026',
     relatedTerms: [
       'imp-35313 named the same cancellation mechanism as a 4-sig-fig grid confirmation this entry upgrades to an exact identity (imp-35313)',
@@ -17536,7 +17536,7 @@ export const glossary = [
       'HONEST SCOPE: a content/glossary disambiguation adding one new exact identity (the symmetric pair) ' +
       'alongside the already-derived imp-35265 odd-p identity; establishes no operator positivity; O3 and ' +
       'G6a_shock_lipschitz stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no RH ' +
-      'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35382 (glossary headword distinguishing the imp-35265 odd-p pair from the symmetric branch pair), 2026',
     relatedTerms: [
       'imp-35265 derived the odd-p pair exact identity that DOES enter rho, with its eps^{5/2} term algebraically absent (imp-35265)',
@@ -17565,7 +17565,7 @@ export const glossary = [
       'imp-35176/imp-34996 machinery; certifies no constant, supplies no N-uniform inequality, establishes no ' +
       'operator positivity, changes no bound. The imp-34714a machine certificate REMAINS OPEN; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 UNTOUCHED; no RH verdict; NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35403 (glossary headword summarising the imp-35266 verdict), 2026',
     relatedTerms: [
       'imp-35241 located the band-top headroom surplus this entry decomposes (imp-35241)',
@@ -17594,8 +17594,8 @@ export const glossary = [
       'two-component decomposition, never as the entire residual.\n\n' +
       'HONEST SCOPE: a reconciliation of two measurements on the inherited imp-3220/imp-3406 component model, not ' +
       'a new derivation; changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 ' +
-      'UNTOUCHED; imp-3066 K_a>=0 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda<=0.2 remains the ' +
-      'rigorous SOTA.',
+      'UNTOUCHED; imp-3066 K_a>=0 UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35405 (honest-status companion correcting the imp-35236 "essentially ALL of it at N=1e16" reading), 2026',
     relatedTerms: [
       'imp-35236 isolated the inverse-swap gap at the two endpoint anchors and read the deep end as "essentially ALL" (imp-35236)',
@@ -17629,7 +17629,7 @@ export const glossary = [
       'mechanism.\n\n' +
       'HONEST SCOPE: an explanatory note on why an already-measured arithmetic identity holds, adding no new ' +
       'measurement; changes no bound; establishes no operator positivity; C_mb GUE-conditional per imp-486 ' +
-      'UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA.',
+      'UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35407 (within-ladder explainer companion for the imp-35280 three-exponent ordering), 2026',
     relatedTerms: [
       'imp-35280 measured the fd-vs-analytic gap across the full ladder and reported the exact reconstruction this note explains (imp-35280)',
@@ -17664,7 +17664,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 double surrogate, IEEE-754 double ' +
       'precision, point rate estimates, no interval enclosure. Discharges nothing: R1 / imp-35243a / imp-35111a / ' +
       'imp-35174a stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 UNTOUCHED; changes no ' +
-      'bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'bound; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35409 (glossary headword recording the imp-35263 co-moving-vs-fixed reentry-window dichotomy), 2026',
     relatedTerms: [
       'imp-35243 states the D1 fixed-window ~12-decade/factor-2 slide analytically, ahead of this sweep (imp-35243)',
@@ -17694,7 +17694,7 @@ export const glossary = [
       'conditional against the TRUE dynamic (via R1t, through R2/R3)".\n\n' +
       'HONEST SCOPE: this SHARPENS but does not DISCHARGE R1 -- R1t remains the binding obstruction. Discharges ' +
       'nothing: R1t / imp-35111a / imp-35174a / imp-34997a / imp-35243a stay OPEN; C_mb GUE-conditional per ' +
-      'imp-486 UNTOUCHED; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'imp-486 UNTOUCHED; changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35421 (glossary headword recording the imp-35357 R1s-vs-R1t split), 2026',
     relatedTerms: [
       'imp-35330 CLAIM 1 (R1-unmet => R4 vacuous) whose honesty qualifier this split sharpens (imp-35330)',
@@ -17721,7 +17721,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 extrapolation, reproducing the ' +
       'imp-35279/imp-35236 finite difference verbatim, NOT a rigorous asymptotic; E_flow > 0 strictness ' +
       '(imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no RH verdict, ' +
-      'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35422 (glossary headword recording the imp-35370 swap=half crossover), 2026',
     relatedTerms: [
       'imp-35279 the four-rung swap-fraction ladder (0.786->0.568) that stopped short of locating this crossover (imp-35279)',
@@ -17757,8 +17757,8 @@ export const glossary = [
       'reproducing at every ambient scale, not just at h = 1.\n\n' +
       'HONEST SCOPE: assessment only (frontier-direction, NOT rigorous); discharges nothing; establishes no ' +
       'operator positivity; changes no bound; the imp-2563 sandwich stays a valid CONDITIONAL bracket; C_mb ' +
-      'GUE-conditional per imp-486 UNTOUCHED; I3/M5 stay OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda ' +
-      '<= 0.2 remains SOTA.',
+      'GUE-conditional per imp-486 UNTOUCHED; I3/M5 stay OPEN; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35426 (glossary headword recording the imp-35355 ambient-spacing-restored SR-h C2 ODE), 2026',
     relatedTerms: [
       'imp-35284 found the unit-spacing C2 ODE du/ds = -8 + 4 sqrt(u) reproduces the collision, the parent verdict this entry confirms at finer resolution (imp-35284)',
@@ -17799,7 +17799,7 @@ export const glossary = [
       'HONEST SCOPE: assessment only (frontier-direction, NOT rigorous); the inherited imp-3220/imp-3406 ' +
       'component model is unchanged; the imp-486 C_mb GUE-conditional share is UNTOUCHED; the imp-34791 ' +
       'E_trunc = barrier-lemma reclassification is UNCHANGED; changes no bound; establishes no operator ' +
-      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35427 (glossary headword recording the imp-35334 three-provenance-class distinction), 2026',
     relatedTerms: [
       'imp-35334 measures the sigma<1e-3 landmark and states this three-way decomposition (imp-35334)',
@@ -17845,7 +17845,7 @@ export const glossary = [
       'HONEST SCOPE: assessment only (frontier-direction, NOT rigorous); discharges nothing; imp-35111a / ' +
       'imp-35174a / imp-34997a / imp-35243a stay OPEN; the imp-3220/imp-3406 surrogate and the C_mb GUE-' +
       'conditional per imp-486 are UNTOUCHED; changes no bound; establishes no operator positivity; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35429 (glossary headword recording the imp-35356 R1 three-route verdict), 2026',
     relatedTerms: [
       'imp-35356 enumerates and classifies the three routes this entry records (imp-35356)',
@@ -17881,8 +17881,8 @@ export const glossary = [
       '~10^27-10^37), which stays entangled with R2 (single-rate fidelity) and R3 (height-map fidelity).\n\n' +
       'HONEST SCOPE: formalization only on the inherited imp-3220/imp-3406 surrogate; discharges nothing; ' +
       'R1t / imp-35243a / imp-35111a / imp-35174a / imp-34997a stay OPEN; C_mb GUE-conditional per imp-486 ' +
-      'UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35461 (glossary headword recording the imp-35414 R1s lemma H1-H4/conclusion/mechanism), 2026',
     relatedTerms: [
       'imp-35357 established R1s in prose across three axis paragraphs; imp-35414 formalizes it as one lemma (imp-35357)',
@@ -17917,7 +17917,7 @@ export const glossary = [
       '(imp-35221/imp-35324/imp-35412) nor changes the imp-35412 slack denominator.\n\n' +
       'HONEST SCOPE: measurement / cross-check only; changes no bound; C_mb stays ' +
       'GUE-conditional per imp-486; no operator positivity established; no RH verdict, ' +
-      'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35478 (glossary headword recording the imp-35416 endpoint-blindness knife-edge and its imp-35452 characterization), 2026',
     relatedTerms: [
       'imp-35416 first flagged the DP45-vs-RK4 endpoint-positivity nuance at N=2000 pair-1495 (imp-35416)',
@@ -17953,7 +17953,7 @@ export const glossary = [
       'not as a replacement slack value.\n\n' +
       'HONEST SCOPE: assessment only; recommends no page edit (RUNGS[5] already correct per imp-35359); ' +
       'does not advance the R2 ladder past N=1000 (imp-35221/imp-35324); C_mb stays GUE-conditional per ' +
-      'imp-486; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'imp-486; changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35479 (glossary headword recording the imp-35412 one-sided-upper-bound conservative-worst-case principle), 2026',
     relatedTerms: [
       'imp-35412 the assessment this entry records verbatim, including the dense-envelope double-mis-selection trap (imp-35412)',
@@ -17987,8 +17987,8 @@ export const glossary = [
       'from relative or self-consistency (floor-structural) diagnostics before deciding what the disposal ' +
       'demotes.\n\n' +
       'HONEST SCOPE: assessment only; discharges nothing; imp-35243a stays OPEN pending the imp-35357 ' +
-      'formalization of route (ii); changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'formalization of route (ii); changes no bound; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35480 (glossary headword recording the imp-35415 reentry-band landmark disposal classification), 2026',
     relatedTerms: [
       'imp-35415 the scoping this entry records verbatim, including the five-landmark classification (imp-35415)',
@@ -18034,7 +18034,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate; the surrogate-vs-true ' +
       'fidelity half (imp-35337a) stays OPEN; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the ' +
       'E_trunc = 3.06e-5 floor (imp-2631) and the imp-398 C_F prefactor are UNTOUCHED; changes no bound; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35481 (glossary headword recording the imp-35411 sigma-peak flat-maximum quadratic signature), 2026',
     relatedTerms: [
       'imp-35411 the measurement this entry records verbatim, including the sqrt(tol) scaling sweep (imp-35411)',
@@ -18067,8 +18067,8 @@ export const glossary = [
       '"imp35339-coefficient-structural-ratio-minus-three") that catches transcription drift in ' +
       'either coefficient without needing an independent re-derivation.\n\n' +
       'HONEST SCOPE: a read-only literal-consistency observation on the two-term rho(eps) ' +
-      'expansion; changes no bound; recomputes no underlying quantity; NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'expansion; changes no bound; recomputes no underlying quantity; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35339 (coefficient-and-envelope literal-consistency check), 2026',
     relatedTerms: [
       'imp-35216 defines and closed-form-derives K = 8*sqrt(2)/(9*pi), the eps^{3/2} prefactor (imp-35216)',
@@ -18095,7 +18095,7 @@ export const glossary = [
       'ordering when a module needs all four E-component landmarks together rather than re-deriving them.\n\n' +
       'HONEST SCOPE: the underlying component model is the inherited imp-3220/imp-3406 single-rate log-law ' +
       'surrogate, NOT a rigorous asymptotic; C_mb is GUE-conditional per imp-486; verification cross-check ' +
-      'only, changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'only, changes no bound; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35499 (glossary headword recording the imp-35318 four-landmark decade ladder), 2026',
     relatedTerms: [
       'imp-35318 the source-crosscheck this entry records verbatim, including the zero-drift verification (imp-35318)',
@@ -18130,8 +18130,8 @@ export const glossary = [
       'an independently corroborated figure.\n\n' +
       'HONEST SCOPE: read-only inventory of an existing literal-convention split; no module data field is ' +
       'wrong (the STORED numbers are all the raw 6.4319e-3), only prose quotes and one loose assertion ' +
-      'tolerance in two modules understate precision; changes no bound; NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'tolerance in two modules understate precision; changes no bound; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35502 (literal cross-reference audit of the sigma-peak curvature constant k), 2026',
     relatedTerms: [
       'imp-35411 bakes the raw k = 6.4319e-3 from the width constant 15.3165 but quotes "~6.428e-3" in prose (imp-35411)',
@@ -18162,8 +18162,8 @@ export const glossary = [
       'smaller Lambda. Cite this headword to firewall sigma(N) work from being mistaken for Lambda progress.\n\n' +
       'HONEST SCOPE: recording-only; discharges nothing; changes no bound; establishes no operator ' +
       'positivity; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the E_trunc = 3.06e-5 floor ' +
-      '(imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      '(imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35504 (glossary/Concepts firewall headword recording the imp-35475 sigma(N) diagnostic-not-lever punchline), 2026',
     relatedTerms: [
       'imp-35475 scopes the imp-35337a fidelity closure and states the no-bound-moves punchline this entry records (imp-35475)',
@@ -18198,8 +18198,8 @@ export const glossary = [
       't_c_hi) does not.\n\n' +
       'HONEST SCOPE: verification/assessment only; adopts no new slack denominator (imp-35412 KEEPS the ' +
       'endpoint DP45 dt/2 worst-case); does not advance the R2 ladder past N=1000 (imp-35221/imp-35324); ' +
-      'C_mb stays GUE-conditional per imp-486; changes no bound; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'C_mb stays GUE-conditional per imp-486; changes no bound; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35507 (glossary/Concepts headword recording the imp-35474 envelope-definition-dependence nuance), 2026',
     relatedTerms: [
       'imp-35474 the independent re-fold and definition-sensitivity check this entry records (imp-35474)',
@@ -18233,8 +18233,8 @@ export const glossary = [
       'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 closed-surrogate extrapolation, NOT ' +
       'a rigorous asymptotic; changes no bound; E_flow > 0 strictness (imp-33848) untouched; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0 ' +
-      'untouched; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the ' +
-      'rigorous SOTA.',
+      'untouched; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35540 (glossary/Concepts headword recording the imp-35473 sub-1e-4 crossing landmark), 2026',
     relatedTerms: [
       'imp-35413 located the sub-1e-3 crossing this entry continues past N = 1e26 (imp-35413)',
@@ -18265,7 +18265,7 @@ export const glossary = [
       'not a sampling artifact.\n\n' +
       'HONEST SCOPE: cross-reference only; measurement on the inherited imp-3220/imp-3406 surrogate, NOT a ' +
       'rigorous asymptotic; the surrogate-vs-true fidelity half (imp-35337a) stays OPEN; changes no bound; no ' +
-      'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35546 (cross-reference note linking imp-35411 and imp-35476), 2026',
     relatedTerms: [
       'imp-35411 discovers W(tol)/sqrt(tol) = 15.3165 on the four decade-aligned tolerances (imp-35411)',
@@ -18296,8 +18296,8 @@ export const glossary = [
       'future module extends this ladder further (e.g. toward a sub-1e-5 crossing), so the reproduces-prior-rung ' +
       'discipline and the widening-decade-gap pattern carry forward unbroken.\n\n' +
       'HONEST SCOPE: cross-reference only; measurement on the inherited imp-3220/imp-3406 surrogate, NOT a ' +
-      'rigorous asymptotic; changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'rigorous asymptotic; changes no bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35547 (cross-reference note linking imp-35413 and imp-35473), 2026',
     relatedTerms: [
       'imp-35413 locates the sub-1e-3 crossing at N ~ 4.17e25, ~1.62 decades past the imp-35371 endpoint (imp-35413)',
@@ -18331,7 +18331,7 @@ export const glossary = [
       'term). Discharges NOTHING on R1t (the OPEN true-dynamic residue); imp-35243a stays OPEN; the C_C = ' +
       '(1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional (imp-486) are UNTOUCHED; far-tail ' +
       'exponent stays 1/2 (imp-3463); changes no bound; no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35548 (glossary/method headword for the imp-35472 R1s constant-reconstruction fidelity), 2026',
     relatedTerms: [
       'imp-35414 is the lemma whose baked r, ln(1/r), EPS_FP and additive count coupling this reconstructs (imp-35414)',
@@ -18367,8 +18367,8 @@ export const glossary = [
       'even if completed, moves the Platt-Trudgian bound.\n\n' +
       'HONEST SCOPE: assessment/scoping only; discharges nothing; changes no bound; establishes no operator ' +
       'positivity; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and ' +
-      'C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35550 (glossary/Concepts headword for the imp-35475 sigma-fidelity closure scope), 2026',
     relatedTerms: [
       'imp-35475 is the assessment module this headword documents (imp-35475)',
@@ -18403,7 +18403,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 closed-surrogate extrapolation, NOT ' +
       'a rigorous asymptotic; changes no bound; E_flow > 0 strictness (imp-33848) untouched; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; no operator ' +
-      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35562 (glossary/Concepts headword for the imp-35534 sub-1e-5 crossing landmark), 2026',
     relatedTerms: [
       'imp-35473 locates the sub-1e-4 crossing this entry continues to the sub-1e-5 rung (imp-35473)',
@@ -18441,8 +18441,8 @@ export const glossary = [
       'HONEST SCOPE: measurement only (frontier-direction, NOT rigorous) on the inherited ' +
       'imp-3220/imp-3406 extrapolation; C_C ansatz, E_trunc = 3.06e-5, and the imp-35198 ' +
       'analytic reference are UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no ' +
-      'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains the rigorous SOTA.',
+      'bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35563 (glossary headword tabulating the three imp-35458/35536/35497 height-map-sensitivity landmarks), 2026',
     relatedTerms: [
       'imp-35458 measures the -0.98% crossover shift tabulated here (imp-35458)',
@@ -18479,7 +18479,7 @@ export const glossary = [
       'direct measurement or a certification; changes no bound; sigma is a diagnostic share, not a ' +
       'Lambda lever; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C ansatz (imp-2642/imp-2643) and ' +
       'E_trunc floor (imp-2631) UNTOUCHED; no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35565 (glossary/method headword for the imp-35530 route-(ii) crossover fidelity finding), 2026',
     relatedTerms: [
       'imp-35488 declared the crossover height out of in-repo range, opening sub-gap imp-35488a this entry keeps OPEN (imp-35488)',
@@ -18521,7 +18521,7 @@ export const glossary = [
       'HONEST SCOPE: assessment/scoping only; enumerates requirements, derives NO remainder; discharges ' +
       'nothing; changes no bound; establishes no operator positivity; the C_C = (1/8) sqrt(3 pi) ansatz ' +
       '(imp-2642/imp-2643), the E_trunc = 3.06e-5 floor (imp-2631) and C_mb GUE-conditional (imp-486) are ' +
-      'UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35570 (glossary/Concepts headword for the imp-35538 route-(i) derivation-requirements spec), 2026',
     relatedTerms: [
       'imp-35538 is the requirements-spec module this headword documents (imp-35538)',
@@ -18558,8 +18558,8 @@ export const glossary = [
       'HONEST SCOPE: assessment/scoping only; isolates one requirement of the imp-35538 spec, derives NO ' +
       'remainder; discharges nothing; changes no bound; establishes no operator positivity; the C_C = ' +
       '(1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the E_trunc = 3.06e-5 floor (imp-2631) and C_mb ' +
-      'GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35581 (glossary/Concepts headword isolating the imp-35538 REQ-5 conditionality result), 2026',
     relatedTerms: [
       'imp-35538 is the requirements-spec module REQ 5 is drawn from (imp-35538)',
@@ -18592,7 +18592,7 @@ export const glossary = [
       'HONEST SCOPE: assessment/scoping only; discharges nothing; imp-35243a stays OPEN; changes no bound; ' +
       'establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 ' +
       '(imp-2631), imp-3066 K_a>=0 and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35583 (glossary/Concepts headword for the imp-35537 R1t strictly-worse-off finding), 2026',
     relatedTerms: [
       'imp-35537 is the scoping module this headword isolates the Part D punchline from (imp-35537)',
@@ -18634,7 +18634,7 @@ export const glossary = [
       'imp-3220/imp-3406 surrogate; surrogate-vs-true fidelity (imp-35337a) UNTOUCHED; C_C ' +
       'ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) UNTOUCHED; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; changes no bound; no operator positivity; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35592 (glossary/Concepts headword for the imp-35574 peak-location amplification vs crossover log-damping contrast), 2026',
     relatedTerms: [
       'imp-35574 measures the ~0.55 peak-location damping factor and ~32.55x crossover-vs-peak ratio documented here (imp-35574)',
@@ -18671,8 +18671,8 @@ export const glossary = [
       'step. Route-(ii) (imp-35488) remains the only viable partial for the OPEN imp-35337a.\n\n' +
       'HONEST SCOPE: assessment/scoping only; derives no remainder; discharges nothing; changes no bound; ' +
       'establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 ' +
-      '(imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      '(imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35598 (glossary/Concepts headword for the imp-35571 REQ-4 leading-rate-artifact finding), 2026',
     relatedTerms: [
       'imp-35571 is the scoping module this headword documents (imp-35571)',
@@ -18704,8 +18704,8 @@ export const glossary = [
       'HONEST SCOPE: measurement only on the surrogate iterate-count (IEEE-754 double, point rate estimates, ' +
       'no interval enclosure); discharges nothing; imp-35111a / imp-35174a / imp-35243a stay OPEN; the reentry ' +
       'band stays NOT ESTABLISHED as a feature of the true dynamic; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643) ' +
-      'and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35600 (glossary/Concepts headword for the imp-35572 in-band rate-robustness finding), 2026',
     relatedTerms: [
       'imp-35572 is the measurement module this headword documents (imp-35572)',
@@ -18739,7 +18739,7 @@ export const glossary = [
       'positivity; the reentry band is a diagnostic of a surrogate iterate-COUNT, not a Lambda lever, so even a ' +
       'perfect R1t closure would move no bound (imp-35537 Part D); C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), ' +
       'E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35605 (glossary/Concepts headword for the imp-35559 in-repo data-ceiling decade-gap quantification), 2026',
     relatedTerms: [
       'imp-35559 is the quantification module this headword documents (imp-35559)',
@@ -18776,7 +18776,7 @@ export const glossary = [
       'confirms/sharpens imp-35530b and imp-35488b; discharges nothing; imp-35488a, imp-35530a, ' +
       'imp-35530b, imp-35337a stay OPEN; C_mb GUE-conditional per imp-486, C_C = (1/8) sqrt(3 pi) ' +
       '(imp-2642/imp-2643), and E_trunc = 3.06e-5 (imp-2631) are UNTOUCHED; changes no bound; no ' +
-      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35625 (glossary/Concepts headword for the imp-35556 g_true-vs-E_coll order mismatch), 2026',
     relatedTerms: [
       'imp-35556 is the assessment module this headword documents (imp-35556)',
@@ -18810,7 +18810,7 @@ export const glossary = [
       'orders of magnitude.\n\n' +
       'HONEST SCOPE: assessment / decision-record only; advances no rung by fiat; changes no bound; ' +
       'extends no C_mb certificate; removes no imp-486 GUE conditional; no operator positivity; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35623 (glossary/Concepts headword for the imp-35558 R2 ladder-advance decision), 2026',
     relatedTerms: [
       'imp-35558 is the decision-record module this headword documents (imp-35558)',
@@ -18853,7 +18853,7 @@ export const glossary = [
       'HONEST SCOPE: assessment / ranking only; derives no remainder; discharges nothing; changes no ' +
       'bound; establishes no operator positivity; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), ' +
       'the E_trunc = 3.06e-5 floor (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35624 (glossary/Concepts headword for the imp-35551 route-(i) requirement severity ranking), 2026',
     relatedTerms: [
       'imp-35551 is the severity-ranking module this headword documents (imp-35551)',
@@ -18892,7 +18892,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only (frontier-direction, NOT rigorous) on the inherited imp-3220/' +
       'imp-3406 extrapolation; the C_C ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) ' +
       'are UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no ' +
-      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35631 (glossary/Concepts headword for the imp-35555 crossover bracketing-family sensitivity envelope), 2026',
     relatedTerms: [
       'imp-35555 measures the ~0.50% bracketing-family envelope this headword documents (imp-35555)',
@@ -18932,8 +18932,8 @@ export const glossary = [
       'on the inherited imp-3220/imp-3406 surrogate; surrogate-vs-true fidelity (imp-35337a) ' +
       'UNTOUCHED; C_C ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631/imp-447) ' +
       'UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; discharges nothing; changes no ' +
-      'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains ' +
-      'the rigorous SOTA.',
+      'bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-30659 (glossary/Concepts headword for the imp-35594 peak-vs-crossover insulation mechanism), 2026',
     relatedTerms: [
       'imp-35594 derives the log-proportional-insulation mechanism documented here (imp-35594)',
@@ -18962,8 +18962,8 @@ export const glossary = [
       'HONEST SCOPE: measurement only on the surrogate iterate-count (IEEE-754 double, point rate estimates, ' +
       'no interval enclosure); discharges nothing; imp-35111a / imp-35174a / imp-35243a stay OPEN; the reentry ' +
       'band stays NOT ESTABLISHED as a feature of the true dynamic; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643) ' +
-      'and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'and C_mb GUE-conditional (imp-486) are UNTOUCHED; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-30664 (glossary/method headword for the imp-35608 two-rate census exit-edge location), 2026',
     relatedTerms: [
       'imp-35608 is the exponent-bisection module this headword documents (imp-35608)',
@@ -18999,7 +18999,7 @@ export const glossary = [
       'OPEN; C_C ansatz (imp-2642/imp-2643) and the baseline E_trunc = 3.06e-5 (imp-2631/imp-447) ' +
       'are UNTOUCHED (the 3.6e-5 value is a probe only); C_mb GUE-conditional per imp-486 ' +
       'UNTOUCHED; discharges nothing; changes no bound; no operator positivity; no RH verdict, ' +
-      'NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'NO QED. No refereed bound is changed.',
     firstUsed: 'imp-30666 (glossary/Concepts headword for the imp-35609 peak-location damping input-stability result), 2026',
     relatedTerms: [
       'imp-35609 is the input-sensitivity module this headword documents (imp-35609)',
@@ -19038,8 +19038,8 @@ export const glossary = [
       'HONEST SCOPE: MEASUREMENT ONLY (frontier-direction, NOT rigorous) on the inherited imp-3220/' +
       'imp-3406 double-surrogate component model; the C_C ansatz (imp-2642/imp-2643) and E_trunc = ' +
       '3.06e-5 (imp-2631/imp-447) are UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no ' +
-      'bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains the rigorous SOTA.',
+      'bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35586 (glossary/method headword documenting the imp-35458 log-damping principle and its combination with imp-35417 dd-PATH robustness), 2026',
     relatedTerms: [
       'imp-35458 measures the ~18x crossover log-damping and ~0.98% shift documented here (imp-35458)',
@@ -19074,7 +19074,7 @@ export const glossary = [
       'HONEST SCOPE: terminology/documentation only, no new bound, no new measurement; imp-35337a ' +
       'surrogate-vs-true fidelity stays OPEN; C_C ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 ' +
       '(imp-2631/imp-447) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; no operator ' +
-      'positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35650 (glossary/concept disambiguation headword for the two opposite "damping factor" regimes), 2026',
     relatedTerms: [
       'imp-35593 tabulates the ~18x vs ~0.553 (~32.55x) contrast this headword disambiguates (imp-35593)',
@@ -19110,7 +19110,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate extrapolation, ' +
       'NOT a rigorous asymptotic; derives nothing, changes no bound; E_flow > 0 strictness ' +
       '(imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; no operator positivity; ' +
-      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35666 (glossary headword recording the imp-35552 q -> -1 limit finding), 2026',
     relatedTerms: [
       'imp-35552 settles the imp-35535 "no floor in sight" question with the closed-form limit (imp-35552)',
@@ -19151,7 +19151,7 @@ export const glossary = [
       'slow-decay reading of the remnant survives under both maps; E_flow > 0 strictness ' +
       '(imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail ' +
       'exponent 1/2 per imp-3463 untouched; no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35667 (glossary headword recording the imp-35577 far-tail-crossing height-map non-robustness finding), 2026',
     relatedTerms: [
       'imp-35577 measures the two far-tail crossing shifts recorded here (imp-35577)',
@@ -19200,7 +19200,7 @@ export const glossary = [
       'HONEST SCOPE: assessment/scoping only (frontier-direction, NOT rigorous); discharges nothing, ' +
       'ports nothing, changes no bound; establishes no operator positivity; the imp-34791 barrier-lemma ' +
       'reclassification and imp-35334 dominance finding are UNCHANGED; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35668 (glossary headword recording the imp-35419 S_barrier porting-scope assessment), 2026',
     relatedTerms: [
       'imp-35419 scopes the S_barrier porting requirement and the parity-not-beat verdict recorded here (imp-35419)',
@@ -19239,7 +19239,7 @@ export const glossary = [
       'HONEST SCOPE: MEASUREMENT ONLY on the inherited imp-3220/imp-3406 double surrogate; the C_C 1/8 ' +
       'ansatz, E_trunc = 3.06e-5 floor and imp-398 C_F prefactor are UNTOUCHED; the surrogate-vs-true ' +
       'fidelity half (imp-35337a) stays OPEN; changes no bound; establishes no operator positivity; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35669 (glossary headword recording the imp-35575 quartic-immateriality verdict), 2026',
     relatedTerms: [
       'imp-35575 measures c4 and establishes the immateriality verdict recorded here (imp-35575)',
@@ -19278,7 +19278,7 @@ export const glossary = [
       'HONEST SCOPE: assessment/scoping only, NOT rigorous; derives no remainder, discharges nothing, changes ' +
       'no bound; establishes no operator positivity; C_C, C_H, the E_trunc = 3.06e-5 floor (imp-2631) and ' +
       'C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35682 (glossary headword recording the imp-35652 resolution-floor obstruction), 2026',
     relatedTerms: [
       'imp-35652 scopes option (a) and establishes the resolution-floor verdict recorded here (imp-35652)',
@@ -19317,7 +19317,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only, NOT rigorous; derives no remainder, discharges nothing, changes no ' +
       'bound; establishes no operator positivity; C_C, C_H, E_trunc = 3.06e-5 (imp-2631) and C_mb ' +
       'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35742 (glossary headword recording the imp-35680 constant-mismatch magnitude), 2026',
     relatedTerms: [
       'imp-35680 supplies the Simpson-measured A_band=1/2 and the ~30.3% overshoot ratio recorded here (imp-35680)',
@@ -19351,8 +19351,8 @@ export const glossary = [
       'overshoot are two readings of the same beta=2 cubic short-range repulsion.\n\n' +
       'HONEST SCOPE: consistency check only, NOT rigorous; derives no remainder, discharges nothing, changes no ' +
       'bound; establishes no operator positivity; C_C, C_H, E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional ' +
-      '(imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      '(imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35743 (glossary headword recording the imp-35696 consistency-check result), 2026',
     relatedTerms: [
       'imp-35696 supplies the bisection-measured coefficient-independent -1/3 exponent and the ~2.047 cube-root prefactor ratio recorded here (imp-35696)',
@@ -19387,8 +19387,8 @@ export const glossary = [
       'reflecting Fourier-conjugate order, not a sign of disagreement or error.\n\n' +
       'HONEST SCOPE: measurement/reconciliation only, NOT rigorous; derives no remainder, discharges nothing, ' +
       'changes no bound; establishes no operator positivity; C_C, C_H = 1/8, E_trunc = 3.06e-5 (imp-2631) and C_mb ' +
-      'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35770 (glossary headword recording the imp-35721 reading-separation factor), 2026',
     relatedTerms: [
       'imp-35721 measures the reading-separation factor 2 pi^2/3 ~ 6.5797 recorded here (imp-35721)',
@@ -19428,7 +19428,7 @@ export const glossary = [
       '(itemized as work item W3 in imp-35653).\n\n' +
       'HONEST SCOPE: assessment/scoping only (frontier-direction, NOT rigorous); discharges nothing, ' +
       'ports nothing, changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35683 (glossary headword recording the imp-35653 S_barrier finite/non-finite decomposition), 2026',
     relatedTerms: [
       'imp-35653 supplies the B1/B2 decomposition and itemized port work W1-W4 recorded here (imp-35653)',
@@ -19463,7 +19463,7 @@ export const glossary = [
       'matches, not beats, the Platt-Trudgian bound.\n\n' +
       'HONEST SCOPE: assessment only (frontier-direction, NOT rigorous); ports nothing, discharges nothing, ' +
       'changes no bound; establishes no operator positivity; C_mb GUE-conditional (imp-486) UNTOUCHED; no ' +
-      'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35684 (glossary headword recording the imp-35654 post-port far-tail mixed-conditionality verdict), 2026',
     relatedTerms: [
       'imp-35654 supplies the pre-port/post-port mixed-conditionality analysis recorded here (imp-35654)',
@@ -19502,7 +19502,7 @@ export const glossary = [
       'HONEST SCOPE: assessment/scoping only; discharges nothing; changes no bound; establishes no operator ' +
       'positivity; C_C = (1/8) sqrt(3 pi), C_H = 1/8 (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and ' +
       'C_mb GUE-conditional (imp-486) UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35691 (glossary headword recording the imp-35652 route taxonomy for imp-35337a), 2026',
     relatedTerms: [
       'imp-35652 rules option (a) NOT viable via the resolution-floor obstruction recorded here (imp-35652)',
@@ -19535,7 +19535,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate ' +
       'extrapolation, not a rigorous asymptotic; changes no bound; E_flow > 0 strictness ' +
       '(imp-33848) untouched; C_mb GUE-conditional per imp-486 untouched; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35714 (glossary headword recording the imp-35663 decade-span-growth viz-data presentation of the imp-35553 measurement), 2026',
     relatedTerms: [
       'imp-35553 supplies the span-growth fit, direct sub-1e-6 measurement, and overshoot figures recorded here (imp-35553)',
@@ -19567,8 +19567,8 @@ export const glossary = [
       'independent witnesses): R4 binding is DERIVED from R1 binding, not co-equal with it.\n\n' +
       'HONEST SCOPE: the R1-unmet hypothesis behind CLAIM 1 is D1-evidenced but not formally proven (that is R1 ' +
       'itself, still OPEN), so the DAG is a logical-ordering ASSESSMENT, not a discharge. imp-35111a / ' +
-      'imp-35174a / imp-34997a / imp-35243a stay OPEN; changes no bound; no RH verdict; NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains the rigorous SOTA.',
+      'imp-35174a / imp-34997a / imp-35243a stay OPEN; changes no bound; no RH verdict; NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35364 (glossary headword surfacing the imp-35330 requirement dependency DAG), 2026',
     relatedTerms: [
       'imp-35243 surrogate-fidelity certificate lists R1-R4 as the unordered checklist this DAG re-orders (imp-35243)',
@@ -19605,8 +19605,8 @@ export const glossary = [
       '(imp-35357/imp-35414). The residual gap after all three is the SAME object under different names: R1t.' +
       '\n\n' +
       'HONEST SCOPE: a cross-reference/navigation headword only; it discharges nothing and changes no bound. ' +
-      'R1t / imp-35111a / imp-35174a / imp-34997a / imp-35243a stay OPEN; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains the rigorous SOTA.',
+      'R1t / imp-35111a / imp-35174a / imp-34997a / imp-35243a stay OPEN; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35444 (glossary disambiguation headword tying the R1-R4 DAG, the three-route verdict, and the R1s/R1t split into one navigation entry), 2026',
     relatedTerms: [
       'imp-35330 supplies the DAG-root finding (R1 root, R4 downstream-vacuous, R2/R3 dominated) (imp-35330)',
@@ -19635,7 +19635,7 @@ export const glossary = [
       'microscopic front strip.\n\n' +
       'VERDICT: no candidate form closes into a strictly-positive floor; the min-gap route RELOCATES the ' +
       'imp-35167 M5 horizon obstruction rather than removing it. Assessment only; discharges nothing; I3/M5 ' +
-      'stay OPEN; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'stay OPEN; no RH verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35365 (glossary headword documenting the imp-35284 C1-C4 candidate bound forms), 2026',
     relatedTerms: [
       'imp-35214 named the OPEN a-priori g_min bound as Q3, the requirement this enumeration assesses (imp-35214)',
@@ -19669,7 +19669,7 @@ export const glossary = [
       'derivation or bound; measurement/derivation only on the inherited imp-3220/imp-3406 surrogate; the ' +
       'surrogate-fidelity sub-gap imp-35243a (and parents imp-35111a/imp-35174a/imp-34997a) stay OPEN; C_C = ' +
       '(1/8)sqrt(3pi) (imp-2642) and C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes ' +
-      'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35332 (analytic derivation of the ceil-phase drift and the band-width drift-integral self-consistency), 2026',
     relatedTerms: [
       'imp-34997 Finite Ceil-Phase Gap vs Asymptotic Extinction: the parent headword this self-consistency sharpens (imp-34997)',
@@ -19699,7 +19699,7 @@ export const glossary = [
       'HONEST SCOPE: measurement only, reproducing the imp-35279/imp-35236 finite difference on the ' +
       'inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; E_flow > 0 strictness ' +
       '(imp-33848) untouched; C_mb GUE-conditional per imp-486 untouched; changes no bound; no ' +
-      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35440 (glossary headword documenting the imp-35370 swap-fraction half-crossover), 2026',
     relatedTerms: [
       'imp-35279 tabulated the four-rung swap-fraction ladder (0.786->0.568) this crossover extends (imp-35279)',
@@ -19732,7 +19732,7 @@ export const glossary = [
       'the inherited imp-3220/imp-3406 surrogate; discharges NOTHING; surrogate-fidelity sub-gap ' +
       'imp-35243a (and parents imp-35111a/imp-35174a/imp-34997a) stay OPEN; the C_C = (1/8) sqrt(3 pi) ' +
       'ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; ' +
-      'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35442 (glossary headword documenting the imp-35372 half-OFFSET mid-band landmark), 2026',
     relatedTerms: [
       'imp-35332 derived the N-dependent DRIFT(N) and its integral = OFFSET that this landmark bisects (imp-35332)',
@@ -19768,7 +19768,7 @@ export const glossary = [
       'HONEST SCOPE: measurement-and-methodology note only; changes no bound; no re-derivation of ' +
       'the underlying E_flow quantity; E_flow > 0 strictness (imp-33848) untouched; C_mb ' +
       'GUE-conditional per imp-486 UNTOUCHED; no operator positivity; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35449 (glossary/method headword documenting the imp-35402 literal-reconstruction-fidelity caveat), 2026',
     relatedTerms: [
       'imp-35402 ran the swap-fraction rounded-sibling recomputation this caveat generalizes from (imp-35402)',
@@ -19810,7 +19810,7 @@ export const glossary = [
       'HONEST SCOPE: methodological assessment only; recommends no page edit (RUNGS[5] already keeps ' +
       'the endpoint value per imp-35359); does not advance the R2 ladder (stays certified through ' +
       'N=1000, N=2000 provisional); does not touch the imp-486 GUE conditional; changes no bound; ' +
-      'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35464 (glossary/method headword documenting the imp-35412 one-sided-slack worst-case principle), 2026',
     relatedTerms: [
       'imp-35412 ran the dense-vs-endpoint assessment this principle generalizes from (imp-35412)',
@@ -19840,8 +19840,8 @@ export const glossary = [
       'the DAG edge -- a direction finding should be checked against its downstream scope, and a scope finding ' +
       'should be traced back to the direction it presumes.\n\n' +
       'HONEST SCOPE: cross-reference note only; discharges nothing; imp-35243a stays OPEN pending the imp-35357 ' +
-      'formalization of route (ii); changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'formalization of route (ii); changes no bound; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35469 (glossary headword pairing the imp-35356 disposal direction with the imp-35415 landmark scope), 2026',
     relatedTerms: [
       'imp-35356 supplies the DIRECTION half of the chain -- route (ii), disposal by pure-artifact proof (imp-35356)',
@@ -19874,7 +19874,7 @@ export const glossary = [
       'HONEST SCOPE: MEASUREMENT ONLY on the inherited imp-3220/imp-3406 double surrogate; the C_C = (1/8) ' +
       'sqrt(3 pi) ansatz (imp-2642/imp-2643), E_trunc = 3.06e-5 floor (imp-2631) and the imp-398 C_F prefactor ' +
       'are UNTOUCHED; the surrogate-vs-true fidelity half (imp-35337a) stays OPEN; changes no bound; ' +
-      'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35588 (glossary headword recording the imp-35451 interior sigma-peak cubic-skew asymmetry), 2026',
     relatedTerms: [
       'imp-35451 measures the cubic coefficient and establishes the arm-skew cross-check recorded here (imp-35451)',
@@ -19910,7 +19910,7 @@ export const glossary = [
       'per-panel cap) and imp-35758/imp-35778 scope I3 (the modulus floor) in more numerical/structural detail, ' +
       'but neither closes I1, I4, or I5.\n\n' +
       'HONEST SCOPE: ASSESSMENT / SCOPING ONLY. Ports nothing; certifies nothing; counts no zeros; changes no ' +
-      'bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35817 (glossary headword recording the imp-35727 W2 certified-winding-count ingredient ledger), 2026',
     relatedTerms: [
       'imp-35727 enumerates the five-ingredient ledger recorded here (imp-35727)',
@@ -19950,7 +19950,7 @@ export const glossary = [
       'them jointly, not in sequence.\n\n' +
       'HONEST SCOPE: ASSESSMENT / OOM SCOPING ONLY. Bounds no B; lower-bounds no delta; instantiates no ' +
       'interval enclosure; fixes no Delta or h; certifies no count; changes no bound; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35818 (glossary headword recording the imp-35777 I2<->I3 log-derivative panel-cap coupling), 2026',
     relatedTerms: [
       'imp-35777 derives the coupling identity L_panel < pi . delta / B recorded here (imp-35777)',
@@ -19988,7 +19988,7 @@ export const glossary = [
       'HONEST SCOPE: ORDER-OF-MAGNITUDE SCOPING ONLY. ADDS NO greenfield mechanism -- both floors read from the ' +
       'SAME I1/W1 interval enclosure (imp-35681 Part A). Evaluates no modulus; lower-bounds no inf|H_t prime|; ' +
       'fixes no Delta or h; positions no rectangle; certifies no delta > 0; establishes no positivity; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35819 (glossary headword recording the imp-35778 I3 edge-type floor decomposition), 2026',
     relatedTerms: [
       'imp-35778 derives the edge-type split delta = min(delta_short, delta_long) recorded here (imp-35778)',
@@ -20027,7 +20027,7 @@ export const glossary = [
       'greenfield work -- none of W1/W2/W4 is fully already-held, so all three still require dedicated ' +
       'construction (W1/W2 greenfield certificates, W4 mechanical half W3-gated).\n\n' +
       'HONEST SCOPE: ASSESSMENT / SCOPING ONLY. Ports nothing; discharges nothing; changes no bound; ' +
-      'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-30858 (glossary headword recording the imp-35681 W1/W2/W4 porting inventory verdicts), 2026',
     relatedTerms: [
       'imp-35681 derives the W1/W2/W4 held-vs-greenfield verdicts and the Part D barrier-base correction recorded here (imp-35681)',
@@ -20061,7 +20061,7 @@ export const glossary = [
       'is a MECHANICAL re-instantiation (same machinery, not the same instance), not a free corollary.\n\n' +
       'HONEST SCOPE: ASSESSMENT / DELIVERY-FEASIBILITY SCOPING ONLY. Builds no differentiated enclosure; ' +
       'evaluates no derivative; produces no numeric M_prime; establishes no positivity; changes no bound; ' +
-      'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35874 (glossary headword recording the imp-35808 value-vs-derivative distinction), 2026',
     relatedTerms: [
       'imp-35808 derives the value-vs-derivative distinction and the D1/D2 delivery-gap decomposition recorded here (imp-35808)',
@@ -20102,7 +20102,7 @@ export const glossary = [
       'measured arbitrary-precision digit table and T_PT extrapolation, rather than re-deriving the law per module.\n\n' +
       'HONEST SCOPE: MEASUREMENT / COST-SCOPING ONLY across all three modules. Extends no evaluator to T_PT scale; ' +
       'evaluates no true H_0 at high precision; certifies no value at any height; changes no bound; establishes no ' +
-      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35861 (glossary headword consolidating the imp-35759/imp-35781/imp-35811 digit-cost progression), 2026',
     relatedTerms: [
       'imp-35759 derives the OOM linear digit law D_underflow(x) ~ 0.17055 x from the cancellation mechanism (imp-35759)',
@@ -20136,8 +20136,8 @@ export const glossary = [
       'as a live lever on the W1 budget -- measurement closes that question for all three candidates; the ' +
       'remaining gap is mechanical (building the certified interval sum), not numerical.\n\n' +
       'HONEST SCOPE: MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no ' +
-      'interval; changes no bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'interval; changes no bound; establishes no positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35862 (glossary headword recording the imp-35812 measured summation-scheme cost hierarchy), 2026',
     relatedTerms: [
       'imp-35812 runs and measures the naive/pairwise/Kahan summation-scheme hierarchy recorded here (imp-35812)',
@@ -20170,7 +20170,7 @@ export const glossary = [
       'imp-35762/imp-35266/imp-35241 machinery; imp-34714a machine certificate REMAINS OPEN; C_C 1/8 ' +
       '(imp-2642/imp-2643) untouched; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a>=0 untouched; ' +
       'far-tail exponent 1/2 (imp-3463) untouched; changes no bound; establishes no operator positivity; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35876 (glossary headword recording the imp-35809 scope correction to imp-35762 S3), 2026',
     relatedTerms: [
       'imp-35762 defined the additive shift/curvature split of the D3 ~1.2 band-top residual and asserted S3 (N-stable across the band) (imp-35762)',
@@ -20202,8 +20202,8 @@ export const glossary = [
       'pole), which is exactly where I3 itself already fails, so I2 and I3 fail together and succeed together.\n\n' +
       'HONEST SCOPE: DERIVATION ON THE SHARED NORMALISED OOM MODEL ONLY. Evaluates no true |H_t| or |H_t ' +
       'prime|; fixes no Delta or h for any real rectangle; certifies no cap; certifies no delta > 0; ' +
-      'establishes no positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'establishes no positivity; changes no bound; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35877 (glossary headword recording the imp-35806 benign I2-I3 coupling corner), 2026',
     relatedTerms: [
       'imp-35806 derives the joint (Delta*, h*) = (m.g, 1/w) corner and the N_total = 2m + 4/pi budget recorded here (imp-35806)',
@@ -20240,7 +20240,7 @@ export const glossary = [
       'log-heights on the same imp-3220/imp-3406 RvM surrogate; derives no remainder; discharges nothing; ' +
       'changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), ' +
       'E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) UNTOUCHED; imp-35337a stays OPEN; no RH ' +
-      'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35879 (glossary headword recording the imp-35813 REQ-4 interior sigma-landmark ladder extension), 2026',
     relatedTerms: [
       'imp-35813 derives the sigma<0.99 degenerate boundary and the sigma<0.75/0.25 new interior rungs recorded here (imp-35813)',
@@ -20271,7 +20271,7 @@ export const glossary = [
       'profile collapses onto.\n\n' +
       'HONEST SCOPE: measurement only on the inherited imp-3220/imp-3406 surrogate; reproduces the ' +
       'imp-35762/imp-35266 machinery; imp-34714a machine certificate REMAINS OPEN; changes no bound; ' +
-      'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35882 (glossary headword naming the imp-35809 governing ratio a/(4 . delta)), 2026',
     relatedTerms: [
       'imp-35809 derives the ratio a/(4 . delta) and locates the 50/50 crossover at N ~ 1.88e11 recorded here (imp-35809)',
@@ -20305,7 +20305,7 @@ export const glossary = [
       'winding-thread proxy to a positive de Bruijn time -- both bridging routes are costed and closed here; ' +
       'the cheapest path to W1 BYPASSES the proxy and builds the positive-t A + B - C interval seed directly.\n\n' +
       'HONEST SCOPE: ASSESSMENT / SCOPING ONLY. Continues nothing; discharges nothing; changes no bound; ' +
-      'establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'establishes no positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35911 (glossary headword recording the imp-35726 two-route bridge cost verdict), 2026',
     relatedTerms: [
       'imp-35726 costs both candidate routes and inventories repo infrastructure against them (imp-35726)',
@@ -20345,8 +20345,8 @@ export const glossary = [
       'in relative rather than normalized terms, or needs to explain why a linear-in-kappa error ' +
       'model can be a correct ceiling yet a poor tracker of the achieved error.\n\n' +
       'HONEST SCOPE: DEFINITIONAL / MEASUREMENT-SUPPORT ONLY. Certifies no W1 bound; changes no ' +
-      'bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'bound; establishes no positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35937 (glossary headword for the summation-cost condition number kappa), 2026',
     relatedTerms: [
       'imp-35812 introduces the term family and the fixed-kappa ~1.4e3 baseline measurement (imp-35812)',
@@ -20385,7 +20385,7 @@ export const glossary = [
       'stress test for a fixed-multiset summation-scheme measurement, or needs to explain why an ' +
       'ordering can narrow the gap to a coherent-accumulation ceiling without closing it.\n\n' +
       'HONEST SCOPE: MEASUREMENT-SUPPORT ONLY. Certifies no W1 bound; changes no bound; ' +
-      'establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'establishes no positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35938 (glossary headword for the imp-35852 clustered sign-run worst-case ordering), 2026',
     relatedTerms: [
       'imp-35852 introduces the clustered ordering alongside four other skeptical permutations and measures the ~160x naive degradation (imp-35852)',
@@ -20425,8 +20425,8 @@ export const glossary = [
       'catastrophic cancellation at a specific node, and to name the kappa_sub diagnostic used to ' +
       'quantify the conditioning before and after the rewrite.\n\n' +
       'HONEST SCOPE: DEFINITIONAL / MEASUREMENT-SUPPORT ONLY. Certifies no W1 bound; changes no bound; ' +
-      'establishes no positivity; imp-34714a REMAINS OPEN; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'establishes no positivity; imp-34714a REMAINS OPEN; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35939 (glossary headword for node-level de-cancellation and the subtraction condition number), 2026',
     relatedTerms: [
       'imp-35855 derives the -a/(2-a) closed form for M_G - 1 and demonstrates the node conditioning drops from ~4/a to ~1 (imp-35855)',
@@ -20470,7 +20470,7 @@ export const glossary = [
       'sums at the sign-reconciled positive barrier time), so the interval-bounded A+B-C certificate ' +
       'stays GREENFIELD exactly as imp-35681 Part A found. Ports nothing; discharges nothing; ' +
       'instantiates no sum; verifies no inequality; changes no bound; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-35769 (glossary headword recording the imp-35725 effective-error cap C_t = E_A+E_B+E_{C_0} budget), 2026',
     relatedTerms: [
       'imp-35725 budgets the order of magnitude of the three per-term caps and the required strict-inequality margin recorded here (imp-35725)',
@@ -20508,7 +20508,7 @@ export const glossary = [
       'zero-counting fact the repo only cites.\n\n' +
       'HONEST SCOPE: a content/glossary disambiguation restating the imp-35681/imp-35719 findings; ' +
       'not a new measurement or bound; changes no bound; establishes no operator positivity; no RH ' +
-      'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35797 (glossary headword disambiguating imp-341 from the T_PT=3e12 barrier base), 2026',
     relatedTerms: [
       'imp-35681 Part D first flagged the barrier base as EXTERNAL Platt-Trudgian 2021, not imp-341 (imp-35681)',
@@ -20541,7 +20541,7 @@ export const glossary = [
       'HONEST SCOPE: MEASUREMENT ONLY; propagates the imp-35696 prefactor onto the PT anchor; derives no ' +
       'remainder; discharges nothing; changes no bound; establishes no operator positivity; C_C = (1/8) ' +
       'sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631), and C_mb GUE-conditional (imp-486) ' +
-      'are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'are UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35843 (glossary headword for the imp-35764 collision-scale coefficient shift propagated onto the PT anchor), 2026',
     relatedTerms: [
       'imp-35764 measures the ~2.0467 O(1) shift and the untouched -1/3 exponent at the PT-anchor height N(T_PT) ~ 1.236e13 (imp-35764)',
@@ -20584,8 +20584,8 @@ export const glossary = [
       'explain why floating-point non-associativity makes tree SHAPE a distinct axis from term ' +
       'ORDER even though both preserve the exact mathematical sum.\n\n' +
       'HONEST SCOPE: DEFINITIONAL / MEASUREMENT-SUPPORT ONLY. Certifies no W1 bound; changes no ' +
-      'bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'bound; establishes no positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35960 (glossary headword distinguishing term-ORDER and pairing-tree-SHAPE as independent worst-case levers), 2026',
     relatedTerms: [
       'imp-35852 varies term ORDER at fixed pairing-tree shape, the companion worst-case lever to imp-35893 (imp-35852)',
@@ -20622,7 +20622,7 @@ export const glossary = [
       'gradual loss-of-digits conditioning ramp elsewhere in the same computation.\n\n' +
       'HONEST SCOPE: DEFINITIONAL / MEASUREMENT-SUPPORT ONLY. A double-precision diagnostic ' +
       'boundary, not an interval certificate; certifies no W1 bound; changes no bound; establishes ' +
-      'no positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no positivity; no RH verdict; NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35961 (glossary headword for the imp-35892 double-precision representability cliff of the RvM height inverse T(N)), 2026',
     relatedTerms: [
       'imp-35892 located the hard N ~ 10^307.46 overflow cliff and confirmed a stays a normal double there, ruling out underflow as the cause (imp-35892)',
@@ -20660,7 +20660,7 @@ export const glossary = [
       '(E_trunc = 3.06e-5, imp-2631; C_C = (1/8) sqrt(3 pi), imp-2642/imp-2643) and the imp-35853 knee ' +
       'locators unchanged; derives no remainder; discharges nothing; changes no bound; establishes no ' +
       'operator positivity; imp-35337a surrogate-vs-true fidelity sub-gap stays OPEN; NO QED; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-35965 (glossary headword for the E_trunc = E_coll crossover as a collision-vs-truncation regime divider), 2026',
     relatedTerms: [
       'imp-35889 e-share-decomposition-at-knees found the dominant E(N) term flips across this crossover at the two imp-35853 knees (imp-35889)',
@@ -20697,8 +20697,8 @@ export const glossary = [
       'shape) is in force, and to distinguish the a-priori worst-case bound (a property of tree ' +
       'shape) from the achieved error (which imp-35893 found robust to shape).\n\n' +
       'HONEST SCOPE: DEFINITIONAL / MEASUREMENT-SUPPORT ONLY. Certifies no W1 bound; changes no ' +
-      'bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'bound; establishes no positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-35979 (glossary headword for the pairing-tree SHAPE and depth*eps vs log2(N)*eps forward-error ceiling distinction), 2026',
     relatedTerms: [
       'imp-35893 measures the pairwise error across balanced-to-caterpillar tree shapes and finds neither ceiling attained (imp-35893)',
@@ -20736,7 +20736,7 @@ export const glossary = [
       '(a-independent) but not discharged.\n\n' +
       'HONEST SCOPE: ASSESSMENT / MEASUREMENT ONLY. Instantiates no interval; ports no certificate; ' +
       'imp-34714a REMAINS OPEN; changes no bound; establishes no operator positivity; no RH verdict, ' +
-      'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'NO QED. No refereed bound is changed.',
     firstUsed: 'imp-35984 (glossary headword for the imp-35885 Krawczyk operator node catalogue), 2026',
     relatedTerms: [
       'imp-35885 krawczyk-node-cancellation-audit forms kappa_sub at every K(m) difference node and finds only dG diverges (imp-35885)',
@@ -20772,8 +20772,8 @@ export const glossary = [
       'that explain, but do not certify, why the achieved error sits far below the certified bound.\n\n' +
       'HONEST SCOPE: DEFINITIONAL / MEASUREMENT-SUPPORT ONLY. Instantiates no interval; certifies no ' +
       'W1 bound; changes no bound; the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 ' +
-      'Part A) and MECHANICAL (imp-35725); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'Part A) and MECHANICAL (imp-35725); no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-36002 (glossary headword for the imp-35948 deterministic-vs-probabilistic a-priori forward-error trichotomy), 2026',
     relatedTerms: [
       'imp-35948 w1-probabilistic-sqrtN-apriori-scale derives the Wilkinson and Higham-Mary rungs and quantifies the residual-gap recovery (imp-35948)',
@@ -20810,7 +20810,7 @@ export const glossary = [
       'HONEST SCOPE: DEFINITIONAL ONLY. Both underlying panel counts remain ESTIMATE / SIZING, not ' +
       'certified (imp-35951 is a PROXY on the off-axis model cusp rho = |x|^{-1/2}, not the true ' +
       'H_t = A + B - C on dR); I2 stays GREENFIELD; changes no bound; no RH verdict, NO QED. ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'No refereed bound is changed.',
     firstUsed: 'imp-36014 (glossary headword for the imp-35951/imp-35757 winding-density units mismatch), 2026',
     relatedTerms: [
       'imp-35951 i2-i3-sizing-from-imp33923-sampled-proxy sizes I2 from the theta-cusp slope 3/2 and flags the two counts as not one-to-one comparable (imp-35951)',
@@ -20844,7 +20844,7 @@ export const glossary = [
       'N ~ 488602 rung imp-35973 originally checked.\n\n' +
       'HONEST SCOPE: MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no ' +
       'interval; verifies no inequality; changes no bound; establishes no positivity; no RH verdict, ' +
-      'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'NO QED. No refereed bound is changed.',
     firstUsed: 'imp-36085 (glossary headword for the imp-36023 KBN N-flat compensated-summation floor), 2026',
     relatedTerms: [
       'imp-36023 measures the KBN N-flat floor across the imp-35812 ladder recorded here (imp-36023)',
@@ -20880,7 +20880,7 @@ export const glossary = [
       'under the same combined stress -- see the KBN headword above.\n\n' +
       'HONEST SCOPE: MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no ' +
       'interval; verifies no inequality; changes no bound; establishes no positivity; no RH verdict, ' +
-      'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'NO QED. No refereed bound is changed.',
     firstUsed: 'imp-36029 (glossary headword for the imp-35973 super-additive order-x-shape compounding finding), 2026',
     relatedTerms: [
       'imp-35973 measured the combined order-x-shape worst case (~4.32e-16) recorded here and its ~13x super-additive gap over the naive sum (imp-35973)',
@@ -20919,8 +20919,8 @@ export const glossary = [
       'they agree and only hand-quoted prose disagrees, it is a documentation artifact needing a prose ' +
       'correction, not a recomputation.\n\n' +
       'HONEST SCOPE: MEASUREMENT/RECONCILIATION ONLY. Certifies no bound; evaluates no true H_0; ' +
-      'changes no bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'changes no bound; establishes no positivity; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-36090 (glossary headword distinguishing documentation vs computational artifacts, grounded in imp-36022), 2026',
     relatedTerms: [
       'imp-36022 reconciles the imp-35968/imp-35950 crossover gap as a documentation artifact, not a computational one (imp-36022)',
@@ -20950,8 +20950,8 @@ export const glossary = [
       'HONEST SCOPE: MEASUREMENT ONLY. Reuses the pinned imp-3406/imp-33582 sub-terms (E_trunc = 3.06e-5, ' +
       'imp-2631; C_C = (1/8) sqrt(3 pi), imp-2642/imp-2643) and the imp-35889/imp-35853 sigma -> 0 ' +
       'downslope locator unchanged; derives no remainder; discharges nothing; changes no bound; ' +
-      'establishes no operator positivity; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'establishes no operator positivity; imp-35337a stays OPEN; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-36027 (glossary headword for the imp-35971 sole-survivor height N* ~ 4.7214e13), 2026',
     relatedTerms: [
       'imp-35971 locates the sole-survivor height N* ~ 4.7214e13 where E_trunc becomes the last non-negligible term (imp-35971)',
@@ -20984,7 +20984,7 @@ export const glossary = [
       'HONEST SCOPE: a standard floating-point / interval-arithmetic fact (IEEE-754 outward rounding, ' +
       'Moore/Neumaier interval analysis), not a new result. It underlies the imp-35969 measurement but ' +
       'derives no remainder, discharges no sub-gap, and changes no bound; imp-34714a stays OPEN; NO QED; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-36031 (glossary headword for the imp-35969 width-additivity mechanism), 2026',
     relatedTerms: [
       'imp-35969 measures the outward-rounded residual-node enclosure width at a value-zero root using this identity (imp-35969)',
@@ -21023,8 +21023,8 @@ export const glossary = [
       'independence model (roundoffs independent, mean-zero, bounded by u), NOT a deterministic ' +
       'worst-case certificate; it instantiates no directed-rounding interval and changes no bound. The ' +
       'CERTIFIED a-priori bound stays imp-35890 ~6.41e-14; the W1 A+B-C certificate at T_PT stays ' +
-      'GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725); NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-36053 (glossary headword for the imp-35990 lambda-calibration vacuity finding), 2026',
     relatedTerms: [
       'imp-35990 calibrates lambda_required (~0.327 Wilkinson, ~0.538 Higham-Mary) against the achieved error using this model (imp-35990)',
@@ -21050,7 +21050,7 @@ export const glossary = [
       'non-elliptical, so the imp-36061 single-axis edges under-state the coupled recovery margin ' +
       'by up to ~2.5x across most of the plane -- treat single-axis edges as a lower bound on the ' +
       'true joint margin, not the margin itself. Measurement only; changes no bound; NO QED; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-36149 (glossary headword for the imp-35991/imp-36061/imp-36096 recovery-basin family), 2026',
     relatedTerms: [
       'imp-35991 locates the r < 1e-2 basin edge on each single axis (imp-35991)',
@@ -21072,8 +21072,8 @@ export const glossary = [
       'bound on, not equal to, the true joint-plane margin once both axes detune together.\n\n' +
       'HONEST SCOPE: measured at fixed N ~ 488602 (the Platt-Trudgian T_PT retained-term count) for ' +
       'one specific oscillatory family; sizes only the run-time-monitor window imp-36004/imp-35949 ' +
-      'flagged. Instantiates no directed-rounding interval; changes no bound; NO QED; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'flagged. Instantiates no directed-rounding interval; changes no bound; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-36149 (glossary headword for the imp-36061 detuning-width measurement), 2026',
     relatedTerms: [
       'imp-36061 measures both alpha-axis and beta-axis detuning edges at the 10% and 1% targets (imp-36061)',
@@ -21097,8 +21097,8 @@ export const glossary = [
       'that is SOFT (intermittent) rather than a sharp N* threshold; do not treat the first observed ' +
       'separation as the point past which separation is guaranteed to persist.\n\n' +
       'HONEST SCOPE: measured on one specific clustered worst order (imp-35852/imp-36023); ' +
-      'certifies no W1 bound, instantiates no interval, changes no bound; NO QED; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'certifies no W1 bound, instantiates no interval, changes no bound; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-36149 (glossary headword for the imp-36062/imp-36095 KBN-Kahan intermittency finding), 2026',
     relatedTerms: [
       'imp-36062 first located the soft KBN-vs-Kahan separation onset near N ~ 34000 (imp-36062)',
@@ -21125,7 +21125,7 @@ export const glossary = [
       'one on the rungs imp-36062 sampled.\n\n' +
       'HONEST SCOPE: a read-only reconciliation note (imp-36112), no re-derivation or new numerics; ' +
       'WHY the transient episode fires remains an open conditioning/rounding-level question, not a ' +
-      'derived law; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'derived law; changes no bound; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-36208 (glossary headword for the imp-36112 two-episode reconciliation), 2026',
     relatedTerms: [
       'imp-36112 merges the imp-36062/imp-36076 ladders and confirms the two-episode structure (imp-36112)',
@@ -21164,7 +21164,7 @@ export const glossary = [
       'pinned imp-3406/imp-33582/imp-2642/imp-2631/imp-398 constant unchanged, changes no bound, ' +
       'establishes no operator positivity; C_C GUE-conditional (imp-486) stays a standing caveat; ' +
       'imp-35337a surrogate-vs-true fidelity sub-gap stays OPEN; no RH verdict, NO QED; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-36150 (glossary companion entry for the E(N) three-way bridge-error split and its fractional-share landmarks), 2026',
     relatedTerms: [
       'imp-35889 e-share-decomposition-at-knees supplies the three-way split at the two imp-35853 knees (imp-35889)',
@@ -21202,7 +21202,7 @@ export const glossary = [
       'HONEST SCOPE: presentation/orientation only; reuses the imp-35971/imp-3406/imp-33582 literals ' +
       'verbatim; derives no new remainder; changes no bound; C_C GUE-conditional (imp-2642/imp-2643/' +
       'imp-486) untouched; imp-35337a surrogate-vs-true fidelity sub-gap stays OPEN; no RH verdict, ' +
-      'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'NO QED; no refereed bound is changed.',
     firstUsed: 'imp-36202 (glossary headword disambiguating the imp-36046 E_flow-1pct crossing from the imp-35853 knees and the imp-35337 balance crossover), 2026',
     relatedTerms: [
       'imp-36046 e-share-tail-landmarks-viz-data bakes the E_flow-1pct crossing (N ~ 4.623e8, shareColl ~ 0.716) this headword names (imp-36046)',
@@ -21236,7 +21236,7 @@ export const glossary = [
       'layer itself.\n\n' +
       'HONEST SCOPE: a glossary headword restating the imp-35969/imp-36017/imp-36066 verdicts verbatim, not ' +
       'a new derivation; imp-34687a stays UNIMPLEMENTED; imp-34714a stays OPEN; changes no bound; no ' +
-      'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-36207 (glossary headword for the imp-36017/imp-36066 surrogate-vs-LAYER-model distinction), 2026',
     relatedTerms: [
       'imp-35969 measured the nextafter outward-rounding surrogate width of the residual node (imp-35969)',
@@ -21271,7 +21271,7 @@ export const glossary = [
       'such object exists in the toolkit.\n\n' +
       'HONEST SCOPE: a glossary headword restating the imp-35101 densityFloorAssessment verdict verbatim, ' +
       'not a new derivation; G6a_shock_lipschitz stays OPEN; changes no bound; no operator positivity; no ' +
-      'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-36223 (glossary headword for the imp-35101 density-floor vs minimal-gap-ceiling distinction), 2026',
     relatedTerms: [
       'imp-35101 assessed whether any density-floor object of the correct spatial-modulus type could discharge G6a, verdict NO (imp-35101)',
@@ -21308,8 +21308,8 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-36192 scoping verdict verbatim, not a new ' +
       'derivation; G-step-error stays OPEN and not independently dischargeable; changes no bound; ' +
       'discharging all three Step-2 obligations would feed the E(N) bridge constants at Step 4, not the ' +
-      'headline inequality; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'headline inequality; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed' +
+      '.',
     firstUsed: 'imp-36224 (glossary headword for the imp-36192 Step-2 a-priori truncation-bound scope), 2026',
     relatedTerms: [
       'imp-36192 scoped the three-obligation coupling and the dt^5 * delta^{-9} boundary-layer blow-up (imp-36192)',
@@ -21349,7 +21349,7 @@ export const glossary = [
       'height) is genuinely sub-RH and non-vacuous, and even it saturates at the verified strip.\n\n' +
       'HONEST SCOPE: a glossary headword restating the imp-35147 weakerGapAssessment verdict verbatim, ' +
       'not a new derivation; G6a_shock_lipschitz stays OPEN; changes no bound; C_mb stays GUE-conditional ' +
-      '(imp-486); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      '(imp-486); no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-36225 (glossary cross-reference note for the imp-35147 G6a weakerGapAssessment C1-C6 classification), 2026',
     relatedTerms: [
       'imp-35147 posed and graded the six candidate sub-RH minimal-gap inputs C1-C6 against the G6a modulus (imp-35147)',
@@ -21390,7 +21390,7 @@ export const glossary = [
       'HONEST SCOPE: a glossary headword restating the imp-36180 read-only SCOPING enumeration ' +
       'verbatim (via its imp-36229 glossary companion); establishes nothing, discharges no ' +
       'conditional, claims no input available, changes no bound; C_mb stays GUE-conditional ' +
-      '(imp-486); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      '(imp-486); no RH verdict, NO QED. No refereed bound is changed.',
     firstUsed: 'imp-36248 (glossary headword for the imp-36180 three ESY-local-law input layers), 2026',
     relatedTerms: [
       'imp-36180 enumerated the three ESY-input layers this headword restates (imp-36180)',
@@ -21425,7 +21425,7 @@ export const glossary = [
       'regime theta < e^(-y_min) where signed seam families actually sit (the imp-95224 exact ' +
       'witness c=(3,-4) has theta = 1/33, giving a useless bound of 33/8); obligation (2) is ' +
       'ADVANCED, not discharged, and a SHARP phase-priced bound removing the 1/theta loss stays ' +
-      'OPEN. Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'OPEN. Changes no Lambda bound; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-95233 (modulus/phase currency feasibility, twenty-third leg of the seam chain), 2026',
     relatedTerms: [
       'imp-95224 COROLLARY DC-NOGO is the depth-currency no-go this phase currency escapes (imp-95224)',
@@ -21468,7 +21468,7 @@ export const glossary = [
       'per octave have no N-fold coalescence law yet (imp-95227 COAL-DOM is pair-only): named ' +
       'residual. Off-lattice rates unchanged. The abstract m-uniform block Riesz-basis lower ' +
       'bound stays OPEN -- LOO alone only yields a linear-in-m Riesz constant. Model family only; ' +
-      'changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'changes no Lambda bound; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-95250 (leave-one-out multi-block split, twenty-fifth leg of the seam chain), 2026',
     relatedTerms: [
       'imp-95249 ANG-PENCIL/SPLIT-2 is the in-octave pair leg this every-octave leg follows (imp-95249)',
@@ -21514,7 +21514,7 @@ export const glossary = [
       'Riesz-basis (Carleson-type) lower bound for exponential cluster systems on geometric ' +
       'lattices, the named residual carried forward. The split collar (1-fence)^(-1) = 7236 on ' +
       'this skeleton delays firing to x > 7.10 versus xStarBL = 4.24 for the twin-free bound. ' +
-      'Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'Changes no Lambda bound; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-95249 (in-octave pair split certificate, twenty-fourth leg of the seam chain), 2026',
     relatedTerms: [
       'imp-95232 FINDING 3 is the raw Blaschke-Lagrange in-octave-twin breakage this pencil fences (imp-95232)',
@@ -21554,7 +21554,7 @@ export const glossary = [
       'HONEST SCOPE: Phi_k and PhiUnif are lattice tools -- they need the geometric octave ' +
       'separation and degrade off-lattice (imp-95226 residual unchanged); blocks of >= 3 rates ' +
       'per octave still need coalLaw per pair (no N-fold law yet, imp-95227 is pair-only). ' +
-      'Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'Changes no Lambda bound; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-95249 (LEMMA ANG-DET, the closed-form angle fence); imp-95250 (Phi_k instantiation, PhiUnif tail bound, and the SPLIT-LOO collar pricing), 2026',
     relatedTerms: [
       'imp-95249 LEMMA ANG-DET proves the general fence 1 - sigma^2 >= prod beta_ij^2 this specializes to Phi_k (imp-95249)',
@@ -21684,7 +21684,7 @@ export const glossary = [
       'imp-2621 (refuted the continuum-amplified rate step, leaving only the ' +
       'bare limit standing) and imp-35164 (found E(N) does NOT vanish on the ' +
       'current surrogate, flooring at E_trunc instead) both stand unresolved. ' +
-      'NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'NO QED. No refereed bound is changed.',
     firstUsed: 'imp-95476 (glossary headword recording the imp-95448 R_A ladder input-data audit verdict), 2026',
     relatedTerms: [
       'imp-95372 books part (a) of the R_A residual as the Odlyzko data audit that imp-95448 finds already delivered (imp-95372)',
@@ -21719,7 +21719,7 @@ export const glossary = [
       'N-block (N >= 3) generalization of the direct 2x2 reduction is VACUOUS (the worst-case angle ' +
       'Gram M = I - Sigma is generically indefinite for N >= 3), so N = 2 is the unique block count ' +
       'with a guaranteed-PD direct reduction; the wedge closes only with the full joint pencil, not ' +
-      'block-by-block. Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'block-by-block. Changes no Lambda bound; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-95426 (THEOREM DIRECT-2, the 2x2 seam-pencil two-block reduction), 2026',
     relatedTerms: [
       'imp-95249 THEOREM SPLIT-2 is the Cauchy-Schwarz-relaxed bound DIRECT-2 is proven uniformly tighter than (imp-95249)',
@@ -22053,7 +22053,7 @@ export const glossary = [
       'one of the six heights within |gumbelZ| < 2 (range -1.10 .. +1.85, mean ~ -0.07): no height-persistent ' +
       'positive bias, no arithmetic anomaly. The cruder leading-order estimate sd*sqrt(2 ln N) over-predicts ' +
       'the observed maxima (obs/crude ~ 0.8-1.1) because it drops the negative subleading correction that the ' +
-      'refined b_N carries. Report only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'refined b_N carries. Report only; changes no bound; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-95562 (discrepancy-tail measurement reporting the raw 2.9-3.3 sigma worst window), 2026; the max-over-N EVT yardstick applied by imp-95583, 2026',
     relatedTerms: [
       'imp-95583 discrepancy-tail EVT assessment is the module computing the Gumbel comparison for all six imp-95562 heights',
@@ -22083,7 +22083,7 @@ export const glossary = [
       'determinant/rank construction and the raw coefficient 4ρ-2ρ² of (9.4) are taken as Sun states ' +
       'them, not re-derived here. So Catalan’s constant G irrationality stays OPEN and the single-author, ' +
       'unrefereed preprint is neither confirmed nor refuted. Report only; changes no bound; NO QED; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-95516 (sun-catalan-objective-verdict, the c_odd/Λ_mid verification and ρ-optimization), 2026; sign-flaw reassessment by imp-95600, 2026',
     relatedTerms: [
       'imp-95516-sun-catalan-objective-verdict is the module recording the c_odd/Λ_mid verification, the ρ*=1/50 hardening, and the named §2-§5 sub-gap',
@@ -22118,8 +22118,8 @@ export const glossary = [
       '(imp-95702 named sub-gap) and has not been unconditionally computed -- so off-anchor use of ' +
       'kappa as a curvature stays shape-uncertified; never treat the second anchor as computed. ' +
       'Assessment only; Catalan G irrationality ' +
-      'stays OPEN; Sun preprint single-author, unrefereed; changes no bound; NO QED; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'stays OPEN; Sun preprint single-author, unrefereed; changes no bound; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-95653 (c_odd second-anchor shape test, reducing the shape question to the single rho-independence claim), 2026; decided by imp-95690, 2026',
     relatedTerms: [
       'imp-95690-sun-s6-integrand-rho-independence-verdict is the module reading Prop 6.3 eqs (6.1)-(6.25) and splitting the forced-prefactor / rho-dependent-integrand verdict',
@@ -22151,8 +22151,8 @@ export const glossary = [
       'correctness is exactly why it does not reopen the program. imp-95534 lever 2 is thereby upgraded from ' +
       'ambivalent to decided. The imp-95519 zero-side no-go STANDS (surviving scale-invariant walls: the ' +
       'mean-square-vs-pointwise gap and the GRH-height deficit for q=97, ~2.9e6 below the window); only its ' +
-      'framing sharpens. Assess/derive only. No bound changes; NO QED; Platt-Trudgian Lambda <= 0.2 remains ' +
-      'SOTA; RH open.',
+      'framing sharpens. Assess/derive only. No bound changes; NO QED; no refereed bound is changed' +
+      '; RH open.',
     firstUsed: 'imp-95534 (analytic-conductor rescaling alpha_C, left MOVABLE-but-only-a-relabeling), 2026; decided by imp-95692, 2026',
     relatedTerms: [
       'Analytic-conductor rescaling alpha_C is the companion headword for the rescale itself, whose warranted-ness this decision resolves',
@@ -22177,7 +22177,7 @@ export const glossary = [
       'r = exp(delta*) ~ 1.36), matched by a direct condition-number bisection at delta* ~ 0.30068 ' +
       '(~2 percent apart). Mandate: use the theta-dual form for delta below delta* ~ 0.307; ln 1.3 ' +
       '(0.2624) sits below it (trapped), ln 2 (0.6931) sits above it (clean). Numerical-precision audit ' +
-      'only; changes no bound and asserts no new theorem; Platt-Trudgian Lambda <= 0.2 remains SOTA; ' +
+      'only; changes no bound and asserts no new theorem; no refereed bound is changed; ' +
       'NO QED.',
     firstUsed: 'imp-95419 (SEP-OPT collapse identifying the FLOAT TRAP), 2026; reconfirmed by imp-95601, 2026; quantified by imp-95621, 2026',
     relatedTerms: [
@@ -22202,7 +22202,7 @@ export const glossary = [
       'crossover is unreachable anywhere in the window, VK contributes ZERO ' +
       'unconditional zero-free saving there; the operative region stays classical ' +
       'throughout, with the inert per-zero factor ~0.845. Measurement only; changes ' +
-      'no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no bound; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-95519 (localized barrier window, T = 1.9e16), 2026; imp-95605/imp-95619 (VK-vs-classical crossover log t = 10242.2363), 2026; gap quantified by imp-95632, 2026',
     relatedTerms: [
       'imp-95519-localized-barrier-sum-prime-zero-nogo is the module establishing the barrier window this gap measures',
@@ -22228,7 +22228,7 @@ export const glossary = [
       'VK constant would have to fall to ~12.1 (with MTY classical), a ~4.75x improvement ' +
       'over Ford that no admissible constant achieves. Verdict: the imp-95632 zero-VK-saving ' +
       'result is ROBUST to constant provenance, not an artifact of the 57.54 / 5.558691 pair. ' +
-      'Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'Measurement only; changes no bound; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-95632 (VK-vs-window height gap), 2026; provenance robustness established by imp-95694, 2026',
     relatedTerms: [
       'VK-vs-window height gap (~4432 decades, zero unconditional VK saving) is the headword for the base result whose provenance-sensitivity this module tests',
@@ -22254,7 +22254,7 @@ export const glossary = [
       'prime, no alias exceeds alpha_C = 1 + 1e-9, and no prime deviates. Verification/report only; ' +
       'sharpens the boundary-degeneracy framing without reopening it -- the mean-square-vs-pointwise gap ' +
       'and the GRH-height deficit (the two scale-invariant walls imp-95692/imp-95519 identify) are left ' +
-      'untouched. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.',
+      'untouched. Changes no bound; NO QED; no refereed bound is changed; RH open.',
     firstUsed: 'imp-95692 (floor-alias identity, checked at p = 97), 2026; generalized to the full sieving prime set by imp-95709, 2026',
     relatedTerms: [
       'Conductor-Normalization Warranted-Relabeling Decision (analytic-conductor scale is honest AND still a relabel) is the companion headword for the decision this pinning is the exact boundary identity inside',
@@ -22302,7 +22302,7 @@ export const glossary = [
       'the certified c_odd(1/20) = 0.006276744728... to 3.5e-13 and upgrades c_odd(1/19) from ' +
       '"conditional" to "offset-certain" = 0.006954762801 (still not interval-certified, the ' +
       'named remaining sub-gap). Sun preprint remains unrefereed; Catalan G irrationality open; ' +
-      'no Lambda movement; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED; RH open.',
+      'no Lambda movement; no refereed bound is changed; NO QED; RH open.',
     firstUsed: 'imp-95720 (numerical +4 offset at m = 20 only), 2026; derived in closed form and shown m-free by imp-95745, 2026',
     relatedTerms: [
       'imp-95745-sun-prop63-plus4-offset-derivation is the module deriving offset = 5/2 + (3/2) INT_0^1 zeta(2,1+v) dv = 4 and showing it is m-free',
@@ -22324,8 +22324,8 @@ export const glossary = [
       'resolves the imp-95677 tabulated sub-1 reading (0.909 at delta = ln 1.3, 320 pairs) as ' +
       'pure float64 cancellation-floor roundoff (A_opt ~ 4.4e-15 there, below lmax*eps), not a ' +
       'real bound violation -- confirmed independently by the imp-95823 direct double-double ' +
-      'Jacobi Gram eigensolve. Changes no bound of the Lambda program; NO QED; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'Jacobi Gram eigensolve. Changes no bound of the Lambda program; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-95677 (numerical sub-1 ratio reading at delta = ln 1.3), 2026; certified as roundoff by imp-95825, 2026; cross-confirmed by imp-95823, 2026',
     relatedTerms: [
       'imp-95825-finite-section-positivity-certificate is the module proving lambda_min(G_n) >= ess-inf f = A_opt at well-conditioned deltas',
@@ -22349,8 +22349,8 @@ export const glossary = [
       'biasPct*(N+1)^2 descends monotonically FROM ABOVE (338726 at N=80, 163151 at N=500) toward this exact ' +
       'constant with an O(1/N) pre-asymptotic tail (matching the O(N^-3) KMS/Widom subleading remainder), ' +
       'confirming the drift is convergence to a fixed constant on a FIXED leading power p=2, not a power ' +
-      'change. Evaluation only; changes no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      'change. Evaluation only; changes no bound of the Lambda program; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-95824 (derived the N^-2 leading law, left the prefactor a sub-gap), 2026; evaluated in closed form by imp-95839, 2026',
     relatedTerms: [
       'imp-95839-sech-widom-prefactor-eval is the module evaluating C_Widom = 50 pi^4/delta^2 from the actual sech Gram symbol',
@@ -22379,7 +22379,7 @@ export const glossary = [
       'companions as one delta-uniform tracked statement and notes the envelope is exact only on the ' +
       'scalar-Toeplitz rho=1 line; off that line the seam Gram is block-Toeplitz and the scalar endpoints ' +
       'give way to a matrix-valued symbol envelope. Documentation only; establishes nothing new; NO QED; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-95825 (lower companion, ess-inf f = A_opt), 2026; completed by imp-95846 (upper companion, ess-sup f = f(0)), 2026; formalized as one delta-uniform statement by imp-95862, 2026',
     relatedTerms: [
       'imp-95825-finite-section-positivity-certificate is the module proving lambda_min(G_n) >= ess-inf f = A_opt at well-conditioned deltas',
@@ -22393,7 +22393,7 @@ export const glossary = [
     category: 'proof-status',
     definition:
       'An honest-status headword recording the imp-95843 verdict on the imp-95710 pointwise number-variance ratio r(T) = sd(C - E)^2 / Sigma^2(L) (measured discrepancy variance over the GUE Dyson-Mehta asymptote). imp-95710 tabulated six heights T = 1e4..5e5 (ratio band [0.349, 0.480], mean 0.40) and named a window-reach sub-gap: ~6.8 decades below the imp-95519 verified-height bottom T = 3.0e12. imp-95843 tried to push past 5e5 using the same in-repo 10^6-ordinate Odlyzko table and found the push DATA-CEILING-LIMITED: because the tiled +/-30% windows truncate at the table\'s top ordinate gamma ~ 6.00e5, the two new nominal centers (5.5e5, 5.8e5) raise the EFFECTIVE sampled height by only ~0.025 decades (4.75e5 -> 5.03e5), so the eight-point refit (slope ~ -1.96e-2, R^2 ~ 0.34, mean ~0.39) is statistically indistinguishable from the six-point fit and still shows no rise toward the GUE asymptote 1.\n\n' +
-      'HONEST SUB-GAP (isolated bump noted, not smoothed over): the r(1.5e5) = 0.4627 row sits above its neighbors inside the measured band, an isolated data point rather than a trend; the eight-point log-linear extrapolation toward 3e12 (r -> 0.06) remains UNWARRANTED extrapolation, not a forecast. Closing the ~6.8-decade gap needs either a larger verified-zero table (numeric, not in-repo) or the imp-95722 analytic r_cap(3e12) ~ 0.26 envelope, which is the only route that actually reaches the window bottom. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+      'HONEST SUB-GAP (isolated bump noted, not smoothed over): the r(1.5e5) = 0.4627 row sits above its neighbors inside the measured band, an isolated data point rather than a trend; the eight-point log-linear extrapolation toward 3e12 (r -> 0.06) remains UNWARRANTED extrapolation, not a forecast. Closing the ~6.8-decade gap needs either a larger verified-zero table (numeric, not in-repo) or the imp-95722 analytic r_cap(3e12) ~ 0.26 envelope, which is the only route that actually reaches the window bottom. Changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
     firstUsed: 'imp-95710 (six-height ratio ladder, named the window-reach sub-gap), 2026; extended and reclassified DATA-CEILING-LIMITED by imp-95843, 2026',
     relatedTerms: [
       'imp-95710-number-variance-ratio-vs-height is the module tabulating the six-height r(T) band and naming the window-reach sub-gap',
@@ -22421,7 +22421,7 @@ export const glossary = [
       'C_Widom = 50 pi^4/delta^2 = 146518.83 (best well-conditioned fit within 0.44%), with the ' +
       'naive 2-param and small-N-contaminated 3-param fits showing the expected pre-asymptotic ' +
       'bias rather than evidence against p = 2. Documentation only; establishes nothing new; NO ' +
-      'QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'QED; no refereed bound is changed.',
     firstUsed: 'imp-95803 (converged the drifting biasPct ladder), 2026; the N^-3 remainder derived by imp-95824, 2026; fitted and the exact constant read off by imp-95845, 2026',
     relatedTerms: [
       'imp-95803-twin-pair-deep-corner-bias-exponent-limit is the module converging the biasPct ladder and naming the drift',
@@ -22496,7 +22496,7 @@ export const glossary = [
       'HONEST LIMITS. Derivation of the residue-mean object only; the residue mean is STILL ' +
       'NOT the physical per-window theta -- the kernel-weighted von-Mangoldt x Fresnel-Airy ' +
       'residue bias A_{k,h} (the imp-95212 port) is untouched and STILL OPEN. Changes NO ' +
-      'numeric bound; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.',
+      'numeric bound; no refereed bound is changed. NO QED.',
     firstUsed: 'imp-95944 (upgrading the imp-95918 empirical diagFrac ~ 1/(p-1) and <theta_C> ~ 1/(p-1)^2 fits to stated asymptotics with a proved p-independent bounded error term, and sharpening law (B) to the 1/(p-1)^2 -> eps_inf/p large-p crossover), 2026',
     relatedTerms: [
       'imp-95918 the two empirical fits (diagFrac ~ 1/(p-1), <theta_C> ~ 1/(p-1)^2) upgraded here to stated asymptotics (imp-95918)',
@@ -22530,8 +22530,8 @@ export const glossary = [
       'the true per-window amplitude weights n by the von Mangoldt x Fresnel-Airy kernel ' +
       'A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p), so the surviving obligation sharpens to the ' +
       'deviation of that kernel-weighted residue distribution from uniform -- the imp-95212 ' +
-      'Fresnel-Airy envelope port, still OPEN. Changes no bound; Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA. NO QED.',
+      'Fresnel-Airy envelope port, still OPEN. Changes no bound; no refereed bound is changed' +
+      '. NO QED.',
     firstUsed: 'imp-95898 (attempting the sign-specification leg at a single seam window, finding an exact nontrivial residue-averaged sign image plus a sharpened obstruction), 2026',
     relatedTerms: [
       'imp-95397-alias-sign-determinacy-assessment.js the determined per-alias coefficient a_h(n) = -(1/p) e(hn/p) this closed form is built on (imp-95397)',
@@ -22559,8 +22559,8 @@ export const glossary = [
       'specification leg is not closed, and route any attempt to close it toward the ' +
       'imp-95212 Fresnel-Airy kernel-weighted deviation-from-uniform question, not toward ' +
       're-deriving theta_C (already exact).\n\n' +
-      'HONEST SCOPE: verdict-only; no numeric bound changes; Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA. NO QED.',
+      'HONEST SCOPE: verdict-only; no numeric bound changes; no refereed bound is changed' +
+      '. NO QED.',
     firstUsed: 'imp-95928 (surfacing the imp-95898 STEP 5 PARTIAL verdict as its own honest-status headword), 2026',
     relatedTerms: [
       'imp-95898-single-window-sign-image-residue-average.js the determined closed-form theta_C = (p tr(G) - S)/((p-1) S) whose STEP 5 caveat this verdict headword surfaces (imp-95898)',
@@ -22590,7 +22590,7 @@ export const glossary = [
       'the max-anchor cushion, though only a safe envelope over a finite super-window); route downstream ' +
       'readers to imp-95921, not to this UNDECIDED verdict alone.\n\n' +
       'HONEST SCOPE: verdict-only assessment; no numeric bound changes; NO QED; the zero-side route ' +
-      'stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'stays PCC / GRH-gated; no refereed bound is changed.',
     firstUsed: 'imp-95929 (surfacing the imp-95897 MONOTONICITY UNDECIDED verdict as its own honest-status headword), 2026',
     relatedTerms: [
       'imp-95897-c0-offset-monotonicity-envelope-safety.js the noise-dominated regression (slope 7.64e-4, R^2 = 0.0007) and interior-max (1.5e5) evidence behind the UNDECIDED verdict (imp-95897)',
@@ -22617,7 +22617,7 @@ export const glossary = [
       'not an artifact of a particular family), so the same triviality resurfaces here as a ' +
       'structural checkpoint rather than a new obstruction.\n\n' +
       'HONEST SCOPE: a structural/consistency observation inside an honest-PARTIAL ' +
-      'derivation; changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.',
+      'derivation; changes no bound; no refereed bound is changed. NO QED.',
     firstUsed: 'imp-95898 (single-window sign-specification leg, STEP 4), 2026',
     relatedTerms: [
       'imp-95898 Residue-Averaged Sign Image theta_C = (p tr(G) - S) / ((p-1) S) the closed form whose nontriviality this collapse confines to coprime residues (imp-95898)',
@@ -22649,7 +22649,7 @@ export const glossary = [
       'HONEST SCOPE: measure-only; Q0_RECON is certified only at m=20 (imp-95822 residual sub-gap), so ' +
       'grid convergence to ~1e-11 bounds quadrature error, not reconstruction faithfulness at m>20. ' +
       'Changes no bound; Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.',
+      'no refereed bound is changed. NO QED.',
     firstUsed: 'imp-95978 (surfacing the imp-95925 large-m sweep verdict as its own honest-status headword), 2026',
     relatedTerms: [
       'imp-95925-tier3-imbalance-largem-sweep.js the large-m re-quadrature (m=60,80,110,150) and the ~m^-3 decay measurement behind this verdict (imp-95925)',
@@ -22680,7 +22680,7 @@ export const glossary = [
       'specifically, since M + P2 is already resolved two orders of magnitude tighter than ' +
       'needed.\n\n' +
       'HONEST SCOPE: assessment / precise obstruction only; changes no bound; NO QED; the ' +
-      'imp-95940 crossing range does not collapse; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'imp-95940 crossing range does not collapse; no refereed bound is changed.',
     firstUsed: 'imp-95964 (LOCATE the Var S(T) constant b, reconstructing b = M + P2 + K and isolating K as the unresolved term), 2026',
     relatedTerms: [
       'imp-95964-fujii-varS-constant-locate-obstruction.js the diagonal reconstruction and live P2 sieve computation behind this decomposition (imp-95964)',
@@ -22709,7 +22709,7 @@ export const glossary = [
       'unavailable term in the Var S(T) constant is I_F, not the prime sum (which is already pinned).\n\n' +
       'HONEST SCOPE: literature-locate / exact identity only; changes no bound; b is NOT available to ' +
       'O(0.01) rigorously; the imp-95940 crossing-height range [~5.8e17, ~1.36e28] does not collapse; ' +
-      'NO QED; Catalan G irrationality OPEN; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'NO QED; Catalan G irrationality OPEN; no refereed bound is changed.',
     firstUsed: 'imp-95984 (LOCATE the Var S(T) constant b to O(0.01) from the literature, identifying K = I_F), 2026',
     relatedTerms: [
       'imp-95984-fujii-varS-constant-literature-locate.js the Chan Theorem 1.1 reconciliation and live Mertens-identity verification behind this identity (imp-95984)',
@@ -22740,8 +22740,8 @@ export const glossary = [
       'limit on either parity branch.\n\n' +
       'HONEST SCOPE: measurement/fit of the reconstruction only (Q0_RECON certified only at m=20, imp-95966 ' +
       'PIECE-A obstruction unchanged); the exponent p ~ 1.9-2.0 is NOT proven to be exactly 2; changes no ' +
-      'bound; Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA; NO QED.',
+      'bound; Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-96007 (cross-validate the imp-95982 saturating fracBelowNull ceiling on the odd parity branch), 2026',
     relatedTerms: [
       'imp-96007-c-odd-departure-odd-branch-crossvalidation.js the fine-grid odd/even fits and cross-branch comparison behind this verdict (imp-96007)',
@@ -22824,7 +22824,7 @@ export const glossary = [
       'the filtration (PD for ALL N) is exactly Weil positivity on a finer polynomial class than Li\'s ' +
       'lambda_n >= 0 -- same terminus. VERDICT: the cleanest finite zero-free certificate structure found ' +
       'in the batch, and genuinely non-circular, but NOT-A-LEVER: it brings no external arithmetic input ' +
-      'and its RH content is exactly its resolved-zero reach. Platt-Trudgian Lambda<=0.2 remains SOTA; ' +
+      'and its RH content is exactly its resolved-zero reach. No refereed bound is changed; ' +
       'RH open; NO QED.',
     firstUsed: 'rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23 (Route L Li-Herglotz-CMV finite truncation), 2026',
     relatedTerms: [
@@ -22857,8 +22857,8 @@ export const glossary = [
       'supplies real structure (p=2 shift as periodic orbit / 2-adic transfer; exact archimedean Sonine trace) ' +
       'but NO NEW LEVER: block-diagonality kills Test 1, and the Test-2 cancellation can only be captured ' +
       'exactly, naming the precise next step -- an exact semilocal S={oo,2} Sonine/prolate trace identity ' +
-      'W_oo(g) + W_2(g) = Tr(Q_S vartheta(g) Q_S) for g-support < ln 3. RH open; Platt-Trudgian Lambda <= 0.2 ' +
-      'stands; NO QED.',
+      'W_oo(g) + W_2(g) = Tr(Q_S vartheta(g) Q_S) for g-support < ln 3. RH open; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'rh-route-h-connes-scaling-site-weil-positivity-2026-09-23 (Route H Connes-Consani adelic scaling site), 2026',
     relatedTerms: [
       'rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js the module carrying ROUTE_H (Test 1 block-diagonal Class-II cap, Test 2 archimedean-vs-p=2 cancellation, the named next-step identity) this headword documents',
@@ -22906,7 +22906,7 @@ export const glossary = [
       'VERDICT: the Sonine refinement is exact and every ingredient (excess, semilocal prolate spectrum, ' +
       'resonance split) is computed explicitly, but the route to Weil positivity via this method ' +
       'terminates at support ln 2; ln2 < 2a < ln3 remains the open inequality D_S <= L_S. RH open; ' +
-      'Platt-Trudgian Lambda <= 0.2 stands; NO QED.',
+      'no refereed bound is changed; NO QED.',
     firstUsed: 'rh-route-i-sonine-excess-semilocal-port-2026-09-23 (Route I Sonine-excess semilocal port), 2026',
     relatedTerms: [
       'rh-route-i-sonine-excess-semilocal-port-2026-09-23.js the module carrying C2_CUSP, the cuspTheorem, resonanceSplit and positivityOnset ladders this headword documents',
@@ -22964,7 +22964,7 @@ export const glossary = [
       'a computational one awaiting a bigger finite model; the one live corner (an exotic F_1-geometry ' +
       'self-product, e.g. Connes-Consani scaling site) is Route H territory, not audited here. ' +
       'Documentation/assessment only; establishes nothing new; changes no bound; RH open; NO QED; ' +
-      'Platt-Trudgian Lambda<=0.2 remains SOTA; Route J stays NOT-A-LEVER.',
+      'no refereed bound is changed; Route J stays NOT-A-LEVER.',
     firstUsed: 'imp-96092 (Route J tensor-square finite-analog structural-only audit, deciding RES-96072), 2026',
     relatedTerms: [
       'imp-96092-tensor-square-finite-analog-structural-only.js the module tabulating the two competing excess laws (Z model vs F_q model) and the bifurcation verdict',
@@ -22991,7 +22991,7 @@ export const glossary = [
       'universality then forces every non-coordinate hyperplane eps^perp to be crossed order-T times regardless of that ' +
       'weight (the FE-compatible q=5 interferometer alone already leaks 8 off-line zeros below t=200, matching Spira 1994 ' +
       'to 10 digits). No design with 2 or more arms escapes all three simultaneously. Documentation/assessment only; ' +
-      'establishes nothing new; changes no bound; RH open; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+      'establishes nothing new; changes no bound; RH open; NO QED; no refereed bound is changed.',
     firstUsed: 'rh-route-c-signed-interferometer-2026-09-23.js (Route C twisted-ladder signed interferometer, tested and refuted on q=5, q=7), 2026',
     relatedTerms: [
       'rh-novel-routes-roadmap-2026-09-23.js the roadmap entry (Route C) this module tests and closes',
@@ -23018,8 +23018,8 @@ export const glossary = [
       'REFUTED: the period-1.5 swing is a genuine low-frequency feature of ratio(N) on N <= 6000, not a ' +
       'folded zero-tone. The open question re-frames to whether c0 -> 1 and a gamma_1 term eventually ' +
       'emerges at higher N, which now needs actual denser d_N data past N = 6000, not a finer analysis ' +
-      'of the existing grid. Measurement only; changes no bound; RH open; NO QED; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'of the existing grid. Measurement only; changes no bound; RH open; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-96163-route-m-residual-gamma1-alias-refute.js (super-Nyquist aliasing test on the exact imp-96105 coarse grid), 2026',
     relatedTerms: [
       'imp-96147-route-m-ratio-const-oscillation-fit.js the source residual and the original aliasing conjecture',
@@ -23050,8 +23050,8 @@ export const glossary = [
       '-- i.e. the T_PT -> infinity branch, not a fixed-strip shortcut. So the two imp-96166 named ' +
       'alternatives collapse to ONE (verified height must grow), cross-checking the imp-35164 ' +
       'FLOORS/BLOWS-UP dichotomy. Assessment/derivation only; changes no bound; E_trunc stays ' +
-      '3.06e-5; C_mb stays GUE-conditional per imp-486; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA.',
+      '3.06e-5; C_mb stays GUE-conditional per imp-486; RH open; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-96190-fixed-strip-n-decaying-tail-obstruction.js (deriving the exp(-4/3) height-cancellation obstruction), 2026',
     relatedTerms: [
       'imp-96166-en-decay-exponent-vs-step4-bridge-threshold.js the frozen E_trunc floor and the two named alternatives',
@@ -23080,8 +23080,8 @@ export const glossary = [
       'either name -- T_PT growing, or an N-decaying fixed-strip tail with a certificate -- reaching ' +
       'lim_N E(N) = 0 needs H(N) -> infinity, so the imp-96166 pair is one quantitative law, not two. ' +
       'Measurement/derivation only; no zero is verified; the rigorous bound stays E_trunc = 3.06e-5; ' +
-      'C_mb stays GUE-conditional per imp-486; changes no bound; RH open; NO QED; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'C_mb stays GUE-conditional per imp-486; changes no bound; RH open; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-96207-verified-height-floor-law-kappa-star.js (tabulating the imp-96190 collapse as an exact 2.5-decade height-per-floor leverage law), 2026',
     relatedTerms: [
       'Anti-Decay Identity: H^{-kappa(H)} = exp(-4/3) (imp-96190) the structural collapse this quantifies',
@@ -23107,7 +23107,7 @@ export const glossary = [
       'log-slopes of E_trunc/E_coll and E_flow/E_coll are +0.466/-0.304, not the clean leading-order ' +
       '+1/2/-1/2, so the 0.577 proximity to 1/sqrt(3) is a flagged coincidence, not a derived ' +
       'identity). Measurement/derivation only; conditional-share diagnostic (C_mb GUE-conditional per ' +
-      'imp-486 untouched); changes no bound; no QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'imp-486 untouched); changes no bound; no QED; no refereed bound is changed.',
     firstUsed: 'imp-96162-sigma-ushape-peak-eflow-recovery.js (recovering the imp-3220 U-shape peak via the explicit pre-crossover rising factor), 2026',
     relatedTerms: [
       'imp-96151-sigma-closed-form-crossover-fartail-reproduction.js the two-term closed form that fixes N_cross but misses the peak',
@@ -23138,8 +23138,8 @@ export const glossary = [
       'R^2=0.712, is statistically indistinguishable from the free tone, 0.710), and the sub-leading ' +
       'Vasyunin eigen-spectrum was unavailable to test an eigen-drift candidate directly -- so this is ' +
       'a consistent-with / most-plausible attribution, not a unique identification. Measurement only; ' +
-      'changes no bound; establishes no operator positivity; RH open; NO QED; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'changes no bound; establishes no operator positivity; RH open; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-96189-route-m-swing-attribution.js (OLS attribution of the w~4.08 swing across transient/arithmetic/zero-tone/lam_min candidates), 2026',
     relatedTerms: [
       'imp-96163-route-m-residual-gamma1-alias-refute.js the aliasing refutation that left the swing unattributed',
@@ -23167,7 +23167,7 @@ export const glossary = [
       '0.3245 -- a hard ceiling the toy never exhibited. Net: the Route I variational (Rayleigh/Kato-Temple) ' +
       'route stays obstructed more firmly than the toy indicated, so imp-96221 re-points the strict-gap ' +
       'carrier to the analytic no-modulus-1 route (SG-96164-boundary / SG-96181-edge-octave) on the real ' +
-      'spectrum. Measurement only; no bound moved; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'spectrum. Measurement only; no bound moved; RH open; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-96188-route-i-kato-temple-real-spectrum-recalibration.js (recalibrating the imp-96169 stylized threshold against the real semilocal {oo,2} spectrum), 2026',
     relatedTerms: [
       'imp-96169-route-i-rayleigh-variational-topstate-assessment.js the stylized 5-level toy that set the original ~1.17e-2 threshold',
@@ -23196,7 +23196,7 @@ export const glossary = [
       'is anchor-independent even though the absolute thresholds shrink toward lam_top, so combining both ' +
       'leak channels and sweeping the anchor buys nothing -- the region stays pinned at O(1e-3) everywhere ' +
       'and the Route I variational (Sonine refinement) route stays obstructed. Measurement only; no bound ' +
-      'moved; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'moved; RH open; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-96227-route-i-kato-temple-joint-anchor-sweep.js (sweeping the imp-96206 joint Kato-Temple region across the admissible anchor gap), 2026',
     relatedTerms: [
       'imp-96206 the gap-midpoint joint (eps_a, eps_b) Kato-Temple region that first read the 0.866 tightening ratio',
@@ -23222,7 +23222,7 @@ export const glossary = [
       'certifies the ARITHMETIC of the rho_exact figure (and its 0.0182330 deviation from -1/2), not its ' +
       'applicability to the true zero process at that height. This changes no bound, establishes no ' +
       'operator positivity, and does not touch the ~1.9-sigma excursion confidence; RH open; NO QED; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+      'no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
     firstUsed: 'imp-96350-covariance-outoffamily-crossvalidation.js (out-of-family cross-validation against the exact Dyson-Mehta number variance and a direct double integral), 2026',
     relatedTerms: [
       'imp-96371-covariance-exact-vs-asymptotic-decade-ladder.js extends the same exact-vs-asymptotic check across the full decade ladder of heights',
@@ -23246,7 +23246,7 @@ export const glossary = [
       'imp-96128 anti-correlation verdict (rho_exact is strongly negative and safe-side at every finite ' +
       'height) and confirms the accessible-band value ~-0.46..-0.48 is the operative correlation for any ' +
       'real census, not the -1/2 idealization. Measurement/documentation only; changes no bound; ' +
-      'establishes no operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'establishes no operator positivity; RH open; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-96267-covariance-drift-rigidity-limit-reach.js (decade-ladder extrapolation of the imp-96150 closed form to the epsilon-reach crossing heights), 2026',
     relatedTerms: [
       'imp-96150-number-variance-two-interval-covariance-heldout-heights.js the five held-out heights and the exact closed form',
@@ -23270,7 +23270,7 @@ export const glossary = [
       'because a broad peak divides the slope by a tiny curvature. A second-order slope-drift correction ' +
       '(1 - x + x^2) closes the location gap ~21x to 4.37e-3; the full geometric series sigma_CF/(1+x) ' +
       'reproduces sigma_full to machine epsilon. Measurement/diagnostic only; changes no bound; ' +
-      'establishes no operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'establishes no operator positivity; RH open; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-96286-eflow-peak-location-error-order.js (measures why the imp-96266 reconstruction is height-accurate but location-inaccurate), 2026',
     relatedTerms: [
       'imp-96266-eflow-peak-recovery-residual.js the first-order reconstruction and the original ~9% location / <1e-3 height asymmetry',
@@ -23297,7 +23297,7 @@ export const glossary = [
       'monotonically -- location 9.08e-2 -> 4.37e-3 -> 1.84e-4, height ' +
       '9.19e-4 -> 2.99e-5 -> 9.41e-7 -- toward the exact identity (location ~1.7e-7, ' +
       'height ~2e-16). Measurement only; C_mb stays GUE-conditional (imp-486); changes no bound; ' +
-      'RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'RH open; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-96308-eflow-peak-third-order-shrink.js (measures the third-order shrink predicted but not measured by imp-96286), 2026',
     relatedTerms: [
       'imp-96286-eflow-peak-location-error-order.js the flat-peak amplification mechanism and the second-order slope-drift correction',
@@ -23319,7 +23319,7 @@ export const glossary = [
       'node-counting granularity floor (N_det = N_C = 12 nodes, one node = 8.33% of the order at ' +
       'gamma_1), so a sub-1% reconciliation there is not measurable. Classification: exponent-slope ' +
       'mismatch plus node-counting granularity, not curvature. Measurement only; changes no bound; ' +
-      'RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'RH open; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-96291-route-l-low-index-correction-test.js (tests and rules out a low-index-only curvature correction for the imp-96269 gap), 2026',
     relatedTerms: [
       'imp-96269-route-l-reach-law-crosscheck.js the original detector-vs-Christoffel reach-law consistency check (~2.4% agreement)',
@@ -23342,7 +23342,7 @@ export const glossary = [
       'characterizations -- one empirical/detector-based, one analytic/Christoffel-based -- landing ' +
       'on the same order of magnitude confirms Route L is a fixed-cost detector set by the target ' +
       'height, not a tunable lever. Cross-check of baked literals only; changes no bound; RH open; ' +
-      'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'NO QED; no refereed bound is changed.',
     firstUsed: 'imp-96269-route-l-reach-law-crosscheck.js (re-fits the imp-96182 Christoffel column and compares it against the imp-96149 detector power law), 2026',
     relatedTerms: [
       'imp-96149-route-l-detector-reach-law-fit.js the empirical detector power-law fit',
@@ -23367,7 +23367,7 @@ export const glossary = [
       'vs. the count-inverted gammaCount ~ 22.5637 (rateRelGap ~ 8.47e-2), shows the count-model ' +
       'dependence is real and macroscopic at low N, just invisible at 1e22. Accuracy audit only -- no ' +
       'gap closed, no bound changed, conditional C_H <= 0.127 stays UNPROVEN; changes no bound; RH open; ' +
-      'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'NO QED; no refereed bound is changed.',
     firstUsed: 'imp-96402-ecoll-anchor-from-tabulated-true-zero-height.js (supplies the first E_coll anchor built from a tabulated true zero height instead of a count-model inversion), 2026',
     relatedTerms: [
       'imp-96363-... the residual noting every stored E_coll anchor used a count-inverted gamma_N',
@@ -23391,8 +23391,8 @@ export const glossary = [
       'the uncorrected 9.08e-2). The reason: the pointwise reconstruction already evaluates ' +
       'x(N) = E_flow(N)/(E_trunc+E_coll(N)) at each N, so it already carries the exact local ' +
       'dE_flow/dN -- there is no missing-drift degree of freedom to recover. Measurement only; ' +
-      'C_mb stays GUE-conditional (imp-486); changes no bound; RH open; NO QED; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA.',
+      'C_mb stays GUE-conditional (imp-486); changes no bound; RH open; NO QED; no refereed bound is changed' +
+      '.',
     firstUsed: 'imp-96403-eflow-peak-location-eflowsq-vs-dedn.js (isolates and rules out the untested dE_flow/dN branch of the imp-96266 M3 fork), 2026',
     relatedTerms: [
       'imp-96286-eflow-peak-location-error-order.js the flat-peak amplification mechanism and the E_flow^2/x^2 correction this module confirms and cross-checks against the drift alternative',
@@ -23416,7 +23416,7 @@ export const glossary = [
       'crossover across 1.32 decades by scaling C_C and E_trunc keeps the offset pinned in ' +
       '[+0.0068, +0.0088] with sigma in [0.4976, 0.4981] -- rigid tracking a coincidence could not ' +
       'produce. Measurement/derivation only; no operator positivity; no RH verdict; NO QED; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
     firstUsed: 'imp-96405-knee-crossover-forced-vs-coincidental.js (derives and measures the logistic-sigmoid forcing of the knee to the crossover), 2026',
     relatedTerms: [
       'imp-96388-sigma-peak-vs-knee-cross-tabulation.js the ~0.013 log10 near-coincidence this module explains',
@@ -23441,7 +23441,7 @@ export const glossary = [
       'wobbling with the backed-out S(gamma_N) in [+0.32, +0.60]. So the count-model gap is a ' +
       'two-part quantity, not a +7/8-only effect. Accuracy audit only: no gap closed, no bound ' +
       'changed, conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false ' +
-      '(imp-2642/imp-2701); Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+      '(imp-2642/imp-2701); no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-96445-count-gap-plus78-vs-st-split.js (exact two-re-inversion split of the count-inversion gap into +7/8 and S(T) shares), 2026',
     relatedTerms: [
       'imp-96426-ecoll-anchor-intermediate-heights.js the intermediate count-inversion gap ladder and the +7/8-dominance claim this module splits exactly',
@@ -23471,7 +23471,7 @@ export const glossary = [
       'variance and a direct pair-correlation double integral. rho_exact is the theoretical GUE quantity for ' +
       'boxes of unfolded length L(T); at T = 3e12 there are no computed zeros, so nothing here touches real ' +
       'zero data. Changes no bound; establishes no operator positivity; does not touch the ~1.9-sigma ' +
-      'excursion confidence; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'excursion confidence; RH open; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-96312-covariance-cross-validation-pt-anchor.js (cross-validates the imp-96267 ratio form and the imp-96128 union-identity covariance form at the PT verified height), 2026',
     relatedTerms: [
       'imp-96267-covariance-drift-rigidity-limit-reach.js the source rho_exact = -0.4817670 decade-ladder + PT-anchor ratio-form measurement',
@@ -23494,8 +23494,8 @@ export const glossary = [
       'Yoshida/Connes-Consani range ln 2 = 0.6931 and both sit strictly below ln 3 = 1.0986. The l1 norm of the ' +
       'certificate grows ~30-50x per 0.02 step in 2a (54 -> 3.2e4 -> 1.5e6 from X0 = 0.9 to 0.96), and the ' +
       'double-precision LP hits a conditioning wall between 2a = 0.96 and 1.0 -- 0.96 < 2a < ln 3 remains open. ' +
-      'HONEST SCOPE: proved and machine-verified (interval arithmetic) for 2a <= 0.96; RH open; Platt-Trudgian ' +
-      'Lambda <= 0.2 stands; NO QED.',
+      'HONEST SCOPE: proved and machine-verified (interval arithmetic) for 2a <= 0.96; RH open; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'rh-route-i-toeplitz-krein-certificate-2026-09-24.js (builds and interval-verifies both atomic Krein certificates, quantifies the ln 3 obstruction and the LP conditioning wall), 2026',
     relatedTerms: [
       'rh-route-i-toeplitz-krein-certificate-2026-09-24.js the module carrying KREIN_CERTIFICATE, KREIN_CERTIFICATE_090, the certificate lemma and the RH_ROUTE_I_TOEPLITZ_KREIN_CERTIFICATE theorem record',
@@ -23524,7 +23524,7 @@ export const glossary = [
       'anchor -- a real but modest reach, not the ~5-6 decades the model extrapolation claimed. HONEST SCOPE: ' +
       'rho is the theoretical GUE (sine-kernel) two-interval correlation, not computed from real zeros; the ' +
       'measured-floor crossover is itself a coarser extrapolation (re-anchoring one L-linear form across two ' +
-      'different floor mechanisms); changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'different floor mechanisms); changes no bound; RH open; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-96531-basis-c-crossover-measured-floor.js (re-anchors the imp-96430 crossover model to the imp-96448 measured anchor floor and re-bisects), 2026',
     relatedTerms: [
       'imp-96430-basis-c-corroboration-reach-crossover.js the original L-linear MODEL-floor crossover band [1.3e12, 2.5e12] this recomputes',
@@ -23554,7 +23554,7 @@ export const glossary = [
       '~1.3 decade above the flattening onset and the per-extension flatten increment is itself shrinking ' +
       '(1.73 -> 1.28 percent), so continued flattening over the accessible window cannot yet distinguish a ' +
       'genuine sub-log growth law from the tail of an asymptotic slope that saturates beyond N=12000; ' +
-      'changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'changes no bound; RH open; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-96694-route-m-majorant-ladder-above-9000.js (extends the imp-96684 eleven-rung Frobenius/Wolkowicz-Styan ladder and imp-96649 lam_max ladder to N=10000,11000,12000), 2026',
     relatedTerms: [
       'imp-96684-route-m-frobenius-majorant-high-n-rungs.js the eleven-rung ladder extended here, which first flagged the flattening as measured only over one decade below the compute ceiling',
@@ -23588,7 +23588,7 @@ export const glossary = [
       'proxy (exact for the s^2 small-gap repulsion driving this exponent, but ignoring multi-gap ' +
       'sine-kernel correlations), not real zeros; a numerical re-measurement, not a proof; changes no ' +
       'bound; the imp-96616 consequence (beating 1/log^2 needs the unproved GUE cube-root law) is ' +
-      'unchanged; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'unchanged; RH open; NO QED; no refereed bound is changed.',
     firstUsed: 'imp-96774-gmin-exponent-refit-genuine-se.js (re-fits the running-min exponent b across 100 independent theoretical-GUE realizations to measure its genuine standard error), 2026',
     relatedTerms: [
       'imp-96654-gmin-crossover-sensitivity-oscillation.js the single-realization OLS SE = 0.0206 / "-3.006 SE from the pole" reading this re-scores as understated by ~2.75x',
@@ -23617,7 +23617,7 @@ export const glossary = [
       'against the coprimality-restricted 1/(a^2 b^2) weight, which the literature supplies only for ' +
       'a fixed denominator. No new ceiling number and no rigorous bound result; the ladder stays ' +
       'two-rigor-levels deep (T rigorous, F/M fit/measured), and wall-clock compute still binds ' +
-      'first. RH open; PT Lambda <= 0.2 remains SOTA; NO QED.',
+      'first. RH open; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-96795-route-m-frobenius-g-factorization-route-independence-assessment.js (decides the imp-96688 g-factorization reduces to the F route and names T(N) as the residual well-posed target), 2026',
     relatedTerms: [
       'imp-96688-route-m-frobenius-g-factorization-assessment.js the g-factorization assessed here, factorizing ||G_N||_F^2 exactly',
@@ -23647,7 +23647,7 @@ export const glossary = [
       'certificate route, not a numerical artifact. ln3 in particular is unreachable by this route at ' +
       'any precision (eps(ln3)<0). Assessment only, no LP re-solved; interval-rigorous reach stays ' +
       '2a<=0.96; whether ln3 is reachable at all is a uniform-in-N spectral-gap / de Branges ' +
-      'existence question, not an arithmetic-precision one; RH open; PT Lambda <= 0.2 remains SOTA; ' +
+      'existence question, not an arithmetic-precision one; RH open; no refereed bound is changed; ' +
       'NO QED.',
     firstUsed: 'imp-96732-krein-extended-precision-reach-assessment.js (splits the post-0.96 Krein wall into a solver-limited sub-window below 2a=1.0 and an intrinsic margin-vanishing wall at and above it), 2026',
     relatedTerms: [
@@ -23679,7 +23679,7 @@ export const glossary = [
       'remove), and the true positivity boundary near 2a~1.13 where lambda_min itself changes sign. ' +
       'Structural assessment only, no LP re-solved (sub-gap IMP96834_HIGHER_DEGREE_LP_UNSOLVED: how far ' +
       '2a* actually moves is unmeasured); interval-rigorous reach stays 2a<=0.96; the lambda_min ceiling ' +
-      'is an unproven-in-the-limit Rayleigh upper bound; RH open; PT Lambda <= 0.2 remains SOTA; NO QED.',
+      'is an unproven-in-the-limit Rayleigh upper bound; RH open; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-96834-krein-certificate-degree-margin-assessment.js (sharpens imp-96732: the eps=200(1-2a) zero at 2a=1.0 is a fixed-degree/double-precision certificate artifact, with the genuinely intrinsic obstructions -- l1 blow-up and the lambda_min sign flip -- sitting to its right), 2026',
     relatedTerms: [
       'imp-96732-krein-extended-precision-reach-assessment.js the parent assessment this corrects, which had labelled the 2a=1.0 eps zero intrinsic',
@@ -23703,7 +23703,7 @@ export const glossary = [
       'decreasing) at ~1.06 -- nowhere near 2. HONEST SCOPE: measured to N=4000 only; a slow transient ' +
       'masking an eventual (log N)^2 law past this reach cannot be excluded from data alone, but the ' +
       'ladder gives no evidence for it. Measurement/fit only; no growth law is proved; no bound moved; ' +
-      'RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+      'RH open; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-96828-coprime-core-vasyunin-second-moment-growth.js (measures T(N) ~ 3.542 log N over N<=4000, refuting the imp-96795 (log N)^2 target over the measured range), 2026',
     relatedTerms: [
       'imp-96688-route-m-frobenius-g-factorization-assessment.js the exact factorization localizing the F-route growth into T(N)',
@@ -23730,7 +23730,7 @@ export const glossary = [
       'bound route is STILL NOT CLOSED, but this sidesteps both imp-96812 horns and yields a rigorous ' +
       'conditional bound VIF_291 <= 0.0054629 (z >= 26.023), essentially the actual value. Assessment + ' +
       'derivation, conditional on GUE / Montgomery pair correlation (UNPROVEN); changes no unconditional ' +
-      'bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+      'bound; RH open; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-96853-vif-twosided-envelope-partition-assessment.js (shows the per-lag sign partition imp-96812 horn B blocks is unnecessary once the imp-96628 envelope is used two-sided), 2026',
     relatedTerms: [
       'imp-96812-boxsine-onesided-sign-assessment.js the horn A/B sign-alternation finding this routes around',
@@ -23753,8 +23753,8 @@ export const glossary = [
       '(rh-route-i-toeplitz-krein-certificate-2026-09-24.js). Nothing in the kmax=5 measurement raises ' +
       'the certified reach past 0.96: it only shows the fixed-degree/double-precision wall at 2a=1.0 ' +
       '(imp-96834) is an artifact of degree and precision, not that any point past 0.96 is proved. ' +
-      'Measurement only; interval-rigorous reach stays exactly 2a<=0.96; RH open; Platt-Trudgian ' +
-      'Lambda <= 0.2 remains SOTA; NO QED.',
+      'Measurement only; interval-rigorous reach stays exactly 2a<=0.96; RH open; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-96886 (adds this clarifying headword distinguishing the imp-96845 measured LP solvability frontier from the interval-rigorous certified reach), 2026',
     relatedTerms: [
       'imp-96845-krein-kmax5-frontier-measurement.js the source measurement (IMP96845_SWEEP, IMP96845_VERDICT.intervalRigorousReachUnchanged=0.96)',
@@ -23779,7 +23779,7 @@ export const glossary = [
       'because the tail perturbation loads high-frequency modes nearly orthogonal to the protected bottom ' +
       'eigenvector v0. Measurement/derivation only: the Rayleigh value is a quadrature evaluation, not yet a ' +
       'rigorous interval majorant (IMP96888_RAYLEIGH_TAIL_MAJORANT stays open); establishes no operator ' +
-      'positivity; interval-rigorous reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; ' +
+      'positivity; interval-rigorous reach stays 2a<=0.96; RH open; no refereed bound is changed; ' +
       'NO QED.',
     firstUsed: 'imp-96919 (adds this glossary headword for the imp-96888 Rayleigh residual bound), 2026',
     relatedTerms: [
@@ -23808,7 +23808,7 @@ export const glossary = [
       'open coupled (N,T) resolvent-truncation wall of IMP96889_SHIFTINVERT_REEXPRESSES_NT_RATE. Ritz value ' +
       'is an upper bound on lambda_1(T), so the floor is an upper estimate, not a certified lower bound; ' +
       'measurement/derivation only; no operator positivity established; interval-rigorous reach stays ' +
-      '2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+      '2a<=0.96; RH open; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-96945 (adds this glossary headword for the imp-96911 coupled (N,T) wall result), 2026',
     relatedTerms: [
       'imp-96911-krein-eta-nconvergence-scout.js the source scout (IMP96911_ETA_NBIG_T800, IMP96911_T_SENSITIVITY, IMP96911_VERDICT)',
@@ -23837,8 +23837,8 @@ export const glossary = [
       '"wall-clock compute binds first" conclusion still survives to ~3.6e6x machine eps, but the ' +
       'specific imp-96706 >=1500x headroom figure is fragile, breaking at only ~2.9x machine eps. ' +
       'Measurement/sensitivity restatement only; no bound moved; no operator positivity ' +
-      'established; interval-rigorous reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 ' +
-      'remains SOTA; NO QED.',
+      'established; interval-rigorous reach stays 2a<=0.96; RH open; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-96946 (adds this glossary headword contrasting the imp-96920 p-invariance with the imp-96914 eps-non-invariance of the same T<F<M ordering), 2026',
     relatedTerms: [
       'imp-96920-route-m-ceiling-ordering-glossary-headword.js the p-invariance headword this contrasts (CEILING_ORDERING_HEADWORD)',
@@ -23865,8 +23865,8 @@ export const glossary = [
       'open positivity; the only quantity separating the two endpoints is the absolute floor ' +
       'MARGIN (order 12 vs order 0.5), not the drift behaviour. Ritz value is an upper bound so the ' +
       'floor is an upper estimate, not a certified lower bound; interval-rigorous reach stays ' +
-      '2a<=0.96; no operator positivity established at ln3; RH open; Platt-Trudgian Lambda<=0.2 ' +
-      'remains SOTA; NO QED.',
+      '2a<=0.96; no operator positivity established at ln3; RH open; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-96964 (adds this glossary headword for the imp-96938 drift-vs-margin calibration), 2026',
     relatedTerms: [
       'imp-96938-krein-drift-calibration-096.js the source calibration (IMP96938_ETA_NBIG_T800, IMP96938_T_SENSITIVITY, IMP96938_VERDICT)',
@@ -23905,7 +23905,7 @@ export const glossary = [
       'quad-vs-tail F-ceiling model ambiguity (6.22 percent spread between the two refit models), ' +
       'which is itself over 12x the size of the F<M gap and could swamp it. Sensitivity only; ' +
       'no bound moved; no operator positivity established; interval-rigorous reach stays ' +
-      '2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+      '2a<=0.96; RH open; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-96966 (adds this glossary headword for the imp-96937 reconciled all-rung CI band), 2026',
     relatedTerms: [
       'imp-96937-route-m-ceiling-reconciled-ci-band.js the source reconciliation (IMP96937_VERDICT, IMP96937_RECONCILED_M_BAND)',
@@ -23935,7 +23935,7 @@ export const glossary = [
       '+0.0044 (sigma=0.5) -> +0.0006 (sigma=0.25) -> +0.0001 (sigma=0.1) -- the ratio structure ' +
       'sharpens the deeper the crossing sits. Sensitivity/naming only; C_mb/C_C stays GUE-' +
       'conditional (imp-486); E_trunc stays the imp-2631 fixed-strip truncation floor; changes ' +
-      'no bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+      'no bound; RH open; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-96967 (adds this glossary headword for the imp-96936/imp-96916/imp-96931 equal-and-opposite C_C/E_trunc leverages), 2026',
     relatedTerms: [
       'imp-96936-sigma-quarter-crossing-cc-elasticity.js the conjugate C_C leverage +2.0874 at sigma=0.25 and the signed-sum ladder',
@@ -23964,7 +23964,7 @@ export const glossary = [
       'IMP96956_CONVERGED_KMAX5_100_UNPRODUCED: only the round-cap-stalled lean iterate was tested, ' +
       'not a fully-converged (guarded-residual >= 0) one, so whether a converged kmax=5 iterate at ' +
       '2a=1.00 could interval-verify remains open. Verification-attempt only; interval-rigorous ' +
-      'certified reach stays exactly 2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+      'certified reach stays exactly 2a<=0.96; RH open; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-96980 (adds this glossary headword for the imp-96956 kmax=5 2a=1.00 collapse-under-rigor verdict), 2026',
     relatedTerms: [
       'imp-96956-krein-kmax5-100-interval-verify.js the source verification attempt (IMP96956_VERIFY, IMP96956_VERDICT.intervalRigorousReachUnchanged=0.96)',
@@ -23997,7 +23997,7 @@ export const glossary = [
       '(reach x pole term x quantifier-over-the-cone is the entire difference between the certified and ' +
       'target objects), but SUB-GAP IMP97049_AXIS_LEVEL_ONLY: this does not enumerate every specific ' +
       'blocker within each axis, nor rule out an untried instance inside one. Certified reach stays ' +
-      '2a<=0.96; no bridge to full Weil positivity exists; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH ' +
+      '2a<=0.96; no bridge to full Weil positivity exists; no refereed bound is changed; RH ' +
       'open; NO QED.',
     firstUsed: 'imp-97062 (adds this glossary headword for the imp-97049 obstruction-axis enumeration), 2026',
     relatedTerms: [
@@ -24023,7 +24023,7 @@ export const glossary = [
       'be cited as evidence for or against a Lambda bound. The Palm correction (Section C1, which WAS ' +
       'refereed) already shows the naive C2 framing understates the required local surplus by treating the ' +
       'wrong baseline; the worst-case Palm-corrected data narrowly fail the target. No bound changes; the ' +
-      'conditional theorem in Section B stands independent of C2; Platt-Trudgian Lambda <= 0.2 remains SOTA; ' +
+      'conditional theorem in Section B stands independent of C2; no refereed bound is changed; ' +
       'RH open; NO QED.',
     firstUsed: 'imp-97064 (adds this honest-status caveat for the rh-bridge-mirror-descent-2026-09-25 C2 unrefereed empirics), 2026',
     relatedTerms: [
@@ -24048,7 +24048,7 @@ export const glossary = [
       'z = 7.012. The ladder shows the rigorous conditional bound is essentially indistinguishable from ' +
       'the actual value. Presentation only; every figure is imported verbatim from imp-96853; no bound ' +
       'moved; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros ' +
-      '(UNPROVEN); Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+      '(UNPROVEN); no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-96988 (adds this glossary headword for the imp-96887 VIF cross-validation ladder), 2026',
     relatedTerms: [
       'imp-96887-vif-crossval-table.js the source table (IMP96887_VIF_CROSSVAL_TABLE, the three-level rows and z-shift)',
@@ -24072,7 +24072,7 @@ export const glossary = [
       '(T in {4800,6400,9600}, Tref=12800), not a rigorous enclosure. Upgrading the sharp Rayleigh form to a ' +
       'genuine interval majorant is the still-open sub-gap IMP96888_RAYLEIGH_TAIL_MAJORANT, being worked by ' +
       'imp-96990/imp-96993. Documentation only; establishes no operator positivity; interval-rigorous reach ' +
-      'stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+      'stays 2a <= 0.96; RH open; no refereed bound is changed; NO QED.',
     firstUsed: 'imp-97003 (adds this glossary headword distinguishing quadrature-only from rigorous-majorant status among the imp-96973 Krein-residual quantities), 2026',
     relatedTerms: [
       'imp-96848-krein-tresidual-rigorous-tailtrace-bound.js the one figure that IS a rigorous interval majorant (IMP96848_TAILTRACE_MAJORANT)',
@@ -24108,7 +24108,7 @@ export const glossary = [
       'measurement-anchored, not certified. The only RIGOROUS anchor stays the trace ceiling ' +
       'T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x regardless of where ' +
       'the far-field ceiling settles. Documentation only; establishes no operator ' +
-      'positivity; changes no bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; ' +
+      'positivity; changes no bound; RH open; no refereed bound is changed; ' +
       'NO QED.',
     firstUsed: 'imp-97104 (adds this glossary headword recording the imp-97081 far-field ||G||_F ceiling band narrowing that resolves the imp-96982 "tilted upward" framing in the opposite direction), 2026',
     relatedTerms: [
@@ -24142,8 +24142,8 @@ export const glossary = [
       'N = 16000) is still needed to settle F &lt; M without invoking the prior. Only the trace ' +
       'ceiling T = 2.594e7 (imp-96352, compute N ~ 9916) is a rigorous lower bound and binds first ' +
       'by &gt;2600x regardless of where the far-field ||G||_F ceiling settles. Documentation only; ' +
-      'establishes no operator positivity; changes no bound; RH open; Platt-Trudgian Lambda &lt;= ' +
-      '0.2 remains SOTA; NO QED.',
+      'establishes no operator positivity; changes no bound; RH open; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-97028 (adds this glossary headword for the imp-96996 STEP 1 ||G||_F monotonicity structural fact and its role as the F < M model-selection tie-breaker), 2026',
     relatedTerms: [
       'imp-96996-route-m-fm-quad-turnover-adjudication.js the source adjudication (monotonicity proof, turnover analysis, F < M preservation)',
@@ -24175,7 +24175,7 @@ export const glossary = [
       'q_S = 3.09 and p = 3.23 remains the imp-96995-floor-lift-eigendiff-residue-closed-form ' +
       'sub-gap. The Rayleigh floor is an UPPER bound, not a certified lower bound. Measurement/' +
       'derivation only; establishes no operator positivity; changes no bound; interval-rigorous reach ' +
-      'stays 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'stays 2a &lt;= 0.96; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97030 (adds this glossary headword for the imp-96995 result identifying S as the collective coordinate behind the super-cubic tail exponent p and ruling out finite-order perturbative closures), 2026',
     relatedTerms: [
       'imp-96995-minimiser-coeff-spectrum-supercubic.js the source measurement (full minimiser coefficient spectrum, closure routes ruled out)',
@@ -24218,8 +24218,8 @@ export const glossary = [
       'imp-96827 separately closes a DIFFERENT (non-shift-invert) direct T-residual to an explicit ' +
       'positive tolerance but does not resolve (a) or (b). Rayleigh/Ritz values throughout this ' +
       'cohort are UPPER bounds, not certified lower bounds; interval-rigorous certified reach ' +
-      'stays 2a &lt;= 0.96. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the ' +
-      'rigorous SOTA throughout.',
+      'stays 2a &lt;= 0.96. No RH verdict, no QED. No refereed bound is changed' +
+      ' throughout.',
     firstUsed: 'imp-97063 (surfacing the imp-96969 index -- which consolidates the imp-96827/96889/96911/96935/96938 Route C-direct Krein t-truncation cohort -- as a docs/glossary note so future scouts do not re-attempt closed levers), 2026',
     relatedTerms: [
       'imp-96969-coupled-nt-truncation-wall-cohort-index.js the source META cross-reference index this entry surfaces',
@@ -24250,7 +24250,7 @@ export const glossary = [
       'tail grid is -- so a bigger T or a smaller HP will not fix it. Clearing it needs a RICHER ' +
       'DESIGN FAMILY (a higher kmax or a different tail ansatz), not further tail parametrisation. ' +
       'Measurement only; establishes no operator positivity; certified interval-rigorous reach ' +
-      'stays exactly 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'stays exactly 2a &lt;= 0.96; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97090 (adds this glossary headword for the imp-97032 result establishing the design-F tail-edge dip is structural, not fixable by tail parametrisation), 2026',
     relatedTerms: [
       'imp-97032-krein-tail-parametrisation-lever.js the source measurement (larger-T and denser-HP levers both fail to clear the dip)',
@@ -24280,8 +24280,8 @@ export const glossary = [
       'genuine algebraic convergence rate, it only relocates the same non-convergence into an extra ' +
       'unconstrained degree of freedom. Ritz value stays an upper bound on lambda_1(T), not a ' +
       'certified lower bound; measurement/fit-diagnostic only; no operator positivity established; ' +
-      'interval-rigorous reach stays 2a &lt;= 0.96; RH open; Platt-Trudgian Lambda &lt;= 0.2 remains ' +
-      'SOTA; NO QED.',
+      'interval-rigorous reach stays 2a &lt;= 0.96; RH open; no refereed bound is changed' +
+      '; NO QED.',
     firstUsed: 'imp-97128 (adds this glossary headword for the imp-97058 verdict that the coupled (Nbig,T) surface fit still extracts no algebraic rate), 2026',
     relatedTerms: [
       'imp-97058-krein-coupled-nt-surface-fit-no-rate.js the source two-parameter surface-fit scout',
@@ -24306,8 +24306,8 @@ export const glossary = [
       '(-2.8e-3 at b=31 to -8.5e-5 at b=1025). By Landau phi(b) >= c b/log log b, this closes the ' +
       'boundary-term corner rigorously: V(1,b) = o(phi(b) b) contributes nothing to the leading ' +
       'kappa phi(b) b. Derivation only -- an elementary asymptotic of a classical cotangent sum, ' +
-      'moves no bound, establishes no operator positivity; Platt-Trudgian Lambda &lt;= 0.2 remains ' +
-      'SOTA; kappa &gt; 0 stays measured not proved; RH open; NO QED.',
+      'moves no bound, establishes no operator positivity; no refereed bound is changed' +
+      '; kappa &gt; 0 stays measured not proved; RH open; NO QED.',
     firstUsed: 'imp-97143 (adds this glossary headword for the imp-97119 closed-form boundary cotangent asymptotic), 2026',
     relatedTerms: [
       'imp-97119-route-m-boundary-cotangent-asymptotic.js the source derivation and verification table',
@@ -24334,7 +24334,7 @@ export const glossary = [
       'below the operative 0.36319 threshold (and ~3.9x below the raw 0.5705 floor) it must clear ' +
       '(imp-97188 tracks this ratio further out, still rising at b=601). The bound is only MEASURED, not ' +
       'proved: this gap -- any explicit c &lt; 0.36319 on A(b)/(phi(b) b) -- is the entire remaining ' +
-      'Route M first-moment obligation; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; kappa &gt; 0 stays ' +
+      'Route M first-moment obligation; no refereed bound is changed; kappa &gt; 0 stays ' +
       'measured not proved; RH open; NO QED.',
     firstUsed: 'imp-97190 (adds this glossary headword for the imp-97116 cotangent absolute-value bound), 2026',
     relatedTerms: [
@@ -24363,7 +24363,7 @@ export const glossary = [
       'moduli (b=2310, 2730, and b=30030 upward), where the k-fold Moebius difference collapses delta(1) ' +
       'toward the ~1e-6 floor and a subleading opposite-sign term flips r. A uniform quantitative ' +
       'non-cancellation bound for every non-primorial b remains an open residual. Derivation only; no ' +
-      'bound moves; PT Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'bound moves; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97192 (adds this glossary headword for the imp-97167 parity sign-law derivation), 2026',
     relatedTerms: [
       'imp-97167-route-m-parity-sign-law-derivation.js the source derivation of the master formula',
@@ -24390,8 +24390,8 @@ export const glossary = [
       'defy rational/log closed-form candidates. MEASURED (not proved): kappa_cot climbs 0.059 -> 0.111 ' +
       '-> ~0.121, stabilizing near +0.12, so kappa = kappa_arith + kappa_cot ~ 0.69 &gt; 0 with no ' +
       'cancellation of the arithmetic part -- but this positivity is a numerical reading, not a ' +
-      'certified lower bound. Derivation + measurement only; no bound moves; Platt-Trudgian ' +
-      'Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'certified lower bound. Derivation + measurement only; no bound moves; no refereed bound is changed' +
+      '; RH open; NO QED.',
     firstUsed: 'imp-97220 (adds this glossary headword for the imp-97097 kappa_cot reciprocity result), 2026',
     relatedTerms: [
       'imp-97097-route-m-cotangent-first-moment-reciprocity.js the source reciprocity derivation and IMP97097_MEASURED/IMP97097_SUBGAP records',
@@ -24417,8 +24417,8 @@ export const glossary = [
       'kappa_arith = 0.5705 and (per imp-97204) about 2.5x below the tighter operative threshold ' +
       '(2/pi) kappa_arith = 0.36319. This REPLACES the imp-97116 "small-inverse frequency" framing (that ' +
       'piece is measured lower order) with the true sole obstruction: an explicit, uniform-in-b bound on ' +
-      'this absolute first moment. Assessment + measurement only; no bound is certified; Platt-Trudgian ' +
-      'Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'this absolute first moment. Assessment + measurement only; no bound is certified; no refereed bound is changed' +
+      '; RH open; NO QED.',
     firstUsed: 'imp-97220 (adds this glossary headword for the imp-97180 absolute first moment obstruction), 2026',
     relatedTerms: [
       'imp-97180-route-m-cotangent-absvalue-bulk-firstmoment-obstruction.js the source split A = A_tail + A_bulk and IMP97180_MEASURED/IMP97180_SUBGAP records',
@@ -24448,7 +24448,7 @@ export const glossary = [
       'to each other and progress on one says nothing about the other: the first is a number-theoretic ' +
       'remainder that keeps yielding to explicit Moebius/Stirling bookkeeping, the second is an analytic ' +
       'mean-value problem that has so far only been sharpened, not closed. Index note only; no bound ' +
-      'moves; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'moves; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97220 (adds this glossary headword distinguishing the two open Route M first-moment sub-gaps per the imp-97155 cohort index), 2026',
     relatedTerms: [
       'imp-97155-route-m-first-moment-evaluation-cohort-index.js the source cohort index distinguishing these two sub-gaps',
@@ -24480,7 +24480,7 @@ export const glossary = [
       'out in the mean; the inverse line oversamples large-|c_0| residues by ~30% relative to this ' +
       'full-residue mean, so the sole remaining open input is an inverse-map equidistribution ' +
       '(Kloosterman-type) transfer absorbing that oversampling, sitting entirely inside the ~1.38x CS ' +
-      'margin. Reduction + measurement only; no bound moves; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; ' +
+      'margin. Reduction + measurement only; no bound moves; no refereed bound is changed; ' +
       'RH open; NO QED.',
     firstUsed: 'imp-97234 (adds this glossary headword for the imp-97203 Cauchy-Schwarz reduction), 2026',
     relatedTerms: [
@@ -24511,7 +24511,7 @@ export const glossary = [
       'SIGNED Bettin-Conrey mean value Sum_a c_0(h_a/a) over the inverse line -- no absolute value or ' +
       'square, so neither the even-moment machinery (imp-97203) nor the a &lt;-&gt; b-a antisymmetry ' +
       '(imp-97097) applies, leaving it strictly harder and still non-elementary. Reduction + measurement ' +
-      'only; no bound moves; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'only; no bound moves; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97235 (adds this glossary headword for the imp-97204 termwise domination result), 2026',
     relatedTerms: [
       'imp-97204-route-m-cotangent-signed-firstmoment-lower-bound.js the source domination |S(b)| &lt;= A(b) and IMP97204_MEASURED/IMP97204_SUBGAP records',
@@ -24542,7 +24542,7 @@ export const glossary = [
       'plus a further H2-weight intercept correction between the unweighted c1_T and the H2-weighted ' +
       'Int intercept -- a separate, strictly harder obstruction, not a restatement of the slope gap. ' +
       'Reduction + measurement only; no bound moves; the rigorous anchor stays T=2.594e7; compute ' +
-      'N~9916 (imp-96352) binds first by &gt;2600x; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH ' +
+      'N~9916 (imp-96352) binds first by &gt;2600x; no refereed bound is changed; RH ' +
       'open; NO QED.',
     firstUsed: 'imp-97252 (adds this glossary headword for the imp-97207 intercept decomposition), 2026',
     relatedTerms: [
@@ -24572,7 +24572,7 @@ export const glossary = [
       'so the Stirling half-log (1/2) log(m!) becomes (1/2) log m in imp-97202 but (1/2)*(1/2) log m = ' +
       '(1/4) log m in imp-97167 -- the factor of 2 is purely this kernel log-weight, not two different facts. ' +
       'Accuracy cross-check only; no bound moves; both source derivations stand unchanged; kappa_arith and the ' +
-      'T ~ 2.594e7 trace anchor are untouched; PT Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'T ~ 2.594e7 trace anchor are untouched; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97279 (adds this glossary headword for the imp-97223 reconciliation), 2026',
     relatedTerms: [
       'imp-97223-route-m-vonmangoldt-coefficient-reconciliation.js the source cross-check and IMP97223_RECONCILIATION/IMP97223_VERDICT records',
@@ -24600,8 +24600,8 @@ export const glossary = [
       'd = C^T v0 (imp-97164). Both reduce to the SAME missing primitive -- interval spherical-Bessel / ' +
       'Gegenbauer evaluation (mpmath.iv lacks it, Arb/python-flint not installed) -- the imp-97015 sub-gap ' +
       'IMP97015_ARB_INTERVAL_BESSEL. Attempt/execution only: no interval tail majorant, no operator ' +
-      'positivity, no bound change; interval-rigorous reach stays 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= ' +
-      '0.2 remains SOTA; RH open; NO QED.',
+      'positivity, no bound change; interval-rigorous reach stays 2a &lt;= 0.96; no refereed bound is changed' +
+      '; RH open; NO QED.',
     firstUsed: 'imp-97280 (adds this glossary headword for the imp-97227 certificate), 2026',
     relatedTerms: [
       'imp-97227-krein-interval-annihilation-certificate.js the source certificate and IMP97227_INTERVAL_FUNCTIONALS/IMP97227_VERDICT records',
@@ -24629,8 +24629,8 @@ export const glossary = [
       'the whole interval-rigorous upgrade: an Arb acb_hypgeom spherical-Bessel evaluation at working ' +
       'precision dps &gt;= D + ceil(log10 kappa) ~ D + 11 (the guard-digit budget measured in imp-97015, ' +
       'max log10 kappa = 10.34). Naming / cross-reference only; supplies no majorant, no inversion, no ' +
-      'operator positivity; interval-rigorous reach stays 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= 0.2 ' +
-      'remains SOTA; RH open; NO QED.',
+      'operator positivity; interval-rigorous reach stays 2a &lt;= 0.96; no refereed bound is changed' +
+      '; RH open; NO QED.',
     firstUsed: 'imp-97281 (adds this glossary headword identifying the shared IMP97015_ARB_INTERVAL_BESSEL primitive), 2026',
     relatedTerms: [
       'imp-97015-ghat-cancellation-interval-enclosure.js the source module committing the IMP97015_ARB_INTERVAL_BESSEL sub-gap and its guard-digit budget',
@@ -24659,7 +24659,7 @@ export const glossary = [
       'lifting the imp-97265 prime-only proof to the first composite class. The uniform ceiling for ' +
       'omega(b) &gt;= 3 stays an open residual (the Moebius cancellation must be retained since the ' +
       'naive triangle bound over-charges for many-small-prime b). Honest partial; no bound on Lambda ' +
-      'moves; kappa_arith unchanged; PT Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'moves; kappa_arith unchanged; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97317 (adds this glossary headword for the imp-97290 decomposition), 2026',
     relatedTerms: [
       'imp-97290-route-m-arith-quarter-ceiling-semiprime-proof.js the source proof (leader decomposition, ceiling reduction, semiprime ceiling)',
@@ -24683,8 +24683,8 @@ export const glossary = [
       'INDEPENDENT of a, so the moment sum Sum_a kappa_a^2/a^2 that imp-97261/imp-97292 named as the input ' +
       'able to separate the b^(1/2) vs log^2 b candidates for the interior second moment Q(b) DIVERGES ' +
       '(linearly in the cutoff), falsifying the imp-97261 convergent-coefficient premise. Derivation + ' +
-      'measurement only; pins no coefficient for g(b); no bound on Lambda moves; PT Lambda &lt;= 0.2 ' +
-      'remains SOTA; RH open; NO QED.',
+      'measurement only; pins no coefficient for g(b); no bound on Lambda moves; no refereed bound is changed' +
+      '; RH open; NO QED.',
     firstUsed: 'imp-97341 (adds this glossary headword for the imp-97311 small-a asymptotic), 2026',
     relatedTerms: [
       'imp-97311-route-m-bettin-conrey-smalla-kappa-moment.js the source module (derivation, moment, divergence)',
@@ -24712,7 +24712,7 @@ export const glossary = [
       'Rayleigh-Ritz ladder (0.552 committed certificate -&gt; 0.534 Legendre -&gt; 0.476 shift-invert -&gt; ' +
       '0.504 at N=132 dps=50, imp-97183; later coupled N,T and reproducing-kernel work in the same cohort ' +
       'tightens this further), with NO proven positive lower bound yet established. Concept/definition only; ' +
-      'no bound on Lambda moves; interval-rigorous reach stays 2a &lt;= 0.96; PT Lambda &lt;= 0.2 remains SOTA; ' +
+      'no bound on Lambda moves; interval-rigorous reach stays 2a &lt;= 0.96; no refereed bound is changed; ' +
       'RH open; NO QED.',
     firstUsed: 'imp-97347 (adds this glossary headword for the c_sharp quantity named in imp-97161 and analyzed in imp-97182), 2026',
     relatedTerms: [
@@ -24743,7 +24743,7 @@ export const glossary = [
       'closes only the 8-sparse-trial inversion branch; the live imp-97113 6-functional relaxation ' +
       '(94-dim v0 family) still needs interval control of its own nonzero tail (IMP97015_ARB_INTERVAL_BESSEL). ' +
       'Assessment only; produces no committed v0, no interval majorant, no operator positivity; changes no ' +
-      'bound; interval-rigorous reach stays 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH ' +
+      'bound; interval-rigorous reach stays 2a &lt;= 0.96; no refereed bound is changed; RH ' +
       'open; NO QED.',
     firstUsed: 'imp-97338 (Route B Obstruction B assessment on the imp-97293 exact rational overlap matrix), 2026',
     relatedTerms: [
@@ -24772,7 +24772,7 @@ export const glossary = [
       'Kbig &gt; N, sharing the SAME band-limited concentration / unbounded-above vacuity wall as the m=1 ' +
       'lambda_1 bracket (imp-97414 Finding 3). Execution/measurement only; no rigorous lower bound on ' +
       'lambda_2; no operator positivity; no bound moves; interval-rigorous reach stays 2a &lt;= 0.96; ' +
-      'Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97468 (adds this glossary headword for the imp-97440 Route-2 execution), 2026',
     relatedTerms: [
       'imp-97440-krein-route2-lambda2-lower-bound-execution.js the source module (Ritz band, circular Kbig=N check, genuine-projector collapse)',
@@ -24798,7 +24798,7 @@ export const glossary = [
       'genuine N-growth of c_sharp. The only measurable quantity is a flat plateau over N = 84..132: mean ' +
       '0.581687 +/- 0.000590, range [0.581059, 0.582646], containing the committed inner-N=100 value ' +
       '0.581059. Still an upper bracket only; no positive lower bound established; no bound on Lambda moves; ' +
-      'interval-rigorous reach stays 2a &lt;= 0.96; PT Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'interval-rigorous reach stays 2a &lt;= 0.96; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97469 (adds this glossary headword for the imp-97439 non-convergence-of-rate diagnosis), 2026',
     relatedTerms: [
       'imp-97439-krein-csharp-nbracket-richardson-nonconvergence.js the source module (bracket sequence, Aitken accelerants, coupled-T-truncation diagnosis, plateau)',
@@ -24825,8 +24825,8 @@ export const glossary = [
       'leading Binet order (Sum_{j&gt;1} 1/qj &lt; 1, Sum_{j&gt;2} 1/qj &lt; 1), but the one-sided ' +
       'elementary toolkit (D &gt; 0, D strictly decreasing) cannot prove them -- that needs the ' +
       'quantitative two-sided Binet control of IMP97333_SIGN_TAIL_SUBGAP. So omega = 5 is the boundary of ' +
-      'the ELEMENTARY method, not of weighted domination itself. No bound on Lambda moves; Platt-Trudgian ' +
-      'Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'the ELEMENTARY method, not of weighted domination itself. No bound on Lambda moves; no refereed bound is changed' +
+      '; RH open; NO QED.',
     firstUsed: 'imp-97424 (adds this glossary headword for the imp-97396 weighted-domination reduction), 2026',
     relatedTerms: [
       'imp-97396-route-m-sign-law-omega5-weighted-reduction.js the source module (charging partition, inequalities (A)/(B), L2/L1 ratio measurements)',
@@ -24856,7 +24856,7 @@ export const glossary = [
       '4.167e-8 at q1 = 10^6), so a finite check alone cannot cover all q1, even though the now-explicit ' +
       'O(1/q1^3) remainder makes that tail lemma a bounded elementary calculation not carried out here. So ' +
       'the two-sided estimate is DERIVED and the one-sided obstruction is removed, but the omega = 5 sign ' +
-      'law is not yet proved. No bound on Lambda moves; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH ' +
+      'law is not yet proved. No bound on Lambda moves; no refereed bound is changed; RH ' +
       'open; NO QED.',
     firstUsed: 'imp-97449 (adds this glossary headword for the imp-97423 two-sided Binet bracket reduction), 2026',
     relatedTerms: [
@@ -24885,8 +24885,8 @@ export const glossary = [
       '(43.8%) -- band-limit realizability is the slightly larger of the two. Honest framing: R is a ' +
       'finite-section IEEE-double eigenvalue, NOT an interval enclosure (sub-gap ' +
       'IMP97457_REALIZABLE_NEG_FLOOR_MEASURED_NEEDS_INTERVAL_EIGENVALUE_ENCLOSURE); measurement only, no ' +
-      'operator positivity, no bound moves, interval-rigorous reach stays 2a &lt;= 0.96; Platt-Trudgian ' +
-      'Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'operator positivity, no bound moves, interval-rigorous reach stays 2a &lt;= 0.96; no refereed bound is changed' +
+      '; RH open; NO QED.',
     firstUsed: 'imp-97489 (adds this glossary headword for the imp-97457 bathtub realizability gap), 2026',
     relatedTerms: [
       'imp-97457-krein-bathtub-realizability-gap.js the source module (R = lambda_max(P_a M_sigma2^- P_a), 43.84% capture, gap split)',
@@ -24917,8 +24917,8 @@ export const glossary = [
       '~3066 gap is exactly the discarded positive field, split roughly evenly with the imp-97457 band-limit ' +
       'realizability share. The loss is therefore a genuine SPECTRAL quantity (far-field cost coupled to ' +
       'band-limited tail decay), not a scalar budget. Measurement only; no operator positivity; no ' +
-      'coercivity constant; no bound moves; interval-rigorous reach stays 2a &lt;= 0.96; Platt-Trudgian ' +
-      'Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'coercivity constant; no bound moves; interval-rigorous reach stays 2a &lt;= 0.96; no refereed bound is changed' +
+      '; RH open; NO QED.',
     firstUsed: 'imp-97490 (adds this glossary headword for the imp-97458 discarded positive far field), 2026',
     relatedTerms: [
       'imp-97458-krein-csharp-discarded-positive-far-field.js the source module (finite inner island 2511.030, unbounded t^4 tail, minimiser budget)',
@@ -24988,7 +24988,7 @@ export const glossary = [
       'above and STEP 2-4 show E1 enters the arithmetic first moment F_arith(b) linearly with coefficient ' +
       '-1/2, at order O(b log b) -- a full power of b below the Theta(phi(b) b) leading scale that fixes ' +
       'kappa_arith -- so the b/4-edge breach cannot move kappa_arith or any Lambda bound. Definitional ' +
-      'headword only; no bound on Lambda moves; PT Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'headword only; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97545 (adds this glossary headword for the imp-97516 STEP 1 definitional bridge), 2026',
     relatedTerms: [
       'imp-97516-route-m-quarter-edge-breach-vs-first-moment-companion.js the source derivation (STEP 1 definitional bridge; STEPS 2-4 scale separation and insulation)',
@@ -25061,7 +25061,7 @@ export const glossary = [
       '|psi|^2 it shows up as the oscillatory cross term whose tail integral is bounded below 1e-3 -- ' +
       'matching the imp-97497 error bar exactly. HONEST SCOPE: derivation only; measurement stays ' +
       'measurement; no operator positivity; no coercivity constant; no bound moves; interval-rigorous ' +
-      'reach stays 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'reach stays 2a &lt;= 0.96; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97518 (three-IBP closed-form derivation of the imp-97497 far profile and its bias term), 2026',
     relatedTerms: [
       'imp-97518-krein-tail-endpoint-asymptotic-closed-form.js the source module (closed forms for g_pp(a), g_ppp(a), and the two-term endpoint asymptotic)',
@@ -25084,7 +25084,7 @@ export const glossary = [
       'bias without moving the far-field cost. The far-field positivity margin t0 = 10.531 (last sign ' +
       'change of sigma_2 into all-positive) is R-independent, since |psi_R(t)|^2 &gt;= 0 for every R makes ' +
       'the integrand sign follow sigma_2 alone. Measurement only; no operator positivity; no bound moves; ' +
-      'interval-rigorous reach stays 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'interval-rigorous reach stays 2a &lt;= 0.96; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97518 (closed-form derivation of g_ppp(a) and its zero at R = 1/a); imp-97580 (R-sweep confirming the tail-bias sign change at Rc = 1/a and that it sits far below the far-field optimum R*)',
     relatedTerms: [
       'imp-97580-krein-tail-bias-R-sweep-signchange.js the source module (tail-bias factorization, Rc = 1/a, R-independent positivity threshold)',
@@ -25109,7 +25109,7 @@ export const glossary = [
       'E_CF ~= -(E_CC+E_ET) to ~1e-6), the fingerprint of a denominator-additive amplitude (C_F enters ' +
       'E_N only through the additive term E_flow) rather than a nonlinear driver of the crossing. ' +
       'HONEST SCOPE: numerical cross-check only, not a proved theorem; no operator positivity; no bound ' +
-      'moves; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'moves; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97644 (three-axis C_C/E_trunc/C_F additivity cross-check extending the imp-97623 two-axis law); imp-97669 (adds this glossary headword)',
     relatedTerms: [
       'imp-97644-three-axis-additivity-flow-prefactor.js the source module (DIAG3 measurement, SUM3 eps^2 truncation check, E_CF linearity)',
@@ -25136,8 +25136,8 @@ export const glossary = [
       'linear coefficient below 6e-3 needs a wobble-model subtraction or a finer/smaller-x node grid, ' +
       'not larger b. HONEST SCOPE: numerical cross-check only; w_lin itself is already forced by ' +
       'imp-97460 and no coefficient is newly pinned; no bound moves; the rigorous anchor stays the ' +
-      'trace ceiling T = 2.594e7 (compute binds first by &gt;2600x); no operator positivity; Platt-Trudgian ' +
-      'Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'trace ceiling T = 2.594e7 (compute binds first by &gt;2600x); no operator positivity; no refereed bound is changed' +
+      '; RH open; NO QED.',
     firstUsed: 'imp-97618 (b=400000 Vasyunin direct-limit cross-check of w_lin); imp-97645 (b=1e6/2e6 re-run showing the linear-coefficient error plateaus rather than tightens; adds this glossary headword)',
     relatedTerms: [
       'imp-97618-wlin-leading-laurent-crossval.js the b=400000 baseline cross-check (const/log/linear fit errors)',
@@ -25167,7 +25167,7 @@ export const glossary = [
       'million-fold below it, so the primorial extremality and the omega=11 MCM onset are unchanged. HONEST ' +
       'SCOPE: numerical cross-check only, not a proved theorem; the kernel is precision-limited by design ' +
       '(cancellation of two large terms), not by analytic tail-term count; no operator positivity; no bound ' +
-      'moves; MCM stays refuted from omega=11; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'moves; MCM stays refuted from omega=11; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97704 (single-point cap-scaling assertion and dps=30 extension estimate); imp-97724 (three-precision dps=16/24/30 fit measuring the 0.240 exponent; adds this glossary headword)',
     relatedTerms: [
       'imp-97704-mcm-kernel-precision-cap-scaling.js the single-point eps^{-1/4} derivation and ~3247x dps=30 estimate',
@@ -25195,7 +25195,7 @@ export const glossary = [
       'contamination is consistent with noise, not a resolvable systematic. HONEST SCOPE: measurement/accuracy ' +
       'diagnosis of the cap metric only; no operator positivity; no bound moves; the cap-independent 1/(720 d^3) ' +
       'tail budget (&lt; 5.69e-11) dwarfs any cap-to-infinity shift regardless of the exact cap value, so MCM ' +
-      'stays refuted and the onset stays omega=11; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'stays refuted and the onset stays omega=11; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97736 (dps=36 extension + jitter/contamination diagnosis of the imp-97724 cap metric; adds this glossary headword)',
     relatedTerms: [
       'imp-97736-mcm-cap-jitter-dps36.js the dps=36 measurement and the jitter/full-precision-Glaisher diagnosis',
@@ -25222,7 +25222,7 @@ export const glossary = [
       'with S = sigma_max(1-sigma_max) exact; the numeric value 0.4233 inherits the model dependence of phi_xx. ' +
       'HONEST SCOPE: derivation/measurement only; component model is the inherited imp-3220/imp-3406 extrapolation, ' +
       'not a rigorous asymptotic; C_C 1/8 ansatz (imp-2642/imp-2643) untouched; no bound moves; no operator ' +
-      'positivity; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'positivity; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97725 (implicit-differentiation pin of K, isolating the closed-form numerator from the phi_xx-dependent denominator; adds this glossary headword)',
     relatedTerms: [
       'imp-97725-fold-amplitude-analytic-pin.js the closed-form numerator sigma_max(1-sigma_max) and the phi_xx curvature split',
@@ -25253,7 +25253,7 @@ export const glossary = [
       'qualitatively (well-defined for every positive floor) and only gently fragile quantitatively. HONEST SCOPE: ' +
       'measurement/sensitivity only on the inherited imp-3220/imp-3406 extrapolation surrogate, not a rigorous ' +
       'asymptotic; E_trunc base pin 3.06e-5 unchanged (only rescaled as a perturbation); no bound moves; no ' +
-      'operator positivity; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'operator positivity; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-97743 (0.5x..5x E_trunc-floor sweep on the imp-97725 fold amplitude K, measuring the shallow +0.221 exponent; adds this glossary headword)',
     relatedTerms: [
       'imp-97743-fold-amplitude-etrunc-floor-sensitivity.js the 0.5x..5x floor sweep measuring K ~ E_trunc^(+0.221)',
@@ -25285,8 +25285,8 @@ export const glossary = [
       'crossing cannot survive, and the apparent knee lands a decade high. HONEST SCOPE: ' +
       'measurement/fit only on the inherited imp-3220/imp-3406 extrapolation surrogate, not a ' +
       'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is untouched; no bound moves; no ' +
-      'operator positivity; imp-3066 K_a &gt;= 0 untouched; Platt-Trudgian Lambda &lt;= 0.2 remains ' +
-      'SOTA; RH open; NO QED.',
+      'operator positivity; imp-3066 K_a &gt;= 0 untouched; no refereed bound is changed' +
+      '; RH open; NO QED.',
     firstUsed: 'imp-97708 (bracketing-free pointwise curvature reconciling the imp-33701/imp-33721 knee-location discrepancy; adds this glossary headword)',
     relatedTerms: [
       'imp-97708-sigma-knee-bracket-width-sensitivity.js the bracketing-free pointwise curvature + bracket-width ladder',
@@ -25316,7 +25316,7 @@ export const glossary = [
       'Hessian structure), not proven, so the additivity is exact algebra CONDITIONAL on a numerically-checked ' +
       'linearity assumption, not an unconditional theorem. HONEST SCOPE: assessment/derivation only on the ' +
       'inherited imp-3220/imp-3406 extrapolation surrogate; no bound moves; no operator positivity; imp-3066 ' +
-      'K_a &gt;= 0 untouched; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+      'K_a &gt;= 0 untouched; no refereed bound is changed; RH open; NO QED.',
     firstUsed: 'imp-124812 (separates the DIAG3 additivity into its proven algebraic core and its sole linear-prefactor hinge; adds this glossary headword)',
     relatedTerms: [
       'imp-124812-diag3-additivity-exact-identity-assessment.js the source module (algebraic core (A) + B1-B4 measurement boundary + linearity-break demonstration)',

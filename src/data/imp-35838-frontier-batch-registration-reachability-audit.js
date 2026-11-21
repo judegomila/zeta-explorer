@@ -36,8 +36,7 @@
  *
  * SCOPE. Read-only registration/reachability audit only. No source file required
  * correction -- all six modules were already properly wired before this audit ran. Changes
- * no bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian
- * Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * no bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35590-registration-reachability-audit (method precedent)
  * @see imp-35447-imp35404-registration-reachability-audit (single-module precedent)
@@ -126,8 +125,8 @@ export const IMP35838_FRONTIER_BATCH_REGISTRATION_REACHABILITY_AUDIT = {
     'scripts/run-assertions.mjs DATA_MODULES wiring, each module’s exports, and ' +
     'App.jsx / visualizations-index.js viz-page registration for six recently committed ' +
     'frontier modules. Result: fully wired, no orphans, viz-status consistent. Changes no ' +
-    'bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35762, imp-35763, imp-35764, imp-35766, imp-35777, imp-35778 (audited modules); ' +
     'imp-35590/imp-35447 (registration/reachability method).',
@@ -173,11 +172,11 @@ export const IMP35838_FRONTIER_BATCH_REGISTRATION_REACHABILITY_AUDIT_ASSERTIONS 
   },
   {
     id: 'imp35838-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35838_FRONTIER_BATCH_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35838_FRONTIER_BATCH_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35838_FRONTIER_BATCH_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35838_FRONTIER_BATCH_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

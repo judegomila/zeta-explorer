@@ -13,7 +13,7 @@
  *   gap between the two cliffs.
  *
  *   Ticket: imp-36032 (content, low). Note only; ports nothing; changes no
- *   bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   bound; no refereed bound is changed; NO QED.
  *
  * @see imp-35972-effective-height-overflow-cliff-bisection (source: LOCATED the two cliffs)
  * @see imp-36092-two-cliff-constant-invariance-honest-status (follow-up: the cliff position is constant-invariant)
@@ -67,7 +67,7 @@ export const IMP36032_TWO_CLIFF_DECADE_HONEST_STATUS = Object.freeze({
     changesAnyBound: false,
     portsAnyRoute: false,
     subGap: 'imp-34714a REMAINS OPEN',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -77,8 +77,8 @@ export const IMP36032_TWO_CLIFF_DECADE_HONEST_STATUS = Object.freeze({
     SOURCE.metric.decade_gap_heightOverflow_above_aZero.toExponential(2) +
     ' decade below the effectiveHeightForN -> +Infinity cliff at log10 N ~ ' +
     SOURCE.metric.height_overflow_last_finite_log10_N.toFixed(4) +
-    '. Measurement/diagnostic restatement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    '. Measurement/diagnostic restatement only; changes no bound; NO QED; no refereed bound is changed' +
+    '.',
 });
 
 export const IMP36032_TWO_CLIFF_DECADE_HONEST_STATUS_ASSERTIONS = [
@@ -108,7 +108,7 @@ export const IMP36032_TWO_CLIFF_DECADE_HONEST_STATUS_ASSERTIONS = [
       IMP36032_TWO_CLIFF_DECADE_HONEST_STATUS.honestCaveat.isProof === false &&
       IMP36032_TWO_CLIFF_DECADE_HONEST_STATUS.honestCaveat.isReductionBelowRH === false &&
       IMP36032_TWO_CLIFF_DECADE_HONEST_STATUS.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP36032_TWO_CLIFF_DECADE_HONEST_STATUS.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36032_TWO_CLIFF_DECADE_HONEST_STATUS.honestCaveat.sota),
   },
   {
     id: 'imp36032-verdict-two-cliffs-no-qed',

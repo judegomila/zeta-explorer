@@ -48,8 +48,8 @@
  *   MEASUREMENT / ACCURACY AUDIT ONLY. Closes no gap, changes no bound, proves no
  *   constant. The conditional bound C_H <= 0.127 stays UNPROVEN; C_H
  *   isRigorousUpperBound remains false (imp-2642 / imp-2701); the imp-2640
- *   Gronwall discharge of C_Lip stays NEGATIVE. Platt-Trudgian Lambda <= 0.2
- *   remains SOTA. RH remains open. NO QED.
+ *   Gronwall discharge of C_Lip stays NEGATIVE. No refereed bound is changed
+ *   . RH remains open. NO QED.
  *
  * Provenance of baked inputs (single sources of truth, cited not re-derived):
  *   - imp-96426-ecoll-anchor-intermediate-heights.js: the four intermediate true
@@ -209,7 +209,7 @@ export const IMP96445_COUNT_GAP_PLUS78_VS_ST_SPLIT = {
     'gap closed, no bound changed, G6_polymath15_bridge not closed, conditional ' +
     'C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false ' +
     '(imp-2642/imp-2701), imp-2640 Gronwall discharge of C_Lip NEGATIVE. ' +
-    'Platt-Trudgian Lambda <= 0.2 SOTA. RH open. NO QED.',
+    'No refereed bound is changed. RH open. NO QED.',
   provenance:
     'imp-96426-ecoll-anchor-intermediate-heights.js (four intermediate true ' +
     'heights and Lambert-W count-inversion path, reused verbatim); ' +

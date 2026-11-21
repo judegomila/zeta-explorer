@@ -11,7 +11,7 @@
  * include refutes/reformulates to carry the session's honest verdicts: the C_H
  * shock-Holder modulus is the wall for the inherited Dyson/collision lane; the Volterra
  * collapse is PCC-FREE but RH-EQUIVALENT (its Sec-27 LINK B identity REFUTED);
- * PT Lambda<=0.2 remains the accepted peer-reviewed benchmark, while the separate
+ * no refereed bound is changed, while the separate
  * private package proposes Lambda<=0.1787854 as an unreviewed proof candidate
  * without consuming C_H. It is not an established theorem. No false QED.
  */

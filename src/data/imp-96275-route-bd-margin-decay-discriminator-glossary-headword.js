@@ -23,7 +23,7 @@
  * @see imp-96172-route-bd-margin-floor-glossary-headword (the existing imp-96148 VERDICT headword this complements)
  *
  * Ticket: imp-96275 (content, low). Documentation only; establishes nothing; changes no bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The decay-law discriminator headword, baked verbatim (no re-import).
@@ -72,7 +72,7 @@ export const IMP96275_ROUTE_BD_MARGIN_DECAY_DISCRIMINATOR_GLOSSARY_HEADWORD = Ob
     'floor c = 0.14256) over the log-linear crossing law (R2 = 0.96687, naive crossing at ' +
     'T ~ 93297): the higher R2 AND the six per-segment slopes decelerating in magnitude ' +
     '(0.1702 -> 0.0975) rather than staying constant. Establishes nothing; instantiates no ' +
-    'interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-96148 (the two competing OLS fits); imp-96173 (the seven-row table and six ' +
     'per-segment slopes this discriminator is drawn from); imp-96172 (the complementary ' +
@@ -101,11 +101,11 @@ export const IMP96275_ROUTE_BD_MARGIN_DECAY_DISCRIMINATOR_GLOSSARY_HEADWORD_ASSE
   },
   {
     id: 'imp96275-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96275_ROUTE_BD_MARGIN_DECAY_DISCRIMINATOR_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96275_ROUTE_BD_MARGIN_DECAY_DISCRIMINATOR_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96275_ROUTE_BD_MARGIN_DECAY_DISCRIMINATOR_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96275_ROUTE_BD_MARGIN_DECAY_DISCRIMINATOR_GLOSSARY_HEADWORD.verdict) &&
       IMP96275_ROUTE_BD_MARGIN_DECAY_DISCRIMINATOR_GLOSSARY_HEADWORD.glosses === 'imp-96148' &&
       IMP96275_ROUTE_BD_MARGIN_DECAY_DISCRIMINATOR_GLOSSARY_HEADWORD.scopes === 'imp-96173',
   },

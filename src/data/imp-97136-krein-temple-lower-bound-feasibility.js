@@ -9,7 +9,7 @@
  *   enclosure is obtainable and (ii) what Temple-quotient defect the committed Ritz eigenvector supplies.
  *
  *   Feasibility assessment only. Instantiates NO certificate; produces no lower bound; changes no bound;
- *   interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA; RH open; NO QED.
+ *   interval-rigorous reach stays 2a<=0.96; no refereed bound is changed; RH open; NO QED.
  *
  * THE TEMPLE MACHINERY (what route A actually requires). For a self-adjoint operator A with a normalised
  *   trial vector psi in dom(A), write mu = <psi, A psi> (the Rayleigh quotient) and the residual defect

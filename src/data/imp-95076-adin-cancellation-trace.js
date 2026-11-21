@@ -61,7 +61,7 @@
  * evaluate M there; the coefficient side cFar is already amplitude-settled.
  *
  * Import-light (no heavy bundle). Changes no bound; does NOT promote
- * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── parameterized machinery (same shape as imp-95026, but amplitude A is an
@@ -182,7 +182,7 @@ export const IMP95076_ADIN_CANCELLATION_TRACE = {
     "The amplitude-invariance of cFar is an EXACT structural fact (the shape functionals take no amplitude argument, verified by a bit-identical amplitude scan) and M = A^2 sum_b r_b is an exact algebraic factorization. Finding A is a MEASUREMENT (independent Simpson reproduces the closed form to 2.18e-4). No paper radius or amplitude is instantiated, so no numeric paper mass is CLAIMED. NO QED.",
   promotesBound: false,
   verdict:
-    "INDEPENDENT TRACE confirming imp-95026 Finding 0: the packet amplitude A_d CANCELS from the far coefficient cFar and only rescales the mass M. FINDING A: an independent composite-Simpson path reproduces the model closed-form ceiling (0.2716816410981926 vs 0.2717408057586117, rel 2.18e-4), so cFar is not a midpoint-code artifact. FINDING B: threading an explicit amplitude A through the machinery, cFar is BIT-IDENTICAL across A in {0.5,1,2,3,7} - none of the shape functionals (cornerV, rhoCap, s, phiTail) consume A. FINDING C: the currency n_b = A sqrt(r_b) makes M = A^2 sum_b r_b, so M(A)/A^2 = 4.241406839130188 is constant across the scan (M proportional to A^2 for ANY positive radii). FINDING D: in the roll-up term 2 (sup OmegaE_b) M the whole A_d dependence is the common A^2 rescaling of the mass side; the coefficient cFar is untouched. So of the five paper constants only FOUR (sigma, theta, beta, isolation Q) drive the ledger. SUB-GAP: the Section 4.5 radii r_d and amplitude A_d are not pinned in this repo, so M is not instantiated to a single paper number - the trace establishes the cancellation STRUCTURE, not a numeric paper mass. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "INDEPENDENT TRACE confirming imp-95026 Finding 0: the packet amplitude A_d CANCELS from the far coefficient cFar and only rescales the mass M. FINDING A: an independent composite-Simpson path reproduces the model closed-form ceiling (0.2716816410981926 vs 0.2717408057586117, rel 2.18e-4), so cFar is not a midpoint-code artifact. FINDING B: threading an explicit amplitude A through the machinery, cFar is BIT-IDENTICAL across A in {0.5,1,2,3,7} - none of the shape functionals (cornerV, rhoCap, s, phiTail) consume A. FINDING C: the currency n_b = A sqrt(r_b) makes M = A^2 sum_b r_b, so M(A)/A^2 = 4.241406839130188 is constant across the scan (M proportional to A^2 for ANY positive radii). FINDING D: in the roll-up term 2 (sup OmegaE_b) M the whole A_d dependence is the common A^2 rescaling of the mass side; the coefficient cFar is untouched. So of the five paper constants only FOUR (sigma, theta, beta, isolation Q) drive the ledger. SUB-GAP: the Section 4.5 radii r_d and amplitude A_d are not pinned in this repo, so M is not instantiated to a single paper number - the trace establishes the cancellation STRUCTURE, not a numeric paper mass. Changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -242,12 +242,12 @@ export const IMP95076_TRACE_ASSERTIONS = [
   {
     id: "imp95076-honesty-gate",
     description:
-      "the verdict names the sub-gap (radii/amplitude not pinned; trace not a numeric paper mass), records A_d cancellation from cFar and A^2 mass rescaling, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict names the sub-gap (radii/amplitude not pinned; trace not a numeric paper mass), records A_d cancellation from cFar and A^2 mass rescaling, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95076_ADIN_CANCELLATION_TRACE.promotesBound === false &&
       IMP95076_ADIN_CANCELLATION_TRACE.openResiduals.length === 1 &&
       /NO QED/.test(IMP95076_ADIN_CANCELLATION_TRACE.verdict) &&
-      /remains SOTA/.test(IMP95076_ADIN_CANCELLATION_TRACE.verdict) &&
+      /refereed bound is changed/i.test(IMP95076_ADIN_CANCELLATION_TRACE.verdict) &&
       /CANCELS/.test(IMP95076_ADIN_CANCELLATION_TRACE.verdict) &&
       /A\^2/.test(IMP95076_ADIN_CANCELLATION_TRACE.verdict),
   },

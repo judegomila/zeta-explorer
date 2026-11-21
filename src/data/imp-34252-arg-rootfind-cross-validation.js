@@ -52,7 +52,7 @@
  * form for the model cusp rho(x) = |x|^{-alpha}. It establishes NO operator positivity, does NOT
  * re-derive the m_prime -> C_ren map off-axis/off-exponent, and does NOT discharge H4 (imp-33766);
  * G6a_shock_lipschitz STAYS OPEN. C_mb GUE-conditional untouched; imp-3066 off-diagonal endpoint-
- * Hankel K_a >= 0 UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * Hankel K_a >= 0 UNTOUCHED; NO QED. No refereed bound is changed.
  *
  * @see imp-34173-unified-branch-endpoint-law (the derived d_k law + direct-angle check, k=1,2,3)
  * @see imp-34229-general-onset-bisection-verification (the Im(-A)=0 bisection at k=4,5)
@@ -319,7 +319,7 @@ export const IMP34252_ARG_ROOTFIND_CROSS_VALIDATION = {
     'imp-33924 closed form for the model cusp rho(x) = |x|^{-alpha}; establishes NO operator positivity; ' +
     'does NOT re-derive the m_prime -> C_ren map off-axis/off-exponent and does NOT discharge H4 ' +
     '(imp-33766). C_mb GUE-conditional untouched; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 ' +
-    'UNTOUCHED; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'UNTOUCHED; NO QED. No refereed bound is changed.',
 };
 
 export const IMP34252_ARG_ROOTFIND_CROSS_VALIDATION_ASSERTIONS = [
@@ -353,13 +353,13 @@ export const IMP34252_ARG_ROOTFIND_CROSS_VALIDATION_ASSERTIONS = [
   },
   {
     id: 'imp34252-honesty-gate-no-qed',
-    description: 'Cross-validation/measurement only: does not discharge H4, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Cross-validation/measurement only: does not discharge H4, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP34252_ARG_ROOTFIND_CROSS_VALIDATION.isRigorous === false &&
       IMP34252_ARG_ROOTFIND_CROSS_VALIDATION.dischargesH4 === false &&
       /NO QED/.test(IMP34252_ARG_ROOTFIND_CROSS_VALIDATION.verdict) &&
       /STAYS OPEN/.test(IMP34252_ARG_ROOTFIND_CROSS_VALIDATION.verdict) &&
-      /remains the rigorous SOTA/.test(IMP34252_ARG_ROOTFIND_CROSS_VALIDATION.verdict) &&
+      /refereed bound is changed/i.test(IMP34252_ARG_ROOTFIND_CROSS_VALIDATION.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(IMP34252_ARG_ROOTFIND_CROSS_VALIDATION.verdict) &&
       /C_mb GUE-conditional untouched/i.test(IMP34252_ARG_ROOTFIND_CROSS_VALIDATION.verdict),
   },

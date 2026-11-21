@@ -112,8 +112,7 @@
  * folded evaluator at the dominant cell (5.8e-7 at the clean (2, 2) cell).
  * The shortfall itself remains a fixed-97-lane attainment quantity: nothing
  * here moves a bracket. Import-light; NO heavy bundle. Changes no bound;
- * does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 import { IMP95090_FINITE_RATE_ATTAINMENT_SHORTFALL } from "./imp-95090-finite-rate-attainment-shortfall.js";
@@ -343,7 +342,7 @@ export const IMP95121_CORNER_SHORTFALL_RATE_CONSTANT = {
     "The derivation (Lemma PF-M mixed-exponent partial fractions; Lemma DT and Lemma DR closed-form partial derivatives via differentiation under the integral, justified by dominated convergence; Theorem KAPPA-LIN first-order Taylor law with one-sided remainder; per-decade corollary) is rigorous elementary analysis, conditional on nothing beyond the sibling-chain conventions. The numeric kappa is float: cross-checked against Richardson finite differences of the independent folded evaluator (dIdT to 7.6e-6, dIdRho to 1.4e-5 relative) and against the Richardson eps-slope (1.2e-4 relative at (0,2), 5.8e-7 at (2,2)); the imp-95090 baked ladder deviates from kappa eps by the predicted O(eps) pattern (0.0463, 0.0048, 0.00054 per decade). Changes no bound.",
   promotesBound: false,
   verdict:
-    "RIGOROUS derivation step (closed form replaces measurement): the imp-95090 linear attainment-shortfall law is DERIVED, shortfall(eps) = kappa(b,j) eps + O(eps^2), with kappa(b,j) = (-dIdT Tprime(0) + beta rho0 dIdRho)/I in elementary closed form (mixed-exponent partial fractions extending the nineteenth-continuation Lemma PF). At the dominant cell (0,2): kappa = 7.1950399616423155, split 89.85 pct separation channel + 10.15 pct width-ratio channel, both provably nonnegative (Lemma CC, Lemma RM). The measured per-decade ~0.10 of imp-95090 Finding (3) is a corollary (exact 1/10 + O(eps)). Generic-cell check kappa(2,2) = 9.203827084271076 matches its independent eps-slope to 5.8e-7. The float evaluation carries a ~1.2e-4 certification width at (0,2) (far-piece cancellation, named residual). Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS derivation step (closed form replaces measurement): the imp-95090 linear attainment-shortfall law is DERIVED, shortfall(eps) = kappa(b,j) eps + O(eps^2), with kappa(b,j) = (-dIdT Tprime(0) + beta rho0 dIdRho)/I in elementary closed form (mixed-exponent partial fractions extending the nineteenth-continuation Lemma PF). At the dominant cell (0,2): kappa = 7.1950399616423155, split 89.85 pct separation channel + 10.15 pct width-ratio channel, both provably nonnegative (Lemma CC, Lemma RM). The measured per-decade ~0.10 of imp-95090 Finding (3) is a corollary (exact 1/10 + O(eps)). Generic-cell check kappa(2,2) = 9.203827084271076 matches its independent eps-slope to 5.8e-7. The float evaluation carries a ~1.2e-4 certification width at (0,2) (far-piece cancellation, named residual). Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // -- assertions (self-executing; throw on violation) ----------------------------
@@ -418,12 +417,12 @@ export const IMP95121_CSRC_ASSERTIONS = [
   {
     id: "imp95121-csrc-honesty-gate",
     description:
-      "verdict is a derivation step: promotes no bound, names the float-certification residual and the untouched witness residuals, NO QED, PT stays SOTA",
+      "verdict is a derivation step: promotes no bound, names the float-certification residual and the untouched witness residuals, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95121_CORNER_SHORTFALL_RATE_CONSTANT.promotesBound === false &&
       IMP95121_CORNER_SHORTFALL_RATE_CONSTANT.openResiduals.length === 3 &&
       /NO QED/.test(IMP95121_CORNER_SHORTFALL_RATE_CONSTANT.verdict) &&
-      /remains SOTA/.test(IMP95121_CORNER_SHORTFALL_RATE_CONSTANT.verdict) &&
+      /refereed bound is changed/i.test(IMP95121_CORNER_SHORTFALL_RATE_CONSTANT.verdict) &&
       /Changes no bound/.test(IMP95121_CORNER_SHORTFALL_RATE_CONSTANT.verdict) &&
       /corollary/.test(IMP95121_CORNER_SHORTFALL_RATE_CONSTANT.verdict),
   },

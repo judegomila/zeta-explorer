@@ -68,8 +68,8 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses the imp-95220 width-law port
  * geometry and the imp-95233 PHASE-CERT vacuity boundary verbatim; changes NO
- * bound, no operator positivity, no RH claim; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. Import-light (no zeros bundle, no sibling
+ * bound, no operator positivity, no RH claim; NO QED. No refereed bound is changed
+ * . Import-light (no zeros bundle, no sibling
  * imports); Simpson quadrature of the fixed Gram matrix is recomputed here and
  * the all-aligned theta = 1 identity is cross-checked to 1e-9.
  *
@@ -192,7 +192,7 @@ export const IMP95405_SUMMARY = {
   bestRMin: 2.725718e-1, // shallowest worst-case (G(2,4))
   allStraddle: true,
   finding:
-    'at EVERY fixed ported geometry the sign vector ALONE spans theta from 1 (all-aligned, the fixed-amplitude family the paper specifies, PHASE-CERT ACTIVE, r_max = 1.6-2.4) down to a worst-case theta_min far below the vacuity boundary (r_min = 0.05-0.27, 4x-20x into the vacuous corner). Each geometry STRADDLES the boundary theta_min < theta_0 < 1 = theta_max, so the imp-95233 PHASE-CERT active/vacuous verdict at a single fixed geometry is NOT a geometry property -- it is decided entirely by the per-window sign pattern that the imp-95255 LEG 2 geometry+modulus transcription drops. The vacuous fraction of the 2^n patterns is large and grows with n (0.75, 0.94, 0.98, 0.91): at fixed geometry the typical sign pattern is vacuous and only near-aligned patterns are active. Measurement only; the 1/theta loss is unchanged; NO bound touched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'at EVERY fixed ported geometry the sign vector ALONE spans theta from 1 (all-aligned, the fixed-amplitude family the paper specifies, PHASE-CERT ACTIVE, r_max = 1.6-2.4) down to a worst-case theta_min far below the vacuity boundary (r_min = 0.05-0.27, 4x-20x into the vacuous corner). Each geometry STRADDLES the boundary theta_min < theta_0 < 1 = theta_max, so the imp-95233 PHASE-CERT active/vacuous verdict at a single fixed geometry is NOT a geometry property -- it is decided entirely by the per-window sign pattern that the imp-95255 LEG 2 geometry+modulus transcription drops. The vacuous fraction of the 2^n patterns is large and grows with n (0.75, 0.94, 0.98, 0.91): at fixed geometry the typical sign pattern is vacuous and only near-aligned patterns are active. Measurement only; the 1/theta loss is unchanged; NO bound touched; NO QED; no refereed bound is changed.',
 };
 
 // -- self-executing assertions (imp-3715 convention; THROW on violation) ------
@@ -286,7 +286,7 @@ export const IMP95405_ASSERTIONS = [
         Math.abs(IMP95405_SUMMARY.bestRMin - Math.max(...rmins)) < 1e-6 &&
         IMP95405_SUMMARY.thetaMaxAllAligned === 1.0 &&
         /NO QED/.test(IMP95405_SUMMARY.finding) &&
-        /remains\s+SOTA/.test(IMP95405_SUMMARY.finding) &&
+        /refereed bound is changed/i.test(IMP95405_SUMMARY.finding) &&
         /Measurement only/.test(IMP95405_SUMMARY.finding)
       );
     },

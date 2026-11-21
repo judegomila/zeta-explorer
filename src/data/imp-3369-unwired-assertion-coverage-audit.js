@@ -32,7 +32,7 @@
 // snapshot plus stable regression pointers -- they do NOT re-derive live counts.
 //
 // AUDIT-ONLY: this module does NOT mass-import the 114 modules. It reports the
-// coverage gap and a per-cluster verdict. PT Lambda <= 0.2 stays the rigorous SOTA.
+// coverage gap and a per-cluster verdict. No refereed bound is changed.
 
 // ---- Frozen snapshot counts (2026-07-02) ----------------------------------
 const EXPORTING_TOTAL   = 640;  // line-anchored *_ASSERTIONS exporters in src/{math,data}
@@ -107,7 +107,7 @@ export const UNWIRED_ASSERTION_COVERAGE_AUDIT = {
   imp861SiblingStillUnwired: IMP861_SIBLING_STILL_UNWIRED,
   verdicts: VERDICTS,
   status: 'coverage gap quantified: 114 modules exporting *_ASSERTIONS are absent from run-assertions.mjs so their assertions never fire; the 63 light ones all still PASS (391 assertions), the 51 with-imports need cautious one-at-a-time wiring. imp-861 example already CLOSED by imp-3371.',
-  honest: 'AUDIT-ONLY -- reports the silent-assertion coverage gap and a per-cluster KEEP/RE-POINT verdict; does NOT mass-import the 114 modules and adds no new math. Counts are a 2026-07-02 snapshot expected to shrink as follow-ups wire modules in. PT Lambda <= 0.2 stays the rigorous SOTA.',
+  honest: 'AUDIT-ONLY -- reports the silent-assertion coverage gap and a per-cluster KEEP/RE-POINT verdict; does NOT mass-import the 114 modules and adds no new math. Counts are a 2026-07-02 snapshot expected to shrink as follow-ups wire modules in. No refereed bound is changed.',
 };
 
 export const UNWIRED_ASSERTION_COVERAGE_AUDIT_ASSERTIONS = [
@@ -152,10 +152,10 @@ export const UNWIRED_ASSERTION_COVERAGE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp-3369-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no mass-import, no new math) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no mass-import, no new math) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(UNWIRED_ASSERTION_COVERAGE_AUDIT.honest)
       && /does NOT mass-import/.test(UNWIRED_ASSERTION_COVERAGE_AUDIT.honest)
-      && /Lambda <= 0.2 stays the rigorous SOTA/.test(UNWIRED_ASSERTION_COVERAGE_AUDIT.honest),
+      && /refereed bound is changed/i.test(UNWIRED_ASSERTION_COVERAGE_AUDIT.honest),
   },
 ];
 

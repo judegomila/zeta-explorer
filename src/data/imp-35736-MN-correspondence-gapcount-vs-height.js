@@ -47,7 +47,7 @@
  * discharges nothing; changes no bound; establishes no operator positivity;
  * C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and
  * C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays OPEN; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-35695-resolution-floor-factor-M-ladder (gap-count M ladder)
  * @see imp-35673-resolution-shortfall-far-tail-ladder (verified-height N ladder)
@@ -62,7 +62,7 @@ import { IMP35695_RESOLUTION_FLOOR_FACTOR_M_LADDER } from './imp-35695-resolutio
 import { IMP35673_RESOLUTION_SHORTFALL_FAR_TAIL_LADDER } from './imp-35673-resolution-shortfall-far-tail-ladder.js';
 import { IMP35652_REQ3_OPTION_A_RESTRICTED_SUPPORT_SURROGATE_SCOPE } from './imp-35652-req3-option-a-restricted-support-surrogate-scope.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 const TWO_PI = 2 * Math.PI;
 
 // The shared cubic-repulsion collision scale (Ben Arous-Bourgade 2013), read as a
@@ -159,7 +159,7 @@ export const IMP35736_MN_CORRESPONDENCE_GAPCOUNT_VS_HEIGHT = {
     'Riemann-von Mangoldt count ~4.121x larger, deepening s_min by (4.121)^{-1/3} ~ 0.624. Reconciles two recorded ' +
     'ladders; derives no remainder; discharges nothing; changes no bound; establishes no operator positivity; ' +
     'C_C = (1/8) sqrt(3 pi) (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are ' +
-    'UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'UNTOUCHED; imp-35337a stays OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35695 (gap-count M ladder); imp-35673 (verified-height N ladder); imp-35652 (anchor resolutionScaleTable); ' +
     'imp-35724 (adopts the M = N RvM surrogate on the peak and crossover); imp-2642/imp-2643 (C_C = (1/8) sqrt(3 pi)); ' +
@@ -226,7 +226,7 @@ export const IMP35736_MN_CORRESPONDENCE_ASSERTIONS = [
     },
   },
   {
-    // (5) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, NO QED.
+    // (5) honesty gate: measurement only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, NO QED.
     id: 'imp35736-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -238,7 +238,7 @@ export const IMP35736_MN_CORRESPONDENCE_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a stays OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

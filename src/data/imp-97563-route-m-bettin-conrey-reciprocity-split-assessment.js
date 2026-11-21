@@ -78,7 +78,7 @@
  *   Assessment + measurement only; pins NO analytic curvature constant (the exact kappa_smooth is the
  *   psi cusp O(x^2) coefficient, still uncomputed here -- see SUB-GAP); no bound moves; the rigorous
  *   anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x;
- *   no operator positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97563-period-function-cusp-coefficient -- pinning the exact value of
  *   kappa_smooth requires the Taylor coefficient at order x^2 of the Bettin-Conrey period function
@@ -171,7 +171,7 @@ export const IMP97563_VERDICT = Object.freeze({
     'amplitude. This upgrades imp-97460 from "not finite-b extractable" to "kappa_smooth = the cusp ' +
     'Taylor coefficient of the Bettin-Conrey period function; the wobble is intrinsic quantum ' +
     'modularity." Assessment + measurement only; pins no analytic constant; the rigorous anchor stays ' +
-    'T = 2.594e7; compute binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH ' +
+    'T = 2.594e7; compute binds first by >2600x; no operator positivity; no refereed bound is changed; RH ' +
     'open; NO QED.',
 });
 
@@ -187,7 +187,7 @@ export const IMP97563_SUBGAP = Object.freeze({
 });
 
 export const IMP97563_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment + measurement only: the Bettin-Conrey ' +
+  'RH open; no refereed bound is changed; NO QED. Assessment + measurement only: the Bettin-Conrey ' +
   'reciprocity split separates kappa_smooth from the wobble ONLY as a Gauss-Kuzmin average -- it ' +
   'identifies kappa_smooth with the cusp O(x^2) coefficient of the analytic period function psi, while ' +
   'proving the O(4e-2) wobble to be an intrinsic quantum-modular feature (Denjoy-Koksma cot Birkhoff ' +
@@ -262,7 +262,7 @@ const IMP97563_ASSERTIONS = [
       IMP97563_VERDICT.pureAnalyticCoefficientPinned === false &&
       IMP97563_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97563_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97563_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97563_HONEST_BANNER) &&
       /RH open/.test(IMP97563_HONEST_BANNER) &&
       /cusp-coefficient/.test(IMP97563_SUBGAP.id),
   },

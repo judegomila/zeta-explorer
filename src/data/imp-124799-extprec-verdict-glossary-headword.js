@@ -46,7 +46,7 @@
  *   N_peak ~ 9.22e5, the peak the kernel-fold windows are measured around)
  *
  * Ticket: imp-124799 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The extended-precision verdict headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -79,7 +79,7 @@ const EXTPREC_VERDICT_HEADWORD = Object.freeze({
     'reported digits; the deep window g=1e-8..1e-12 gives |p + 1/2| < 3e-5 and residual < 5e-5 on ' +
     'both arms, with per-decade growth matching sqrt(10) = 3.162278 to < 0.1%. Naming / glossary ' +
     'headword only; supplies no new bound; the C_C 1/8 ansatz and E_trunc/E_flow component model ' +
-    'are untouched; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'are untouched; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP124799_EXTPREC_VERDICT_GLOSSARY_HEADWORD = Object.freeze({
@@ -98,8 +98,8 @@ export const IMP124799_EXTPREC_VERDICT_GLOSSARY_HEADWORD = Object.freeze({
     'mpmath dps = 60, ruling out a double-precision floor, and is the genuine finite-gap ' +
     'O(sqrt(g)) cubic-fold running correction; extending to g = 1e-8 .. 1e-12 sharpens the ' +
     'kernel-fold exponent to p -> -1/2 with |p + 1/2| = 1.42e-5. No bound moved; the component ' +
-    'model and all pinned surrogate constants are untouched; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'model and all pinned surrogate constants are untouched; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124767 (the extended-precision re-run and verdict this glosses); imp-97823 (the original ' +
     'double-precision deep window g=1e-5..1e-8, residual ~4e-4); imp-97520 (L1 peak sigma_max ~ ' +
@@ -127,11 +127,11 @@ export const IMP124799_EXTPREC_VERDICT_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp124799-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124767.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124767.',
     holds: () =>
       IMP124799_EXTPREC_VERDICT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124799_EXTPREC_VERDICT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124799_EXTPREC_VERDICT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124799_EXTPREC_VERDICT_GLOSSARY_HEADWORD.verdict) &&
       IMP124799_EXTPREC_VERDICT_GLOSSARY_HEADWORD.glosses === 'imp-124767',
   },
 ];

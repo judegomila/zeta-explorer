@@ -48,8 +48,7 @@
  *   A glossary-style lookup flagging that (a) the imp-95885 "N/A" record is stale and
  *   (b) the imp-95939 figure some readers cite to fill it is the wrong observable for
  *   that purpose. It establishes nothing, fits no new curve, and changes no reported
- *   interval. Changes no bound of the Lambda program; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   interval. Changes no bound of the Lambda program; NO QED. No refereed bound is changed.
  *
  * @see imp-95885-per-delta-ufit-comparison-table.js (source: FINDING-B record this corrects, ln125HasNoUFitInterval: true)
  * @see imp-95895-ln125-ufit-interval.js (the actual A_opt scalar-floor fill, u_fit_rel = +0.0846%, on the FINDING A axis)
@@ -58,7 +57,7 @@
  * @see imp-95838-ln125-shift-budget-scaling (the original shift-budget-only thread imp-95885 described)
  *
  * Ticket: imp-95976 (content, medium). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The ln 1.25 interval-now-exists correction headword, baked verbatim (no re-import).
@@ -114,7 +113,7 @@ export const IMP95976_LN125_UFIT_INTERVAL_EXISTS_GLOSSARY_HEADWORD = Object.free
     'crossing-constant observable at a ~1.4e19-different scale, and imp-95963 ' +
     'establishes it must NOT be conflated with the A-floor interval on one ordering ' +
     'axis. Establishes nothing; fits no new curve; moves no bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-95885 (per-delta u_fit comparison table, FINDING-B, ln125HasNoUFitInterval ' +
     'field this corrects); imp-95895 (ln 1.25 A_opt scalar-floor u_fit interval, ' +
@@ -144,11 +143,11 @@ export const IMP95976_LN125_UFIT_INTERVAL_EXISTS_GLOSSARY_HEADWORD_ASSERTIONS = 
   },
   {
     id: 'imp95976-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, correct glosses/corrects/scopes pointers.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, correct glosses/corrects/scopes pointers.',
     holds: () =>
       IMP95976_LN125_UFIT_INTERVAL_EXISTS_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95976_LN125_UFIT_INTERVAL_EXISTS_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95976_LN125_UFIT_INTERVAL_EXISTS_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95976_LN125_UFIT_INTERVAL_EXISTS_GLOSSARY_HEADWORD.verdict) &&
       IMP95976_LN125_UFIT_INTERVAL_EXISTS_GLOSSARY_HEADWORD.glosses === 'imp-95885' &&
       IMP95976_LN125_UFIT_INTERVAL_EXISTS_GLOSSARY_HEADWORD.corrects === 'imp-95885' &&
       IMP95976_LN125_UFIT_INTERVAL_EXISTS_GLOSSARY_HEADWORD.scopes === 'imp-95963',

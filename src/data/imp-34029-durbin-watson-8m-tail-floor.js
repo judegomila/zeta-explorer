@@ -69,7 +69,7 @@
  * any log-linear-vs-power-law form selection. The residual values come from the inherited
  * imp-3220/imp-3406 extrapolation via imp-33810 and the imp-33843 OLS, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33965-durbin-watson-exact-permutation-pvalue (the M=2,000,000 run this extends to 8,000,000)
  * @see imp-33886-widening-residual-significance-test (the asymptotic d_L ~ 1.22 Durbin-Watson bound)
@@ -261,7 +261,7 @@ export const IMP34029_DURBIN_WATSON_8M_TAIL_FLOOR = {
     'stays small (~12% multiplicative); the residual values come from the inherited imp-3220/imp-3406 ' +
     'extrapolation via imp-33810, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is ' +
     'UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33965 (the M=2,000,000 Durbin-Watson value-permutation null extended here to 8,000,000); ' +
     'imp-33886 (the asymptotic d_L ~ 1.22 Durbin-Watson bound); imp-33810 (the 21-rung ladder); ' +
@@ -320,13 +320,13 @@ export const IMP34029_DURBIN_WATSON_8M_TAIL_FLOOR_ASSERTIONS = [
       P_UPPER_BOUND_8M < P_BOUND_2M_IMP33965,
   },
   {
-    // (R3) Honesty gate: isRigorous false, no QED, PT SOTA, residual still small, sub-gap named, imp-3066 untouched.
+    // (R3) Honesty gate: isRigorous false, no QED, no refereed bound is changed, residual still small, sub-gap named, imp-3066 untouched.
     id: 'imp34029-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, PT SOTA, residual still small, sub-gap stated, imp-3066 untouched',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, residual still small, sub-gap stated, imp-3066 untouched',
     holds: () =>
       IMP34029_DURBIN_WATSON_8M_TAIL_FLOOR.isRigorous === false &&
       /NO QED/.test(IMP34029_DURBIN_WATSON_8M_TAIL_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP34029_DURBIN_WATSON_8M_TAIL_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP34029_DURBIN_WATSON_8M_TAIL_FLOOR.verdict) &&
       /12% multiplicative/.test(IMP34029_DURBIN_WATSON_8M_TAIL_FLOOR.verdict) &&
       /SUB-GAP/.test(IMP34029_DURBIN_WATSON_8M_TAIL_FLOOR.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34029_DURBIN_WATSON_8M_TAIL_FLOOR.verdict),

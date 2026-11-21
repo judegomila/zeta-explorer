@@ -15,7 +15,7 @@
  * through the RvM inverse effectiveHeightForN and forms ratios. C_mb stays GUE-conditional
  * per imp-486; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643), the E_trunc = 3.06e-5
  * floor (imp-2631) and the imp-398 C_F prefactor are all UNTOUCHED. imp-35337a stays OPEN.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * PART A -- THE TWO MULTIPLES (INDEX-DECADES VS HEIGHT-DECADES)
  * -----------------------------------------------------------------------------
@@ -66,7 +66,7 @@
 import { effectiveHeightForN, zeroCountAtHeight } from './lambda-rh-height-mapping.js';
 
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (unchanged by any sigma-fidelity scoping)
-const L_PT = 0.2; // Platt-Trudgian SOTA
+const L_PT = 0.2; // Platt-Trudgian 2021 bound
 
 // The current PATH-1 E1/E2 empirical ASSEMBLY ceiling (lambda-roadmap currentStatus).
 const N_ASSEMBLY = 1e6;
@@ -160,7 +160,7 @@ export const IMP35642_VERIFIED_HEIGHT_MULTIPLE_LANDMARK_SCOPE = Object.freeze({
     'verified zeros), not verified-zero availability. Discharges NOTHING; imp-35337a stays OPEN; changes ' +
     'no bound; establishes no operator positivity; C_mb GUE-conditional (imp-486), C_C = (1/8) sqrt(3 pi) ' +
     '(imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631) are UNTOUCHED; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'lambda-roadmap currentStatus (sigma halves at N ~ 3.27e9, drops below 0.1 at N ~ 3.21e11); imp-33582 ' +
     '(finer post-peak grid landmarks); imp-33723 (crossover closed form ~3.280294e9); project_pt_floor ' +
@@ -213,11 +213,11 @@ export const IMP35642_VERIFIED_HEIGHT_MULTIPLE_LANDMARK_SCOPE_ASSERTIONS = [
       PT_OVERCOVER_SUB01 > 37 && PT_OVERCOVER_SUB01 < 40,
   },
   {
-    // Honesty gate: assessment only, imp-35337a stays OPEN, no bound moves, PT SOTA, NO QED.
+    // Honesty gate: assessment only, imp-35337a stays OPEN, no bound moves, no refereed bound is changed, NO QED.
     id: 'imp35642-honesty-gate-no-qed',
     description:
       'assessment/scoping only: not rigorous, not unconditional, imp-35337a stays OPEN, no bound moves, ' +
-      'C_mb GUE-conditional per imp-486, Platt-Trudgian stays SOTA, NO QED',
+      'C_mb GUE-conditional per imp-486, no refereed bound is changed, NO QED',
     holds: () =>
       Math.abs(L_PT - 0.2) < 1e-15 &&
       IMP35642_VERIFIED_HEIGHT_MULTIPLE_LANDMARK_SCOPE.isRigorous === false &&
@@ -226,7 +226,7 @@ export const IMP35642_VERIFIED_HEIGHT_MULTIPLE_LANDMARK_SCOPE_ASSERTIONS = [
       /changes\s+no bound/.test(IMP35642_VERIFIED_HEIGHT_MULTIPLE_LANDMARK_SCOPE.verdict) &&
       /imp-486/.test(IMP35642_VERIFIED_HEIGHT_MULTIPLE_LANDMARK_SCOPE.verdict) &&
       /NO QED/.test(IMP35642_VERIFIED_HEIGHT_MULTIPLE_LANDMARK_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35642_VERIFIED_HEIGHT_MULTIPLE_LANDMARK_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35642_VERIFIED_HEIGHT_MULTIPLE_LANDMARK_SCOPE.verdict),
   },
 ];
 

@@ -71,8 +71,7 @@
  * the exact floor stays OPEN. (e) the search that produced the tails is a
  * heuristic; only the baked witness EVALUATIONS are load-bearing, and those are
  * exact. (f) the ACTUAL seam sign pattern is still NOT determined -- obligation
- * (3) / imp-95397, unchanged and OPEN. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * (3) / imp-95397, unchanged and OPEN. Changes no bound; NO QED; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD. (1) N = 16 witness theta 7.990482e-3 equals
  * the imp-95423 certified EXACT floor to 1e-6 (the search recovers the proven
@@ -206,7 +205,7 @@ export const IMP95442_THETA_ALTERNATING_NOT_ARGMIN = {
   subGap:
     "OPEN residuals (unchanged). (i) exact theta_floor for N in {64, 192, 640} -- the integer program min over {+-1}^N of sigma^T G sigma, still UNCOMPUTED (2^N infeasible); the witnesses here upper-bound it but do not certify it. (ii) imp-95397 / obligation (3): the ACTUAL seam alias sign pattern -- which point of [theta_floor, 1] the real seam realizes -- STILL OPEN and unchanged.",
   verdict:
-    "MEASUREMENT (PARTIAL, honest): the alternating witness sigma_n = (-1)^n is NOT the combinatorial minimizer of theta at ANY ported grid with N >= 16. Explicit sign vectors (baked as hex bitmasks, exact-Gram re-evaluated) beat it at N = 16, 64, 192, 640 -- the N = 16 witness reproduces the imp-95423 certified exact floor, and N = 64, 192, 640 (left OPEN by imp-95423, where greedy was only basin-stable) are now DECIDED negative by construction. The winners are alternating in the bulk and block-broken in the tail. The exact floor for N >= 64 remains UNCOMPUTED (2^N infeasible). Nothing derives or moves a bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "MEASUREMENT (PARTIAL, honest): the alternating witness sigma_n = (-1)^n is NOT the combinatorial minimizer of theta at ANY ported grid with N >= 16. Explicit sign vectors (baked as hex bitmasks, exact-Gram re-evaluated) beat it at N = 16, 64, 192, 640 -- the N = 16 witness reproduces the imp-95423 certified exact floor, and N = 64, 192, 640 (left OPEN by imp-95423, where greedy was only basin-stable) are now DECIDED negative by construction. The winners are alternating in the bulk and block-broken in the tail. The exact floor for N >= 64 remains UNCOMPUTED (2^N infeasible). Nothing derives or moves a bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "theta(sigma) = sigma^T G sigma / (1^T G 1) is EXACT (imp-95375 closed-form Gram). Each baked witness is decoded and re-evaluated exactly, giving a rigorous upper bound on theta_floor; theta_wit < theta(alt) is a rigorous disproof of alternating-optimality at that grid. The witnesses are NOT certified global minima for N >= 64 (best-found, not proven optima); the exact floor stays OPEN. The structured search is heuristic; only the witness evaluations are load-bearing. The actual seam sign pattern is NOT determined (obligation (3) / imp-95397).",
 };
@@ -312,7 +311,7 @@ export const IMP95442_THETA_ALTERNATING_ASSERTIONS = [
       /UNCOMPUTED/.test(IMP95442_THETA_ALTERNATING_NOT_ARGMIN.gapStaysOpen) &&
       /STILL OPEN/.test(IMP95442_THETA_ALTERNATING_NOT_ARGMIN.subGap) &&
       /NO QED/.test(IMP95442_THETA_ALTERNATING_NOT_ARGMIN.verdict) &&
-      /remains SOTA/.test(IMP95442_THETA_ALTERNATING_NOT_ARGMIN.verdict),
+      /refereed bound is changed/i.test(IMP95442_THETA_ALTERNATING_NOT_ARGMIN.verdict),
   },
 ];
 

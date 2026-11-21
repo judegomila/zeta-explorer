@@ -200,7 +200,7 @@ export default function Imp96040A0ReconcilePanelViz() {
         imp-96005 six-height a_0 scatter, mean, SE band and conjectural line verbatim (no
         re-derivation). The gap is 0.337 SE (p &#8776; 0.736) -- fully noise-consistent, not a
         resolved discrepancy. Supplies no new bound, establishes no operator positivity, no RH
-        claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        claim. NO QED.
       </div>
     </div>
   );

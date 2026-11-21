@@ -49,8 +49,7 @@
  * both are narrow numerical-certification results (a Simpson truncation
  * constant and a miss-factor invariance check) for which a glossary entry is
  * adequate and no further viz ticket is recommended. This module fabricates
- * NO pages; it only records the audit. No new bound, no QED; Platt-Trudgian
- * Lambda <= 0.2 stays SOTA.
+ * NO pages; it only records the audit. No new bound, no QED; no refereed bound is changed.
  *
  * @see imp-3459, imp-3480, imp-3498, imp-3517, imp-3539, imp-3568, imp-3593 (the prior audits in this series)
  */
@@ -83,7 +82,7 @@ export const IMP_3615_3575_3582_COHORT_MODULE_SURFACING_AUDIT = {
     'certification results for which a glossary entry is adequate, no further viz ticket ' +
     'recommended. Do not fabricate pages in this audit ticket.',
   honestNote:
-    'Read-only audit; no pages fabricated. No new bound, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'Read-only audit; no pages fabricated. No new bound, no QED. No refereed bound is changed.',
 };
 
 // Build-time tripwires that lock the audit findings against silent drift.
@@ -113,9 +112,9 @@ const IMP_3615_ASSERTIONS = [
   },
   {
     id: 'imp3615-honest-scope-locked',
-    holds: () => /SOTA/.test(IMP_3615_3575_3582_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
+    holds: () => /refereed bound is changed/i.test(IMP_3615_3575_3582_COHORT_MODULE_SURFACING_AUDIT.honestNote) &&
       /no QED/i.test(IMP_3615_3575_3582_COHORT_MODULE_SURFACING_AUDIT.honestNote),
-    why: 'VERDICT LOCK: this is a read-only audit, not a bound; Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    why: 'VERDICT LOCK: this is a read-only audit, not a bound; no refereed bound is changed.',
   },
 ];
 

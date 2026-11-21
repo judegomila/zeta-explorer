@@ -51,14 +51,14 @@
  *   ------------------------
  *   A glossary-style lookup recording the imp-95799 refutation of the guessed
  *   R* = 250 - c*delta form. It establishes nothing, instantiates no interval, closes
- *   no sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   no sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-95799-rstar-delta-drift-linear-fit (source: the fitted intercept 325.393 this glosses)
  * @see imp-95761-szego-coefficient-larger-grid-subpct (source: the reach-envelope constant 250 this glosses)
  * @see imp-95794-reach-universality-law-glossary-headword (the earlier headword for the reach-universality law itself)
  *
  * Ticket: imp-95830 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The intercept-vs-envelope distinction, baked verbatim (no re-import).
@@ -104,7 +104,7 @@ export const IMP95830_RSTAR_INTERCEPT_VS_ENVELOPE_GLOSSARY_HEADWORD = Object.fre
     'the imp-95799 fitted R*(delta) intercept 325.393 (a least-squares extrapolation to ' +
     'delta = 0) are DIFFERENT OBJECTS, and that the guessed R* = 250 - c*delta form is ' +
     'REFUTED in its intercept. Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95799 (the fitted intercept 325.393 this glosses); imp-95761 (the ' +
     'reach-envelope constant 250 this glosses); imp-95794 (the earlier reach-' +
@@ -132,11 +132,11 @@ export const IMP95830_RSTAR_INTERCEPT_VS_ENVELOPE_GLOSSARY_HEADWORD_ASSERTIONS =
   },
   {
     id: 'imp95830-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95830_RSTAR_INTERCEPT_VS_ENVELOPE_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95830_RSTAR_INTERCEPT_VS_ENVELOPE_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95830_RSTAR_INTERCEPT_VS_ENVELOPE_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95830_RSTAR_INTERCEPT_VS_ENVELOPE_GLOSSARY_HEADWORD.verdict) &&
       IMP95830_RSTAR_INTERCEPT_VS_ENVELOPE_GLOSSARY_HEADWORD.glosses === 'imp-95799',
   },
 ];

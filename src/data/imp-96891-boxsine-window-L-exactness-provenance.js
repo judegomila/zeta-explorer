@@ -51,8 +51,8 @@
  * not irreducible uncertainty. This tightens imp-96853 residual item (i) to a formula-anchored 8e-14
  * enclosure and closes the sub-gap, leaving item (iii) (GUE throughout) as the standing condition.
  * Derivation only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros
- * (UNPROVEN, GRH-flavored); changes NO unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * (UNPROVEN, GRH-flavored); changes NO unconditional bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96874-boxsine-number-variance-interval-enclosure (the enclosure and the sub-gap this resolves)
  * @see imp-96109-tue5-dip-decorrelation-safety-margin (the L = 2*Delta*delta(T) definition of the window)
@@ -135,12 +135,12 @@ export const IMP96891_BOXSINE_WINDOW_L_EXACTNESS_PROVENANCE = {
   conditionality:
     'Conditional on the GUE sine kernel / Montgomery pair correlation holding for the actual zeta zeros (UNPROVEN, GRH-flavored) -- imp-96853 residual item (iii), untouched here. Changes NO unconditional bound.',
   verdict:
-    'SUB-GAP IMP96874_SIGMA2_L_EXACTNESS is RESOLVED: L = 495.779 is a 6-digit rounded proxy for the exact-height transcendental L(T) = sqrt(T/(2 pi)) log(T/(2 pi)) / pi = 495.7794011038582 at the exact T = 1.5e5 (neither an exact decimal window nor a T/n integer tiling ratio: T/L = 302.55, span/L = 2017.03 are both non-integer). Because T is exact, L is pinnable to double precision (ulp spread ~1.1e-13 -> Sigma^2 shift ~2e-17), so the TIGHT 8e-14 enclosure regime is selected -- but it must be re-centered on the formula-exact window: Sigma^2(495.7794011) = 0.97483378192975, which is +8.19e-8 relative to imp-96874`s 495.779-literal value 0.97483369998301 (offset = 4.011e-4 * 2.043e-4 = 8.20e-8). The prior 1e-7 fallback was exactly this L-truncation gap, not irreducible uncertainty. This tightens imp-96853 residual item (i) to a formula-anchored 8e-14 enclosure and closes the sub-gap, leaving item (iii) (GUE throughout) as the standing condition. Derivation only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes NO unconditional bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'SUB-GAP IMP96874_SIGMA2_L_EXACTNESS is RESOLVED: L = 495.779 is a 6-digit rounded proxy for the exact-height transcendental L(T) = sqrt(T/(2 pi)) log(T/(2 pi)) / pi = 495.7794011038582 at the exact T = 1.5e5 (neither an exact decimal window nor a T/n integer tiling ratio: T/L = 302.55, span/L = 2017.03 are both non-integer). Because T is exact, L is pinnable to double precision (ulp spread ~1.1e-13 -> Sigma^2 shift ~2e-17), so the TIGHT 8e-14 enclosure regime is selected -- but it must be re-centered on the formula-exact window: Sigma^2(495.7794011) = 0.97483378192975, which is +8.19e-8 relative to imp-96874`s 495.779-literal value 0.97483369998301 (offset = 4.011e-4 * 2.043e-4 = 8.20e-8). The prior 1e-7 fallback was exactly this L-truncation gap, not irreducible uncertainty. This tightens imp-96853 residual item (i) to a formula-anchored 8e-14 enclosure and closes the sub-gap, leaving item (iii) (GUE throughout) as the standing condition. Derivation only; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN); changes NO unconditional bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96428 / imp-96593 / imp-96853 / imp-96874 convention).
 export const IMP96891_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation only: the box-sine number-variance window '
+  'RH open; no refereed bound is changed; NO QED. Derivation only: the box-sine number-variance window '
   + 'L = 495.779 is a 6-digit rounded proxy for the transcendental L(T) = sqrt(T/(2 pi)) log(T/(2 pi)) / pi '
   + '= 495.7794011038582 at the exact height T = 1.5e5 (not an exact decimal, not a T/n integer tiling: '
   + 'T/L = 302.55, span/L = 2017.03). Since T is exact, L is pinnable to double precision, so the TIGHT '
@@ -181,9 +181,9 @@ export const IMP96891_HONEST_BANNER =
   // honesty gates
   const V = IMP96891_BOXSINE_WINDOW_L_EXACTNESS_PROVENANCE.verdict;
   if (!/NO QED/.test(V)) throw new Error('imp-96891: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(V)) throw new Error('imp-96891: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(V)) throw new Error('imp-96891: verdict dropped the no-refereed-bound-change banner');
   if (!/[Cc]onditional/.test(V)) throw new Error('imp-96891: verdict must flag the result as CONDITIONAL');
-  if (!(/RH open/.test(IMP96891_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96891_HONEST_BANNER) && /NO QED/.test(IMP96891_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96891_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96891_HONEST_BANNER) && /NO QED/.test(IMP96891_HONEST_BANNER)))
     throw new Error('imp-96891: IMP96891_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

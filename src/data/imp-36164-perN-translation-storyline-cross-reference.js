@@ -48,7 +48,7 @@
  *   @see src/data/lambda-roadmap.js (G5-perN-translation obligation, status OPEN)
  *
  *   Ticket: imp-36164 (content, medium). Note only; imports source verdicts
- *   verbatim; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   verbatim; changes no bound; NO QED; no refereed bound is changed.
  */
 
 import { IMP36082_ROUTEB_PERN_RATE_FORM_AND_BRIDGE_CONSUMABILITY } from './imp-36082-routeB-perN-rate-form-and-bridge-consumability.js';
@@ -135,7 +135,7 @@ export const IMP36164_PERN_TRANSLATION_STORYLINE_CROSS_REFERENCE = Object.freeze
       'Read-only cross-reference narrative assembling the imp-341/344, imp-36082, and imp-36045 verdicts into ' +
       'one storyline plus an explicit derived-vs-open list. Imports each stage verbatim; derives nothing new; ' +
       'per-N translation stays OPEN; respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -189,7 +189,7 @@ export const IMP36164_PERN_TRANSLATION_STORYLINE_CROSS_REFERENCE_ASSERTIONS = [
   {
     id: 'imp36164-honest-no-closure-no-qed',
     why: 'Mandatory honesty: an ASSEMBLY note that closes NOTHING, discharges no gap, keeps per-N translation ' +
-         'OPEN, carries NO RH verdict, PT 0.2 stays SOTA. If any flip the module over-claims.',
+         'OPEN, carries NO RH verdict, no refereed bound is changed. If any flip the module over-claims.',
     holds: () => {
       const h = IMP36164_PERN_TRANSLATION_STORYLINE_CROSS_REFERENCE.honestCaveat;
       return (
@@ -199,7 +199,7 @@ export const IMP36164_PERN_TRANSLATION_STORYLINE_CROSS_REFERENCE_ASSERTIONS = [
         h.derivesAnythingNew === false &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

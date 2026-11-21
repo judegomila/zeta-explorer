@@ -52,7 +52,7 @@
  * interval-representable at the dG node is NECESSARY but not SUFFICIENT for a valid certificate: F(m) = 0
  * remains a double-precision artifact, no interval is instantiated here, imp-34714a REMAINS OPEN, and no
  * bound moves. C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) are UNTOUCHED. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35810-cancellation-onset-height (measured the ~ eps_mach/a departure envelope; R_clean as diagnostic)
  * @see imp-35766-krawczyk-cancellation-ratio-beyond-band (B3 flagged the float-cancellation artifact)
@@ -204,7 +204,7 @@ export const IMP35855_RCLEAN_INTERVAL_DE_CANCELLATION = {
     'imp-34687a directed-rounding layer is not ported, no interval is instantiated, and F(m) = 0 remains a ' +
     'double-precision artifact. Reuses the imp-35266/imp-35766/imp-35810 machinery (identical K, delta, S_inf, ' +
     'aOf); C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35810 (eps_mach/a departure envelope; R_clean as diagnostic); imp-35766 (B3 float-cancellation ' +
     'artifact); imp-35266 (2:1 split -dFP/dG ~ 2.00042); imp-34996 (S_inf = 1/(2 delta) floor); imp-34714a ' +
@@ -241,15 +241,15 @@ export const IMP35855_RCLEAN_INTERVAL_DE_CANCELLATION_ASSERTIONS = [
       IMP35855_RCLEAN_INTERVAL_DE_CANCELLATION.metric.de_cancellation_demonstrated === true,
   },
   {
-    // Honesty gate: assessment/scoping, not rigorous, sub-gap open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: assessment/scoping, not rigorous, sub-gap open, no interval, no QED, no refereed bound is changed.
     id: 'imp35855-honesty-gate-no-qed',
-    description: 'assessment: isRigorous false, imp-34714a open, node-level NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'assessment: isRigorous false, imp-34714a open, node-level NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP35855_RCLEAN_INTERVAL_DE_CANCELLATION.isRigorous === false &&
       /imp-34714a REMAINS OPEN/.test(IMP35855_RCLEAN_INTERVAL_DE_CANCELLATION.subGap) &&
       /NECESSARY but not SUFFICIENT/.test(IMP35855_RCLEAN_INTERVAL_DE_CANCELLATION.subGap) &&
       /NO QED/.test(IMP35855_RCLEAN_INTERVAL_DE_CANCELLATION.verdict) &&
-      /remains SOTA/.test(IMP35855_RCLEAN_INTERVAL_DE_CANCELLATION.verdict),
+      /refereed bound is changed/i.test(IMP35855_RCLEAN_INTERVAL_DE_CANCELLATION.verdict),
   },
 ];
 

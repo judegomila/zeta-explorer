@@ -84,8 +84,7 @@
  * weight is a change of units that must be carried through the whole fold-modulus back-conversion --
  * so it CONFIRMS H4 is the same strip-height-uniformity residual as imp-33645 H3 rather than
  * discharging it. Measurement only; G6a_shock_lipschitz stays OPEN; no positivity; imp-3066
- * off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb share untouched; NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains the rigorous SOTA.
+ * off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb share untouched; NO QED. No refereed bound is changed.
  *
  * @see imp-33645-h3-curvature-divergence-scoping (the sibling H3 curvature measurement, exponent 5/2)
  * @see imp-33619-h5-rh-transcription-scoping (names C3 the Privalov-Sokhotski residual, OPEN uniformly)
@@ -244,7 +243,7 @@ export const IMP33646_H4_PRIVALOV_SOKHOTSKI_CONSTANT_SCOPING = {
     'fold-modulus back-conversion -- so it CONFIRMS H4 is the SAME strip-height-uniformity residual ' +
     'as imp-33645 H3 rather than discharging it. Measurement only; G6a_shock_lipschitz stays OPEN; ' +
     'no positivity; imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb share untouched; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-33645-h3-curvature-divergence-scoping (sibling H3 curvature, exponent 5/2); ' +
     'imp-33619-h5-rh-transcription-scoping (C3 Privalov-Sokhotski residual, OPEN uniformly); ' +
@@ -339,14 +338,14 @@ export const IMP33646_H4_PRIVALOV_SOKHOTSKI_CONSTANT_ASSERTIONS = [
       /strip-height-uniformity/.test(IMP33646_H4_PRIVALOV_SOKHOTSKI_CONSTANT_SCOPING.residualObstruction),
   },
   {
-    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: scoping only, not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33646-honesty-gate-no-qed',
-    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33646_H4_PRIVALOV_SOKHOTSKI_CONSTANT_SCOPING.isRigorous === false &&
       /NO QED/.test(IMP33646_H4_PRIVALOV_SOKHOTSKI_CONSTANT_SCOPING.verdict) &&
       /stays OPEN/.test(IMP33646_H4_PRIVALOV_SOKHOTSKI_CONSTANT_SCOPING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33646_H4_PRIVALOV_SOKHOTSKI_CONSTANT_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP33646_H4_PRIVALOV_SOKHOTSKI_CONSTANT_SCOPING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33646_H4_PRIVALOV_SOKHOTSKI_CONSTANT_SCOPING.verdict),
   },
 ];

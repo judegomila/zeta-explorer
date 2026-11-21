@@ -210,7 +210,7 @@ export default function Imp96377OffAnchorResidualViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96345
         baked residual structure verbatim (only the per-point below-line flag and the line-curve
         samples are computed here). Changes no bound, establishes no operator positivity, no RH
-        claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        claim. NO QED.
       </div>
     </div>
   );

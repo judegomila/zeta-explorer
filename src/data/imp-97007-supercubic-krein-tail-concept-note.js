@@ -51,7 +51,7 @@
  *   residual growth)
  *
  * Ticket: imp-97007 (content, low). Documentation only; establishes no new bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-96975).
@@ -119,7 +119,7 @@ export const IMP97007_SUPERCUBIC_KREIN_TAIL_CONCEPT_NOTE = Object.freeze({
     'n^{~12} top-mode endpoint growth (~9 orders of magnitude suppression), while ' +
     'noting the exact value of p remains open pending the full minimiser ' +
     'coefficient spectrum. Establishes nothing new; fires no certificate; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   citation:
     'imp-96975-sigma2-tail-supercubic-derivation.js ((L1)/(L2) laws, ' +
     'reconciliation, sub-gap); imp-96957-bessel-onset-tail-finer-ladder-viz-data.js ' +
@@ -187,12 +187,12 @@ export const IMP97007_SUPERCUBIC_KREIN_TAIL_CONCEPT_NOTE_ASSERTIONS = [
   {
     id: 'imp97007-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT SOTA ' +
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change ' +
       'line present, glosses and scopes fields consistent.',
     holds: () =>
       IMP97007_SUPERCUBIC_KREIN_TAIL_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
-      /remains SOTA/.test(IMP97007_SUPERCUBIC_KREIN_TAIL_CONCEPT_NOTE.verdict) &&
+      /refereed bound is changed/i.test(IMP97007_SUPERCUBIC_KREIN_TAIL_CONCEPT_NOTE.verdict) &&
       IMP97007_SUPERCUBIC_KREIN_TAIL_CONCEPT_NOTE.glosses === 'imp-96975' &&
       /T\^\{-3\} ln T/.test(IMP97007_SUPERCUBIC_KREIN_TAIL_CONCEPT_NOTE.scopes),
   },

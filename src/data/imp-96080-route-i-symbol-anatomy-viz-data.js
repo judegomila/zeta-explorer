@@ -22,7 +22,7 @@
  * honest closed-form symbol already exercised by that module's own PH0 assertion
  * (signChanges(weilSymbol, ...)); no re-derivation of the Toeplitz forms, no fresh
  * pencil solve. Changes no bound, establishes no operator positivity, no RH claim;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see rh-route-i-pencil-highres-map-2026-09-23.js
  *   (weilSymbol, PENCIL_HIGHRES_LITERALS.symbol, PENCIL_HIGHRES_LITERALS.gridN128, .crossing)
@@ -69,7 +69,7 @@ export const IMP96080_CROSSING = Object.freeze({
 });
 
 export const IMP96080_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: the w(t) curve is a direct evaluation of the source module’s own exact closed-form weilSymbol (no re-derivation of the Toeplitz forms); the resonance windows and mu_max(a) column are copied verbatim from PENCIL_HIGHRES_LITERALS; no bound is claimed and no operator positivity is established. The 5-decimal a* = 0.56578 shown on the crossing chart is a Richardson extrapolation from N = 64..192 (a* = 0.565770 +- 3.3e-6, imp-96064); it is NOT confirmed by any assembly at N >= 224, where the compressed pole-free L_S loses positivity (imp-96106) and the pencil eigenvalues become unreliable, so the 5th decimal should be read as extrapolated, not as converged past N = 192.';
+  'RH open; no refereed bound is changed; NO QED. Presentation only: the w(t) curve is a direct evaluation of the source module’s own exact closed-form weilSymbol (no re-derivation of the Toeplitz forms); the resonance windows and mu_max(a) column are copied verbatim from PENCIL_HIGHRES_LITERALS; no bound is claimed and no operator positivity is established. The 5-decimal a* = 0.56578 shown on the crossing chart is a Richardson extrapolation from N = 64..192 (a* = 0.565770 +- 3.3e-6, imp-96064); it is NOT confirmed by any assembly at N >= 224, where the compressed pole-free L_S loses positivity (imp-96106) and the pencil eigenvalues become unreliable, so the 5th decimal should be read as extrapolated, not as converged past N = 192.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -120,7 +120,7 @@ const IMP96080_ASSERTIONS = [
     id: 'imp96080-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96080_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96080_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96080_HONEST_BANNER) &&
       /NO QED/.test(IMP96080_HONEST_BANNER),
     why: 'every Route A-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

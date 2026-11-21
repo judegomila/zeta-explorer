@@ -20,7 +20,7 @@
  * the beyond-T=3200 residual is a Rayleigh UPPER-bound measurement, not a
  * certificate; the projected N~153 crossover is an unverified extrapolation
  * past the 2a<=0.96 interval-verified reach; interval-rigorous certificate
- * reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open;
+ * reach stays 2a<=0.96; no refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-96957-bessel-onset-tail-finer-ladder-viz-data.js (source table, reused verbatim)
@@ -73,8 +73,8 @@ export const IMP96985_HONEST_BANNER =
   'growing super-cubically (p_global=3.228, local 3.10-3.39, no roll-off) while the literal ' +
   'uniform-j_k^2 onset-gap over-prediction COLLAPSES 9.63->2.74 (narrows, does not widen), ' +
   'projecting an unverified crossover near N~153 past the 2a<=0.96 interval-verified reach. ' +
-  'No operator positivity established; interval-rigorous certificate reach stays 2a<=0.96; PT ' +
-  'Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'No operator positivity established; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // plain validation object (no self-executing throw; imp-96294/imp-96819 convention -- a viz-data
 // leaf must stay inert in the browser so a stale reading cannot blank a lazy-loaded page). Checked
@@ -103,7 +103,7 @@ export const IMP96985_VALIDATION = Object.freeze({
     IMP96957_VERDICT.qed === false,
   honestBannerPresent:
     /RH open/.test(IMP96985_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP96985_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96985_HONEST_BANNER) &&
     /NO QED/.test(IMP96985_HONEST_BANNER),
 });
 

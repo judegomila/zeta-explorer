@@ -80,7 +80,7 @@
  * seam Gram) would remove that wall -- named RESIDUAL SUB-GAP:
  * imp-95761-on2-dd-toeplitz-solver-for-ln12-subpct. (c) Model seam family only; the
  * imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes
- * NO bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95743-szego-coefficient-double-double-crosscheck (the DD fit whose sub-gap this closes)
  * @see imp-95727-szego-coefficient-eigensolver-crosscheck (the float64 check imp-95743 extended)
@@ -164,7 +164,7 @@ export const IMP95761_SZEGO_COEFFICIENT_LARGER_GRID_SUBPCT = {
     "would deliver the fully-DD sub-1% confirmation at ln 1.2 (SUB-GAP " +
     "imp-95761-on2-dd-toeplitz-solver-for-ln12-subpct). Numerical measurement of an established law; " +
     "model seam family only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay " +
-    "OPEN. Changes no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "OPEN. Changes no bound of the Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95761"],
 };
 
@@ -321,7 +321,7 @@ export const IMP95761_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       REF.lawConfirmed === true &&
-      /remains SOTA/.test(REF.verdict) &&
+      /refereed bound is changed/i.test(REF.verdict) &&
       REF.closesTickets.includes("imp-95761"),
   },
   {

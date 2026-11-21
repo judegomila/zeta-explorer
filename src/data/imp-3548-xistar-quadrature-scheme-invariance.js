@@ -49,7 +49,7 @@
  *   rule-independent; it does NOT give xi* an elementary closed form (the imp-3470
  *   stationarity equation stays transcendental) and does not sharpen the residual band.
  *   RH-EQUIVALENT; the imp-3066 off-diagonal endpoint-Hankel K_a >= 0 magnitude is the lone
- *   RH obstruction, UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *   RH obstruction, UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-3523-xistar-panel-count-convergence-limit.js (midpoint ladder; pinned xi*_inf)
  *   @see imp-3511-xistar-uniqueness-wide-range-robustness.js (root COUNT robust)
@@ -266,7 +266,7 @@ export const IMP3548_XISTAR_QUADRATURE_SCHEME_INVARIANCE = Object.freeze({
     'ratios -> 4.00) extrapolates to 12.066687610. Both schemes agree with the imp-3523 headline to ~1e-9, three ' +
     'orders inside its conservative 1e-6 residual band, so xi*_inf = 12.0666876(1) is rule-invariant, not an ' +
     'extrapolation-model artifact. Measurement only; RH-equivalent; the imp-3066 K_a >= 0 magnitude is the lone ' +
-    'obstruction, UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'obstruction, UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     objective: 'sup_xi |P1(xi)|, P1 = dP/dxi, P(xi) = |Phihat(xi)|^2 = C^2 + S^2 (the peak slope behind ||Ttilde||)',
@@ -361,7 +361,7 @@ export const IMP3548_XISTAR_QUADRATURE_SCHEME_INVARIANCE = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -417,7 +417,7 @@ export const IMP3548_XISTAR_QUADRATURE_SCHEME_INVARIANCE_ASSERTIONS = [
     id: 'imp3548-honest-assessment-no-qed',
     why: 'Mandatory honesty: confirms rule-invariance not a closed form (equation transcendental), the trapezoid ' +
       'O(1/N^2) is empirical over a finite ladder, the band is not re-derived, sub-Nyquist only, measures the ratio ' +
-      'not positivity, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'not positivity, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3548_XISTAR_QUADRATURE_SCHEME_INVARIANCE.honestCaveat;
       return (
@@ -429,7 +429,7 @@ export const IMP3548_XISTAR_QUADRATURE_SCHEME_INVARIANCE_ASSERTIONS = [
         typeof c.trapezoidOrderIsEmpirical === 'string' &&
         typeof c.bandNotReDerived === 'string' &&
         typeof c.subNyquistOnly === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

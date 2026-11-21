@@ -48,7 +48,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486, the
  * C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED and
  * appear only symbolically as differentiation axes; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-124770-pair-ratio-identity-landmark-ladder (the DOUBLE-precision ladder L2..L7 this leaf lifts to dps=60)
  * @see imp-124767-extprec-deep-window-exponent (the extended-precision method mirrored here)
@@ -126,7 +126,7 @@ export const IMP124788_EXTPREC_PAIRRATIO_DEEP_LANDMARK = {
     'rigorous asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the ' +
     'pinned E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED (perturbed only symbolically as ' +
     'differentiation axes); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-124770 (the DOUBLE-precision pair-ratio ladder L2..L7 lifted here); imp-124767 (the extended-precision ' +
     'method mirrored); imp-124769 (the |E_CF| round-off crossover pinned between L5 and L6); imp-97665 (the EXACT ' +
@@ -182,13 +182,13 @@ export const IMP124788_EXTPREC_PAIRRATIO_DEEP_LANDMARK_ASSERTIONS = [
       LADDER.every((r, i) => i === 0 || r.target_Eflow_over_Etrunc < LADDER[i - 1].target_Eflow_over_Etrunc),
   },
   {
-    // Honesty gate: numerical/cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: numerical/cross-validation only, no QED, no refereed bound is changed.
     id: 'imp124788-honesty-gate-no-qed',
-    description: 'Numerical/cross-validation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Numerical/cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124788_EXTPREC_PAIRRATIO_DEEP_LANDMARK.isRigorous === false &&
       /NO QED/.test(IMP124788_EXTPREC_PAIRRATIO_DEEP_LANDMARK.verdict) &&
-      /remains SOTA/.test(IMP124788_EXTPREC_PAIRRATIO_DEEP_LANDMARK.verdict),
+      /refereed bound is changed/i.test(IMP124788_EXTPREC_PAIRRATIO_DEEP_LANDMARK.verdict),
   },
 ];
 

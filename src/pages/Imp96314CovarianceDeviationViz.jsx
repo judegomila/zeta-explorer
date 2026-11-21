@@ -163,7 +163,7 @@ export default function Imp96314CovarianceDeviationViz() {
         baked decade ladder and crossing literals verbatim (only the log10 T axis reshaping is
         computed here). rho_exact is the theoretical GUE (sine-kernel, universality) two-interval
         correlation, not a measurement of the actual Riemann zeros. Changes no bound, establishes
-        no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
+        no operator positivity, no RH claim.
         NO QED.
       </div>
     </div>

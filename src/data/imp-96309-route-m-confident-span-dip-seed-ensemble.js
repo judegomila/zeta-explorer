@@ -51,7 +51,7 @@
  * Rayleigh scale, N ~ 5.5e6) holds regardless of the true amplitude split.
  *
  * SIMULATION ONLY. No new zeros, no Gram build. Changes no bound, establishes no operator
- * positivity, makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * positivity, makes no RH claim; no refereed bound is changed. RH open. NO QED.
  * Synthetic tones only; no unique identification of the real conductor content or its true
  * amplitude ratio is claimed.
  *
@@ -116,7 +116,7 @@ export const IMP96309_VERDICT = Object.freeze({
 });
 
 export const IMP96309_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Simulation only: every value is a reproducible numeric from tmp/imp-96309-scratch.mjs Monte-Carlo of a synthetic q4+q5 two-tone plus matched noise, re-run at 10x draws and across a 16-seed ensemble; no new zeros, no Gram build, no bound is claimed, no operator positivity is established, and NO unique identification of the real conductor content or its amplitude ratio is claimed.';
+  'RH open; no refereed bound is changed; NO QED. Simulation only: every value is a reproducible numeric from tmp/imp-96309-scratch.mjs Monte-Carlo of a synthetic q4+q5 two-tone plus matched noise, re-run at 10x draws and across a 16-seed ensemble; no new zeros, no Gram build, no bound is claimed, no operator positivity is established, and NO unique identification of the real conductor content or its amplitude ratio is claimed.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -176,7 +176,7 @@ const IMP96309_ASSERTIONS = [
     id: 'imp96309-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96309_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96309_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96309_HONEST_BANNER) &&
       /NO QED/.test(IMP96309_HONEST_BANNER),
     why: 'the honest banner carries the RH-open / PT-Lambda / NO-QED markers.',
   },

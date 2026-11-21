@@ -73,8 +73,7 @@
  *
  *   STATUS: a grouping/index note over five already-completed tickets, not a new derivation. No
  *   bound changes: the rigorous anchor stays the trace ceiling T = 2.594e7; compute (N ~ 9916,
- *   imp-96352) binds first by > 2600x; no operator positivity; RH open; NO QED. Platt-Trudgian
- *   Lambda <= 0.2 SOTA.
+ *   imp-96352) binds first by > 2600x; no operator positivity; RH open; NO QED. No refereed bound is changed.
  *
  * @see imp-97311-route-m-bettin-conrey-smalla-kappa-moment.js (fixed-a kappa_a=a/2; divergent moment)
  * @see imp-97329-route-m-uniform-crossover-second-moment.js (uniform a~b crossover profile f(x))
@@ -85,7 +84,7 @@
  * @see imp-96750-route-m-interior-second-moment-upper-bound-reduction.js (Q(b), the O(b log b) cancellation, V kernel)
  *
  * Ticket: imp-97391 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const ROUTE_M_DIAGONAL_SKELETON_COHORT = Object.freeze([
@@ -162,7 +161,7 @@ export const IMP97391_ROUTE_M_DIAGONAL_SKELETON_UNIFORM_CROSSOVER_COHORT_INDEX =
     'the two candidates via Sum_a kappa_a^2/a^2) and should not re-measure the pinned boundary-layer ' +
     'slope (1/2) or intercept (C+1/2). Establishes nothing new; moves no bound; the rigorous anchor ' +
     'stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by > 2600x; no ' +
-    'operator positivity; RH open; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; RH open; NO QED. No refereed bound is changed.',
   citation:
     'imp-97311 (fixed-a moment diverges); imp-97329 (uniform crossover profile); imp-97330 (pinned ' +
     'intercept closed form); imp-97349 (log^2 b vs b^(1/2) decision); imp-97356 (pinned layer o(b) ' +
@@ -204,11 +203,11 @@ export const IMP97391_ROUTE_M_DIAGONAL_SKELETON_UNIFORM_CROSSOVER_COHORT_INDEX_A
   },
   {
     id: 'imp97391-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97391_ROUTE_M_DIAGONAL_SKELETON_UNIFORM_CROSSOVER_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97391_ROUTE_M_DIAGONAL_SKELETON_UNIFORM_CROSSOVER_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP97391_ROUTE_M_DIAGONAL_SKELETON_UNIFORM_CROSSOVER_COHORT_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97391_ROUTE_M_DIAGONAL_SKELETON_UNIFORM_CROSSOVER_COHORT_INDEX.verdict),
   },
 ];
 

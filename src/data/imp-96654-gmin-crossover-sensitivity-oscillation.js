@@ -1,8 +1,7 @@
 /**
  * imp-96654 -- Sensitivity of the imp-96637 GUE crossover N* = 2.09e6 to the fitted small-gaps
  * exponent b = -0.3953, and a tabulation of the running-min two-sided oscillation amplitude about the
- * GUE median envelope. Measurement / sensitivity only; conditional on GUE; NO QED. PT Lambda <= 0.2
- * stays SOTA.
+ * GUE median envelope. Measurement / sensitivity only; conditional on GUE; NO QED. No refereed bound is changed.
  *
  * SETUP. imp-96637 solved the crossover of the imp-96616 measured single-power fit f(N) = A N^b
  * (A = 2.1147, b = -0.3953) against the GUE median envelope g(N) = C N^c (C = 0.8582, c = -1/3) as

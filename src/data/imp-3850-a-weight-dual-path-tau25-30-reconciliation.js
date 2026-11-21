@@ -60,8 +60,7 @@
  *   quadratures for a fixed autocorrelation weight, a magnitude used inside a mass-feasibility
  *   diagnostic; it establishes NO operator positivity. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-3736-a-weight-quadrature-convergence-assessment.js (the tau in {1.5,2.0} reconciliation extended here)
  *   @see imp-3730-a-weight-correction-limit.js (the c(tau) rungs given a second-path anchor)
@@ -277,8 +276,8 @@ export const IMP3850_A_WEIGHT_DUAL_PATH_TAU25_30_RECONCILIATION = Object.freeze(
     '-ln A(3.0)=511309.6125, reproducing c(2.5)/c(3.0) to <1e-4. So the imp-3730 rungs at tau in {2.5,3.0} ' +
     '-- the window BEYOND the uniform-grid ceiling imp-3716 stalled at -- now rest on two structurally ' +
     'independent quadratures agreeing to ~10 sig figs. ACCURACY/CONVERGENCE RECONCILIATION, RH-EQUIVALENT, ' +
-    'necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 stays SOTA.',
+    'necessary-but-not-sufficient; operator positivity (imp-3066) untouched; no QED. No refereed bound is changed' +
+    '.',
 
   method: Object.freeze({
     aWeight: 'A(tau) = int_0^hi Phi(s) Phi(s+tau) ds, Phi the NPHI=10 completed-Riemann kernel (imp-2686/imp-3646)',
@@ -349,7 +348,7 @@ export const IMP3850_A_WEIGHT_DUAL_PATH_TAU25_30_RECONCILIATION = Object.freeze(
       'The high-n uniform-Simpson rungs (n=2.56e7 at tau=2.5, n=2.048e8 at tau=3.0) are offline-verified ' +
       'literals (single-pass log-domain Simpson, hi=12), recorded as documented constants; the self-computing ' +
       'ladder to n=8e5 demonstrates the monotone climb, and the offline rungs land it on the graded-GL limit.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -389,7 +388,7 @@ export const IMP3850_A_WEIGHT_DUAL_PATH_TAU25_30_RECONCILIATION_ASSERTIONS = [
   {
     id: 'imp3850-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/convergence reconciliation only, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3850_A_WEIGHT_DUAL_PATH_TAU25_30_RECONCILIATION.honestCaveat;
       return (
@@ -397,7 +396,7 @@ export const IMP3850_A_WEIGHT_DUAL_PATH_TAU25_30_RECONCILIATION_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

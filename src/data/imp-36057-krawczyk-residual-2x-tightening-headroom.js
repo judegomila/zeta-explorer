@@ -67,7 +67,7 @@
  * operator is ported; the F(m) = 0 residual-at-root artifact is NOT discharged; halving a non-binding width
  * is NECESSARY at most, never SUFFICIENT. imp-34714a AND imp-34687a REMAIN OPEN; C_C = 1/8 (imp-2642/2643)
  * and C_mb GUE-conditional (imp-486) UNTOUCHED; changes no bound; establishes no operator positivity; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-36017-krawczyk-residual-surrogate-vs-layer-discrepancy (the 2x surrogate-over-layer width factor this weighs)
  * @see imp-35969-krawczyk-residual-directed-rounding-width (residual node a-independent few-ULP, far below the dG envelope)
@@ -299,7 +299,7 @@ export const IMP36057_KRAWCZYK_RESIDUAL_2X_TIGHTENING_HEADROOM = {
     'is NECESSARY at most, never SUFFICIENT. Reuses the imp-36017/imp-35969/imp-36044 machinery (identical ' +
     'K_AMPL, g, N_cross, aOf, kappaDG, nextUp/nextDown, axis); C_C = 1/8 (imp-2642/2643) and C_mb ' +
     'GUE-conditional (imp-486) UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-36017 (residual-node surrogate over-estimates the directed-rounding layer by a clean 2x); imp-35969 ' +
     '(residual node a-independent few-ULP, far below the dG departure envelope); imp-36044 (binding dG-node ' +
@@ -331,15 +331,15 @@ export const IMP36057_KRAWCZYK_RESIDUAL_2X_TIGHTENING_HEADROOM_ASSERTIONS = [
     holds: () => VACUITY_SHIFT_SMALL === true && VACUITY_FAR_ABOVE_PHYSICAL === true,
   },
   {
-    // Honesty gate: assessment / surrogate, not rigorous, sub-gaps open, no interval, no QED, PT stays SOTA.
+    // Honesty gate: assessment / surrogate, not rigorous, sub-gaps open, no interval, no QED, no refereed bound is changed.
     id: 'imp36057-honesty-gate-no-qed',
-    description: 'assessment: isRigorous false, imp-34714a/imp-34687a open, NECESSARY not SUFFICIENT, no QED, PT SOTA',
+    description: 'assessment: isRigorous false, imp-34714a/imp-34687a open, NECESSARY not SUFFICIENT, no QED, no refereed bound is changed',
     holds: () =>
       IMP36057_KRAWCZYK_RESIDUAL_2X_TIGHTENING_HEADROOM.isRigorous === false &&
       /imp-34714a AND imp-34687a REMAIN OPEN/.test(IMP36057_KRAWCZYK_RESIDUAL_2X_TIGHTENING_HEADROOM.subGap) &&
       /at most NECESSARY, never SUFFICIENT/.test(IMP36057_KRAWCZYK_RESIDUAL_2X_TIGHTENING_HEADROOM.subGap) &&
       /NO QED/.test(IMP36057_KRAWCZYK_RESIDUAL_2X_TIGHTENING_HEADROOM.verdict) &&
-      /remains SOTA/.test(IMP36057_KRAWCZYK_RESIDUAL_2X_TIGHTENING_HEADROOM.verdict),
+      /refereed bound is changed/i.test(IMP36057_KRAWCZYK_RESIDUAL_2X_TIGHTENING_HEADROOM.verdict),
   },
 ];
 

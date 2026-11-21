@@ -81,7 +81,7 @@
  *   but does not evaluate. Pinning F as a value is therefore strictly harder than pinning its slope.
  *   Measurement + reduction only: F stays a slope-derived placement, exactValuePinned = false; the
  *   only rigorous anchor is the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first
- *   by >2600x; changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   by >2600x; changes no bound; no operator positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97207-farfield-intercept-subleading-cotangent-constant -- evaluate the
  *   sub-leading constant cQ and the remainder tail-sum R of Q(b) = s0 b + cQ + r(b) (plus the
@@ -186,7 +186,7 @@ export const IMP97243_S0_RECONCILIATION = Object.freeze({
     'a=1 border biases the total HIGH), not by mis-scaling. Reconciled interior slope s0 = 1.757 ' +
     '+/- 0.006 (core bracket [1.751 largest finite-b, 1.7626 extrapolation]); the imp-96771 H2 factor ' +
     '2 zeta(2) maps Int-slopes to s0. Since c1_T is linear in s0 this band gives +/- 0.011 on ' +
-    'constituent (A). Reconciliation/measurement only; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.',
+    'constituent (A). Reconciliation/measurement only; no bound moved; no refereed bound is changed; NO QED.',
 });
 
 // -- The intercept decomposition c1_T = 2 s0 (gamma-3/2) + 2 cQ (zeta(2)-5/4) + 2 R (R unknown). --
@@ -248,7 +248,7 @@ export const IMP97207_VERDICT = Object.freeze({
     'a_int=-14.929 only as a consistency check. Pinning F as a VALUE is therefore STRICTLY HARDER ' +
     'than pinning its slope -- a separate, higher-order obstruction. Measurement + reduction only; ' +
     'F stays a slope-derived placement; the rigorous anchor is T=2.594e7; compute N~9916 binds ' +
-    'first by >2600x; changes no bound; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'first by >2600x; changes no bound; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97207_SUBGAP = Object.freeze({
@@ -264,7 +264,7 @@ export const IMP97207_SUBGAP = Object.freeze({
 });
 
 export const IMP97207_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reduction + measurement only: the O(1) additive ' +
+  'RH open; no refereed bound is changed; NO QED. Reduction + measurement only: the O(1) additive ' +
   'intercept of Int(N)=s* log N+c1+o(1) is DERIVED in closed structural form c1_T = 2 s0 (gamma-3/2) ' +
   '+ 2 cQ (zeta(2)-5/4) + 2 R via the imp-96750 exact regrouping. The harmonic/zeta STRUCTURE (exact ' +
   'coefficients gamma-3/2=-0.922784, zeta(2)-5/4=0.394934) is derivable; the VALUE is NOT, because ' +
@@ -349,7 +349,7 @@ const IMP97207_ASSERTIONS = [
       IMP97207_VERDICT.strictlyHarderThanSlope === true &&
       IMP97207_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97207_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97207_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97207_HONEST_BANNER) &&
       /RH open/.test(IMP97207_HONEST_BANNER) &&
       /imp-96750/.test(IMP97207_VERDICT.conclusion),
   },

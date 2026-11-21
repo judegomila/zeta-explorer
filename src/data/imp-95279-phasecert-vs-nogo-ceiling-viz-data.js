@@ -34,7 +34,7 @@
  *
  * MEASUREMENT / PRESENTATION ONLY. Reuses the imp-95233 closed form and
  * exact witness/poscone literals verbatim; changes no bound, no operator
- * positivity, no RH claim; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity, no RH claim; NO QED. No refereed bound is changed.
  *
  * @see imp-95233-modulus-phase-currency-feasibility.js (source: COROLLARY PHASE-CERT closed form, exact witness/poscone literals)
  * @see imp-95224-signed-depth-currency-nogo.js (source: COROLLARY DC-NOGO symmetry ceiling R = 1/2)

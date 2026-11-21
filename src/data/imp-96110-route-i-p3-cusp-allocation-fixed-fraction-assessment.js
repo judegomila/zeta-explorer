@@ -5,7 +5,7 @@
  * when the third prime is adjoined, i.e. does the excess still inherit a FIXED FRACTION of the dense
  * 2^a 3^b cusps of the S = {oo, 2, 3} remainder delta_S23, or does the many-prime excess lose the
  * fixed-fraction structure (consistent with the compact-Toeplitz method losing its foothold beyond
- * one prime)? Measurement only. RH open; PT Lambda <= 0.2 stands; NO QED.
+ * one prime)? Measurement only. RH open; no refereed bound is changed; NO QED.
  *
  * METHOD (the in/out decomposition of the excess, ported from S = {oo, 2} to S = {oo, 2, 3}).
  *  The Sonine algebra gives eps_S = delta^out + corr with corr continuous and delta^out = delta_S -
@@ -130,7 +130,7 @@ export const IMP_96110_P3_CUSP_ALLOCATION = Object.freeze({
     'src/data/rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js (delta_S23 dense log^2 spikes at every S-unit)',
     'src/data/imp-96066-route-i-p3-adjoin-vs-dense-resonance-assessment.js (discrete P_3 vs dense delta_S23)',
   ],
-  status: 'ASSESSED — the fixed-fraction cusp allocation SURVIVES and GENERALIZES: at every S = {oo, 2, 3} S-unit cusp rho = 2^a 3^b the excess eps_S23 inherits the fraction f_out(rho) = 1 - 1/rho of the (now log^2) cusp of delta_S23 (measured, converging from below at the p = 2-control rate: rho = 3 -> 0.667, rho = 9 -> 0.889, rho = 3/2 -> 0.333, rho = 9/8 -> 0.111; the clean half at rho = 2 is just 1 - 1/rho at rho = 2), with 1/rho going to the confined part delta^in_23. The p = 2 in/out method is VALIDATED (f_out -> 1 - 2^{-k} exactly at rho = 2/4/8). But this is an OBSTRUCTION not a rescue: the fixed fraction is now inherited across a DENSE set of LOG^2 cusps (one order worse than the isolated log cusp at rho = 2 that already killed the CC route past ln 2), so E_S23 o Q is worse-behaved and the compact-Toeplitz foothold is lost through density and cusp order, not through loss of the fraction structure. RH open; PT Lambda <= 0.2 stands; NO QED',
+  status: 'ASSESSED — the fixed-fraction cusp allocation SURVIVES and GENERALIZES: at every S = {oo, 2, 3} S-unit cusp rho = 2^a 3^b the excess eps_S23 inherits the fraction f_out(rho) = 1 - 1/rho of the (now log^2) cusp of delta_S23 (measured, converging from below at the p = 2-control rate: rho = 3 -> 0.667, rho = 9 -> 0.889, rho = 3/2 -> 0.333, rho = 9/8 -> 0.111; the clean half at rho = 2 is just 1 - 1/rho at rho = 2), with 1/rho going to the confined part delta^in_23. The p = 2 in/out method is VALIDATED (f_out -> 1 - 2^{-k} exactly at rho = 2/4/8). But this is an OBSTRUCTION not a rescue: the fixed fraction is now inherited across a DENSE set of LOG^2 cusps (one order worse than the isolated log cusp at rho = 2 that already killed the CC route past ln 2), so E_S23 o Q is worse-behaved and the compact-Toeplitz foothold is lost through density and cusp order, not through loss of the fraction structure. RH open; no refereed bound is changed; NO QED',
   method: 'in/out decomposition of the excess ported to S = {oo,2,3}: eps_S23 = delta^out_23 + corr23 (corr23 continuous by analogy, NOT proved), delta^out_23 = delta_S23 - delta^in_23, delta_S23(rho) = rho^{1/2} br23(rho), delta^in_23(rho) = rho^{-1/2} br23(1/rho); br23 = the 2^n 3^m coefficient-weighted si double sum. Out-fraction f_out(rho) = (delta^out increment)/(delta_S increment) over eps = 2^{-J}, window J = 14..18, L = 20',
   finding: 'f_out(rho) -> 1 - 1/rho at every S-unit (measured from below at the same slow finite-J rate as the p = 2 control which reaches 1 - 2^{-k} to 5 digits); cusp order preserved (delta^out_23 and delta_S23 share the log^2 singularity, 2nd-diff ratio in (0,1)); so the excess inherits a fixed fraction of the FULL log^2 cusp at each of the dense S-units',
   obstruction: 'the compact-Toeplitz foothold is lost for S superset {2,3} because the surviving fixed fraction 1 - 1/rho is inherited across a DENSE family of LOG^2 cusps (S-units 2^a 3^b dense in R_+, one singularity order worse than the isolated log cusp of delta_S at rho = 2), so E_S23 o Q is the Hadamard finite part of a dense set of 1/x^2-log-type singularities — strictly worse than the single p = 2 log resonance of rh-route-i-sonine-excess-semilocal-port Theorem 5. The excess obstruction is amplified and made dense, not removed',
@@ -147,8 +147,8 @@ export const IMP_96110_HONEST_STATUS_BANNER =
   'continuity argument strictly harder than the single isolated cusp of the p = 2 case, and no such ' +
   'proof is supplied here. If corr23 fails to stay continuous at even one S-unit, the delta^out_23 = ' +
   'delta_S23 - delta^in_23 in/out split and the measured f_out(rho) -> 1 - 1/rho fractions in ' +
-  'IMP_96110_CUSP_ALLOCATION_LITERALS would need re-derivation. RH open; PT Lambda <= 0.2 remains ' +
-  'SOTA; NO QED.';
+  'IMP_96110_CUSP_ALLOCATION_LITERALS would need re-derivation. RH open; no refereed bound is changed' +
+  '; NO QED.';
 
 // ---- imp-96208: extend the br23 truncation (L = 20 -> 28/30) and re-measure the edge/high-rho
 // S-units to decide whether the f_out -> 1 - 1/rho convergence is uniform from below, or whether the
@@ -176,7 +176,7 @@ export const IMP_96208_L_EXTENSION = Object.freeze({
     'rho=9': [[[12, 16], -0.03005], [[14, 18], -0.02565], [[16, 20], -0.02227], [[18, 22], -0.01936], [[20, 24], -0.01607]],
     'rho=27': [[[12, 16], -0.01734], [[14, 18], -0.01447], [[16, 20], -0.01230], [[18, 22], -0.01035], [[20, 24], -0.00774]],
   },
-  verdict: 'from-below convergence to 1 - 1/rho is UNIFORM across the dense S-unit set (edge/high-rho included); the L = 20 overshoot was truncation, not a high-rho break of the allocation law. corr23 continuity still ASSUMED; changes no bound; RH open; PT Lambda <= 0.2 stands; NO QED',
+  verdict: 'from-below convergence to 1 - 1/rho is UNIFORM across the dense S-unit set (edge/high-rho included); the L = 20 overshoot was truncation, not a high-rho break of the allocation law. corr23 continuity still ASSUMED; changes no bound; RH open; no refereed bound is changed; NO QED',
 });
 
 // ---- imp-96226: DERIVE (not just measure) the log^2 cusp order and confirm delta^out_23 keeps it.
@@ -230,7 +230,7 @@ export const IMP_96208_L_EXTENSION = Object.freeze({
 // large J0 -- see the J0-sweep decay 1.98 -> 1.10 from J0 = 6 to 12), and a uniform remainder bound on
 // the near-resonant sum (needed to promote the plateau to a proven leading order) is NOT supplied. The
 // corr23 continuity of imp-96110 remains ASSUMED (unchanged here). Derivation/assessment only; changes
-// no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+// no bound; no refereed bound is changed; RH open; NO QED.
 const _dS2 = (rho) => Math.sqrt(rho) * br2(rho);
 // equal-J-step second difference D2_J[f] = f(J0+2h) - 2 f(J0+h) + f(J0) of a cusp probe f(J)
 function d2JOrder(fOfJ, J0 = 8, h = 4) { return fOfJ(J0 + 2 * h) - 2 * fOfJ(J0 + h) + fOfJ(J0); }
@@ -256,7 +256,7 @@ export const IMP_96226_LOG2_ORDER_DERIVATION = Object.freeze({
   outKeepsFullOrder: [ // [rho, out/S ratio, in/S ratio, 1-1/rho, 1/rho]
     [3, 0.68744, 0.31256, 2 / 3, 1 / 3], [6, 0.85793, 0.14207, 5 / 6, 1 / 6], [1.5, 0.32325, 0.67675, 1 / 3, 2 / 3],
   ],
-  honestLimits: 'order derived from the free-direction lattice mechanism + confirmed by the 0-vs-O(1) J-2nd-difference discriminator, but read off a FINITE J-window plateau (br23 L-truncation floor cuts it at large J0; D2_J drifts 1.98 -> 1.10 from J0 = 6 to 12); a uniform near-resonant-sum remainder bound to promote the plateau to a proven leading order is NOT supplied; corr23 continuity still ASSUMED (imp-96110); changes no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED',
+  honestLimits: 'order derived from the free-direction lattice mechanism + confirmed by the 0-vs-O(1) J-2nd-difference discriminator, but read off a FINITE J-window plateau (br23 L-truncation floor cuts it at large J0; D2_J drifts 1.98 -> 1.10 from J0 = 6 to 12); a uniform near-resonant-sum remainder bound to promote the plateau to a proven leading order is NOT supplied; corr23 continuity still ASSUMED (imp-96110); changes no bound; no refereed bound is changed; RH open; NO QED',
 });
 
 // ---- assertions

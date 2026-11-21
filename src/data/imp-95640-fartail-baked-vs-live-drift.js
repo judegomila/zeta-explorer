@@ -51,7 +51,7 @@
  * Cross-validation only atop the inherited imp-3220/imp-3406 extrapolation, NOT
  * rigorous; the C_mb GUE-conditional (imp-486) is untouched; establishes no
  * operator positivity; imp-3066 K_a >= 0 untouched; changes no bound; no RH
- * verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-95606-sigma-postpeak-fine-exponent-ramp-viz-data.js (baked far-tail literals audited here)
  * @see imp-95602-sigma-exponent-ramp-past-1e12.js (live log-space evaluator re-run)
@@ -130,7 +130,7 @@ export const IMP95640_FARTAIL_BAKED_VS_LIVE_DRIFT = Object.freeze({
     'above-tolerance field is the imp-95606 FINE_GRID 4-dp display quote, ' +
     'correctly rounded from the live 0.45264. Changes no bound; establishes no ' +
     'operator positivity; C_mb GUE-conditional (imp-486) untouched; no RH ' +
-    'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-95606 (baked viz-data literals); imp-95602/imp-95614 (live evaluator + ' +
     'cross-check); imp-95625 (5-dp companion crossing table); imp-2546/imp-2539 ' +

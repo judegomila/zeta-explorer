@@ -32,7 +32,7 @@
  * MEASURED: floor drift over all 3,648 rectangles negative at every height (cost falls as X grows); exact U(X) at 13 heights.
  * HEURISTIC: pricing from PT’s recorded 7.5e6 core-hours; κ ∈ [1, 1.3] unmeasured; far-field distance d0 ≤ 3.9 (float scan).
  *
- * Verdict: PT Lambda <= 0.2 stands. RH open. NO QED. The project would re-implement this chain in its own pipeline; it does not
+ * Verdict: no refereed bound is changed. RH open. NO QED. The project would re-implement this chain in its own pipeline; it does not
  * claim Raymond’s result.
  * Files: tmp/s145-1-g1/{pipeline.py, probe.sh, batch.sh, drift.py, band.py, farfield.py, wall_search.py, out/<tag>/RESULT.json,
  * out/WALLQ_*.json}; referee scripts tmp/s145-1-ref0-raymond/replay.py, tmp/s145-1-ref1-*.py; large probe files in
@@ -145,7 +145,7 @@ export const S145_RAYMOND_HEIGHT_CONTRACT = Object.freeze({
     'PARTIAL (G0 open). Exact rational replays of Raymond’s regenerated chain give Λ ≤ 0.14496 at T* = 7.80e12 (certified wall, no band) — '
     + 'conditional on RH to T*, which has NOT been verified, and on Raymond’s unrefereed analytic chain. At PT height the output is exactly 0.149395. '
     + 'Band contract 0.14499 at T* = 6.0e12 is heuristic (H1/H2 not built). This is the height lever measured in a lane-free architecture, about 60× '
-    + 'less height than the fixed-t0 P15 pricing (T_h ≈ 4.5e14). PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'less height than the fixed-t0 P15 pricing (T_h ≈ 4.5e14). No refereed bound is changed. RH open. NO QED.',
 });
 
 const R = S145_RAYMOND_HEIGHT_CONTRACT;
@@ -220,7 +220,7 @@ export const S145_RAYMOND_HEIGHT_CONTRACT_ASSERTIONS = Object.freeze([
   },
   {
     id: 's145-ray-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict) && /NO QED/.test(R.status)
+    holds: () => /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict) && /NO QED/.test(R.status)
       && /G0 open/.test(R.verdict) && /NOT been verified/.test(R.verdict) && /heuristic/.test(R.contractB.grade)
       && /OPEN/.test(R.status) && R.contractA.hypotheses.some((h) => /NOT verified/.test(h)) && /exactly/.test(R.headline),
     why: 'Referee corrections: G0 open, height extension not done, band contract heuristic; no bound claimed.',

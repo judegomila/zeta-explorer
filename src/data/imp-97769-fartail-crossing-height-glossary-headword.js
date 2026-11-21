@@ -37,7 +37,7 @@
  *   component model)
  *
  * Ticket: imp-97769 (content, low, sonnet-4-6). Documentation only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The far-tail crossing-height headword, baked verbatim (no re-import).
@@ -67,7 +67,7 @@ const FARTAIL_CROSSING_HEIGHT_HEADWORD = Object.freeze({
     '(src/data/imp-97744-fartail-diagnostic-crossing-heights.js); closed-form base-10-log-space ' +
     'computation (double-precision e^709 ceiling avoided by carrying mantissa x 10^exp). Naming / ' +
     'glossary headword only; supplies no new bound; conditional-share diagnostic, not an RH ' +
-    'bound; no bound moved; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'bound; no bound moved; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97769_FARTAIL_CROSSING_HEIGHT_GLOSSARY_HEADWORD = Object.freeze({
@@ -86,7 +86,7 @@ export const IMP97769_FARTAIL_CROSSING_HEIGHT_GLOSSARY_HEADWORD = Object.freeze(
     'the bare slope exactly, and N = (L - 1) e^L pins N ~ 2.66124e45/1.43797e89/1.96810e437/' +
     '8.80594e4346 for t = 0.99/0.995/0.999/0.9999, self-consistent with the original bisection to ' +
     '< 0.06 in log10 N. No bound moved; conditional-share diagnostic, not an RH bound; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97744 (the closed-form inversion and the four pinned crossing rungs this glosses); ' +
     'imp-97723 (the original diagnostic and its order-of-magnitude-only crossings); imp-97702 ' +
@@ -113,11 +113,11 @@ export const IMP97769_FARTAIL_CROSSING_HEIGHT_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97769-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97769_FARTAIL_CROSSING_HEIGHT_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97769_FARTAIL_CROSSING_HEIGHT_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97769_FARTAIL_CROSSING_HEIGHT_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97769_FARTAIL_CROSSING_HEIGHT_GLOSSARY_HEADWORD.verdict) &&
       IMP97769_FARTAIL_CROSSING_HEIGHT_GLOSSARY_HEADWORD.glosses === 'imp-97744',
   },
 ];

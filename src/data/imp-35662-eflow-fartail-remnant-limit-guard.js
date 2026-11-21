@@ -38,8 +38,7 @@
  * REGRESSION-GUARD ONLY; recomputes established measurement figures; changes no
  * bound; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per
  * imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a >= 0
- * untouched; no operator positivity; no RH verdict; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * untouched; no operator positivity; no RH verdict; NO QED; no refereed bound is changed.
  *
  * @see imp-35552-eflow-fartail-remnant-product-decay-limit (the closed remnant / q -> -1 limit pinned here)
  * @see imp-35535-eflow-fartail-remnant-product-decay-ladder (the remnant(1e200) = 3.5385e-5 endpoint anchor)
@@ -147,8 +146,8 @@ export const IMP35662_EFLOW_FARTAIL_REMNANT_LIMIT_GUARD = {
     'the q -> -1 trend (q ~ -0.739 at 1e200, -0.918 at 10^1e6, -0.996 at 10^1e120, strictly above ' +
     '-1), matching the imp-35552 baked ladder / limit record. Recomputes established measurement ' +
     'figures; changes no bound; E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional ' +
-    'per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; NO QED; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; NO QED; no refereed bound is changed' +
+    '.',
   citation:
     'imp-35552 (the closed remnant / q -> -1 limit pinned here); imp-35535 (remnant(1e200) = ' +
     '3.5385e-5 endpoint); imp-35413 (remnant(1e26) = 0.000979 anchor); imp-35659 (complex-step ' +
@@ -208,13 +207,13 @@ export const IMP35662_EFLOW_FARTAIL_REMNANT_LIMIT_GUARD_ASSERTIONS = [
       IMP35552.limit.qLimit === -1,
   },
   {
-    // Honesty gate: regression-guard only, no bound change, no QED, PT stays SOTA.
+    // Honesty gate: regression-guard only, no bound change, no QED, no refereed bound is changed.
     id: 'imp35662-honesty-gate-no-qed',
-    description: 'Regression-guard only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Regression-guard only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35662_EFLOW_FARTAIL_REMNANT_LIMIT_GUARD.isRigorous === false &&
       /NO QED/.test(IMP35662_EFLOW_FARTAIL_REMNANT_LIMIT_GUARD.verdict) &&
-      /remains SOTA/.test(IMP35662_EFLOW_FARTAIL_REMNANT_LIMIT_GUARD.verdict),
+      /refereed bound is changed/i.test(IMP35662_EFLOW_FARTAIL_REMNANT_LIMIT_GUARD.verdict),
   },
 ];
 

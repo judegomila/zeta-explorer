@@ -53,7 +53,7 @@
  * enclosure: the computation is FLOAT (scipy), so the O(t^-3) / O(t^-4) constant is not two-sided-enclosed, and
  * the binding obstruction stays EXACTLY imp-97164 Obstruction 2 (IMP97015_ARB_INTERVAL_BESSEL -- no interval
  * spherical-Bessel / Gegenbauer evaluation). Rayleigh floors stay UPPER bounds; no operator positivity;
- * interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 SOTA; RH open; NO QED.
+ * interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97293-krein-committed-cjk-gegenbauer-overlap.js (exact rational c_{jk}; WHAT REMAINS: no numeric v0, no d=C^T v0)
  * @see imp-96973-krein-tailtrace-vacuity-factorisation.js (A_T ground state v0; the vacuity factorisation using <v0|R_T|v0>)

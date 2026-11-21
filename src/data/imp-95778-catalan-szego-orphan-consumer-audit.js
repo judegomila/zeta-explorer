@@ -45,7 +45,7 @@
  * statement, so none can transitively pull the 16.7MB zeros bundle -- confirmed directly, not
  * inferred. One completeness gap flagged (imp-95750 missing its own `*_ASSERTIONS` export) for a
  * future ticket. This audit changes no bound, establishes no operator positivity, and asserts no
- * QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED; no refereed bound is changed.
  */
 
 const AUDITED = Object.freeze([
@@ -119,7 +119,7 @@ export const CATALAN_SZEGO_ORPHAN_CONSUMER_AUDIT = Object.freeze({
     + 'page-wired. None of the six has any import statement, so none can transitively pull the '
     + '16.7MB zeros bundle. FLAGGED: imp-95750 exports no *_ASSERTIONS array, unlike its five '
     + 'siblings. Audit only; changes no bound; establishes no operator positivity; '
-    + 'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    + 'no refereed bound is changed; NO QED.',
   source: 'imp-95743, imp-95744, imp-95745, imp-95746, imp-95749, imp-95750',
 
   audited: AUDITED,
@@ -142,7 +142,7 @@ export const CATALAN_SZEGO_ORPHAN_CONSUMER_AUDIT = Object.freeze({
     'Static grep-based reachability audit; performs no re-derivation of any module\'s own numeric '
     + 'claims. Page-reachability is checked via src/data/visualizations-index.js citations and '
     + 'direct page imports (glossary.js -> WikiPage.jsx); DATA_MODULES registration is checked via '
-    + 'scripts/run-assertions.mjs. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; '
+    + 'scripts/run-assertions.mjs. Changes no bound; no refereed bound is changed; '
     + 'NO QED.',
 });
 
@@ -166,9 +166,9 @@ export const CATALAN_SZEGO_ORPHAN_CONSUMER_AUDIT_ASSERTIONS = Object.freeze([
       && AUDITED.find((m) => m.module.startsWith('imp-95750')).hasOwnAssertions === false,
   },
   {
-    name: 'honest: audit only, no bound moved, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: audit only, no bound moved, no refereed bound is changed, NO QED',
     holds: () => /changes no bound/.test(CATALAN_SZEGO_ORPHAN_CONSUMER_AUDIT.status)
-      && /Platt-Trudgian Lambda <= 0.2 remains SOTA/.test(CATALAN_SZEGO_ORPHAN_CONSUMER_AUDIT.status)
+      && /refereed bound is changed/i.test(CATALAN_SZEGO_ORPHAN_CONSUMER_AUDIT.status)
       && /NO QED/.test(CATALAN_SZEGO_ORPHAN_CONSUMER_AUDIT.status),
   },
 ]);

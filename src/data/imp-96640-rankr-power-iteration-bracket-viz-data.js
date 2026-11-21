@@ -12,8 +12,8 @@
  * MEASUREMENT / PRESENTATION ONLY. Every row (r, slope, ratio, r2) is
  * reused verbatim from imp-96612; only the chart-friendly reshape
  * (cumulative-fraction-of-target framing) is new here. Changes no bound,
- * establishes no operator positivity, no RH claim; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see imp-96612-route-m-lammax-rankr-power-iteration-bracket.js (source finding + all baked numbers)
  * @see imp-96581-route-m-lammax-rigorous-vs-measured-viz-data.js (sibling viz-data leaf, same convention)
@@ -77,7 +77,7 @@ const IMP96640_ASSERTIONS = [
     id: 'imp96640-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96640_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96640_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96640_HONEST_BANNER) &&
       /NO QED/.test(IMP96640_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

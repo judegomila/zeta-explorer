@@ -34,7 +34,7 @@
  *
  * Prior art: tlb-dh-blind-2026-09-28 (coefficients.reading) already records c_DH(n) ≠ 0 on non-prime-powers (n = 6, 12, 14, …); new here are the
  * per-class sharp onsets, the Toeplitz/Hankel witnesses and the E_{±1} × G factorisation. Tagged [RH] in fifty-routes; the tag is not advanced.
- * No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_30_ASSERTIONS recompute live: κ, the c(n) recursion to 3000 with the
+ * No Λ bound moves. No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_30_ASSERTIONS recompute live: κ, the c(n) recursion to 3000 with the
  * 1031 / 906 / 0 / 247 vanishing pattern, c(2), c(4), c(6), U_2, the Hankel witness, λ_min(T_2^(K)) by Jacobi for K = 1, 2, 3, 10, 40 against the
  * Szegő bound, |α_2|, and the support thresholds K ln p vs 3.44.
  */
@@ -88,7 +88,7 @@ export const ROUTE_30 = Object.freeze({
     + 'coefficient-multiplicativity test with no RH content, and the [RH] tag is not advanced. Onsets are sharp relative to FORMAL local Euler products '
     + '(local degree 1 for the unitary classes); the Weil-form onset 3.44 is specific to RH-type positivity, not an information limit. Structural '
     + 'finding: F_DH = (Euler product over p ≡ ±1 mod 5) × G with signed virtual local measures at p ≡ ±2 mod 5. Internal, one referee pass. '
-    + 'No Λ bound moves. PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'No Λ bound moves. No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_30;
@@ -159,7 +159,7 @@ export const ROUTE_30_ASSERTIONS = Object.freeze([
   {
     id: 'r30-honest-scope',
     holds: () => R.status === 'done' && /FORMAL/.test(R.headline) && /FORMAL/.test(R.verdict) && /no RH content/.test(R.verdict)
-      && /\[RH\] tag is not advanced/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict)
+      && /\[RH\] tag is not advanced/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict)
       && R.refereeKilled.length === 9 && R.refereeKilled.some((x) => /tlb-dh-blind/.test(x)),
     why: 'Sharpness scoped to formal local Euler products (local degree 1); detector is a multiplicativity test with no RH content; prior art credited; no Λ change; no QED.',
   },

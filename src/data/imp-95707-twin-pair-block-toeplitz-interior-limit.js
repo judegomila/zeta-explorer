@@ -10,8 +10,7 @@
  * floor and is NOT the infinite-lattice infimum, so the whole rho-sweep table
  * carried an unquantified finite-size bias away from the endpoints. This module
  * DERIVES the infinite-lattice infimum for every interior rho on the imp-95693
- * grid and MEASURES that bias. Changes no Lambda bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * grid and MEASURES that bias. Changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * THE BLOCK-TOEPLITZ SYMBOL. The twin-pair lattice is 2-periodic: pairs sit at
  * base_n = n * L with period L = delta + D (D = rho * delta the cross-pair gap),
@@ -90,7 +89,7 @@
  * across the tabulated rho grid at delta = ln 1.5, not a delta-uniform theorem.
  * (c) Model seam family only; the imp-95212 envelope port, signed WEIGHT, and
  * modulus/phase legs stay OPEN. Changes NO bound of the Lambda program; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-95693-twin-pair-block-floor-second-delta (the finite-80 proxy table this quantifies)
  * @see imp-95689-rho1-szego-dual-convergence-rate (the rho = 1 endpoint exact limit)
@@ -158,7 +157,7 @@ export const IMP95707_TWIN_PAIR_BLOCK_TOEPLITZ_INTERIOR_LIMIT = {
     "value. Derivation + numerical witness of an established interior mechanism; " +
     "no new cited input. Model seam family only; imp-95212 envelope port, signed " +
     "WEIGHT, modulus/phase legs stay OPEN. Changes no bound of the Lambda " +
-    "program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95707"],
 };
 
@@ -321,7 +320,7 @@ export const IMP95707_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /INTERIOR INFINITE-LATTICE LIMIT DERIVED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95707-closes-self",

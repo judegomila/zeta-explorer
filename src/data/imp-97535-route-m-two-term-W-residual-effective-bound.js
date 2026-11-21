@@ -84,7 +84,7 @@
  * self-contained. REMAINING BOOKKEEPING (named sub-gap): pin the specific published eta2 valid for
  * x >= Y ~ 2.6e9 to convert the O(1/lnY) envelope into a single certified numeral. No Lambda bound
  * depends on any of this: the b/4-ceiling line is a dead route (imp-97544). kappa_arith unchanged;
- * cotangent first moment (imp-97097) open; PT Lambda <= 0.2 SOTA; RH open; NO QED. Referee-worthy.
+ * cotangent first moment (imp-97097) open; no refereed bound is changed; RH open; NO QED. Referee-worthy.
  *
  * @see imp-97515-route-m-quarter-ceiling-p0-101-crossing-rigorous.js (RESULT 2 + the named sub-gap)
  * @see imp-97544-route-m-b4-ceiling-dead-route-consolidated-honest-status.js (b/4 ceiling dead route)
@@ -171,7 +171,7 @@ export const IMP97535_VERDICT = Object.freeze({
     'effectively self-contained; the exact segmented sieve stays the tight rigorous route. REMAINING ' +
     'BOOKKEEPING: pin the specific eta2 valid for x >= Y ~ 2.6e9 to get one certified numeral. The ' +
     'b/4-ceiling line is a dead route (imp-97544), load-bearing for nothing. kappa_arith unchanged; ' +
-    'cotangent first moment (imp-97097) open; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH ' +
+    'cotangent first moment (imp-97097) open; no bound on Lambda moves; no refereed bound is changed; RH ' +
     'open; NO QED.',
 });
 
@@ -188,7 +188,7 @@ export const IMP97535_SUBGAP = Object.freeze({
 });
 
 export const IMP97535_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. The imp-97515 RESULT-2 baked-C_W sub-gap is closed ' +
+  'RH open; no refereed bound is changed; NO QED. The imp-97515 RESULT-2 baked-C_W sub-gap is closed ' +
   'by derivation: C_W = -gamma = -0.5772156649 EXACTLY (the baked -0.577157 was 5.87e-5 coarse, inside ' +
   'the RS band), and the two-term-W residual has the explicit envelope |R_W(Y)| <= (eta2/lnY)(1+1/lnY) ' +
   '+ (lnY+1)/Y = O(1/lnY) -- an elementary prime tail (8.6e-9 at the crossing) plus an ' +
@@ -288,7 +288,7 @@ const IMP97535_ASSERTIONS = [
       IMP97535_VERDICT.residualBoundedExplicitly === true &&
       /pin-published-dusart-eta2/.test(IMP97535_SUBGAP.id) &&
       /NO QED/.test(IMP97535_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97535_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97535_HONEST_BANNER) &&
       /RH open/.test(IMP97535_HONEST_BANNER),
     why: 'proof leaf closing an exploratory-ceiling sub-gap (load-bearing for nothing) by derivation; no bound moved, no QED.',
   },

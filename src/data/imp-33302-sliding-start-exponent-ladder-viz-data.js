@@ -11,8 +11,7 @@
  *   @see imp-3463-sigma-fartail-decay.js (far-tail 1/2 asymptote)
  *
  *   Ticket: imp-33302 (ux, low). Presentation of an already-established convergence ladder;
- *   adds no new Lambda bound. imp-3066 K_a>=0 UNTOUCHED. RH-EQUIVALENT. NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   adds no new Lambda bound. imp-3066 K_a>=0 UNTOUCHED. RH-EQUIVALENT. NO QED. No refereed bound is changed.
  */
 
 // -- baked from imp-33274 LATER_WINDOW_LADDER (fixed 12-decade span, start offset s decades

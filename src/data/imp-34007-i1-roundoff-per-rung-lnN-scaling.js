@@ -64,7 +64,7 @@
  * MEASUREMENT ONLY. Same inherited imp-3220/imp-3406/imp-33582/imp-33602 component model as
  * imp-33854/imp-33925/imp-33960; same sub-terms; changes no bound; the C_mb GUE-conditional share per
  * imp-486 is UNTOUCHED; establishes no operator positivity; imp-3066 K_a >= 0 untouched; C_C = 1/8
- * ansatz untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA. Realized
+ * ansatz untouched; no RH verdict, NO QED. No refereed bound is changed. Realized
  * round-off magnitudes are platform-dependent, so per-rung slopes and coefficients are asserted only
  * to order (per-rung slope near +1, C_N sub-ceiling, cross-rung slope positive but below +1).
  *
@@ -217,8 +217,8 @@ export const IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING = {
     'imp-33960 R1/R2 as per-rung facts while narrowing R3: the |ln N|-scaling is an aggregate / ' +
     'worst-rung ordering, not a tight per-rung law. Same inherited imp-3220/imp-3406 component model; ' +
     'the C_mb GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33960 (fit ONLY at max rung N = 1e200; slope ~+1.05, C_fit ~0.18..0.26 of ceiling); ' +
     'imp-33925 (r grows ~1/DL); imp-33854 (I1 identity); imp-486 (C_mb GUE-conditional); ' +
@@ -245,13 +245,13 @@ export const IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING_ASSERTIONS = [
     holds: () => LNN_SCALING_POSITIVE_BUT_SUBLINEAR,
   },
   {
-    // Honesty gate: measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp34007-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING.isRigorous === false &&
       /NO QED/.test(IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING.verdict) &&
-      /remains SOTA/.test(IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING.verdict) &&
+      /refereed bound is changed/i.test(IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING.verdict) &&
       /C_mb[^.]*imp-486[^.]*UNTOUCHED/i.test(IMP34007_I1_ROUNDOFF_PER_RUNG_LNN_SCALING.verdict),
   },

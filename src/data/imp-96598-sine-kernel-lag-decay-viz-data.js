@@ -15,8 +15,8 @@
  * curve over an extended k-range (k=2..12, for the chart) is recomputed here
  * from those same baked inputs, using the identical formula. Changes no
  * bound, establishes no operator positivity, no RH claim; conditional on the
- * GUE sine kernel / Montgomery pair correlation (UNPROVEN); Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; RH open. NO QED.
+ * GUE sine kernel / Montgomery pair correlation (UNPROVEN); no refereed bound is changed
+ * ; RH open. NO QED.
  *
  * @see imp-96567-box-averaged-sine-kernel-lag-decay.js (source finding + all baked inputs)
  *
@@ -102,7 +102,7 @@ export const IMP96598_HONEST_BANNER = IMP96567_HONEST_BANNER;
   if (!approx(IMP96598_TAIL_SUM.rhoSum, -0.036022, 1e-4)) throw new Error('imp-96598: tail sum drifted from the baked -0.036022');
 
   // honesty gates
-  if (!(/RH open/.test(IMP96598_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96598_HONEST_BANNER) && /NO QED/.test(IMP96598_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96598_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96598_HONEST_BANNER) && /NO QED/.test(IMP96598_HONEST_BANNER)))
     throw new Error('imp-96598: honest banner missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

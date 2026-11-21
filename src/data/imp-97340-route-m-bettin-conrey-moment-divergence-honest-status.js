@@ -13,14 +13,14 @@
  * intercept constituent B* = 2 Sum_{b>=3} g(b)/b^2 -- and separating the collinear b^(1/2) vs
  * log^2 b sub-leading forms of Q(b) -- requires the UNIFORM remainder profile of
  * I(a,b) = (a/2) log b + d_a + o(1) as a grows WITH b (a comparable to b), not the fixed-a
- * asymptotic derived here. No bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * asymptotic derived here. No bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97311-route-m-bettin-conrey-smalla-kappa-moment.js (source of every verdict flag below)
  * @see imp-97261-route-m-cq-subleading-functional-form.js (the convergent-log^2-b premise falsified here)
  * @see imp-97292-route-m-cq-subleading-extended-ladder.js (named the moment as the separating input)
  *
  * Ticket: imp-97340 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 import IMP97311_DEFAULT, {
@@ -51,8 +51,8 @@ export const IMP97340_HONEST_BANNER =
   'interior second moment. The boundary layer a <= A(b) instead contributes (A(b)/4) log^2 b tied ' +
   'to the unknown boundary-to-bulk crossover scale A(b), not an isolated finite coefficient. Left ' +
   'open: pinning B* = 2 Sum g(b)/b^2 and separating b^(1/2) from log^2 b needs the UNIFORM (a ~ b) ' +
-  'remainder profile of I(a,b), not the fixed-a asymptotic. No bound on Lambda moves; PT Lambda ' +
-  '<= 0.2 remains SOTA; RH open; NO QED.';
+  'remainder profile of I(a,b), not the fixed-a asymptotic. No bound on Lambda moves; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97340_ASSERTIONS = [
@@ -81,9 +81,9 @@ const IMP97340_ASSERTIONS = [
       IMP97340_STATUS.rhResolved === false &&
       IMP97340_STATUS.qed === false &&
       /NO QED/.test(IMP97340_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97340_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97340_HONEST_BANNER) &&
       /RH open/.test(IMP97340_HONEST_BANNER),
-    why: 'documentation only: divergence recorded, premise falsification recorded, no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: divergence recorded, premise falsification recorded, no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

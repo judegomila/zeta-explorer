@@ -66,7 +66,7 @@ export const IMP35739_GLOSSARY_HEADWORD_DUPLICATE_AUDIT = {
     'requirement catalog as a single named obstruction ladder. This module records the ' +
     'duplicate-ticket finding and pins a permanent regression guard confirming the existing ' +
     'headword stays present and consistent. Changes no bound; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
 };
 
 export const IMP35739_GLOSSARY_HEADWORD_DUPLICATE_AUDIT_ASSERTIONS = [
@@ -92,11 +92,11 @@ export const IMP35739_GLOSSARY_HEADWORD_DUPLICATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35739-honesty-gate-no-qed',
-    description: 'Audit finding is non-rigorous scoping metadata; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Audit finding is non-rigorous scoping metadata; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35739_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35739_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35739_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35739_GLOSSARY_HEADWORD_DUPLICATE_AUDIT.verdict),
   },
 ];
 

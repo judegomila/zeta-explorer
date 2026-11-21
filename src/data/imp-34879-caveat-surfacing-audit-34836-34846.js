@@ -9,7 +9,7 @@
  * modules imp-34838/imp-34844 must state C_mb stays GUE-conditional per
  * imp-486 and is treated as a free knob, not a discharge of that conditional;
  * all must carry MEASUREMENT/DERIVATION-ONLY, changes-no-bound, NO QED,
- * Platt-Trudgian Lambda<=0.2 remains SOTA) is carried by every module in the
+ * no refereed bound is changed) is carried by every module in the
  * imp-34836..imp-34846 cohort and any viz page built from it, extending the
  * imp-34812/imp-34834/imp-34857 caveat-surfacing audit lineage.
  *
@@ -81,7 +81,7 @@ export const CAVEAT_SURFACING_AUDIT_34836_34846 = {
     + 'surfacing added because none was missing. imp-34836/imp-34840/imp-34841/imp-34843 were excluded as '
     + 'data-module-only tickets with no viz page, not unaudited pages. No bound change; sub-gap imp-34714a '
     + 'stays OPEN; C_mb GUE-conditional share (imp-486) untouched; E_flow-reinstatement sub-gap unchanged; '
-    + 'no operator positivity; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'no operator positivity; NO QED; no refereed bound is changed.',
 };
 
 export const CAVEAT_SURFACING_AUDIT_34836_34846_ASSERTIONS = [
@@ -137,10 +137,10 @@ export const CAVEAT_SURFACING_AUDIT_34836_34846_ASSERTIONS = [
   },
   {
     id: 'imp-34879-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(CAVEAT_SURFACING_AUDIT_34836_34846.honest)
       && /no surfacing added because none was missing/.test(CAVEAT_SURFACING_AUDIT_34836_34846.honest)
-      && /Lambda<=0.2 remains SOTA/.test(CAVEAT_SURFACING_AUDIT_34836_34846.honest),
+      && /refereed bound is changed/i.test(CAVEAT_SURFACING_AUDIT_34836_34846.honest),
   },
 ];
 

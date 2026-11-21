@@ -47,7 +47,7 @@
  * flow prefactor is NOT a rigorous asymptotic; the closed-form E_flow scaling is exact WITHIN the
  * component model only; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-28895-eflow-resid-widening-model-derivation (R1 closed form + endpoint-only eflowClosedFormCheck)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the 21 quarter-decade rungs cross-validated here)
@@ -168,7 +168,7 @@ export const IMP33885_EFLOW_CLOSEDFORM_PER_RUNG_CROSSVALIDATION = {
     'inherited imp-3406 flow prefactor is NOT a rigorous asymptotic; the closed-form scaling is exact ' +
     'WITHIN the component model only; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no ' +
     'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-28895 (R1 closed form + endpoint-only eflowClosedFormCheck cross-validated here); imp-33810 ' +
     '(the 21 quarter-decade rungs); imp-33884 (un-rounded widening recompute, same sub-terms); ' +
@@ -198,13 +198,13 @@ export const IMP33885_EFLOW_CLOSEDFORM_PER_RUNG_CROSSVALIDATION_ASSERTIONS = [
       F1_FORMS_REL < 1e-9,
   },
   {
-    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: accuracy/measurement only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp33885-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no QED, PT SOTA',
+    description: 'Cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP33885_EFLOW_CLOSEDFORM_PER_RUNG_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP33885_EFLOW_CLOSEDFORM_PER_RUNG_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP33885_EFLOW_CLOSEDFORM_PER_RUNG_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP33885_EFLOW_CLOSEDFORM_PER_RUNG_CROSSVALIDATION.verdict),
   },
 ];
 

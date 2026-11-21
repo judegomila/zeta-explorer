@@ -37,7 +37,7 @@ export const IMP35880_FRONTIER_BATCH_COHORT_VERIFICATION = {
     IMP35812_W1_SUMMATION_SCHEME_MEASURED_COST.id,
     IMP35813_REQ4_REQUIRED_HEIGHT_SIGMA_LANDMARK_EXTEND.id,
   ],
-  verdict: 'all six cohort modules import cleanly and their self-executing assertions pass; imp-35808 is now covered by a permanent regression guard (previously only imp-35859 covered five of the six). Verification only, changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.',
+  verdict: 'all six cohort modules import cleanly and their self-executing assertions pass; imp-35808 is now covered by a permanent regression guard (previously only imp-35859 covered five of the six). Verification only, changes no bound; NO QED; no refereed bound is changed.',
 };
 
 const EXPECTED_IDS = ['imp-35808', 'imp-35809', 'imp-35810', 'imp-35811', 'imp-35812', 'imp-35813'];

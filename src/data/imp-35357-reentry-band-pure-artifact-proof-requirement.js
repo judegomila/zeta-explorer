@@ -92,7 +92,7 @@
  * imp-35174a / imp-34997a / imp-35243a stay OPEN. ASSESSMENT ONLY on the inherited imp-3220/imp-3406 surrogate;
  * the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional per imp-486 is
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes
- * no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35330-reentry-band-fidelity-requirement-dependency (CLAIM 1 + the honesty qualifier this sharpens)
  * @see imp-35356-r1-candidate-routes-assessment (enumerates the three R1 routes; this module formalizes route (ii),
@@ -247,7 +247,7 @@ export const IMP35357_REENTRY_BAND_PURE_ARTIFACT_PROOF_REQUIREMENT = {
     'imp-35174a / imp-34997a / imp-35243a stay OPEN. ASSESSMENT ONLY on the inherited imp-3220/imp-3406 ' +
     'surrogate; the C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 ' +
     'are UNTOUCHED; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; ' +
-    'establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35330 (CLAIM 1 + honesty qualifier this sharpens); imp-35243 (D1 floor-sensitivity, R1-R4); imp-35263 ' +
     '(D1 figure is reentry-edge local, grows to ~18.95 at exit); imp-35332 (drift not band-wide constant); ' +
@@ -295,14 +295,14 @@ export const IMP35357_REENTRY_BAND_PURE_ARTIFACT_PROOF_REQUIREMENT_ASSERTIONS = 
       /R3/.test(R1_SPLIT.R1t.status),
   },
   {
-    // Honesty gate: assessment only, discharges nothing, sharpens (not discharges) the qualifier, no QED, PT SOTA.
+    // Honesty gate: assessment only, discharges nothing, sharpens (not discharges) the qualifier, no QED, no refereed bound is changed.
     id: 'imp35357-honesty-gate-no-qed',
-    description: 'Assessment only: isRigorous false, sharpens the qualifier, R1t stays OPEN, no QED, PT SOTA, sub-gaps named',
+    description: 'Assessment only: isRigorous false, sharpens the qualifier, R1t stays OPEN, no QED, no refereed bound is changed, sub-gaps named',
     holds: () =>
       IMP35357_REENTRY_BAND_PURE_ARTIFACT_PROOF_REQUIREMENT.isRigorous === false &&
       /SHARPENS but does not discharge/.test(IMP35357_REENTRY_BAND_PURE_ARTIFACT_PROOF_REQUIREMENT.sharpened_qualifier) &&
       /NO QED/.test(IMP35357_REENTRY_BAND_PURE_ARTIFACT_PROOF_REQUIREMENT.verdict) &&
-      /remains SOTA/.test(IMP35357_REENTRY_BAND_PURE_ARTIFACT_PROOF_REQUIREMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP35357_REENTRY_BAND_PURE_ARTIFACT_PROOF_REQUIREMENT.verdict) &&
       /imp-35243a/.test(IMP35357_REENTRY_BAND_PURE_ARTIFACT_PROOF_REQUIREMENT.residual_sub_gap) &&
       /imp-35111a/.test(IMP35357_REENTRY_BAND_PURE_ARTIFACT_PROOF_REQUIREMENT.residual_sub_gap),
   },

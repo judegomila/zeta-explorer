@@ -117,7 +117,7 @@
  * steps imp-95154..95165 exactly as imp-95162 THEOREM FD recorded them,
  * with this cover replacing the middle-chart channel floors; it is as
  * strong as those recorded links. NO Lambda bound moves; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * Import-light; zero imports; all assertions deterministic, ~1.5 s.
  */
@@ -486,7 +486,7 @@ export const IMP95166_INHERITOR_FACTOR1_REPRICING = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // --------------------------------------------------------------------------

@@ -22,8 +22,7 @@
  *
  * MEASUREMENT ONLY. Certifies no W1 bound; evaluates no true H_0; instantiates no
  * interval; verifies no inequality; changes no bound; establishes no positivity;
- * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * WORST-CASE ORDERINGS (same multiset, hostile permutations)
  * -----------------------------------------------------------------------------
@@ -75,7 +74,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35812 / imp-35761) --------
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this measurement
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this measurement
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -326,7 +325,7 @@ export const IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING = {
     'certified length-N interval sum (MECHANICAL, imp-35725). Certifies no W1 bound; evaluates no true H_0; ' +
     'instantiates no interval; verifies no inequality; changes no bound; establishes no positivity; the W1 ' +
     'A + B - C certificate at T_PT stays GREENFIELD; C_mb GUE-conditional (imp-486) untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35812 (single-ordering baseline this stresses); imp-35761 (pessimistic coherent linear ceiling ' +
     'N * eps); imp-35725 (mechanical N-term certified cost); imp-35760 (barrier-margin allocation); ' +
@@ -381,16 +380,16 @@ export const IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING_ASSERTIONS = [
       ORDERINGS.every((r) => r.kahanNormErr < CEIL_KAHAN),
   },
   {
-    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; PT SOTA.
+    // Honesty gate: measurement only; obstruction MECHANICAL/greenfield; no QED; no refereed bound is changed.
     id: 'imp35852-honesty-gate',
-    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; PT Lambda<=0.2 SOTA',
+    description: 'Measurement only; obstruction stays engineering/greenfield; no QED; no refereed bound is changed',
     holds: () =>
       IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /NARROWS but does not close/.test(IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING.conclusion.naiveClimbsButDoesNotReachCeiling) &&
       /GREENFIELD/.test(IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING.conclusion.staysGreenfield) &&
       /NO QED/.test(IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING.verdict) &&
-      /remains SOTA/.test(IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING.verdict),
+      /refereed bound is changed/i.test(IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING.verdict),
   },
 ];
 

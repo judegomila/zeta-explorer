@@ -51,7 +51,7 @@
  *   first (imp-96750/imp-97071 conclusions).
  *
  *   STATUS: a grouping/index note over three already-committed modules, not a new derivation.
- *   No bound changes; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   No bound changes; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96750-route-m-interior-second-moment-upper-bound-reduction.js (poses + reduces the UPPER question; term-split overshoot proved)
  * @see imp-97054-route-m-two-sided-norm-rejection-assessment.js (premise correction + direction analysis: LOWER half is operative)
@@ -59,7 +59,7 @@
  * @see imp-97092-polefree-to-weil-obstruction-cohort-index.js (sibling cohort-index this mirrors)
  *
  * Ticket: imp-97109 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const LOWER_COMPANION_FIRST_MOMENT_CHAIN = Object.freeze([
@@ -123,7 +123,7 @@ export const IMP97109_LOWER_COMPANION_FIRST_MOMENT_CHAIN_INDEX = Object.freeze({
     'cotangent mean value, measured ~0.696, not proved) -- future work on this thread should target ' +
     'THAT, not re-attempt imp-96750s original upper asymptotic or imp-97054s mean-square lower ' +
     'companion, both already superseded by the weaker reduction. No bound moved; T ~ 2.594e7 stays ' +
-    'the anchor; compute N~9916 binds first; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'the anchor; compute N~9916 binds first; no refereed bound is changed; RH open; NO QED.',
   citation:
     'imp-96750 (upper reduction + term-split overshoot proof); imp-97054 (premise correction + ' +
     'direction analysis, lower half operative); imp-97071 (Cauchy-Schwarz reduction to the ' +
@@ -165,11 +165,11 @@ export const IMP97109_LOWER_COMPANION_FIRST_MOMENT_CHAIN_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp97109-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97109_LOWER_COMPANION_FIRST_MOMENT_CHAIN_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP97109_LOWER_COMPANION_FIRST_MOMENT_CHAIN_INDEX.verdict) &&
-      /SOTA/.test(IMP97109_LOWER_COMPANION_FIRST_MOMENT_CHAIN_INDEX.verdict),
+      /refereed bound is changed/i.test(IMP97109_LOWER_COMPANION_FIRST_MOMENT_CHAIN_INDEX.verdict),
   },
 ];
 

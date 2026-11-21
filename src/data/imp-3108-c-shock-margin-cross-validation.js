@@ -33,8 +33,8 @@
  *
  * HONEST SCOPE. NUMERICAL cross-check of an ALREADY-PROVEN cap (imp-2786 pinned
  * C_shock < 1/3 in closed form). It is NOT a new bound, does NOT close C_H, and the
- * squared-gap surrogate stays REFUTED. Platt-Trudgian Lambda <= 0.2 remains the
- * rigorous SOTA. No QED.
+ * squared-gap surrogate stays REFUTED. No refereed bound is changed
+ * . No QED.
  *
  * @see imp-3070-c-shock-n-dependence (monotone-decreasing C_shock(N), margin column)
  * @see imp-3026-c-shock-cross-validation (three-point ladder, C_shock_closed_form)
@@ -119,8 +119,8 @@ export const C_SHOCK_MARGIN_CROSS_VALIDATION_IMP3108 = {
   honestNote:
     'No false QED. NUMERICAL cross-check tying the imp-3070 monotone curve to the imp-3026 ladder and ' +
     'tabulating the margin-vs-N growth; it certifies an ALREADY-PROVEN cap (imp-2786 C_shock < 1/3), is ' +
-    'NOT a new bound and does NOT close C_H. The squared-gap surrogate stays REFUTED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains the rigorous SOTA.',
+    'NOT a new bound and does NOT close C_H. The squared-gap surrogate stays REFUTED. No refereed bound is changed' +
+    '.',
 };
 
 // ── Build-time assertions ────────────────────────────────────────────────────
@@ -164,14 +164,14 @@ export const C_SHOCK_MARGIN_CROSS_VALIDATION_ASSERTIONS = [
       const r = C_SHOCK_MARGIN_CROSS_VALIDATION_IMP3108;
       return (
         r.isNewBound === false &&
-        /SOTA/.test(r.honestNote) &&
+        /refereed bound is changed/i.test(r.honestNote) &&
         /REFUTED/.test(r.honestNote) &&
         /CONSISTENT/.test(r.verdict)
       );
     },
     why:
       'VERDICT LOCK: this is a NUMERICAL cross-check tying two existing modules together, NOT a new bound. The ' +
-      'surrogate stays refuted and Platt-Trudgian Lambda <= 0.2 stays SOTA. Blocks any future edit from inflating ' +
+      'surrogate stays refuted and no refereed bound is changed. Blocks any future edit from inflating ' +
       'this margin cross-validation into a claimed C_H closure or rigorous beat.',
   },
 ];

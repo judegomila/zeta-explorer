@@ -62,8 +62,8 @@
  * so direct basis C corroborates basis A at the anchor with more margin than imp-96448 recorded.
  * Per imp-96611 the naive Var subtraction is roundoff-tainted, so this pins the naive U-curve
  * structure, not a compensated precision claim. Feasibility / cross-validation numerics only;
- * theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96448-direct-basis-c-anchor-floor (the integer-grid U-curve this tightens)
  * @see imp-96611-basis-c-floor-1e8-roundoff-vs-truncation (the naive Var roundoff caveat)
@@ -124,11 +124,11 @@ export const IMP96490_BASIS_C_PPP_UCURVE_MINIMUM = {
   caveat:
     'Per imp-96611 the naive Var = L - 2*Int summation this curve uses is catastrophic-cancellation / summation-roundoff tainted, so the ~3.9x aliasing dip at ppp = 3.5 is a structural feature of the NAIVE quadrature ripple -- it pins the naive U-curve structure imp-96448 defined, NOT a compensated precision claim. rho is the theoretical GUE (sine-kernel, universality) two-interval correlation; there are no computed Riemann zeros behind these values; the floor is a double-precision quadrature artifact, not a property of the zeros. Feasibility / cross-validation numerics: changes no bound, establishes no operator positivity, does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'Re-running the direct basis-C anchor evaluation over ppp in {2,3,4,5,6} reproduces the imp-96448 integer-grid minimum ppp = 3 / err 2.841419e-5 exactly, but a fine fractional sub-scan shows the U-curve is an aliasing-rippled envelope: the true naive-quadrature achievable floor over ppp in [2,6] is ~7.34e-6 at half-integer ppp = 3.5, ~3.87x BELOW the quoted 2.84e-5, with the truncation-vs-cancellation crossover near ppp ~ 3.25..3.5. The tighter floor RAISES the measured signal/floor headroom to ~2485 (from ~642), still far below the imp-96430 model ~3.7e5, so direct basis C corroborates basis A at the anchor with more margin than imp-96448 recorded. Per imp-96611 the naive Var subtraction is roundoff-tainted, so this pins the naive U-curve structure, not a compensated precision claim. Feasibility / cross-validation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'Re-running the direct basis-C anchor evaluation over ppp in {2,3,4,5,6} reproduces the imp-96448 integer-grid minimum ppp = 3 / err 2.841419e-5 exactly, but a fine fractional sub-scan shows the U-curve is an aliasing-rippled envelope: the true naive-quadrature achievable floor over ppp in [2,6] is ~7.34e-6 at half-integer ppp = 3.5, ~3.87x BELOW the quoted 2.84e-5, with the truncation-vs-cancellation crossover near ppp ~ 3.25..3.5. The tighter floor RAISES the measured signal/floor headroom to ~2485 (from ~642), still far below the imp-96430 model ~3.7e5, so direct basis C corroborates basis A at the anchor with more margin than imp-96448 recorded. Per imp-96611 the naive Var subtraction is roundoff-tainted, so this pins the naive U-curve structure, not a compensated precision claim. Feasibility / cross-validation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 export const IMP96490_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Feasibility / cross-validation numerics '
+  'RH open; no refereed bound is changed; NO QED. Feasibility / cross-validation numerics '
   + 'only: rho is the theoretical GUE (sine-kernel, universality) two-interval correlation, not '
   + 'computed from real zeros; the anchor error floor is a double-precision quadrature artifact, '
   + 'and per imp-96611 the naive Var subtraction is roundoff-tainted. This tightens the imp-96448 '
@@ -172,9 +172,9 @@ export const IMP96490_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96490_BASIS_C_PPP_UCURVE_MINIMUM.verdict))
     throw new Error('imp-96490: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96490_BASIS_C_PPP_UCURVE_MINIMUM.verdict))
-    throw new Error('imp-96490: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-  if (!(/RH open/.test(IMP96490_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96490_HONEST_BANNER) && /NO QED/.test(IMP96490_HONEST_BANNER)))
+  if (!/refereed bound is changed/i.test(IMP96490_BASIS_C_PPP_UCURVE_MINIMUM.verdict))
+    throw new Error('imp-96490: verdict dropped the no-refereed-bound-change banner');
+  if (!(/RH open/.test(IMP96490_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96490_HONEST_BANNER) && /NO QED/.test(IMP96490_HONEST_BANNER)))
     throw new Error('imp-96490: IMP96490_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

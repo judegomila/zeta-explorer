@@ -75,7 +75,7 @@
  * old five-decade band. The honest robust spread is the interquartile crossover band [~4.0e12, ~1.0e13]
  * around that stable centre; the reach sits ~6 decades past the PT anchor L = 5.9e6, where rho ~ -0.4896.
  * Cross-validation / extrapolation numerics only; theoretical GUE quantity, not real zeros; changes no
- * bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96430-basis-c-corroboration-reach-crossover (the jittery two-statistic fit this de-jitters)
  * @see imp-96389-three-basis-rho-crossvalidation-table (basis-C L-linear floor is the binding floor)
@@ -268,7 +268,7 @@ export const IMP96507_BASIS_C_FLOOR_SLOPE_DEJITTER = {
     + 'double integral at the PT anchor and measured an achievable floor giving MEASURED headroom ~640 -- '
     + 'that measured figure, not any model figure, is the operative anchor margin. This de-jitter changes '
     + 'only the accessible-L slope calibration and the extrapolated crossover L*; it does not re-measure '
-    + 'the anchor and does not overturn imp-96448. RH open; NO QED; PT Lambda <= 0.2 remains SOTA.',
+    + 'the anchor and does not overturn imp-96448. RH open; NO QED; no refereed bound is changed.',
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded '
     + 'length L; there are no computed Riemann zeros behind these values, and the direct integral is never '
@@ -287,12 +287,12 @@ export const IMP96507_BASIS_C_FLOOR_SLOPE_DEJITTER = {
     + 'five-decade band. The honest robust spread is the interquartile crossover band [~4.0e12, ~1.0e13] '
     + 'around that stable centre; the reach sits ~6 decades past the PT anchor L = 5.9e6, where rho ~ -0.4896. '
     + 'Cross-validation / extrapolation numerics only; theoretical GUE quantity, not real zeros; changes no '
-    + 'bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    + 'bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
 export const IMP96507_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-validation / extrapolation numerics only: rho is '
+  'RH open; no refereed bound is changed; NO QED. Cross-validation / extrapolation numerics only: rho is '
   + 'the theoretical GUE two-interval correlation, not computed from real zeros; the de-jittered central '
   + 'crossover L* ~ 5.4e12 is calibrated only on accessible L (<= 960) and, because min-over-ppp is '
   + 'grid-dependent, is an upper-ish reach estimate (conservative near-edge ~ 4.0e12); at the PT anchor the '
@@ -332,11 +332,11 @@ export const IMP96507_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96507_BASIS_C_FLOOR_SLOPE_DEJITTER.verdict))
     throw new Error('imp-96507: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96507_BASIS_C_FLOOR_SLOPE_DEJITTER.verdict))
-    throw new Error('imp-96507: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96507_BASIS_C_FLOOR_SLOPE_DEJITTER.verdict))
+    throw new Error('imp-96507: verdict dropped the no-refereed-bound-change banner');
   if (!/imp-96448/.test(IMP96507_BASIS_C_FLOOR_SLOPE_DEJITTER.reconciliation))
     throw new Error('imp-96507: reconciliation note dropped the imp-96448 reference');
-  if (!(/RH open/.test(IMP96507_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96507_HONEST_BANNER) && /NO QED/.test(IMP96507_HONEST_BANNER)))
+  if (!(/RH open/.test(IMP96507_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96507_HONEST_BANNER) && /NO QED/.test(IMP96507_HONEST_BANNER)))
     throw new Error('imp-96507: IMP96507_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

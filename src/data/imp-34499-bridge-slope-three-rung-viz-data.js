@@ -12,7 +12,7 @@
  *   (no 16.7MB zeros bundle), per [[no_heavy_imports_in_pages]].
  *
  *   NO QED. Viz-data reshaping only; the imp-34454 tabulation is UNCHANGED; C_mb GUE-conditional
- *   per imp-486 UNTOUCHED; changes no bound; Platt-Trudgian Lambda<=0.2 remains SOTA.
+ *   per imp-486 UNTOUCHED; changes no bound; no refereed bound is changed.
  *
  *   @see imp-34454-bridge-slope-three-rung-tabulation.js (source of the three-rung table)
  */

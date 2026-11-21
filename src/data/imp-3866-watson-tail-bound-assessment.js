@@ -58,7 +58,7 @@
  *   split constant) into one closed inequality. The NPHI=10 kernel truncation is an upstream
  *   modeling choice, external to this asymptotic; and operator positivity (imp-3066 K_a &gt;= 0)
  *   is UNTOUCHED -- this is a diagnostic-limit asymptotic, not a theorem about zeros. No QED.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3844-a-weight-correction-limit-closed-form.js (derived c_inf, B; named this sub-gap)
  *   @see imp-3730-a-weight-correction-limit.js (numerically extrapolated c_inf ~ 0.354291; source)
@@ -216,7 +216,7 @@ export const IMP3866_WATSON_TAIL_BOUND_ASSESSMENT = Object.freeze({
     'matches that closed prediction to O(e^{-2 tau}). The one piece left external is ' +
     'sg-3866-watson-majorant-constant: pinning a single explicit K0. NPHI=10 truncation is an ' +
     'upstream modeling choice; operator positivity (imp-3066) UNTOUCHED; RH-EQUIVALENT diagnostic ' +
-    'asymptotic, necessary-but-not-sufficient, no QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'asymptotic, necessary-but-not-sufficient, no QED. No refereed bound is changed.',
 
   remainderSources: Object.freeze({
     R1_droppedTail:
@@ -289,7 +289,7 @@ export const IMP3866_WATSON_TAIL_BOUND_ASSESSMENT = Object.freeze({
       'far-tail + ln(1+x) remainder is characterized and numerically corroborated, but a single ' +
       'explicit K0 in |rho(tau)| <= K0 e^{-4 tau} is not computed here. This is a diagnostic-limit ' +
       'asymptotic assessment, not a theorem about zeros.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -330,7 +330,7 @@ export const IMP3866_WATSON_TAIL_BOUND_ASSESSMENT_ASSERTIONS = [
   {
     id: 'imp3866-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: assessment only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, a sharpened residual sub-gap named, PT 0.2 SOTA.',
+         'operator positivity (imp-3066) untouched, a sharpened residual sub-gap named, no refereed bound is changed.',
     holds: () => {
       const c = IMP3866_WATSON_TAIL_BOUND_ASSESSMENT.honestCaveat;
       return (
@@ -339,7 +339,7 @@ export const IMP3866_WATSON_TAIL_BOUND_ASSESSMENT_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
         /sg-3866-watson-majorant-constant/.test(c.residualSubGap) &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

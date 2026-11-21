@@ -58,15 +58,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-95823 methodology result for
  *   quick reference. It establishes nothing, instantiates no interval, closes
- *   no sub-gap, moves no bound. NO QED. Platt-Trudgian Lambda <= 0.2 remains
- *   SOTA.
+ *   no sub-gap, moves no bound. NO QED. No refereed bound is changed.
  *
  * @see imp-95823-rho1-szego-direct-dd-eigensolve (source: the eigensolve this glosses)
  * @see imp-95677-rho1-szego-finite-size-convergence (the float64-floor sub-gap)
  * @see imp-95689-rho1-szego-dual-convergence-rate (the Poisson-dual resolution cross-checked here)
  *
  * Ticket: imp-95850 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The direct-DD Jacobi eigensolve headword, baked verbatim (no re-import).
@@ -136,7 +135,7 @@ export const IMP95850_DIRECT_DD_JACOBI_GLOSSARY_HEADWORD = Object.freeze({
     'size so the convergence exponent at the actual ln 1.3 seam spacing ' +
     'stays pre-asymptotic while a well-conditioned control confirms the ' +
     'methodology. Establishes nothing; instantiates no interval; moves no ' +
-    'bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95823 (the direct DD Jacobi eigensolve and empirical result this ' +
     'glosses); imp-95677 (the float64 cancellation-floor sub-gap resolved ' +
@@ -162,11 +161,11 @@ export const IMP95850_DIRECT_DD_JACOBI_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95850-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95850_DIRECT_DD_JACOBI_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95850_DIRECT_DD_JACOBI_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95850_DIRECT_DD_JACOBI_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95850_DIRECT_DD_JACOBI_GLOSSARY_HEADWORD.verdict) &&
       IMP95850_DIRECT_DD_JACOBI_GLOSSARY_HEADWORD.glosses === 'imp-95823',
   },
 ];

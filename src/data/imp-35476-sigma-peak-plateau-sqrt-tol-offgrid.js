@@ -39,7 +39,7 @@
  * artifact). The surrogate-vs-true fidelity half (imp-35337a) stays OPEN and is not touched. The
  * C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) is UNTOUCHED; E_trunc = 3.06e-5 (imp-2631)
  * UNTOUCHED; the imp-398 C_F prefactor UNTOUCHED; changes no bound; establishes no operator positivity;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35411-sigma-peak-plateau-width (established W(tol)/sqrt(tol) = 15.3165 on the four decade tols)
  * @see imp-35337-sigma-landmarks-double-double-certification (dd-certified peak VALUE / 2.1e-5 margin)
@@ -180,7 +180,7 @@ export const IMP35476_SIGMA_PEAK_PLATEAU_SQRT_TOL_OFFGRID = {
     'imp-3220/imp-3406 surrogate, which is NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/imp-2643), the ' +
     'E_trunc = 3.06e-5 floor (imp-2631) and the imp-398 C_F prefactor are UNTOUCHED; the surrogate-vs-true ' +
     'fidelity half (imp-35337a) stays OPEN; changes no bound; establishes no operator positivity; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35411 (W(tol)/sqrt(tol) = 15.3165 on the four decade tols {1e-4..1e-7}); imp-35337 (dd-certified peak ' +
     'VALUE / 2.1e-5 margin); imp-3406 (interior MAX ~ 9.22e5, on double); imp-2642 (C_C = (1/8) sqrt(3 pi) ' +
@@ -232,13 +232,13 @@ export const IMP35476_SIGMA_PEAK_PLATEAU_SQRT_TOL_OFFGRID_ASSERTIONS = [
     holds: () => Math.abs(PEAK_CURVATURE - 6.428e-3) < 1e-4,
   },
   {
-    // Honesty gate: measurement only, not rigorous, no QED, PT SOTA, sub-gap imp-35337a named.
+    // Honesty gate: measurement only, not rigorous, no QED, no refereed bound is changed, sub-gap imp-35337a named.
     id: 'imp35476-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA, imp-35337a stays OPEN',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed, imp-35337a stays OPEN',
     holds: () =>
       IMP35476_SIGMA_PEAK_PLATEAU_SQRT_TOL_OFFGRID.isRigorous === false &&
       /NO QED/.test(IMP35476_SIGMA_PEAK_PLATEAU_SQRT_TOL_OFFGRID.verdict) &&
-      /remains SOTA/.test(IMP35476_SIGMA_PEAK_PLATEAU_SQRT_TOL_OFFGRID.verdict) &&
+      /refereed bound is changed/i.test(IMP35476_SIGMA_PEAK_PLATEAU_SQRT_TOL_OFFGRID.verdict) &&
       /imp-35337a/.test(IMP35476_SIGMA_PEAK_PLATEAU_SQRT_TOL_OFFGRID.residual_sub_gap),
   },
 ];

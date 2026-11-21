@@ -24,15 +24,15 @@
  *   (2) the residual w_1 / sigma_1 sign near ln3 (the half-pole-free CC Q-trick) -- separately unresolved;
  *   (3) the constructive LP-dual square (committed certificate) -- its positive-margin wall sits at
  *       a >= 0.50, below ln3/2 = 0.5493, so it does not reach the binding half-width either.
- * No bound on Lambda moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; RH open; NO QED.
+ * No bound on Lambda moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97182-krein-fejer-riesz-margin-factorisation-attempt.js (source of every verdict flag below)
  * @see imp-97161-krein-concentration-lower-bound-assessment.js (named this route; c_sharp definition)
  * @see imp-97183-csharp-extprec-ladder.js (c_sharp bracketed from above only, 0.552 -> 0.504, descending)
  *
  * Ticket: imp-97256 (content, low, sonnet-4-6). Documentation only; establishes nothing new; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import IMP97182_DEFAULT, { IMP97182_BINDING_2A, IMP97182_RIGOROUS_REACH_2A, IMP97182_LP_MARGIN_WALL_A } from './imp-97182-krein-fejer-riesz-margin-factorisation-attempt.js';
@@ -60,7 +60,7 @@ export const IMP97256_HONEST_BANNER =
   'reduces coercivity to the negative, sign-unresolved residual w_1, and Fejer-Riesz is an EQUIVALENCE ' +
   'whose truncated margin equals c_sharp = lambda_min(P_a M_sigma2 P_a) itself -- the exact unknown the ' +
   'numerics only bracket from above. Do not re-attempt symbol-level SOS at this half-width. No bound on ' +
-  'Lambda moves; interval-rigorous reach stays 2a <= 0.96; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
+  'Lambda moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97256_ASSERTIONS = [
@@ -86,9 +86,9 @@ const IMP97256_ASSERTIONS = [
       IMP97256_STATUS.qed === false &&
       IMP97256_STATUS.doNotReattemptSymbolLevelSOS === true &&
       /NO QED/.test(IMP97256_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97256_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97256_HONEST_BANNER) &&
       /RH open/.test(IMP97256_HONEST_BANNER),
-    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open, do-not-re-attempt gate posted.',
+    why: 'documentation only: no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open, do-not-re-attempt gate posted.',
   },
 ];
 

@@ -54,8 +54,8 @@
  *
  * Cross-check within the inherited imp-3220/imp-3406/imp-33810 component model only; the component
  * model is NOT a rigorous asymptotic; no bound changes; establishes no operator positivity; C_mb
- * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2
- * remains SOTA. NO QED.
+ * GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no refereed bound is changed
+ * . NO QED.
  *
  * @see imp-34267-m2-ceiling-exactfit-coeff-endpoint-decomposition (Route A, the M>=4-locked c_eff)
  * @see imp-34345-m2-ceiling-exactfit-90-vs-8994-residual-channel-decomposition (Route B, the two-channel split)
@@ -155,7 +155,7 @@ export const IMP34435_M2_CEILING_LOCK_VS_CHANNELSUM_CROSSCHECK = {
     'closed form; quote the ceiling from the bisection) stands. The inherited imp-3220/imp-3406 component ' +
     'model is NOT a rigorous asymptotic; descriptive within the model only; changes no bound; establishes ' +
     'no operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34267 (Route A, the M>=4-locked endpoint-curvature c_eff ~ 89.94); imp-34345 (Route B, the ' +
     'two-channel 17 + 72.94 split and the bit-identical full-precision matcher anchor 89.940466); ' +
@@ -203,13 +203,13 @@ export const IMP34435_M2_CEILING_LOCK_VS_CHANNELSUM_CROSSCHECK_ASSERTIONS = [
       IMP34435_M2_CEILING_LOCK_VS_CHANNELSUM_CROSSCHECK.crossTabulation.some((r) => /^B /.test(r.route)),
   },
   {
-    // Honesty gate: cross-check only, isRigorous false, no QED, PT SOTA, K_a untouched.
+    // Honesty gate: cross-check only, isRigorous false, no QED, no refereed bound is changed, K_a untouched.
     id: 'imp34435-honesty-gate-no-qed',
-    description: 'Cross-check only: isRigorous false, no QED, PT SOTA, K_a untouched',
+    description: 'Cross-check only: isRigorous false, no QED, no refereed bound is changed, K_a untouched',
     holds: () =>
       IMP34435_M2_CEILING_LOCK_VS_CHANNELSUM_CROSSCHECK.isRigorous === false &&
       /NO QED/.test(IMP34435_M2_CEILING_LOCK_VS_CHANNELSUM_CROSSCHECK.verdict) &&
-      /remains SOTA/.test(IMP34435_M2_CEILING_LOCK_VS_CHANNELSUM_CROSSCHECK.verdict) &&
+      /refereed bound is changed/i.test(IMP34435_M2_CEILING_LOCK_VS_CHANNELSUM_CROSSCHECK.verdict) &&
       /imp-3066 K_a >= 0 untouched/.test(IMP34435_M2_CEILING_LOCK_VS_CHANNELSUM_CROSSCHECK.verdict),
   },
 ];

@@ -60,7 +60,7 @@
  *
  * CROSS-VALIDATION / DIAGNOSTIC ONLY. Confirms an algebraic identity at higher precision; changes
  * NO bound. C_C is GUE-conditional per imp-486; imp-3066 K_a >= 0 untouched; no positivity, no
- * bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bridge closure, no RH claim, NO QED. No refereed bound is changed.
  *
  * @see imp-33540-sigma-fartail-overshoot-two-power-decomposition (F1: the ~1e-17 fp64 identity gap)
  * @see imp-33534-min-node-reference-precision-libm (the double-double reference-precision route)
@@ -246,7 +246,7 @@ export const IMP33554_OVERSHOOT_IDENTITY_DOUBLE_DOUBLE_CROSSVAL = {
     'arithmetic precision (true floor 0) and the fp64 agreement was precision-limited -- exactly as ' +
     'an exact algebraic identity must behave. C_C is GUE-conditional per imp-486; changes no bound; ' +
     'imp-3066 K_a >= 0 untouched; no positivity, no bridge closure, no RH claim, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-33540 F1 (the ~1e-17 fp64 identity gap); imp-33534/imp-33248 (double-double reference ' +
     'precision, Dekker/Knuth twoSum/twoProd); imp-3406 (interior MAX N ~ 9.22e5, sigma_max ~ 0.9494); ' +
@@ -296,13 +296,13 @@ export const IMP33554_OVERSHOOT_IDENTITY_DOUBLE_DOUBLE_CROSSVAL_ASSERTIONS = [
       DD_GAP_IN_ULP_OF_OS >= 0 && DD_GAP_IN_ULP_OF_OS < 1e3,
   },
   {
-    // Honesty gate: cross-validation / diagnostic only, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation / diagnostic only, no QED, no refereed bound is changed.
     id: 'imp33554-honesty-gate-no-qed',
-    description: 'Cross-validation/diagnostic only: no QED, PT stays SOTA',
+    description: 'Cross-validation/diagnostic only: no QED, no refereed bound is changed',
     holds: () =>
       IMP33554_OVERSHOOT_IDENTITY_DOUBLE_DOUBLE_CROSSVAL.isRigorous === false &&
       /NO QED/.test(IMP33554_OVERSHOOT_IDENTITY_DOUBLE_DOUBLE_CROSSVAL.verdict) &&
-      /remains SOTA/.test(IMP33554_OVERSHOOT_IDENTITY_DOUBLE_DOUBLE_CROSSVAL.verdict),
+      /refereed bound is changed/i.test(IMP33554_OVERSHOOT_IDENTITY_DOUBLE_DOUBLE_CROSSVAL.verdict),
   },
 ];
 

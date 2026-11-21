@@ -8,7 +8,7 @@
  * the demanded assessment: where beta is DETERMINISTIC (dischargeable by
  * finite-N flow control, no RH) and where it FUNNELS into the C_H/RH-hard
  * repulsion wall like every other lever in the map. No claim that beta is
- * closed -- assess/derive only. PT 0.2 stays SOTA.
+ * closed -- assess/derive only. No refereed bound is changed.
  *
  * BETA, RESTATED PRECISELY (cite imp-2683 / imp-2849).
  * ---------------------------------------------------
@@ -100,7 +100,7 @@
  *     ratio c_0, which collapses into the existing C_H/pair-correlation wall.
  * So on the route map beta is a CONDITIONAL lever whose conditionality is not its
  * own: closing the shared repulsion wall closes beta for free, and beta cannot be
- * closed strictly before it. PT Lambda <= 0.2 stays SOTA.
+ * closed strictly before it. No refereed bound is changed.
  *
  * HOW FAR THE NUMERICS SIT FROM THE NEEDED BETA (deliverable measurement).
  * -----------------------------------------------------------------------
@@ -276,7 +276,7 @@ export const BETA_DISCHARGEABILITY = {
     'O((g/h_0)^2), RH-free); the residual reduces to ONE RH-hard scalar, the ' +
     'uniform initial ratio c_0 = h_min(0)/g_min(0), which funnels into the SAME ' +
     'Montgomery pair-correlation / C_H wall as every other lever. beta spawns no ' +
-    'new wall. NOT closed -- assess/derive only. PT Lambda <= 0.2 stays SOTA.',
+    'new wall. NOT closed -- assess/derive only. No refereed bound is changed.',
 
   betaDefinition:
     'beta = sup_{0<=s<t_c} B_p(s), B_p(s) = sum_{j!=lo,hi} 1/((b-x_j)(a-x_j)) > 0',
@@ -331,7 +331,7 @@ export const BETA_DISCHARGEABILITY = {
     'wall as the rest of the map -- so beta is conditional but spawns no new ' +
     'obstruction and closes for free once the shared repulsion wall closes. NOT ' +
     'proven: a uniform N-independent lower bound on c_0 for the zeros. No false ' +
-    'QED; PT Lambda <= 0.2 remains the rigorous SOTA.',
+    'QED; no refereed bound is changed.',
 
   sources: [
     'src/data/imp-2563-min-gap-sandwich-theorem.js (Theorem B; beta is its gating input)',

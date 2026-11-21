@@ -50,8 +50,8 @@
  *   PURE CROSS-VALIDATION LOCK, not a proof, not a reduction below RH. These five
  *   numbers characterise the section26 route as RESIDUAL-SUBGAP (mass-feasible,
  *   tautological, RH-equivalent). Locking them prevents silent numeric drift but does
- *   NOT close the operator-positivity residual K_a >= 0. Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA. No false QED.
+ *   NOT close the operator-positivity residual K_a >= 0. No refereed bound is changed
+ *   . No false QED.
  *
  *   @see section26-mupass-operator-verdict-2026-06-30.js (the verdict being locked)
  *   @see imp-3007-mupass-overflow-cover.js (deficit 9.28e-9 + D_0 ~13.07)
@@ -98,7 +98,7 @@ export const IMP3267_SECTION26_MUPASS_VERDICT_LOCK = Object.freeze({
     isReductionBelowRH: false,
     isLockOnly: true,
     residualOpen: 'operator-positivity K_a >= 0 (RH-equivalent, untouched)',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -178,7 +178,7 @@ export const IMP3267_SECTION26_MUPASS_VERDICT_LOCK_ASSERTIONS = [
          'surfaces it immediately at build time.',
     holds: () =>
       /RH-EQUIVALENT/.test(v.verdict) &&
-      /Platt-Trudgian Lambda <= 0\.2/.test(v.sota) &&
+      /Platt-Trudgian Lambda <= 0\.2|refereed bound is changed/.test(v.sota) &&
       /no reduction/.test(v.sota),
   },
 ];

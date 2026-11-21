@@ -54,8 +54,7 @@
  * crossing step and its band-invariance as a lemma but does NOT instantiate the imp-34687a directed-rounding
  * layer and does NOT discharge the conditional. imp-34714a REMAINS OPEN. C_C = (1/8) sqrt(3 pi) ansatz
  * (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched;
- * changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34889-forward-breach-band-uniformity (the band-wide crossing MEASUREMENT this formalises)
  * @see imp-34865-forward-vs-contraction-width-inflation (the single-point N_cross surrogate + image map reused)
@@ -253,8 +252,8 @@ export const IMP34901_FORWARD_BREACH_CLOSED_FORM = {
     'at every sampled band point. DERIVATION on the imp-34889 surrogate only; does NOT instantiate the ' +
     'imp-34687a directed-rounding layer; SUB-GAP imp-34714a REMAINS OPEN. The C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
-    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda ' +
-    '<= 0.2 remains SOTA.',
+    'changes no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34889 (forward-breach band-uniformity measurement this formalises; surrogate image map + margin ' +
     'reused); imp-34865 (forward-vs-contraction width inflation at N_cross); imp-34693 (admissible seed band ' +
@@ -296,15 +295,15 @@ export const IMP34901_FORWARD_BREACH_CLOSED_FORM_ASSERTIONS = [
     holds: () => nStar(N_CROSS) === BREACH_STEP_PUBLISHED && BREACH_STEP_PUBLISHED === 5,
   },
   {
-    // Honesty gate: derivation/surrogate, not rigorous, sub-gap open, no QED, PT SOTA.
+    // Honesty gate: derivation/surrogate, not rigorous, sub-gap open, no QED, no refereed bound is changed.
     id: 'imp34901-honesty-gate-no-qed',
-    description: 'closed-form derivation: isRigorous false, imp-34714a open, no QED, PT stays SOTA',
+    description: 'closed-form derivation: isRigorous false, imp-34714a open, no QED, no refereed bound is changed',
     holds: () =>
       IMP34901_FORWARD_BREACH_CLOSED_FORM.isRigorous === false &&
       /imp-34714a/.test(IMP34901_FORWARD_BREACH_CLOSED_FORM.subGap) &&
       /REMAINS OPEN/.test(IMP34901_FORWARD_BREACH_CLOSED_FORM.subGap) &&
       /NO QED/.test(IMP34901_FORWARD_BREACH_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP34901_FORWARD_BREACH_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP34901_FORWARD_BREACH_CLOSED_FORM.verdict),
   },
 ];
 

@@ -64,8 +64,8 @@
  * nPts = 3200 to 4096 and decides the open question one step deeper (deep-corner
  * underflow still does NOT flatten the exponent; no new feature). (c) Model seam
  * family only; the imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay
- * OPEN. Changes NO bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; Sun arXiv:2609.04176 unrefereed.
+ * OPEN. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed
+ * ; Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95857-ln13-extended-reach-exponent (the nPts <= 3200 window this extends + its residual)
  * @see imp-95841-ln13-shift-invert-direct-exponent (the nPts <= 1920 window + its exponent-2 lock)
@@ -244,7 +244,7 @@ export const IMP95882_LN13_PAST3200_FLOAT64_FLOOR_REACH = {
     "carried to nPts = 4096, NOT a new asymptotic regime. Measures an established " +
     "endpoint; no new cited input. Model seam family only; the imp-95212 envelope port, " +
     "signed WEIGHT, and modulus/phase legs stay OPEN. Changes no bound of the Lambda " +
-    "program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176 " +
+    "program; NO QED; no refereed bound is changed; Sun arXiv:2609.04176 " +
     "unrefereed.",
   closesTickets: ["imp-95882"],
 };
@@ -375,7 +375,7 @@ export const IMP95882_ASSERTIONS = [
       REF.noNewDeepCornerFeature === true &&
       REF.residualSubGap === "imp-95820-ln125-shift-budget-scaling" &&
       /KEEPS TIGHTENING FROM BELOW/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95882-closes-self",

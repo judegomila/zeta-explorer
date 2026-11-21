@@ -53,7 +53,7 @@
  *   lacked. It gives xi* or the sup NO closed form (the imp-3470 stationarity equation stays
  *   transcendental) and it does not extend the finite-domain measurement. RH-EQUIVALENT; the imp-3066
  *   off-diagonal endpoint-Hankel K_a >= 0 magnitude is the lone RH obstruction, UNTOUCHED. NO RH
- *   verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-3558-far-tail-band-max-grid-ladder-n9600.js (parent: four-rung empirical discriminator)
  *   @see imp-3511-xistar-uniqueness-wide-range-robustness.js (tail bound + aliasing guard)
@@ -155,7 +155,7 @@ export const IMP3582_REPLICA_HIDING_GRID_THRESHOLD = Object.freeze({
     'factor ~1.57 above N_replica, so ALL FOUR rungs are replica-free and the imp-3558 argmax-drift-0 ' +
     'discriminator has an analytic floor, not just an empirical contrast (replica shift ~8797). ' +
     'Derivation/certification only; RH-equivalent; the imp-3066 K_a >= 0 magnitude is the lone ' +
-    'obstruction, UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'obstruction, UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     objective:
@@ -252,7 +252,7 @@ export const IMP3582_REPLICA_HIDING_GRID_THRESHOLD = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -332,7 +332,7 @@ export const IMP3582_REPLICA_HIDING_GRID_THRESHOLD_ASSERTIONS = [
     id: 'imp3582-honest-assessment-no-qed',
     why: 'Mandatory honesty: derives an analytic aliasing FLOOR (first-order alias model) hardening ' +
       'the imp-3558 discriminator but NOT a closed form (equation transcendental), over the finite ' +
-      'domain (0, 400], measures the ratio not positivity, RH-equivalent, PT 0.2 stays SOTA. Any ' +
+      'domain (0, 400], measures the ratio not positivity, RH-equivalent, no refereed bound is changed. Any ' +
       'flip over-claims.',
     holds: () => {
       const c = IMP3582_REPLICA_HIDING_GRID_THRESHOLD.honestCaveat;
@@ -345,7 +345,7 @@ export const IMP3582_REPLICA_HIDING_GRID_THRESHOLD_ASSERTIONS = [
         typeof c.firstOrderAliasModel === 'string' &&
         typeof c.finiteDomainStillFinite === 'string' &&
         typeof c.measuresRatioNotPositivity === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

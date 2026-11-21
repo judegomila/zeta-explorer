@@ -54,8 +54,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share diagnostic, NOT an RH bound. The component model is
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (near-peak ladder, truncated at 1e12)
  * @see imp-33274-sigma-postpeak-later-window-decay-exponent (FAR-tail sliding window, p_eff -> 1/2)
@@ -195,7 +194,7 @@ export const IMP97404_SIGMA_FARTAIL_EXPONENT_LADDER_PAST_1E12 = {
     'genuine monotone limit, not a finite ceiling. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per ' +
     'imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33582 (near-peak ladder truncated at 1e12); imp-33274 (FAR-tail sliding-window ' +
     'p_eff -> 1/2); imp-96151 (two-term closed-form far-tail ladder, 0.4646 at 1e12); imp-3463 ' +
@@ -250,14 +249,14 @@ export const IMP97404_SIGMA_FARTAIL_EXPONENT_LADDER_PAST_1E12_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp97404-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP97404_SIGMA_FARTAIL_EXPONENT_LADDER_PAST_1E12.isRigorous === false &&
       IMP97404_SIGMA_FARTAIL_EXPONENT_LADDER_PAST_1E12.farTailExponent === 0.5 &&
       /NO QED/.test(IMP97404_SIGMA_FARTAIL_EXPONENT_LADDER_PAST_1E12.verdict) &&
-      /remains SOTA/.test(IMP97404_SIGMA_FARTAIL_EXPONENT_LADDER_PAST_1E12.verdict),
+      /refereed bound is changed/i.test(IMP97404_SIGMA_FARTAIL_EXPONENT_LADDER_PAST_1E12.verdict),
   },
 ];
 

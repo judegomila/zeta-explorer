@@ -64,7 +64,7 @@
  * DERIVATION ONLY. Conditional-share diagnostic, NOT an RH bound. Changes no bound; establishes no
  * operator positivity; the collision share stays GUE-conditional (imp-486, UNTOUCHED); the C_C 1/8
  * ansatz (imp-2642/imp-2643) is UNTOUCHED; imp-3066 K_a >= 0 untouched; no zero verified; no RH
- * verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-96228-ushape-slope-drift-beyond-nflow (flagged the far-N flattening as a diagnostic)
  * @see imp-96244-ushape-slope-asymptote-derivation (derived a -> 1/2 - 1/(2 ln N), b -> 1/2 - 5/(2 ln N))
@@ -247,7 +247,7 @@ export const IMP96250_USHAPE_LOCATION_RATIO_FARN_ASYMPTOTE = {
     'through the a-branch GUE-conditional N^{-1/2} collision shape (imp-486, UNTOUCHED); the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) cancels and is UNTOUCHED; changes no bound; establishes no operator ' +
     'positivity; imp-3066 K_a >= 0 untouched; no zero verified; no RH verdict; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-96228 (flagged the far-N flattening as a diagnostic); imp-96244 (derived a -> 1/2 - 1/(2 ln N), ' +
     'b -> 1/2 - 5/(2 ln N), a+b -> 1 - 3/ln N); imp-96187 (location law N_peak/N_flow = (b/a)^(1/(a+b))); ' +
@@ -316,14 +316,14 @@ export const IMP96250_USHAPE_LOCATION_RATIO_FARN_ASYMPTOTE_ASSERTIONS = [
       Math.abs(LOG10N_WITHIN_1PCT - 173.7) < 1 && Math.abs(LOG10N_WITHIN_0P1PCT - 1737.2) < 5,
   },
   {
-    // Honesty gate: GUE-conditional derivation, no QED, C_C ansatz untouched, PT stays SOTA.
+    // Honesty gate: GUE-conditional derivation, no QED, C_C ansatz untouched, no refereed bound is changed.
     id: 'imp96250-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, C_C ansatz untouched, PT Lambda<=0.2 stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, C_C ansatz untouched, no refereed bound is changed',
     holds: () =>
       IMP96250_USHAPE_LOCATION_RATIO_FARN_ASYMPTOTE.isRigorous === false &&
       /NO QED/.test(IMP96250_USHAPE_LOCATION_RATIO_FARN_ASYMPTOTE.verdict) &&
       /UNTOUCHED/.test(IMP96250_USHAPE_LOCATION_RATIO_FARN_ASYMPTOTE.verdict) &&
-      /remains SOTA/.test(IMP96250_USHAPE_LOCATION_RATIO_FARN_ASYMPTOTE.verdict),
+      /refereed bound is changed/i.test(IMP96250_USHAPE_LOCATION_RATIO_FARN_ASYMPTOTE.verdict),
   },
 ];
 

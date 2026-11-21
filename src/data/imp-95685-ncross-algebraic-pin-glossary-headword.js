@@ -30,15 +30,14 @@
  *   A glossary-style lookup restating the imp-95662 algebraic-pin formula and the solver-independence
  *   headline for quick reference. It establishes nothing, instantiates no interval, closes no
  *   sub-gap, moves no bound. Sensitivity/measurement cross-check only, NOT an RH bound; no QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  * @see imp-95662-crossover-locator-crosscheck (source: the three locators and the residuals)
  * @see imp-3444-sigma-nshape-landmark-ladder (Newton-height crossover / half-point landmarks)
  * @see imp-95638-deficit-invariant-fartail-limit (closed-form far-tail height inversion)
  * @see polymath15-constant-C-C (C_C = C_H sqrt(pi C_Selberg))
  *
- * Ticket: imp-95685 (content, low). Documentation only; establishes nothing; NO QED; Platt-Trudgian
- * Lambda <= 0.2 SOTA.
+ * Ticket: imp-95685 (content, low). Documentation only; establishes nothing; NO QED; no refereed bound is changed.
  */
 
 // The N_cross algebraic-pin headword, baked verbatim (no re-import).
@@ -79,7 +78,7 @@ export const IMP95685_NCROSS_ALGEBRAIC_PIN_GLOSSARY_HEADWORD = Object.freeze({
     'E_coll = E_trunc crossover has a closed algebraic pin N_cross = ln(T0) (C_C/E_trunc)^2 agreeing ' +
     'with the bisected value to < 1e-7 relative, and both independent height solvers reproduce the ' +
     'imp-3444 Newton-height landmark N_cross = 3.280294352e9 to ~1e-10 relative. Establishes nothing; ' +
-    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'instantiates no interval; moves no bound; NO QED. No refereed bound is changed.',
   citation:
     'imp-95662 (three locators and residuals); imp-3444 (Newton-height crossover / half-point ' +
     'landmarks); imp-95638 (closed-form far-tail height inversion); imp-3406 (N-shape component ' +
@@ -105,11 +104,11 @@ export const IMP95685_NCROSS_ALGEBRAIC_PIN_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp95685-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95685_NCROSS_ALGEBRAIC_PIN_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP95685_NCROSS_ALGEBRAIC_PIN_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP95685_NCROSS_ALGEBRAIC_PIN_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP95685_NCROSS_ALGEBRAIC_PIN_GLOSSARY_HEADWORD.verdict) &&
       IMP95685_NCROSS_ALGEBRAIC_PIN_GLOSSARY_HEADWORD.glosses === 'imp-95662' &&
       IMP95685_NCROSS_ALGEBRAIC_PIN_GLOSSARY_HEADWORD.scopes === 'imp-3444',
   },

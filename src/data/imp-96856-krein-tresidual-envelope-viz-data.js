@@ -16,7 +16,7 @@
  * PRESENTATION ONLY. Changes no bound, establishes no operator positivity; the
  * Rayleigh floor is an UPPER bound; the uniform-in-N spectral gap remains the
  * open analyticObstruction (IMP96749_UNIFORM_N_GAP_UNSETTLED); interval-rigorous
- * certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA;
+ * certificate reach stays 2a<=0.96; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-96827-krein-tresidual-envelope-extrapolation.js (source floor ladder + model + verdict)
@@ -81,7 +81,7 @@ export const IMP96856_HONEST_BANNER =
   'Measurement only: this is a Rayleigh-Ritz UPPER floor, not an operator positivity proof. ' +
   'The geometric-per-doubling envelope is a rigorous-STYLE modeling bound (increments decay at ' +
   'least geometrically), NOT a proof; the uniform-in-N spectral gap lambda_min(T_a[sigma_2]) >= c > 0 ' +
-  'stays OPEN; interval-rigorous certificate reach stays 2a<=0.96; RH open; PT Lambda <= 0.2 remains SOTA; NO QED.';
+  'stays OPEN; interval-rigorous certificate reach stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -129,7 +129,7 @@ const IMP96856_ASSERTIONS = [
     id: 'imp96856-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96856_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96856_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96856_HONEST_BANNER) &&
       /NO QED/.test(IMP96856_HONEST_BANNER),
     why: 'every Route I viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

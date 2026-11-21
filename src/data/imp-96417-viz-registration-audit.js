@@ -96,7 +96,7 @@ export const IMP96417_VIZ_REGISTRATION_AUDIT = {
     + 'imp-96302 have a VISUALIZATIONS_INDEX.entries record whose dataModule path matches the shipped '
     + 'file, whose route matches the App.jsx <Route> wired to the corresponding page component, and '
     + 'whose pedagogicalStep (241, 242) collides with no other entry. No orphan found; no registration '
-    + 'fix needed. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'fix needed. Changes no bound; NO QED; no refereed bound is changed.',
   citation:
     'imp-96299, imp-96302 (audited modules); imp-35447, imp-35468, imp-35715 (registration-check '
     + 'method precedent).',
@@ -118,12 +118,12 @@ export const IMP96417_VIZ_REGISTRATION_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp96417-audit-clean-no-qed',
-    description: 'audit found no orphan or collision (allClean true); audit only, no bound changed, no QED, PT stays SOTA',
+    description: 'audit found no orphan or collision (allClean true); audit only, no bound changed, no QED, no refereed bound is changed',
     holds: () =>
       IMP96417_VIZ_REGISTRATION_AUDIT.allClean === true
       && IMP96417_VIZ_REGISTRATION_AUDIT.isRigorous === false
       && /NO QED/.test(IMP96417_VIZ_REGISTRATION_AUDIT.verdict)
-      && /remains SOTA/.test(IMP96417_VIZ_REGISTRATION_AUDIT.verdict),
+      && /refereed bound is changed/i.test(IMP96417_VIZ_REGISTRATION_AUDIT.verdict),
   },
 ];
 

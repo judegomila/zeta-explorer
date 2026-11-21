@@ -122,7 +122,7 @@
  * identity plus genuine Christoffel concentration on an 18-mode
  * power-moment system, and the budget constants. Import-light (no heavy
  * bundle). Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 // ── complex helpers (import-light; local to this module) ────────────────────
@@ -466,7 +466,7 @@ export const IMP95008_EVALUATION_CHRISTOFFEL_DUALITY = {
     "Lemma E, Corollary E1 and Lemma F are unconditional exact linear algebra; Theorem G is conditional on the previously recorded packet-majorant, overlap and curvature-normalization hypotheses and is a budget template, not a bound. Numerics are cross-checks of the exact statements, not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS SUB-LEMMA closing the residual-(c) duality step: the l2-to-pointwise constant is EXACTLY the diagonal reproducing kernel sqrt(K_W(x,x)) (attained - no better generic duality step exists), equal to sqrt(|W|/L) at every point in the DFT picture and at most 1 in the coordinate picture, with average |W|/L in every picture by the trace identity. The weld budget allowance for all remaining constants is 1.4327 at p = 97, so the pointwise step is not the binding constraint; residual (c) transforms into the finite identification + 18-mode Christoffel computation named above. Changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS SUB-LEMMA closing the residual-(c) duality step: the l2-to-pointwise constant is EXACTLY the diagonal reproducing kernel sqrt(K_W(x,x)) (attained - no better generic duality step exists), equal to sqrt(|W|/L) at every point in the DFT picture and at most 1 in the coordinate picture, with average |W|/L in every picture by the trace identity. The weld budget allowance for all remaining constants is 1.4327 at p = 97, so the pointwise step is not the binding constraint; residual (c) transforms into the finite identification + 18-mode Christoffel computation named above. Changes no bound; NO QED. No refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -548,12 +548,12 @@ export const IMP95008_EVALUATION_CHRISTOFFEL_DUALITY_ASSERTIONS = [
   {
     id: "imp95008c-honesty-gate-no-qed",
     description:
-      "promotes no bound, keeps the identification + carrier-Christoffel + (C, mu, D, K) residuals named, NO QED, PT stays SOTA",
+      "promotes no bound, keeps the identification + carrier-Christoffel + (C, mu, D, K) residuals named, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95008_EVALUATION_CHRISTOFFEL_DUALITY.promotesBound === false &&
       IMP95008_EVALUATION_CHRISTOFFEL_DUALITY.namedResiduals.length === 4 &&
       /NO QED/.test(IMP95008_EVALUATION_CHRISTOFFEL_DUALITY.verdict) &&
-      /remains SOTA/.test(IMP95008_EVALUATION_CHRISTOFFEL_DUALITY.verdict),
+      /refereed bound is changed/i.test(IMP95008_EVALUATION_CHRISTOFFEL_DUALITY.verdict),
   },
 ];
 

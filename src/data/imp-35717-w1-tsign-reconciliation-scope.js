@@ -15,8 +15,7 @@
  * the sign flip, and (iii) what residual is left once the sign is reconciled.
  *
  * ASSESSMENT / ENUMERATION ONLY. Derives nothing; discharges nothing; changes no
- * bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * bound; establishes no positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * R1 -- PARAMETER-NORMALIZATION (align the two t-clocks to a common endpoint)
  * -----------------------------------------------------------------------------
@@ -86,7 +85,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35674 / imp-35681) ---
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this enumeration
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this enumeration
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms at T_PT (imp-35674 Part D)
 
@@ -172,7 +171,7 @@ export const IMP35717_W1_TSIGN_RECONCILIATION_SCOPE = {
     'greenfield hand-off (imp-35681 Part A). RESIDUAL: even fully reconciled, the sign work leaves the ' +
     'interval-bounded positive-t A + B - C GREENFIELD and ADDS the R2 backward-ill-posedness obligation; ' +
     'it is a scoping prerequisite, not a lever. Derives nothing; discharges nothing; changes no bound; ' +
-    'establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'establishes no positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35681 Part A (structure held at wrong t-sign); imp-35674 Part C (negative de Bruijn time = ' +
     'harder side, margin strictly tighter); imp-35653 (names W1 in the S_barrier port); winding-thread ' +
@@ -220,9 +219,9 @@ export const IMP35717_W1_TSIGN_RECONCILIATION_SCOPE_ASSERTIONS = [
       N_AT_TPT > 4.8e5 && N_AT_TPT < 4.9e5,
   },
   {
-    // Residual + honesty gate: reconciliation shrinks no greenfield, adds R2 obligation, no discharge, no QED, PT SOTA.
+    // Residual + honesty gate: reconciliation shrinks no greenfield, adds R2 obligation, no discharge, no QED, no refereed bound is changed.
     id: 'imp35717-honesty-gate-residual-no-qed',
-    description: 'Residual: reconciliation leaves W1 greenfield and adds the R2 obligation; enumeration only, no QED, PT SOTA',
+    description: 'Residual: reconciliation leaves W1 greenfield and adds the R2 obligation; enumeration only, no QED, no refereed bound is changed',
     holds: () =>
       IMP35717_W1_TSIGN_RECONCILIATION_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -230,7 +229,7 @@ export const IMP35717_W1_TSIGN_RECONCILIATION_SCOPE_ASSERTIONS = [
       /NEW obligation/.test(IMP35717_W1_TSIGN_RECONCILIATION_SCOPE.residual.newObligation) &&
       /NOT a lever/.test(IMP35717_W1_TSIGN_RECONCILIATION_SCOPE.residual.net) &&
       /NO QED/.test(IMP35717_W1_TSIGN_RECONCILIATION_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35717_W1_TSIGN_RECONCILIATION_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35717_W1_TSIGN_RECONCILIATION_SCOPE.verdict),
   },
 ];
 

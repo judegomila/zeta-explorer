@@ -48,8 +48,7 @@
  *     numerics and must be read from the fixed-selector / closed-form route.
  *   - The global asymmetric multi-body constant stays OPEN, bracketed ~(0.9016,
  *     0.9028). Both onsets sit far above the Theorem-C basin 0.72 (margin > 0.18), so
- *     the basin-conditional C_Lip is unaffected; Platt-Trudgian Lambda <= 0.2 remains
- *     the rigorous SOTA.
+ *     the basin-conditional C_Lip is unaffected; no refereed bound is changed.
  *
  * @see sg1c-asym-global-infimum-reconcile-2026-06-30 (imp-3172 analytic onsets/gap)
  * @see sg1c-mingap-selector-discontinuity-2026-06-30 (imp-3173 selector-flip anatomy)
@@ -186,8 +185,8 @@ export const SG1C_ASYM_ONSET_INDEPENDENT_INTEGRATOR = {
     'Independent-integrator cross-check of two SPECIFIC asymmetric families, NOT a closed form for the global '
     + 'constant. CONFIRMS the imp-3172 gap and the Config-B genuine-smooth-zero claim, and INDEPENDENTLY reproduces '
     + 'the Config-A selector pathology (imp-3173). Global asymmetric multi-body constant stays OPEN, bracketed '
-    + '~(0.9016, 0.9028). Both onsets sit far above the Theorem-C basin 0.72 (margin > 0.18); PT Lambda <= 0.2 '
-    + 'remains the rigorous SOTA. NO false QED.',
+    + '~(0.9016, 0.9028). Both onsets sit far above the Theorem-C basin 0.72 (margin > 0.18); no refereed bound is changed'
+    + '. NO false QED.',
 };
 
 export const SG1C_ASYM_ONSET_INDEPENDENT_INTEGRATOR_ASSERTIONS = [
@@ -239,10 +238,10 @@ export const SG1C_ASYM_ONSET_INDEPENDENT_INTEGRATOR_ASSERTIONS = [
   },
   {
     id: 'sg1c-indep-basin-and-sota-honest',
-    description: 'both onsets stay far above the Theorem-C basin 0.72 (margin > 0.15), the global constant is reported OPEN, and PT 0.2 remains SOTA',
+    description: 'both onsets stay far above the Theorem-C basin 0.72 (margin > 0.15), the global constant is reported OPEN, and no refereed bound is changed',
     holds: () => B_ONSET_RK4 - 0.72 > 0.15 && C_ASYM - 0.72 > 0.15
       && /stays OPEN/.test(SG1C_ASYM_ONSET_INDEPENDENT_INTEGRATOR.honest)
-      && /Lambda <= 0.2/.test(SG1C_ASYM_ONSET_INDEPENDENT_INTEGRATOR.honest),
+      && /Lambda <= 0.2|refereed bound is changed/.test(SG1C_ASYM_ONSET_INDEPENDENT_INTEGRATOR.honest),
   },
 ];
 

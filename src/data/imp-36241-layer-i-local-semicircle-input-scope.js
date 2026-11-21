@@ -15,7 +15,7 @@
  *
  *   SCOPING / ASSESSMENT ONLY. Establishes no local law, discharges no conditional,
  *   claims NO sub-input is available, changes no bound, respects the imp-2519
- *   no-overclaim guard, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; the
+ *   no-overclaim guard, NO QED. No refereed bound is changed; the
  *   assembled Route-A claim stays RH-modulo-GUE-universality (C_mb GUE-conditional,
  *   imp-486).
  *
@@ -63,7 +63,7 @@
  *   Ticket: imp-36241 (proof, medium). Scoping only; imports the parent layer-I
  *   entry verbatim; enumerates required sub-inputs WITHOUT claiming any is
  *   established; discharges no conditional; changes no bound; imp-2519 no-overclaim
- *   preserved; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   preserved; NO QED; no refereed bound is changed.
  */
 
 import IMP36180_ESY_CMB_LOCAL_LAW_INPUT_SCOPE from './imp-36180-esy-cmb-local-law-input-scope.js';
@@ -197,7 +197,7 @@ export const IMP36241_LAYER_I_LOCAL_SEMICIRCLE_INPUT_SCOPE = Object.freeze({
       'Imports the parent layer verbatim; claims NO sub-input is established; ' +
       'discharges nothing; the C_mb conditional stays irreducible and ' +
       'GUE-conditional (imp-486); respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; the assembled Route-A claim stays RH-modulo-GUE-universality',
+    sota: 'No refereed bound is changed; the assembled Route-A claim stays RH-modulo-GUE-universality',
   }),
 });
 
@@ -256,7 +256,7 @@ export const IMP36241_LAYER_I_LOCAL_SEMICIRCLE_INPUT_SCOPE_ASSERTIONS = [
         h.derivesAnythingNew === false &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

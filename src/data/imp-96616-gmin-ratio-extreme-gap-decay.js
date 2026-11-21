@@ -1,7 +1,7 @@
 /**
  * imp-96616 -- Measure the g_min(N)/y_N extreme-gap ratio decay on the Odlyzko zeros to quantify
  * the small-gaps exponent that any fold-law envelope-exponent improvement would demand.
- * Measurement only; NO QED. PT Lambda <= 0.2 stays SOTA.
+ * Measurement only; NO QED. No refereed bound is changed.
  *
  * WHY THIS RATIO IS THE FOLD-LAW LEVER. rh-bridge-supercritical-fluid-shock-scaling-2026-09-24 Q1
  * establishes that the exact fold law |t_c(N)| = g_min(N)^2 / 8 is a far better per-N ENVELOPE for

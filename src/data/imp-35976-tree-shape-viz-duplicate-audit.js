@@ -59,7 +59,7 @@ export const IMP35976_TREE_SHAPE_VIZ_DUPLICATE_AUDIT = {
     'columns, and the non-monotone-in-depth reading. This module records the duplicate-ticket ' +
     'finding and pins a permanent regression guard confirming the delivered viz-data stays ' +
     'present and consistent. Presentation-only; changes no bound; C_mb GUE-conditional (imp-486) ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP35976_TREE_SHAPE_VIZ_DUPLICATE_AUDIT_ASSERTIONS = [
@@ -91,11 +91,11 @@ export const IMP35976_TREE_SHAPE_VIZ_DUPLICATE_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35976-honesty-gate-no-qed',
-    description: 'Audit finding is non-rigorous scoping metadata; NO QED; PT Lambda<=0.2 SOTA',
+    description: 'Audit finding is non-rigorous scoping metadata; NO QED; no refereed bound is changed',
     holds: () =>
       IMP35976_TREE_SHAPE_VIZ_DUPLICATE_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35976_TREE_SHAPE_VIZ_DUPLICATE_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35976_TREE_SHAPE_VIZ_DUPLICATE_AUDIT.verdict) &&
+      /refereed bound is changed/i.test(IMP35976_TREE_SHAPE_VIZ_DUPLICATE_AUDIT.verdict) &&
       /GUE-conditional/.test(IMP35976_TREE_SHAPE_VIZ_DUPLICATE_AUDIT.verdict),
   },
 ];

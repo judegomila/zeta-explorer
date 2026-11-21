@@ -17,7 +17,7 @@
  *   narrow WHAT must be built, not the fact that it remains unbuilt.
  *
  *   Ticket: imp-35774 (content, low). Note only; ports nothing; changes no bound;
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
+ *   no refereed bound is changed; NO QED.
  *
  *   @see imp-35681-w1-w2-w4-existing-infra-inventory (Part A: structure held, A+B-C greenfield)
  *   @see imp-35717-w1-tsign-reconciliation-scope (R1-R4: sign-reconciliation prerequisites)
@@ -73,14 +73,14 @@ export const IMP35774_W1_OBLIGATION_CLUSTER_CROSSREF = Object.freeze({
     changesAnyBound: false,
     dischargesAnyObligation: false,
     portsAnyRoute: false,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
     'CROSS-REFERENCE NOTE (documentation only). Links imp-35681 Part A, imp-35717, and imp-35725 as a single ' +
     'W1 obligation cluster: structural scoping -> sign-reconciliation prerequisites -> per-term error budget, ' +
     'with the interval-bounded A+B-C certificate at T_PT staying GREENFIELD throughout. Ports nothing; ' +
-    'changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'changes no bound; NO QED. No refereed bound is changed.',
 });
 
 export const IMP35774_W1_OBLIGATION_CLUSTER_CROSSREF_ASSERTIONS = [
@@ -116,14 +116,14 @@ export const IMP35774_W1_OBLIGATION_CLUSTER_CROSSREF_ASSERTIONS = [
       IMP35774_W1_OBLIGATION_CLUSTER_CROSSREF.honestCaveat.dischargesAnyObligation === false &&
       IMP35774_W1_OBLIGATION_CLUSTER_CROSSREF.honestCaveat.portsAnyRoute === false &&
       IMP35774_W1_OBLIGATION_CLUSTER_CROSSREF.honestCaveat.changesAnyBound === false &&
-      /Platt-Trudgian/.test(IMP35774_W1_OBLIGATION_CLUSTER_CROSSREF.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP35774_W1_OBLIGATION_CLUSTER_CROSSREF.honestCaveat.sota),
   },
   {
     id: 'imp35774-verdict-no-qed',
-    why: 'The verdict must record NO QED and the Platt-Trudgian SOTA floor, matching every source module.',
+    why: 'The verdict must record NO QED and the no-refereed-bound-change floor, matching every source module.',
     holds: () =>
       /NO QED/.test(IMP35774_W1_OBLIGATION_CLUSTER_CROSSREF.verdict) &&
-      /remains SOTA/.test(IMP35774_W1_OBLIGATION_CLUSTER_CROSSREF.verdict),
+      /refereed bound is changed/i.test(IMP35774_W1_OBLIGATION_CLUSTER_CROSSREF.verdict),
   },
 ];
 

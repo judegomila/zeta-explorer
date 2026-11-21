@@ -82,8 +82,8 @@
  * number-variance window (O(10^9) consecutive zeros vs ~6e19 required) and overshoot into the
  * asymptotic-GUE regime, measuring a different statistic than the finite-height excursion depth. This
  * confirms and extends imp-96551/imp-96528 and does NOT close the imp-96510 systematic-vs-noise sub-gap.
- * Feasibility assessment only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; the zero-side route stays PCC/GRH-gated.
+ * Feasibility assessment only; changes no bound; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96551-nonols-two-anchor-slope-separation-reach (the two-anchor Cramer-Rao floor SD = (pi/2)/Delta_x)
  * @see imp-96528-independent-unclipped-height-count-exponent-fit-reach (the OLS SE(p) >= 0.21 floor, K=2 in regime)
@@ -204,12 +204,12 @@ export const IMP96653_THIRD_EXCURSION_ANCHOR_LEVER_ARM_REACH = {
   anyInRepoThirdAnchor: ANY_INREPO_THIRD_ANCHOR, // false
   beatsOLSFloor: BEATS_OLS_FLOOR, // false
   verdict:
-    'NO. No in-repo height set supplies a THIRD mutually-independent excursion-regime dip-depth anchor that extends the imp-96551 lever arm Delta_x ~ 0.41 decade enough to push SE(p) below the imp-96528 OLS floor 0.21. Structurally the third anchor lowers SE(p) only by EXTENDING the arm (an equally-spaced middle point over the same arm leaves the spread A/sqrt(2), hence SE(p), unchanged -- it only cures the K = 2 undefined error bar), and reaching SE(p) = 0.21 needs an arm A = (pi/2)/0.21 ~ 7.480 nat ~ 3.249 decades, i.e. a top anchor near ~2.658e8, some 576x above the +/-30 percent interior ceiling 4.6175e5 and ~443x above the top tabulated ordinate gamma_1e6 = 6.003e5. The fixed 10^6 set has no independent third +/-30 percent rung (the ladder rung 5.173e5 is clipped; even an over-optimistic overlapping ceiling point yields SE(p) ~ 1.298, ~6.2x looser than 0.21), and the only tabulated ordinates beyond gamma_1e6 -- the Odlyzko 10^20..10^23 local high blocks -- cannot form a +/-30 percent number-variance window (O(10^9) consecutive zeros vs ~6e19 required) and overshoot into the asymptotic-GUE regime, measuring a different statistic than the finite-height excursion depth. This confirms and extends imp-96551/imp-96528 and does NOT close the imp-96510 systematic-vs-noise sub-gap. Feasibility assessment only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'NO. No in-repo height set supplies a THIRD mutually-independent excursion-regime dip-depth anchor that extends the imp-96551 lever arm Delta_x ~ 0.41 decade enough to push SE(p) below the imp-96528 OLS floor 0.21. Structurally the third anchor lowers SE(p) only by EXTENDING the arm (an equally-spaced middle point over the same arm leaves the spread A/sqrt(2), hence SE(p), unchanged -- it only cures the K = 2 undefined error bar), and reaching SE(p) = 0.21 needs an arm A = (pi/2)/0.21 ~ 7.480 nat ~ 3.249 decades, i.e. a top anchor near ~2.658e8, some 576x above the +/-30 percent interior ceiling 4.6175e5 and ~443x above the top tabulated ordinate gamma_1e6 = 6.003e5. The fixed 10^6 set has no independent third +/-30 percent rung (the ladder rung 5.173e5 is clipped; even an over-optimistic overlapping ceiling point yields SE(p) ~ 1.298, ~6.2x looser than 0.21), and the only tabulated ordinates beyond gamma_1e6 -- the Odlyzko 10^20..10^23 local high blocks -- cannot form a +/-30 percent number-variance window (O(10^9) consecutive zeros vs ~6e19 required) and overshoot into the asymptotic-GUE regime, measuring a different statistic than the finite-height excursion depth. This confirms and extends imp-96551/imp-96528 and does NOT close the imp-96510 systematic-vs-noise sub-gap. Feasibility assessment only; changes no bound; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // Machine-readable honest-status banner (imp-96528 / imp-96551 convention).
 export const IMP96653_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Feasibility assessment only: no in-repo height set '
+  'RH open; no refereed bound is changed; NO QED. Feasibility assessment only: no in-repo height set '
   + 'supplies a THIRD excursion-regime dip-depth anchor to beat the imp-96528 OLS floor 0.21. The third '
   + 'anchor helps only by EXTENDING the arm (an equally-spaced middle point leaves SE(p) unchanged), and '
   + 'SE(p) = 0.21 needs an arm ~3.25 decades -- a top anchor ~2.66e8, ~576x above the +/-30% interior '
@@ -251,9 +251,9 @@ export const IMP96653_HONEST_BANNER =
   // honesty gates
   if (!/NO QED/.test(IMP96653_THIRD_EXCURSION_ANCHOR_LEVER_ARM_REACH.verdict))
     throw new Error('imp-96653: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96653_THIRD_EXCURSION_ANCHOR_LEVER_ARM_REACH.verdict))
-    throw new Error('imp-96653: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-  if (!(/RH open/.test(IMP96653_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96653_HONEST_BANNER) && /NO QED/.test(IMP96653_HONEST_BANNER)))
+  if (!/refereed bound is changed/i.test(IMP96653_THIRD_EXCURSION_ANCHOR_LEVER_ARM_REACH.verdict))
+    throw new Error('imp-96653: verdict dropped the no-refereed-bound-change banner');
+  if (!(/RH open/.test(IMP96653_HONEST_BANNER) && /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96653_HONEST_BANNER) && /NO QED/.test(IMP96653_HONEST_BANNER)))
     throw new Error('imp-96653: IMP96653_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 

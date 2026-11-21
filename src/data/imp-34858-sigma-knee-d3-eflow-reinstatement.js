@@ -57,8 +57,8 @@
  * MEASUREMENT / ASSESSMENT ONLY. Conditional-share diagnostic on the inherited surrogate, NOT an RH bound.
  * The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066
- * K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA. This CLOSES the E_flow-reinstatement sub-gap imp-34846 inherited from imp-34796.
+ * K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed
+ * . This CLOSES the E_flow-reinstatement sub-gap imp-34846 inherited from imp-34796.
  *
  * @see imp-34846-sigma-knee-third-order-closed-form-locator (the closed-form D3 knee locator this reinstates E_flow into; posed this OPEN sub-gap)
  * @see imp-34837-sigmoid-inflection-d2-eflow-reinstatement (the sibling D2 inflection E_flow reinstatement this mirrors one order up)
@@ -260,8 +260,8 @@ export const IMP34858_SIGMA_KNEE_D3_EFLOW_REINSTATEMENT = {
     'opposite directions -- the closed-form D3 confirmation of the imp-34837 ordering flip. The component ' +
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap:
     'ANSWERS imp-34858 and CLOSES the E_flow-reinstatement sub-gap imp-34846 inherited from imp-34796: the ' +
     'imp-34846 closed-form D3 sigma-KNEE locator SURVIVES reinstating E_flow (the D3 root still lands on the ' +
@@ -320,15 +320,15 @@ export const IMP34858_SIGMA_KNEE_D3_EFLOW_REINSTATEMENT_ASSERTIONS = [
     holds: () => KNEE_SHIFT_LOG10 < 0 && IMP34837_INFL_SHIFT_LOG10 > 0,
   },
   {
-    // Honesty gate: assessment/measurement only, far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA.
+    // Honesty gate: assessment/measurement only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp34858-honesty-gate-no-qed',
-    description: 'Assessment/measurement only: far-tail exponent = 1/2, no QED, PT stays SOTA',
+    description: 'Assessment/measurement only: far-tail exponent = 1/2, no QED, no refereed bound is changed',
     holds: () =>
       IMP34858_SIGMA_KNEE_D3_EFLOW_REINSTATEMENT.isRigorous === false &&
       IMP34858_SIGMA_KNEE_D3_EFLOW_REINSTATEMENT.farTailExponent === 0.5 &&
       typeof IMP34858_SIGMA_KNEE_D3_EFLOW_REINSTATEMENT.subGap === 'string' &&
       /NO QED/.test(IMP34858_SIGMA_KNEE_D3_EFLOW_REINSTATEMENT.verdict) &&
-      /remains SOTA/.test(IMP34858_SIGMA_KNEE_D3_EFLOW_REINSTATEMENT.verdict),
+      /refereed bound is changed/i.test(IMP34858_SIGMA_KNEE_D3_EFLOW_REINSTATEMENT.verdict),
   },
 ];
 

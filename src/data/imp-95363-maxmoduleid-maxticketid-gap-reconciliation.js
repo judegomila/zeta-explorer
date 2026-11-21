@@ -22,8 +22,7 @@
  * no backfill is required.
  *
  * AUDIT-ONLY: this ticket confirms the ledger is consistent, it does not
- * create or backfill any queue rows. No bound change; NO QED; the
- * Platt-Trudgian Lambda <= 0.2 bound remains SOTA.
+ * create or backfill any queue rows. No bound change; NO QED; no refereed bound is changed.
  */
 
 const COHORT_IDS = ['imp-95328', 'imp-95329', 'imp-95330', 'imp-95331', 'imp-95332'];
@@ -67,7 +66,7 @@ export const IMP95363_MAXMODULEID_MAXTICKETID_GAP_RECONCILIATION = {
     'carrying exactly one src/data/improvements.js log entry. The maxModuleId(95332) > ' +
     'maxTicketId(95327) gap flagged in scripts/queue-index.json is the expected shape of this ' +
     'pattern, not missing bookkeeping. No queue row is backfilled or created by this ticket. ' +
-    'No bound change; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'No bound change; NO QED; no refereed bound is changed.',
 };
 
 export const IMP95363_MAXMODULEID_MAXTICKETID_GAP_RECONCILIATION_ASSERTIONS = [
@@ -94,9 +93,9 @@ export const IMP95363_MAXMODULEID_MAXTICKETID_GAP_RECONCILIATION_ASSERTIONS = [
   },
   {
     id: 'imp-95363-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(IMP95363_MAXMODULEID_MAXTICKETID_GAP_RECONCILIATION.honest)
-      && /Lambda<=0.2 remains SOTA/.test(IMP95363_MAXMODULEID_MAXTICKETID_GAP_RECONCILIATION.honest),
+      && /refereed bound is changed/i.test(IMP95363_MAXMODULEID_MAXTICKETID_GAP_RECONCILIATION.honest),
   },
 ];
 

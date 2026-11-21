@@ -45,7 +45,7 @@
  * the floor (offset 4.73e-10 in R, relBias ~ floor near Rc), consistent with imp-97605/imp-97625
  * signChangeRadiusResolvable = false. The bias sits 36.7x below the imp-97497 < 1e-3 tail bar.
  * Cross-check only; the m=1/m=2 Krein enclosure stays unusable at 2a = ln 3; interval-rigorous reach
- * stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; no bound moves; RH open; NO QED.
+ * stays 2a <= 0.96; no refereed bound is changed; no bound moves; RH open; NO QED.
  *
  * @see imp-97625-krein-tail-bias-signal-vs-floor-assessment.js (the floor propagation cross-checked here)
  * @see imp-97605-krein-tail-bias-direct-ct-crossvalidation.js (IEEE-double direct edge-amplitude read)
@@ -53,7 +53,7 @@
  * @see imp-97518-krein-tail-endpoint-asymptotic-closed-form.js (the three-IBP g_pp, g_ppp closed forms)
  *
  * Ticket: imp-97643 (accuracy, medium, opus-4-8). Cross-check only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA. Import-light: all inputs baked as literals.
+ * no refereed bound is changed. Import-light: all inputs baked as literals.
  */
 
 const LN3 = Math.log(3);

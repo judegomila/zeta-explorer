@@ -167,7 +167,7 @@ export const IMP36246_S_FRONTIER_SCOPING_MODULE_OVERVIEW = {
     '(GUE-conditional universality; height-conditional honest downgrade). This module restates each ' +
     'source module’s own labels and verdict verbatim; it discharges no obligation, instantiates no ' +
     'interval, and changes no bound. C_mb stays GUE-conditional (imp-486); no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-36154 (Krawczyk existence/uniqueness R1-R6); imp-36172 (shock-Lipschitz finite-N surrogate ' +
     'S1-S5); imp-36180 (ESY/CM-B three-layer input scope); imp-36192 (Step-2 G-step-error I1-I5); ' +
@@ -217,11 +217,11 @@ export const IMP36246_S_FRONTIER_SCOPING_MODULE_OVERVIEW_ASSERTIONS = [
   },
   {
     id: 'imp36246-honesty-gate-no-qed',
-    description: 'overview only: not rigorous, discharges nothing, no QED, PT stays SOTA',
+    description: 'overview only: not rigorous, discharges nothing, no QED, no refereed bound is changed',
     holds: () =>
       IMP36246_S_FRONTIER_SCOPING_MODULE_OVERVIEW.isRigorous === false &&
       /NO QED/.test(IMP36246_S_FRONTIER_SCOPING_MODULE_OVERVIEW.verdict) &&
-      /remains SOTA/.test(IMP36246_S_FRONTIER_SCOPING_MODULE_OVERVIEW.verdict),
+      /refereed bound is changed/i.test(IMP36246_S_FRONTIER_SCOPING_MODULE_OVERVIEW.verdict),
   },
 ];
 

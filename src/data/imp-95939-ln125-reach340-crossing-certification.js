@@ -63,8 +63,8 @@
  * crossing-run residual; no new cited input, no new bound, no operator positivity,
  * and NO numeric change to any certified interval. Model seam family only; the
  * imp-95212 envelope port, signed WEIGHT, and modulus/phase legs stay OPEN. Changes
- * NO bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. Sun arXiv:2609.04176 unrefereed.
+ * NO bound of the Lambda program; NO QED; no refereed bound is changed
+ * . Sun arXiv:2609.04176 unrefereed.
  *
  * @see imp-95859-ln125-window-shift-budget (the ~950 refined window budget)
  * @see imp-95838-ln125-shift-budget-scaling (recommendedBudget=800, endpoint-only)
@@ -144,7 +144,7 @@ export const IMP95939_LN125_REACH340_CROSSING_CERTIFICATION = {
     "convergence residual; no new cited input; no numeric change to any certified " +
     "interval; model seam family only; the imp-95212 envelope port, signed WEIGHT, " +
     "and modulus/phase legs stay OPEN. Changes no bound of the Lambda program; NO " +
-    "QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "QED; no refereed bound is changed.",
   closesTickets: ["imp-95939"],
 };
 
@@ -347,7 +347,7 @@ export const IMP95939_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /CERTIFIED/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
 ];
 

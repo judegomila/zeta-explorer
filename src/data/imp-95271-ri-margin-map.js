@@ -50,8 +50,7 @@
  * (imp-95231-rate-monotonicity-closure.js) subsequently discharged the
  * interior analytically. This module is the measurement backing that closure.
  *
- * VERDICT. MEASUREMENT ONLY. Changes no bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * VERDICT. MEASUREMENT ONLY. Changes no bound; NO QED; no refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -139,8 +138,8 @@ export const IMP95271_RI_MARGIN_MAP = {
   bumpCellFraction: 0.107,
   counterexamples: 0,
   verdict:
-    "MEASUREMENT ONLY; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 " +
-    "remains SOTA. The interior bump named OPEN in imp-95231 was later CLOSED " +
+    "MEASUREMENT ONLY; changes no bound; NO QED; no refereed bound is changed" +
+    ". The interior bump named OPEN in imp-95231 was later CLOSED " +
     "by THEOREM RATE-MONO; this map localizes it and confirms M >= 0.",
 };
 
@@ -218,13 +217,13 @@ export const IMP95271_RI_MARGIN_MAP_ASSERTIONS = [
     id: "imp95271-record-honesty",
     description:
       "the record is measurement-only, names the interior bump wedge, carries " +
-      "NO QED and the SOTA line, and reports zero counterexamples",
+      "NO QED and the no-refereed-bound-change line, and reports zero counterexamples",
     holds: () =>
       IMP95271_RI_MARGIN_MAP.counterexamples === 0 &&
       /bump/.test(IMP95271_RI_MARGIN_MAP.verdict) &&
       /MEASUREMENT ONLY/.test(IMP95271_RI_MARGIN_MAP.verdict) &&
       /NO QED/.test(IMP95271_RI_MARGIN_MAP.verdict) &&
-      /SOTA/.test(IMP95271_RI_MARGIN_MAP.verdict),
+      /refereed bound is changed/i.test(IMP95271_RI_MARGIN_MAP.verdict),
   },
 ];
 

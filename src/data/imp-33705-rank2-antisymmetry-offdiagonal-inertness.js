@@ -85,7 +85,7 @@
  *   SCOPING / STRUCTURAL only, on the imp-3066 REPRESENTATIVE truncation and the
  *   imp-3351 genuine-cell grid, NOT the exact section-26 Gram. No positivity is
  *   attempted, no bound is changed, imp-3066 is untouched, G7 / K_a >= 0 stays OPEN.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA. No RH verdict, no QED.
+ *   No refereed bound is changed. No RH verdict, no QED.
  *
  *   @see imp-3351-shear-gram-symmetric-spectrum-aU-grid.js (the rank-2 identity it scopes)
  *   @see imp-33685-scalar-cover-offdiagonal-reachability.js (the trace/effective-rank residual it builds on)
@@ -357,7 +357,7 @@ export const IMP33705_RANK2_ANTISYMMETRY_OFFDIAGONAL_INERTNESS = Object.freeze({
     changesNoBound: true,
     g7StaysOpen: true,
     imp3066Untouched: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
     noRHVerdict: true,
   }),
 });
@@ -417,7 +417,7 @@ export const IMP33705_RANK2_ANTISYMMETRY_OFFDIAGONAL_INERTNESS_ASSERTIONS = [
   {
     id: 'imp33705-honest-scoping-not-a-verdict',
     why: 'Mandatory honesty: SCOPING only, representative truncation, no positivity attempted, no bound ' +
-         'changed, imp-3066 untouched, G7 stays OPEN, PT 0.2 stays SOTA, no RH verdict. Any flip is over-claiming.',
+         'changed, imp-3066 untouched, G7 stays OPEN, no refereed bound is changed, no RH verdict. Any flip is over-claiming.',
     holds: () => {
       const c = IMP33705_RANK2_ANTISYMMETRY_OFFDIAGONAL_INERTNESS.honestCaveat;
       return (
@@ -430,7 +430,7 @@ export const IMP33705_RANK2_ANTISYMMETRY_OFFDIAGONAL_INERTNESS_ASSERTIONS = [
         c.g7StaysOpen === true &&
         c.imp3066Untouched === true &&
         c.noRHVerdict === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

@@ -13,7 +13,7 @@
  * the identical EXACT Vasyunin cotangent kernel out to N=8000 (log N = 8.99) and measures
  * whether the local exponent stays flat near 1.05 or begins climbing toward 2.
  *
- * No bound is proved; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * No bound is proved; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * THE KERNEL (unchanged from imp-96828, rh-route-m-nyman-beurling-vasyunin-reciprocity):
@@ -69,7 +69,7 @@
  * from data alone), but the extra octave supplies additional evidence AGAINST it.
  *
  * Measurement/fit only; proves no growth law and no bound; the exponent is empirical over a
- * finite ladder. PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * finite ladder. No refereed bound is changed; RH open; NO QED.
  *
  * @see imp-96828-coprime-core-vasyunin-second-moment-growth.js (the N<=4000 ladder + kernel)
  * @see imp-96795-route-m-frobenius-g-factorization-route-independence-assessment.js (Finding 3 target)
@@ -166,7 +166,7 @@ export const IMP96849_HONEST_BANNER =
   'local exponent flat/decreasing (now below 1.05, trending away from 2), free-quadratic leading ' +
   'coefficient still collapsed to ~0.0022. The imp-96795 (log N)^2 target is NOT confirmed; the ' +
   'finite-N caveat survives but the extra octave adds evidence against an eventual quadratic law. ' +
-  'No growth law is proved. PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  'No growth law is proved. No refereed bound is changed; RH open; NO QED.';
 
 export const IMP96849_SUBGAP = Object.freeze({
   id: 'imp-96849-coprime-core-second-moment-linear-in-log-persists-to-N8000',
@@ -244,7 +244,7 @@ const IMP96849_ASSERTIONS = [
       IMP96849_VERDICT.localExponentClimbingTowardTwo === false &&
       IMP96849_VERDICT.anyBoundMoved === false &&
       /NO QED/.test(IMP96849_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96849_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96849_HONEST_BANNER) &&
       /RH open/.test(IMP96849_HONEST_BANNER) &&
       /persists-to-N8000/.test(IMP96849_SUBGAP.id),
     why: 'measurement only: no bound moved, no quadratic law claimed, the finite-N caveat and honesty markers are present, and the sharpened sub-gap is recorded.',

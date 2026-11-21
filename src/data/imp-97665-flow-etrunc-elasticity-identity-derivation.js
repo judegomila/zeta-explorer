@@ -72,7 +72,7 @@
  * imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and the
  * imp-398 C_F prefactor are UNTOUCHED and are perturbed here only as sensitivity probes, not re-pinned;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO
- * QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * QED. No refereed bound is changed.
  *
  * @see imp-97644-three-axis-additivity-flow-prefactor (MEASURED E_CF/E_ET = E_flow/E_trunc to ~2e-7)
  * @see imp-97623-additivity-residual-multi-landmark-crosscheck (two-axis C_C/E_trunc additivity, r ~ eps^2)
@@ -198,7 +198,7 @@ export const IMP97665_FLOW_ETRUNC_ELASTICITY_IDENTITY_DERIVATION = {
     'GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and ' +
     'the imp-398 C_F prefactor are UNTOUCHED (perturbed only as probes, not re-pinned); changes no bound; ' +
     'establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97644 (three-axis additivity, MEASURED E_CF/E_ET = E_flow/E_trunc to ~2e-7); imp-97623 (two-axis ' +
     'additivity residual ~ eps^2); imp-97584 (E_trunc-axis elasticity); imp-97520 (four-landmark ladder ' +
@@ -254,13 +254,13 @@ export const IMP97665_FLOW_ETRUNC_ELASTICITY_IDENTITY_DERIVATION_ASSERTIONS = [
       ),
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp97665-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP97665_FLOW_ETRUNC_ELASTICITY_IDENTITY_DERIVATION.isRigorous === false &&
       /NO QED/.test(IMP97665_FLOW_ETRUNC_ELASTICITY_IDENTITY_DERIVATION.verdict) &&
-      /remains SOTA/.test(IMP97665_FLOW_ETRUNC_ELASTICITY_IDENTITY_DERIVATION.verdict),
+      /refereed bound is changed/i.test(IMP97665_FLOW_ETRUNC_ELASTICITY_IDENTITY_DERIVATION.verdict),
   },
 ];
 

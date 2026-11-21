@@ -76,7 +76,7 @@
  *   Kloosterman small-inverse equidistribution input flagged by imp-97116. Derivation + measurement
  *   only; no coefficient value claimed; no bound moves; the rigorous anchor stays the trace ceiling
  *   T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by > 2600x; no operator positivity;
- *   PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97349-log2b-coefficient-needs-cotangent-second-moment -- the separation is
  *   DECIDED (log^2 b, not b^(1/2)); the exact coefficient needs the coprimality divisor weighting on
@@ -218,7 +218,7 @@ export const IMP97349_VERDICT = Object.freeze({
     'needs a rigorous bound on the Vasyunin/Bettin-Conrey cotangent residual second moment (the ' +
     'imp-97116 Estermann/Kloosterman small-inverse input). Derivation + measurement only; no ' +
     'coefficient claimed; no bound moves; the rigorous anchor stays T = 2.594e7; compute N ~ 9916 ' +
-    'binds first by > 2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'binds first by > 2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97349_SUBGAP = Object.freeze({
@@ -236,7 +236,7 @@ export const IMP97349_SUBGAP = Object.freeze({
 });
 
 export const IMP97349_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation + measurement only: the uniform ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation + measurement only: the uniform ' +
   'diagonal remainder profile of Q(b) = Sum I(a,b)^2/a^2 is derived by the split I = Ihat + r into ' +
   'the imp-97330 elementary skeleton Ihat = (a/2)log(b/a) + a(C+1/2) and the arithmetic Vasyunin ' +
   'residual r. The arithmetic pieces Qcross, Qrr are LINEAR in b (feed s0), and the elementary Qhat ' +
@@ -363,7 +363,7 @@ const IMP97349_ASSERTIONS = [
       IMP97349_VERDICT.computeBindsFirst === true &&
       /separation DECIDED/i.test(IMP97349_VERDICT.conclusion) &&
       /NO QED/.test(IMP97349_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97349_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97349_HONEST_BANNER) &&
       /RH open/.test(IMP97349_HONEST_BANNER) &&
       /cotangent-second-moment/.test(IMP97349_SUBGAP.id),
   },

@@ -46,7 +46,7 @@
  *   already-established measurement figures; adds no new Lambda bound; the C_C = (1/8) sqrt(3 pi)
  *   ansatz (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631) and the imp-398 C_F prefactor are
  *   UNTOUCHED; surrogate-vs-true fidelity (imp-35337a) stays OPEN; the C_mb GUE-conditional share
- *   per imp-486 is UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ *   per imp-486 is UNTOUCHED. No refereed bound is changed. NO QED.
  */
 
 import { IMP35557_CUBIC_SKEW_HEIGHT_MAP_SENSITIVITY } from './imp-35557-cubic-skew-height-map-sensitivity.js';
@@ -214,13 +214,13 @@ export const IMP35612_CUBIC_SKEW_HEIGHT_MAP_LITERALS_ASSERTIONS = [
     holds: () => RECOMPUTE.every((r) => r.crossCheckRel < 1.5e-3 && r.c3 < 0),
   },
   {
-    // (4) honesty gate: measurement only, no QED, PT stays SOTA.
+    // (4) honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp35612-honesty-gate-no-qed',
-    description: 'Measurement only: source isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: source isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35557_CUBIC_SKEW_HEIGHT_MAP_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP35557_CUBIC_SKEW_HEIGHT_MAP_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP35557_CUBIC_SKEW_HEIGHT_MAP_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP35557_CUBIC_SKEW_HEIGHT_MAP_SENSITIVITY.verdict),
   },
 ];
 

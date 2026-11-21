@@ -72,7 +72,7 @@
  *   STATUS: a grouping/index note over five already-completed measurement tickets, not a new
  *   derivation. No bound changes: the interval-rigorous certified reach stays 2a<=0.96; the
  *   Rayleigh/Ritz values throughout this cohort are UPPER bounds, not certified lower bounds; RH
- *   open; NO QED. Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   open; NO QED. No refereed bound is changed.
  *
  * @see imp-96827-krein-tresidual-envelope-extrapolation.js (direct T-residual envelope, closed-positive on its own construction)
  * @see imp-96889-krein-shiftinvert-katotemple-scout.js (bounded resolvent scout; SUB-GAP IMP96889_SHIFTINVERT_REEXPRESSES_NT_RATE)
@@ -81,7 +81,7 @@
  * @see imp-96938-krein-drift-calibration-096.js (drift sign structure is scheme-generic; margin is the discriminant)
  *
  * Ticket: imp-96969 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 const COUPLED_NT_TRUNCATION_WALL_COHORT = Object.freeze([
@@ -166,8 +166,8 @@ export const IMP96969_COUPLED_NT_TRUNCATION_WALL_COHORT_INDEX = Object.freeze({
     'construction that does not resolve either open item. Future work on this thread should not ' +
     're-sweep shift, re-check N-convergence, or re-derive an Nbig-alone rate; it should attack ' +
     'the joint (Nbig,T) limit or the ln3 margin directly. Establishes nothing new; moves no ' +
-    'bound; interval-rigorous certified reach stays 2a<=0.96; NO QED. Platt-Trudgian Lambda <= ' +
-    '0.2 remains SOTA.',
+    'bound; interval-rigorous certified reach stays 2a<=0.96; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96827 (direct T-residual envelope); imp-96889 (shift-invert scout, SUB-GAP ' +
     'IMP96889_SHIFTINVERT_REEXPRESSES_NT_RATE); imp-96911 (N/Nbig convergence rate); imp-96935 ' +
@@ -208,11 +208,11 @@ export const IMP96969_COUPLED_NT_TRUNCATION_WALL_COHORT_INDEX_ASSERTIONS = [
   },
   {
     id: 'imp96969-honesty-gate-no-qed',
-    why: 'Documentation/index only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation/index only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96969_COUPLED_NT_TRUNCATION_WALL_COHORT_INDEX.anyBoundMoved === false &&
       /NO QED/.test(IMP96969_COUPLED_NT_TRUNCATION_WALL_COHORT_INDEX.verdict) &&
-      /remains SOTA/.test(IMP96969_COUPLED_NT_TRUNCATION_WALL_COHORT_INDEX.verdict) &&
+      /refereed bound is changed/i.test(IMP96969_COUPLED_NT_TRUNCATION_WALL_COHORT_INDEX.verdict) &&
       /2a<=0\.96/.test(IMP96969_COUPLED_NT_TRUNCATION_WALL_COHORT_INDEX.verdict),
   },
 ];

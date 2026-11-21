@@ -27,7 +27,7 @@
  * @see imp-97422-quarter-ceiling-omega-ge-4-multiplicative-complete-monotonicity.js (the MCM route this refutes)
  *
  * Ticket: imp-97466 (content, medium, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 import IMP97432_DEFAULT, { IMP97432_VERDICT, IMP97432_SUBGAP } from './imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js';
@@ -53,8 +53,8 @@ export const IMP97466_HONEST_BANNER =
   'quarter-ceiling is NOT refuted (|T| = 9.7e-4 there, primorial limit -0.0458, inside ' +
   '[-1/4, 1/4]) -- MCM was strictly stronger than the ceiling needed. No consumer should cite ' +
   'MCM as a general lever for omega >= 11; the live residual is the direct two-sided band ' +
-  '-1/4 <= T(b) <= 1/4 (IMP97432_SUBGAP). No bound on Lambda moves; PT Lambda <= 0.2 remains ' +
-  'SOTA; RH open; NO QED.';
+  '-1/4 <= T(b) <= 1/4 (IMP97432_SUBGAP). No bound on Lambda moves; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97466_ASSERTIONS = [
@@ -81,9 +81,9 @@ const IMP97466_ASSERTIONS = [
       IMP97466_STATUS.qed === false &&
       /REFUTED/.test(IMP97466_HONEST_BANNER) &&
       /NO QED/.test(IMP97466_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97466_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97466_HONEST_BANNER) &&
       /RH open/.test(IMP97466_HONEST_BANNER),
-    why: 'documentation only: MCM refuted at omega=11, ceiling not refuted, no bound claimed moved, no operator positivity, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: MCM refuted at omega=11, ceiling not refuted, no bound claimed moved, no operator positivity, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

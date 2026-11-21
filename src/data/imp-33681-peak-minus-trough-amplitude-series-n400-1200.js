@@ -77,8 +77,7 @@
  *   amplitude grows weakly-positive but below the peak growth, driven by two tall tail clusters -- not
  *   the exact coefficients. The NPHI = 10 Phi-series truncation is inherited upstream. Mass-feasibility
  *   is NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda
- *   &lt;= 0.2 remains the SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33660-cluster-peak-envelope-height-growth-fit.js (the peak-HEIGHT series differenced here)
  *   @see imp-33662-inter-cluster-trough-floor-drift-n400-1200.js (the trough-FLOOR series differenced here)
@@ -198,7 +197,7 @@ const verdict =
       'imp-33638-TAIL-CLUSTERS-(~91-ULP-AT-n~1126,1198)-WITH-THE-FIRST-FOURTEEN-AMPLITUDES-IN-A-FLAT-~17..56-' +
       'ULP-BAND,-SO-THE-AMPLITUDE-INHERITS-THE-PEAKS-WEAK-POSITIVE-CHARACTER.-ACCURACY/RULE-DESIGN-MEASUREMENT-' +
       'ONLY;-JITTERY-LATTICE-FLOOR;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-NO-QED;-' +
-      'PT-Lambda<=0.2-STAYS-SOTA'
+      'NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33681_PEAK_MINUS_TROUGH_AMPLITUDE_SERIES = Object.freeze({
@@ -230,7 +229,7 @@ export const IMP33681_PEAK_MINUS_TROUGH_AMPLITUDE_SERIES = Object.freeze({
     'with the first fourteen amplitudes in a flat ~17..56 ULP band. VERDICT: ' +
     'AMPLITUDE-GROWS-WEAKLY-POSITIVE-BUT-BELOW-THE-PEAK-GROWTH. ACCURACY/RULE-DESIGN MEASUREMENT, RH-EQUIVALENT, ' +
     'necessary-but-not-sufficient; jittery lattice floor; operator positivity (imp-3066) untouched; no QED. ' +
-    'PT Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   method: Object.freeze({
     composition: 'imports the imp-33660 peakNs/peakHeights and the imp-33662 troughEnvs (both re-derived off the SAME [400,1200] floorUlp(n) scan), so the two series are commensurable and differenced without a new scan',
@@ -346,7 +345,7 @@ export const IMP33681_PEAK_MINUS_TROUGH_AMPLITUDE_SERIES = Object.freeze({
       '~+0.054 amplitude slope, the ~0.25 R^2, and the ~18.4 residual RMS. The robust reading is the QUALITATIVE ' +
       'conclusion -- the amplitude grows weakly-positive but below the peak growth, driven by two tall tail ' +
       'clusters -- not the exact fit coefficients.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -397,7 +396,7 @@ export const IMP33681_PEAK_MINUS_TROUGH_AMPLITUDE_SERIES_ASSERTIONS = [
   {
     id: 'imp33681-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design measurement only, not a certified bound, mass-feasibility ' +
-         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'necessary-but-not-sufficient, operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33681_PEAK_MINUS_TROUGH_AMPLITUDE_SERIES.honestCaveat;
       return (
@@ -406,7 +405,7 @@ export const IMP33681_PEAK_MINUS_TROUGH_AMPLITUDE_SERIES_ASSERTIONS = [
         c.isStructuralDiagnostic === true &&
         c.isCertifiedErrorBound === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

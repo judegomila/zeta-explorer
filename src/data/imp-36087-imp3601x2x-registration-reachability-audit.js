@@ -32,7 +32,7 @@
  * SCOPE. Read-only registration/reachability + import-light guard audit only. No source file
  * required correction -- all five modules in this cohort were already properly wired and
  * import-light before this audit ran. Changes no bound; establishes no operator positivity; no
- * RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35982-imp3589x-registration-reachability-audit.js (prior sweep establishing this method)
  * @see imp-36018-w1-pairwise-slack-depth-scaling-exponent.js (audited module)
@@ -101,7 +101,7 @@ export const IMP36087_IMP3601X2X_REGISTRATION_REACHABILITY_AUDIT = {
     '(module plus full direct dependency chain) for imp-36018, imp-36020, imp-36021, imp-36022, ' +
     'and imp-36023. Result: all five fully registered and reachable, none import-heavy; no source ' +
     'file required correction. Changes no bound; establishes no operator positivity; no RH ' +
-    'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35982/imp-35905/imp-35986 (registration/reachability + import-guard audit method); ' +
     'verify-zeros-importers.mjs (import-light guard method, imp-2880).',
@@ -141,11 +141,11 @@ export const IMP36087_IMP3601X2X_REGISTRATION_REACHABILITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp36087-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36087_IMP3601X2X_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP36087_IMP3601X2X_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP36087_IMP3601X2X_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP36087_IMP3601X2X_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

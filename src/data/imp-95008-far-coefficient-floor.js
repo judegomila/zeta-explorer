@@ -138,7 +138,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are not
  * the claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -343,7 +343,7 @@ export const IMP95008_FAR_COEFFICIENT_FLOOR = {
     'Theorem K is unconditional given the model-family conventions: the 4-packet witness is exhibited explicitly, MAJ legality is the proved inequality (1 + z)e^(-z) <= 1, every correlation is the exact closed-form exponential autocorrelation, and the floor quantifies over the two-currency bound class with tail functionals T* <= T(2) (which contains every sibling bound) at cNear <= 2. The positive floor statement lives in the spacing-uniform class (constants uniform in p) - exactly the class in which the seventh-continuation sharpness "near constant EXACTLY 2" lives; at fixed p = 97 the witness is blind and the fixed-p far floor is recorded OPEN. Bounds in other currencies are outside scope, as recorded. The numerics cross-check the statements; they are not the claim.',
   promotesBound: false,
   verdict:
-    'RIGOROUS step: the seventh-continuation residual "cFar = 8/(2 sigma - 1) at cNear = 2 is not known optimal" gets its first two-sided constraint. NEW Theorem K (4-packet bridge witness: two boundary-straddling near-degenerate pairs joined across block gap 2, exact exponential correlations, no inequality in E) shows the far coefficient of any spacing-uniform two-currency bound with cNear <= 2 satisfies cFar >= F > 0: the corner (2, 0) is infeasible and the far currency is structurally necessary at the terminal near constant. Reference floors: 2.609404585369758e-5 at theta = 10 (achieved 8, gap 3.066e5), 0.024574312039374043 at theta = 2 (gap 325.5). The far bracket [F, 8/(2 sigma - 1)] is the refined residual, together with the fixed-p floor (p = 97 witness blind). Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RIGOROUS step: the seventh-continuation residual "cFar = 8/(2 sigma - 1) at cNear = 2 is not known optimal" gets its first two-sided constraint. NEW Theorem K (4-packet bridge witness: two boundary-straddling near-degenerate pairs joined across block gap 2, exact exponential correlations, no inequality in E) shows the far coefficient of any spacing-uniform two-currency bound with cNear <= 2 satisfies cFar >= F > 0: the corner (2, 0) is infeasible and the far currency is structurally necessary at the terminal near constant. Reference floors: 2.609404585369758e-5 at theta = 10 (achieved 8, gap 3.066e5), 0.024574312039374043 at theta = 2 (gap 325.5). The far bracket [F, 8/(2 sigma - 1)] is the refined residual, together with the fixed-p floor (p = 97 witness blind). Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.',
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -493,12 +493,12 @@ export const IMP95008_FCF_ASSERTIONS = [
   {
     id: 'imp95008-fcf-honesty-gate',
     description:
-      'the verdict records the corner infeasibility, the open far bracket, the fixed-p blindness, promotes no bound, NO QED, PT stays SOTA',
+      'the verdict records the corner infeasibility, the open far bracket, the fixed-p blindness, promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95008_FAR_COEFFICIENT_FLOOR.promotesBound === false &&
       IMP95008_FAR_COEFFICIENT_FLOOR.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_FAR_COEFFICIENT_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP95008_FAR_COEFFICIENT_FLOOR.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_FAR_COEFFICIENT_FLOOR.verdict) &&
       /infeasible/.test(IMP95008_FAR_COEFFICIENT_FLOOR.verdict) &&
       /witness blind/.test(IMP95008_FAR_COEFFICIENT_FLOOR.verdict) &&
       /FIXED-p far floor/.test(IMP95008_FAR_COEFFICIENT_FLOOR.openResiduals[4]) &&

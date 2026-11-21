@@ -46,7 +46,7 @@
  * GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned E_trunc 3.06e-5 and
  * the imp-398 C_F prefactor are UNTOUCHED and appear only as the fixed surrogate; changes no bound;
  * establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * Literals baked from the offline mpmath run (dps = 60); this leaf is import-light and does NOT
  * re-import the surrogate at load. Regenerate:
@@ -171,8 +171,8 @@ export const IMP124790_EXTPREC_CC_ELASTICITY_DEEP_WINDOW = {
     'Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), the pinned ' +
     'E_trunc 3.06e-5 and the imp-398 C_F prefactor are UNTOUCHED; changes no bound; establishes no ' +
-    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-124767 (kernel node deepened to g=1e-8..1e-12, |p+1/2| ~1.4e-5); imp-97841 (double-precision ' +
     'C_C-elasticity node, residual ~4e-4); imp-97662 (C_C-elasticity square-root fold E ~ +/- ' +
@@ -247,13 +247,13 @@ export const IMP124790_EXTPREC_CC_ELASTICITY_DEEP_WINDOW_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement only, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, no QED, no refereed bound is changed.
     id: 'imp124790-honesty-gate-no-qed',
-    description: 'Measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP124790_EXTPREC_CC_ELASTICITY_DEEP_WINDOW.isRigorous === false &&
       /NO QED/.test(IMP124790_EXTPREC_CC_ELASTICITY_DEEP_WINDOW.verdict) &&
-      /remains SOTA/.test(IMP124790_EXTPREC_CC_ELASTICITY_DEEP_WINDOW.verdict),
+      /refereed bound is changed/i.test(IMP124790_EXTPREC_CC_ELASTICITY_DEEP_WINDOW.verdict),
   },
 ];
 

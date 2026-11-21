@@ -81,8 +81,7 @@
  *   operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT (imp-3481)
  *   and the degree-2/degree-3 faces carry no feasibility comparison. The operator-
  *   level K_a &gt;= 0 sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is
- *   UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the
- *   rigorous SOTA.
+ *   UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-3557-refined-m4-leading-form-propagation.js (the refined moments propagated here)
  *   @see imp-3488-degree2-miss-factor-closed-form.js (the degree-2 miss factor 1 - 1/k^3)
@@ -362,7 +361,7 @@ export const IMP3579_MISS_FACTOR_MOMENT_REFINEMENT_INVARIANCE = Object.freeze({
     '~3.8e-6 / ~5.4e-6) and ~seven orders inside the leading-form tail budgets tail_2=(a^2/12)(M_4/M_2) ~4.4e-4 ' +
     'and tail_3=(a^2/20)(M_5/M_3) ~3.6e-4. The reported miss factors are UNPERTURBED. CERTIFICATION/MEASUREMENT, ' +
     'RH-EQUIVALENT, necessary-but-not-sufficient; adds no new structure; operator positivity (imp-3066) ' +
-    'untouched; no RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'untouched; no RH verdict, no QED. No refereed bound is changed.',
 
   method: Object.freeze({
     refinedMoments: 'imp-3557 converged M_4 = 9.62528e-8 (and M_3) via machine-converged Gauss-Legendre dg_{16}/200/160',
@@ -441,7 +440,7 @@ export const IMP3579_MISS_FACTOR_MOMENT_REFINEMENT_INVARIANCE = Object.freeze({
       'feasibility comparison. The operator-level K_a >= 0 sign-positivity (off-diagonal endpoint-Hankel step, ' +
       'imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -480,7 +479,7 @@ export const IMP3579_MISS_FACTOR_MOMENT_REFINEMENT_INVARIANCE_ASSERTIONS = [
   {
     id: 'imp3579-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: numerical certification only, mass-feasibility necessary-but-not-sufficient, ' +
-         'operator positivity (imp-3066) untouched, PT 0.2 stays SOTA.',
+         'operator positivity (imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3579_MISS_FACTOR_MOMENT_REFINEMENT_INVARIANCE.honestCaveat;
       return (
@@ -488,7 +487,7 @@ export const IMP3579_MISS_FACTOR_MOMENT_REFINEMENT_INVARIANCE_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

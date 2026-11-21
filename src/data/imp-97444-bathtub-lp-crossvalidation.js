@@ -30,8 +30,8 @@
  *   positivity, no coercivity constant, no bound is moved. The imp-97416 sub-gap
  *   IMP97416_SCALAR_TWO_BUDGET_COUPLING_EXHAUSTED_NEEDS_SPECTRAL_ESTIMATE is unchanged; positivity still
  *   requires the genuinely spectral estimate (weighted-PSWF eigenvalue decay or Fejer-Riesz / de Branges
- *   factorisation with a certified margin). Interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   factorisation with a certified margin). Interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *
  * VERDICT. The imp-97416 bathtub joint floor -3065.435 is INDEPENDENTLY CONFIRMED by a constrained
  *   water-filling optimisation (water-level bisection AND a scipy HiGHS simplex LP) that never sorts: both
@@ -44,7 +44,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (sigma_2, w_1; reach 2a <= 0.96)
  *
  * Ticket: imp-97444 (accuracy, medium, opus-4-8, api-pool). Cross-check only; changes no bound; NO QED;
- * offline solver tmp/imp-97444-bathtub-lp-crossval.py. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * offline solver tmp/imp-97444-bathtub-lp-crossval.py. No refereed bound is changed.
  */
 
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

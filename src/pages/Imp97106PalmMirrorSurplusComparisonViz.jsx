@@ -78,8 +78,8 @@ export default function Imp97106PalmMirrorSurplusComparisonViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> H_desc-mirror(p_req)
         needs a measured mirror count &ge; p_req at the working row. Every baseline below is
         a finite-height / rigid-lattice / t = 0-proxy measurement (imp-97080); it supplies no
-        uniform-in-t, all-x lower bound. Changes no &Lambda; bound; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        uniform-in-t, all-x lower bound. Changes no &Lambda; bound; no refereed bound is changed;
+         RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
@@ -108,8 +108,7 @@ export default function Imp97106PalmMirrorSurplusComparisonViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97106 viz-data leaf (every value reused verbatim from imp-97080, no
-        re-derivation). Changes no bound, establishes no operator positivity; Platt-Trudgian
-        &Lambda;&le;0.2 remains SOTA; RH open; NO QED.
+        re-derivation). Changes no bound, establishes no operator positivity; RH open; NO QED.
       </div>
     </div>
   );

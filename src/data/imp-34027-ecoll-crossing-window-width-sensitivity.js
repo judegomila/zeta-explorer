@@ -56,8 +56,7 @@
  * NOT a rigorous asymptotic; the crossing and its window-width sensitivity are properties of the model
  * estimators (discrete decade slope vs pointwise vs g), not statements about zeros; the C_mb
  * GUE-conditional share per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33966-ecoll-disc-ref-crossing-locator (located N* ~ 10^12.6 at the FIXED [N/10, N] window)
  * @see imp-33887-ecoll-gap-anchoring-convention-reconciliation (the 1e12..1e15 anchor window)
@@ -234,7 +233,7 @@ export const IMP34027_ECOLL_CROSSING_WINDOW_WIDTH_SENSITIVITY = {
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the crossing and its sensitivity are ' +
     'properties of the model estimators, not statements about zeros; the C_mb GUE-conditional share ' +
     'per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
-    'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33966 (located N* ~ 10^12.6 at the fixed [N/10, N] window, anchor straddles it); imp-33887 ' +
     '(the 1e12..1e15 anchor window); imp-33856 (DISCRETE gap_ecoll over [N/10, N] vs 1/(2 log T0)); ' +
@@ -288,13 +287,13 @@ export const IMP34027_ECOLL_CROSSING_WINDOW_WIDTH_SENSITIVITY_ASSERTIONS = [
     holds: () => MONOTONE_WIDER_LOWER,
   },
   {
-    // Honesty gate: numerical/measurement only, no QED, Platt-Trudgian stays SOTA.
+    // Honesty gate: numerical/measurement only, no QED, no refereed bound is changed.
     id: 'imp34027-honesty-gate-no-qed',
-    description: 'Numerical/measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Numerical/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34027_ECOLL_CROSSING_WINDOW_WIDTH_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP34027_ECOLL_CROSSING_WINDOW_WIDTH_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP34027_ECOLL_CROSSING_WINDOW_WIDTH_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP34027_ECOLL_CROSSING_WINDOW_WIDTH_SENSITIVITY.verdict),
   },
 ];
 

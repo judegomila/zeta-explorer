@@ -27,7 +27,7 @@
  * (2.111709 → 2.112094, 1.8e-4). The "Q operator amplifies recipe errors" explanation is withdrawn.
  *
  * No Λ bound moves; no proof input supplied (the barrier is still the Deshouillers–Iwaniec Kloosterman bound behind 4/7).
- * PT Lambda <= 0.2 stands; RH open; NO QED. Import-free. ROUTE_17_ASSERTIONS recompute κ = 1 − log(c)/R, the implied R consistency,
+ * No refereed bound is changed; RH open; NO QED. Import-free. ROUTE_17_ASSERTIONS recompute κ = 1 − log(c)/R, the implied R consistency,
  * the zero-count ratios ρ, the θ-reach per T, interpolated thresholds, the corrected θ = 0.4 z-score and the M_T/c ratios live.
  */
 
@@ -94,7 +94,7 @@ export const ROUTE_17 = Object.freeze({
     + 'Conditional on the twisted moment (Farmer), one piece gives κ = 0.4249 at θ = 0.6, 0.5884 at 1.0, 0.7703 at 2.0, passes PRZZ at θ = 0.586 and needs '
     + 'θ = 1.339 for 0.6725. The reported small-T recipe failure was a series-truncation bug (corrected M_T = 3.074282 matches). Finite-T κ values are inflated '
     + 'by 0.07–0.13 by lower-order terms and are not evidence for asymptotic gains. No proof input; the barrier is the Kloosterman bound behind 4/7. '
-    + 'PT Lambda <= 0.2 stands; RH open; NO QED.',
+    + 'No refereed bound is changed; RH open; NO QED.',
 });
 
 const R = ROUTE_17;
@@ -148,7 +148,7 @@ export const ROUTE_17_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r17-honest-scope',
-    holds: () => R.status === 'done' && /Conditional/.test(R.verdict) && /PT Lambda <= 0\.2 stands/.test(R.verdict) && /NO QED/.test(R.verdict)
+    holds: () => R.status === 'done' && /Conditional/.test(R.verdict) && /refereed bound is changed/i.test(R.verdict) && /NO QED/.test(R.verdict)
       && /No proof input/.test(R.verdict) && /4 single-seed/.test(R.verdict),
     why: 'κ(θ > 4/7) conditional; finite-T agreement measured on 4 seeds; no proof input; no Λ change; no QED.',
   },

@@ -69,7 +69,7 @@
  *   ------------------------
  *   A reconciliation MEASUREMENT over baked imp-96695/imp-96714 data. It
  *   recomputes nothing from the zeros, moves no bound, instantiates no interval,
- *   closes no sub-gap. NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.
+ *   closes no sub-gap. NO QED. No refereed bound is changed; RH open.
  *
  * @see imp-96695-basis-c-empirical-rho-vs-gue-crossvalidation (the rho table and L~3-8 onset)
  * @see imp-96714-safe-direction-per-rung-verification (the L>=120 safe-direction threshold)
@@ -123,7 +123,7 @@ export const IMP96737_SATONSET_VS_SAFE_DIRECTION = Object.freeze({
     'above sig_gue = 0.046152) delays the safe direction to the L=120 rung, and a second wobble ' +
     'at L=240 makes the tighter 0.01 tolerance hold only from L=480. Reuses baked imp-96695/ ' +
     'imp-96714 data; recomputes nothing from the zeros; moves no bound; instantiates no interval; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.',
+    'NO QED. No refereed bound is changed; RH open.',
   citation:
     'imp-96695 (sigma2Emp/rhoEmp/rhoGue table and the L~3-8 saturation onset); imp-96714 ' +
     '(the L>=120 safe-direction threshold); imp-96721 (signal-column presentation reshape).',

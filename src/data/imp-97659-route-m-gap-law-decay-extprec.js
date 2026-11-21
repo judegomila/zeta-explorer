@@ -62,7 +62,7 @@
  * still outruns every fixed power <= 3. The imp-97640 "climbing" reading and the imp-97619 "strictly
  * decreasing scaled columns" claim were shallow-ladder artifacts (the scaled columns are non-monotone at
  * depth). MCM stays refuted from omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on
- * Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ * Lambda moves; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97640-route-m-gap-law-residual-decay-exponent.js (shallow ladder; sub-gap PRECISION_LIMITED_PAST_2E6)
  * @see imp-97619-route-m-mcm-binf-mertens-closed-form.js (B_inf = lnA + gamma/12; next order = PNT/Mertens error)
@@ -169,11 +169,11 @@ export const IMP97659_VERDICT = Object.freeze({
     'oscillating-PNT/Mertens-error fingerprint. The imp-97640 6.839 -> 8.713 climb was a two-rung sparse ' +
     'artifact, and the imp-97619/imp-97640 strictly-decreasing |res|*log^2/log^3 columns are non-monotone ' +
     'at depth (they rise at the same rung). MCM stays refuted from omega=11; b/4 ceiling untouched; ' +
-    'kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97659_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extended-precision (dps=30) recompute of the Route M ' +
+  'RH open; no refereed bound is changed; NO QED. Extended-precision (dps=30) recompute of the Route M ' +
   'gap-law residual at the deep heights p ~ 5e7 and beyond: the decay exponent q in |residual| ~ C/(log p)^q ' +
   'NEITHER keeps climbing NOR saturates -- it OSCILLATES (q_local from -6.738 to +28.721, one negative rung ' +
   'where the residual rises with height), average ~10.18 > 3, the oscillating PNT/Mertens fingerprint. This ' +
@@ -254,7 +254,7 @@ const IMP97659_ASSERTIONS = [
       IMP97659_VERDICT.anyBoundMoved === false &&
       IMP97659_VERDICT.qed === false &&
       /NO QED/.test(IMP97659_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97659_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97659_HONEST_BANNER) &&
       /RH open/.test(IMP97659_HONEST_BANNER),
     why: 'measurement only -- the deep exponent oscillates (not climb/saturate), average > 3, oscillating PNT/Mertens error; MCM refuted from omega=11; no bound moved, no QED.',
   },

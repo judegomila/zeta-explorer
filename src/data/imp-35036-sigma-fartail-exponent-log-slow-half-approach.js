@@ -59,7 +59,7 @@
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the far-tail exponent stays 1/2 per imp-3463;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (per-decade ladder k=6..11, p_dec ~0.4310 at [1e11,1e12])
  * @see imp-33274-sigma-postpeak-later-window-decay-exponent (FAR-tail sliding window, p_eff -> 1/2)
@@ -198,7 +198,7 @@ export const IMP35036_SIGMA_FARTAIL_EXPONENT_LOG_SLOW_HALF_APPROACH = {
     'is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; the far-tail exponent stays 1/2 per imp-3463; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33582 (per-decade ladder k=6..11, p_dec ~0.4310 at [1e11,1e12]); imp-33274 (FAR-tail ' +
     'sliding-window p_eff -> 1/2); imp-3463 (far-tail leading form, exponent -> 1/2 from below); ' +
@@ -247,14 +247,14 @@ export const IMP35036_SIGMA_FARTAIL_EXPONENT_LOG_SLOW_HALF_APPROACH_ASSERTIONS =
       Math.abs(K_REACH_0_499 - 219) <= 4,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35036-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP35036_SIGMA_FARTAIL_EXPONENT_LOG_SLOW_HALF_APPROACH.isRigorous === false &&
       IMP35036_SIGMA_FARTAIL_EXPONENT_LOG_SLOW_HALF_APPROACH.farTailExponent === 0.5 &&
       /NO QED/.test(IMP35036_SIGMA_FARTAIL_EXPONENT_LOG_SLOW_HALF_APPROACH.verdict) &&
-      /remains SOTA/.test(IMP35036_SIGMA_FARTAIL_EXPONENT_LOG_SLOW_HALF_APPROACH.verdict),
+      /refereed bound is changed/i.test(IMP35036_SIGMA_FARTAIL_EXPONENT_LOG_SLOW_HALF_APPROACH.verdict),
   },
 ];
 

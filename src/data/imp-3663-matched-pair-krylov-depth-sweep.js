@@ -86,8 +86,7 @@
  *   matched-pair anchor triple and discriminates the depth-law form as far as the grid
  *   allows (linear ruled out; log vs sqrt left as a refined sub-gap). Does NOT
  *   construct the missing magnitude and does NOT attempt the imp-3066 K_a >= 0
- *   positivity. RH-EQUIVALENT. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- *   remains the rigorous SOTA.
+ *   positivity. RH-EQUIVALENT. NO RH verdict, NO QED. No refereed bound is changed.
  */
 
 const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
@@ -304,7 +303,7 @@ export const IMP3663_MATCHED_PAIR_KRYLOV_DEPTH_SWEEP = Object.freeze({
     "below imp-3645's pair-index-confounded linear 1080 -- imp-3645 over-estimated the fixed-pair depth by ~15%..40% " +
     'because its slope (0.5) inherited the pair-index step; the matched-pair slope is ~half (~0.25). Measurement/fit ' +
     'only; runs no new Lanczos at import; does NOT construct the missing magnitude and does NOT attempt the imp-3066 ' +
-    'K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'K_a >= 0 positivity; RH-EQUIVALENT; NO RH verdict, NO QED. No refereed bound is changed.',
 
   construction: Object.freeze({
     quantityMeasured: 'm*(N, pair=lambda_5=lambda_6) = minimal reorthogonalized Lanczos Krylov depth entering the pair56 = |sigma_5-sigma_6|/sigma_5 < 1e-13 machine-noise plateau',
@@ -404,7 +403,7 @@ export const IMP3663_MATCHED_PAIR_KRYLOV_DEPTH_SWEEP = Object.freeze({
       'This measures and discriminates a Krylov depth law; it does NOT construct the missing magnitude and does NOT ' +
       'attempt the imp-3066 K_a >= 0 positivity.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -462,7 +461,7 @@ export const IMP3663_MATCHED_PAIR_KRYLOV_DEPTH_SWEEP_ASSERTIONS = [
   {
     id: 'imp3663-honest-assessment-no-qed',
     why: 'Mandatory honesty: MEASUREMENT/FIT only -- log vs sqrt not discriminated (sub-gap named), m* grid-quantised, ' +
-      'positivity not attempted, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'positivity not attempted, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3663_MATCHED_PAIR_KRYLOV_DEPTH_SWEEP.honestCaveat;
       return (
@@ -472,7 +471,7 @@ export const IMP3663_MATCHED_PAIR_KRYLOV_DEPTH_SWEEP_ASSERTIONS = [
         c.didNotAttemptPositivity === true &&
         typeof c.logVsSqrtNotDiscriminated === 'string' &&
         typeof c.mStarIsGridQuantised === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

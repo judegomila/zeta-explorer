@@ -14,7 +14,7 @@
  * continuum sup saturates. This module ASSESSES whether the contract could tolerate
  * an "a.e. T" / "outside an exceptional set of measure eps" relaxation, and states
  * precisely what exceptional-set measure the majorant could absorb. Report only:
- * no bound changes, PT Lambda <= 0.2 stands, RH open, NO QED.
+ * no bound changes, no refereed bound is changed, RH open, NO QED.
  *
  * VERDICT: FORECLOSED, for two independent reasons.
  *
@@ -74,7 +74,7 @@
  * zero-free half-strip sigma > sigma_B pointwise in T - GRH-type zero-location at
  * 3e12-1.9e16 - not a Selberg-CLT "for most T". This is an accuracy assessment of the
  * imp-95519 section 4 framing; it changes no bound, closes no gap, NO QED;
- * PT Lambda <= 0.2 remains SOTA; RH open.
+ * no refereed bound is changed; RH open.
  *
  * Import-light: no zeros bundle, no sibling imports. All literals re-derived.
  */
@@ -166,7 +166,7 @@ export const IMP95581_FOR_MOST_T_RELAXATION = Object.freeze({
   },
 
   netVerdict:
-    'The imp-95519 "for all T uniformly" zero-side requirement CANNOT be weakened to a "for most T" / a.e. / exceptional-set pair-correlation statement without breaking the /permutation-architecture contract. The contract is pointwise (worst single RS anchor cell), so it tolerates exceptional measure zero and pair correlation cannot localize the bad set away from the anchor; and the continuum sup saturates (imp-95526 T2), so the bad set is positive-measure of order one, ~100x the ~0.7% an averaged reformulation could absorb. The contract genuinely needs a zero-free half-strip sigma > sigma_B pointwise in T (GRH-type zero-location at 3e12-1.9e16), not a Selberg-CLT for-most-T. Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA; RH open.',
+    'The imp-95519 "for all T uniformly" zero-side requirement CANNOT be weakened to a "for most T" / a.e. / exceptional-set pair-correlation statement without breaking the /permutation-architecture contract. The contract is pointwise (worst single RS anchor cell), so it tolerates exceptional measure zero and pair correlation cannot localize the bad set away from the anchor; and the continuum sup saturates (imp-95526 T2), so the bad set is positive-measure of order one, ~100x the ~0.7% an averaged reformulation could absorb. The contract genuinely needs a zero-free half-strip sigma > sigma_B pointwise in T (GRH-type zero-location at 3e12-1.9e16), not a Selberg-CLT for-most-T. Changes no bound; NO QED; no refereed bound is changed; RH open.',
 
   promotesBound: false,
   isRigorous: true,
@@ -202,11 +202,11 @@ export const IMP95581_FOR_MOST_T_ASSERTIONS = Object.freeze([
   },
   {
     id: 'imp95581-honesty-gate-no-qed',
-    description: 'assessment only: promotes no bound, NO QED, PT stays SOTA',
+    description: 'assessment only: promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95581_FOR_MOST_T_RELAXATION.promotesBound === false &&
       /NO QED/.test(IMP95581_FOR_MOST_T_RELAXATION.netVerdict) &&
-      /remains SOTA/.test(IMP95581_FOR_MOST_T_RELAXATION.netVerdict),
+      /refereed bound is changed/i.test(IMP95581_FOR_MOST_T_RELAXATION.netVerdict),
   },
 ]);
 

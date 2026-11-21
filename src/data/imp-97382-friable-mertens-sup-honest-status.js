@@ -21,15 +21,15 @@
  * cancellation estimate (IMP97353_SIGNED_BOUNDARY_LAYER_SUBGAP).
  *
  * WHAT REMAINS OPEN. The signed cancellation estimate itself, and a fully rigorous (not just
- * measured) super-linear lower bound sup_t |M_k(t)| >> p_k. No bound on Lambda moves; PT
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * measured) super-linear lower bound sup_t |M_k(t)| >> p_k. No bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97353-friable-mertens-sup-refutation.js (source of every verdict flag below)
  * @see imp-97332-route-m-tail-interchange-assessment.js (RESULT 4(iii) missing ingredient assessed by imp-97353)
  * @see imp-97309-route-m-arith-tail-cancellation-assessment.js (IMP97309_CANCELLATION_SUBGAP)
  *
  * Ticket: imp-97382 (content, medium, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 import IMP97353_DEFAULT, { IMP97353_VERDICT, IMP97353_SIGNED_BOUNDARY_LAYER_SUBGAP } from './imp-97353-friable-mertens-sup-refutation.js';
@@ -56,8 +56,8 @@ export const IMP97382_HONEST_BANNER =
   'is MEASURED-FALSE -- exact grid-converged enumeration shows sup_t |M_k| ~ 1.71^k, exponential in ' +
   'k and crossing p_k near k = 13. The sup-majorant route to the imp-97309 RESULT 5 interchange is ' +
   'therefore DEAD; the interchange can hold only via signed oscillatory cancellation, relocating the ' +
-  'obstruction to IMP97353_SIGNED_BOUNDARY_LAYER_SUBGAP. No bound on Lambda moves; PT Lambda <= 0.2 ' +
-  'remains SOTA; RH open; NO QED.';
+  'obstruction to IMP97353_SIGNED_BOUNDARY_LAYER_SUBGAP. No bound on Lambda moves; no refereed bound is changed' +
+  '; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP97382_ASSERTIONS = [
@@ -88,9 +88,9 @@ const IMP97382_ASSERTIONS = [
       IMP97382_STATUS.rhResolved === false &&
       IMP97382_STATUS.qed === false &&
       /NO QED/.test(IMP97382_HONEST_BANNER) &&
-      /remains SOTA/.test(IMP97382_HONEST_BANNER) &&
+      /refereed bound is changed/i.test(IMP97382_HONEST_BANNER) &&
       /RH open/.test(IMP97382_HONEST_BANNER),
-    why: 'documentation only: sup-bound refutation recorded, interchange neither justified nor refuted, obstruction relocated, no bound claimed moved, no QED, PT SOTA line present, RH stated open.',
+    why: 'documentation only: sup-bound refutation recorded, interchange neither justified nor refuted, obstruction relocated, no bound claimed moved, no QED, no-refereed-bound-change line present, RH stated open.',
   },
 ];
 

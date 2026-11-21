@@ -74,7 +74,7 @@
  * inherited imp-3220/imp-3406 surrogate crossover map, NOT a rigorous asymptotic and NOT an RH bound.
  * C_C = (1/8) sqrt(3 pi) 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486
  * UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; establishes no operator positivity; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34687-crossover-interval-arithmetic-scope (scoped the IA upgrade; named sub-gap imp-34687a)
  * @see imp-34650-crossover-banach-contraction-certificate (L-contraction certificate on I = [1e9, 1e10])
@@ -222,7 +222,7 @@ export const IMP34714_KRAWCZYK_EXISTENCE_UNIQUENESS_LEMMA = {
     'for the inherited imp-3220/imp-3406 surrogate crossover map, NOT a rigorous asymptotic; the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 ' +
     'untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-34687 (crossover interval-arithmetic scope; the inline Krawczyk remark now formalized; sub-gap ' +
     'imp-34687a directed-rounding layer); imp-34650 (Banach contraction certificate on I = [1e9, 1e10]); ' +
@@ -262,14 +262,14 @@ export const IMP34714_KRAWCZYK_EXISTENCE_UNIQUENESS_LEMMA_ASSERTIONS = [
       WIDTH_RATIO < 1e-5,
   },
   {
-    // Honesty gate: formalized lemma / surrogate verification, not rigorous, no QED, PT stays SOTA.
+    // Honesty gate: formalized lemma / surrogate verification, not rigorous, no QED, no refereed bound is changed.
     id: 'imp34714-honesty-gate-no-qed',
-    description: 'Lemma + surrogate: isRigorous false, named sub-gap imp-34714a, no QED, Platt-Trudgian stays SOTA',
+    description: 'Lemma + surrogate: isRigorous false, named sub-gap imp-34714a, no QED, no refereed bound is changed',
     holds: () =>
       IMP34714_KRAWCZYK_EXISTENCE_UNIQUENESS_LEMMA.isRigorous === false &&
       /imp-34714a/.test(IMP34714_KRAWCZYK_EXISTENCE_UNIQUENESS_LEMMA.subGap) &&
       /NO QED/.test(IMP34714_KRAWCZYK_EXISTENCE_UNIQUENESS_LEMMA.verdict) &&
-      /remains SOTA/.test(IMP34714_KRAWCZYK_EXISTENCE_UNIQUENESS_LEMMA.verdict),
+      /refereed bound is changed/i.test(IMP34714_KRAWCZYK_EXISTENCE_UNIQUENESS_LEMMA.verdict),
   },
 ];
 

@@ -50,7 +50,7 @@
  * GUE conditional (C_mb GUE-conditional per imp-486). The component model is the inherited imp-3220/imp-3406
  * extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz (imp-2642/2643) is UNTOUCHED; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; far-tail exponent stays 1/2
- * (imp-3463); no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-3463); no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34950-eflow-crossing-strength-cmb-exponent-structural (the F1 pinned/free exponents whose ~3-sigma gap this diagnoses; grid + s* bisection reused verbatim)
  * @see imp-34925-eflow-crossing-strength-cmb-functional-form (the power-law form s* = K C_mb^p)
@@ -362,8 +362,8 @@ export const IMP35037_PINNED_VS_FREE_EXPONENT_GAP_DIAGNOSIS = {
     'free knob and does NOT discharge the GUE conditional (C_mb GUE-conditional per imp-486). The component ' +
     'model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   subGap:
     'ANSWERS imp-35037: the imp-34950 F1 ~3-sigma pinned-vs-free exponent gap (~0.004) is DOMINANTLY a ' +
     'MODEL MISMATCH -- a genuine mild convexity of ln s* in ln C_mb (quadratic coefficient c = ' +
@@ -418,16 +418,16 @@ export const IMP35037_PINNED_VS_FREE_EXPONENT_GAP_DIAGNOSIS_ASSERTIONS = [
     holds: () => CURVATURE_IS_DOMINANT === true,
   },
   {
-    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA.
+    // Honesty gate: measurement only, far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed.
     id: 'imp35037-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2, sub-gap names imp-486, no QED, no refereed bound is changed',
     holds: () =>
       IMP35037_PINNED_VS_FREE_EXPONENT_GAP_DIAGNOSIS.isRigorous === false &&
       IMP35037_PINNED_VS_FREE_EXPONENT_GAP_DIAGNOSIS.farTailExponent === 0.5 &&
       typeof IMP35037_PINNED_VS_FREE_EXPONENT_GAP_DIAGNOSIS.subGap === 'string' &&
       /imp-486/.test(IMP35037_PINNED_VS_FREE_EXPONENT_GAP_DIAGNOSIS.subGap) &&
       /NO QED/.test(IMP35037_PINNED_VS_FREE_EXPONENT_GAP_DIAGNOSIS.verdict) &&
-      /remains SOTA/.test(IMP35037_PINNED_VS_FREE_EXPONENT_GAP_DIAGNOSIS.verdict),
+      /refereed bound is changed/i.test(IMP35037_PINNED_VS_FREE_EXPONENT_GAP_DIAGNOSIS.verdict),
   },
 ];
 

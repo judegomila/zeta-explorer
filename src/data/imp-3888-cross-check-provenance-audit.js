@@ -25,7 +25,7 @@
  *   characterization in the ticket title is simply tighter than R_40 warrants.
  *
  *   Ticket: imp-3888 (numerical, low). Read-only verification; changes no bound;
- *   imp-3066 untouched; Platt-Trudgian Lambda &lt;= 0.2 stays SOTA; NO QED.
+ *   imp-3066 untouched; no refereed bound is changed; NO QED.
  *
  *   @see imp-3670-fit-bias-decay-rate-vs-lnsq.js (certified R_3 source)
  *   @see imp-3685-fit-bias-saddle-plateau-n40.js (certified R_3/R_40 source)
@@ -87,7 +87,7 @@ export const IMP3888_CROSS_CHECK_PROVENANCE_AUDIT = Object.freeze({
     changesAnyBound: false,
     foundNoLiteralError: true,
     reportedDriftInsteadOfSilentlyPatching: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 

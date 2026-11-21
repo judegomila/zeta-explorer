@@ -23,7 +23,7 @@
  * MEASUREMENT / PRESENTATION ONLY. Reuses the recorded imp-35972 literals (which in turn reuse
  * the imp-35855 / imp-35892 K, delta, S_inf, aOf, effectiveHeightForN machinery); changes no
  * bound; C_C GUE-conditional (imp-2642 / imp-2643 / imp-486) untouched; imp-34714a REMAINS OPEN;
- * no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35972-effective-height-overflow-cliff-bisection.js (source: both cliffs bisected here)
  * @see imp-35892-rdirect-own-floor-departure-height.js (coarse STEP=1 decade grid this refines)

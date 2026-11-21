@@ -224,7 +224,7 @@ export const IMP3531_FAR_TAIL_BAND_MAX_GRID_CONVERGENCE = Object.freeze({
     'genuine decaying feature. The far-tail ratio stays < 1% (~1.85e-4) and the band maxima decay MONOTONICALLY at ' +
     'every rung, so the imp-3511 no-missed-maximizer bound survives refinement. Certification/measurement only; ' +
     'RH-equivalent; the imp-3066 K_a >= 0 magnitude is the lone obstruction, UNTOUCHED. NO RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   construction: Object.freeze({
     objective: 'sup_xi |P1(xi)|, P1 = dP/dxi, P(xi) = |Phihat(xi)|^2 = C^2 + S^2 (the peak slope behind ||Ttilde||)',
@@ -326,7 +326,7 @@ export const IMP3531_FAR_TAIL_BAND_MAX_GRID_CONVERGENCE = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -388,7 +388,7 @@ export const IMP3531_FAR_TAIL_BAND_MAX_GRID_CONVERGENCE_ASSERTIONS = [
     id: 'imp3531-honest-assessment-no-qed',
     why: 'Mandatory honesty: hardens the imp-3511 TAIL bound but NOT a closed form (equation transcendental), the ' +
       'convergence is empirical over a finite ladder, the tail bound is a monotone-decay argument not an analytic ' +
-      'no-root proof, sub-Nyquist only, measures the ratio not positivity, RH-equivalent, PT 0.2 stays SOTA. Any flip ' +
+      'no-root proof, sub-Nyquist only, measures the ratio not positivity, RH-equivalent, no refereed bound is changed. Any flip ' +
       'over-claims.',
     holds: () => {
       const c = IMP3531_FAR_TAIL_BAND_MAX_GRID_CONVERGENCE.honestCaveat;
@@ -401,7 +401,7 @@ export const IMP3531_FAR_TAIL_BAND_MAX_GRID_CONVERGENCE_ASSERTIONS = [
         typeof c.convergenceIsEmpirical === 'string' &&
         typeof c.finiteDomainStillFinite === 'string' &&
         typeof c.subNyquistOnly === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

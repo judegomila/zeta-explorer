@@ -103,7 +103,7 @@
  * saturation) and 0.389 (majorant root) measured only. (c) COROLLARY RM
  * pins the FIXED-POSITION family, not the class. (d) Parity-pure only.
  * (e) Changes no bound; does NOT promote Lambda <= 0.14; NO QED on any
- * open leg; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * open leg; no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD: (1) the series bounds were stress-tested at
  * all six z values used: BOTH truncations were caught rounding past
@@ -490,7 +490,7 @@ export const IMP95135_EDGE_WITNESS_THRESHOLD = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM WE is unconditional: the witness is exhibited (grid extremality and block membership are integer arithmetic), the certificate is three truncated alternating-series lower bounds (N = 19, all arguments < 21, mathematical remainder sign fixed, an explicit 1e-12 float slack absorbing double rounding) against an exact integer diagonal, and the exact kernel evaluation confirms it. COROLLARY RM is unconditional given the carried Lemma RC (imp-95131): the reduction to the equal-rate floor is entrywise Perron-Frobenius monotonicity, the dichotomy is the zero-trace positive-determinant eigen-signature argument, and the bracket endpoints are series-certified with the same explicit slack on both sides (both truncations are ulp-tight at small arguments). The batteries and scans are CROSS-CHECKS; the statements are the certificates. Scope: parity-pure model family only; the family bracket does not determine the class threshold; the sandwich upper end 0.4 is THEOREM CC, not re-proved here; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED on any open leg; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM WE is unconditional: the witness is exhibited (grid extremality and block membership are integer arithmetic), the certificate is three truncated alternating-series lower bounds (N = 19, all arguments < 21, mathematical remainder sign fixed, an explicit 1e-12 float slack absorbing double rounding) against an exact integer diagonal, and the exact kernel evaluation confirms it. COROLLARY RM is unconditional given the carried Lemma RC (imp-95131): the reduction to the equal-rate floor is entrywise Perron-Frobenius monotonicity, the dichotomy is the zero-trace positive-determinant eigen-signature argument, and the bracket endpoints are series-certified with the same explicit slack on both sides (both truncations are ulp-tight at small arguments). The batteries and scans are CROSS-CHECKS; the statements are the certificates. Scope: parity-pure model family only; the family bracket does not determine the class threshold; the sandwich upper end 0.4 is THEOREM CC, not re-proved here; floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED on any open leg; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -652,11 +652,11 @@ export const IMP95135_EDGE_WITNESS_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95135-we-honesty-gate",
     description:
-      "the verdict is scoped: sandwich narrowed to [0.23, 0.4] not closed, family bracket is family-scoped, chain saturation and majorant root are float landmarks measured only, parent sub-gap stays OPEN; promotes no bound, NO QED on open legs, PT stays SOTA",
+      "the verdict is scoped: sandwich narrowed to [0.23, 0.4] not closed, family bracket is family-scoped, chain saturation and majorant root are float landmarks measured only, parent sub-gap stays OPEN; promotes no bound, NO QED on open legs, no refereed bound is changed",
     holds: () =>
       IMP95135_EDGE_WITNESS_THRESHOLD.promotesBound === false &&
       /NO QED/.test(IMP95135_EDGE_WITNESS_THRESHOLD.rigorScope) &&
-      /remains SOTA/.test(IMP95135_EDGE_WITNESS_THRESHOLD.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95135_EDGE_WITNESS_THRESHOLD.rigorScope) &&
       /remains OPEN/.test(IMP95135_EDGE_WITNESS_THRESHOLD.openResiduals[0]) &&
       /measured only/.test(IMP95135_EDGE_WITNESS_THRESHOLD.openResiduals[1]) &&
       IMP95135_EDGE_WITNESS_THRESHOLD.subGaps.length === 2 &&

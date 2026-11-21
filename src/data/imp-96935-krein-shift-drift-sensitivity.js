@@ -50,7 +50,7 @@
  * closes the shift lever left open by imp-96911 (m=1 fixed) and confirms the wall is the (N,T)
  * truncation of imp-96889/imp-96827, not a conditioning artifact removable by m. Ritz value is an
  * UPPER bound (floor is an upper estimate, not a certified LB); interval-rigorous certificate reach
- * stays 2a<=0.96; RH open; Platt-Trudgian Lambda<=0.2 SOTA; NO QED.
+ * stays 2a<=0.96; RH open; no refereed bound is changed; NO QED.
  * SUB-GAP IMP96935_BOUNDED_RESOLVENT_FLOOR_DRIFT_IS_SHIFT_INVARIANT.
  *
  * @see imp-96911-krein-eta-nconvergence-scout.js (fixed m=1; measured the Nbig/T floor drift this leaf sweeps m across)

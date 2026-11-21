@@ -149,7 +149,7 @@ export const RIGOROUS_NUMERICS_STAGES = Object.freeze({
       ]),
       status: 'stage-partial',
       rigorTier: 'conditional',
-      c_h_blocker: "BLOCKED: the finite-height beat E(N) contains E_coll which depends on C_H being a rigorous upper bound on the Holder-1/2 modulus. imp-2642 NEGATIVE: C_H = 1/8 is NOT a proved bound (tangency coefficient ~0.127 > 1/8 in the stress test). imp-2640 NEGATIVE. Stage I is CONDITIONAL until C_H <= C_H_HYP is discharged; Platt-Trudgian remains the rigorous SOTA.",
+      c_h_blocker: "BLOCKED: the finite-height beat E(N) contains E_coll which depends on C_H being a rigorous upper bound on the Holder-1/2 modulus. imp-2642 NEGATIVE: C_H = 1/8 is NOT a proved bound (tangency coefficient ~0.127 > 1/8 in the stress test). imp-2640 NEGATIVE. Stage I is CONDITIONAL until C_H <= C_H_HYP is discharged; no refereed bound is changed.",
     }),
 
     Object.freeze({

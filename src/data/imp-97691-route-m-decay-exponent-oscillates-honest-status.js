@@ -15,7 +15,7 @@
  *   instead records the specific "climbing" claim as corrected to "oscillates")
  *
  * Ticket: imp-97691 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97640_VERDICT } from './imp-97640-route-m-gap-law-residual-decay-exponent.js';
@@ -41,7 +41,7 @@ export const IMP97691_DECAY_EXPONENT_OSCILLATES_HONEST_STATUS = Object.freeze({
 });
 
 export const IMP97691_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. This note records that imp-97659 DECIDED the Route M ' +
+  'RH open; no refereed bound is changed; NO QED. This note records that imp-97659 DECIDED the Route M ' +
   'gap-law residual decay exponent question left open by imp-97640: at extended precision (dps=30) the ' +
   'local exponent q NEITHER keeps climbing NOR saturates at a fixed power -- it OSCILLATES (q_local from ' +
   '-6.738 to +28.721, with a negative rung where the residual rises with height). The imp-97640 ' +
@@ -66,7 +66,7 @@ if (
     IMP97691_DECAY_EXPONENT_OSCILLATES_HONEST_STATUS.isRigorous === false &&
     IMP97691_DECAY_EXPONENT_OSCILLATES_HONEST_STATUS.qed === false &&
     /NO QED/.test(IMP97691_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP97691_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97691_HONEST_BANNER) &&
     /RH open/.test(IMP97691_HONEST_BANNER)
   )
 ) {

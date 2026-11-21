@@ -55,7 +55,7 @@
  * the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; far-tail exponent 1/2 per imp-3463; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-33848-nhalf-ncross-strict-ordering-closed-form (E_flow > 0 strictness the ordering rests on)
  * @see imp-35041-sigma-deep-tail-threshold-extension (E_flow/E_coll < 5e-4 negligibility reconciled here)
@@ -161,7 +161,7 @@ export const IMP35135_EFLOW_FARTAIL_DECAY_EXPONENT_POSITIVITY_RECONCILIATION = {
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; ' +
     'the C_mb GUE-conditional per imp-486 is UNTOUCHED; far-tail exponent 1/2 per imp-3463; ' +
     'changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH ' +
-    'verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-33848 (E_flow > 0 strict ordering reconciled here); imp-35041 (E_flow/E_coll < 5e-4 ' +
     'negligibility); imp-398 (C_F Gronwall flow prefactor); imp-3463 (far-tail exponent 1/2); ' +
@@ -207,14 +207,14 @@ export const IMP35135_EFLOW_FARTAIL_DECAY_EXPONENT_POSITIVITY_RECONCILIATION_ASS
     holds: () => ALL_EFLOW_POSITIVE && DEEP.eFlow > 0 && DEEP.eFlow < 1e-12,
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp35135-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP35135_EFLOW_FARTAIL_DECAY_EXPONENT_POSITIVITY_RECONCILIATION.isRigorous === false &&
       IMP35135_EFLOW_FARTAIL_DECAY_EXPONENT_POSITIVITY_RECONCILIATION.farTailExponent === 0.5 &&
       /NO QED/.test(IMP35135_EFLOW_FARTAIL_DECAY_EXPONENT_POSITIVITY_RECONCILIATION.verdict) &&
-      /remains SOTA/.test(IMP35135_EFLOW_FARTAIL_DECAY_EXPONENT_POSITIVITY_RECONCILIATION.verdict),
+      /refereed bound is changed/i.test(IMP35135_EFLOW_FARTAIL_DECAY_EXPONENT_POSITIVITY_RECONCILIATION.verdict),
   },
 ];
 

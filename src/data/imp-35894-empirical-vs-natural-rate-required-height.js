@@ -46,7 +46,7 @@
  * log-height on the same imp-3220 / imp-3406 surrogate; derives no remainder; discharges
  * nothing; changes no bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi)
  * (imp-2642 / imp-2643), E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are
- * UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * UNTOUCHED; imp-35337a stays OPEN; NO QED; no refereed bound is changed.
  *
  * @see imp-35538-route-i-remainder-derivation-requirements (REQ 4; natural rate log T0 = 1/b, e^(1/b); imp-35576 budget sweep)
  * @see imp-35853-req4-required-height-continuous-sigma-knee (empirical multiple 200 / log T0 vs sigma)
@@ -60,7 +60,7 @@ import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { C_C_PINNED } from './polymath15-constant-C-C.js';
 import { IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS } from './imp-35538-route-i-remainder-derivation-requirements.js';
 
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any measurement here)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any measurement here)
 
 // REQ-4 anchoring budget and binding log-height: 1/log T0 <= b0 => log T0 >= 1/b0 = 200 (imp-35538).
 const HR = IMP35538_ROUTE_I_REMAINDER_DERIVATION_REQUIREMENTS.heightRegime;
@@ -183,7 +183,7 @@ export const IMP35894_EMPIRICAL_VS_NATURAL_RATE_REQUIRED_HEIGHT = {
     'model and the imp-35538 binding log-height; derives no remainder; discharges nothing; changes no ' +
     'bound; establishes no operator positivity; C_C = (1/8) sqrt(3 pi) (imp-2642 / imp-2643), ' +
     'E_trunc = 3.06e-5 (imp-2631) and C_mb GUE-conditional (imp-486) are UNTOUCHED; imp-35337a stays ' +
-    'OPEN; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'OPEN; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35538 (REQ 4; natural rate log T0 = 1/b, T0 = e^(1/b); imp-35576 budget sweep); imp-35853 ' +
     '(empirical multiple 200 / log T0 vs sigma); imp-35888 (1x binding at N ~ 2.27e88, T0 = e^200); ' +
@@ -275,7 +275,7 @@ export const IMP35894_EMPIRICAL_VS_NATURAL_RATE_REQUIRED_HEIGHT_ASSERTIONS = [
     },
   },
   {
-    // (8) honesty gate: measurement only, conditional, no bound moves, PT SOTA, imp-35337a OPEN, imp-486 kept, NO QED.
+    // (8) honesty gate: measurement only, conditional, no bound moves, no refereed bound is changed, imp-35337a OPEN, imp-486 kept, NO QED.
     id: 'imp35894-measurement-only-no-qed',
     description: 'measurement only: not rigorous/unconditional, changes no bound, keeps imp-486 caveat, imp-35337a OPEN, PT 0.2, NO QED',
     holds: () => {
@@ -287,7 +287,7 @@ export const IMP35894_EMPIRICAL_VS_NATURAL_RATE_REQUIRED_HEIGHT_ASSERTIONS = [
         /imp-486/.test(r.verdict) &&
         /imp-35337a\s+stays\s+OPEN/.test(r.verdict) &&
         /NO QED/.test(r.verdict) &&
-        /remains SOTA/.test(r.verdict)
+        /refereed bound is changed/i.test(r.verdict)
       );
     },
   },

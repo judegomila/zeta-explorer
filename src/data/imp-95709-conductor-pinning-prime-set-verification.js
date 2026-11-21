@@ -35,7 +35,7 @@
  * deviates. The p = 97 pinning of imp-95692 is thus confirmed to be a uniform
  * structural fact across the entire sieving set, N-independent, as asserted.
  *
- * Verify/report only. No bound changes; NO QED; PT Lambda <= 0.2 remains SOTA;
+ * Verify/report only. No bound changes; NO QED; no refereed bound is changed;
  * RH open. The mean-square-vs-pointwise gap and the GRH-height deficit (the two
  * scale-invariant walls imp-95692/imp-95519 identify) are UNTOUCHED by this
  * confirmation -- it sharpens only the boundary-degeneracy framing, universally.
@@ -127,7 +127,7 @@ export const IMP95709_CONDUCTOR_PINNING_PRIME_SET_VERIFICATION = Object.freeze({
   rigorScope:
     'The floor-alias identity u_{1,p-1} = p v is exact and elementary; the argmax argument (1/p is the unique minimum of k - h/p) is exact; the 50 per-prime sweeps are finite computations. This confirms the generality of an asserted N-independent structural fact; it is not a new bound.',
   honesty:
-    'Verify/report only. No bound changes; NO QED; PT Lambda <= 0.2 remains SOTA; RH open. The mean-square-vs-pointwise gap and the q = 97 GRH-height deficit are untouched.',
+    'Verify/report only. No bound changes; NO QED; no refereed bound is changed; RH open. The mean-square-vs-pointwise gap and the q = 97 GRH-height deficit are untouched.',
 });
 
 export const IMP95709_ASSERTIONS = Object.freeze([
@@ -164,11 +164,11 @@ export const IMP95709_ASSERTIONS = Object.freeze([
   },
   {
     id: 'imp95709-honesty-gate',
-    description: 'verification only: promotes no bound, NO QED, PT stays SOTA, RH open',
+    description: 'verification only: promotes no bound, NO QED, no refereed bound is changed, RH open',
     holds: () =>
       IMP95709_CONDUCTOR_PINNING_PRIME_SET_VERIFICATION.promotesBound === false &&
       /NO QED/.test(IMP95709_CONDUCTOR_PINNING_PRIME_SET_VERIFICATION.honesty) &&
-      /remains SOTA/.test(IMP95709_CONDUCTOR_PINNING_PRIME_SET_VERIFICATION.honesty) &&
+      /refereed bound is changed/i.test(IMP95709_CONDUCTOR_PINNING_PRIME_SET_VERIFICATION.honesty) &&
       /RH open/.test(IMP95709_CONDUCTOR_PINNING_PRIME_SET_VERIFICATION.honesty),
   },
 ]);

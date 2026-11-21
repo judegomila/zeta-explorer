@@ -93,7 +93,7 @@
  * contributes only the discrete characteristic map. K4 is therefore confirmed WHOLLY NEW, consistent with
  * the imp-3714 verdict, and G6a_shock_lipschitz stays OPEN. Literature-anchored scoping / derivation only;
  * no estimate shipped, no positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal
- * endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed.
  *
  * @see imp-3714-g6a-modulus-object-requirements (parent: enumerates K4 as bypassing both obstructions, marks it NEW)
  * @see imp-3671-mesoscopic-v0-vs-g6a-shock-lipschitz-assessment (names both S1 type and S2 scale obstructions)
@@ -218,8 +218,8 @@ export const IMP3727_G6A_K4_ENTROPY_SOLUTION_REGULARITY_SCOPING = {
     'classification); the imp-3642 machinery contributes only the discrete characteristic map. K4 is confirmed ' +
     'WHOLLY NEW, consistent with the imp-3714 verdict, and G6a_shock_lipschitz stays OPEN. Literature-anchored ' +
     'scoping / derivation only; no estimate shipped, no positivity, no bridge closure, no RH claim, NO QED. ' +
-    'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains ' +
-    'the rigorous SOTA.',
+    'imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-3714 (parent: enumerates K4 as the entropy-solution route bypassing both obstructions, marks it NEW); ' +
     'imp-3671 (S1 type / S2 scale obstructions); imp-3708 (the mesoscopic Gronwall floor K4 bypasses); ' +
@@ -266,14 +266,14 @@ export const IMP3727_G6A_K4_ENTROPY_SOLUTION_REGULARITY_SCOPING_ASSERTIONS = [
       HYPOTHESES.every((h) => h.availability !== 'available'),
   },
   {
-    // Honesty gate: scoping only, no QED, PT stays SOTA, imp-3066 untouched, G6a still open.
+    // Honesty gate: scoping only, no QED, no refereed bound is changed, imp-3066 untouched, G6a still open.
     id: 'imp3727-honesty-gate-no-qed',
-    description: 'scoping/derivation only: no QED, PT stays SOTA, imp-3066 untouched, G6a open',
+    description: 'scoping/derivation only: no QED, no refereed bound is changed, imp-3066 untouched, G6a open',
     holds: () =>
       IMP3727_G6A_K4_ENTROPY_SOLUTION_REGULARITY_SCOPING.isRigorous === false &&
       IMP3727_G6A_K4_ENTROPY_SOLUTION_REGULARITY_SCOPING.g6aStillOpen === true &&
       /NO QED/.test(IMP3727_G6A_K4_ENTROPY_SOLUTION_REGULARITY_SCOPING.verdict) &&
-      /remains\s+the rigorous SOTA/.test(IMP3727_G6A_K4_ENTROPY_SOLUTION_REGULARITY_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP3727_G6A_K4_ENTROPY_SOLUTION_REGULARITY_SCOPING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP3727_G6A_K4_ENTROPY_SOLUTION_REGULARITY_SCOPING.verdict),
   },
 ];

@@ -48,7 +48,7 @@
  *   @see src/data/imp-36164-perN-translation-storyline-cross-reference.js (deep-dive of the Step-3 residual / G5-perN-translation link this module flags)
  *
  *   Ticket: imp-36121 (proof, medium). Scoping note only; re-keys existing
- *   source blocks; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ *   source blocks; changes no bound; NO QED; no refereed bound is changed.
  */
 
 import { LAMBDA_CHAIN_STEPS } from './lambda-roadmap.js';
@@ -158,7 +158,7 @@ export const IMP36121_STEP5_PER_STEP_UPGRADE_DEPENDENCY = Object.freeze({
       '(Step 5) obligation blocks from lambda-roadmap.js by upstream STEP and verification grade. ' +
       'Every enumerated obligation stays OPEN; derives no new obligation; respects the imp-2519 ' +
       'no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -229,7 +229,7 @@ export const IMP36121_STEP5_PER_STEP_UPGRADE_DEPENDENCY_ASSERTIONS = [
         h.derivesAnythingNew === false &&
         h.changesAnyBound === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

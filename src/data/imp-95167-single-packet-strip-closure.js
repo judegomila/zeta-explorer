@@ -114,7 +114,7 @@
  * HONEST SCOPE. The composition uses the recorded links exactly as
  * imp-95162 THEOREM FD recorded them (aggregation algebra, TX, OP + RW,
  * GA, interlacing) and is as strong as those links. Changes no Lambda
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  *
  * Import-light; zero imports; deterministic; in-sweep ~0.2 s.
  */
@@ -366,7 +366,7 @@ export const IMP95167_SINGLE_PACKET_STRIP_CLOSURE = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // --------------------------------------------------------------------------

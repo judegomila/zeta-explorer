@@ -44,7 +44,7 @@
  * assumed.
  *
  * MEASUREMENT / EXTRAPOLATION ONLY. Changes no bound, establishes no operator
- * positivity, makes no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * positivity, makes no RH claim; no refereed bound is changed.
  * RH open. NO QED.
  *
  * @see imp-96352-route-m-vasyunin-solve-cost-model.js (the kappa N^3 + beta N^2 reach model + N ~ 9916 ceiling)
@@ -132,7 +132,7 @@ export const IMP96511_SUBGAP = Object.freeze({
 });
 
 export const IMP96511_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extrapolation only: the repriced compute ceiling is a re-solve of the imp-96352 double-precision cost model kappa N^3 + beta N^2 at the slowdown-shrunk budget 1800/s; the imp-96466 conditioning ceiling N ~ 1.026e16 is carried unchanged, no Gram was rebuilt, no bound is claimed, and no operator positivity is established.';
+  'RH open; no refereed bound is changed; NO QED. Extrapolation only: the repriced compute ceiling is a re-solve of the imp-96352 double-precision cost model kappa N^3 + beta N^2 at the slowdown-shrunk budget 1800/s; the imp-96466 conditioning ceiling N ~ 1.026e16 is carried unchanged, no Gram was rebuilt, no bound is claimed, and no operator positivity is established.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -176,7 +176,7 @@ const IMP96511_ASSERTIONS = [
     id: 'imp96511-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96511_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96511_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96511_HONEST_BANNER) &&
       /NO QED/.test(IMP96511_HONEST_BANNER) &&
       /no bound is claimed/.test(IMP96511_HONEST_BANNER) &&
       /flat-scalar/.test(IMP96511_SUBGAP.id),

@@ -59,7 +59,7 @@
  *   ladder is therefore a property of the inherited model, not an independent physical claim. The -2
  *   asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb
  *   GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator
- *   positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34691-q3-cancellation-floor-trust-boundary.js (F2 dp*(N) ladder tabulated only to 1e15)
  *   @see imp-33620-etrunc-ecoll-ladder-1e15-extension.js (deep-tail landmark N* ~ 4.62e13, sigma<0.01)
@@ -228,7 +228,7 @@ export const IMP34711_Q3_TRUST_BOUNDARY_FAR_TAIL_EXTENSION = Object.freeze({
     'far-tail ladder is a property of the inherited model, not an independent physical claim. The -2 ' +
     'asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb ' +
     'GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; ' +
-    'no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34691 (F2 dp*(N) ladder to 1e15, extended here to the far tail); imp-34606 (clean {2,3,4} ' +
     '1/dp^k exponent ladder); imp-34633 (eps_mach*|q| prefactor amplitude); imp-34626 (6th-order ' +
@@ -271,9 +271,9 @@ const IMP34711_ASSERTIONS = [
       IMP34711_Q3_TRUST_BOUNDARY_FAR_TAIL_EXTENSION.isRigorous === false &&
       IMP34711_Q3_TRUST_BOUNDARY_FAR_TAIL_EXTENSION.saturates_or_turns_over === false &&
       /NO QED/.test(IMP34711_Q3_TRUST_BOUNDARY_FAR_TAIL_EXTENSION.verdict) &&
-      /remains SOTA/.test(IMP34711_Q3_TRUST_BOUNDARY_FAR_TAIL_EXTENSION.verdict) &&
+      /refereed bound is changed/i.test(IMP34711_Q3_TRUST_BOUNDARY_FAR_TAIL_EXTENSION.verdict) &&
       /UNTOUCHED/.test(IMP34711_Q3_TRUST_BOUNDARY_FAR_TAIL_EXTENSION.verdict),
-    why: 'Honesty gate: measurement/derivation only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement/derivation only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

@@ -57,7 +57,7 @@
  * contributions but does NOT certify a uniform modulus, does NOT discharge O3 or G6a, establishes no
  * operator positivity, changes no bound. G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal
  * endpoint-Hankel K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35244-rho-eps52-coefficient-measurement (assembled K_{7/2} from the two sources, reported only the sum)
  * @see imp-35261-k72-compensated-deep-rung-confirmation (verified the SUMMED K_{7/2} on the deep ladder)
@@ -268,8 +268,8 @@ export const IMP35299_K72_TWO_SOURCE_DECOMPOSITION = {
     '~42.9%, curvature ~57.1%). This isolates the two contributions the imp-35244 bracket ' +
     '(2/3)[-12/(7 A_1) - 24/(7 A_2)] combined, but does NOT certify a uniform modulus, does NOT discharge ' +
     'O3 or G6a, establishes no operator positivity, changes no bound. imp-3066 off-diagonal endpoint-Hankel ' +
-    'K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'K_a >= 0 UNTOUCHED; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP35299_K72_TWO_SOURCE_ASSERTIONS = [
@@ -317,16 +317,16 @@ export const IMP35299_K72_TWO_SOURCE_ASSERTIONS = [
       Math.abs(BEST.contribSum - BEST.gridK72) < 5e-3,
   },
   {
-    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: measurement only; does NOT discharge O3/G6a, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp35299-honesty-gate-no-qed',
     description:
-      'Measurement only: two sources isolated but O3/G6a NOT discharged, no QED, PT SOTA, imp-3066 untouched',
+      'Measurement only: two sources isolated but O3/G6a NOT discharged, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP35299_K72_TWO_SOURCE_DECOMPOSITION.isRigorous === false &&
       IMP35299_K72_TWO_SOURCE_DECOMPOSITION.dischargesO3orG6a === false &&
       /NO QED/.test(IMP35299_K72_TWO_SOURCE_DECOMPOSITION.verdict) &&
       /STAYS OPEN/.test(IMP35299_K72_TWO_SOURCE_DECOMPOSITION.verdict) &&
-      /rigorous SOTA/.test(IMP35299_K72_TWO_SOURCE_DECOMPOSITION.verdict) &&
+      /refereed bound is changed/i.test(IMP35299_K72_TWO_SOURCE_DECOMPOSITION.verdict) &&
       /imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED/.test(
         IMP35299_K72_TWO_SOURCE_DECOMPOSITION.verdict,
       ),

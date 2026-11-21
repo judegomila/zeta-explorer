@@ -41,7 +41,7 @@
  * @see imp-33721-sigma-ramp-inflection-subdecade (the sub-decade knee estimator this amplification is on)
  *
  * Ticket: imp-124820 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The knee-amplification bracket-width headword, baked verbatim (no re-import of the heavy zeros bundle).
@@ -74,7 +74,7 @@ const KNEE_AMP_BRACKET_WIDTH_HEADWORD = Object.freeze({
     'closed form (A ~ 9.42) to < 0.6%; the residual collapses by > 3x from W = 0.25 to W = 0.10; ' +
     'the finest-bracket PPD sweep has < 0.01 spread. Naming / glossary headword only; supplies no ' +
     'new bound; the C_C 1/8 ansatz and E_trunc/E_flow component model are untouched; RH open; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'no refereed bound is changed; NO QED.',
 });
 
 export const IMP124820_KNEE_AMP_BRACKET_WIDTH_GLOSSARY_HEADWORD = Object.freeze({
@@ -95,7 +95,7 @@ export const IMP124820_KNEE_AMP_BRACKET_WIDTH_GLOSSARY_HEADWORD = Object.freeze(
     'widths -- the ~1.3% gap between them is a finite-bracket-width artifact of the D2 estimator, ' +
     'not a PPD discretization bias, and collapses to ~0.3% when the bracket is refined to W = 0.10 ' +
     'at a fine, PPD-converged grid. No bound moved; the component model and all pinned surrogate ' +
-    'constants are untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'constants are untouched; NO QED. No refereed bound is changed.',
   citation:
     'imp-124771 (the bracket-width ladder and reconciliation this glosses); imp-97805 (discrete ' +
     'A ~ 9.54, PPD-refined at W = 0.25); imp-97804 (closed-form A ~ 9.42 via the continuous ' +
@@ -124,11 +124,11 @@ export const IMP124820_KNEE_AMP_BRACKET_WIDTH_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp124820-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-124771.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-124771.',
     holds: () =>
       IMP124820_KNEE_AMP_BRACKET_WIDTH_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124820_KNEE_AMP_BRACKET_WIDTH_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP124820_KNEE_AMP_BRACKET_WIDTH_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP124820_KNEE_AMP_BRACKET_WIDTH_GLOSSARY_HEADWORD.verdict) &&
       IMP124820_KNEE_AMP_BRACKET_WIDTH_GLOSSARY_HEADWORD.glosses === 'imp-124771',
   },
 ];

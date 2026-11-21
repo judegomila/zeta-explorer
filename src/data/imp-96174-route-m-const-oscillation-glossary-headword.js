@@ -46,14 +46,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96147 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96147-route-m-ratio-const-oscillation-fit (source: the two-term fit this glosses)
  * @see imp-96105-route-m-vasyunin-gram-extend-n6000 (source ladder to N = 6000)
  * @see imp-96163-route-m-residual-gamma1-alias-refute (independent aliasing cross-check)
  *
  * Ticket: imp-96174 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The Route M const/oscillation separation headword, baked verbatim (no re-import).
@@ -84,7 +84,7 @@ const ROUTE_M_CONST_OSCILLATION_HEADWORD = Object.freeze({
     'genuine oscillation) to a quantitative separation -- the constant/fluctuation split ' +
     'is real and grid-independent, but identifying the fluctuation with the gamma_1 ' +
     'zero-oscillation is grid-limited (IMP96147_SUBGAP), needing a denser, more uniform ' +
-    'logN grid past N = 6000. Changes no bound; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'logN grid past N = 6000. Changes no bound; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96174_ROUTE_M_CONST_OSCILLATION_GLOSSARY_HEADWORD = Object.freeze({
@@ -105,7 +105,7 @@ export const IMP96174_ROUTE_M_CONST_OSCILLATION_GLOSSARY_HEADWORD = Object.freez
     'second-half RMS not smaller than first-half) rather than noise around a converging ' +
     'smooth term. The residual cannot be confirmed as the gamma_1 zero-oscillation at this ' +
     'coarse, aliased grid. Establishes nothing; instantiates no interval; moves no bound; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-96147 (the two-term fit this glosses); imp-96105 (source ratio(N) ladder to ' +
     'N = 6000); imp-96163 (independent aliasing cross-check at a denser grid).',
@@ -131,11 +131,11 @@ export const IMP96174_ROUTE_M_CONST_OSCILLATION_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96174-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96174_ROUTE_M_CONST_OSCILLATION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP96174_ROUTE_M_CONST_OSCILLATION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP96174_ROUTE_M_CONST_OSCILLATION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP96174_ROUTE_M_CONST_OSCILLATION_GLOSSARY_HEADWORD.verdict) &&
       IMP96174_ROUTE_M_CONST_OSCILLATION_GLOSSARY_HEADWORD.glosses === 'imp-96147',
   },
 ];

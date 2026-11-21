@@ -116,7 +116,7 @@ export const IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH_VIZ_DATA = {
     'VIZ-DATA ONLY -- baked literals reproducing the imp-34268 measurement; adds no new derivation and ' +
     'changes no bound. Descriptive OLS surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per ' +
     'imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; the functional form of the convex branch is an OPEN ' +
-    'sub-gap; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'sub-gap; NO QED; no refereed bound is changed.',
 };
 
 export const IMP34268_VIZ_ASSERTIONS = [
@@ -154,11 +154,11 @@ export const IMP34268_VIZ_ASSERTIONS = [
   },
   {
     id: 'imp34357-honesty-gate-no-qed',
-    description: 'honest status references no-bound-change, NOT rigorous, NO QED, SOTA',
+    description: 'honest status references no-bound-change, NOT rigorous, NO QED, no refereed bound is changed',
     holds: () =>
       /NOT a rigorous asymptotic/.test(IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH_VIZ_DATA.honest) &&
       /NO QED/.test(IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP34268_FIXED_BAND_PEAK_REACCEL_CONVEXITY_STITCH_VIZ_DATA.honest),
   },
 ];
 

@@ -9,7 +9,7 @@
  *
  * Every (b, ratio) row below is copied verbatim from the imp-97291 baked IMP97291_RESULTS (no
  * re-derivation of the Gasymp divisor-identity evaluator). Presentation only; changes no bound;
- * PT Lambda <= 0.2 remains SOTA. RH open. NO QED.
+ * no refereed bound is changed. RH open. NO QED.
  *
  * @see imp-97291-route-m-e1-wide-composite-ratio-sweep.js (IMP97291_RESULTS, IMP97291_VERDICT, IMP97291_HONEST_BANNER)
  *
@@ -112,7 +112,7 @@ const IMP97324_ASSERTIONS = [
     id: 'imp97324-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP97324_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97324_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97324_HONEST_BANNER) &&
       /NO QED/.test(IMP97324_HONEST_BANNER),
     why: 'every Route-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

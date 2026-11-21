@@ -96,7 +96,7 @@
  * VERDICT. Route D's F(δ) splits into a probe-geometry factor (trivially "confining") times a
  * fixed prime budget; the Coulomb self-energy is exactly anti-confining; the only arithmetic
  * inequality is the boundedness of R_σ(t) as σ → 0, which is Weil's criterion on Gaussian
- * probes. Status: REFORMULATION, no lever. NOT a proof; PT Λ≤0.2 SOTA; RH open; NO QED.
+ * probes. Status: REFORMULATION, no lever. NOT a proof; no refereed bound is changed; RH open; NO QED.
  * Import-light; literals baked to 7 significant figures (assertion tolerances ~1e-6).
  */
 
@@ -254,7 +254,7 @@ export const ROUTE_D_PEIERLS = Object.freeze({
   roadmap: 'src/data/rh-novel-routes-roadmap-2026-09-23.js (route D)',
   status:
     'FIRST TEST EXECUTED — Route D is a REFORMULATION of Weil positivity (Gaussian probes), not a lever. '
-    + 'NOT a proof; no bound changes; PT Λ≤0.2 SOTA; RH open; NO QED.',
+    + 'NOT a proof; no bound changes; no refereed bound is changed; RH open; NO QED.',
   defectQuadruple: 'ρ = ½+δ+it ⇒ Q(δ) = {½±δ±it}; in γ-coordinates {±t±iδ}; Q(δ) = Q(−δ) so F is EVEN in δ; '
     + 'δ→0 is a DOUBLE zero (an on-line simple zero cannot leave the line alone).',
   freeEnergies: {
@@ -413,8 +413,8 @@ export const RH_ROUTE_D_PEIERLS_ASSERTIONS = Object.freeze([
   {
     id: 'honest-status-no-proof-claimed',
     holds: () => /NOT a proof/.test(ROUTE_D_PEIERLS.status) && /RH open/.test(ROUTE_D_PEIERLS.status)
-      && /REFORMULATION/.test(ROUTE_D_PEIERLS.status) && /Λ≤0\.2/.test(ROUTE_D_PEIERLS.status),
-    why: 'No false QED: Route D is recorded as a reformulation of Weil positivity; PT Λ≤0.2 stands; RH open.',
+      && /REFORMULATION/.test(ROUTE_D_PEIERLS.status) && /Λ≤0\.2|refereed bound is changed/.test(ROUTE_D_PEIERLS.status),
+    why: 'No false QED: Route D is recorded as a reformulation of Weil positivity; no refereed bound is changed; RH open.',
   },
 ]);
 

@@ -82,7 +82,7 @@
  * negative resolution is of the named sub-gap AS STATED; the phi-conditional
  * reformulation is open and named. (c) Floors and ceilings untouched;
  * changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * SKEPTICAL SELF-CHECK RECORD: (1) in-class membership was stress-tested: the
  * carried chain constrains amplitudes (nonnegative) and prices legality only
@@ -371,7 +371,7 @@ export const IMP95130_PARITY_PURE_EXCESS_REFUTATION = {
   ],
   isRigorous: true,
   rigorScope:
-    "THEOREM PX is unconditional: the channel split at the witness is definitional (three distinct even blocks), the kernel evaluation is the exact closed form certified by the Gram identity (direct integration, cross-checked by quadrature), and Lemma MQ is elementary calculus - no MAJ conditionality enters because the witness is exhibited, not bounded. Lemma TP is unconditional bilinear algebra. In-class membership of the witness under the carried chain is verified by direct evaluation of the per-pair envelope caps (margin >= 1e34). The eps-grid scans and quadrature are CROSS-CHECKS; the theorem is the displayed two-line inequality. The resolution of imp-95129-subgap-min-odd-mass is NEGATIVE and scoped to its stated E>0-conditioned form; the phi-conditional reformulation is named and OPEN. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "THEOREM PX is unconditional: the channel split at the witness is definitional (three distinct even blocks), the kernel evaluation is the exact closed form certified by the Gram identity (direct integration, cross-checked by quadrature), and Lemma MQ is elementary calculus - no MAJ conditionality enters because the witness is exhibited, not bounded. Lemma TP is unconditional bilinear algebra. In-class membership of the witness under the carried chain is verified by direct evaluation of the per-pair envelope caps (margin >= 1e34). The eps-grid scans and quadrature are CROSS-CHECKS; the theorem is the displayed two-line inequality. The resolution of imp-95129-subgap-min-odd-mass is NEGATIVE and scoped to its stated E>0-conditioned form; the phi-conditional reformulation is named and OPEN. Floors and ceilings untouched; changes no bound; does NOT promote Lambda <= 0.14; NO QED; no refereed bound is changed.",
   promotesBound: false,
 };
 
@@ -492,11 +492,11 @@ export const IMP95130_PARITY_PURE_EXCESS_ASSERTIONS = [
   {
     id: "imp95130-px-honesty-gate",
     description:
-      "the verdict is scoped as a NEGATIVE resolution of the E>0-conditioned omega_min form only, names the open phi-conditional sub-gap imp-95130-subgap-phi-conditional-odd-mass, promotes no bound, NO QED, PT stays SOTA",
+      "the verdict is scoped as a NEGATIVE resolution of the E>0-conditioned omega_min form only, names the open phi-conditional sub-gap imp-95130-subgap-phi-conditional-odd-mass, promotes no bound, NO QED, no refereed bound is changed",
     holds: () =>
       IMP95130_PARITY_PURE_EXCESS_REFUTATION.promotesBound === false &&
       /NO QED/.test(IMP95130_PARITY_PURE_EXCESS_REFUTATION.rigorScope) &&
-      /remains SOTA/.test(IMP95130_PARITY_PURE_EXCESS_REFUTATION.rigorScope) &&
+      /refereed bound is changed/i.test(IMP95130_PARITY_PURE_EXCESS_REFUTATION.rigorScope) &&
       /RESOLVED NEGATIVELY/.test(IMP95130_PARITY_PURE_EXCESS_REFUTATION.resolution) &&
       /imp-95130-subgap-phi-conditional-odd-mass/.test(IMP95130_PARITY_PURE_EXCESS_REFUTATION.subGap) &&
       /remains OPEN/.test(IMP95130_PARITY_PURE_EXCESS_REFUTATION.openResiduals[0]) &&

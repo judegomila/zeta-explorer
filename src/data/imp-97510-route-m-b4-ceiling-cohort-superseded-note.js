@@ -22,7 +22,7 @@
  *
  * NO NEW WORK PERFORMED HERE: this note only records the ticket-level supersession so imp-97510
  * is not re-attempted as a separate cohort-index build. Nothing in the verified ledger moves;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97544-route-m-b4-ceiling-dead-route-consolidated-honest-status.js (the consolidated note this defers to)
  * @see imp-97509-route-m-quarter-ceiling-correction-honest-status.js (the earlier, narrower correction note)

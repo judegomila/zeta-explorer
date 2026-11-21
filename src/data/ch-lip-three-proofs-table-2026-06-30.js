@@ -12,8 +12,8 @@
  *   3. REFUTED SURROGATES (tau_c, squared-gap) -- both fail skeptical check
  *
  * Grounded in CH_WALL_FRONTIER: the assertions below cross-check that the table
- * stays faithful to the verdict and that NO false QED is implied (PT Lambda<=0.2
- * remains the rigorous SOTA; the finite-N beat stays an ESTIMATE).
+ * stays faithful to the verdict and that NO false QED is implied (no refereed bound is changed
+ * ; the finite-N beat stays an ESTIMATE).
  *
  * Pure content/derived-restatement. No new claim, no heavy imports.
  */
@@ -85,9 +85,9 @@ export const CH_LIP_THREE_PROOFS_ASSERTIONS = [
   },
   {
     id: 'ch-lip-3proofs-no-false-qed',
-    description: 'the table is scope-only: no QED, PT Lambda <= 0.2 stays SOTA',
+    description: 'the table is scope-only: no QED, no refereed bound is changed',
     holds: () => /No QED/.test(CH_LIP_THREE_PROOFS.honest)
-      && /Platt-Trudgian Lambda <= 0.2 remains/.test(CH_LIP_THREE_PROOFS.honest),
+      && /refereed bound is changed/i.test(CH_LIP_THREE_PROOFS.honest),
   },
 ];
 

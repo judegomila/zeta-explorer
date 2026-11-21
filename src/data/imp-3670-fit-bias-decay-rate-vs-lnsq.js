@@ -64,7 +64,7 @@
  *   against a derived slowly-varying rate; it establishes NO operator positivity.
  *   Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a &gt;= 0
  *   sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED.
- *   No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-3646-remainder-tail-moment-ratio-asymptotics.js (the derived (ln n)^2/n^3 rate + saddle law)
  *   @see imp-3648-fit-bias-a-window-sensitivity-n78.js (the base a-window; baked n=7 slope)
@@ -383,7 +383,7 @@ export const IMP3670_FIT_BIAS_DECAY_RATE_VS_LNSQ = Object.freeze({
       'endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,
     openSubGap: OPEN_SUBGAP,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -444,7 +444,7 @@ export const IMP3670_FIT_BIAS_DECAY_RATE_VS_LNSQ_ASSERTIONS = [
   {
     id: 'imp3670-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: measurement only, mass-feasibility necessary-but-not-sufficient, operator positivity ' +
-         '(imp-3066) untouched, PT 0.2 stays SOTA.',
+         '(imp-3066) untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP3670_FIT_BIAS_DECAY_RATE_VS_LNSQ.honestCaveat;
       return (
@@ -452,7 +452,7 @@ export const IMP3670_FIT_BIAS_DECAY_RATE_VS_LNSQ_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.isStructuralDiagnostic === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

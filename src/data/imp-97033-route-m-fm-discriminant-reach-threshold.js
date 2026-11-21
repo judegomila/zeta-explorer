@@ -12,7 +12,7 @@
  * what fraction of N* ~ 4e7 the exact ladder must reach before the data alone excludes the concave
  * turnover at a stated confidence. Analysis/measurement only; no Gram rebuilt, no O(N^3) rung
  * computed here; only the trace ceiling T stays rigorous; F, M inherit non-rigorous extrapolations;
- * no bound moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no bound moves; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * THE DISCRIMINANT. The quad-vs-tail ceiling spread S(N_top).
@@ -80,7 +80,7 @@
  * cannot exclude the concave turnover at any useful confidence without reaching a genuinely
  * substantial fraction of the ceiling scale. Measurement/analysis only; no rung computed; only the
  * trace ceiling T ~ 2.594e7 is rigorous; F, M inherit non-rigorous extrapolations; no bound moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97016-route-m-fm-dataalone-extended-ladder.js (the caveat: data alone cannot reject the quad; needs rungs at a substantial fraction of N*)
  * @see imp-96912-route-m-frobenius-ladder-extension-above-16000.js (the 24-rung exact ladder + line/quad/+d-over-N ceiling models)
@@ -283,8 +283,8 @@ export const IMP97033_VERDICT = Object.freeze({
     'substantial fraction of the ceiling scale; a decisive run is native/offline-HPC-only, and a ' +
     'one-sided interior norm asymptotic -- which imp-96750 reduces to a single unproved target ' +
     '(oneSidedBoundProved=false), not a proof -- stays the only rung-free route if established. Measurement ' +
-    'only; only the trace ceiling T~2.594e7 is rigorous; no bound moves; PT Lambda <= 0.2 remains ' +
-    'SOTA; RH open; NO QED.',
+    'only; only the trace ceiling T~2.594e7 is rigorous; no bound moves; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97033_SUBGAP = Object.freeze({
@@ -301,7 +301,7 @@ export const IMP97033_SUBGAP = Object.freeze({
 });
 
 export const IMP97033_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/analysis only, honest partial of ' +
+  'RH open; no refereed bound is changed; NO QED. Measurement/analysis only, honest partial of ' +
   'imp-97016: no Gram was rebuilt and no O(N^3) rung was computed here -- the quad-vs-tail ceiling ' +
   'spread S(N_top) is measured from real exact-ladder truncations (N_top in 8000..24000, recovering ' +
   'the imp-96912 anchors), its log-decay law inverted for the N_top needed at each confidence, and ' +
@@ -359,7 +359,7 @@ const IMP97033_ASSERTIONS = [
       IMP97033_VERDICT.recoversImp96912Anchors === true &&
       IMP97033_VERDICT.halfPercentReachableBelowNStar === false &&
       /NO QED/.test(IMP97033_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97033_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97033_HONEST_BANNER) &&
       /RH open/.test(IMP97033_HONEST_BANNER) &&
       /needs-half-of-Nstar/.test(IMP97033_SUBGAP.id),
     why: 'measurement/analysis only: no bound moved, no rigorous ceiling posted, the imp-96912 anchors are recovered, the 0.5-percent resolution is unreachable below N*, and the honesty markers plus the residual sub-gap are present.',

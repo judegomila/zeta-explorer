@@ -10,7 +10,7 @@
  * faithful finite-rank surrogate that honours the "on ran(F_+)" qualifier. It is a
  * C-status conditional identity: the antecedents (the maps F_pm, the incidence I_K, and the
  * reflection R) remain O-status constructions, so the lemma proves NO bound. It certifies
- * only that the auxiliary geometric layer is logically coherent. NO QED; PT Lambda <= 0.2 SOTA.
+ * only that the auxiliary geometric layer is logically coherent. NO QED; no refereed bound is changed.
  *
  * LEMMA 6.1 (conditional heat-compatibility on the range)
  * -------------------------------------------------------
@@ -201,7 +201,7 @@ export const IMP95005_TWISTOR_HEAT_COMPATIBILITY_LEMMA = {
     'verdict -- it certifies only that the auxiliary geometric layer is logically coherent. A finite-rank ' +
     'surrogate witnesses the hypotheses and conclusion to ~1e-9 and shows the range qualifier is ' +
     'essential (nonzero off-range gap). Sub-gap imp-95005a: no live Aristotle v4.28 submission. ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 };
 
 const IMP95005_ASSERTIONS = [
@@ -223,12 +223,12 @@ const IMP95005_ASSERTIONS = [
   },
   {
     id: 'imp95005-honesty-gate-no-qed',
-    description: 'conditional C-status lemma: isRigorous false, named sub-gap imp-95005a, no QED, PT stays SOTA',
+    description: 'conditional C-status lemma: isRigorous false, named sub-gap imp-95005a, no QED, no refereed bound is changed',
     holds: () =>
       IMP95005_TWISTOR_HEAT_COMPATIBILITY_LEMMA.isRigorous === false &&
       /imp-95005a/.test(IMP95005_TWISTOR_HEAT_COMPATIBILITY_LEMMA.subGap) &&
       /NO QED/.test(IMP95005_TWISTOR_HEAT_COMPATIBILITY_LEMMA.verdict) &&
-      /remains SOTA/.test(IMP95005_TWISTOR_HEAT_COMPATIBILITY_LEMMA.verdict),
+      /refereed bound is changed/i.test(IMP95005_TWISTOR_HEAT_COMPATIBILITY_LEMMA.verdict),
   },
 ];
 

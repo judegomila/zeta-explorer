@@ -61,7 +61,7 @@ export const R5_P47_MIXED = Object.freeze({
   verdict: 'NOT PROVED for P47: 0 of 372 P47 floors certified. Lemma MS (proved, refereed internally) removes the mixed-frequency loss at early '
     + 'P47 cells (231, 260) but not at cell 300; the theta-uniform label tails plus extra part (measured about 0.029-0.036 at cell 231) and, at '
     + 'late cells, the first-branch majorant block P47. WOL-C certified for P29 x4 and P31 x3 (superseded in the r5 synthesis by smaller '
-    + 'p29-43 margins). Lambda < 0.145 is NOT certified. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'p29-43 margins). Lambda < 0.145 is NOT certified. No refereed bound is changed. RH open. NO QED.',
 });
 
 const W = R5_P47_MIXED;
@@ -86,7 +86,7 @@ export const R5_P47_MIXED_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r5-p47mix-honest',
-    holds: () => /NO QED/.test(W.status) && /PT Lambda <= 0\.2 stands/.test(W.verdict) && /NOT certified/.test(W.verdict) && /SUPERSEDED/.test(W.values.claimedCert.note),
+    holds: () => /NO QED/.test(W.status) && /refereed bound is changed/i.test(W.verdict) && /NOT certified/.test(W.verdict) && /SUPERSEDED/.test(W.values.claimedCert.note),
     why: 'P47 not certified; the claimed certified value rests on the refuted r3core4.c floors; no QED.',
   },
 ]);

@@ -46,7 +46,7 @@
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * @see imp-34270-eflow-gronwall-crossover-offset-correction (forms the leading 2r attribution this varies)
  * @see imp-2762-tc-a1-trap-interval (outward-rounded A1 |t_c| trap certificate: nominal 2.368628e-4, ceiling 2.37e-4)
@@ -188,7 +188,7 @@ export const IMP34348_EFLOW_GRONWALL_OFFSET_TC_A1_SENSITIVITY = {
     'finding. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are ' +
     'UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34270 (leading 2r attribution; GRONWALL = exp(1.0*TC_A1_TRAP)); imp-2762 (A1 |t_c| trap ' +
     'interval certificate, nominal 2.368628e-4, ceiling 2.37e-4); imp-2644 (TC_A1 = g_min^2/6, C_G ' +
@@ -227,13 +227,13 @@ export const IMP34348_EFLOW_GRONWALL_OFFSET_TC_A1_SENSITIVITY_ASSERTIONS = [
     holds: () => GRONWALL_SPAN > 0 && GRONWALL_SPAN < 5e-4,
   },
   {
-    // Honesty gate: sensitivity measurement only, no QED, PT stays SOTA.
+    // Honesty gate: sensitivity measurement only, no QED, no refereed bound is changed.
     id: 'imp34348-honesty-gate-no-qed',
-    description: 'Sensitivity only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Sensitivity only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP34348_EFLOW_GRONWALL_OFFSET_TC_A1_SENSITIVITY.isRigorous === false &&
       /NO QED/.test(IMP34348_EFLOW_GRONWALL_OFFSET_TC_A1_SENSITIVITY.verdict) &&
-      /remains SOTA/.test(IMP34348_EFLOW_GRONWALL_OFFSET_TC_A1_SENSITIVITY.verdict),
+      /refereed bound is changed/i.test(IMP34348_EFLOW_GRONWALL_OFFSET_TC_A1_SENSITIVITY.verdict),
   },
 ];
 

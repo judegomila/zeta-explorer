@@ -19,7 +19,7 @@
  * stale "still open" claim.
  *
  * DOCUMENTATION ONLY. Ports nothing; measures nothing new; changes no
- * bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-95227-two-rate-coalescence-dominance-theorem (conjecture stated OPEN)
  * @see imp-95286-confluent-laguerre-floor (COROLLARY WINDOW-PINCH brackets, does not decide)
@@ -60,7 +60,7 @@ export const IMP95301_DOMINANCE_CONJECTURE_DECIDED_SUPERSESSION_NOTE = {
     'and its literal instruction ("bracketed but NOT decided") is now stale. This note corrects the record: the ' +
     'conjecture is DECIDED (imp-95287), and consumers citing imp-95286 WINDOW-PINCH as the state of the art should ' +
     'cite imp-95287 WINDOW-EXACT instead. Ports nothing; measures nothing new; changes no bound; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-95227-two-rate-coalescence-dominance-theorem (conjecture stated); ' +
     'imp-95286-confluent-laguerre-floor (bracket, does not decide); ' +
@@ -93,13 +93,13 @@ export const IMP95301_DOMINANCE_CONJECTURE_DECIDED_SUPERSESSION_NOTE_ASSERTIONS 
   },
   {
     id: 'imp95301-honesty-gate-no-qed',
-    description: 'Documentation only: not rigorous, no new claim, no QED, PT remains SOTA',
+    description: 'Documentation only: not rigorous, no new claim, no QED, no refereed bound is changed',
     holds: () =>
       IMP95301_DOMINANCE_CONJECTURE_DECIDED_SUPERSESSION_NOTE.isRigorous === false &&
       /HONEST-STATUS NOTE/.test(IMP95301_DOMINANCE_CONJECTURE_DECIDED_SUPERSESSION_NOTE.verdict) &&
       /NOT a new claim/.test(IMP95301_DOMINANCE_CONJECTURE_DECIDED_SUPERSESSION_NOTE.verdict) &&
       /NO QED/.test(IMP95301_DOMINANCE_CONJECTURE_DECIDED_SUPERSESSION_NOTE.verdict) &&
-      /remains SOTA/.test(IMP95301_DOMINANCE_CONJECTURE_DECIDED_SUPERSESSION_NOTE.verdict),
+      /refereed bound is changed/i.test(IMP95301_DOMINANCE_CONJECTURE_DECIDED_SUPERSESSION_NOTE.verdict),
   },
 ];
 

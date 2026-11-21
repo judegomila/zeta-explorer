@@ -56,7 +56,7 @@
  *   conditioning OF that measurement, it does not rehabilitate the model). The -2 asymptote and
  *   C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per
  *   imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; no operator positivity; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34647-q3-deeper-window-exponent-amplitude-convergence.js (the q3 wide-deep-window recovery this extends)
  *   @see imp-34633-roundoff-prefactor-amplitude-vs-epsmach.js (the shallow q2/q4 baselines: ratios 0.81 / 0.48)
@@ -278,7 +278,7 @@ export const IMP34669_Q2_Q4_WIDE_DEEP_WINDOW_EXPONENT_AMPLITUDE = Object.freeze(
     'finite-difference conditioning of that measurement, it does not rehabilitate the model. The -2 ' +
     'asymptote and C_C = (1/8)sqrt(3 pi) (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb ' +
     'GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a >= 0 untouched; changes no bound; no ' +
-    'operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34647 (the q3 wide-deep-window recovery this extends to q2/q4); ' +
     'imp-34633 (the shallow q2/q4 baselines -- ratios 0.806 / 0.476); ' +
@@ -328,9 +328,9 @@ const IMP34669_ASSERTIONS = [
     holds: () =>
       IMP34669_Q2_Q4_WIDE_DEEP_WINDOW_EXPONENT_AMPLITUDE.isRigorous === false &&
       /NO QED/.test(IMP34669_Q2_Q4_WIDE_DEEP_WINDOW_EXPONENT_AMPLITUDE.verdict) &&
-      /remains SOTA/.test(IMP34669_Q2_Q4_WIDE_DEEP_WINDOW_EXPONENT_AMPLITUDE.verdict) &&
+      /refereed bound is changed/i.test(IMP34669_Q2_Q4_WIDE_DEEP_WINDOW_EXPONENT_AMPLITUDE.verdict) &&
       /UNTOUCHED/.test(IMP34669_Q2_Q4_WIDE_DEEP_WINDOW_EXPONENT_AMPLITUDE.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

@@ -40,7 +40,7 @@
  * qgeo~0.34) is data-driven only. Rayleigh floors are UPPER bounds on the true lambda_min; establishes
  * NO operator positivity; the certified enclosure remains the imp-96827 [0.579666, 0.581292];
  * IMP96749_UNIFORM_N_GAP_UNSETTLED stays open; interval-rigorous reach stays 2a <= 0.96; RH open;
- * Platt-Trudgian Lambda <= 0.2 SOTA; NO QED.
+ * no refereed bound is changed; NO QED.
  *
  * @see imp-96876-krein-tresidual-crossval-measurement.js (source seven-point sweep IMP96876_FLOOR)
  * @see imp-96827-krein-tresidual-envelope-extrapolation.js (fit enclosure [0.579666,0.581292]; LGeom)

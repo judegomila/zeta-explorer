@@ -12,8 +12,8 @@
 // saving. This module recomputes all of those quantities from scratch (a fully
 // independent second implementation) and records the match.
 //
-// Numerical verification only; changes no bound; NO QED; Platt-Trudgian
-// Lambda <= 0.2 remains SOTA (imp-3463 lineage).
+// Numerical verification only; changes no bound; NO QED; no refereed bound is changed
+//  (imp-3463 lineage).
 
 const ln = Math.log;
 
@@ -81,7 +81,7 @@ export const IMP_95605_ZERO_FREE_VERIFY = {
     + 'floor (u = t, most-saving case) is 0.8354, consistent with the module 0.845 / 0.843 '
     + 'for the actual stationary packet width u < t. The "no unconditional saving" '
     + 'conclusion holds. Numerical verification only; changes no bound; NO QED; '
-    + 'Platt-Trudgian Lambda <= 0.2 stands.',
+    + 'no refereed bound is changed.',
   // self-check: recomputed values match the imp-95519 quoted figures within tolerance
   holds: () =>
     Math.abs(clLo / 6.262e-3 - 1) < 2e-3 &&

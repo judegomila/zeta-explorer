@@ -26,7 +26,7 @@
  *   Moebius cancellation retained (the naive triangle bound over-charges for many-small-prime b,
  *   since sigma(b)/b = prod(1+1/p) is unbounded).
  *   (f) STATUS: documentation only. No rigorous uniform ceiling for omega>=3; no bound on Lambda
- *   moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   moves; no refereed bound is changed; RH open; NO QED.
  *
  *   STATUS: documentation only -- a Concepts glossary headword recording an already-established
  *   decomposition and partial proof. Not a new proof, not a new bound. NO QED.
@@ -39,7 +39,7 @@
  *   showing the omega>=3 over-charge behaviour the residual names)
  *
  * Ticket: imp-97407 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The leader + inward-correction headword, baked verbatim (no re-import).
@@ -71,8 +71,8 @@ const LEADER_INWARD_CORRECTION_HEADWORD = Object.freeze({
     'decomposition is an exact identity verified to ~1e-6 relative on a mixed ladder (primes, ' +
     'prime powers, primorials, semiprimes) to b=30030; the semiprime ceiling |E1(pq)| < pq/4 is ' +
     'proved rigorously for all distinct-prime semiprimes. The omega>=3 uniform ceiling is NOT ' +
-    'proved. Naming / glossary headword only; supplies no new bound; RH open; Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA; NO QED.',
+    'proved. Naming / glossary headword only; supplies no new bound; RH open; no refereed bound is changed' +
+    '; NO QED.',
 });
 
 export const IMP97407_LEADER_INWARD_CORRECTION_GLOSSARY_HEADWORD = Object.freeze({
@@ -91,7 +91,7 @@ export const IMP97407_LEADER_INWARD_CORRECTION_GLOSSARY_HEADWORD = Object.freeze
     'inward-correction decomposition E1(b) = mu(b)(b/4) + Delta(b): the exact identity isolating ' +
     'the +-b/4 leader with parity sign (-1)^omega(b), and its sign + magnitude reduction of the ' +
     '|E1(b)| <= b/4 ceiling (proved for omega <= 2, open for omega >= 3). No bound moved; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97290 (the exact decomposition, the ceiling reduction, and the proved semiprime ceiling); ' +
     'imp-97265 (the prime ceiling this advances).',
@@ -117,11 +117,11 @@ export const IMP97407_LEADER_INWARD_CORRECTION_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97407-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97290.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97290.',
     holds: () =>
       IMP97407_LEADER_INWARD_CORRECTION_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97407_LEADER_INWARD_CORRECTION_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97407_LEADER_INWARD_CORRECTION_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97407_LEADER_INWARD_CORRECTION_GLOSSARY_HEADWORD.verdict) &&
       IMP97407_LEADER_INWARD_CORRECTION_GLOSSARY_HEADWORD.glosses === 'imp-97290',
   },
 ];

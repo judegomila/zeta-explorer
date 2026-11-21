@@ -61,7 +61,7 @@
  *   matched energy the operator norm is only ~1.1%. The magnitude obstruction is
  *   pure position concentration, RH-equivalent, necessary-but-NOT-sufficient; the
  *   imp-3066 off-diagonal endpoint-Hankel step stays the lone obstruction.
- *   Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-3197-mupass-bridge-sign-phi-only.js (the ~97% attribution this quantifies)
  *   @see imp-3215-mupass-capture-ratio-n-scaling.js (the N-scaling sibling)
@@ -305,7 +305,7 @@ export const IMP3221_MUPASS_POSITION_CONCENTRATION_MEASURE = Object.freeze({
       'Position concentration is necessary-but-NOT-sufficient; the off-diagonal endpoint-Hankel operator magnitude ' +
       '(imp-3066) remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -350,7 +350,7 @@ export const IMP3221_MUPASS_POSITION_CONCENTRATION_MEASURE_ASSERTIONS = [
   {
     id: 'imp3221-honest-assessment-no-qed',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, not a reduction below RH, RH-equivalent, positivity ' +
-         'not attempted, imp-3066 stays the lone obstruction, PT 0.2 stays SOTA. Any flip is over-claiming.',
+         'not attempted, imp-3066 stays the lone obstruction, no refereed bound is changed. Any flip is over-claiming.',
     holds: () => {
       const c = IMP3221_MUPASS_POSITION_CONCENTRATION_MEASURE.honestCaveat;
       return (
@@ -358,7 +358,7 @@ export const IMP3221_MUPASS_POSITION_CONCENTRATION_MEASURE_ASSERTIONS = [
         c.isReductionBelowRH === false &&
         c.rhEquivalent === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

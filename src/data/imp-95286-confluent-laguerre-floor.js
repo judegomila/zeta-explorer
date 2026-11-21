@@ -130,7 +130,7 @@
  * port, r-uniform block symbol-pencil inf (imp-95252), off-lattice rates,
  * modulus/phase currency, gammaSL map all remain OPEN; does NOT certify
  * the paper packets. No bound of the Lambda program changed. NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -198,8 +198,8 @@ export const IMP95286_CONFLUENT_LAGUERRE_FLOOR = {
     "transform, Parseval); the corollaries additionally consume the " +
     "proven imp-95251 THEOREM COAL-N. Floor and bracket only: no new " +
     "upper bound, no certificate fires, dominance NOT decided. Changes " +
-    "no bound of the Lambda program; NO QED; Platt-Trudgian " +
-    "Lambda <= 0.2 remains SOTA.",
+    "no bound of the Lambda program; NO QED; no refereed bound is changed" +
+    ".",
 };
 
 // ---------------------------------------------------------------------------
@@ -412,13 +412,13 @@ export const IMP95286_CONFLUENT_FLOOR_ASSERTIONS = [
   {
     id: "imp95286-honest-scope",
     description:
-      "honest-scope strings present: NO QED, PT SOTA, dominance NOT " +
+      "honest-scope strings present: NO QED, no refereed bound is changed, dominance NOT " +
       "decided, sub-gap STILL OPEN",
     holds: () => {
       const o = IMP95286_CONFLUENT_LAGUERRE_FLOOR;
       return (
         /NO QED/.test(o.verdict) &&
-        /remains SOTA/.test(o.verdict) &&
+        /refereed bound is changed/i.test(o.verdict) &&
         /STILL OPEN/.test(o.subGap) &&
         /NOT decided/.test(o.dominanceConsequence)
       );

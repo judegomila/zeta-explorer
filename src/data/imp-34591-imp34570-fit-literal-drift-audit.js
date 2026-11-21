@@ -57,7 +57,7 @@
  *   component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
  *   asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound;
  *   establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- *   Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   No refereed bound is changed.
  *
  *   @see imp-34570-eflow-attr-power-law-fit-eflow-slope-check.js (the baked fit literals audited here)
  *   @see imp-34169-fixed-band-peak-extended-decade-surrogate-zero.js (the parts()/eflowLogSlope() machinery)
@@ -251,8 +251,8 @@ export const IMP34591_IMP34570_FIT_LITERAL_DRIFT_AUDIT = {
     'imp-34570 numbers; establishes nothing new about them. Descriptive surrogate, NOT a rigorous ' +
     'asymptotic; the component model is the inherited imp-3220/imp-3406 extrapolation; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator ' +
-    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED; no refereed bound is changed' +
+    '.',
 };
 
 export const IMP34591_ASSERTIONS = [
@@ -298,13 +298,13 @@ export const IMP34591_ASSERTIONS = [
       IMP34591_ROUNDED_INPUT_IS_BIT_EXACT === true,
   },
   {
-    // Honesty gate: accuracy guard only, isRigorous false, no QED, PT SOTA, imp-486 untouched.
+    // Honesty gate: accuracy guard only, isRigorous false, no QED, no refereed bound is changed, imp-486 untouched.
     id: 'imp-34591-honesty-gate-no-qed',
-    description: 'Accuracy guard only: isRigorous false, no QED, PT SOTA, imp-486 untouched',
+    description: 'Accuracy guard only: isRigorous false, no QED, no refereed bound is changed, imp-486 untouched',
     holds: () =>
       IMP34591_IMP34570_FIT_LITERAL_DRIFT_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP34591_IMP34570_FIT_LITERAL_DRIFT_AUDIT.honest) &&
-      /remains SOTA/.test(IMP34591_IMP34570_FIT_LITERAL_DRIFT_AUDIT.honest) &&
+      /refereed bound is changed/i.test(IMP34591_IMP34570_FIT_LITERAL_DRIFT_AUDIT.honest) &&
       /C_mb GUE-conditional per imp-486 is UNTOUCHED/.test(IMP34591_IMP34570_FIT_LITERAL_DRIFT_AUDIT.honest),
   },
 ];

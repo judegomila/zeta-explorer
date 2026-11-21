@@ -171,7 +171,7 @@
  *
  * The numerics below CROSS-CHECK the closed-form statements; they are not
  * the claim. Import-light (no heavy bundle). Changes no bound; does NOT
- * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * promote Lambda <= 0.14; NO QED; no refereed bound is changed.
  */
 
 // ── shared conventions (identical to the sibling modules) ────────────────────
@@ -546,7 +546,7 @@ export const IMP95008_EXACT_PAIR_CORRELATION_CEILING = {
     "Lemma CC is the layer-cake representation plus the elementary interval-overlap formula; Lemma RM is differentiation under the integral (locally dominated for rho > 0) plus a sign-pairing argument with an exact antiderivative; Lemma PF is repeated-linear-factor partial fractions with termwise integration (the k = 1 logarithms pair because d_1 = -c_1, 2s - 1 odd); Theorem Y-EXACT is the eleventh/seventeenth/eighteenth roll-up with the exact value substituted through the Lemma X floors and Lemma RHO caps via Lemmas CC and RM. The new ceiling is an ACHIEVED upper bound in the Theorem K bracket class {cNear <= 2, Tstar <= Tx(2)}; optimality is NOT claimed (the parity factor 2 and the substitution-point tightness remain as named slack). The closed form is exact as a formula; its float evaluation carries ~1e-8 relative rounding, measured by comparing two algebraically equivalent evaluations and negligible against the priced factors. Witness floors are carried literals of the fifteenth/sixteenth continuations (the headline floor is re-derived in the sibling eighteenth module, which remains in the assertion sweep). The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step executing eighteenth-continuation achieved-side residuals (b) and (c): NEW Lemma CC (layer-cake separation monotonicity, all T), NEW Lemma RM (width-ratio monotonicity for T >= Ystar(s), pairing argument with exact antiderivative), and NEW Lemma PF (exact elementary closed form of the envelope-pair correlation at integer s) let Theorem Y-EXACT re-run the parity roll-up with the EXACT pair value at the substituted point (V(b,j), rhoCap(j)) - the window / Cauchy-Schwarz apparatus of the fifth, seventeenth and eighteenth continuations is discarded, and zero inequality slack survives in the far pair bound. Reference theta = 10: corner envelope 1.1159760370515937e-4 -> 3.9197920255561178e-5 (factor 2.8470286938074612, exactly the eighteenth measured corner slack), far ceiling 0.7741509917026236 -> 0.2717408057586117, headline far-bracket gap 8.001968970787363 -> 2.8088338309749887, fixed-97 gap 642.1998717107592 -> 225.42360917596611, floors untouched. Surviving named slack: the parity AM-GM factor 2 (now dominant) and the tightness of the substitution point; near-tie at b = 0 persists. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step executing eighteenth-continuation achieved-side residuals (b) and (c): NEW Lemma CC (layer-cake separation monotonicity, all T), NEW Lemma RM (width-ratio monotonicity for T >= Ystar(s), pairing argument with exact antiderivative), and NEW Lemma PF (exact elementary closed form of the envelope-pair correlation at integer s) let Theorem Y-EXACT re-run the parity roll-up with the EXACT pair value at the substituted point (V(b,j), rhoCap(j)) - the window / Cauchy-Schwarz apparatus of the fifth, seventeenth and eighteenth continuations is discarded, and zero inequality slack survives in the far pair bound. Reference theta = 10: corner envelope 1.1159760370515937e-4 -> 3.9197920255561178e-5 (factor 2.8470286938074612, exactly the eighteenth measured corner slack), far ceiling 0.7741509917026236 -> 0.2717408057586117, headline far-bracket gap 8.001968970787363 -> 2.8088338309749887, fixed-97 gap 642.1998717107592 -> 225.42360917596611, floors untouched. Surviving named slack: the parity AM-GM factor 2 (now dominant) and the tightness of the substitution point; near-tie at b = 0 persists. Changes no bound; does NOT promote Lambda<=0.14; NO QED; no refereed bound is changed.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -730,12 +730,12 @@ export const IMP95008_EPC_ASSERTIONS = [
   {
     id: "imp95008-epc-honesty-gate",
     description:
-      "the verdict states the ceiling move with floors untouched, names the surviving slack (parity factor 2 now dominant, substitution-point tightness), records the float-conditioning honest limit and the persisting b = 0 near-tie, promotes no bound, NO QED, PT stays SOTA; ceiling optimality is NOT claimed in scope",
+      "the verdict states the ceiling move with floors untouched, names the surviving slack (parity factor 2 now dominant, substitution-point tightness), records the float-conditioning honest limit and the persisting b = 0 near-tie, promotes no bound, NO QED, no refereed bound is changed; ceiling optimality is NOT claimed in scope",
     holds: () =>
       IMP95008_EXACT_PAIR_CORRELATION_CEILING.promotesBound === false &&
       IMP95008_EXACT_PAIR_CORRELATION_CEILING.openResiduals.length === 5 &&
       /NO QED/.test(IMP95008_EXACT_PAIR_CORRELATION_CEILING.verdict) &&
-      /remains SOTA/.test(IMP95008_EXACT_PAIR_CORRELATION_CEILING.verdict) &&
+      /refereed bound is changed/i.test(IMP95008_EXACT_PAIR_CORRELATION_CEILING.verdict) &&
       /floors untouched/.test(IMP95008_EXACT_PAIR_CORRELATION_CEILING.verdict) &&
       /parity AM-GM factor 2/.test(IMP95008_EXACT_PAIR_CORRELATION_CEILING.verdict) &&
       /near-tie at b = 0 persists/.test(IMP95008_EXACT_PAIR_CORRELATION_CEILING.verdict) &&

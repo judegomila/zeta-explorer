@@ -56,7 +56,7 @@
  * inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the exact-model gap functions are
  * byte-for-byte the imp-95617/imp-95598 ones; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-95617-transition-knee-ordering-joint-2d (the arbitrary +/-50% box wedge this maps to physical units)
  * @see polymath15-constant-C-C (C_C = (1/8) sqrt(3 pi); C_H = 1/8 ansatz, C_Selberg = 3 conservative)
@@ -219,7 +219,7 @@ export const IMP95635_PHYSICAL_BANDS_VS_INVERSION_WEDGE = {
     'the inversion wedge; the imp-95617 inversion is confined to unphysically large / wrong-signed moves. ' +
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the ' +
     'C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; ' +
-    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-95617 (the arbitrary +/-50% box inversion wedge mapped here to physical units); imp-399/imp-2714 ' +
     '(C_C = (1/8) sqrt(3 pi); C_H = 1/8 ansatz with ~0.127 remainder imp-2643; C_Selberg = 3 conservative ' +
@@ -258,13 +258,13 @@ export const IMP95635_PHYSICAL_BANDS_VS_INVERSION_WEDGE_ASSERTIONS = [
       SHRINK_NEEDED > SHRINK_AVAILABLE,
   },
   {
-    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, PT SOTA.
+    // Honesty gate: sensitivity/measurement only, no bound moved, no QED, no refereed bound is changed.
     id: 'imp95635-honesty-gate-no-qed',
-    description: 'Sensitivity/measurement only: isRigorous false, no QED, PT stays SOTA',
+    description: 'Sensitivity/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP95635_PHYSICAL_BANDS_VS_INVERSION_WEDGE.isRigorous === false &&
       /NO QED/.test(IMP95635_PHYSICAL_BANDS_VS_INVERSION_WEDGE.verdict) &&
-      /remains SOTA/.test(IMP95635_PHYSICAL_BANDS_VS_INVERSION_WEDGE.verdict),
+      /refereed bound is changed/i.test(IMP95635_PHYSICAL_BANDS_VS_INVERSION_WEDGE.verdict),
   },
 ];
 

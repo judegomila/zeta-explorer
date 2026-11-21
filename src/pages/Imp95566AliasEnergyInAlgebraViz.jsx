@@ -124,8 +124,8 @@ export default function Imp95566AliasEnergyInAlgebraViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a numeric
         verification page tabulating the imp-95539 record (Theorem U, perm-arch
-        line 44). Not a bound. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state
-        of the art. RH open. NO QED.
+        line 44). Not a bound. No refereed bound is changed.
+         RH open. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -196,7 +196,7 @@ export default function Imp95566AliasEnergyInAlgebraViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         frozen imp-95539 record (import-light, no zeros bundle, no re-derivation of the
         Ramanujan-sum projection). Changes no bound, establishes no operator positivity,
-        no RH claim. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        no RH claim. NO QED.
       </div>
     </div>
   );

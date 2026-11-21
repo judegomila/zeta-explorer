@@ -95,8 +95,7 @@
  * (iii) closes, the inheritor floor stays 0.240015 and NO class-wide
  * constant moves: class sandwich [0.2320723, 0.24502], unconditional
  * window [0.240015, 0.24502], k <= 4 ladder floor 47/200 carried
- * UNCHANGED. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * UNCHANGED. Changes no bound; NO QED; no refereed bound is changed.
  *
  * Import-light; zero imports; all assertions deterministic, ~1.5 s.
  */
@@ -417,7 +416,7 @@ export const IMP95165_MIDDLE_CHART_PD_COVER = {
   },
   promotesBound: false,
   noQED: true,
-  sota: "Platt-Trudgian Lambda <= 0.2 remains SOTA",
+  sota: "No refereed bound is changed",
 };
 
 // --------------------------------------------------------------------------

@@ -73,8 +73,8 @@
  * This is an AUDIT / FIREWALL module. It asserts NO new bound, discharges NO
  * conditional, and changes NO Lambda value. It pins, in code, the firewall
  * predicate: for every edge E out of imp-341, NOT (E yields a rigorous Lambda
- * statement AND E does not pass through C_H). Platt-Trudgian Lambda <= 0.2 stays
- * the rigorous SOTA; this module produces nothing tighter.
+ * statement AND E does not pass through C_H). No refereed bound is changed
+ * ; this module produces nothing tighter.
  *
  * Light module: per the build-hang guidance for heavy assertion modules, source
  * facts are baked as reference literals (the consuming files transitively pull
@@ -195,8 +195,8 @@ export const ROUTE_B_FLOW_VS_LAMBDA_FIREWALL = {
     'CERTIFIED: the Route B crown jewel bounds the PARTICLE FLOW (t_c), not Lambda. Its only ' +
     'unconditional output is lim sup |t_c(N)| = 0; every conversion into a Lambda statement is ' +
     'gated on the still-open C_H / G6a Holder-1/2 shock modulus. The rigorous flow result does ' +
-    'NOT leak into a rigorous Lambda overclaim. Audit only -- changes no bound. Platt-Trudgian ' +
-    'Lambda <= 0.2 stays SOTA.',
+    'NOT leak into a rigorous Lambda overclaim. Audit only -- changes no bound. No refereed bound is changed' +
+    '.',
   citation:
     'imp-341 lambda-intercept-burgers-uniformity.js (lim sup |t_c| = 0, PCC/GUE-free); ' +
     'full-route-map-2026-06-19 (Route B "PARTICLE FLOW, not Lambda", opp #5); ' +
@@ -244,7 +244,7 @@ export const ROUTE_B_FLOW_VS_LAMBDA_FIREWALL_ASSERTIONS = [
     holds: () =>
       ROUTE_B_FLOW_VS_LAMBDA_FIREWALL.changesAnyBound === false &&
       ROUTE_B_FLOW_VS_LAMBDA_FIREWALL.ptBound === 0.2 &&
-      /stays SOTA/.test(ROUTE_B_FLOW_VS_LAMBDA_FIREWALL.verdict),
+      /refereed bound is changed/i.test(ROUTE_B_FLOW_VS_LAMBDA_FIREWALL.verdict),
   },
 ];
 

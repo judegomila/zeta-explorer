@@ -26,7 +26,7 @@
  * CONDITIONAL: other pilot windows (unpatched) on an unwritten Lemma A.6′. MEASURED: bound magnitudes, patched/original counts.
  * HEURISTIC: wrapped entries ≈ e^{−10^6}; A.6′ order of magnitude.
  * Verdict: the chain is sound at the pilot parameters once the wrap patch is used. Single reader, no independent referee, nothing sent upstream.
- *  PT Lambda <= 0.2 stands. RH open. NO QED.
+ *  No refereed bound is changed. RH open. NO QED.
  * Files: formalization/rh-verification-campaign/FLINT_AUDIT.md, flint_audit/{platt_multieval_wrapfix.patch, wrapfix_driver.c, bounds.c, cb.c,
  *  ctest.py, gam.py, gram.py, sup4.c}; tmp/r2-synth-out/w165fix/.
  * Import-free. ASSERTIONS recompute the A.3 correction factor against the counterexample ratios and the σ = 25 slack, the wrapped u-range and the
@@ -62,7 +62,7 @@ export const R2_FLINT_AUDIT = Object.freeze({
   verdict:
     'FLINT 3.6.0’s Platt/Turing chain is sound at the pilot parameters when the 18-line wrap patch is used; Platt’s Lemma A.3 as printed is false at '
     + 'σ = 3, 5 but holds with slack π/64 at σ_interp = 25. Every window Lemma B uses (7.8e12, PT hand-off, 4.95e12) is reproduced by the patched code. '
-    + 'Single-reader audit; an independent referee and the campaign-build guards are pending. PT Lambda <= 0.2 stands. RH open. NO QED.',
+    + 'Single-reader audit; an independent referee and the campaign-build guards are pending. No refereed bound is changed. RH open. NO QED.',
   nextStep: 'Campaign build with WRAP_FIX and the FLINT_AUDIT §6 guards (c_bound ×π or σ ≥ 9 and t0 ≥ 2σ, B ≥ 2h√(K−1), σ_grid ≥ 5, m_J < N/2, sign changes = zn); rerun the remaining pilot windows; independent referee of §2.1–2.2 before any spend.',
 });
 
@@ -113,7 +113,7 @@ export const R2_FLINT_AUDIT_ASSERTIONS = Object.freeze([
   },
   {
     id: 'r2-flint-honest-scope',
-    holds: () => /PT Lambda <= 0\.2 stands/.test(A.verdict) && /NO QED/.test(A.verdict) && /Single-reader/.test(A.verdict) && /no independent referee/.test(A.status),
+    holds: () => /refereed bound is changed/i.test(A.verdict) && /NO QED/.test(A.verdict) && /Single-reader/.test(A.verdict) && /no independent referee/.test(A.status),
     why: 'Audit by one reader; moves no bound.',
   },
 ]);

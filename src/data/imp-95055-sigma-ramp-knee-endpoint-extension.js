@@ -64,8 +64,7 @@
  * MEASUREMENT / FIT ONLY. Conditional-share curvature-robustness diagnostic, NOT an RH bound. The
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
- * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-33701-sigma-postpeak-ramp-curvature-inflection (the 4-pts/decade knee whose endpoint this stress-tests)
  * @see imp-33726-sigma-ramp-inflection-window-density-robustness (window-DENSITY robustness, orthogonal axis)
@@ -215,8 +214,8 @@ export const IMP95055_SIGMA_RAMP_KNEE_ENDPOINT_EXTENSION = {
     'inflection to N* ~ 3.38e9 per imp-33721 -- both orthogonal to this ladder-ENDPOINT question.) ' +
     'The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-33701 (4-pts/decade knee this endpoint-tests); imp-33726 (window-density robustness, ' +
     'orthogonal axis); imp-33721 (sub-decade inflection N* ~ 3.38e9); imp-33582 (six-decade ladder, ' +
@@ -277,14 +276,14 @@ export const IMP95055_SIGMA_RAMP_KNEE_ENDPOINT_EXTENSION_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, PT SOTA.
+    // Honesty gate: measurement/fit only, far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed.
     id: 'imp95055-honesty-gate-no-qed',
-    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, PT stays SOTA',
+    description: 'Measurement only: far-tail exponent = 1/2 (imp-3463), no QED, no refereed bound is changed',
     holds: () =>
       IMP95055_SIGMA_RAMP_KNEE_ENDPOINT_EXTENSION.isRigorous === false &&
       IMP95055_SIGMA_RAMP_KNEE_ENDPOINT_EXTENSION.farTailExponent === 0.5 &&
       /NO QED/.test(IMP95055_SIGMA_RAMP_KNEE_ENDPOINT_EXTENSION.verdict) &&
-      /remains SOTA/.test(IMP95055_SIGMA_RAMP_KNEE_ENDPOINT_EXTENSION.verdict),
+      /refereed bound is changed/i.test(IMP95055_SIGMA_RAMP_KNEE_ENDPOINT_EXTENSION.verdict),
   },
 ];
 

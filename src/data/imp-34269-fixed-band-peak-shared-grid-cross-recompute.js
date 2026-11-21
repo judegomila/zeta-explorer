@@ -63,8 +63,7 @@
  * neither strengthens nor overturns them, it only certifies they measure the same thing). The component model
  * is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the OLS surrogate is
  * descriptive, not derived; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes
- * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-34196-fixed-band-peak-increment-minimum-subwindow-refine (the 0.25-grid refinement cross-checked)
  * @see imp-34109-fixed-band-peak-amplitude-saturation-fit (the 0.5-grid sweep cross-checked)
@@ -288,7 +287,7 @@ export const IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE = {
     'the imp-34109 / imp-34196 findings are untouched. The OLS surrogate is descriptive, not derived; the ' +
     'component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb ' +
     'GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 ' +
-    'K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34196 (the 0.25-grid refinement whose shared-kEnd reuse this cross-recomputes); imp-34109 (the ' +
     '0.5-grid sweep cross-checked); imp-34169 (extends the same peak to the resid_exp pole); imp-34268 ' +
@@ -335,9 +334,9 @@ export const IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE_ASSERTIONS = [
   },
   {
     // Honesty gate: verification/cross-recompute only, both modules match & untouched, isRigorous false,
-    // no bound change, no QED, PT SOTA, C_mb GUE-conditional / imp-3066 K_a>=0 untouched.
+    // no bound change, no QED, no refereed bound is changed, C_mb GUE-conditional / imp-3066 K_a>=0 untouched.
     id: 'imp34269-honesty-gate-no-qed',
-    description: 'Verification only: both modules match, isRigorous false, neither overturned, no QED, PT SOTA, C_mb / imp-3066 K_a>=0 untouched',
+    description: 'Verification only: both modules match, isRigorous false, neither overturned, no QED, no refereed bound is changed, C_mb / imp-3066 K_a>=0 untouched',
     holds: () =>
       IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE.allMatch196 === true &&
       IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE.allMatch109 === true &&
@@ -345,7 +344,7 @@ export const IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE_ASSERTIONS = [
       /NOT a rigorous asymptotic/.test(IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE.verdict) &&
       /strengthened nor overturned/.test(IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE.verdict) &&
       /NO QED/.test(IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE.verdict) &&
-      /remains SOTA/.test(IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE.verdict) &&
+      /refereed bound is changed/i.test(IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE.verdict) &&
       /imp-3066 K_a >= 0 untouched/i.test(IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE.verdict) &&
       /C_mb GUE-conditional per imp-486 is\s+UNTOUCHED/i.test(IMP34269_FIXED_BAND_PEAK_SHARED_GRID_CROSS_RECOMPUTE.verdict),
   },

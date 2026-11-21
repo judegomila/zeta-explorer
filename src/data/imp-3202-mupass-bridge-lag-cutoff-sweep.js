@@ -61,8 +61,8 @@
  *   two-point reading that the mass is captured by lag &lt;= ~0.40. Beyond that
  *   support, widening the cutoff no longer improves the capture. This sharpens
  *   "where the K_a sign mass must be placed" from two points to a continuous
- *   curve plus a knee. RH-equivalent residual untouched; Platt-Trudgian
- *   Lambda &lt;= 0.2 stays SOTA. No reduction, no QED.
+ *   curve plus a knee. RH-equivalent residual untouched; no refereed bound is changed
+ *   . No reduction, no QED.
  *
  *   @see section26-mupass-operator-verdict-2026-06-30.js (the verdict whose two lag-cutoff points this sweeps)
  *   @see imp-3197-mupass-bridge-sign-phi-only.js (sibling: the lag-stationary surrogate machinery reused here)
@@ -338,7 +338,7 @@ export const IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP = Object.freeze({
     necessaryNotSufficient:
       'Localizing the bridge lag support is a cutoff-localization diagnostic; it does NOT construct the missing ' +
       'operator-norm magnitude or attempt the K_a >= 0 positivity, which remains the RH-equivalent obstruction.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -378,7 +378,7 @@ export const IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP_ASSERTIONS = [
   {
     id: 'imp3202-honest-no-qed-no-scalar-reproduction',
     why: 'Mandatory honesty: ASSESSMENT only -- not a proof, RH-equivalent, does NOT reproduce the verdict ' +
-         '0.876 / 0.711 scalar ||R|| (normalization not in-repo), positivity not attempted, PT 0.2 stays SOTA.',
+         '0.876 / 0.711 scalar ||R|| (normalization not in-repo), positivity not attempted, no refereed bound is changed.',
     holds: () => {
       const c = IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP.honestCaveat;
       return (
@@ -387,7 +387,7 @@ export const IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP_ASSERTIONS = [
         c.rhEquivalent === true &&
         c.reproducesVerdictScalarValues === false &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

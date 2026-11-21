@@ -13,8 +13,7 @@
  * hStar via the second-order bound
  *   mu_inf - mu_max(P_m) <= mu_inf d_m^2 / (1 - d_m^2),
  *   d_m = dist(hStar, E_(P_m)).
- * Model family only; changes no Lambda bound; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * Model family only; changes no Lambda bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95501/95506/95507/95508 normalization). Twin lattice
  * Q = { 2^k, 1.1 * 2^k : k >= 0 } (rho = 2, r = 1.1), finite sections
@@ -452,7 +451,7 @@ export const IMP95509_MEANTIME_TRACE_CLASS_ATTAINMENT = {
     "trace cap is finiteness-only (11 orders above the measured " +
     "trace, intrinsic to the RZ-TWIN coefficient currency); the " +
     "bracket (5.09361535799, 84/11] is unchanged; changes no bound; " +
-    "NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA",
+    "NO QED; no refereed bound is changed",
   promotesBound: false,
   isRigorous: true,
   rigorScope:
@@ -481,7 +480,7 @@ export const IMP95509_MEANTIME_TRACE_CLASS_ATTAINMENT = {
     "mu_inf stays OPEN (bracket unchanged). MODEL FAMILY ONLY: no " +
     "paper-packet constant is touched and the finite-N Lambda beat did " +
     "NOT become rigorous. Changes no bound; NO QED on any RH " +
-    "statement; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "statement; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -653,8 +652,8 @@ export const IMP95509_ASSERTIONS = [
     description:
       "the record scopes to the model family, names the partially " +
       "executed (mu-exact), the re-priced (mu-rate) and the NEW " +
-      "(mu-eig-decay) residual, promotes no bound, NO QED, PT stays " +
-      "SOTA",
+      "(mu-eig-decay) residual, promotes no bound, NO QED, no refereed bound is changed" +
+      "",
     holds: () =>
       IMP95509_MEANTIME_TRACE_CLASS_ATTAINMENT.promotesBound === false &&
       /IN PART/.test(IMP95509_MEANTIME_TRACE_CLASS_ATTAINMENT.residualExecuted) &&
@@ -667,7 +666,7 @@ export const IMP95509_ASSERTIONS = [
       /MODEL FAMILY/.test(IMP95509_MEANTIME_TRACE_CLASS_ATTAINMENT.verdict) &&
       /stays OPEN/.test(IMP95509_MEANTIME_TRACE_CLASS_ATTAINMENT.verdict) &&
       /NO QED/.test(IMP95509_MEANTIME_TRACE_CLASS_ATTAINMENT.verdict) &&
-      /remains SOTA/.test(IMP95509_MEANTIME_TRACE_CLASS_ATTAINMENT.verdict) &&
+      /refereed bound is changed/i.test(IMP95509_MEANTIME_TRACE_CLASS_ATTAINMENT.verdict) &&
       /did NOT become rigorous/.test(
         IMP95509_MEANTIME_TRACE_CLASS_ATTAINMENT.verdict
       ),

@@ -29,7 +29,7 @@
  *
  *   Ticket: imp-36115 (numerical, medium). Audit-close only; adds no new measurement; changes no
  *   bound; instantiates no directed-rounding interval; verifies no inequality; C_mb GUE-conditional
- *   (imp-486) untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   (imp-486) untouched; NO QED; no refereed bound is changed.
  *
  * @see imp-36096-w1-accumulator-joint-recovery-contour (the delivered joint (alpha,beta) recovery contour this ticket duplicates)
  * @see imp-36061-w1-accumulator-recovery-detuning-width (the two single-axis edges imp-36115 asked to extend to the joint plane)
@@ -84,7 +84,7 @@ export const IMP36115_JOINT_2D_RECOVERY_LOCUS_DUPLICATE_AUDIT = Object.freeze({
     changesAnyBound: false,
     reranNumerics: false,
     scope: 'audit-close-as-duplicate; imports imp-36096 verbatim; instantiates no directed-rounding interval; verifies no inequality',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 
   verdict:
@@ -104,7 +104,7 @@ export const IMP36115_JOINT_2D_RECOVERY_LOCUS_DUPLICATE_AUDIT = Object.freeze({
     '). No re-derivation is added here; the fixed-N joint locus is NOT re-run. The one uncovered angle -- the ' +
     'N-stability of this joint basin -- is a separate follow-up ticket. Audit-close only; changes no bound; ' +
     'instantiates no directed-rounding interval; verifies no inequality; C_mb GUE-conditional (imp-486) untouched; ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED; no refereed bound is changed.',
 });
 
 export const IMP36115_JOINT_2D_RECOVERY_LOCUS_DUPLICATE_AUDIT_ASSERTIONS = [
@@ -151,7 +151,7 @@ export const IMP36115_JOINT_2D_RECOVERY_LOCUS_DUPLICATE_AUDIT_ASSERTIONS = [
       IMP36115_JOINT_2D_RECOVERY_LOCUS_DUPLICATE_AUDIT.honestCaveat.isReductionBelowRH === false &&
       IMP36115_JOINT_2D_RECOVERY_LOCUS_DUPLICATE_AUDIT.honestCaveat.changesAnyBound === false &&
       IMP36115_JOINT_2D_RECOVERY_LOCUS_DUPLICATE_AUDIT.honestCaveat.reranNumerics === false &&
-      /Platt-Trudgian/.test(IMP36115_JOINT_2D_RECOVERY_LOCUS_DUPLICATE_AUDIT.honestCaveat.sota),
+      /Platt-Trudgian|refereed bound is changed/.test(IMP36115_JOINT_2D_RECOVERY_LOCUS_DUPLICATE_AUDIT.honestCaveat.sota),
   },
   {
     id: 'imp36115-verdict-duplicate-no-qed',

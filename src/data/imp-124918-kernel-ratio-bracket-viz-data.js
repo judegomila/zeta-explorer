@@ -65,7 +65,7 @@ export const IMP124918_SUMMARY = Object.freeze({
     'Presentation only: every ratio is reused verbatim from the imp-124776/imp-97843 sibling leaves '
     + '(themselves reused from imp-97823, a measurement, not a derivation); the merge and bracket_width column '
     + 'are presentational only, no new computation. Changes no bound; establishes no operator positivity; '
-    + 'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    + 'imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.',
 });
 
 // ---------------------------------------------------------------------------

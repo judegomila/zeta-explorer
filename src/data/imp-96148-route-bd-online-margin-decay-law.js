@@ -3,7 +3,7 @@
  * decay law of the on-line signed-force feasibility margin rho(N,T) in T and thereby
  * LOCATE the precise obstruction to uniformity. Import-light (literals baked, no zeros
  * bundle); holds() assertions; self-executing. Derivation/measurement only.
- * NOT a bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * NOT a bound; no refereed bound is changed; RH open; NO QED.
  *
  * ORIGIN. rh-novel-routes-sweep-synthesis-2026-09-23.js opening.nextTests[2] (Route B/D
  * handoff). imp-96020-lp-signed-force-feasibility.js already SET UP and MEASURED the LP:
@@ -46,7 +46,7 @@
  * statement, inaccessible to this on-line construction. This module upgrades imp-96020
  * prose sub-gap to a QUANTITATIVE statement: the log-linear crossing at T ~ 9e4 is an
  * artifact of extrapolating a decelerating decay with the wrong (constant-slope) law.
- * Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED.
+ * Changes no bound; no refereed bound is changed; RH open; NO QED.
  */
 
 export const ROUTE_BD_ONLINE_MARGIN_DECAY = Object.freeze({
@@ -58,7 +58,7 @@ export const ROUTE_BD_ONLINE_MARGIN_DECAY = Object.freeze({
     + 'positive floor c~0.143 (reciprocal-log fit R2=0.991, decelerating slope), it does NOT cross zero; '
     + 'the naive log-linear crossing at T~9e4 is a constant-slope extrapolation artifact. The precise '
     + 'uniform-in-T obstruction is NOT an on-line margin-crossing -- it lives OFF the line (Weil strength). '
-    + 'Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED',
+    + 'Changes no bound; no refereed bound is changed; RH open; NO QED',
 
   // Worst-support (N=32) margin column from imp-96020.grid, baked as literals.
   N: 32,
@@ -107,7 +107,7 @@ export const ROUTE_BD_ONLINE_MARGIN_DECAY = Object.freeze({
     + 'decelerating per-segment slope confirms it, so the on-line signed-force Gram-law surrogate does NOT '
     + 'degrade to infeasibility as T grows -- it flattens to a strictly positive margin. The precise '
     + 'uniform-in-T obstruction is therefore relocated off the line (Weil-strength), upgrading the imp-96020 '
-    + 'prose sub-gap to a quantitative statement. Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED.',
+    + 'prose sub-gap to a quantitative statement. Changes no bound; no refereed bound is changed; RH open; NO QED.',
 
   subGap: {
     name: 'OFF-line uniform LP (Weil-positivity strength) remains the binding wall',
@@ -175,7 +175,7 @@ export const ROUTE_BD_ONLINE_MARGIN_DECAY_ASSERTIONS = Object.freeze([
     name: 'honest status: derivation only, no bound change, no QED',
     holds: () => /DERIVED/.test(D.status)
       && /Changes no bound/.test(D.status)
-      && /PT Lambda<=0.2 SOTA/.test(D.status)
+      && /refereed bound is changed/i.test(D.status)
       && /RH open/.test(D.status)
       && /NO QED/.test(D.status),
   },

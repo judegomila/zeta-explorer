@@ -24,7 +24,7 @@
  *   STATUS: glossary headword restating already-committed imp-97133 findings, not a new estimate.
  *   The bound is 2^omega(b)-modulus-dependent (triangle inequality, no mu-cancellation) and vacuous
  *   on a finite set of small highly-composite moduli (e.g. b=210); a fully uniform O(1/b) bound
- *   stays an open residual. Moves no bound; T ~ 2.594e7 anchor unchanged; PT Lambda <= 0.2 SOTA;
+ *   stays an open residual. Moves no bound; T ~ 2.594e7 anchor unchanged; no refereed bound is changed;
  *   RH open. NO QED.
  *
  * @see imp-97133-route-m-arith-first-moment-explicit-remainder.js (source: the theorems + corollary)
@@ -32,7 +32,7 @@
  * @see imp-97122-route-m-arith-first-moment-convergence-rate.js (measured O(log b / b) rate)
  *
  * Ticket: imp-97179 (content, low, sonnet-4-6). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The explicit remainder headword, baked verbatim (no re-import).
@@ -62,7 +62,7 @@ const MOEBIUS_STIRLING_REMAINDER_HEADWORD = Object.freeze({
     '|E0|/bound ~ 0.20 on the tightest prime case, |E1|/bound ~ 0.022) and the imp-97096 sub-gap ' +
     'closure; no new numerical computation. Establishes no uniform (2^omega-free) O(1/b) remainder -- ' +
     'that stays the named residual of imp-97133; moves no bound; T ~ 2.594e7 anchor unchanged; ' +
-    'PT Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    'no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97179_MOEBIUS_STIRLING_REMAINDER_GLOSSARY_HEADWORD = Object.freeze({
@@ -80,7 +80,7 @@ export const IMP97179_MOEBIUS_STIRLING_REMAINDER_GLOSSARY_HEADWORD = Object.free
     'theorems: |E0(b)| <= 2^omega(b)(log b + 2) and |E1(b)| <= 2^omega(b) b (log b + 2), yielding ' +
     'F_arith(b) >= (kappa_arith - eps(b)) phi(b) b with eps(b) = (1/2) 2^omega(b)(log b + 3)/phi(b) -> 0. ' +
     'Establishes nothing new; moves no bound; interval-rigorous reach unchanged; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-97133 (the explicit remainder theorems, corollary, and honest uniform-vs-modulus-dependent ' +
     'assessment); imp-97096 (the sub-gap this closes and the exact kappa_arith leading coefficient).',
@@ -105,11 +105,11 @@ export const IMP97179_MOEBIUS_STIRLING_REMAINDER_GLOSSARY_HEADWORD_ASSERTIONS = 
   },
   {
     id: 'imp97179-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP97179_MOEBIUS_STIRLING_REMAINDER_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97179_MOEBIUS_STIRLING_REMAINDER_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97179_MOEBIUS_STIRLING_REMAINDER_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97179_MOEBIUS_STIRLING_REMAINDER_GLOSSARY_HEADWORD.verdict) &&
       IMP97179_MOEBIUS_STIRLING_REMAINDER_GLOSSARY_HEADWORD.glosses === 'imp-97133',
   },
 ];

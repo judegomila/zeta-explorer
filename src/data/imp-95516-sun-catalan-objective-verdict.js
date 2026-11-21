@@ -10,7 +10,7 @@
  * proof; the ORIGINAL label was correct, commit 59a189f30 was the error. CAVEAT:
  * Sun's §9 is flawed (wrong-sign B²), so the ρ-optimization hardens a broken ledger —
  * see raymond-lambda-note.js (RETRACTED) + project_catalan_signed_ladder memory.
- * Catalan G irrationality OPEN; PT Λ≤0.2 SOTA; RH open.
+ * Catalan G irrationality OPEN; no refereed bound is changed; RH open.
  *
  * @fileoverview imp-95516 — OBJECTIVE verdict [see correction above]: settle
  * Raymond's Λ<0.149396 preprint (Zenodo 22867547) and, if sound, harden its margin.
@@ -46,7 +46,7 @@
  * independently certified here. So the preprint is neither confirmed nor refuted: the
  * §6–§9 asymptotic ledger is verified and the margin is hardened IF the core is sound, but
  * the core is not settled. Catalan's constant G irrationality remains OPEN, and Sun's
- * single-author preprint is unrefereed. NO Λ movement; PT Λ≤0.2 stands; NO QED.
+ * single-author preprint is unrefereed. NO Λ movement; no refereed bound is changed; NO QED.
  *
  * NO heavy imports. Verified figures baked as literals (consistent with sun-catalan-note.js).
  */
@@ -55,7 +55,7 @@ export const SUN_CATALAN_OBJECTIVE_VERDICT = Object.freeze({
   id: 'imp-95516-sun-catalan-objective-verdict',
   title: 'Verdict on the imp-95516 objective: verify/refute and harden Sun Catalan preprint',
   status: 'PARTIAL — §6–§9 ledger VERIFIED and margin HARDENED ~4×; §2–§5 core UNCERTIFIED; '
-    + 'proof NOT settled; G irrationality OPEN; PT Λ≤0.2 stands; NO QED',
+    + 'proof NOT settled; G irrationality OPEN; no refereed bound is changed; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   deliveredBy: 'sun-catalan-note.js (+ research-inputs/sun-catalan-rho-optimization-note.md)',
 
@@ -135,10 +135,10 @@ export const SUN_CATALAN_OBJECTIVE_VERDICT_ASSERTIONS = Object.freeze([
     ) < 0.05,
   },
   {
-    name: 'honest: proof NOT settled, G irrationality OPEN, PT Λ≤0.2 stands',
+    name: 'honest: proof NOT settled, G irrationality OPEN, no refereed bound is changed',
     holds: () => /proof NOT settled/.test(SUN_CATALAN_OBJECTIVE_VERDICT.status)
       && /G irrationality OPEN/.test(SUN_CATALAN_OBJECTIVE_VERDICT.status)
-      && /PT Λ≤0.2 stands/.test(SUN_CATALAN_OBJECTIVE_VERDICT.status),
+      && /refereed bound is changed/i.test(SUN_CATALAN_OBJECTIVE_VERDICT.status),
   },
   {
     name: 'named sub-gap = §2–§5 core certification',

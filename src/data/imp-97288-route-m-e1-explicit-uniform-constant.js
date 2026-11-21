@@ -7,8 +7,8 @@
  * (CK(b) = O(b) MEASURED, not certified). This leaf CLOSES the structure of that residual: it produces the
  * EXACT closed form for the polynomial/log part CK(b), gives fully explicit uniform bounds for THREE of its
  * four constituents, and reduces the FOURTH to a single named Mertens-product estimate -- the SAME O(1)-tail
- * obstruction class as the E0 residual (imp-97202 residual 2 / imp-97289). No bound on Lambda moves; PT
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * obstruction class as the E0 residual (imp-97202 residual 2 / imp-97289). No bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  *   Notation as imp-97133 / imp-97202 / imp-97224 / imp-97265: E1(b) = L1(b) - phi(b) b((1/2) log b - 1/4),
  *   L1(b) = Sum_{a in R_b} a log a, R_b = {a : 1 <= a <= b-1, (a,b)=1}, e = b/d ranges over divisors,
@@ -88,8 +88,8 @@
  * Qlog. RESIDUAL (precise obstruction): the single Mertens-product bound prod(1-1/p) Sum (log p)/(p-1) <= C_Q
  * that would make the E1 uniform constant fully unconditional -- the same O(1)-tail residual class as the E0
  * Stirling tail (imp-97289). The sharp constant 1/4 stays the separate imp-97265 close-factor-family sub-gap.
- * kappa_arith unchanged; the cotangent first moment (imp-97097) stays the separate open leaf; PT Lambda <=
- * 0.2 SOTA; RH open; NO QED.
+ * kappa_arith unchanged; the cotangent first moment (imp-97097) stays the separate open leaf; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97224-route-m-arith-first-moment-uniform-E1.js (E1 = CK + E1_tail; tail (zeta(2)-1)/720*b; CK constant left unpinned)
  * @see imp-97265-route-m-arith-first-moment-quarter-ceiling-proof.js (exact per-divisor C_d; sharp 1/4 close-factor sub-gap)
@@ -209,8 +209,8 @@ export const IMP97288_VERDICT = Object.freeze({
     'the SAME O(1) log-cancellation class as the E0 Stirling tail (imp-97289). Conditional on that bound, ' +
     '|E1(b)| <= 1.9261 b for all b >= 2 (explicit, loose vs the sharp 1/4); unconditionally |E1(b)| = ' +
     'O(b log b) with NO 2^omega(b). The sharp constant 1/4 stays the separate imp-97265 close-factor sub-gap; ' +
-    'kappa_arith unchanged; the cotangent first moment (imp-97097) stays open; no bound on Lambda moves; PT ' +
-    'Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'kappa_arith unchanged; the cotangent first moment (imp-97097) stays open; no bound on Lambda moves; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97288_SUBGAP = Object.freeze({
@@ -229,7 +229,7 @@ export const IMP97288_SUBGAP = Object.freeze({
 });
 
 export const IMP97288_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Honest partial on the E1 explicit uniform constant: ' +
+  'RH open; no refereed bound is changed; NO QED. Honest partial on the E1 explicit uniform constant: ' +
   'DERIVES the exact closed form CK(b) = (b/12) Qlog - (b/4) Q0 + b logA (Q0 - mu) + C_sum (E1 = CK + ' +
   'E1_tail, |E1_tail| <= (zeta(2)-1)/720 b), with explicit uniform bounds for Q0, mu and C_sum ' +
   '(K_C = 1.13088). The one open piece Qlog reduces exactly to the Mertens product prod(1-1/p) Sum ' +
@@ -317,7 +317,7 @@ const IMP97288_ASSERTIONS = [
       /qlog-mertens-residual/.test(IMP97288_SUBGAP.id) &&
       /imp-97289/.test(IMP97288_SUBGAP.reducesTo) &&
       /NO QED/.test(IMP97288_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97288_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97288_HONEST_BANNER) &&
       /RH open/.test(IMP97288_HONEST_BANNER),
     why: 'honest partial -- derives the exact CK closed form and explicit bounds for three constituents, names the single Qlog Mertens obstruction (same class as imp-97289), leaves the fully-unconditional no-log constant and the sharp 1/4 open; no bound moved, no rigorous ceiling posted, no QED.',
   },

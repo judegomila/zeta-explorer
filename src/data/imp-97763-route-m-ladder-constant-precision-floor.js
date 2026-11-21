@@ -36,7 +36,7 @@
  * the dps=40 constants were already correct to ~40.6 significant figures (dps=50 -> ~51), some ~30 figs
  * beyond the ~10 figures stored in the residual ladder. The imp-97742 ~10.46-sig-fig minimum agreement
  * is confirmed as a STORAGE limit, not a constant-precision limit. MCM stays refuted from omega=11;
- * b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA;
+ * b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed;
  * RH open; NO QED.
  *
  * @see imp-97742-route-m-ladder-dps40-crosscheck.js (the dps=40 recompute this bounds)
@@ -98,12 +98,12 @@ export const IMP97763_VERDICT = Object.freeze({
     'residual ladder; even after the gap-minus-law cancellation (~6 digits lost) the usable residual ' +
     'precision is ~34.6 figs at dps=40. So the imp-97742 minimum agreement ~10.46 sig figs is a STORAGE ' +
     'limit (the ~10-digit baked literals), NOT a constant-precision limit. MCM stays refuted from ' +
-    'omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; PT Lambda <= 0.2 ' +
-    'SOTA; RH open; NO QED.',
+    'omega=11; b/4 ceiling untouched; kappa_arith unchanged; no bound on Lambda moves; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 export const IMP97763_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Re-deriving the Route M kernel constants lnA=log(glaisher) ' +
+  'RH open; no refereed bound is changed; NO QED. Re-deriving the Route M kernel constants lnA=log(glaisher) ' +
   'and B_inf=lnA+gamma/12 at dps=50 shows the dps=40 values were already correct to ~40.6 significant figures ' +
   '(dps=50 -> ~51), some ~30 figures beyond the ~10 stored in the imp-97722/imp-97742 residual ladder. The ' +
   'imp-97742 ~10.46-sig-fig minimum agreement is thus a STORAGE limit, not a constant-precision limit. ' +
@@ -161,7 +161,7 @@ const IMP97763_ASSERTIONS = [
       IMP97763_VERDICT.anyBoundMoved === false &&
       IMP97763_VERDICT.qed === false &&
       /NO QED/.test(IMP97763_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97763_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97763_HONEST_BANNER) &&
       /RH open/.test(IMP97763_HONEST_BANNER),
     why: 'cross-validation only -- storage limit confirmed; MCM refuted from omega=11; no bound moved, no QED.',
   },

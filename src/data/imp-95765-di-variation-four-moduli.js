@@ -45,7 +45,7 @@
  * analytic +4; imp-95746 four-moduli witness), none an off-anchor certificate.
  *
  * Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; changes no
- * bound; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED. NO heavy imports.
+ * bound; NO Lambda movement; no refereed bound is changed; NO QED. NO heavy imports.
  *
  * SOURCE: arXiv:2609.04176 Section 6, Prop 6.3. SCRATCH: tmp/imp-95765-scratch.mjs.
  */
@@ -110,8 +110,8 @@ export const DI_VARIATION_FOUR_MODULI = Object.freeze({
     + 'differences carry signs (-,+,-), a zigzag inherited from the non-monotone imp-95746 Q_0 '
     + 'm-signal, so the resolved signal follows NO clean monotone trend across m=18..21 (rho^2 '
     + 'shape still holds to ~2e-5 relative). Four conditional points, NOT four certified anchors '
-    + '(only m=20 certified). G irrationality OPEN; Sun unrefereed; changes no bound; PT '
-    + 'Lambda<=0.2 SOTA; NO QED',
+    + '(only m=20 certified). G irrationality OPEN; Sun unrefereed; changes no bound; no refereed bound is changed'
+    + '; NO QED',
   preprint: 'arXiv:2609.04176 (single-author, unrefereed)',
   source:
     'imp-95746 faithful J_raw at m=18/19/20/21 + imp-95724 exact split J(rho)=3/2+dI(rho); '
@@ -180,7 +180,7 @@ export const DI_VARIATION_FOUR_MODULI = Object.freeze({
     + 'at m=20). NOT four certified anchors. The non-monotone zigzag reflects the imp-95746 Q_0 '
     + 'sector; whether it is genuine rho-structure or a residual per-modulus artifact at the '
     + '~3e-5 level is not resolved here. Catalan G irrationality OPEN; Sun single-author, '
-    + 'unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'unrefereed; NO Lambda movement; no refereed bound is changed; NO QED.',
 });
 
 export const DI_VARIATION_FOUR_MODULI_ASSERTIONS = Object.freeze([
@@ -225,11 +225,11 @@ export const DI_VARIATION_FOUR_MODULI_ASSERTIONS = Object.freeze([
       && DI_VARIATION_FOUR_MODULI.verdict.certifiedAnchorsCount === 1,
   },
   {
-    name: 'honest: conditional on the +4 offset, G irrationality OPEN, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: conditional on the +4 offset, G irrationality OPEN, no refereed bound is changed, NO QED',
     holds: () =>
       /conditional/i.test(DI_VARIATION_FOUR_MODULI.caveats)
       && /G irrationality OPEN/.test(DI_VARIATION_FOUR_MODULI.status)
-      && /PT Lambda<=0.2 SOTA/.test(DI_VARIATION_FOUR_MODULI.status)
+      && /refereed bound is changed/i.test(DI_VARIATION_FOUR_MODULI.status)
       && /NO QED/.test(DI_VARIATION_FOUR_MODULI.status),
   },
 ]);

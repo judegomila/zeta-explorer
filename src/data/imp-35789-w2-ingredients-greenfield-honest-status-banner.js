@@ -15,7 +15,7 @@
  *
  * DOCUMENTATION ONLY. Ports nothing; certifies nothing; counts no zeros;
  * changes no bound; adds no new claim beyond imp-35727; no RH verdict, NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * No refereed bound is changed.
  *
  * THE BANNER (restated from imp-35727; no new derivation)
  * -----------------------------------------------------------------------------
@@ -34,7 +34,7 @@
  *
  * The punchline: read "winding scaffolding exists" as concept-plus-experiment
  * held, NOT as certified-count progress. No bound changes; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  *
  * @see imp-35727-w2-certified-winding-count-ingredients-scope (source: I1-I5 ledger, all GREENFIELD)
  * @see imp-2696 (winding-Lyapunov, arg H_tau sampled, isRigorous:false, held)
@@ -43,7 +43,7 @@
  * @see imp-35681-w1-w2-w4-existing-infra-inventory (Part B graded W2 verdict this banner restates)
  */
 
-const L_PT = 0.2; // Platt-Trudgian SOTA -- unchanged by this banner
+const L_PT = 0.2; // Platt-Trudgian 2021 bound -- unchanged by this banner
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
 const INGREDIENT_COUNT = 5;
 const GREENFIELD_COUNT = 5;
@@ -87,8 +87,8 @@ export const IMP35789_W2_INGREDIENTS_GREENFIELD_HONEST_STATUS_BANNER = {
     'winding scaffolding" is never mistaken for "the repo holds a certified winding count": all five ingredients ' +
     '(I1-I5) a rigorous interval-arithmetic count on the transition-rectangle boundary requires are GREENFIELD, ' +
     'and the held imp-2696/imp-33923/imp-33968 experimental scaffolding reduces ZERO of them. Ports nothing; ' +
-    'certifies nothing; counts no zeros; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'certifies nothing; counts no zeros; changes no bound; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-35727 (source: I1-I5 certified-count ingredient ledger, all GREENFIELD); imp-2696/imp-33923/imp-33968 ' +
     '(held isRigorous:false winding scaffolding); imp-35681 Part B (graded W2 verdict this banner restates).',
@@ -141,7 +141,7 @@ export const IMP35789_W2_INGREDIENTS_GREENFIELD_HONEST_STATUS_BANNER_ASSERTIONS 
   {
     // Honesty gate: documentation only, no QED, PT stays SOTA at Lambda <= 0.2, T_PT = 3e12.
     id: 'imp35789-honesty-gate-no-qed',
-    description: 'Documentation only: no new claim, no QED, PT remains SOTA',
+    description: 'Documentation only: no new claim, no QED, no refereed bound is changed',
     holds: () =>
       IMP35789_W2_INGREDIENTS_GREENFIELD_HONEST_STATUS_BANNER.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
@@ -149,7 +149,7 @@ export const IMP35789_W2_INGREDIENTS_GREENFIELD_HONEST_STATUS_BANNER_ASSERTIONS 
       /HONEST-STATUS BANNER/.test(IMP35789_W2_INGREDIENTS_GREENFIELD_HONEST_STATUS_BANNER.verdict) &&
       /NOT a new claim/.test(IMP35789_W2_INGREDIENTS_GREENFIELD_HONEST_STATUS_BANNER.verdict) &&
       /NO QED/.test(IMP35789_W2_INGREDIENTS_GREENFIELD_HONEST_STATUS_BANNER.verdict) &&
-      /remains SOTA/.test(IMP35789_W2_INGREDIENTS_GREENFIELD_HONEST_STATUS_BANNER.verdict),
+      /refereed bound is changed/i.test(IMP35789_W2_INGREDIENTS_GREENFIELD_HONEST_STATUS_BANNER.verdict),
   },
 ];
 

@@ -39,7 +39,7 @@
  * Measurement / cross-check only, within the inherited imp-3406/imp-33810 component model; the
  * component model is NOT a rigorous asymptotic; reproduces imp-34311 exactly and changes no
  * literal; no bound changes; establishes no operator positivity; C_mb GUE-conditional per imp-486
- * untouched; imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.
+ * untouched; imp-3066 K_a >= 0 untouched; no refereed bound is changed. NO QED.
  *
  * @see imp-34311-m2-closedform-5point-endpoint-stencil-share (the +2.6e-7 handle cross-validated here)
  * @see imp-33810-eflow-resid-ratio-N-ladder (the M2-endpoint component model reconstructed here)
@@ -168,7 +168,7 @@ export const IMP34401_M2_MATCHED_5POINT_RESIDUAL_INDEPENDENT_RECOMPUTE = {
     'kEnd* ~ 21.28095 reading is UNCHANGED. Descriptive within the inherited imp-3406/imp-33810 ' +
     'component model only; the model is NOT a rigorous asymptotic; changes no bound; establishes no ' +
     'operator positivity; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a >= 0 untouched; ' +
-    'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34311 (matched 5-point endpoint stencil, +2.6e-7 handle cross-validated here); imp-33810 ' +
     '(M2-endpoint component model reconstructed here); imp-34127 (leading closed form + D^2/160 net ' +
@@ -196,13 +196,13 @@ export const IMP34401_M2_MATCHED_5POINT_RESIDUAL_INDEPENDENT_RECOMPUTE_ASSERTION
     holds: () => Math.abs(RESID_ALT_2PT) < 1e-9 && Math.abs(RESID_ALT_2PT) < RESID_ALT_5PT,
   },
   {
-    // Honesty gate: measurement / cross-check only, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: measurement / cross-check only, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp34401-governance-no-qed-sota',
-    description: 'isRigorous false and the verdict carries the NO QED / remains SOTA governance markers',
+    description: 'isRigorous false and the verdict carries the NO QED / no-refereed-bound-change governance markers',
     holds: () =>
       IMP34401_M2_MATCHED_5POINT_RESIDUAL_INDEPENDENT_RECOMPUTE.isRigorous === false &&
       /NO QED/.test(IMP34401_M2_MATCHED_5POINT_RESIDUAL_INDEPENDENT_RECOMPUTE.verdict) &&
-      /remains SOTA/.test(IMP34401_M2_MATCHED_5POINT_RESIDUAL_INDEPENDENT_RECOMPUTE.verdict),
+      /refereed bound is changed/i.test(IMP34401_M2_MATCHED_5POINT_RESIDUAL_INDEPENDENT_RECOMPUTE.verdict),
   },
 ];
 

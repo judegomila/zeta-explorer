@@ -37,7 +37,7 @@
  * @see lambda-rh-height-mapping.js (imp-327: effectiveHeightForN Newton inverse, N_TO_T_STAR_TABLE)
  *
  * Ticket: imp-97788 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
- * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+ * NO QED; no refereed bound is changed.
  */
 
 // The overflow-floor headword, baked verbatim (no re-import).
@@ -65,7 +65,7 @@ const EFFECTIVEHEIGHTFORN_OVERFLOW_FLOOR_HEADWORD = Object.freeze({
     'Re-cited from the imp-97762 consumer audit ' +
     '(src/data/imp-97762-fartail-crossing-height-mapping-domain-audit.js) and the imp-97744 ' +
     'crossing pins (src/data/imp-97744-fartail-diagnostic-crossing-heights.js). Naming / glossary ' +
-    'headword only; supplies no new bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'headword only; supplies no new bound; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97788_EFFECTIVEHEIGHTFORN_OVERFLOW_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
@@ -83,8 +83,8 @@ export const IMP97788_EFFECTIVEHEIGHTFORN_OVERFLOW_FLOOR_GLOSSARY_HEADWORD = Obj
     'GLOSSARY HEADWORD ONLY (documentation, not a proof). Names the imp-97762 double-precision ' +
     'overflow floor of effectiveHeightForN (L > ~709.7827, log10 N > ~308.2547, t > ~0.99859) and ' +
     'the imp-97744 log10-space workaround (mantissa x 10^exponent) that crosses it without ever ' +
-    'materializing an overflowing double. No bound moved; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA.',
+    'materializing an overflowing double. No bound moved; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-97762 (the consumer audit measuring the overflow floor and sentinel guard); imp-97744 ' +
     '(the log10-space crossing pins that cross it).',
@@ -110,11 +110,11 @@ export const IMP97788_EFFECTIVEHEIGHTFORN_OVERFLOW_FLOOR_GLOSSARY_HEADWORD_ASSER
   },
   {
     id: 'imp97788-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present, glosses imp-97762.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present, glosses imp-97762.',
     holds: () =>
       IMP97788_EFFECTIVEHEIGHTFORN_OVERFLOW_FLOOR_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97788_EFFECTIVEHEIGHTFORN_OVERFLOW_FLOOR_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97788_EFFECTIVEHEIGHTFORN_OVERFLOW_FLOOR_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97788_EFFECTIVEHEIGHTFORN_OVERFLOW_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       IMP97788_EFFECTIVEHEIGHTFORN_OVERFLOW_FLOOR_GLOSSARY_HEADWORD.glosses === 'imp-97762',
   },
 ];

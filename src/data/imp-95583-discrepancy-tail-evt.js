@@ -39,7 +39,7 @@
  * maximum of N iid draws to within one Gumbel standard deviation, with no
  * height-persistent positive bias and no arithmetic outlier. This corroborates
  * imp-95562 finding 2 with the correct max-over-N yardstick. Report only; changes
- * no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side
+ * no bound; NO QED. No refereed bound is changed; the zero-side
  * route stays PCC/GRH-gated regardless.
  *
  * Import-light: no zeros bundle, no sibling imports. The EVT formulas are
@@ -115,7 +115,7 @@ export const IMP95583_DISCREPANCY_TAIL_EVT = {
     },
   },
   verdict:
-    'ASSESSED: the imp-95562 discrepancy tail is consistent with Gaussian extreme-value theory. Comparing the observed worst-window excess max(D) at each of six heights against the Gumbel-predicted maximum of N = nWindows iid N(0, sd(D)) draws, every point lies within |gumbelZ| < 2 of the EVT mean (range -1.10 .. +1.85, mean ~ -0.07), so there is no height-persistent positive bias and no arithmetic outlier. The imp-95562 "2.9-3.3 sigma worst window" is a max-over-N effect: E[max]/sd = b_N + gamma_E a_N runs ~2.46 (N=75) to ~3.04 (N=443), so a few-sigma worst window is exactly what a Gaussian tail must yield over 1e2-1e3 windows. The crude sd*sqrt(2 ln N) over-predicts (obs/crude ~0.8-1.1) since it drops the negative subleading term; the refined E[max] tracks the data to ~1 Gumbel sd. Report only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'ASSESSED: the imp-95562 discrepancy tail is consistent with Gaussian extreme-value theory. Comparing the observed worst-window excess max(D) at each of six heights against the Gumbel-predicted maximum of N = nWindows iid N(0, sd(D)) draws, every point lies within |gumbelZ| < 2 of the EVT mean (range -1.10 .. +1.85, mean ~ -0.07), so there is no height-persistent positive bias and no arithmetic outlier. The imp-95562 "2.9-3.3 sigma worst window" is a max-over-N effect: E[max]/sd = b_N + gamma_E a_N runs ~2.46 (N=75) to ~3.04 (N=443), so a few-sigma worst window is exactly what a Gaussian tail must yield over 1e2-1e3 windows. The crude sd*sqrt(2 ln N) over-predicts (obs/crude ~0.8-1.1) since it drops the negative subleading term; the refined E[max] tracks the data to ~1 Gumbel sd. Report only; changes no bound; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (EVT formula re-derivation only) ---

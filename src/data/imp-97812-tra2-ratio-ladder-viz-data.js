@@ -66,8 +66,8 @@ export const IMP97812_SUMMARY = Object.freeze({
     'Presentation only: every ratio, drift and extrapolated limit value is reused verbatim from '
     + 'imp-97684 (a measurement, not a derivation); no new computation. Conditional-share '
     + 'diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. '
-    + 'Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains '
-    + 'SOTA; RH open; NO QED.',
+    + 'Changes no bound; establishes no operator positivity; no refereed bound is changed'
+    + '; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

@@ -30,7 +30,7 @@
  * MEASUREMENT / CONSISTENCY CHECK ONLY. Re-verifies a literal-reconstruction property of an
  * already-published cross-check; derives no new constant, changes no bound, discharges
  * nothing. G6a_shock_lipschitz stays OPEN; C_mb remains GUE-conditional (imp-486); NO QED.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see imp-35264-rho-prefactor-vs-imp35076-margin-crosscheck (the ladder being verified)
  * @see imp-35076-h3-a-fortiori-discharges-h4-numerical-verification (source of eps/rhoMeasured)
@@ -85,8 +85,8 @@ export const IMP35408_IMP35264_KEMP_LITERAL_RECONSTRUCTION_CHECK = {
     'is faithfully reproducible from its own published siblings -- unlike the analogous imp-35402 ' +
     'swapFraction check, which found a ~1.3% rounding-amplification gap. This certifies no new ' +
     'constant, changes no bound, and does NOT discharge O3 / H3 / H4 / G6a. G6a_shock_lipschitz ' +
-    'stays OPEN; C_mb remains GUE-conditional (imp-486); NO QED. Platt-Trudgian Lambda <= 0.2 ' +
-    'remains the rigorous SOTA.',
+    'stays OPEN; C_mb remains GUE-conditional (imp-486); NO QED. No refereed bound is changed' +
+    '.',
 };
 
 export const IMP35408_IMP35264_KEMP_LITERAL_RECONSTRUCTION_ASSERTIONS = [
@@ -111,13 +111,13 @@ export const IMP35408_IMP35264_KEMP_LITERAL_RECONSTRUCTION_ASSERTIONS = [
   },
   {
     id: 'imp35408-honesty-gate-no-qed',
-    description: 'measurement only: discharges nothing, no QED, PT stays SOTA',
+    description: 'measurement only: discharges nothing, no QED, no refereed bound is changed',
     holds: () =>
       IMP35408_IMP35264_KEMP_LITERAL_RECONSTRUCTION_CHECK.isRigorous === false &&
       IMP35408_IMP35264_KEMP_LITERAL_RECONSTRUCTION_CHECK.dischargesAnything === false &&
       IMP35408_IMP35264_KEMP_LITERAL_RECONSTRUCTION_CHECK.reconstructsFaithfully === true &&
       /NO QED/.test(IMP35408_IMP35264_KEMP_LITERAL_RECONSTRUCTION_CHECK.verdict) &&
-      /rigorous\s+SOTA/.test(IMP35408_IMP35264_KEMP_LITERAL_RECONSTRUCTION_CHECK.verdict),
+      /refereed bound is changed/i.test(IMP35408_IMP35264_KEMP_LITERAL_RECONSTRUCTION_CHECK.verdict),
   },
 ];
 

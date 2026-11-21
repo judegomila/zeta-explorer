@@ -95,8 +95,7 @@
  * intercept -- the named sub-gap imp-95921-subgap-arithmetic-intercept. The saturation law
  * itself is semiclassical / Selberg-identity based, so this is an ASSESSMENT, not rigorous.
  * Changes no bound; NO QED; Catalan G irrationality OPEN; Sun arXiv:2609.04176
- * single-author unrefereed; the zero-side route stays PCC / GRH-gated; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * single-author unrefereed; the zero-side route stays PCC / GRH-gated; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. The r_cap / envelope closed forms and
  * the six imp-95710 / imp-95562 measured sd(C - E) literals are recomputed here exactly as
@@ -274,7 +273,7 @@ export const IMP95921_C0_OFFSET_APPROACH_ANALYTIC_BRACKET = {
     'named sub-gap imp-95921-subgap-arithmetic-intercept. The saturation law is semiclassical / ' +
     'Selberg-identity based, so this is an ASSESSMENT, not rigorous. Changes no bound; NO QED; Catalan G ' +
     'irrationality OPEN; Sun arXiv:2609.04176 single-author unrefereed; the zero-side route stays ' +
-    'PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'PCC / GRH-gated; no refereed bound is changed.',
   citation:
     'imp-95897 (offset approach direction UNDECIDED); imp-95884 (downward-drift hazard); imp-95722 ' +
     '(r_cap envelope, C0 = max offset); imp-95562 (windowing slack additive ~1/L); imp-95787 (mean ' +
@@ -307,15 +306,15 @@ export const IMP95921_C0_OFFSET_APPROACH_ANALYTIC_BRACKET = {
   // the safe ceiling is a bounded range comfortably above 3e12 (mean anchor >> 3e12, low anchor larger).
   if (!(crossingMeanAnchor > WINDOW_BOTTOM_T * 1e3)) throw new Error('imp-95921: mean-anchor ceiling must exceed 3e12');
   if (!(crossingLowAnchor > crossingMeanAnchor)) throw new Error('imp-95921: low-anchor ceiling must exceed mean-anchor');
-  // honesty gates: assessment only, no QED, sub-gap named, PT stays SOTA.
+  // honesty gates: assessment only, no QED, sub-gap named, no refereed bound is changed.
   if (IMP95921_C0_OFFSET_APPROACH_ANALYTIC_BRACKET.isRigorous !== false)
     throw new Error('imp-95921: isRigorous must be false');
   if (!/NO QED/.test(IMP95921_C0_OFFSET_APPROACH_ANALYTIC_BRACKET.verdict))
     throw new Error('imp-95921: verdict dropped the NO QED banner');
   if (!/imp-95921-subgap-arithmetic-intercept/.test(IMP95921_C0_OFFSET_APPROACH_ANALYTIC_BRACKET.verdict))
     throw new Error('imp-95921: verdict dropped the named sub-gap');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95921_C0_OFFSET_APPROACH_ANALYTIC_BRACKET.verdict))
-    throw new Error('imp-95921: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP95921_C0_OFFSET_APPROACH_ANALYTIC_BRACKET.verdict))
+    throw new Error('imp-95921: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP95921_C0_OFFSET_APPROACH_ANALYTIC_BRACKET;

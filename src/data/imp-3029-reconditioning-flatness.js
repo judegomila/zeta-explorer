@@ -37,7 +37,7 @@
  * along the 1-parameter cusp family; it is NOT a new bound and does NOT close C_H. The
  * squared-gap surrogate remains REFUTED off the cusp family (ch-wall l.32-33), and the
  * collapse onto a single scalar C_Theta is bounded+vanishing only on the isolated-pair
- * basin (ch-wall l.43-47). Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; no QED.
+ * basin (ch-wall l.43-47). No refereed bound is changed; no QED.
  *
  * @see ch-wall-frontier-verdict-2026-06-26 (positive (b): 2 g dg/dW = C_shock^2 = 0.071289 flat)
  * @see imp-3026-c-shock-cross-validation (cusp-law vs squared-gap C_shock, closed-form N-sweep)
@@ -107,7 +107,7 @@ export const RECONDITIONING_FLATNESS_IMP3029 = {
   honestNote:
     'No false QED. This is a NUMERICAL VERIFICATION of the 2 g dg/dW = C_shock^2 flatness; it is NOT a ' +
     'new bound and does NOT close C_H. The C_Theta collapse is basin-conditional (ch-wall l.43-47). ' +
-    'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'No refereed bound is changed.',
 };
 
 // ── Build-time tripwires ──────────────────────────────────────────────────────
@@ -144,13 +144,13 @@ export const RECONDITIONING_FLATNESS_ASSERTIONS = [
       return (
         r.isNewBound === false &&
         /REFUTED/.test(r.surrogateStillRefuted) &&
-        /SOTA/.test(r.honestNote) &&
+        /refereed bound is changed/i.test(r.honestNote) &&
         /CONFIRMED/.test(r.verdict)
       );
     },
     why:
       'VERDICT LOCK: this is a numerical verification of a coordinate-artifact cancellation, NOT a new ' +
-      'bound. The surrogate stays refuted and Platt-Trudgian Lambda <= 0.2 stays SOTA. Blocks any future ' +
+      'bound. The surrogate stays refuted and no refereed bound is changed. Blocks any future ' +
       'edit from flipping this flatness check into a claimed C_H closure or rigorous beat.',
   },
 ];

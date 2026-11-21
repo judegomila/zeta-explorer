@@ -71,7 +71,7 @@
  * model chirp-DFT-chirp, Pi_p the exact comb, and the lemma inequalities are
  * exercised on both synthetic families and the true model alias family.
  * Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 // ── complex vector helpers (import-light; no heavy bundle) ──────────────────
@@ -327,7 +327,7 @@ export const IMP95008_WELD_ALIAS_L2_COLLAPSE = {
     'Lemmas 1 and 2 are unconditional; the weld reduction is conditional on the stated overlap-multiplicity hypothesis and on the page packet majorant. Numerics are cross-checks of the exact identities, not the claim.',
   promotesBound: false,
   verdict:
-    'RIGOROUS SUB-LEMMA, conditional reduction: the five-shell correlated alias coupling of the weld [B_v, Pi_p] collapses to single-shell packet masses times one overlap constant K, and the named sub-gap scalar controls the weld quadratically. K near the fold, the scalar itself, and the l2-to-scalar step remain open. Changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RIGOROUS SUB-LEMMA, conditional reduction: the five-shell correlated alias coupling of the weld [B_v, Pi_p] collapses to single-shell packet masses times one overlap constant K, and the named sub-gap scalar controls the weld quadratically. K near the fold, the scalar itself, and the l2-to-scalar step remain open. Changes no bound; NO QED. No refereed bound is changed.',
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -381,11 +381,11 @@ export const IMP95008_WELD_ALIAS_L2_COLLAPSE_ASSERTIONS = [
   },
   {
     id: 'imp95008-honesty-gate-no-qed',
-    description: 'conditional reduction only: promotes no bound, NO QED, PT stays SOTA',
+    description: 'conditional reduction only: promotes no bound, NO QED, no refereed bound is changed',
     holds: () =>
       IMP95008_WELD_ALIAS_L2_COLLAPSE.promotesBound === false &&
       /NO QED/.test(IMP95008_WELD_ALIAS_L2_COLLAPSE.verdict) &&
-      /remains SOTA/.test(IMP95008_WELD_ALIAS_L2_COLLAPSE.verdict),
+      /refereed bound is changed/i.test(IMP95008_WELD_ALIAS_L2_COLLAPSE.verdict),
   },
 ];
 

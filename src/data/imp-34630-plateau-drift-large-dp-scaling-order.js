@@ -53,7 +53,7 @@
  *   component model least trustworthy) is inherited as-is. The -2 asymptote and C_C = (1/8)sqrt(3 pi)
  *   (imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is
  *   UNTOUCHED; imp-3066 K_a >= 0 untouched; the inherited surrogate is NOT rigorous; no operator
- *   positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ *   positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-34611-plateau-drift-independent-stencil-crosscheck.js (F2 large-dp spread scrutinised here)
  *   @see imp-34626-plateau-drift-sixth-order-stencil-crosscheck.js (higher-order stencil cross-check)
@@ -227,7 +227,7 @@ export const IMP34630_PLATEAU_DRIFT_LARGE_DP_SCALING_ORDER = Object.freeze({
     'cross-checks that regime, it does not rehabilitate it. The -2 asymptote and C_C = (1/8)sqrt(3 pi) ' +
     '(imp-2714, C_H = 1/8) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is ' +
     'UNTOUCHED; imp-3066 K_a >= 0 untouched; the inherited surrogate is NOT rigorous; changes no ' +
-    'bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; no operator positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-34611 (F2 large-dp spread ~2.2e-5, scrutinised here); imp-34626 (sixth-order stencil ' +
     'cross-check); imp-34593 (roundoff-free plateau drift ~ -0.0968); imp-34587 (Richardson dp -> 0 ' +
@@ -272,9 +272,9 @@ const IMP34630_ASSERTIONS = [
     holds: () =>
       IMP34630_PLATEAU_DRIFT_LARGE_DP_SCALING_ORDER.isRigorous === false &&
       /NO QED/.test(IMP34630_PLATEAU_DRIFT_LARGE_DP_SCALING_ORDER.verdict) &&
-      /remains SOTA/.test(IMP34630_PLATEAU_DRIFT_LARGE_DP_SCALING_ORDER.verdict) &&
+      /refereed bound is changed/i.test(IMP34630_PLATEAU_DRIFT_LARGE_DP_SCALING_ORDER.verdict) &&
       /UNTOUCHED/.test(IMP34630_PLATEAU_DRIFT_LARGE_DP_SCALING_ORDER.verdict),
-    why: 'Honesty gate: measurement only, no bound change, no QED, Platt-Trudgian stays SOTA.',
+    why: 'Honesty gate: measurement only, no bound change, no QED, no refereed bound is changed.',
   },
 ];
 

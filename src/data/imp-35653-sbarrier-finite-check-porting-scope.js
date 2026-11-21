@@ -15,8 +15,7 @@
  * This module resolves that open scope.
  *
  * ASSESSMENT / SCOPING ONLY. Discharges nothing; ports nothing; changes no bound;
- * establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed.
  *
  * PART A -- THE WINDING BARRIER IS A FINITE CHECK, BUT ONLY ON A BOUNDED RECTANGLE
  * -----------------------------------------------------------------------------
@@ -102,7 +101,7 @@
  * for all large x (Parts B, C). Platt-Trudgian N_off(T_PT) = 0 is a necessary base
  * but does NOT suffice (Part D). Porting = W1..W4, of which only W3 is the
  * breakthrough-tier analytic obligation (Part E). Assessment/scoping only; changes
- * no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no bound; NO QED; no refereed bound is changed.
  *
  * @see imp-35419-etrunc-barrier-lemma-porting-scope (the S_barrier statement + P2 option-a this module scopes)
  * @see imp-34791-etrunc-eflow-pt-anchor-honest-discharge (E_trunc = unported barrier lemma; 2/gamma mispricing)
@@ -120,7 +119,7 @@ const OVERSAMPLE = 3; // >= a few boundary samples per enclosed zero (no missed 
 const MESH_PER_UNIT = OVERSAMPLE * LOCAL_DENSITY_AT_TPT; // ~12.8 mesh points/unit height
 const E_TRUNC_CLEAN = 3.06e-5; // the count artifact W4 retires
 const E_TRUNC_CORRECTED = 5.106e-5; // imp-34791 R2 parts-corrected count artifact
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this scoping
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this scoping
 
 export const IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE = {
   id: 'imp-35653',
@@ -197,7 +196,7 @@ export const IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE = {
     'Porting = W1..W4, of which only W3 (the analytic tail lemma) is the breakthrough-tier obligation; ' +
     'W4 retires the 3.06e-5 / 5.106e-5 count artifact to EXACTLY ZERO. Discharges nothing; ports ' +
     'nothing; changes no bound; establishes no operator positivity; no RH verdict, NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'No refereed bound is changed.',
   citation:
     'imp-35419 (the S_barrier statement + P2 option-a scoped here); imp-34791 (E_trunc = unported ' +
     'barrier lemma; 2/gamma mispricing); imp-35334 (E_trunc dominates the far tail); imp-3933 (gap ' +
@@ -233,15 +232,15 @@ export const IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE_ASSERTIONS = [
       /says nothing about\s+t > T_PT/.test(IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE.ptBaseSufficiency.why),
   },
   {
-    // Honesty gate: scoping only, no discharge, no QED, PT stays SOTA; E_trunc artifacts unchanged.
+    // Honesty gate: scoping only, no discharge, no QED, no refereed bound is changed; E_trunc artifacts unchanged.
     id: 'imp35653-honesty-gate-no-qed',
-    description: 'Scoping only: discharges nothing, changes no bound, no QED, PT SOTA',
+    description: 'Scoping only: discharges nothing, changes no bound, no QED, no refereed bound is changed',
     holds: () =>
       IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       E_TRUNC_CLEAN < E_TRUNC_CORRECTED &&
       /NO QED/.test(IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35653_SBARRIER_FINITE_CHECK_PORTING_SCOPE.verdict),
   },
 ];
 

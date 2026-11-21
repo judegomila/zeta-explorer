@@ -8,7 +8,7 @@
  *   obstruction) and is NOT re-attempted here.
  *
  *   ASSESSMENT ONLY. No certified positive floor is produced; no operator positivity is established; no
- *   bound moves; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda<=0.2 SOTA;
+ *   bound moves; interval-rigorous certificate reach stays 2a<=0.96; no refereed bound is changed;
  *   RH open; NO QED. The deliverable is the PRECISE OBSTRUCTION, and specifically the SYNTHESIS that the
  *   two remaining named routes are not independent -- they funnel into ONE missing analytic primitive.
  *

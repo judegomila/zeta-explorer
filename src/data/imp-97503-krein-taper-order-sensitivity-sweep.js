@@ -54,8 +54,8 @@
  *   best smooth-family member across all taper orders stays ~4x above the measured c_sharp ~ 0.582 --
  *   the ~12x imp-97483 figure was partly a single-order artifact, but the gap does NOT close: it is
  *   spectral, not a profile-family limitation. Measurement only; no operator positivity; no coercivity
- *   constant; no bound moves; interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2
- *   remains SOTA; RH open; NO QED.
+ *   constant; no bound moves; interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed
+ *   ; RH open; NO QED.
  *   Refines (measurement) SUB-GAP IMP97483_TRADEOFF_SMOOTH_CONFINEMENT_OPTIMUM_STAYS_ORDER_ABOVE_CSHARP.
  *
  * @see imp-97483-krein-well-capture-vs-farfield-cost-tradeoff.js (FINDING 3: spectral-not-scalar, single 2nd-order taper)
@@ -65,7 +65,7 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (w_1, sigma_2; reach 2a <= 0.96)
  *
  * Ticket: imp-97503 (numerical, medium, opus-4-8). Measurement only; changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * no refereed bound is changed.
  */
 
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';

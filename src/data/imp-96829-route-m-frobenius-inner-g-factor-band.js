@@ -21,7 +21,7 @@
  * (Frobenius norm, exact matrix quantity on the exact Vasyunin Gram) and the imp-96828
  * measured coprime-core T(N) rungs (exact Vasyunin kernel).
  *
- * No bound is proved; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * No bound is proved; no refereed bound is changed; RH open; NO QED.
  *
  * -------------------------------------------------------------------------------
  * MEASUREMENT (common rungs N where BOTH ||G||_F (imp-96684/imp-96648) and T(N)
@@ -77,7 +77,7 @@
  * band but cannot prove it. What IS rigorous (imp-96688) is R in [1, zeta(2)] for every N;
  * this module only LOCATES the measured value inside that proved envelope.
  *
- * Measurement only; no bound moved; no growth law proved; PT Lambda <= 0.2 SOTA; RH open;
+ * Measurement only; no bound moved; no growth law proved; no refereed bound is changed; RH open;
  * NO QED.
  *
  * @see imp-96688-route-m-frobenius-g-factorization-assessment.js (the exact g-factorization identity + [1,zeta(2)] envelope)
@@ -162,7 +162,7 @@ export const IMP96829_VERDICT = Object.freeze({
     'stabilize to a constant over the measured range. The drift stays strictly inside the ' +
     'band, which is the rigorous tie that reconciles the imp-96828 measured-linear T and the ' +
     'imp-96688 fitted-quadratic ||G||_F^2 as one finite-N object with a shared growth ' +
-    'exponent. No bound moved; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'exponent. No bound moved; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP96829_SUBGAP = Object.freeze({
@@ -183,7 +183,7 @@ export const IMP96829_HONEST_BANNER =
   'band position 0.72 -> 0.82), rising monotonically with shrinking increments: the F ~ T ' +
   'reduction is tight to a bounded factor ~1.5 but does NOT stabilize to a constant over the ' +
   'measured range. R in [1, zeta(2)] is rigorous for all N (imp-96688); the located value and ' +
-  'its limit are finite-N. No bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.';
+  'its limit are finite-N. No bound moved; no refereed bound is changed; RH open; NO QED.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -233,7 +233,7 @@ const IMP96829_ASSERTIONS = [
       IMP96829_VERDICT.anyBoundMoved === false &&
       IMP96829_STATS.allInsideBand === true &&
       /NO QED/.test(IMP96829_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96829_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96829_HONEST_BANNER) &&
       /RH open/.test(IMP96829_HONEST_BANNER) &&
       /limit-undecided/.test(IMP96829_SUBGAP.id),
     why: 'measurement only: no bound moved, every rung inside the proved band, the finite-N limit-undecided sub-gap and the honesty markers are present.',

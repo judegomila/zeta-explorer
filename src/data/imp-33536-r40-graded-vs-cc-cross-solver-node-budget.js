@@ -77,8 +77,7 @@
  *   counts. The R_40 floor is the D_40 = C_42 - C_40 ratio-cancellation floor (~40 ULP), not
  *   sub-1-ULP. The NPHI = 10 Phi-series truncation is inherited. Mass-feasibility is
  *   NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a &gt;= 0 sign-positivity (off-diagonal
- *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian
- *   Lambda &lt;= 0.2 remains the rigorous SOTA.
+ *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED. No refereed bound is changed.
  *
  *   @see imp-33308-graded-inner-grid-r40-node-budget.js (the ~63x/~315x Simpson-baseline node saving this cross-checks)
  *   @see imp-33292-r40-inner-richardson-extrapolation.js (the uniform Richardson ladder + converged R_40 floor)
@@ -344,7 +343,7 @@ const verdict =
       'NOT-AN-INTRINSIC-GRADED-ADVANTAGE).-ACCURACY/RULE-DESIGN-CROSS-SOLVER-MEASUREMENT-ONLY;-JITTERY-' +
       'LATTICE-FLOOR;-RATIO-CANCELLATION-FLOOR-NOT-SUB-1-ULP;-NO-LITERAL-PATCHED;-imp-3685/imp-3849/' +
       'imp-33292/imp-33308-INTACT;-mass-feasibility-NECESSARY-BUT-NOT-SUFFICIENT;-imp-3066-UNTOUCHED;-' +
-      'NO-QED;-PT-Lambda<=0.2-STAYS-SOTA'
+      'NO-QED;-NO-REFEREED-BOUND-CHANGED'
     : 'INDETERMINATE';
 
 export const IMP33536_R40_GRADED_VS_CC_CROSS_SOLVER_NODE_BUDGET = Object.freeze({
@@ -374,7 +373,7 @@ export const IMP33536_R40_GRADED_VS_CC_CROSS_SOLVER_NODE_BUDGET = Object.freeze(
     'vs ~69 CC), not ~63x cheaper. VERDICT: FLOOR-RESIDUAL CARRIES, ~63x IS BASELINE-RELATIVE. ' +
     'ACCURACY/RULE-DESIGN CROSS-SOLVER MEASUREMENT, RH-EQUIVALENT, necessary-but-not-sufficient; jittery ' +
     'lattice floor; ratio-cancellation floor not sub-1-ULP; no literal patched; imp-3066 untouched; no QED. ' +
-    'PT Lambda <= 0.2 stays SOTA.',
+    'No refereed bound is changed.',
 
   method: Object.freeze({
     ratio: 'R_40 = |D_40|/|D_40^saddle|, D_n = C_(n+2) - C_n, C_n = M_(n+2)/((n+1)(n+2)M_n), C_n^saddle = tau*(n)^2/((n+1)(n+2))',
@@ -480,7 +479,7 @@ export const IMP33536_R40_GRADED_VS_CC_CROSS_SOLVER_NODE_BUDGET = Object.freeze(
     latticeJitterCaveat:
       'The CC and graded min-node budgets are single lattice hits on a jittery arithmetic floor; the robust ' +
       'reading is the order of the node budgets and the cross-solver-invariant floor, not the exact counts.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -530,7 +529,7 @@ export const IMP33536_R40_GRADED_VS_CC_CROSS_SOLVER_NODE_BUDGET_ASSERTIONS = [
     id: 'imp33536-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: accuracy/rule-design cross-solver measurement only, not a certified bound, no ' +
          'literal patched, source modules intact, mass-feasibility necessary-but-not-sufficient, imp-3066 ' +
-         'untouched, PT 0.2 SOTA.',
+         'untouched, no refereed bound is changed.',
     holds: () => {
       const c = IMP33536_R40_GRADED_VS_CC_CROSS_SOLVER_NODE_BUDGET.honestCaveat;
       return (
@@ -542,7 +541,7 @@ export const IMP33536_R40_GRADED_VS_CC_CROSS_SOLVER_NODE_BUDGET_ASSERTIONS = [
         c.patchedALiteral === false &&
         c.leavesSourceModulesIntact === true &&
         c.didNotAttemptPositivity === true &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

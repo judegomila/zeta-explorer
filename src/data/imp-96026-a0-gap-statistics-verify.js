@@ -38,7 +38,7 @@
  * is unchanged: pinning a_0 still requires the analytic pair-correlation integral I_F, Montgomery-
  * conjectural (rigorous bracket 2/3-eps < I_F < 2), not more heights. Verification only; changes no
  * bound; NO QED; Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author unrefereed; the
- * zero-side route stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * zero-side route stays PCC / GRH-gated; no refereed bound is changed.
  *
  * Import-light: no zeros bundle, no sibling imports. The six sd literals and the conjectural
  * a_0 = -0.176248 are baked; every statistic is recomputed live here from scratch.
@@ -192,7 +192,7 @@ export const IMP96026_A0_GAP_STATISTICS_VERIFY = {
     'I_F, Montgomery-conjectural (rigorous bracket 2/3-eps < I_F < 2), not more heights. ' +
     'Verification only; changes no bound; NO QED; Catalan G irrationality OPEN; Sun ' +
     'arXiv:2609.04176 single-author unrefereed; the zero-side route stays PCC / GRH-gated; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   citation:
     'imp-96005 (a_0 gap noise-consistency statistics being verified); imp-95940 (six-height ' +
     'back-out, T_x(a_0) double-exponential sensitivity); imp-95984 (Chan Thm 1.1, a_0 = -P_Chan = ' +
@@ -215,13 +215,13 @@ export const IMP96026_A0_GAP_STATISTICS_VERIFY = {
     throw new Error('imp-96026: (sd/0.03)^2 * 0.03^2 must equal the sample variance');
   if (Math.abs(rawPoint * 0.01 * 0.01 - sampleVar) > 1e-12)
     throw new Error('imp-96026: (sd/0.01)^2 * 0.01^2 must equal the sample variance');
-  // HONESTY gates: verification only, no false pin, PT stays SOTA.
+  // HONESTY gates: verification only, no false pin, no refereed bound is changed.
   if (IMP96026_A0_GAP_STATISTICS_VERIFY.isRigorous !== false)
     throw new Error('imp-96026: isRigorous must be false');
   if (!/NO QED/.test(IMP96026_A0_GAP_STATISTICS_VERIFY.verdict))
     throw new Error('imp-96026: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96026_A0_GAP_STATISTICS_VERIFY.verdict))
-    throw new Error('imp-96026: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96026_A0_GAP_STATISTICS_VERIFY.verdict))
+    throw new Error('imp-96026: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96026_A0_GAP_STATISTICS_VERIFY;

@@ -21,8 +21,8 @@
  * 1.0953 / 1.0730, count = 15, share = 0.5926).
  *
  * MEASUREMENT / PRESENTATION ONLY. Changes no bound, establishes no
- * operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA. NO QED.
+ * operator positivity, no RH claim; no refereed bound is changed
+ * . NO QED.
  *
  * @see imp-95519-localized-barrier-sum-prime-zero-nogo.js (section 4,
  *   ZERO SIDE: the alpha formula, the PCC-gated verdict)
@@ -101,7 +101,7 @@ export const IMP95547_SUMMARY = {
   alphaMaxHi: IMP95547_ALPHA_MAX_HI,
   alphaOneBoundaryH: IMP95547_ALPHA_ONE_BOUNDARY_H,
   verdict:
-    'Presentation of the imp-95519 section-4 PCC-gated region: at p = 97 only k = 1 hosts alpha_{k,h} > 1, exactly for h in {82..96}, carrying 59.26% of the named majorant mass -- outside Montgomery on-RH range |alpha| <= 1. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.',
+    'Presentation of the imp-95519 section-4 PCC-gated region: at p = 97 only k = 1 hosts alpha_{k,h} > 1, exactly for h in {82..96}, carrying 59.26% of the named majorant mass -- outside Montgomery on-RH range |alpha| <= 1. Changes no bound, establishes no operator positivity, no RH claim; no refereed bound is changed. NO QED.',
 };
 
 // ── assertions (self-executing; throw on violation) ──────────────────────────

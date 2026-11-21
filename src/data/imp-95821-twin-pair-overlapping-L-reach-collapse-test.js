@@ -9,7 +9,7 @@
  * (tmp/imp-95821-scratch.mjs) and are baked here as reference constants; the
  * self-executing assertions recompute only the reach relations, the L-match,
  * and the cross-delta spreads -- NOT the eigensolver. Changes NO Lambda bound;
- * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED; no refereed bound is changed.
  *
  * BACKGROUND. imp-95804 assessed whether the 13-cell imp-95785 union biasPct
  * grid collapses onto a single univariate function of the reach L = delta(1+rho)
@@ -68,8 +68,7 @@
  * noise. NAMED SUB-GAP: definitive H1/H2 discrimination requires the N -> inf
  * phase-averaged (Cesaro-extrapolated) biasPct at each matched cell, below the
  * finite-N oscillation floor that N <= 80 cannot pin. Model seam family only; no
- * new cited input. Changes NO bound of the Lambda program; NO QED; Platt-Trudgian
- * Lambda <= 0.2 remains SOTA.
+ * new cited input. Changes NO bound of the Lambda program; NO QED; no refereed bound is changed.
  *
  * @see imp-95804-twin-pair-bias-reach-collapse-test (the segregated 13-cell grid; named this sub-gap)
  * @see imp-95788-twin-pair-deep-corner-finite-n-bias-convergence (the finite-N DD bias ladder)
@@ -169,7 +168,7 @@ export const IMP95821_TWIN_PAIR_OVERLAPPING_L_REACH_COLLAPSE_TEST = {
     "cannot be cleanly split into genuine H2 delta-dependence versus finite-N " +
     "phase noise. Named sub-gap: the N -> inf phase-averaged biasPct at each " +
     "matched cell. Model seam family only; no new cited input. Changes no bound " +
-    "of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "of the Lambda program; NO QED; no refereed bound is changed.",
   closesTickets: ["imp-95821"],
 };
 
@@ -299,7 +298,7 @@ export const IMP95821_ASSERTIONS = [
       REF.boundChange === false &&
       REF.qed === false &&
       /H1-CONSISTENT/.test(REF.verdict) &&
-      /remains SOTA/.test(REF.verdict),
+      /refereed bound is changed/i.test(REF.verdict),
   },
   {
     id: "imp95821-closes-self",

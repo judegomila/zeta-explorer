@@ -54,8 +54,8 @@
  * deviation |rho_exact + 1/2| only falls 0.0436 -> 0.0188; reaching within 1e-2 of -1/2 needs
  * T ~ 2.6e25 (~13 decades past the Platt-Trudgian verified 3e12), and within 1e-3 needs T ~ 1.6e294.
  * The rigidity limit is an asymptote no accessible height reaches. Measurement/documentation only;
- * changes no bound; establishes no operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA; the zero-side route stays PCC/GRH-gated.
+ * changes no bound; establishes no operator positivity; RH open; NO QED; no refereed bound is changed
+ * ; the zero-side route stays PCC/GRH-gated.
  *
  * @see imp-96150-number-variance-two-interval-covariance-heldout-heights (the five held-out heights and the exact closed form)
  * @see imp-96177-heldout-covariance-uniformity-glossary-headword ("drifting monotonically toward the GUE-rigidity limit -1/2")
@@ -183,7 +183,7 @@ export const IMP96267_COVARIANCE_DRIFT_RIGIDITY_LIMIT_REACH = {
   caveat:
     'rho_exact is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L(T), not a measurement of the actual Riemann zeros (which exist to no such height). The crossing heights are properties of the closed-form envelope -- a pure extrapolation of the imp-96150 formula -- not empirical covariances. This changes no bound and does not touch the ~1.9-sigma excursion confidence.',
   verdict:
-    'The exact GUE two-interval correlation rho_exact drifts toward the rigidity limit -1/2 like (log 2)/(2 log(2pi L)) ~ 1/log T -- the slowest possible envelope. On a decade ladder to 1e12 the deviation only falls 0.0436 -> 0.0188; reaching within 1e-2 of -1/2 needs T ~ 2.6e25 (~13 decades past the Platt-Trudgian verified 3e12, where rho_exact is still -0.4818), and within 1e-3 needs T ~ 1.6e294. The rigidity limit is an asymptote no accessible height reaches. Measurement/documentation only; changes no bound; establishes no operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    'The exact GUE two-interval correlation rho_exact drifts toward the rigidity limit -1/2 like (log 2)/(2 log(2pi L)) ~ 1/log T -- the slowest possible envelope. On a decade ladder to 1e12 the deviation only falls 0.0436 -> 0.0188; reaching within 1e-2 of -1/2 needs T ~ 2.6e25 (~13 decades past the Platt-Trudgian verified 3e12, where rho_exact is still -0.4818), and within 1e-3 needs T ~ 1.6e294. The rigidity limit is an asymptote no accessible height reaches. Measurement/documentation only; changes no bound; establishes no operator positivity; RH open; NO QED; no refereed bound is changed; the zero-side route stays PCC/GRH-gated.',
 };
 
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
@@ -242,8 +242,8 @@ export const IMP96267_COVARIANCE_DRIFT_RIGIDITY_LIMIT_REACH = {
   // honesty gates
   if (!/NO QED/.test(IMP96267_COVARIANCE_DRIFT_RIGIDITY_LIMIT_REACH.verdict))
     throw new Error('imp-96267: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96267_COVARIANCE_DRIFT_RIGIDITY_LIMIT_REACH.verdict))
-    throw new Error('imp-96267: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!/refereed bound is changed/i.test(IMP96267_COVARIANCE_DRIFT_RIGIDITY_LIMIT_REACH.verdict))
+    throw new Error('imp-96267: verdict dropped the no-refereed-bound-change banner');
 })();
 
 export default IMP96267_COVARIANCE_DRIFT_RIGIDITY_LIMIT_REACH;

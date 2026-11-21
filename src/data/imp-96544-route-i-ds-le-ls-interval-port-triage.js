@@ -60,7 +60,7 @@
  *        including a rigorous treatment of the constraint projection V_N = V cap range P_N.
  * This is an Arb-scale computation, not a symbolic enclosure; it is the concrete residual for a full
  * interval proof. Legs (B), (D) and the combining arithmetic are now done. Nothing here localises a
- * zero or moves a Lambda bound; RH open; PT Lambda <= 0.2 stands; NO QED.
+ * zero or moves a Lambda bound; RH open; no refereed bound is changed; NO QED.
  */
 
 import { M2MAX, floorBeyond, tailBoundLog10 } from './rh-route-i-uncertainty-concentration-certificate-2026-09-24.js';
@@ -99,7 +99,7 @@ export const IMP96544_INTERVAL_LEGS = Object.freeze({
 export const IMP96544_ROUTE_I_DS_LE_LS_INTERVAL_PORT_TRIAGE = Object.freeze({
   id: 'imp-96544-route-i-ds-le-ls-interval-port-triage',
   parents: ['src/data/rh-route-i-uncertainty-concentration-certificate-2026-09-24.js'],
-  status: 'PARTIAL (honest): the two ANALYTIC legs of the Route I D_S <= L_S certificate are ported to rigorous interval arithmetic (mpmath.iv, prec 200). (B) FLOOR LEMMA: M_2 in [3.3468106480569850, 3.3468106480569851] (width ~7e-59; the IEEE double lies ~4.5e-15 outside), and m_T = 2theta\'(T) - M_2 is STRICTLY POSITIVE via the positive-series Re psi(1/4+iy) representation + integral-test tail -- m_200 in [0.113628610410, 0.113628610411], m_400 in [0.806776572222, 0.806776572227], each containing the baked double. (D) BERNSTEIN TAIL <= 3.306e-24 (Phi <= 10), non-binding. The certificate therefore reduces to ONE un-enclosed leg (E): a verified smallest-eigenvalue lower bound lambda_min(K_N|V_N) >= -0.8067765722222 (double is -0.8058722, margin 9.04e-4). That leg needs Arb rigorous quadrature of ~160x160/sector oscillatory Galerkin integrals + a verified eigenvalue bound (Rump/interval-Cholesky) to abs accuracy < 9e-4 -- the concrete residual. Fixed-window positivity implies nothing about RH; RH open; PT Lambda <= 0.2 stands; NO QED',
+  status: 'PARTIAL (honest): the two ANALYTIC legs of the Route I D_S <= L_S certificate are ported to rigorous interval arithmetic (mpmath.iv, prec 200). (B) FLOOR LEMMA: M_2 in [3.3468106480569850, 3.3468106480569851] (width ~7e-59; the IEEE double lies ~4.5e-15 outside), and m_T = 2theta\'(T) - M_2 is STRICTLY POSITIVE via the positive-series Re psi(1/4+iy) representation + integral-test tail -- m_200 in [0.113628610410, 0.113628610411], m_400 in [0.806776572222, 0.806776572227], each containing the baked double. (D) BERNSTEIN TAIL <= 3.306e-24 (Phi <= 10), non-binding. The certificate therefore reduces to ONE un-enclosed leg (E): a verified smallest-eigenvalue lower bound lambda_min(K_N|V_N) >= -0.8067765722222 (double is -0.8058722, margin 9.04e-4). That leg needs Arb rigorous quadrature of ~160x160/sector oscillatory Galerkin integrals + a verified eigenvalue bound (Rump/interval-Cholesky) to abs accuracy < 9e-4 -- the concrete residual. Fixed-window positivity implies nothing about RH; RH open; no refereed bound is changed; NO QED',
   legEnclosureStatus: {
     A_nesting: 'analytic (extension by zero preserves hhat); no interval computation needed',
     B_floorLemma: 'ENCLOSED (mpmath.iv): M_2 to width ~7e-59, m_T strictly > 0, doubles contained',

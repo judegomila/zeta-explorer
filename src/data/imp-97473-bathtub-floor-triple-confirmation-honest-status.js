@@ -14,14 +14,14 @@
  *   Documentation only: no new numerics, no operator positivity, no bound moves. The value stays a FLOOR
  *   (a lower bound on c_sharp), not a positive lower bound; the floor stays NEGATIVE (-3065.435); the
  *   imp-97416 sub-gap IMP97416_SCALAR_TWO_BUDGET_COUPLING_EXHAUSTED_NEEDS_SPECTRAL_ESTIMATE is unchanged.
- *   Interval-rigorous reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   Interval-rigorous reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97444-bathtub-lp-crossvalidation.js (source: the three-route cross-check)
  * @see imp-97416-krein-csharp-bathtub-joint-floor.js (the -3065.435 floor cross-checked here)
  * @see imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (uniform floor -3200.029)
  *
  * Ticket: imp-97473 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no refereed bound is changed; RH open; NO QED.
  */
 
 import { IMP97444_CROSSCHECK, IMP97444_VERDICT } from './imp-97444-bathtub-lp-crossvalidation.js';

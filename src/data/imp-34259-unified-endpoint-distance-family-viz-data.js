@@ -18,8 +18,7 @@
  *   @see imp-34238-seven-crossings-onset-ladder-viz-data.js (sibling viz: raw angles, k=0..3)
  *
  *   Ticket: imp-34259 (ux, medium). Presentation only; C_mb GUE-conditional per imp-486
- *   UNTOUCHED; imp-3066 K_a >= 0 UNTOUCHED; NO QED; Platt-Trudgian Lambda <= 0.2 remains the
- *   rigorous SOTA.
+ *   UNTOUCHED; imp-3066 K_a >= 0 UNTOUCHED; NO QED; no refereed bound is changed.
  */
 
 const PI = Math.PI;

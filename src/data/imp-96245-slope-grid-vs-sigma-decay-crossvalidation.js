@@ -61,7 +61,7 @@
  * an RH bound. The component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation,
  * NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8
  * ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes no operator positivity;
- * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96228-ushape-slope-drift-beyond-nflow (the a,b,a+b slope grid out to log10 N ~ 250)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (the sigma-decay ladder + landmarks)
@@ -242,7 +242,7 @@ export const IMP96245_SLOPE_GRID_VS_SIGMA_DECAY_CROSSVALIDATION = {
     'component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, NOT a rigorous ' +
     'asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) ' +
     'is UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no ' +
-    'RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-96228 (a,b,a+b slope grid to log10 N ~ 250); imp-33582 (sigma-decay ladder + landmarks); ' +
     'imp-96244 (closed-form a,b -> 1/2 asymptote); imp-3444 (E_coll = E_trunc crossover N ~ 3.280e9); ' +
@@ -294,13 +294,13 @@ export const IMP96245_SLOPE_GRID_VS_SIGMA_DECAY_CROSSVALIDATION_ASSERTIONS = [
       Math.abs(LM_TENTH.p_sigma - 0.4310) < 5e-3,
   },
   {
-    // Honesty gate: cross-validation only, no QED, PT stays SOTA.
+    // Honesty gate: cross-validation only, no QED, no refereed bound is changed.
     id: 'imp96245-honesty-gate-no-qed',
-    description: 'Cross-validation only: isRigorous false, no QED, PT Lambda<=0.2 stays SOTA',
+    description: 'Cross-validation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96245_SLOPE_GRID_VS_SIGMA_DECAY_CROSSVALIDATION.isRigorous === false &&
       /NO QED/.test(IMP96245_SLOPE_GRID_VS_SIGMA_DECAY_CROSSVALIDATION.verdict) &&
-      /remains SOTA/.test(IMP96245_SLOPE_GRID_VS_SIGMA_DECAY_CROSSVALIDATION.verdict),
+      /refereed bound is changed/i.test(IMP96245_SLOPE_GRID_VS_SIGMA_DECAY_CROSSVALIDATION.verdict),
   },
 ];
 

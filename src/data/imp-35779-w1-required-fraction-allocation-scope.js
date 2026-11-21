@@ -25,7 +25,7 @@
  *
  * SCOPING / ALLOCATION ONLY. Evaluates no interval sum; measures no margin M; verifies no
  * inequality on real data; changes no bound; establishes no positivity; C_mb GUE-conditional
- * (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * (imp-486) untouched; no RH verdict, NO QED. No refereed bound is changed.
  *
  * (a) INTRA-CAP REQUIRED SHARES (RHO-free, from the imp-35725 ordering)
  * -----------------------------------------------------------------------------
@@ -87,7 +87,7 @@
 
 // -- Anchor + operative constants (import-light; matching imp-35674 / imp-35725 / imp-35760) --
 const T_PT = 3e12; // Platt-Trudgian 2021 verified height (external barrier base)
-const L_PT = 0.2; // Platt-Trudgian SOTA; unchanged by this allocation
+const L_PT = 0.2; // Platt-Trudgian 2021 bound; unchanged by this allocation
 const N_TERMS = (x) => Math.floor(Math.sqrt(x / (4 * Math.PI))); // Polymath15 retained-term count
 const N_AT_TPT = N_TERMS(T_PT); // ~488602 terms per mollified sum at T_PT (imp-35674 Part D)
 
@@ -184,7 +184,7 @@ export const IMP35779_W1_REQUIRED_FRACTION_ALLOCATION = {
     'realized point needs certified interval evaluation of the ~4.886e5-term sums at the sign-reconciled ' +
     'positive barrier time plus the per-panel strict check, so the interval-bounded A + B - C certificate stays ' +
     'GREENFIELD (imp-35681 Part A). Evaluates no sum; measures no margin; verifies no inequality; changes no ' +
-    'bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'bound; establishes no positivity; no RH verdict, NO QED. No refereed bound is changed.',
   citation:
     'imp-35725 (budgets E_A,E_B,E_{C_0}; names allocation as an unmet requirement); imp-35760 (one sufficient ' +
     'point RHO=1/2); imp-35758 (margin - cap = I3 modulus floor, grazing caveat); imp-35681 Part A (A+B-C ' +
@@ -242,16 +242,16 @@ export const IMP35779_W1_REQUIRED_FRACTION_ALLOCATION_ASSERTIONS = [
       /INTERIOR sufficient sub-case/.test(IMP35779_W1_REQUIRED_FRACTION_ALLOCATION.necessaryCeiling.vsImp35760),
   },
   {
-    // Honesty gate: allocation only, stays greenfield, isRigorous false, no QED, PT SOTA.
+    // Honesty gate: allocation only, stays greenfield, isRigorous false, no QED, no refereed bound is changed.
     id: 'imp35779-honesty-gate-greenfield-no-qed',
-    description: 'Allocation only; A+B-C stays greenfield; isRigorous false, no QED, PT SOTA',
+    description: 'Allocation only; A+B-C stays greenfield; isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35779_W1_REQUIRED_FRACTION_ALLOCATION.isRigorous === false &&
       Math.abs(L_PT - 0.2) < 1e-15 &&
       /GREENFIELD/.test(IMP35779_W1_REQUIRED_FRACTION_ALLOCATION.scopeResidual.staysGreenfield) &&
       /MECHANICAL/.test(IMP35779_W1_REQUIRED_FRACTION_ALLOCATION.scopeResidual.whatItDoesNot) &&
       /NO QED/.test(IMP35779_W1_REQUIRED_FRACTION_ALLOCATION.verdict) &&
-      /remains SOTA/.test(IMP35779_W1_REQUIRED_FRACTION_ALLOCATION.verdict),
+      /refereed bound is changed/i.test(IMP35779_W1_REQUIRED_FRACTION_ALLOCATION.verdict),
   },
 ];
 

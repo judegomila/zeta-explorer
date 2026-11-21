@@ -15,8 +15,8 @@
  *
  * PRESENTATION ONLY. Reuses the imp-97431 floor ladder verbatim; no re-solve.
  * Establishes no operator positivity; changes no bound; interval-rigorous
- * certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains
- * SOTA; RH open; NO QED.
+ * certificate reach stays 2a<=0.96; no refereed bound is changed
+ * ; RH open; NO QED.
  *
  * @see imp-97431-krein-rk-floor-band-dependence.js (the linear-in-a floor law, measured ladder)
  * @see imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (the floor at the binding 2a=ln3)

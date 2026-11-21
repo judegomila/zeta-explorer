@@ -5,7 +5,7 @@
  * (inherited imp-3220/imp-3406 surrogate crossover map, sub-gap imp-34714a
  * directed-rounding certificate OPEN, C_C=(1/8)sqrt(3pi) ansatz imp-2642/
  * imp-2643, C_mb GUE-conditional per imp-486, no operator positivity / no RH
- * verdict / NO QED, Platt-Trudgian Lambda<=0.2 remains SOTA) is carried by
+ * verdict / NO QED, no refereed bound is changed) is carried by
  * every module in the imp-34798/imp-34800/imp-34801/imp-34813 cohort and any
  * viz page built from imp-34799/imp-34794, extending the imp-34725/imp-34812
  * audit lineage.
@@ -22,7 +22,7 @@
  *
  * METHOD. Each of the 6 data modules and 3 actual viz pages was read
  * directly: every data module's header JSDoc and `verdict`/`honest` fields
- * carry the surrogate/imp-34714a-open/no-QED/PT-SOTA caveat, and every viz
+ * carry the surrogate/imp-34714a-open/no-QED/PT-no-refereed-bound-change caveat, and every viz
  * page renders an inline "Honest status:" block repeating the same caveat.
  *
  * FINDING: no gap. All 6 data modules and all 3 actual viz pages carry the
@@ -62,7 +62,7 @@ export const CAVEAT_SURFACING_AUDIT_34798_34801_34813 = {
     + '(imp-34813, imp-34799, imp-34800); no surfacing added because none was missing. imp-34798/imp-34801/'
     + 'imp-34794 were excluded as data-module-only tickets with no viz page, not unaudited pages. No bound '
     + 'change; sub-gap imp-34714a stays OPEN; C_C 1/8 ansatz and C_mb GUE-conditional share (imp-486) '
-    + 'untouched; no operator positivity; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    + 'untouched; no operator positivity; NO QED; no refereed bound is changed.',
 };
 
 export const CAVEAT_SURFACING_AUDIT_34798_34801_34813_ASSERTIONS = [
@@ -103,10 +103,10 @@ export const CAVEAT_SURFACING_AUDIT_34798_34801_34813_ASSERTIONS = [
   },
   {
     id: 'imp-34834-audit-only-honest',
-    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and PT Lambda <= 0.2 stays SOTA',
+    description: 'explicitly AUDIT-ONLY (no surfacing added, none needed) and no refereed bound is changed',
     holds: () => /AUDIT-ONLY/.test(CAVEAT_SURFACING_AUDIT_34798_34801_34813.honest)
       && /no surfacing added because none was missing/.test(CAVEAT_SURFACING_AUDIT_34798_34801_34813.honest)
-      && /Lambda<=0.2 remains SOTA/.test(CAVEAT_SURFACING_AUDIT_34798_34801_34813.honest),
+      && /refereed bound is changed/i.test(CAVEAT_SURFACING_AUDIT_34798_34801_34813.honest),
   },
 ];
 

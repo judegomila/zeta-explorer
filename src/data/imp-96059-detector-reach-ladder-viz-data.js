@@ -17,7 +17,7 @@
  * @see rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js (source module: ROUTE_L.detector)
  * @see imp-96149-route-l-detector-reach-law-fit.js (power-law refit correcting the stale linear string)
  *
- * Ticket: imp-96059 (ux, low). RH-equivalent; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
+ * Ticket: imp-96059 (ux, low). RH-equivalent; no refereed bound is changed; NO QED.
  */
 
 // [zero index k, gamma_0, delta, N_det (null = not detected by N=400), e_{N_det-1}/e_0]

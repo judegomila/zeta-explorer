@@ -61,7 +61,7 @@
  * model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
  * GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED;
  * changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH
- * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35105-e-component-decomposition-table (the E_flow=E_trunc crossover measured at N~1.597752e6)
  * @see imp-33723-sigma-half-vs-crossover-closed-form (the sibling E_coll=E_trunc crossover in closed form)
@@ -196,7 +196,7 @@ export const IMP35153_EFLOW_ETRUNC_CROSSOVER_CLOSED_FORM = {
     'inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-' +
     'conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes ' +
     'no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'NO QED. No refereed bound is changed.',
   citation:
     'imp-35105 (E_flow=E_trunc crossover measured N~1.597752e6); imp-33723 (sibling E_coll=E_trunc ' +
     'closed form); imp-33601 (sigma=1/2 <=> E_coll=E_trunc+E_flow); imp-398 (E_flow C_F prefactor); ' +
@@ -243,13 +243,13 @@ export const IMP35153_EFLOW_ETRUNC_CROSSOVER_CLOSED_FORM_ASSERTIONS = [
     holds: () => Math.abs(effectiveHeightForN(N_FLOW_EQ_TRUNC_CF) / T0_STAR - 1) < 1e-9,
   },
   {
-    // Honesty gate: derivation/measurement only, no QED, PT stays SOTA.
+    // Honesty gate: derivation/measurement only, no QED, no refereed bound is changed.
     id: 'imp35153-honesty-gate-no-qed',
-    description: 'Derivation only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP35153_EFLOW_ETRUNC_CROSSOVER_CLOSED_FORM.isRigorous === false &&
       /NO QED/.test(IMP35153_EFLOW_ETRUNC_CROSSOVER_CLOSED_FORM.verdict) &&
-      /remains SOTA/.test(IMP35153_EFLOW_ETRUNC_CROSSOVER_CLOSED_FORM.verdict),
+      /refereed bound is changed/i.test(IMP35153_EFLOW_ETRUNC_CROSSOVER_CLOSED_FORM.verdict),
   },
 ];
 

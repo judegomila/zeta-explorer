@@ -64,8 +64,7 @@
  *   obstruction and a scale/rigor obstruction). The 1.9x gain from this
  *   ledger is real and adopted, but it is one factor inside a design whose
  *   total cell count still requires the tier-P/B/S batching plan, not a
- *   standalone fix. No new certificate fires here; Platt-Trudgian
- *   Lambda <= 0.2 remains SOTA.
+ *   standalone fix. No new certificate fires here; no refereed bound is changed.
  *
  * @see imp-95210-window1-pilot-certificate.js (source: FINDING 1/2,
  *   RIGOROUS LEDGER LANDSCAPE, FEASIBILITY ARITHMETIC)
@@ -74,7 +73,7 @@
  *   out of this ledger)
  *
  * Ticket: imp-95244 (content, low). Documentation only; establishes no new
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  */
 
 // The concept-note content, baked verbatim (no re-import of imp-95210).
@@ -129,7 +128,7 @@ export const IMP95244_ALIAS_DECOMPOSED_LEDGER_CONCEPT_NOTE = Object.freeze({
     'alias-decomposed ledger 44.476493 (vs direct 84.769080), its overhang ' +
     '(o_j) and mismatch (mm_j) pieces, and why the exact-identity split ' +
     'keeps it rigorous. Establishes nothing new; fires no certificate; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no refereed bound is changed.',
   citation:
     'imp-95210-window1-pilot-certificate.js (FINDING 1/2, RIGOROUS LEDGER ' +
     'LANDSCAPE, FEASIBILITY ARITHMETIC); imp-95213 (tier certifier adopting ' +
@@ -160,12 +159,11 @@ export const IMP95244_ALIAS_DECOMPOSED_LEDGER_CONCEPT_NOTE_ASSERTIONS = [
   {
     id: 'imp95244-honesty-gate-no-qed',
     why:
-      'Documentation only: no enclosure claimed established, no QED, PT ' +
-      'SOTA line present.',
+      'Documentation only: no enclosure claimed established, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP95244_ALIAS_DECOMPOSED_LEDGER_CONCEPT_NOTE.anyEnclosureEstablished ===
         false &&
-      /remains SOTA/.test(
+      /refereed bound is changed/i.test(
         IMP95244_ALIAS_DECOMPOSED_LEDGER_CONCEPT_NOTE.verdict
       ) &&
       IMP95244_ALIAS_DECOMPOSED_LEDGER_CONCEPT_NOTE.glosses === 'imp-95210' &&

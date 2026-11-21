@@ -51,8 +51,8 @@ export const IMP124859_SUMMARY = Object.freeze({
     + '(non-decreasing) invariant product P discriminates pure |E_CF|-linear round-off precision loss from a '
     + 'genuine |E_CF|-proportional identity drift (imp-124808 proved the drift D = 0 at mpmath dps=100). No new '
     + 'computation. Measurement / sensitivity only on the inherited imp-3220/imp-3406 extrapolation surrogate, '
-    + 'not a rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda '
-    + '<= 0.2 remains SOTA; RH open; NO QED.',
+    + 'not a rigorous asymptotic. Changes no bound; establishes no operator positivity; no refereed bound is changed'
+    + '; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

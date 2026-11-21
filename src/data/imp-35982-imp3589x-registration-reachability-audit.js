@@ -29,7 +29,7 @@
  * SCOPE. Read-only registration/reachability + import-light guard audit only. No source file
  * required correction -- all five modules in this cohort were already properly wired and
  * import-light before this audit ran. Changes no bound; establishes no operator positivity; no
- * RH verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * RH verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-35645-imp3559x-registration-reachability-audit (prior sweep establishing this method)
  * @see imp-35630-imp3555x-imp3557x-registration-reachability-audit (registration/reachability method precursor)
@@ -99,7 +99,7 @@ export const IMP35982_IMP3589X_REGISTRATION_REACHABILITY_AUDIT = {
     'plus full direct dependency chain) for imp-35889, imp-35890, imp-35891, imp-35892, and ' +
     'imp-35893. Result: all five fully registered and reachable, none import-heavy; no source ' +
     'file required correction. Changes no bound; establishes no operator positivity; no RH ' +
-    'verdict; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'verdict; NO QED. No refereed bound is changed.',
   citation:
     'imp-35645/imp-35630/imp-35606/imp-35545 (registration/reachability audit method); ' +
     'verify-zeros-importers.mjs (import-light guard method, imp-2880).',
@@ -139,11 +139,11 @@ export const IMP35982_IMP3589X_REGISTRATION_REACHABILITY_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp35982-honesty-gate-no-qed',
-    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, PT stays SOTA',
+    description: 'Audit only: no bound changed, no operator positivity, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP35982_IMP3589X_REGISTRATION_REACHABILITY_AUDIT.isRigorous === false &&
       /NO QED/.test(IMP35982_IMP3589X_REGISTRATION_REACHABILITY_AUDIT.verdict) &&
-      /remains SOTA/.test(IMP35982_IMP3589X_REGISTRATION_REACHABILITY_AUDIT.verdict),
+      /refereed bound is changed/i.test(IMP35982_IMP3589X_REGISTRATION_REACHABILITY_AUDIT.verdict),
   },
 ];
 

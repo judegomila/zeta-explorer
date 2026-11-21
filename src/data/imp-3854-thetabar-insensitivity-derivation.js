@@ -98,7 +98,7 @@
  *    an empirical smin ~= Dmin refinement, CONFIRMED to a factor of ~1.6, NOT a
  *    QED-grade equality.
  *  - Tunes the F_mb factor only. Does NOT close cond-CH or any conditional leg,
- *    does NOT beat Platt-Trudgian (Lambda <= 0.2 stays SOTA), imp-3066 K_a >= 0
+ *    does NOT beat Platt-Trudgian (no refereed bound is changed), imp-3066 K_a >= 0
  *    positivity UNTOUCHED. Necessary but not sufficient. NO QED.
  *
  * @see imp-3728-fmb-thetabar-sensitivity.js (the measurement this derives)
@@ -201,7 +201,7 @@ export const IMP_3854_THETABAR_INSENSITIVITY_DERIVATION = Object.freeze({
       'The largest feasible relative K_paper shift is 1.4e-5, so the imp-3728 ' +
       'carryforward margin 8.31e4x is stable to its fifth significant figure ' +
       'under ANY feasible thetaBar: thetaBar-robust. Necessary but not ' +
-      'sufficient; Platt-Trudgian Lambda <= 0.2 stays SOTA; imp-3066 untouched; ' +
+      'sufficient; no refereed bound is changed; imp-3066 untouched; ' +
       'NO QED.',
   },
 
@@ -209,7 +209,7 @@ export const IMP_3854_THETABAR_INSENSITIVITY_DERIVATION = Object.freeze({
     derivationOnly: true,
     noNewLambdaBound: true,
     imp3066Untouched: true,
-    plattTrudgianStillSOTA: 'Lambda <= 0.2 (PT 2021) remains SOTA',
+    plattTrudgianStillSOTA: 'No refereed bound is changed',
     noQED: true,
   },
 });
@@ -309,7 +309,7 @@ export const IMP_3854_THETABAR_INSENSITIVITY_DERIVATION_ASSERTIONS = [
     why:
       'Honesty guard: this derives an existing true-flow lemma. It must not ' +
       'assert a new Lambda bound or a QED, and imp-3066 stays untouched; ' +
-      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+      'no refereed bound is changed.',
   },
 ];
 

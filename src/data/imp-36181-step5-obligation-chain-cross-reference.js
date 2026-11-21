@@ -48,7 +48,7 @@
  *   @see src/data/sota-lambda-claim.js (the B1 target record; today's headline stays the finite-height/asymptotic-modulo-constants SOTA, not an unconditional RH claim)
  *
  *   Ticket: imp-36181 (content, low). Note only; imports both source blocks
- *   verbatim; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   verbatim; changes no bound; NO QED; no refereed bound is changed.
  */
 
 import { LAMBDA_CHAIN_STEPS } from './lambda-roadmap.js';
@@ -140,7 +140,7 @@ export const IMP36181_STEP5_OBLIGATION_CHAIN_CROSS_REFERENCE = Object.freeze({
       'imp-35099 conditionalBookkeeping block from lambda-roadmap.js Step 5 into one six-item overview. ' +
       'Imports both blocks verbatim; derives nothing new; every G5 link stays OPEN and every B item stays ' +
       'BLOCKED; respects the imp-2519 no-overclaim guard.',
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -203,7 +203,7 @@ export const IMP36181_STEP5_OBLIGATION_CHAIN_CROSS_REFERENCE_ASSERTIONS = [
         h.derivesAnythingNew === false &&
         h.isReductionBelowRH === false &&
         h.carriesRHVerdict === false &&
-        /Platt-Trudgian/.test(h.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(h.sota)
       );
     },
   },

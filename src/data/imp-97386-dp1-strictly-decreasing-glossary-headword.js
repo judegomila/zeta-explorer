@@ -39,7 +39,7 @@
  *   representation of J underlying w(t))
  *
  * Ticket: imp-97386 (content, low, sonnet-4-6). Documentation only; establishes nothing beyond a
- * glossary headword; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA; RH open.
+ * glossary headword; NO QED; no refereed bound is changed; RH open.
  */
 
 // The D_{p1}(e) strictly-decreasing headword, baked verbatim (no re-import).
@@ -78,7 +78,7 @@ const DP1_STRICTLY_DECREASING_HEADWORD = Object.freeze({
     'node-verify the strict-monotonicity claim numerically (D_{p1}(e+1) < D_{p1}(e) for p1 in ' +
     '{2,3,5,7}, e up to 120) and the Laplace-scaling inequality it reduces to. Naming / glossary ' +
     'headword only; supplies no bound beyond what imp-97352 already established; no bound moved; ' +
-    'RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    'RH open; no refereed bound is changed; NO QED.',
 });
 
 export const IMP97386_DP1_STRICTLY_DECREASING_GLOSSARY_HEADWORD = Object.freeze({
@@ -97,7 +97,7 @@ export const IMP97386_DP1_STRICTLY_DECREASING_GLOSSARY_HEADWORD = Object.freeze(
     'role signing every matched pair in the omega=4 domination injection, U(m) < 0 hence ' +
     'T(b) < 0. Monotonicity holds for all e; the injection itself is a COUNTING argument that ' +
     'fails from omega = 5 onward (Hall deficiency). No bound moved; IMP97333_SIGN_TAIL_SUBGAP ' +
-    'stays open for omega >= 5; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'stays open for omega >= 5; NO QED. No refereed bound is changed.',
   citation:
     'imp-97352 (the D_{p1} strict-monotonicity proof, the omega=4 domination injection this ' +
     'glosses, and the omega=5 Hall-deficiency crossover); imp-97333 (the smallest-prime peel ' +
@@ -125,12 +125,12 @@ export const IMP97386_DP1_STRICTLY_DECREASING_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp97386-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, sub-gap left open, no QED, PT SOTA line ' +
+    why: 'Documentation only: no bound claimed moved, sub-gap left open, no QED, no-refereed-bound-change line ' +
       'present.',
     holds: () =>
       IMP97386_DP1_STRICTLY_DECREASING_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP97386_DP1_STRICTLY_DECREASING_GLOSSARY_HEADWORD.verdict) &&
-      /remains SOTA/.test(IMP97386_DP1_STRICTLY_DECREASING_GLOSSARY_HEADWORD.verdict) &&
+      /refereed bound is changed/i.test(IMP97386_DP1_STRICTLY_DECREASING_GLOSSARY_HEADWORD.verdict) &&
       IMP97386_DP1_STRICTLY_DECREASING_GLOSSARY_HEADWORD.glosses === 'imp-97352',
   },
 ];

@@ -188,7 +188,7 @@ export const IMP_ENDPOINT_BRIDGE_MASS = Object.freeze({
       'Quantifies endpointBridgeNecessity only. Conjecture 27.2 (||V_{a,Phi}|| <= 1) is ' +
       'RH-equivalent and REFUTED AS A REDUCTION (hidden-square-program-section.' +
       'endpointHankel.verdict, 2026-06-18). These mass fractions neither prove nor ' +
-      'weaken RH; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+      'weaken RH; no refereed bound is changed.',
   }),
 
   recomputeBudget,

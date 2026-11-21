@@ -14,7 +14,7 @@
  *
  * ASSESSMENT / SCOPING ONLY. Changes NOTHING about the current 3.06e-5, tightens
  * no bound, closes no gap, establishes no operator positivity; no RH verdict,
- * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * NO QED. No refereed bound is changed.
  *
  * PART A -- THE C_T / kappa_T FUNCTIONAL FORM OF THE RECORDED VALUE
  * -----------------------------------------------------------------------------
@@ -127,7 +127,7 @@ const CS_C = 8.185; // Chourasiya-Simonic 2025 explicit leading constant at sigm
 const CS_B = 2.6; // its log-power
 const E_TRUNC_EXPLICIT_CS = 3.34; // recorded honest explicit value (16.7x short of 0.2)
 const MISPRICING_RATIO = 3.75e11; // count-kernel mispricing (imp-34791 Part 3), C_T/kappa_T-INDEPENDENT
-const L_PT = 0.2; // Platt-Trudgian SOTA (unchanged by any C_T/kappa_T refinement)
+const L_PT = 0.2; // Platt-Trudgian 2021 bound (unchanged by any C_T/kappa_T refinement)
 
 export const IMP35459_ETRUNC_CT_KAPPAT_DEPENDENCE_SCOPE = {
   id: 'imp-35459',
@@ -211,8 +211,8 @@ export const IMP35459_ETRUNC_CT_KAPPAT_DEPENDENCE_SCOPE = {
     'integral is a mispriced artifact (3.75e11x, C_T/kappa_T-INDEPENDENT) whose true residual is the ' +
     'barrier lemma, so NO C_T/kappa_T refinement is a Lambda lever and 3.06e-5 is genuinely PINNED; the ' +
     'only discharge is the imp-35419 barrier port (parity, not beat). Changes NOTHING about 3.06e-5; ' +
-    'tightens no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'tightens no bound; establishes no operator positivity; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-34791 (kappa_T = 2/5 lock R1; prefactor 3 -> 5 R2; the R4 explicit-literature mapping; the 3.75e11 ' +
     'mispricing Part 3); imp-35419 (the barrier-lemma porting companion, parity-not-beat); imp-35334 ' +
@@ -256,7 +256,7 @@ export const IMP35459_ETRUNC_CT_KAPPAT_DEPENDENCE_SCOPE_ASSERTIONS = [
       /genuinely PINNED/.test(IMP35459_ETRUNC_CT_KAPPAT_DEPENDENCE_SCOPE.verdict) &&
       /NO C_T\/kappa_T refinement is a Lambda lever/.test(IMP35459_ETRUNC_CT_KAPPAT_DEPENDENCE_SCOPE.verdict) &&
       /NO QED/.test(IMP35459_ETRUNC_CT_KAPPAT_DEPENDENCE_SCOPE.verdict) &&
-      /remains SOTA/.test(IMP35459_ETRUNC_CT_KAPPAT_DEPENDENCE_SCOPE.verdict),
+      /refereed bound is changed/i.test(IMP35459_ETRUNC_CT_KAPPAT_DEPENDENCE_SCOPE.verdict),
   },
 ];
 

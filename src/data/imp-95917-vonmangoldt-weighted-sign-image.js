@@ -77,7 +77,7 @@
  * conditional on a single hypothesis -- nonnegativity of the Fresnel-Airy
  * envelope K_k >= 0 -- which sharpens the imp-95898 STEP 5 / imp-95212
  * obstruction from full kernel-sum evaluation to the envelope SIGN. Nothing
- * derives or moves a bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * derives or moves a bound; NO QED; no refereed bound is changed.
  *
  * HONEST LIMITS. (a) ASSESSMENT / DERIVATION only. (b) The reduction
  * theta_phys = sum G_ml <cos>_w / S, the Gram positivity, and the convex-average
@@ -216,7 +216,7 @@ export const IMP95917_VONMANGOLDT_WEIGHTED_SIGN_IMAGE = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-SIGN -- STILL OPEN, but SHARPER than imp-95898. The physical per-window theta = sum_ml G_ml <cos>_w(h_m - h_l)/S has a DETERMINED image strictly below 1 whenever the Fresnel-Airy envelope K_k is NONNEGATIVE; the only surviving obligation to certify theta_phys < 1 is the SIGN (nonnegativity) of K_k, not the full Ramanujan/Kloosterman kernel-sum evaluation of imp-95898 STEP 5.",
   verdict:
-    "ASSESSMENT / DERIVATION (honest PARTIAL): the physical von-Mangoldt-weighted per-window theta is EXACTLY the imp-95898 STEP 2 image with the uniform cosine mean replaced by the physical kernel-weighted mean <cos>_w, and it has a DETERMINED image STRICTLY BELOW 1 conditional on a single hypothesis -- nonnegativity of the Fresnel-Airy envelope K_k >= 0 (Gram positivity makes theta_phys a convex average of values <= 1 with strict off-diagonal deficit). This SHARPENS the imp-95898 STEP 5 / imp-95212 obstruction from full kernel-sum evaluation down to the envelope SIGN. Numerically a nonnegative proxy reproduces the uniform image to ~1e-3 and stays below 1; a signed proxy deviates up to ~7 percent. Nothing derives or moves a bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "ASSESSMENT / DERIVATION (honest PARTIAL): the physical von-Mangoldt-weighted per-window theta is EXACTLY the imp-95898 STEP 2 image with the uniform cosine mean replaced by the physical kernel-weighted mean <cos>_w, and it has a DETERMINED image STRICTLY BELOW 1 conditional on a single hypothesis -- nonnegativity of the Fresnel-Airy envelope K_k >= 0 (Gram positivity makes theta_phys a convex average of values <= 1 with strict off-diagonal deficit). This SHARPENS the imp-95898 STEP 5 / imp-95212 obstruction from full kernel-sum evaluation down to the envelope SIGN. Numerically a nonnegative proxy reproduces the uniform image to ~1e-3 and stays below 1; a signed proxy deviates up to ~7 percent. Nothing derives or moves a bound; NO QED; no refereed bound is changed.",
   rigorScope:
     "The reduction theta_phys = sum_ml G_ml <cos>_w(h_m - h_l)/S, the strict positivity of every Gram entry, and the convex-average strict-below-1 implication under K_k >= 0 are EXACT structural facts. The numerical witnesses use a Gaussian / cosine-Gaussian PROXY for |K_k| -- the true Fresnel-Airy kernel is the imp-95212 port, NOT evaluated here, and its SIGN is the surviving obligation. The strict-below-1 conclusion is CONDITIONAL on K_k >= 0. Changes no bound; NO QED.",
 };
@@ -298,14 +298,14 @@ export const IMP95917_ASSERTIONS = [
   {
     id: "imp95917-verdict-honesty",
     description:
-      "the verdict carries the honest scope: a DETERMINED image strictly below 1 CONDITIONAL on K_k >= 0, the obstruction SHARPENED to the envelope SIGN, sub-gap STILL OPEN, no bound, NO QED, SOTA preserved",
+      "the verdict carries the honest scope: a DETERMINED image strictly below 1 CONDITIONAL on K_k >= 0, the obstruction SHARPENED to the envelope SIGN, sub-gap STILL OPEN, no bound, NO QED, no refereed bound is changed",
     holds: () =>
       /honest PARTIAL/.test(IMP95917_VONMANGOLDT_WEIGHTED_SIGN_IMAGE.verdict) &&
       /STRICTLY BELOW 1/.test(IMP95917_VONMANGOLDT_WEIGHTED_SIGN_IMAGE.verdict) &&
       /envelope SIGN/.test(IMP95917_VONMANGOLDT_WEIGHTED_SIGN_IMAGE.verdict) &&
       /STILL OPEN/.test(IMP95917_VONMANGOLDT_WEIGHTED_SIGN_IMAGE.subGap) &&
       /NO QED/.test(IMP95917_VONMANGOLDT_WEIGHTED_SIGN_IMAGE.verdict) &&
-      /remains SOTA/.test(IMP95917_VONMANGOLDT_WEIGHTED_SIGN_IMAGE.verdict),
+      /refereed bound is changed/i.test(IMP95917_VONMANGOLDT_WEIGHTED_SIGN_IMAGE.verdict),
   },
 ];
 

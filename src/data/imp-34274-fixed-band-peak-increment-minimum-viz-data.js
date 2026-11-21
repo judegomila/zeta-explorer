@@ -86,7 +86,7 @@ export const IMP34274_FIXED_BAND_PEAK_INCREMENT_MINIMUM_VIZ_DATA = {
   honest:
     'VIZ-DATA ONLY -- baked literals reproducing the imp-34196 measurement; adds no new derivation and ' +
     'changes no bound. Descriptive OLS surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional ' +
-    'per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    'per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; NO QED; no refereed bound is changed.',
 };
 
 export const IMP34274_ASSERTIONS = [
@@ -116,11 +116,11 @@ export const IMP34274_ASSERTIONS = [
   },
   {
     id: 'imp34274-honesty-gate-no-qed',
-    description: 'honest status references no-bound-change, NOT rigorous, NO QED, SOTA',
+    description: 'honest status references no-bound-change, NOT rigorous, NO QED, no refereed bound is changed',
     holds: () =>
       /NOT a rigorous asymptotic/.test(IMP34274_FIXED_BAND_PEAK_INCREMENT_MINIMUM_VIZ_DATA.honest) &&
       /NO QED/.test(IMP34274_FIXED_BAND_PEAK_INCREMENT_MINIMUM_VIZ_DATA.honest) &&
-      /remains SOTA/.test(IMP34274_FIXED_BAND_PEAK_INCREMENT_MINIMUM_VIZ_DATA.honest),
+      /refereed bound is changed/i.test(IMP34274_FIXED_BAND_PEAK_INCREMENT_MINIMUM_VIZ_DATA.honest),
   },
 ];
 

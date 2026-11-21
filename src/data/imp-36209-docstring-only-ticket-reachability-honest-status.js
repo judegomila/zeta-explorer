@@ -46,7 +46,7 @@
  * tickets are working as designed (improvements.js is the ledger of record for them), but the
  * registration-reachability audit method cannot and should not be pointed at them expecting a
  * file-path hit. Read-only record; changes no bound; establishes no operator positivity; no RH
- * verdict; NO QED. Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
+ * verdict; NO QED. No refereed bound is changed.
  *
  * @see imp-36065 (improvements.js id 31121; the docstring-only fix, case study of this audit)
  * @see imp-35968-e-trunc-coll-crossover-location.js (the host module imp-36065's fix landed inside)
@@ -99,8 +99,8 @@ export const IMP36209_DOCSTRING_ONLY_TICKET_REACHABILITY_HONEST_STATUS = {
     'a literal id-string grep over improvements.js / improvement-queue.js / later prose mentions. ' +
     'This is a distinct failure mode from imp-36129 (a module that exists but is unregistered): ' +
     'here there is no module to register, only a ticket id with no file-shaped home. Changes no ' +
-    'bound; establishes no operator positivity; no RH verdict; NO QED. Platt-Trudgian Lambda <= ' +
-    '0.2 remains SOTA.',
+    'bound; establishes no operator positivity; no RH verdict; NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-36065 (improvements.js id 31121, the docstring-only fix); imp-35968-e-trunc-coll-' +
     'crossover-location.js (the host module); imp-36110 (cross-reference audit noting the ' +
@@ -139,12 +139,12 @@ export const IMP36209_DOCSTRING_ONLY_TICKET_REACHABILITY_HONEST_STATUS_ASSERTION
   },
   {
     id: 'imp36209-no-fix-honesty-gate',
-    description: 'Scoping finding only: no fix applied, no bound changed, no RH verdict, no QED, PT stays SOTA',
+    description: 'Scoping finding only: no fix applied, no bound changed, no RH verdict, no QED, no refereed bound is changed',
     holds: () =>
       IMP36209_DOCSTRING_ONLY_TICKET_REACHABILITY_HONEST_STATUS.fixApplied === false &&
       IMP36209_DOCSTRING_ONLY_TICKET_REACHABILITY_HONEST_STATUS.isRigorous === false &&
       /NO QED/.test(IMP36209_DOCSTRING_ONLY_TICKET_REACHABILITY_HONEST_STATUS.verdict) &&
-      /remains SOTA/.test(IMP36209_DOCSTRING_ONLY_TICKET_REACHABILITY_HONEST_STATUS.verdict),
+      /refereed bound is changed/i.test(IMP36209_DOCSTRING_ONLY_TICKET_REACHABILITY_HONEST_STATUS.verdict),
   },
 ];
 

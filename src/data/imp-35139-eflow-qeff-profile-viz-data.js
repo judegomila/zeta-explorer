@@ -11,7 +11,7 @@
  *
  * VIZ-ONLY. Measurement only, on the inherited imp-3220/imp-3406 surrogate; C_mb
  * GUE-conditional per imp-486 untouched; establishes no operator positivity; changes no
- * bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; no RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-35039-eflow-qeff-profile-crossing-to-fartail (q_eff(x) profile, upward ladder, E_coll contrast)
  * @see imp-34973-pinned-product-slope-qeff-window-identity (subGap premise this corrects)
@@ -41,7 +41,7 @@ export const IMP35139_EFLOW_QEFF_PROFILE_VIZ_DATA = {
     'q_eff rises MONOTONICALLY toward 1 while the imp-3463 far-tail 1/2 belongs to the ' +
     'separate E_coll log-derivative. Measurement on the inherited imp-3220/imp-3406 surrogate; ' +
     'C_mb GUE-conditional per imp-486 untouched; establishes no operator positivity; changes ' +
-    'no bound; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'no bound; no RH verdict, NO QED. No refereed bound is changed.',
 };
 
 export const IMP35139_EFLOW_QEFF_PROFILE_VIZ_DATA_ASSERTIONS = [
@@ -69,12 +69,12 @@ export const IMP35139_EFLOW_QEFF_PROFILE_VIZ_DATA_ASSERTIONS = [
   },
   {
     id: 'imp35139-honesty-gate-no-qed',
-    description: 'Viz-only: not rigorous, far-tail exponent 1/2 (E_coll), no QED, PT stays SOTA',
+    description: 'Viz-only: not rigorous, far-tail exponent 1/2 (E_coll), no QED, no refereed bound is changed',
     holds: () =>
       IMP35139_EFLOW_QEFF_PROFILE_VIZ_DATA.isRigorous === false &&
       IMP35139_EFLOW_QEFF_PROFILE_VIZ_DATA.farTailExponent === 0.5 &&
       /NO QED/.test(IMP35139_EFLOW_QEFF_PROFILE_VIZ_DATA.verdict) &&
-      /remains SOTA/.test(IMP35139_EFLOW_QEFF_PROFILE_VIZ_DATA.verdict),
+      /refereed bound is changed/i.test(IMP35139_EFLOW_QEFF_PROFILE_VIZ_DATA.verdict),
   },
 ];
 

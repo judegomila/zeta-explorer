@@ -36,14 +36,14 @@
  *
  *   Documentation / numerical only. No operator positivity of P_a M_{sigma_2} P_a follows (the negative well
  *   on [0,3.306] u [6.945,10.532] is untouched); no coercivity constant; no bound moves; interval-rigorous
- *   reach stays 2a <= 0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   reach stays 2a <= 0.96; no refereed bound is changed; RH open; NO QED.
  *
  * @see imp-97417-sigma2-confined-well-correction-honest-status.js (the confined-well correction this upgrades)
  * @see imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (FINDING 1 confined well; source of the sampled claim)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (w_1, sigma_2, the tailBracket L lower bound, sigma2SecondDerivBound)
  *
  * Ticket: imp-97501 (numerical, opus-4-8, api-pool). Far-field positivity upgraded sampled -> rigorous;
- * no bound on Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.
  */
 
 import { twoThetaPrime } from './rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js';

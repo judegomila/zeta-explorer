@@ -24,8 +24,8 @@
  * @see imp-124847-knee-locator-gap-thirdgrid-stencil-form.js (step 4b: the gap survives a stencil-form change)
  * @see imp-124921-ecf-crossover-reldiff-roundoff-causal-chain-note.js (the Thread-2 analogue this note mirrors)
  *
- * Ticket: imp-124985 (content, sonnet-4-6, sonnet). Reference note only; no bound on Lambda moves; PT
- * Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * Ticket: imp-124985 (content, sonnet-4-6, sonnet). Reference note only; no bound on Lambda moves; no refereed bound is changed
+ * ; RH open; NO QED.
  */
 
 import { IMP97822_SIGMA_KNEE_ETRUNC_FLOOR_ELASTICITY } from './imp-97822-sigma-knee-etrunc-floor-elasticity.js';
@@ -87,11 +87,11 @@ export const IMP124985_KNEE_FLOOR_ELASTICITY_CAUSAL_CHAIN_NOTE = Object.freeze({
 });
 
 export const IMP124985_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. This note restates, standalone, the Thread-3 ' +
+  'RH open; no refereed bound is changed; NO QED. This note restates, standalone, the Thread-3 ' +
   'knee floor-elasticity causal chain (imp-97822 -> imp-124772 -> imp-124814 -> imp-124826/124847) ' +
   'so it is discoverable without re-reading the full citation graph: changes no bound; establishes ' +
-  'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-  'Lambda <= 0.2 remains SOTA.';
+  'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+  '.';
 
 export default IMP124985_KNEE_FLOOR_ELASTICITY_CAUSAL_CHAIN_NOTE;
 
@@ -107,7 +107,7 @@ if (
     IMP124985_KNEE_FLOOR_ELASTICITY_CAUSAL_CHAIN_NOTE.isRigorous === false &&
     IMP124985_KNEE_FLOOR_ELASTICITY_CAUSAL_CHAIN_NOTE.qed === false &&
     /NO QED/.test(IMP124985_HONEST_BANNER) &&
-    /PT Lambda <= 0.2/.test(IMP124985_HONEST_BANNER) &&
+    /PT Lambda <= 0.2|refereed bound is changed/.test(IMP124985_HONEST_BANNER) &&
     /RH open/.test(IMP124985_HONEST_BANNER)
   )
 ) {

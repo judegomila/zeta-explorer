@@ -60,7 +60,7 @@
  * component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the
  * C_mb GUE-conditional per imp-486 is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is
  * UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no
- * RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * RH verdict, NO QED. No refereed bound is changed.
  *
  * @see imp-96431-knee-crossover-tracking-wide-range (W2: measured -0.00143/decade monotone drift)
  * @see imp-33744-sigma-inflection-vs-half-closed-form (sigma_infl = 1/2 - g_prime/(2 g^2) = 1/2 - 1/(t-1)^2)
@@ -189,8 +189,8 @@ export const IMP96467_OFFSET_DRIFT_SLOPE_VS_LDRIFT_PREDICTION = Object.freeze({
     'the residual SHARPENS rather than overturns it. The component model is the inherited ' +
     'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 ' +
     'is UNTOUCHED; the C_C 1/8 ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; establishes ' +
-    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian ' +
-    'Lambda <= 0.2 remains SOTA.',
+    'no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. No refereed bound is changed' +
+    '.',
   citation:
     'imp-96431 (measured -0.00143/decade monotone offset drift); imp-33744 (sigma_infl = 1/2 - ' +
     'g_prime/(2 g^2) = 1/2 - 1/(t-1)^2); imp-96405 M3 (L(N) running breaks the exact-logistic form); ' +
@@ -229,11 +229,11 @@ const IMP96467_ASSERTIONS = [
   },
   {
     id: 'imp96467-honesty-gate-no-qed',
-    description: 'Derivation/measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'Derivation/measurement only: isRigorous false, no QED, no refereed bound is changed',
     holds: () =>
       IMP96467_OFFSET_DRIFT_SLOPE_VS_LDRIFT_PREDICTION.isRigorous === false &&
       /NO QED/.test(IMP96467_OFFSET_DRIFT_SLOPE_VS_LDRIFT_PREDICTION.verdict) &&
-      /remains SOTA/.test(IMP96467_OFFSET_DRIFT_SLOPE_VS_LDRIFT_PREDICTION.verdict),
+      /refereed bound is changed/i.test(IMP96467_OFFSET_DRIFT_SLOPE_VS_LDRIFT_PREDICTION.verdict),
   },
 ];
 

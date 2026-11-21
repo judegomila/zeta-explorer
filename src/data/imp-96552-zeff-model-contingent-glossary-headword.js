@@ -38,14 +38,14 @@
  *   ------------------------
  *   A glossary-style lookup restating the imp-96529 verdict for quick reference. It
  *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound.
- *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *   NO QED. No refereed bound is changed.
  *
  * @see imp-96529-excursion-zcons-model-free-tightening-assessment (source: proves the ZERO-improvement verdict)
  * @see imp-96509-excursion-effective-significance-ar2 (source: the AR-2/AR-3 model figures this glosses)
  * @see imp-96452-excursion-confidence-2sigma-reach (source: carries z_cons = 1.9234)
  *
  * Ticket: imp-96552 (content, medium). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * no refereed bound is changed.
  */
 
 // The z_eff model-contingency headword, baked verbatim (no re-import of the
@@ -77,8 +77,8 @@ const ZEFF_MODEL_CONTINGENT_HEADWORD = Object.freeze({
   bestModelFreeImprovement: 0,
   verificationStatus:
     'Measurement-classification headword (accuracy/honesty audit), not a rigorous '
-    + 'derivation. Changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 '
-    + 'remains SOTA.',
+    + 'derivation. Changes no bound; RH open; NO QED; no refereed bound is changed'
+    + '.',
 });
 
 export const IMP96552_ZEFF_MODEL_CONTINGENT_GLOSSARY_HEADWORD = Object.freeze({
@@ -100,8 +100,8 @@ export const IMP96552_ZEFF_MODEL_CONTINGENT_GLOSSARY_HEADWORD = Object.freeze({
     + 'MODEL-CONTINGENT z_eff climb 3.1787 / 4.3310 / 5.4329 (AR-1/AR-2/AR-3, resting '
     + 'on the AR(p) / GUE sine-kernel decay assumption). The best guaranteed '
     + 'model-free improvement over z_cons is exactly ZERO. Establishes nothing; '
-    + 'instantiates no interval; moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 '
-    + 'remains SOTA.',
+    + 'instantiates no interval; moves no bound; NO QED. No refereed bound is changed'
+    + '.',
   citation:
     'imp-96529 (proves the ZERO model-free-improvement verdict via an explicit '
     + 'PSD-admissible VIF_291 = 14.55 completion); imp-96509 (the AR-1/AR-2/AR-3 '
@@ -131,11 +131,11 @@ export const IMP96552_ZEFF_MODEL_CONTINGENT_GLOSSARY_HEADWORD_ASSERTIONS = [
   },
   {
     id: 'imp96552-honesty-gate-no-qed',
-    why: 'Documentation only: no bound claimed moved, no QED, PT SOTA line present.',
+    why: 'Documentation only: no bound claimed moved, no QED, no-refereed-bound-change line present.',
     holds: () =>
       IMP96552_ZEFF_MODEL_CONTINGENT_GLOSSARY_HEADWORD.anyBoundMoved === false
       && /NO QED/.test(IMP96552_ZEFF_MODEL_CONTINGENT_GLOSSARY_HEADWORD.verdict)
-      && /remains SOTA/.test(IMP96552_ZEFF_MODEL_CONTINGENT_GLOSSARY_HEADWORD.verdict)
+      && /refereed bound is changed/i.test(IMP96552_ZEFF_MODEL_CONTINGENT_GLOSSARY_HEADWORD.verdict)
       && IMP96552_ZEFF_MODEL_CONTINGENT_GLOSSARY_HEADWORD.glosses === 'imp-96529',
   },
 ];

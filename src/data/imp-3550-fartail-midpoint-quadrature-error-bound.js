@@ -57,7 +57,7 @@
  *   smooth dBN integrand (not symbolic maxima). It does NOT give xi* or the sup an elementary
  *   closed form (the imp-3470 stationarity equation stays transcendental). RH-EQUIVALENT; the
  *   imp-3066 off-diagonal endpoint-Hankel K_a >= 0 magnitude is the lone RH obstruction, UNTOUCHED.
- *   NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *   NO RH verdict, NO QED. No refereed bound is changed.
  *
  *   @see imp-3531-far-tail-band-max-grid-convergence.js (empirical Cauchy ladder; parent)
  *   @see imp-3511-xistar-uniqueness-wide-range-robustness.js (far-tail |P1| bound; grandparent)
@@ -239,7 +239,7 @@ export const IMP3550_FARTAIL_MIDPOINT_QUADRATURE_ERROR_BOUND = Object.freeze({
     'over-estimates the true residual by orders of magnitude); it certifies the O(H^2) SCALING and ' +
     'brackets the ladder, not sharpness. Derivation/certification only; does NOT give xi* a closed form ' +
     '(imp-3470 stationarity stays transcendental); RH-equivalent; the imp-3066 K_a >= 0 magnitude is the ' +
-    'lone obstruction, UNTOUCHED. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+    'lone obstruction, UNTOUCHED. NO RH verdict, NO QED. No refereed bound is changed.',
 
   derivation: Object.freeze({
     objective: 'far-tail band max of |P1|, P1 = dP/dxi = 2(C C1 + S S1), on the imp-3511 band (320, 400]',
@@ -343,7 +343,7 @@ export const IMP3550_FARTAIL_MIDPOINT_QUADRATURE_ERROR_BOUND = Object.freeze({
     necessaryNotSufficient:
       'Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel operator magnitude remains the lone obstruction. No RH verdict.',
     didNotAttemptPositivity: true,
-    sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
+    sota: 'No refereed bound is changed',
   }),
 });
 
@@ -407,7 +407,7 @@ export const IMP3550_FARTAIL_MIDPOINT_QUADRATURE_ERROR_BOUND_ASSERTIONS = [
     id: 'imp3550-honest-assessment-no-qed',
     why: 'Mandatory honesty: delivers an analytic O(H^2) bound but a CONSERVATIVE one, sup norms are numeric, ' +
       'the domain is still finite (monotone-decay tail, not a no-root proof), no closed form, measures error ' +
-      'not positivity, RH-equivalent, PT 0.2 stays SOTA. Any flip over-claims.',
+      'not positivity, RH-equivalent, no refereed bound is changed. Any flip over-claims.',
     holds: () => {
       const c = IMP3550_FARTAIL_MIDPOINT_QUADRATURE_ERROR_BOUND.honestCaveat;
       return (
@@ -419,7 +419,7 @@ export const IMP3550_FARTAIL_MIDPOINT_QUADRATURE_ERROR_BOUND_ASSERTIONS = [
         typeof c.supNormsNumeric === 'string' &&
         typeof c.finiteDomainStillFinite === 'string' &&
         typeof c.hardensTailBoundNotClosedForm === 'string' &&
-        /Platt-Trudgian/.test(c.sota)
+        /Platt-Trudgian|refereed bound is changed/.test(c.sota)
       );
     },
   },

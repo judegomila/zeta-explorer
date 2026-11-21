@@ -13,8 +13,8 @@
  * MEASUREMENT / PRESENTATION ONLY. Every number here is copied verbatim from the
  * baked anatomy literal (itself cross-checked by that module's own UC6-anatomy-
  * consistency assertion); no re-derivation, no fresh solve. Changes no bound,
- * establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2
- * remains SOTA. RH open. NO QED.
+ * establishes no operator positivity, no RH claim; no refereed bound is changed
+ * . RH open. NO QED.
  *
  * @see rh-route-i-uncertainty-concentration-certificate-2026-09-24.js
  *   (UNCERTAINTY_CERTIFICATE_LITERALS.anatomy, .certificate.T400N320)
@@ -91,7 +91,7 @@ export const IMP96576_SUMMARY = Object.freeze({
 });
 
 export const IMP96576_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every window part/energy value is copied verbatim from the baked certificate anatomy (UNCERTAINTY_CERTIFICATE_LITERALS.anatomy); no re-derivation, no fresh solve. The certified-minimizer window parts sum to the true form value 9.7861e-4, which exceeds the certificate’s proved lower bound 9.0437e-4 (T=400, N=320) by a positive floor loss of 7.42e-5 from truncating the tail at T=400 — the minimizer itself is not interval-verified, only the T=400/N=320 Galerkin bound is (double precision, checked across resolutions). No bound is claimed beyond D_S <= L_S on pole-free h for 2a <= ln 3; nothing here localises a zero.';
+  'RH open; no refereed bound is changed; NO QED. Presentation only: every window part/energy value is copied verbatim from the baked certificate anatomy (UNCERTAINTY_CERTIFICATE_LITERALS.anatomy); no re-derivation, no fresh solve. The certified-minimizer window parts sum to the true form value 9.7861e-4, which exceeds the certificate’s proved lower bound 9.0437e-4 (T=400, N=320) by a positive floor loss of 7.42e-5 from truncating the tail at T=400 — the minimizer itself is not interval-verified, only the T=400/N=320 Galerkin bound is (double precision, checked across resolutions). No bound is claimed beyond D_S <= L_S on pole-free h for 2a <= ln 3; nothing here localises a zero.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -137,7 +137,7 @@ const IMP96576_ASSERTIONS = [
     id: 'imp96576-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96576_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96576_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP96576_HONEST_BANNER) &&
       /NO QED/.test(IMP96576_HONEST_BANNER),
     why: 'every Route A-M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

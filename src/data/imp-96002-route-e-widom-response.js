@@ -56,7 +56,7 @@
  *       into the strip and cannot be supplied by the convergent thermodynamics.
  * Consistent with the flow-blindness no-go (soft/convergent structure alone cannot give RH;
  * genuine arithmetic-in-the-strip input is required). Measurement only; NO bound; RH open; NO
- * QED; PT Lambda<=0.2 SOTA.
+ * QED; no refereed bound is changed.
  */
 
 function primesUpTo(P) {
@@ -167,7 +167,7 @@ export const ROUTE_E_WIDOM_RESPONSE = Object.freeze({
     + 'continued strip 1/2<sigma<1 where the primon gas is undefined; reaching it needs the '
     + 'transcendental continuation, not the convergent thermodynamics.',
   verdict: 'WIDOM-LINE-AT-CONDENSATION / STRIP-INACCESSIBLE',
-  note: 'Measurement only; no bound; RH open; PT Lambda<=0.2 SOTA; NO QED.',
+  note: 'Measurement only; no bound; RH open; no refereed bound is changed; NO QED.',
 });
 
 export const ROUTE_E_WIDOM_RESPONSE_ASSERTIONS = Object.freeze([

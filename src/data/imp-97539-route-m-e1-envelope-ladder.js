@@ -102,7 +102,7 @@ export const IMP97539_VERDICT = Object.freeze({
     'ladder reproduces the imp-97516 STEP 3 anchors exactly (1.175e-3 at b=211, 8.329e-6 at b=30011). This ' +
     'cross-validates the STEP 3 o(phi(b) b) claim quantitatively: |E1(b)| = O(phi(b) b * log b log log b / ' +
     'b) = o(phi(b) b). Measurement only; kappa_arith unchanged; cotangent first moment (imp-97097) open; ' +
-    'no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'no bound on Lambda moves; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97539_SUBGAP = Object.freeze({
@@ -119,7 +119,7 @@ export const IMP97539_SUBGAP = Object.freeze({
 });
 
 export const IMP97539_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. This is a TABULATION cross-validating the imp-97516 ' +
+  'RH open; no refereed bound is changed; NO QED. This is a TABULATION cross-validating the imp-97516 ' +
   'STEP 3 claim that E1(b) = o(phi(b) b): the measured |E1(b)|/(phi(b) b) decay is under the analytic ' +
   'O(log b log log b / b) envelope at every ladder point (ratio/env <= 0.14, non-growing) and reproduces ' +
   'the STEP 3 anchors (1.18e-3 at b=211, 8.3e-6 at b=30011). The o(phi(b) b) is MEASURED, not an ' +
@@ -181,7 +181,7 @@ const IMP97539_ASSERTIONS = [
       IMP97539_VERDICT.qed === false &&
       /cross-validated/.test(IMP97539_SUBGAP.id) &&
       /NO QED/.test(IMP97539_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97539_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97539_HONEST_BANNER) &&
       /RH open/.test(IMP97539_HONEST_BANNER),
     why: 'tabulation leaf: measured E1 decay under the envelope; no bound moved, no QED.',
   },

@@ -63,7 +63,7 @@
  *
  *   Derivation/measurement only; pins NO coefficient by fitting; no bound moves; the only rigorous anchor
  *   stays the trace ceiling T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x; no operator
- *   positivity; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ *   positivity; no refereed bound is changed; RH open; NO QED.
  *
  *   SUB-GAP (below): imp-97480-smalleps-crossover-is-fluctuation-envelope-extreme-value -- for eps below
  *   ~2% the first-exceedance crossover x*(eps) is set by the extreme value (max over a at fixed x) of the
@@ -217,7 +217,7 @@ export const IMP97480_VERDICT = Object.freeze({
     'a~b-set for eps > ~2% -- so the split pins the large-eps crossover fully and PROVABLY cannot pin the ' +
     'small-eps ones. This is the exact analytic point sought, resolving the imp-97464 sub-gap. ' +
     'Derivation only; no coefficient fit; no bound moved; the rigorous anchor stays T = 2.594e7; compute ' +
-    'N ~ 9916 binds first by >2600x; no operator positivity; PT Lambda <= 0.2 SOTA; RH open; NO QED.',
+    'N ~ 9916 binds first by >2600x; no operator positivity; no refereed bound is changed; RH open; NO QED.',
 });
 
 export const IMP97480_SUBGAP = Object.freeze({
@@ -234,7 +234,7 @@ export const IMP97480_SUBGAP = Object.freeze({
 });
 
 export const IMP97480_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Derivation only: the Bettin-Conrey smooth/fluctuation ' +
+  'RH open; no refereed bound is changed; NO QED. Derivation only: the Bettin-Conrey smooth/fluctuation ' +
   'split of V(b,a) PINS the 5% crossover (smooth x* = 0.94484 vs measured 0.94481, to 1.5e-4, b-independent, ' +
   'deep-bulk a~b symmetry) but PROVABLY cannot pin the 0.5%/1%/2% crossovers (over-predicts by 2.74x/2.84x/ ' +
   '1.46x): those are fluctuation-envelope extreme-value events (smooth amplitude 12x/4.8x/1.2x below the ' +
@@ -304,7 +304,7 @@ const IMP97480_ASSERTIONS = [
       IMP97480_VERDICT.crossoverIsDualMechanism === true &&
       IMP97480_VERDICT.computeBindsFirst === true &&
       /NO QED/.test(IMP97480_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP97480_HONEST_BANNER) &&
+      /PT Lambda <= 0.2|refereed bound is changed/.test(IMP97480_HONEST_BANNER) &&
       /RH open/.test(IMP97480_HONEST_BANNER) &&
       /fluctuation-envelope-extreme-value/.test(IMP97480_SUBGAP.id),
   },

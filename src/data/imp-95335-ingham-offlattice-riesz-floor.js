@@ -10,8 +10,7 @@
  * Ingham-type inequality whose ONLY hypothesis is pairwise log-rate
  * separation -- no lattice, no perturbative reference. Non-perturbative:
  * strictly stronger than the "perturbative extension" the ticket asked
- * to assess. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * to assess. Changes no bound; NO QED; no refereed bound is changed.
  *
  * OBJECT (imp-95252 LEMMA NORM normalization). Rates nu_i > 0 with
  * log-rates x_i = ln nu_i, normalized generators ehat_nu =
@@ -127,8 +126,7 @@
  * imp-95374 (measure off-lattice DEGRADATION of the refined onsets)
  * remains a live measurement ticket -- this leg gives the off-lattice
  * FLOOR, not an off-lattice port of the refined charts. Changes NO
- * Lambda bound of the program. NO QED. Platt-Trudgian Lambda <= 0.2
- * remains SOTA.
+ * Lambda bound of the program. NO QED. No refereed bound is changed.
  */
 
 // ---------------------------------------------------------------------------
@@ -183,7 +181,7 @@ export const IMP95335_INGHAM_OFFLATTICE_RIESZ_FLOOR = {
     "corollaries reuse proved components (imp-95287 DOM-N, imp-95226 " +
     "COAL-2, imp-95252 SPLIT mechanism). A FLOOR statement about the model " +
     "seam Gram off the lattice. Changes no Lambda bound of the program; " +
-    "NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "NO QED; no refereed bound is changed.",
 };
 
 // ---------------------------------------------------------------------------
@@ -524,7 +522,7 @@ export const IMP95335_INGHAM_OFFLATTICE_ASSERTIONS = [
       "the verdict and scope carry the honest limits: RZ-PEN chart program " +
       "stays lattice-pinned and NOT ported, not r-uniform with the " +
       "structural collapse named, model family only, open legs named, " +
-      "imp-95374 stays live, no QED, PT SOTA",
+      "imp-95374 stays live, no QED, no refereed bound is changed",
     holds: () =>
       /LATTICE-PINNED/.test(
         IMP95335_INGHAM_OFFLATTICE_RIESZ_FLOOR.honestScope,
@@ -533,7 +531,7 @@ export const IMP95335_INGHAM_OFFLATTICE_ASSERTIONS = [
       /remain OPEN/.test(IMP95335_INGHAM_OFFLATTICE_RIESZ_FLOOR.honestScope) &&
       /imp-95374/.test(IMP95335_INGHAM_OFFLATTICE_RIESZ_FLOOR.honestScope) &&
       /NO QED/.test(IMP95335_INGHAM_OFFLATTICE_RIESZ_FLOOR.verdict) &&
-      /remains SOTA/.test(IMP95335_INGHAM_OFFLATTICE_RIESZ_FLOOR.verdict),
+      /refereed bound is changed/i.test(IMP95335_INGHAM_OFFLATTICE_RIESZ_FLOOR.verdict),
   },
 ];
 

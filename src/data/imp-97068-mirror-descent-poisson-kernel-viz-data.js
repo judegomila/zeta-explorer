@@ -12,7 +12,7 @@
  *   never attained) is carried as a plain annotation, not re-derived. Presentation only; every
  *   number is computed with the imported f() verbatim; no new Lambda bound; the underlying
  *   theorem stays conditional (H_desc-mirror hypothesis open, pointwise NS-RIGID class);
- *   PT Lambda <= 0.2 SOTA; RH open; NO QED.
+ *   no refereed bound is changed; RH open; NO QED.
  *
  * @see rh-bridge-mirror-descent-2026-09-25.js (source: A1 pair lemma, A4 Poisson domination; f() reused verbatim)
  */

@@ -9,7 +9,7 @@
  * the TRANSCRIBED geometry actually used in the closed-form certificate against
  * the TRUE first principal angle across the ported (rate, center) twin-lattice
  * grid, and confirms the direction-of-inequality. MEASUREMENT only; changes no
- * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ * bound; NO QED; no refereed bound is changed.
  *
  * WHAT "TRANSCRIBED" MEANS HERE. SPLIT-LOO prices each block by
  *   sqrt(Lambda(V, d)) <= sum_k sqrt( Lambda_k / (1 - sigma_k^2) ),
@@ -65,7 +65,7 @@
  * over-estimation factor. (c) Model family only; no mapping to paper per-window
  * data (obligation (3) unchanged). Import-light (no zeros bundle, no sibling
  * imports; numerics are self-contained cross-checks). Changes no bound; NO QED;
- * Platt-Trudgian Lambda <= 0.2 remains SOTA; measured class sup unchanged.
+ * no refereed bound is changed; measured class sup unchanged.
  */
 
 // ---------------------------------------------------------------------------
@@ -280,7 +280,7 @@ export const IMP95425_SPLITLOO_SIGMA_UPPERBOUND_DIRECTION = {
     + "already PROVEN in imp-95249 ANG-DET); the fence is deliberately LOOSE "
     + "(over-estimates the collar by up to ~2.66x) but always on the safe side. "
     + "Model family only; obligation (3) unchanged. Changes no bound; NO QED; "
-    + "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    + "no refereed bound is changed.",
   fns: { cos2Direct, phiFence, twinLattice, directionScan },
 };
 
@@ -323,11 +323,11 @@ export const IMP95425_ASSERTIONS = [
     id: "imp-95425-honest-measurement-only",
     description:
       "verdict is CONFIRMED, MEASUREMENT ONLY, direction already PROVEN in "
-      + "imp-95249, and PT Lambda <= 0.2 stays SOTA",
+      + "imp-95249, and no refereed bound is changed",
     holds: () =>
       /CONFIRMED/.test(IMP95425_SPLITLOO_SIGMA_UPPERBOUND_DIRECTION.verdict)
       && /MEASUREMENT ONLY/.test(IMP95425_SPLITLOO_SIGMA_UPPERBOUND_DIRECTION.honest)
-      && /Lambda <= 0.2 remains SOTA/.test(
+      && /refereed bound is changed/i.test(
         IMP95425_SPLITLOO_SIGMA_UPPERBOUND_DIRECTION.honest,
       ),
   },

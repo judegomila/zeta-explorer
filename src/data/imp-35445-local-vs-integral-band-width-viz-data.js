@@ -15,8 +15,7 @@
  *   @see imp-35111-off-by-one-reentry-band-width (band width ~10.08 decades, the integral width)
  *
  *   Ticket: imp-35445 (ux, low). Presentation only of an already-established measurement; adds
- *   no new Lambda bound. C_mb GUE-conditional per imp-486 UNTOUCHED. NO QED. Platt-Trudgian
- *   Lambda <= 0.2 remains the rigorous SOTA.
+ *   no new Lambda bound. C_mb GUE-conditional per imp-486 UNTOUCHED. NO QED. No refereed bound is changed.
  */
 
 // -- six-decade discrepancy ladder: local width (OFFSET/DRIFT) vs the true integral width --

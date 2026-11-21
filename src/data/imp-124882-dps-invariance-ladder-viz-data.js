@@ -39,8 +39,8 @@ export const IMP124882_SUMMARY = Object.freeze({
   verdict:
     'Presentation only: every dps / R / sigma_crit value plotted here is reused verbatim from imp-124849 ' +
     '(a measurement/sensitivity port, not a rigorous asymptotic). Conditional-share diagnostic on the inherited ' +
-    'imp-3220/imp-3406 extrapolation; changes no bound; imp-3066 K_a >= 0 untouched; Platt-Trudgian Lambda <= 0.2 ' +
-    'remains SOTA; RH open; NO QED.',
+    'imp-3220/imp-3406 extrapolation; changes no bound; imp-3066 K_a >= 0 untouched; no refereed bound is changed' +
+    '; RH open; NO QED.',
 });
 
 // ---------------------------------------------------------------------------

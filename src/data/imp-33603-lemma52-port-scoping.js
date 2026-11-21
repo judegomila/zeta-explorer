@@ -87,7 +87,7 @@
  * sub-sub-gaps: the port is necessary but NOT sufficient; the missing input is a uniform-in-N curvature
  * lower bound at y_N^sharp -> 0. Assessment only; no positivity, no bridge closure, no RH claim, NO QED.
  * imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED; C_mb share untouched.
- * Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
+ * No refereed bound is changed.
  *
  * @see lambda-polymath15-bridge (imp-345: opens G6a; cites Lemma 5.2 as the blow-up lemma)
  * @see lambda-burgers-shock-lipschitz (imp-354: Whitham fold reduction; G6a-sub-hyperbolic, G6a-sub-constant)
@@ -200,7 +200,7 @@ export const IMP33603_LEMMA52_PORT_SCOPING = {
     'same still-missing object as G6a_shock_lipschitz::y2-adapted-flow-depth (imp-3708). Assessment / ' +
     'literature-scoping only; G6a_shock_lipschitz stays OPEN; no positivity, no bridge closure, no RH ' +
     'claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED; C_mb share ' +
-    'untouched. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    'untouched. No refereed bound is changed.',
   citation:
     'lambda-polymath15-bridge (imp-345: opens G6a; cites Polymath15 Lemma 5.2 arXiv:1904.12438 as the ' +
     'blow-up lemma); lambda-burgers-shock-lipschitz (imp-354: Whitham fold reduction, G6a-sub-hyperbolic ' +
@@ -257,14 +257,14 @@ export const IMP33603_LEMMA52_PORT_SCOPING_ASSERTIONS = [
     },
   },
   {
-    // Honesty gate: scoping only, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched.
+    // Honesty gate: scoping only, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched.
     id: 'imp33603-honesty-gate-no-qed',
-    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, PT stays SOTA, imp-3066 untouched',
+    description: 'Scoping only: not rigorous, G6a stays OPEN, no QED, no refereed bound is changed, imp-3066 untouched',
     holds: () =>
       IMP33603_LEMMA52_PORT_SCOPING.isRigorous === false &&
       /NO QED/.test(IMP33603_LEMMA52_PORT_SCOPING.verdict) &&
       /stays OPEN/.test(IMP33603_LEMMA52_PORT_SCOPING.verdict) &&
-      /remains the rigorous SOTA/.test(IMP33603_LEMMA52_PORT_SCOPING.verdict) &&
+      /refereed bound is changed/i.test(IMP33603_LEMMA52_PORT_SCOPING.verdict) &&
       /imp-3066[^.]*UNTOUCHED/.test(IMP33603_LEMMA52_PORT_SCOPING.verdict),
   },
 ];

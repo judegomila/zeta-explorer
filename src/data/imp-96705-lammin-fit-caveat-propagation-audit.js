@@ -16,7 +16,7 @@
  *     to the lam_min figure itself (e.g. "lammax-fit-extrapolated-to-4e7", "extrapolated to 1e16",
  *     "inherits fit-extrapolation").
  *   IMPLICIT (6) -- the module cites "@see imp-96428-..." (or an inline "imp-96428" comment) next to
- *     the literal A/p constants AND carries the house-style "NO QED; RH open; PT Lambda<=0.2 SOTA"
+ *     the literal A/p constants AND carries the house-style "NO QED; RH open; no refereed bound is changed"
  *     honest banner naming its own output as "Extrapolation/Measurement/Assessment/Audit only" --
  *     i.e. the module never claims a certified bound, even though it does not repeat the exact phrase
  *     "fit-extrapolated, not certified".
@@ -25,8 +25,8 @@
  *
  * VERDICT. All 19 consumers propagate the caveat (13 explicitly, 6 implicitly via @see + a generic
  * non-certified banner); none overstates the ceiling as rigorous. No fix required. This audit changes
- * no bound, establishes no operator positivity, and asserts no QED; Platt-Trudgian Lambda <= 0.2
- * remains SOTA. RH open.
+ * no bound, establishes no operator positivity, and asserts no QED; no refereed bound is changed
+ * . RH open.
  *
  * @see imp-96428-route-m-vasyunin-lammin-conditioning-ceiling.js (source fit + IMP96428_HONEST_BANNER)
  * @see imp-96602-lammin-verified-cholesky-cert-limit-glossary-headword.js (coined "fit-extrapolated, not certified")
@@ -73,7 +73,7 @@ export const IMP96705_LAMMIN_FIT_CAVEAT_AUDIT = Object.freeze({
     '19 Route M consumers of the imp-96428 A/p fit found; 13 carry the caveat EXPLICITLY (fit/'
     + 'extrapolation-specific banner wording tied to the ceiling figure), 6 carry it IMPLICITLY (an '
     + '@see/inline "imp-96428" citation next to the A/p literals plus a generic house-style "NO QED; '
-    + 'RH open; PT Lambda<=0.2 SOTA" non-certified banner). No consumer presents an imp-96428-derived '
+    + 'RH open; no refereed bound is changed" non-certified banner). No consumer presents an imp-96428-derived '
     + 'ceiling as if it were a certified bound. Audit only; no re-derivation; no bound moved; NO QED.',
   verdict: Object.freeze({
     consumerCount: AUDITED.length,
@@ -90,8 +90,8 @@ export const IMP96705_LAMMIN_FIT_CAVEAT_AUDIT = Object.freeze({
     + 'EXPLICIT wording (the fit/extrapolation language sits next to the specific ceiling figure) from '
     + 'IMPLICIT wording (a citation to imp-96428 plus the module-wide honest banner) -- both count as '
     + 'honest propagation because neither presents the ceiling as certified; only an outright missing '
-    + 'or contradicted caveat would count as a gap, and none was found. Changes no bound; Platt-'
-    + 'Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    + 'or contradicted caveat would count as a gap, and none was found. Changes no bound; '
+    + 'no refereed bound is changed; NO QED.',
 });
 
 export const IMP96705_LAMMIN_FIT_CAVEAT_AUDIT_ASSERTIONS = Object.freeze([
@@ -115,10 +115,10 @@ export const IMP96705_LAMMIN_FIT_CAVEAT_AUDIT_ASSERTIONS = Object.freeze([
     holds: () => IMP96705_LAMMIN_FIT_CAVEAT_AUDIT.verdict.overstatedAsCertifiedCount === 0,
   },
   {
-    name: 'honest: audit only, no bound moved, PT Lambda<=0.2 SOTA, NO QED',
+    name: 'honest: audit only, no bound moved, no refereed bound is changed, NO QED',
     holds: () =>
       /Audit only/i.test(IMP96705_LAMMIN_FIT_CAVEAT_AUDIT.status)
-      && /Platt-Trudgian Lambda <= 0.2 remains SOTA/.test(IMP96705_LAMMIN_FIT_CAVEAT_AUDIT.caveats)
+      && /refereed bound is changed/i.test(IMP96705_LAMMIN_FIT_CAVEAT_AUDIT.caveats)
       && /NO QED/.test(IMP96705_LAMMIN_FIT_CAVEAT_AUDIT.status),
   },
 ]);

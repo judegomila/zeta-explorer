@@ -18,7 +18,7 @@ export const ZETAEXPLORER_NO_GOS = Object.freeze([
     kind: 'theorem',
     by: 'zetaexplorer',
     statement:
-      'No soft / backward-heat-flow hypothesis can prove RH on its own: an SL2 flow-blindness argument exhibits flows that stay "soft" yet break RH, so a proof needs genuine arithmetic input. The operator-language form is the modulus-barrier + no-gain rule. MACHINE-VERIFIED (Lean 4, 2026-09): noGo_backward + softClass_noGo kernel-checked with Rodgers-Tao Λ ≥ 0 as an explicit hypothesis — formalization/lean-aristotle/flow_blindness/.',
+      'A class containing the Riemann profile and its sufficiently small negative-time heat deformations cannot imply all-real transform zeros. Class membership is an essential hypothesis; invariance of arbitrary analytic properties is not established. Lean verification of a conditional implication does not discharge its application hypotheses. See the corrected SL2 statement.',
     route: '/flow-blindness-no-go',
   },
   {
@@ -82,7 +82,7 @@ export const FIELD_NO_GOS = Object.freeze([
     kind: 'theorem',
     by: 'Rodgers–Tao (2020)',
     statement:
-      'The de Bruijn–Newman constant is non-negative, so (with RH ⟺ Λ ≤ 0) RH, if true, is true by an arbitrarily thin margin (Λ = 0 exactly). An arbitrarily small amount of backward heat flow destroys the reality of the zeros — so no soft or perturbation-stable argument can prove RH.',
+      'The de Bruijn–Newman constant is non-negative, so (with RH ⟺ Λ ≤ 0) RH, if true, is true by an arbitrarily thin margin (Λ = 0 exactly). Every negative-time deformation has a non-real zero. The corresponding no-go applies to a hypothesis class only if it contains those deformations.',
     ref: 'Forum of Mathematics, Pi (2020); arXiv:1801.05914',
   },
   {
@@ -122,7 +122,7 @@ export const FIELD_NO_GOS = Object.freeze([
     kind: 'barrier',
     by: 'Selberg; general sieve theory',
     statement:
-      'Purely sieve-theoretic / analytic methods cannot detect the parity of the number of prime factors without new arithmetic input — the analytic analogue of the flow-blindness obstruction. Soft methods capture average behaviour but not the rigidity that forces every zero onto the line.',
+      'Classical sieve bounds face a parity obstruction. This limits specified sieve methods; it is not a theorem excluding all analytic arguments for RH or an identification with the flow-blindness obstruction.',
     ref: 'classical; see Friedlander–Iwaniec, Opera de Cribro',
   },
   {

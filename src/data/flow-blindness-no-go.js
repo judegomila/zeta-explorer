@@ -1,110 +1,65 @@
 /**
- * @fileoverview Flow-blindness no-go (Lemma SL2) + the T3⇔zero-free-strip
- * dictionary (SL0/SL1). A rigorous, unconditional obstruction: no "soft"
- * (flow-stable) hypothesis on the de Bruijn–Newman profile can prove RH, because
- * the backward heat flow Φ↦e^{-εu²}Φ stays in every soft class yet (Rodgers–Tao
- * Λ≥0) has a non-real zero for every ε>0. Analytic twin of frozen-rung⟺PT.
- *
- * NO heavy imports (no zeros bundle). Self-contained record + build tripwires.
+ * Flow-blindness, corrected 2026-09-30: the excluded hypothesis class must
+ * contain the actual profile AND its negative-time deformations. Invariance
+ * of arbitrary analytic subclasses, kernel PSD, or total positivity is not given.
  */
-
 export const FLOW_BLINDNESS_NO_GO = Object.freeze({
   id: 'flow-blindness-no-go',
-  title: 'Flow-blindness: soft hypotheses cannot prove RH',
-  status: 'THEOREM (unconditional, rests on Rodgers–Tao Λ ≥ 0)',
+  title: 'Flow-blindness: the scope of the no-go',
+  status: 'THEOREM for an explicitly flow-stable class containing Φ (Rodgers–Tao Λ ≥ 0)',
   paperPdf: '/flow-blindness-no-go.pdf',
+  paperSource: 'https://github.com/judegomila/zeta-explorer/blob/main/formalization/paper/flow-blindness-no-go.tex',
   oneLine:
-    'The backward de Bruijn heat flow Φ ↦ exp(−εu²)Φ keeps Φ inside every soft ' +
-    'analytic class yet produces a non-real zero for every ε>0 (Rodgers–Tao ' +
-    'Λ≥0). So no flow-stable hypothesis can force "all zeros real": a proof of ' +
-    'RH must use arithmetic (Euler-product) input the twin-ladder/de-Branges ' +
-    'apparatus never touches.',
-
+    'A hypothesis class containing Φ and its backward heat deformations cannot force all zeros real. ' +
+    'This does not exclude analytic proofs using additional properties that those deformations lack.',
   dictionary: {
-    heading: 'SL0/SL1 — what "T3" actually is (verified)',
+    heading: 'SL0/SL1 — the shifted-transform identity',
     identity: 'E_a(z) := A_a(z) − i B_a(z) = Ξ(z + i a)   (†)',
     verified:
-      'Machine-checked: the trig core cos(2(z+ia)u)=cosh(2au)cos(2zu)−i·sinh(2au)sin(2zu) ' +
-      'holds to 1.0e-30 over 2000 random complex (a,z,u); the full identity (†) to ' +
-      '1.1e-15 (quadrature-limited) for the even test profile Φ=e^{−u²}.',
+      'The identity follows algebraically from cos(2(z+ia)u)=cosh(2au)cos(2zu)−i sinh(2au)sin(2zu). ' +
+      'The recorded numerical checks are checks of this identity, not proofs of kernel positivity.',
     consequence:
-      'E_a is the Hermite–Biehler function of the a-shifted completed ξ, and its de ' +
-      'Branges reproducing kernel is PSD ⟺ E_a∈HB ⟺ Ξ has no zero with Im>a ⟺ ' +
-      'ζ has no zero with Re s > ½ + a. So the program\'s sole global frontier "T3(a)" ' +
-      'is the zero-free-strip statement in operator language; "T3(a) for all a>0" is RH.',
+      'The full shifted de Branges positivity family is an RH target. The identity alone does not establish ' +
+      'Hermite–Biehler membership; individual-shift formulations require their zero and nondegeneracy hypotheses.',
     factorTwo:
-      'Factor-2 audit (harmless): the canonical A_a uses cosh(2au) → strip shift a; ' +
-      'the imp-3382 channel numerics use cosh(at)/sinh(2aτ) → shift a/2. So any ‖R‖/' +
-      'λ_min numeric quoted "at level a" is really at canonical half-width a/2 — a ' +
-      'rung relabel (strip ladder is shift-covariant), not a structural error ' +
-      '(same trap as the retracted imp-2424 surrogate).',
+      'Keep the normalization explicit: cos(2zu) with cosh(2au) gives shift a; a convention using cos(zu) ' +
+      'requires its own matching shift. Compare certificates only after converting conventions.',
   },
-
   theorem: {
-    heading: 'SL2 — Flow-blindness (the no-go)',
+    heading: 'SL2 — conditional-class flow-blindness',
     statement:
-      'For ε>0 let Φ_ε(u)=e^{−εu²}Φ(u). Then Φ_ε is even, positive, log-concave, ' +
-      'doubly-exponentially decaying (same soft class as Φ), and its cosine ' +
-      'transform is the backward de Bruijn flow Ξ_ε = H_{−ε}. Since −ε<0≤Λ ' +
-      '(Rodgers–Tao), Ξ_ε has a non-real zero for every ε>0. Hence Φ_ε satisfies ' +
-      'every soft hypothesis Φ does while failing "all zeros real".',
+      'Let H be a class of admissible profiles containing Φ and e^{−εu²}Φ for every sufficiently small ε>0. ' +
+      'With H_t(z)=∫ e^{tu²}Φ(u)cos(zu)du, the latter profiles have transforms H_{−ε}. ' +
+      'Rodgers–Tao Λ≥0 implies H_{−ε} has a non-real zero. Therefore membership in H cannot imply all zeros real.',
     corollary:
-      'No proof of RH whose hypotheses on the profile are invariant under {·e^{−εu²}} ' +
-      'can be correct. Every hypothesis in the de Branges / twin-ladder positivity ' +
-      'apparatus (kernel PSD, Wronskian total positivity, log-concavity, decay, ' +
-      'functional symmetry) is flow-invariant — so the entire T3 strip ladder is ' +
-      'unreachable by soft/estimate means.',
+      'Evenness, positivity and a decay upper bound are preserved by the multiplier; log-concavity is preserved ' +
+      'when present. Invariance of a narrower class must be proved separately. Kernel PSD and Wronskian total ' +
+      'positivity are not automatically flow-invariant.',
     mustAdd:
-      'A correct proof must invoke the property the flow destroys: the exact ' +
-      'arithmetic identity Ξ=c·ξ(½+i·) (Jacobi theta / Euler product). Concretely, ' +
-      'prime-side input — e.g. Weil explicit-formula positivity — the only classical ' +
-      'device converting prime information into zero-location information.',
+      'A successful hypothesis must exclude the negative-time counterexamples. Exact arithmetic information is ' +
+      'one possible source of such a distinction; this theorem does not prove it is the only source or require ' +
+      'a proof to use the Euler product explicitly.',
   },
-
   ties: [
-    'Newman (1976) "RH, if true, is only barely so" — upgraded here from aphorism ' +
-      'to a formal no-go (Λ≥0 places the RH-true profile exactly on the soft class boundary).',
-    'Analytic twin of frozen-rung⟺Platt–Trudgian: that result caps the route via ' +
-      'Sylvester/Krein–Langer inertia; this one caps it via de Bruijn–Newman flow ' +
-      'rigidity. Both derive independently: "the only genuine lever is verified height."',
-    'The wall is a zero-free STRIP + flow-rigidity — explicitly NOT Montgomery pair ' +
-      'correlation (off-line exclusion is a different axis than on-line spacing).',
+    'Rodgers–Tao proves the real-zero threshold is nonnegative. If RH holds, that threshold is exactly zero.',
+    'This conditional-class obstruction does not prove that verified zero height is the only useful lever.',
+    'The argument uses negative-time zero failure, NOT Montgomery pair correlation; the two questions differ.',
   ],
-
   scope:
-    'Unconditional (rests only on Rodgers–Tao Λ≥0 and elementary closure of the soft ' +
-    'class under the Gaussian multiplier). Does NOT say RH is false or unprovable — ' +
-    'it says a specific large family of soft strategies cannot work, and locates what ' +
-    'a proof must add. Value is negative-but-sharp: retire the sub-threshold ' +
-    'residual-grinding program; redirect to arithmetic mechanisms.',
-
+    'The theorem does NOT say RH is false or unprovable. It excludes universal implications from an explicitly ' +
+    'flow-stable class containing Φ. It does not rule out all analytic, operator, or support-uniform arguments. ' +
+    'The August PDF is historical and superseded by the corrected source and this statement.',
   references: [
+    'B. Rodgers and T. Tao, The de Bruijn–Newman constant is non-negative, https://arxiv.org/abs/1801.05914.',
     'N. G. de Bruijn, The roots of trigonometric integrals, Duke Math. J. 17 (1950).',
     'C. M. Newman, Fourier transforms with only real zeros, Proc. AMS 61 (1976).',
-    'B. Rodgers, T. Tao, The de Bruijn–Newman constant is non-negative, Forum Math. Pi 8 (2020).',
-    'L. de Branges, Hilbert spaces of entire functions, Prentice–Hall, 1968.',
+    'L. de Branges, Hilbert spaces of entire functions (1968).',
   ],
 });
-
-// Build-time tripwires: keep the load-bearing facts honest.
 export const FLOW_BLINDNESS_NO_GO_ASSERTIONS = Object.freeze([
-  {
-    name: 'dictionary identity (†) present',
-    check: () => FLOW_BLINDNESS_NO_GO.dictionary.identity.includes('Ξ(z + i a)'),
-  },
-  {
-    name: 'no-go rests on Rodgers–Tao Λ≥0 (unconditional)',
-    check: () => /Rodgers.?Tao/.test(FLOW_BLINDNESS_NO_GO.theorem.statement) &&
-      /Λ\s*≥\s*0/.test(FLOW_BLINDNESS_NO_GO.status),
-  },
-  {
-    name: 'honest scope: does not claim RH resolved',
-    check: () => /does NOT say RH is false or unprovable/i.test(FLOW_BLINDNESS_NO_GO.scope),
-  },
-  {
-    name: 'wall is strip+flow-rigidity, not PCC',
-    check: () => FLOW_BLINDNESS_NO_GO.ties.some((t) => /NOT Montgomery pair/.test(t)),
-  },
+  { name: 'shift identity retained', check: () => FLOW_BLINDNESS_NO_GO.dictionary.identity.includes('Ξ(z + i a)') },
+  { name: 'profile membership is a hypothesis', check: () => FLOW_BLINDNESS_NO_GO.theorem.statement.includes('containing Φ') },
+  { name: 'Rodgers–Tao input explicit', check: () => /Rodgers.?Tao/.test(FLOW_BLINDNESS_NO_GO.theorem.statement) },
+  { name: 'scope excludes a universal analytic-method ban', check: () => FLOW_BLINDNESS_NO_GO.scope.includes('does not rule out all analytic') },
 ]);
-
 export default FLOW_BLINDNESS_NO_GO;

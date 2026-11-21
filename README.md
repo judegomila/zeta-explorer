@@ -12,6 +12,45 @@ The goal is RH itself. The sharpest measurable axis is the de Bruijn–Newman co
 > - `Λ ≤ 0.14` — a **conditional completion contract, not a bound**: the permutation-architecture paper reduces the strict sub-0.14 route to exactly one open family (`|C_E,17| < 0.2797` on `690988 ≤ N ≤ 54799999`). One provenance gap in its numerical anchor is recorded openly on `/permutation-architecture`.
 > - The public `Λ ≤ 0.1875` certificate package (Mosaic Intelligence, Zenodo) remains an external unrefereed claim, locally repaired and reproducible.
 
+**Research direction audit (2026-09-30):** prioritize the exact arithmetic positivity branch of the twin-ladder / Weil / Toeplitz–Krein program for direct RH work; retain freezing permutations as the quantitative Λ program. The audit corrects the pole-free criterion, pole sign, flow-blindness scope, and continuum-diagonal/Volterra claims. It supplies independent interval replays of the 0.90 and 0.96 payloads. A follow-up [two-prime certificate](formalization/paper/weil-two-prime-certificate-2026-09-30.md) covers support width 1.3 using interval finite sections and analytic bounds on the full complement. This is a local computer-assisted result, not RH or a refereed novelty claim.
+
+Read the [audit and two-prime extension contract](formalization/paper/rh-direction-audit-2026-09-30.md).
+
+The [all-support follow-up](formalization/paper/weil-all-support-attempt-2026-09-30.md) extends the local certificate to width **1.6**, with every contributing prime power (`2,3,4`). It derives an exact signed remainder identity at arbitrary width, but does **not** prove the inequality needed for RH. It also records why adding prime powers is not a positive update and why the current constant tail bound becomes too expensive to scale directly.
+
+
+The [prime-5 extension](formalization/paper/prime5-extension-2026-09-30.md) certifies width **1.65** with gap **10⁻¹⁴**, retaining the new edge coupling exactly. Both 184-dimensional parity blocks pass at 512 bits with full complement bounds. A separately certified test shows that replacing the coupling by a crude collar penalty fails, although the full Weil form is positive on that test.
+
+The [prime-7 extension](formalization/paper/prime7-extension-2026-10-01.md) now certifies width **2** with gap **10⁻²⁴** for smooth pole-free tests supported in (-1,1). It retains the exact four-node interactions of primes 5 and 7 and includes all contributing prime powers (`2,3,4,5,7`). Both 288-dimensional blocks pass a 768-bit interval congruence check with full complement bounds. Direct interval LDL was initially inconclusive; the successful check preserves all input uncertainty. The next prime-power-8 step has an eight-node decomposition and a verified baseline, but its full positivity remains uncertified. These are local results requiring independent review, not RH or formally verified theorems.
+
+The [unbounded-support follow-up](formalization/paper/unbounded-support-translation-2026-10-01.md) derives an RH-equivalent growth criterion for **one fixed pole-free test and its two signed translates**. A subexponential bound on their interaction would suffice; that bound is **not proved**. The note gives the exact prime-power formula, its Laplace-transform proof, and a limitation of the current scalar-baseline method. Interval checks cover seven two-dimensional test spaces with separations 2 through 14; they do not enlarge the full-space width-2 certificate. Independent review of the reduction remains necessary.
+
+The [energy and refinement attempt](formalization/paper/unbounded-support-energy-2026-10-01.md) isolates a one-sided bound on signed pairs of distinct prime powers; the diagonal already has an unconditional cubic bound. It derives a global weighted energy bound for **almost every multiplicative prime-sign twist**, but does **not** transfer that result to ordinary zeta's all-plus assignment. Exact refinement preserves the large-separation problem, and a sharp prime cutoff creates an exponential boundary artifact. Twelve rational/512-bit check groups cover these identities and continuous finite energy integrals through separation 6. The deterministic global bound and RH remain unproved; independent review is required.
+
+The [all-plus completion attempt](formalization/paper/all-plus-recovery-attempt-2026-10-01.md) proves that the **raw uniform conditioning bound is false**, because its moving edge has exponentially growing energy even under RH. It constructs a centered recovery with an exact, checked endpoint identity, but does not prove its uniform bound. Any fixed positive sign bias retains the original deterministic mean; termwise absolute prime-pair bounds also grow exponentially. Nine rational/512-bit audit groups pass. These findings reject proposed shortcuts and correct the recovery target; they do not complete the proof or improve the unconditional growth exponent.
+
+Reproduce:
+
+```sh
+npm run audit:rh
+python -m pip install -r scripts/requirements-rh-audit.txt
+python scripts/audit-route-i-certificate.py --self-test
+python scripts/audit-route-i-certificate.py --certificate 090
+python scripts/audit-route-i-certificate.py --certificate 096
+python scripts/certify-weil-two-prime.py
+python scripts/audit-weil-continuation.py
+python scripts/certify-weil-window.py
+python scripts/audit-prime5-blocks.py
+python scripts/audit-prime5-collar.py
+python scripts/certify-prime5-extension.py
+python scripts/audit-prime7-blocks.py
+python scripts/audit-prime7-acceptance.py
+python scripts/certify-prime7-extension.py
+python scripts/audit-unbounded-translation.py
+python scripts/audit-unbounded-energy.py
+python scripts/audit-all-plus-recovery.py
+```
+
 **Author:** Jude Gomila, with an AI fleet (Claude, Codex, ChatGPT) under human direction · **Live app:** `npm run dev` · **Papers:** `research-inputs/` (the consolidated twin-ladder paper, the permutation-architecture paper, the twistor framework note)
 
 ---
@@ -20,10 +59,10 @@ The goal is RH itself. The sharpest measurable axis is the de Bruijn–Newman co
 
 | Result | Grade |
 |---|---|
-| Flow-blindness no-go: no soft/heat-flow hypothesis proves RH — arithmetic input required | Theorem (rests on Rodgers–Tao), **machine-verified** |
+| Flow-blindness: an explicitly flow-stable class containing the Riemann profile cannot force all-real zeros | Conditional-class theorem (Rodgers–Tao input); application hypotheses must be checked |
 | Frozen-rung ⟺ Platt–Trudgian: freezing the ladder rungs *is* the PT mechanism, capped at verified zero height | Theorem, Lean-verified components |
 | The permutation atlas: every rearrangement family classified; isometries provably no-gain; the one possible-gain family merged (verified) with the weld ladder | Theorem + classification |
-| The no-shortcut meta-finding: all 44 mapped routes are non-rigorous (C_H wall) or RH-equivalent | Independently audited map |
+| Route map: distinguish exact reformulations, local certificates, numerical evidence, and open obligations | Research assessment; no universal impossibility theorem |
 | Θ-trap flow invariants, heat-discriminant t_c, Route-B lim-sup (PCC/GUE-free), isolation-onset closed forms incl. `c* = √(2+√3)−1`, `c_glob = c_half` | Theorems, most Lean-verified |
 | Ramanujan-reversal identity + row sum `R_n(1) = n^{n−1}` proved from scratch (Abel's binomial theorem + tree-function ODE built en route — theory mathlib lacks) | **Kernel-verified**, upgraded two open conjectures to theorems |
 | The `[B_v,Π_p]` weld bracket driven 41× → the class sandwich `[0.2320723, 0.24502]`, now one copositivity certificate from its floor | Rigorous chain (refereed through continuation 19; newest stretch pending referee) |

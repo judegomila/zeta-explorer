@@ -6,6 +6,7 @@ import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
 import { ZETAEXPLORER_NO_GOS, FIELD_NO_GOS } from '../data/rh-no-go-theorems.js';
 import { STATUS } from '../styles/tokens.js';
+import { RH_DIRECTION_AUDIT as AUDIT } from '../data/rh-direction-audit-2026-09-30.js';
 
 const KIND_COLOR = { theorem: STATUS.proved.fg, barrier: STATUS.nogo.fg, equivalence: STATUS.rhequiv.fg };
 
@@ -46,7 +47,9 @@ const OVERCLAIMS = [
   ['§27 collapse identity', 'block-positivity ⟺ K_a-PSD refuted by a scale-invariance argument'],
   ['Volterra "5000× margin"', 'a homogeneity artifact — measuring a scale-miscalibrated operator'],
   ['finite-N*=10⁴ "beat"', 'an ESTIMATE, not rigorous — C_H is undischargeable'],
-  ['the operator "collapse"', 'RH-equivalent, a reformulation — not a reduction'],
+  ['the operator "collapse"', 'the bare norm equivalence is refuted; the exact signed positivity target remains open'],
+  ['pole-free positivity needs a separate pole-inclusive bridge for RH', 'all-support pole-free positivity already suffices'],
+  ['every analytic strategy is ruled out by flow-blindness', 'the class must contain the negative-time deformations'],
 ];
 
 export default function WhatWeKnowPage() {
@@ -81,6 +84,20 @@ export default function WhatWeKnowPage() {
         Newman bound to RH is still open, RH-equivalent, or dead.
       </p>
 
+      <h2>Research direction audit · {AUDIT.date}</h2>
+      <p><strong>{AUDIT.recommendation}</strong> {AUDIT.reason}</p>
+      <p>This is a research priority judgment, not a claim that a proof is close.</p>
+      <div style={{ overflowX: 'auto' }}>
+        <table>
+          <thead><tr><th scope="col">Direction</th><th scope="col">Assessment and next step</th></tr></thead>
+          <tbody>{AUDIT.routes.map((r) => (
+            <tr key={r.name}><th scope="row">{r.name}</th><td><strong>{r.status}.</strong> {r.next}</td></tr>
+          ))}</tbody>
+        </table>
+      </div>
+      <ul>{AUDIT.corrections.map((c) => <li key={c}>{c}</li>)}</ul>
+      <p><a href="https://arxiv.org/pdf/2006.13771#page=51" target="_blank" rel="noreferrer">Criterion: Connes–Consani, Appendix C, Proposition C.1</a>.</p>
+
       <figure style={{ maxWidth: 460, border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden', margin: '18px auto', background: 'var(--paper)' }}>
         <WireframeAnim kind="no-go-wall" />
       </figure>
@@ -105,11 +122,11 @@ export default function WhatWeKnowPage() {
         </ul>
       </div>
 
-      <h2>② The two frontier walls — fully characterized</h2>
+      <h2>② Two major obstacles in the historical route map</h2>
       <p>
-        Every surviving mapped route seeking to drive the positive bound all the way to
-        Λ = 0 funnels into one of two RH-hard objects. Both have been driven to ground by
-        deliberate skeptical push.
+        The collision estimates and exact kernel positivity are major unresolved objects.
+        Their appearance in several routes does not prove that every possible RH approach
+        encounters the same barrier.
       </p>
 
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra, #b5563f)' }}>
@@ -127,13 +144,13 @@ export default function WhatWeKnowPage() {
       </div>
 
       <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)' }}>
-        <div className="tlab">§26 μ^pass / VOLTERRA — RH-EQUIVALENT</div>
+        <div className="tlab">§26 μ^pass / VOLTERRA — CORRECTED SCOPE</div>
         <div>
-          The elegant "7+ conjectures collapse to one operator-norm bound ‖V‖≤1" idea is
-          <strong> PCC-free</strong> (real, surprising) but <strong>not a reduction</strong>: the collapse
-          identity was refuted, and the surviving target is RH-equivalent — confirmed now at the
-          <em> operator</em> level. The endpoint-bridge measure is mass-feasible (budget 2,400–20,000× the
-          deficit) but the required <em>sign-positivity</em>, derived from Φ alone, <strong>is</strong> K_a ≥ 0 itself.
+          The bare Volterra norm equivalence was refuted. The continuum diagonal has zero
+          product measure, so a positive comparison kernel must be introduced separately.
+          For a finite matrix K=P+S with P positive definite, the exact condition is
+          I+P⁻¹ᐟ²SP⁻¹ᐟ² ≥ 0. Bounding the norm of that signed residual by 1 is sufficient,
+          but generally stronger than positivity.
         </div>
       </div>
 
@@ -141,19 +158,17 @@ export default function WhatWeKnowPage() {
         Detail: <Link to="/route-map">Route Map</Link> · <Link to="/rigor-dashboard">Rigor Dashboard</Link>
       </p>
 
-      <h2>③ The meta-finding (the most valuable result)</h2>
+      <h2>③ What the comparisons establish</h2>
       <p>
-        Across {ROUTE_COUNT} routes, a uniform pattern: <strong>every promising route, under
-        skeptical scrutiny, turns out to be either not rigorous (the C_H wall) or RH-equivalent
-        (a reformulation).</strong> There is no hidden shortcut below RH anywhere in the map — only
-        elegant restatements, each as hard as RH, and they all ultimately meet the same
-        two-sided pair-correlation / GUE wall. Knowing <em>precisely</em> where the walls are,
-        and that they are all the same wall, is the project's hardest-won knowledge.
+        Across {ROUTE_COUNT} mapped routes, keep exact identities, finite certificates,
+        numerical diagnostics, and open implications separate. An RH-equivalent target can
+        still be useful if it enables a new estimate or construction. Failure of one estimate
+        does not prove that every alternative is impossible, and pair correlation is not an
+        established prerequisite for the arithmetic positivity criterion.
       </p>
 
       <Pull>
-        There is no hidden shortcut below RH anywhere in the map — only elegant restatements,
-        each as hard as RH, all meeting the same wall.
+        The strongest next step is an independently checkable positivity certificate for the exact arithmetic form.
       </Pull>
 
       <h2>④ The no-go landscape — the walls, ours and the field's</h2>
@@ -169,7 +184,7 @@ export default function WhatWeKnowPage() {
       <h3 style={{ fontSize: 15, color: 'var(--ink)', marginTop: 20, marginBottom: 2 }}>Established results &amp; recognized barriers (the field)</h3>
       <NoGoList items={FIELD_NO_GOS} />
 
-      <h2>⑤ The verification discipline — six overclaims caught and withdrawn</h2>
+      <h2>⑤ The verification discipline — overclaims corrected</h2>
       <p style={{ color: 'var(--ink-soft)' }}>
         The map is trustworthy because confident-looking claims were independently refuted
         <em> before</em> they became results. The ledger:

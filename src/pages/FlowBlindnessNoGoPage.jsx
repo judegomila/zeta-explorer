@@ -20,13 +20,14 @@ export default function FlowBlindnessNoGoPage() {
       byline={['SL2 · exploreriemann', 'unconditional']}
       ticker={<span>no-go · rests on Rodgers–Tao Λ ≥ 0</span>}
       footer={<>
-        <a href={D.paperPdf} target="_blank" rel="noreferrer">Read the rigorous note (PDF)</a>
+        <a href={D.paperSource} target="_blank" rel="noreferrer">Corrected note (source)</a>
+        {' · '}<a href={D.paperPdf} target="_blank" rel="noreferrer">Historical PDF (superseded)</a>
         {' · '}Related: <Link to="/frozen-rung-pt-equivalence">Freezing rungs = Platt–Trudgian</Link>
         {' · '}<Link to="/route-map">The wall map</Link><br /><br />← <Link to="/">the atlas</Link>
       </>}
     >
       <h2>{D.dictionary.heading}</h2>
-      <p className="lead">The program's sole global frontier is a positivity statement about a shifted profile (the <ConceptTerm slug="t3-strip">T3 strip statement</ConceptTerm> of the <ConceptTerm slug="twin-ladder">twin ladder</ConceptTerm>). The first thing to pin down is what that statement actually is.</p>
+      <p className="lead">The shifted-profile positivity program is one RH direction. The flow argument limits it only when the hypotheses also hold for the negative-time deformations.</p>
       <AnimationEmbed id="flow-blindness" />
       <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)' }}>
         <div className="tlab">Dictionary identity (†)</div>

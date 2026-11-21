@@ -1,0 +1,59 @@
+\section{Unconditional global growth and the remaining improvement}
+The local-to-global criterion asks for boundedness, not a positive gap uniform in $L$. A weaker global estimate is already available without RH.
+\begin{proposition}[A global bound with a truncation loss]\label{prop:globalgrowth}
+For every $a>0$ and $L>1$,
+\[
+ \|\mathsf H_{a,L}\|\leq L.
+\]
+For $a\geq1/2$, the known wide-shift result gives the stronger bound $1$.
+\end{proposition}
+\begin{proof}
+For $x\geq1/2$, evenness and reality of $X$ give
+\[
+ |R_a(x+it)|=|R_x(a+it)|\leq1.
+\]
+On the right side, $x$ is a width at least $1/2$, and $a+it\in\CP$; the classical wide-shift theorem applies. Moreover $R_a(w+1/2)$ is holomorphic on $\CP$, since the denominator's $\xi$ argument has real part greater than $1+a$. Thus it is a Schur multiplier.
+
+The Euler-domain Laplace identity is
+\[
+ R_a(w)=\int_0^\infty e^{-wu}K_a(u)\,du,
+ \qquad K_a(u)=e^{-u/2}q_a(u),\qquad \Rea w>a+1/2.
+\]
+The bounded Hardy multiplier $R_a(w+1/2)$ therefore has causal convolution kernel $\widetilde K_a(u)=e^{-u/2}K_a(u)$. Here identification is justified first on an absolutely convergent Euler line and then by uniqueness of the Laplace transform of causal distributions. It is not an identification inferred merely from unimodular critical-line boundary values. The associated full convolution, and hence convolution followed by reflection, has $L^2$ norm at most one.
+
+In logarithmic coordinates on $[-\ell,\ell]$, $\ell=\log L$, let $\widetilde{\mathsf H}$ be the compression of that damped Hankel operator. Then
+\[
+ \mathsf H_{a,L}=M_{e^{v/2}}\,\widetilde{\mathsf H}\,M_{e^{v/2}},
+ \qquad \|M_{e^{v/2}}\|=e^{\ell/2}=\sqrt L.
+\]
+This proves the bound. The zero part on $(0,1/L)$ does not change it.
+\end{proof}
+Thus one precise unresolved improvement is from the unconditional bound $N_a(L)\leq L$ to $N_a(L)\leq C_a<\infty$, for each width in a sequence tending to zero. The latter estimate would automatically sharpen to $N_a(L)\leq1$ by the all-window theorem. The damping proof pays exactly the displayed truncation-dependent cost; discarding it without an independent estimate would reintroduce the missing arithmetic assertion.
+
+There is also an equivalent scalar tail target in Suzuki's Appendix A. Define the real step-response defect
+\[
+ E_a(u)=1-\int_0^u K_a(v)\,dv\qquad(u\geq0).
+\]
+It is explicitly computable by a finite arithmetic sum at every $u$:
+\[
+ E_a(u)=1-\sum_{n\leq e^u}\frac{c_a(n)}{\sqrt n}
+ \int_0^{u-\log n} e^{-t/2}g_a(e^{-t})\,dt.
+\]
+Suzuki's Theorem A.1(2) states, in these logarithmic coordinates, that
+\begin{equation}\label{eq:stepcriterion}
+ R_a\text{ is Schur}\quad\Longleftrightarrow\quad
+ \int_0^\infty |E_a(u)|^2\,du<\infty.
+\end{equation}
+Indeed, his integrated kernel satisfies
+$\sqrt{x}\,h_a^{\langle1\rangle}(x)=\int_0^{\log x}K_a(v)\,dv$,
+and $dx/x=du$. This is an existing arithmetic criterion, not a consequence invented from finite-window data.
+
+The damping argument above gives a noncircular global estimate for this same scalar function:
+\begin{equation}\label{eq:dampedenergy}
+ \int_0^\infty e^{-u}|E_a(u)|^2\,du\leq2(1-R_a(1))\qquad(a>0).
+\end{equation}
+To prove it, let $C$ be causal convolution with multiplier $R_a(w+1/2)$ and take $f(u)=e^{-u/2}$ on $u>0$. Then $\|f\|_2^2=1$ and Laplace transformation gives
+$(I-C)f=e^{-u/2}E_a(u)$. Evaluation of the Laplace transform of $Cf$ at $1/2$ gives $\langle Cf,f\rangle=R_a(1)$, which is real. Since $C$ is contractive,
+$\|(I-C)f\|^2\leq2-2R_a(1)$.
+
+Removing the factor $e^{-u}$ in this finite-energy estimate, separately for widths approaching zero, would meet the actual RH-strength criterion \eqref{eq:stepcriterion}. A weighted estimate by itself does not imply the unweighted one. This locates a single arithmetic tail estimate for further work, with all prime coefficients and completion signs retained.

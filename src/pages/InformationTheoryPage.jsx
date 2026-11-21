@@ -5,6 +5,7 @@ import InfoTheoryExperimentsViz from '../components/InfoTheoryExperimentsViz.jsx
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { ED } from '../styles/tokens.js';
+import { ODD_ZETA_INCOMPRESSIBILITY_AUDIT as oddZetaAudit } from '../data/odd-zeta-incompressibility-audit-2026-08.js';
 
 // Information Theory of the Twin Ladder — editorial (warm) re-theme.
 // Same content, same math, same two protected visualizations; dark-theme
@@ -280,42 +281,65 @@ export default function InformationTheoryPage() {
           </div>
         </div>
 
-        {/* Chaitin's Constant and Zeta: Incompressibility as Irrationality */}
-        <div className="card" style={{ marginTop: 32, borderColor: 'var(--brass-dk)' }}>
-          <h3 style={{ color: 'var(--brass-dk)' }}>Chaitin's Constant and Zeta: Incompressibility as Irrationality</h3>
+        {/* Audited odd-zeta incompressibility route */}
+        <div className="card" style={{ marginTop: 32, borderColor: 'var(--terra-dk)' }}>
+          <h3 style={{ color: 'var(--terra-dk)' }}>Odd-Zeta Incompressibility: Decisive No-Go</h3>
           <p style={{ marginTop: 8, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
-            There is a deep link between algorithmic information theory and the irrationality of zeta values,
-            connecting to the <Link to="/odd-zeta" style={{ color: 'var(--blue)' }}>Odd Zeta irrationality approach</Link>.
-            It is conjectured (unproven) that the Kolmogorov complexity of odd zeta values grows
-            faster than any logarithmic bound:
+            The proposed Kolmogorov-complexity proof does not merely have a missing lemma: its central
+            lower bound is impossible for ordinary prefix complexity. For a fixed computable real{' '}
+            <InlineMath tex={"x"} />, one program can read the requested precision <InlineMath tex={"N"} /> and
+            print a certified prefix, so
           </p>
-          <BlockMath tex={"K\\bigl(\\zeta(2n+1) \\,|\\, N\\bigr) \\gg \\log N"} />
+          <BlockMath tex={"K(d_b(x,N)\\mid N,b)=O_x(1), \\qquad K(d_b(x,N))=O_x(\\log N)."} />
           <p style={{ marginTop: 8, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
-            The heuristic: the Euler product forces specific digit patterns that resist compression,
-            and the prime oscillators impose correlations across all scales. No such lower bound is a
-            theorem — proving it would settle the irrationality of every odd zeta value, and only
-            ζ(3) is known irrational. See the heuristic-analogy caveat on{' '}
-            <Link to="/odd-zeta" style={{ color: 'var(--blue)' }}>the odd-zeta page</Link>.
+            Every <InlineMath tex={"\\zeta(k)"} /> for fixed integer <InlineMath tex={"k>1"} /> is computable;
+            the elementary Dirichlet-series tail bound already supplies an arbitrary-precision algorithm.
+            Therefore a lower bound such as <InlineMath tex={"K\\ge cN^\\alpha"} /> would imply
+            noncomputability, not just irrationality, and contradicts this fact. The Euler product is a
+            short decompressor; counting primes or runtime is not program length.
           </p>
           <div className="two-col" style={{ marginTop: 12, gap: 16 }}>
-            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)', borderRadius: 8 }}>
-              <p style={{ fontSize: 13, color: 'var(--brass-dk)' }}>
-                <strong>Incompressibility implies irrationality:</strong> If <InlineMath tex={"K(\\zeta(2n+1) \\,|\\, N)"} /> grows
-                like <InlineMath tex={"N^\\alpha"} /> for any <InlineMath tex={"\\alpha > 0"} />, then the number must be
-                irrational. Rational numbers have eventually periodic digit expansions, which can be compressed
-                to <InlineMath tex={"O(\\log N)"} /> bits. The Euler product structure prevents this compression.
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', borderRadius: 8 }}>
+              <p style={{ fontSize: 13, color: 'var(--terra-dk)', margin: 0 }}>
+                <strong>Status: {oddZetaAudit.status}.</strong> Shannon capacity also cannot repair the
+                argument: capacity optimizes mutual information over input distributions and gives no
+                complexity lower bound for one deterministic output. Odd special values occur at{' '}
+                <InlineMath tex={"\\sigma=3,5,\\ldots"} />, not on the critical line.
               </p>
             </div>
             <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', borderRadius: 8 }}>
-              <p style={{ fontSize: 13, color: 'var(--blue)' }}>
-                <strong>Connection to channel capacity:</strong> The critical line maximizes information
-                throughput in the twin-ladder channel. At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />,
-                the channel achieves maximum capacity, and the output signal (zeta values) carries maximum
-                information content. This is consistent with the incompressibility of zeta values -- a
-                maximally informative channel produces maximally complex output.
+              <p style={{ fontSize: 13, color: 'var(--blue)', margin: 0 }}>
+                <strong>Rigorous salvage:</strong> interpret information arithmetically. For rational forms{' '}
+                <InlineMath tex={"\\ell_n=a_n\\zeta(5)-b_n"} /> with clearing factors{' '}
+                <InlineMath tex={"D_n"} />, prove nonvanishing and
+                <InlineMath tex={"G_n=-\\log|\\ell_n|-\\log D_n\\to+\\infty"} />. This is the exact
+                denominator-versus-cancellation budget needed by an irrationality proof.
               </p>
             </div>
           </div>
+          <p style={{ marginTop: 12, color: 'var(--ink-soft)', fontSize: 12.5, lineHeight: 1.8 }}>
+            Resource bounds only reopen the question for <em>exact canonical digits</em>. Rationals have a
+            constant-size linear-time long-division program, but certified approximations to a fixed zeta value
+            are computable in <InlineMath tex={"p^{3/2+o(1)}"} /> bit operations. The exact-digit carry boundary
+            is the Diophantine quantity <InlineMath tex={"\\lVert b^N\\zeta(5)\\rVert"} />; the Euler product gives
+            no known lower bound for it. At the arithmetic frontier, the reproduced Brown–Zudilin scalar family
+            is short by <InlineMath tex={"18.05278"} /> nats, or <InlineMath tex={"26.04465"} /> bits, per step
+            after denominator clearing.
+          </p>
+          <p style={{ marginTop: 12, color: 'var(--ink-soft)', fontSize: 12.5, lineHeight: 1.8 }}>
+            The <Link to="/odd-zeta" style={{ color: 'var(--blue)' }}>Odd Zeta page</Link> records the full
+            audit, the exact positive-cone/Farey closure target, and Brown's 2026 multi-parameter
+            Mellin/transfinite-diameter criterion as a research direction—not a completed proof. The latest
+            exact audit sharpens that verdict. The first five-ray rational tail has infinite Hankel rank, but
+            a p-adic obstruction proves that no fixed factor repairs its proposed five-LCM lattice, and its wall
+            corrections form an unbounded residue-jet tower rather than a fixed real measure. More decisively,
+            the rank-one determinant coefficient is the rational tail determinant itself. On the old
+            origin-containing comparison region, full and punctured blocks have the same absolute-capacity
+            exponent, so clearing that coefficient consumes the entire capacity gain. The former primitive
+            strict-below-budget target is therefore impossible for this route. What remains is a genuinely
+            relative Schur-complement estimate or a higher-rank period module with new cycle and arithmetic
+            input—not an incompressibility claim.
+          </p>
         </div>
 
         {/* Channel Capacity and the Prime Number Theorem */}

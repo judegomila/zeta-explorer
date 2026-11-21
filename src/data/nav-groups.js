@@ -233,6 +233,7 @@ const RAW = [
           { to: '/viz-euler-product', label: 'Euler product: true vs perturbed' },
           { to: '/viz-euler-transport-flow', label: 'Euler transport flow' },
           { to: '/vortex-field', label: 'Prime-log vortex field' },
+          { to: '/sign-switching', label: 'Sign switching and bridge energy' },
         ],
       },
       {

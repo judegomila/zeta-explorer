@@ -11,11 +11,11 @@
  *   - Zudilin (2001): At least one of ζ(5), ζ(7), ζ(9), ζ(11) is irrational
  *   - Ball-Rivoal (2001): dim_Q(span{1, ζ(3), ζ(5), ..., ζ(s)}) ≥ c·log(s)
  *
- * ZPO Interpretation:
+ * ZPO visualization:
  *   At s = n (real integer), the oscillator chain has no imaginary component.
  *   Each prime p contributes a purely real factor 1/(1 - p^{-n}).
- *   The transfer function at odd integers encodes arithmetic information
- *   that is "irrational" — no finite rational combination can reproduce it.
+ *   This is an analogy and numerical model; it does not imply irrationality
+ *   or linear independence of the numerical zeta values.
  */
 
 import { getPrimes, primeFrequency } from './primes.js';
@@ -232,13 +232,15 @@ export function oddZetaAsTransferFunction(n, numPrimes = 30) {
  * The inner product <f, g> is defined as:
  *   <ζ(m), ζ(n)> = Σ_p log(p) / (p^m - 1)(p^n - 1)
  *
- * A nonzero determinant of the Gram matrix implies linear independence.
+ * A nonzero determinant implies linear independence of these prime-indexed
+ * feature vectors in the chosen model inner product. It does NOT imply
+ * Q-linear independence of the numerical values 1, ζ(3), ζ(5), ...
  *
  * @param {number} maxOdd - Maximum odd integer to include
  * @param {number} numPrimes - Number of primes for the inner product sum
  * @returns {{ values, gramMatrix, determinant, nearDependencies }}
  */
-export function linearIndependenceTest(maxOdd = 11, numPrimes = 50) {
+export function modelGramGeometry(maxOdd = 11, numPrimes = 50) {
   const primes = getPrimes(numPrimes);
 
   // Build the list of odd values: [1, ζ(3), ζ(5), ..., ζ(maxOdd)]
@@ -313,8 +315,15 @@ export function linearIndependenceTest(maxOdd = 11, numPrimes = 50) {
     nearDependencies,
     dimension: dim,
     indices: oddIndices,
+    provesQLinearIndependence: false,
+    interpretation:
+      'Model-feature Gram geometry only; the determinant is not an arithmetic ' +
+      'linear-independence test for numerical zeta values.',
   };
 }
+
+// Backward-compatible name retained for callers; it is not an arithmetic test.
+export const linearIndependenceTest = modelGramGeometry;
 
 /**
  * Compute determinant of a square matrix via Gaussian elimination.
@@ -355,8 +364,9 @@ function matrixDeterminant(matrix) {
 // ─── 5. Irrationality measure computation ───────────────────────────────────
 
 /**
- * Estimate the irrationality measure of ζ(n) by finding best rational
- * approximations p/q and measuring how fast |ζ(n) - p/q| decreases.
+ * Compute a finite continued-fraction slope diagnostic for ζ(n).
+ * A fit to finitely many floating-point approximations does not estimate or
+ * certify the irrationality measure in the theorem-level sense.
  *
  * The irrationality measure μ satisfies:
  *   |ζ(n) - p/q| > c/q^μ  for all p/q with q large enough.
@@ -372,7 +382,7 @@ function matrixDeterminant(matrix) {
  * @param {number} maxDenom - Maximum denominator to search
  * @returns {{ value, bestApproximations, measureEstimate, aperyBound }}
  */
-export function irrationalityMeasure(n, maxDenom = 5000) {
+export function approximationSlopeDiagnostic(n, maxDenom = 5000) {
   const value = ZETA_EXACT[n] || oddZetaValue(n, 100).eulerProductValue;
 
   // Continued fraction expansion
@@ -407,8 +417,8 @@ export function irrationalityMeasure(n, maxDenom = 5000) {
     x = 1 / frac;
   }
 
-  // Estimate irrationality measure from the slope of log|error| vs log(q)
-  let measureEstimate = 2; // default: Liouville bound for algebraic irrationals
+  // Descriptive finite-sample slope of log|error| vs log(q).
+  let measureEstimate = 2;
   if (bestApproximations.length >= 4) {
     // Use least-squares fit on log|ζ(n) - p/q| vs -log(q)
     const pts = bestApproximations
@@ -444,8 +454,13 @@ export function irrationalityMeasure(n, maxDenom = 5000) {
     aperyBound: knownBounds[n] || null,
     isProvenIrrational: n === 3,
     knownBound: knownBounds[n],
+    isCertifiedMeasure: false,
+    diagnosticOnly: true,
   };
 }
+
+// Backward-compatible name retained for callers; the result is diagnostic only.
+export const irrationalityMeasure = approximationSlopeDiagnostic;
 
 // ─── 6. Twin-ladder resonance at odd integers ───────────────────────────────
 
@@ -682,386 +697,46 @@ export function transferFunctionDecayComparison(nValues, numPrimes = 30) {
   return { primes, profiles };
 }
 
-// ─── Algorithmic Information Theory Approach ─────────────────────────────────
+// ─── Algorithmic information audit ──────────────────────────────────────────
 
 /**
- * Chaitin's Omega: the halting probability Ω = Σ 2^{-|p|} over halting programs p.
- * Ω is algorithmically random — its binary expansion has maximal Kolmogorov complexity.
+ * Return the computability obstruction to an ordinary Kolmogorov-complexity
+ * proof for a fixed zeta value. This deliberately replaces the retired
+ * finite-digit "complexity estimators": compression tests on float64 digits
+ * cannot lower-bound Kolmogorov complexity or prove irrationality.
  *
- * Connection to ζ(odd): if ζ(2n+1) were rational = a/b, then its binary expansion
- * would be eventually periodic → K(ζ(2n+1)|_N) = O(log N) for the first N bits.
- * But the Euler product encodes ALL primes, suggesting K(ζ(2n+1)|_N) grows like N.
- *
- * We estimate Kolmogorov complexity via compressibility: try to "compress" the
- * binary expansion by finding patterns. Low compression ratio = high complexity = likely irrational.
- *
- * @param {number} n - Odd integer (3, 5, 7, ...)
- * @param {number} bits - Number of binary digits to analyze
- * @returns {{ value, binaryDigits, compressionRatio, kolmogorovEstimate,
- *            isCompressible, lempelZivComplexity, blockEntropy, verdict }}
+ * @param {number} n - Integer n > 1
  */
-export function kolmogorovComplexityEstimate(n, bits = 200) {
-  // Compute ζ(n) to high precision using the Euler product + series
-  const value = oddZetaValue(n, 100).value;
-
-  // Cap bits at float64 mantissa precision (~52 bits).
-  // Beyond this, frac *= 2 extracts IEEE 754 rounding noise, not real digits.
-  const effectiveBits = Math.min(bits, 52);
-
-  // Extract binary digits of the fractional part
-  let frac = value - Math.floor(value);
-  const binaryDigits = [];
-  for (let i = 0; i < effectiveBits; i++) {
-    frac *= 2;
-    binaryDigits.push(Math.floor(frac));
-    frac -= Math.floor(frac);
+export function ordinaryKolmogorovPrefixAudit(n) {
+  if (!Number.isInteger(n) || n <= 1) {
+    throw new Error('ordinaryKolmogorovPrefixAudit requires an integer n > 1');
   }
-
-  // Lempel-Ziv complexity (count distinct substrings)
-  // This is a standard compressibility measure
-  const lzComplexity = lempelZivComplexity(binaryDigits);
-
-  // Maximum possible LZ complexity for random sequence of length N ~ N/log2(N)
-  const maxLZ = effectiveBits / Math.log2(Math.max(effectiveBits, 2));
-  const normalizedLZ = lzComplexity / maxLZ;
-
-  // Block entropy: divide into blocks of size b, compute Shannon entropy
-  const blockSize = 8;
-  const blockEntropy = computeBlockEntropy(binaryDigits, blockSize);
-  const maxBlockEntropy = blockSize; // bits per block for perfectly random
-
-  // Compression ratio: how much smaller can we represent this?
-  // Use run-length encoding as a simple compressor
-  const rleLength = runLengthEncode(binaryDigits).length;
-  const compressionRatio = rleLength / effectiveBits;
-
-  // Kolmogorov complexity lower bound estimate
-  // K(x) ≥ |compressed(x)| for any compressor
-  const kolmogorovEstimate = Math.max(rleLength, lzComplexity * Math.log2(effectiveBits));
-
-  const isCompressible = compressionRatio < 0.85; // would indicate periodicity
 
   return {
     n,
-    value,
-    binaryDigits: binaryDigits.join(''),
-    effectiveBits,
-    compressionRatio,
-    kolmogorovEstimate,
-    isCompressible,
-    lempelZivComplexity: lzComplexity,
-    normalizedLZ,
-    blockEntropy,
-    maxBlockEntropy,
-    precisionNote: bits > 52 ? `Capped at ${effectiveBits} bits (float64 mantissa limit); requested ${bits} would include rounding noise` : null,
-    verdict: isCompressible
-      ? `ζ(${n}) binary expansion is compressible — suspiciously regular (but may be precision artifacts)`
-      : `ζ(${n}) binary expansion appears incompressible — consistent with irrationality (K ≈ ${kolmogorovEstimate.toFixed(0)} bits for ${effectiveBits} bits)`,
+    status: 'REFUTED_AS_STATED',
+    conditionalBound: 'K(d_b(zeta(n),N) | N,b) = O_n(1)',
+    unconditionalBound: 'K(d_b(zeta(n),N)) = O_n(log N)',
+    computabilityWitness:
+      'The Dirichlet partial sums have effective tail ' +
+      '0 < zeta(n)-sum_{r<=M} r^(-n) < M^(1-n)/(n-1).',
+    consequence:
+      'A lower bound c*N^alpha would imply noncomputability and therefore ' +
+      'cannot hold for this fixed zeta value.',
+    eulerProductNote:
+      'Counting evaluated primes measures work performed by one algorithm, ' +
+      'not ordinary Kolmogorov program length.',
+    provesIrrationality: false,
   };
 }
 
-// Lempel-Ziv complexity (LZ76): count distinct factors in sequential parsing
-function lempelZivComplexity(seq) {
-  const s = seq.join('');
-  if (s.length === 0) return 0;
-  let complexity = 1; // first character is always a new phrase
-  let i = 1;
-  while (i < s.length) {
-    let len = 1;
-    // Find the longest prefix of s[i..] that appears in history s[0..i-1].
-    // Extend len while the substring IS found (!== -1); stop when it's NOT found.
-    // Then len is the first non-match length, so the longest match has length len-1.
-    // New phrase = longest match (len-1) + one new character = length len.
-    while (i + len <= s.length && s.substring(0, i).indexOf(s.substring(i, i + len)) !== -1) {
-      len++;
-    }
-    complexity++;
-    i += len;
-  }
-  return complexity;
-}
-
-// Block entropy
-function computeBlockEntropy(bits, blockSize) {
-  const numBlocks = Math.floor(bits.length / blockSize);
-  if (numBlocks === 0) return 0;
-  const counts = {};
-  for (let i = 0; i < numBlocks; i++) {
-    const block = bits.slice(i * blockSize, (i + 1) * blockSize).join('');
-    counts[block] = (counts[block] || 0) + 1;
-  }
-  let entropy = 0;
-  for (const key in counts) {
-    const p = counts[key] / numBlocks;
-    if (p > 0) entropy -= p * Math.log2(p);
-  }
-  return entropy;
-}
-
-// Run-length encoding
-function runLengthEncode(bits) {
-  const rle = [];
-  let current = bits[0];
-  let count = 1;
-  for (let i = 1; i < bits.length; i++) {
-    if (bits[i] === current) {
-      count++;
-    } else {
-      rle.push([current, count]);
-      current = bits[i];
-      count = 1;
-    }
-  }
-  rle.push([current, count]);
-  return rle;
-}
-
-/**
- * Chaitin's Theorem applied to odd zeta: if ζ(n) is irrational, then
- * its digits cannot be produced by a program shorter than ~N bits for N digits.
- *
- * We test this by checking if the Euler product "compresses" the information:
- * The product uses ~K primes, each contributing ~log(p) bits.
- * Total "program length" = Σ_{p≤P_K} log2(log(p)) + O(K)
- * If this is << N (number of digits we can compute), the Euler product
- * is an efficient "program" for computing ζ(n), but it's infinite.
- *
- * @param {number} n - Odd integer
- * @param {number} maxPrimes - Maximum primes in Euler product
- * @returns {{ primePrograms, totalProgramBits, digitsComputed,
- *            compressionRatio, chaitinBound, interpretation }}
- */
-export function chaitinEulerAnalysis(n, maxPrimes = 50) {
-  const primes = getPrimes(maxPrimes);
-  const primePrograms = [];
-  let totalProgramBits = 0;
-  let cumulativeProduct = 1;
-
-  for (let i = 0; i < primes.length; i++) {
-    const p = primes[i];
-    const factor = 1 / (1 - Math.pow(p, -n));
-    cumulativeProduct *= factor;
-
-    // "Program length" to describe this prime's contribution
-    // Need to encode: which prime (log2(p) bits) + the exponent n (log2(n) bits)
-    const primeBits = Math.log2(p) + Math.log2(n);
-    totalProgramBits += primeBits;
-
-    // How many correct digits does this partial product give?
-    const error = Math.abs(cumulativeProduct - ZETA_EXACT[n]) / ZETA_EXACT[n];
-    const correctDigits = error > 0 ? -Math.log10(error) : 16;
-
-    primePrograms.push({
-      prime: p,
-      factor,
-      cumulativeProduct,
-      primeBits,
-      totalBitsSoFar: totalProgramBits,
-      correctDigits,
-      bitsPerDigit: totalProgramBits / Math.max(correctDigits, 0.1),
-    });
-  }
-
-  const finalDigits = primePrograms[primePrograms.length - 1].correctDigits;
-  const compressionRatio = totalProgramBits / (finalDigits * Math.log2(10));
-
-  // Chaitin's bound: for a random real, K(x|_N) ≥ N - O(1)
-  // For a computable irrational, K(x|_N) can be << N (the program is finite)
-  // For ζ(n), the "program" is the Euler product (infinite but structured)
-  const chaitinBound = finalDigits * Math.log2(10); // bits needed for random
-
-  return {
-    primePrograms,
-    totalProgramBits,
-    digitsComputed: finalDigits,
-    compressionRatio,
-    chaitinBound,
-    interpretation: compressionRatio < 1
-      ? `The Euler product with ${maxPrimes} primes is an efficient "program" for ζ(${n}): ` +
-        `${totalProgramBits.toFixed(0)} bits encode ${finalDigits.toFixed(1)} digits ` +
-        `(ratio ${compressionRatio.toFixed(2)}). But the program is infinite — ` +
-        `requiring ALL primes means the Kolmogorov complexity of ζ(${n}) is infinite, ` +
-        `which is consistent with irrationality (and even transcendence).`
-      : `The Euler product is NOT efficiently compressing ζ(${n}). ` +
-        `This may indicate numerical precision limits rather than a mathematical property.`,
-  };
-}
-
-/**
- * Algorithmic randomness test: compare the statistical properties of ζ(n) digits
- * to those of Chaitin's Ω. Both should appear "random" if they're algorithmically random.
- *
- * Tests: digit frequency, serial correlation, runs test, spectral test
- *
- * @param {number} n - Odd integer
- * @param {number} bits - Number of binary digits
- * @returns {{ digitBalance, serialCorrelation, runsTestZ, spectralPeaks,
- *            randomnessScore, comparedToOmega }}
- */
-export function algorithmicRandomnessTest(n, bits = 200) {
-  const value = oddZetaValue(n, 100).value;
-  // Cap at float64 mantissa precision to avoid analyzing rounding noise
-  const effectiveBits = Math.min(bits, 52);
-  let frac = value - Math.floor(value);
-  const digits = [];
-  for (let i = 0; i < effectiveBits; i++) {
-    frac *= 2;
-    digits.push(Math.floor(frac));
-    frac -= Math.floor(frac);
-  }
-
-  // 1. Digit balance (should be ~50% ones for random)
-  const ones = digits.filter(d => d === 1).length;
-  const digitBalance = ones / effectiveBits;
-
-  // 2. Serial correlation (lag-1 autocorrelation)
-  let sumProd = 0, sumSq = 0;
-  const mean = digitBalance;
-  for (let i = 0; i < effectiveBits - 1; i++) {
-    sumProd += (digits[i] - mean) * (digits[i + 1] - mean);
-    sumSq += (digits[i] - mean) ** 2;
-  }
-  const serialCorrelation = sumSq > 0 ? sumProd / sumSq : 0;
-
-  // 3. Runs test (count runs of consecutive same digits)
-  let runs = 1;
-  for (let i = 1; i < effectiveBits; i++) {
-    if (digits[i] !== digits[i - 1]) runs++;
-  }
-  const expectedRuns = 1 + 2 * ones * (effectiveBits - ones) / effectiveBits;
-  const varianceRuns = (expectedRuns - 1) * (expectedRuns - 2) / (effectiveBits - 1);
-  const runsTestZ = varianceRuns > 0 ? (runs - expectedRuns) / Math.sqrt(varianceRuns) : 0;
-
-  // 4. Simple spectral test (DFT magnitude peaks)
-  const spectralPeaks = [];
-  for (let k = 1; k <= Math.min(20, effectiveBits / 4); k++) {
-    let re = 0, im = 0;
-    for (let j = 0; j < effectiveBits; j++) {
-      const angle = 2 * Math.PI * k * j / effectiveBits;
-      re += (digits[j] - 0.5) * Math.cos(angle);
-      im += (digits[j] - 0.5) * Math.sin(angle);
-    }
-    const magnitude = Math.sqrt(re * re + im * im) / Math.sqrt(effectiveBits);
-    spectralPeaks.push({ frequency: k, magnitude });
-  }
-  const maxSpectral = Math.max(...spectralPeaks.map(s => s.magnitude));
-
-  // Overall randomness score (0-10, 10 = perfectly random-looking)
-  const balanceScore = 10 * (1 - 2 * Math.abs(digitBalance - 0.5));
-  const correlationScore = 10 * (1 - Math.min(Math.abs(serialCorrelation) * 5, 1));
-  const runsScore = 10 * (1 - Math.min(Math.abs(runsTestZ) / 3, 1));
-  const spectralScore = 10 * (1 - Math.min(maxSpectral * 2, 1));
-  const randomnessScore = (balanceScore + correlationScore + runsScore + spectralScore) / 4;
-
-  return {
-    n,
-    bits: effectiveBits,
-    effectiveBits,
-    digitBalance,
-    serialCorrelation,
-    runsTestZ,
-    spectralPeaks,
-    maxSpectralPeak: maxSpectral,
-    randomnessScore,
-    comparedToOmega: `Chaitin's Ω achieves randomness score 10/10 by definition (algorithmically random). ` +
-      `ζ(${n}) scores ${randomnessScore.toFixed(1)}/10 — ` +
-      (randomnessScore > 7 ? 'consistent with algorithmic randomness and irrationality' :
-       randomnessScore > 4 ? 'moderate randomness, possibly limited by floating-point precision' :
-       'low randomness score — may indicate periodicity or precision artifacts'),
-    precisionNote: effectiveBits < bits
-      ? `Capped from ${bits} to ${effectiveBits} bits (float64 mantissa limit)`
-      : null,
-  };
-}
-
-/**
- * Information-theoretic proof strategy for ζ(n) irrationality.
- *
- * The key idea (following Chaitin's methodology):
- * 1. The first N digits of ζ(n) require ALL primes ≤ exp(N^{1/n}) to compute
- * 2. Therefore K(ζ(n)|_N) ≥ π(exp(N^{1/n})) ≈ exp(N^{1/n}) / N^{1/n}
- * 3. For n = 3: K(ζ(3)|_N) ≥ exp(N^{1/3}) / N^{1/3} which grows faster than O(log N)
- * 4. If ζ(3) were rational, K(ζ(3)|_N) = O(log N)
- * 5. Contradiction → ζ(3) is irrational
- *
- * GAP: Step 1 is the hard part — proving that removing any prime changes the N-th digit.
- *
- * @param {number} n - Odd integer
- * @param {number} maxN - Maximum number of digits to analyze
- * @returns {{ steps, complexityGrowth, rationalBound, gapAnalysis, verdict }}
- */
-export function chaitinProofStrategy(n, maxN = 100) {
-  const steps = [];
-  const complexityGrowth = [];
-
-  for (let N = 5; N <= maxN; N += 5) {
-    // How many primes needed for N digits of ζ(n)?
-    // Each prime p contributes ~p^{-n} to the product, so for N decimal digits
-    // we need primes up to ~10^{N/n} (rough estimate)
-    const primeBound = Math.pow(10, N / n);
-    const numPrimesNeeded = primeBound / Math.log(Math.max(primeBound, 2)); // prime counting function approx
-
-    // Kolmogorov complexity of the "program" = encoding all needed primes
-    const programBits = numPrimesNeeded * Math.log2(Math.max(primeBound, 2));
-
-    // Rational bound: if ζ(n) = a/b, K ≤ log2(a) + log2(b) + O(1) = O(log N)
-    const rationalBound = 2 * Math.log2(Math.max(N, 2)) + 10; // generous constant
-
-    complexityGrowth.push({
-      N,
-      primeBound: Math.round(primeBound),
-      numPrimesNeeded: Math.round(numPrimesNeeded),
-      kolmogorovLower: programBits,
-      rationalUpper: rationalBound,
-      exceeds: programBits > rationalBound,
-    });
-  }
-
-  const gapPoint = complexityGrowth.find(c => c.exceeds);
-
-  return {
-    n,
-    steps: [
-      {
-        step: 1,
-        claim: `Computing N digits of ζ(${n}) requires all primes ≤ 10^{N/${n}}`,
-        status: 'unproven',
-        detail: 'This is the hardest step. The Euler product converges, so each prime contributes less, but removing ANY prime changes the value. The question is whether it changes the N-th digit.',
-      },
-      {
-        step: 2,
-        claim: `K(ζ(${n})|_N) ≥ π(10^{N/${n}}) ≈ 10^{N/${n}} / (N/${n})`,
-        status: 'conditional',
-        detail: 'Follows from Step 1 + the incompressibility of prime encodings.',
-      },
-      {
-        step: 3,
-        claim: `This growth is faster than O(log N), the bound for rational numbers`,
-        status: 'proven',
-        detail: 'Any exponential growth exceeds logarithmic growth. This is elementary.',
-      },
-      {
-        step: 4,
-        claim: `Contradiction → ζ(${n}) is irrational`,
-        status: 'conditional',
-        detail: 'Follows from Steps 1-3 by Chaitin\'s characterization of rational numbers.',
-      },
-    ],
-    complexityGrowth,
-    rationalBound: 'O(log N)',
-    gapAnalysis: gapPoint
-      ? `The Kolmogorov complexity exceeds the rational bound at N = ${gapPoint.N} digits.`
-      : 'Complexity growth not yet exceeding rational bound in tested range.',
-    verdict: `The Chaitin approach provides a conceptual framework: ζ(${n}) is irrational because ` +
-      `its digits require an infinite "program" (all primes). The critical gap is proving that ` +
-      `each prime is individually necessary for computing specific digits — this is the ` +
-      `information-theoretic analog of Apéry's algebraic independence argument.`,
-  };
-}
 
 // ── Cross-verification record (imp-1060, 2026-05-13) ─────────────────────────
 //
-// Independent re-derivation of every numeric claim made by this file. Uses no
+// HISTORICAL RECORD. Independent re-derivation of numeric calculations made by
+// an earlier version of this file. The 2026-08-28 audit retired its Chaitin and
+// digit-randomness functions: checking their arithmetic did not validate their
+// theorem-level interpretation. Uses no
 // helper from this file (the verifier re-implemented each computation from
 // scratch and compared). Findings recorded as data so the audit is grep-able
 // and survives future edits.
@@ -1178,8 +853,8 @@ export const CROSS_VERIFICATION_IMP1060_2026_05_13 = {
 
   conceptualCaveats: [
     "chaitinProofStrategy step 1 ('computing N digits of zeta(n) needs all primes <= 10^{N/n}') " +
-      "is heuristic: a tighter prime bound is ~10^{N/(n-1)} from the tail sum. The function " +
-      "already labels step 1 status: 'unproven', so the looseness is disclosed.",
+      "was later refuted as a Kolmogorov lower-bound premise and the function was retired " +
+      "by the 2026-08-28 audit. Prime count measures runtime, not program length.",
     "hermitePadeApproximants is named 'Hermite-Pade' but implements scalar Pade via Wynn epsilon. " +
       "True Hermite-Pade is the simultaneous-Pade generalization. Naming is loose but the math is correct.",
   ],

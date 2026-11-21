@@ -28,7 +28,10 @@
     "test:buttons": "node scripts/test-buttons.mjs",
     "test:all": "node scripts/smoke-tests.mjs && node scripts/check-page-health.mjs && node scripts/test-buttons.mjs",
     "verify:heavy-imports": "node scripts/verify-no-heavy-page-imports.mjs",
-    "test:cayley": "node --test scripts/cayley-schur.test.mjs"
+    "test:cayley": "node --test scripts/cayley-schur.test.mjs",
+    "test:twistor": "node --no-warnings scripts/test-rigorous-twistor.mjs",
+    "verify:sign-switching": "node scripts/verify-sign-switching.mjs",
+    "verify:visualizations-index": "node scripts/verify-visualizations-index.mjs"
   },
   "repository": {
     "type": "git",

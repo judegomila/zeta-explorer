@@ -26,6 +26,19 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION = Object.freeze({
     notice: 'The May 28 bare-Volterra reduction was withdrawn on 2026-06-18. ' +
       'Historical Conj 27.2 and its finite norm pilot are not current evidence for arithmetic kernel positivity.',
   }),
+  // Stress test of 2026-11-21 (research-checkpoints/key-results-stress-test-2026-11-21/hidden-square/).
+  correction20261121: Object.freeze({
+    date: '2026-11-21',
+    summary: 'The statement ‖V_{a,Φ}‖ ≤ 1 for every a > 0 is false, and it is not equivalent to K_a ⪰ 0.',
+    points: Object.freeze([
+      'In the repository’s normalisation ‖V_{a,Φ}‖ ≤ 1 holds for a ≤ a* and fails for a ≥ 31.6214, with 31.6213 < a* < 31.6214 (this uses Φ ≥ 0; the bracket rests on the lane’s Arb certificate, not rerun, and two replays).',
+      'It is not equivalent to K_a ⪰ 0 in either direction: ‖V‖ scales as c² under Φ → cΦ, and K_a ⪰ 0 is scale-invariant.',
+      'For the Davenport-Heilbronn kernel ‖V‖ is 0.012 to 0.074 for a in [0.1, 0.6], where its K_a is indefinite, so the inequality does not separate ζ from a function with zeros off the line.',
+      'The decomposition K_a = K_a^diag + (off-diagonal shear) is false: the complement of the shear is not positive semidefinite (value −9.04e-8 at z = 26.5 + 5i, a = 0.5).',
+      'Conjectures 15.1, 16.4, 16.6, 17.3, 18.1, 25.2 and 25.3 are separate phrasings of the Hermite-Biehler form of RH (K_a ⪰ 0 for every a > 0); they are not reduced to one norm statement.',
+      'The figure of norms 5000 times below 1 is the size of Φ² (‖V‖ = 4.576e-4 at a = 0.5) and is not evidence.',
+    ]),
+  }),
   relativePositivity: Object.freeze({
     scope: 'Finite Hermitian K = P + S, with P positive definite and S Hermitian.',
     definitionMath: 'R=P^{-1/2}SP^{-1/2},\\qquad K=P^{1/2}(I+R)P^{1/2}',
@@ -129,7 +142,8 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION = Object.freeze({
       'Historical Conjecture 27.2 (May 28; withdrawn as a reduction on 2026-06-18): For every a > 0, ' +
       'the off-diagonal bridge ' +
       'shear operator V_{a,Φ} satisfies ‖V_{a,Φ}‖ ≤ 1 (operator norm in L²([0, ∞))). Equivalent to the ' +
-      'block-positivity condition, hence equivalent to K_a ⪰ 0.',
+      'block-positivity condition. The May 28 text continued "hence equivalent to K_a ⪰ 0"; that is false ' +
+      '(correction of 2026-11-21: the conjecture fails for a ≥ 31.6214 and is not equivalent to K_a ⪰ 0).',
     finiteWindowDiagnostic:
       'For each finite window U, build the truncated V_{a,Φ,U} on L²([0, U]) and compute its operator norm. ' +
       'CAVEAT (section26-verdict-volterra-not-a-reduction-2026-06-18): the bare ‖V_{a,Φ,U}‖ is scale-' +
@@ -152,7 +166,7 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION = Object.freeze({
   // ── Historical synthesis: withdrawn chain of reductions ────────────────────────────────
   chainOfReductions: Object.freeze({
     line1: 'Historical May 28 proposal (withdrawn June 18): §17 no-ghost theorem: K_a ⪰ 0 for every a > 0',
-    line2: 'Historical May 28 proposal (withdrawn June 18): §25 ↓ commutator decomposition: K_a = K_a^diag + (off-diagonal shear), K_a^diag ⪰ 0 by construction',
+    line2: 'Historical May 28 proposal (withdrawn June 18): §25 ↓ commutator decomposition: K_a = K_a^diag + (off-diagonal shear), K_a^diag ⪰ 0 by construction [this identity is false; correction of 2026-11-21]',
     line3: 'Historical May 28 proposal (withdrawn June 18): §25 ↓ hidden-square target (Conj 25.2 / 25.3): factor K_a = ∫ Ψ Ψ̄ dν via Φ alone',
     line4: 'Historical May 28 proposal (withdrawn June 18): §26 ↓ scalar measure domination (Conj 26.3): µ_{a,Φ}^pass ≥ ν_{a,Φ}',
     line5: 'Historical May 28 proposal (withdrawn June 18): §27 ↓ block positivity / Volterra contraction (Conj 27.2): ‖V_{a,Φ}‖ ≤ 1 in L²',
@@ -300,6 +314,16 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION_ASSERTIONS = [
       const c = HIDDEN_SQUARE_PROGRAM_SECTION.relativePositivity.counterexample;
       return c.passive > 0 && c.kernel === c.passive + c.shear &&
         c.relative === c.shear / c.passive && c.kernel >= 0 && Math.abs(c.relative) > 1;
+    },
+  },
+  {
+    id: 'hidden-square-correction-20261121-recorded',
+    why: 'The stress test of 2026-11-21 refuted ‖V‖ ≤ 1 for every a (fails for a ≥ 31.6214); the record must say so and must not assert equivalence with K_a ⪰ 0.',
+    holds: () => {
+      const r = HIDDEN_SQUARE_PROGRAM_SECTION;
+      return r.correction20261121.points.some((p) => p.includes('31.6214')) &&
+        r.endpointHankel.keyConjecture27_2.includes('that is false') &&
+        r.chainOfReductions.line2.includes('this identity is false');
     },
   },
 ];

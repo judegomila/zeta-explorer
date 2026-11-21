@@ -8,7 +8,8 @@ zero-free half-plane Re s > 7/8 (openai/math family 003, whose Lean proof was
 rebuilt here with standard axioms only) and D. J. Raymond's decreasing-barrier
 construction (Zenodo 10.5281/zenodo.22867547). The value 0.116091 also uses this
 project's internal floor and kernel certificates; without them the same argument
-gives 0.118506. It is a draft: not submitted, not published, not yet peer
+gives 0.118506. Those certificates are a third input that is not established
+(internal and partly uncertified; count corrected 2026-11-21). It is a draft: not submitted, not published, not yet peer
 reviewed. The accepted peer-reviewed bound remains Λ ≤ 0.2 (Platt–Trudgian). RH is
 open. The inputs are stated below as hypotheses; the theorem is not a bound on
 \(\Lambda\) independent of them.

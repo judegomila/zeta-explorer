@@ -2659,7 +2659,9 @@ const DYSON_LANE_RESIDUALS = [
     status: 'CLOSED (closed form)',
     body: [
       'The global asymmetric multi-body isolation constant c_glob is defined as the infimum of ' +
-      'all worsening-onset values rho(c) over all asymmetric multi-body environments. ' +
+      'all worsening-onset values rho(c) over all asymmetric multi-body environments in which ' +
+      'every adjacent gap is at least the gap of the pair (the minimal-gap hypothesis; corrected ' +
+      '2026-11-21: without this hypothesis the infimum is 0). ' +
       'It is now CLOSED in closed form (2026-08-28): c_glob = c_half = 0.8980208880762339, the ' +
       'unique (0,1) root of R(rho) = 4 + 4rho - 4/rho - 4/(rho+1) - 2[psi(1+2/rho) - psi(1+1/rho)] ' +
       '— the universal rate bound d_1^2 (drho/ds) <= R(rho) holds for every admissible ' +

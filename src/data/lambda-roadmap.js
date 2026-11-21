@@ -2577,7 +2577,9 @@ export const LAMBDA_ROADMAP_MILESTONES = [
       + 'correspondence G = β(2) = L(2,χ₄) = the twin ladder\'s signed (χ₄) value, and ' +
       'the exact period-dimension obstruction (same shifted-Legendre device gives ' +
       'ζ(2) → 5ζ(2)−8 in a 2-dim period space, but Catalan → G−π+2ln2+π²/12 in a ' +
-      '5-dim one; the π-column is forced by the χ₄ functional equation). Generalized ' +
+      '5-dim one; the π-column is forced by the χ₄ functional equation). [Corrected ' +
+      '2026-11-21: the two closed forms hold, but the generator count is not an obstruction ' +
+      'and the π-column is not forced.] Generalized ' +
       'into a reusable 6-stage irrationality pipeline (encode → predict → generate → ' +
       'measure → cancel → test), with a period-dimension triage of ζ(5), β(4), γ, and ' +
       'the 2-adic Catalan neighbor.',

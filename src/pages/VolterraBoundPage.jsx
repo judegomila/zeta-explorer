@@ -22,6 +22,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import RelatedLinks from '../components/RelatedLinks.jsx';
+import CorrectionNotice from '../components/CorrectionNotice.jsx';
 
 const THREADS = [
   {
@@ -83,6 +84,14 @@ export default function VolterraBoundPage() {
     <div className="ed-root">
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
+        <CorrectionNotice item="hidden-square">
+          This page presents ‖V_{'{'}a,Φ{'}'}‖ ≤ 1 as the single statement to which the §15-27 conjectures reduce,
+          and as RH-equivalent. Both are wrong. In the repository’s normalisation ‖V‖ ≤ 1 holds for a ≤ a* and
+          fails for a ≥ 31.6214, with 31.6213 &lt; a* &lt; 31.6214, so there is no open frontier at large a: the
+          inequality is false there. It is not equivalent to K_a ≥ 0 in either direction and it holds for the
+          Davenport-Heilbronn kernel where that kernel’s K_a is indefinite. The measured margin of 5000× is the
+          size of Φ² and is not evidence.
+        </CorrectionNotice>
         <HonestCeilingBanner variant="RH-EQUIVALENT" />
 
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>

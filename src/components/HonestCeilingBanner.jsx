@@ -51,11 +51,12 @@ const VARIANTS = {
   },
   'RH-EQUIVALENT': {
     color: ED.series5,
-    title: 'The Volterra ‖V‖ ≤ 1 collapse is RH-EQUIVALENT, not a reduction',
+    title: 'The Volterra statement ‖V‖ ≤ 1 is refuted: it is neither RH-equivalent nor a reduction',
     body:
-      'The §15-27 collapse to a single statement ‖V‖ ≤ 1 is a faithful reformulation of RH — it renames RH, it ' +
-      'does not reduce it. Proving it would be proving RH; the same is true of Beurling-Nyman, de Branges and ' +
-      'Connes-Weil.',
+      'Corrected 2026-11-21. The statement ‖V_{a,Φ}‖ ≤ 1 for every a > 0 is false: in the repository’s ' +
+      'normalisation it fails for a ≥ 31.6214. It is not equivalent to K_a ≥ 0 in either direction, so the §15-27 ' +
+      'conjectures are not restated by it. The RH-equivalent statement is K_a ≥ 0 for every a > 0 (the ' +
+      'Hermite-Biehler form); proving that would be proving RH.',
   },
   REFUTED: {
     color: ED.accent,

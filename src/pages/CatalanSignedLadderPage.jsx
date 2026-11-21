@@ -4,9 +4,12 @@ import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout
 import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import { CATALAN_SIGNED_LADDER as D } from '../data/catalan-signed-ladder.js';
 import { ED } from '../styles/tokens.js';
+import CorrectionNotice from '../components/CorrectionNotice.jsx';
 
 /* Editorial presentation of the signed-ladder ↔ Catalan correspondence and the
-   period-dimension obstruction. All mathematical content is sourced from
+   period-dimension obstruction. The obstruction and the forced π-column were
+   found false on 2026-11-21: the page opens with a correction notice and keeps
+   the original text below it. All mathematical content is sourced from
    src/data/catalan-signed-ladder.js (whose build tripwires re-verify the exact
    closed forms). This file only restyles it and makes no claim of its own. */
 
@@ -24,7 +27,7 @@ function DimTag({ n }) {
 export default function CatalanSignedLadderPage() {
   return (
     <PostLayout
-      grade="VERIFIED CORRESPONDENCE · OBSTRUCTION"
+      grade="VERIFIED IDENTITIES · OBSTRUCTION WITHDRAWN"
       meta={[D.status]}
       title={D.title}
       dek={D.oneLine}
@@ -38,6 +41,13 @@ export default function CatalanSignedLadderPage() {
         ← <Link to="/atlas">the atlas</Link>
       </>}
     >
+      <CorrectionNotice item="catalan-ladder">
+        {D.correction20261121.summary}
+        <ul style={{ margin: '6px 0 0', paddingLeft: 20 }}>
+          {D.correction20261121.points.map((p) => <li key={p}>{p}</li>)}
+        </ul>
+      </CorrectionNotice>
+
       <div style={{ maxWidth: 360, margin: '0 auto 1.5rem' }}>
         <WireframeAnim kind="dirichlet-ladder" />
       </div>

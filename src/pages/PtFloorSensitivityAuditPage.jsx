@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout.jsx';
+import CorrectionNotice from '../components/CorrectionNotice.jsx';
 import { PT_FLOOR_AUDIT } from '../data/pt-floor-sensitivity-audit-2026-07-08.js';
 import { IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER } from '../data/imp-35711-postport-parity-no-beat-honest-status-banner.js';
 import { IMP35678_FINITE_HEIGHT_BEAT_VS_PARITY_REGIME_BOUNDARY } from '../data/imp-35678-finite-height-beat-vs-parity-regime-boundary.js';
@@ -39,6 +40,19 @@ export default function PtFloorSensitivityAuditPage() {
       </>}
     >
       <SnapshotBanner date="2026-07-08">This audit concerns the accepted bound Λ ≤ 0.2 and the barrier-tightening class; it is kept as written. Values below 0.2 recorded since then are conditional or unrefereed.</SnapshotBanner>
+      <CorrectionNotice item="pt-floor">
+        The conclusion of this audit that more verified zero height is the only lever below 0.2, and that
+        every method in the barrier-tightening class is unable to move the value, does not hold. What holds
+        is the weaker statement printed in Polymath15, section 10: with the Euler-2 Lemma 10.1 and the target
+        0.03, the admissible Λ is a function of the verified height (0.20 at X = 5·10^12, 0.19 at
+        X = 2·10^13), and re-certifying the compact barrier check does not change it. At the fixed height
+        3·10^12 a main-term calculation of the corner test passes at 0.197 with the Euler-2 mollifier, 0.183
+        with primes 2, 3, 5, 0.181 with primes up to 7 and 0.180 with primes up to 11; these figures omit
+        error terms and the barrier run and are not bounds. In the text below, “e_C = 0.955” is the mass of
+        Polymath15 eq. (88) for the 0.22 theorem (e_C,0 ≤ 1.249e-3), the “10×” gap to the 0.19 row is 3.3× in
+        zero height, the interval table is at x ≤ 66 and is not evidence about the barrier at X ≈ 5·10^12,
+        and the three decompositions are not independent.
+      </CorrectionNotice>
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)' }}>
         <div className="tlab">Diagnostic audit — produces no bound, beats nothing; Platt–Trudgian Λ ≤ 0.2 stays SOTA</div>
         <p style={{ margin: 0 }}>

@@ -20,7 +20,7 @@ const WaveSimViz = lazy(() => import('../components/WaveSimViz.jsx'));
 const FINDINGS = [
   { to: '/lambda-0116091', grade: 'CANDIDATE', date: '2026-10', isNew: true,
     title: 'Λ ≤ 0.116091 from a zero-free half-plane',
-    desc: 'Computer-assisted upper bound. Depends on two unrefereed results: the zero-free half-plane Re s > 7/8 (openai/math family 003; Lean proof rebuilt here, standard axioms only) and D. J. Raymond’s decreasing-barrier construction. 0.116091 also uses internal floor and kernel certificates (0.118506 without them). Not peer reviewed; not an established bound.' },
+    desc: 'Computer-assisted upper bound. Depends on three inputs that are not established: the zero-free half-plane Re s > 7/8 (openai/math family 003; Lean proof rebuilt here, standard axioms only), D. J. Raymond’s decreasing-barrier construction, and this project’s own floor and kernel tables, which are internal and partly uncertified (0.118506 without them). Not peer reviewed; not an established bound.' },
   { to: '/lambda-01758354-candidate', grade: 'CANDIDATE', date: '2026-08',
     title: 'Λ ≤ 0.1758354', desc: 'Computer-assisted candidate for an unconditional bound: four barrier gates certified in Arb, y-transfer reduction and Lemma B3 Lean-checked. Unrefereed; not established.' },
   { to: '/newman-lambda-01787854-candidate', grade: 'CANDIDATE', date: '2026-08',
@@ -30,11 +30,11 @@ const FINDINGS = [
   { to: '/project-dag', grade: 'MAP', date: '2026-09', isNew: true,
     title: 'The project attempts DAG', desc: 'Every project route, certificate, candidate and no-go by lane, with typed edges linked to the general DAG.' },
   { to: '/flow-blindness-no-go', grade: 'NO-GO', date: '2026-08',
-    title: 'Flow-blindness: soft ⇏ RH', desc: 'No flow-stable hypothesis proves RH, given Rodgers–Tao Λ ≥ 0; a proof needs arithmetic input. Core lemmas kernel-checked in Lean 4.' },
+    title: 'Flow-blindness: soft ⇏ RH', desc: 'A set of conditions that holds for Φ and is preserved by Gaussian damping cannot imply real zeros: Rodgers–Tao Λ ≥ 0 read contrapositively. It does not show that arithmetic input is required. The Lean file is an abstract skeleton with Λ ≥ 0 as a hypothesis.' },
   { to: '/viz-imp95549-ns-rigid-pencil-eigenvalue', grade: 'THEOREM', date: '2026-09', isNew: true,
     title: 'NS-RIGID: native-span rigidity', desc: 'Each finite native-span positivity statement is flow-stable (so not the missing input) or its failure refutes RH. Only RH is flow-critical.' },
   { to: '/flow-blindness-no-go', grade: 'THEOREM', date: '2026-08',
-    title: 'T3 is the zero-free strip', desc: 'T3(a) ⇔ no ζ-zero with Re s > ½ + a (trig core checked to 1e-30, full identity to 1e-15). It restates RH; it is not a mechanism.' },
+    title: 'T3 is the zero-free strip', desc: 'T3(a) holds if no ζ-zero has Re s > ½ + a; the converse at a fixed a has an aligned-pair exception; T3 for all a > 0 ⇔ RH. Known (Lagarias 2005). The 1e-30 figure checks only the angle-addition formula. It restates the strip; it is not a mechanism.' },
   { to: '/permutation-architecture', grade: 'NO-GO', date: '2026-09', isNew: true,
     title: 'Theorem U: sieve-algebra universality', desc: 'Every freeze-calculus configuration is a basis choice in a 2^25-dim sieve algebra on one scalar; configurations change provability only.' },
   { to: '/twin-ladder-paper-roadmap', grade: 'NO-GO', date: '2026-07',
@@ -42,19 +42,19 @@ const FINDINGS = [
   { to: '/frozen-rung-pt-equivalence', grade: 'THEOREM', date: '2026-07',
     title: 'Freezing rungs = Platt–Trudgian', desc: 'Frozen-rung certificates are inertia-preserving, so they cannot beat verified height. Full equivalence with PT is conditional on L1, L2.' },
   { to: '/rh-novel-routes-roadmap', grade: 'NO-GO', date: '2026-09', isNew: true,
-    title: 'Sonine port obstruction past ln 2', desc: 'Past 2a = ln 2 the S = {∞, 2} Sonine excess carries half the p = 2 log cusp and is unbounded along its resonances. No finite-rank fix.' },
+    title: 'Sonine port obstruction past ln 2', desc: 'Past 2a = ln 2 the S = {∞, 2} Sonine excess carries half the p = 2 log cusp (proved) and, numerically, grows along its resonances, so one sufficient condition of the archimedean argument is not available. Nothing follows about Weil positivity past ln 2.' },
   { to: '/frontier-dag', grade: 'NO-GO', date: '2026-09', isNew: true,
     title: 'Route VII derived floor U ≈ 0.145–0.150', desc: 'Reachable-floor analysis for Route VII (2026-09): going below it requires arithmetic input, not more compute. A route floor, not a bound on Λ. The route-P value 0.144997 is unconfirmed below 0.145 (2026-11).' },
   { to: '/threads', grade: 'NO-GO', date: '2026-09', isNew: true,
     title: 'Inertia-PCC: same wall', desc: 'The inertia route meets the pair-correlation wall (λ_max(ρ) = 0.6231344958476320). Measurement only.' },
   { to: '/viz-imp96646-krein-certificate-margin', grade: 'CERTIFIED', date: '2026-09', isNew: true,
-    title: 'Route I Toeplitz–Krein certificate', desc: 'Pole-free Weil positivity certified in Arb for every 2a ≤ ln 3 (2026-09-28, internal referees). This range is also implied by the verified zeros.' },
+    title: 'Route I Toeplitz–Krein certificate', desc: 'Pole-free Weil positivity certified in Arb for every 2a ≤ ln 3: W(h) ≥ 8.2045e-4 ‖h‖² (2026-09-28, internal referees). The full form on that window is not covered.' },
   { to: '/viz-imp96103-route-i-remainder-resonance', grade: 'RESULT', date: '2026-09', isNew: true,
     title: 'Semilocal Sonine trace identity', desc: 'Exact identity for S = {∞, 2} with positive trace side, but the remainder is 96.7–99.7% of the trace: Weil positivity < ln 3 ⇔ D_S ≤ L_S.' },
   { to: '/theta-basin-closure', grade: 'THEOREM', date: '2026-08',
-    title: 'c_glob = 0.8980208880762339', desc: 'Unique root of the half-lattice digamma rate bound: global isolation constant = half-lattice constant. Closes R2 subgap; no Λ change.' },
-  { to: '/catalan-signed-ladder', grade: 'THEOREM', date: '2026-09', isNew: true,
-    title: 'Catalan period-dimension obstruction', desc: 'Signed-ladder values: ζ(2) control 5ζ(2) − 8 (period dimension 2), Catalan G − π + 2ln2 + π²/12 (dimension 5). G irrationality open in the refereed literature; an external Lean-formalized claim (openai/math, 2026-10-06) is not peer-reviewed.' },
+    title: 'c_glob = 0.8980208880762339', desc: 'Unique root of the half-lattice digamma rate bound: global isolation constant = half-lattice constant, under the minimal-gap hypothesis (every adjacent gap at least the gap of the pair). Closes R2 subgap; no Λ change.' },
+  { to: '/catalan-signed-ladder', grade: 'REFUTED', date: '2026-09', isNew: true,
+    title: 'Catalan signed ladder: obstruction withdrawn', desc: 'Two integral identities hold: 5ζ(2) − 8 for the ζ(2) kernel and G − π + 2ln2 + π²/12 for the signed kernel. The “period dimension 2 against 5” obstruction and the forced π term were found false on 2026-11-21. G irrationality open in the refereed literature; an external Lean-formalized claim (openai/math, 2026-10-06) is not peer-reviewed.' },
   { to: '/theorem-b-threshold', grade: 'RESULT', date: '2026-06',
     title: 'Closed-form constants', desc: 'Exact values for the Theorem-B threshold and boundary constants.' },
   { to: '/lambda-bounds', grade: 'RESULT', date: '2026-07',
@@ -66,7 +66,7 @@ const FINDINGS = [
   { to: '/permutation-architecture', grade: 'CONTRACT', date: '2026-09', isNew: true,
     title: 'Λ ≤ 0.14 completion contract', desc: 'Fail-closed contract with one open weld family. Theorem U: only new arithmetic input or ≥ 3.4e17 cells can move it. Not a bound.' },
   { to: '/collapse-chain', grade: 'AUDIT', date: '2026-06',
-    title: '‖V‖ ≤ 1 collapse: refuted as a reduction', desc: 'The proposed restatement of seven §15–27 conjectures as ‖V‖ ≤ 1 fails: ‖V‖ is scale-homogeneous, K_a is not. Residual ‖R‖ ≤ 1 is RH-equivalent.' },
+    title: '‖V‖ ≤ 1 collapse: refuted as a reduction', desc: 'The proposed restatement of seven §15–27 conjectures as ‖V‖ ≤ 1 fails: the inequality is false for a ≥ 31.6214 and is not equivalent to K_a ≥ 0 (‖V‖ is scale-homogeneous, K_a ≥ 0 is scale-invariant). The conjectures are separate phrasings of K_a ≥ 0, which is RH-equivalent.' },
   { to: '/viz-imp97068-mirror-descent-poisson-kernel', grade: 'THEOREM', date: '2026-09', isNew: true,
     title: 'Mirror pair lemma', desc: 'A conjugate pair below the topmost zero pulls it down by at least 2y/(Δ² + 4y²), the double-width Poisson kernel. Elementary proof.' },
   { to: '/viz-imp97068-mirror-descent-poisson-kernel', grade: 'CONDITIONAL', date: '2026-09', isNew: true,
@@ -144,7 +144,7 @@ export default function HomePageEditorial() {
 
       {/* KPIs */}
       <div className="ed-full"><div className="ed-kpis">
-        <Link className="ed-kpi ed-kpi-link" to="/lambda-0116091"><b style={{ color: 'var(--brass-dk)' }}>0.116091</b><span>Λ value, conditional on two unrefereed results</span></Link>
+        <Link className="ed-kpi ed-kpi-link" to="/lambda-0116091"><b style={{ color: 'var(--brass-dk)' }}>0.116091</b><span>Λ value, conditional on three unestablished inputs</span></Link>
         <Link className="ed-kpi ed-kpi-link" to="/route-map"><b>{FULL_ROUTE_MAP.totalRoutes}</b><span>routes mapped</span></Link>
         <Link className="ed-kpi ed-kpi-link" to="/no-gos"><b style={{ color: 'var(--terra-dk)' }}>{ZETAEXPLORER_NO_GOS.length}</b><span>no-go theorems</span></Link>
         <Link className="ed-kpi ed-kpi-link" to="/results"><b>{RESULTS_COUNT}</b><span>graded results</span></Link>
@@ -263,9 +263,9 @@ export default function HomePageEditorial() {
       <div className="ed-full"><section className="ed-sec">
         <div className="ed-lbl" style={{ marginBottom: 12 }}>status · as of {PROGRAM_STATUS_AS_OF}</div>
         <div className="ed-verdict">RH is open: it requires Λ ≤ 0. The smallest value recorded here is
-          Λ ≤ 0.116091488672439, conditional on two unrefereed results (the zero-free half-plane Re s &gt; 7/8 and
-          D. J. Raymond’s decreasing-barrier chain), on the Platt–Trudgian verified height and on internal
-          certificates; it is not an established bound. The 0.1758354 and 0.1787854 candidates for an unconditional
+          Λ ≤ 0.116091488672439, conditional on three inputs that are not established (the zero-free half-plane
+          Re s &gt; 7/8 and D. J. Raymond’s decreasing-barrier chain, both unrefereed, and this project’s own partly
+          uncertified floor and kernel tables) and on the Platt–Trudgian verified height; it is not an established bound. The 0.1758354 and 0.1787854 candidates for an unconditional
           bound are computer-assisted and unrefereed; the 0.14 value is a conditional completion contract, not a
           bound. Every direct attempt at RH recorded here failed, and the failures are collected in one obstruction
           map.</div>

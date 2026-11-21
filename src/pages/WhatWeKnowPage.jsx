@@ -219,9 +219,10 @@ export default function WhatWeKnowPage() {
       <TheoremBox label="Bottom line">
         <p style={{ margin: 0 }}>
           As of {PROGRAM_STATUS_AS_OF}: the smallest value recorded here is{' '}
-          <Link to="/lambda-0116091"><strong>Λ ≤ 0.116091488672439</strong></Link>, conditional on two unrefereed
-          results (the half-plane Re s &gt; 7/8 and D. J. Raymond’s chain), on the Platt–Trudgian verified height and
-          on internal certificates; it is not an established bound.
+          <Link to="/lambda-0116091"><strong>Λ ≤ 0.116091488672439</strong></Link>, conditional on three inputs
+          that are not established (the half-plane Re s &gt; 7/8 and D. J. Raymond’s chain, both unrefereed, and this
+          project’s own partly uncertified floor and kernel tables) and on the Platt–Trudgian verified height; it is
+          not an established bound.
           <strong> Λ ≤ 0.1787854</strong> is a computer-assisted candidate for an
           unconditional proof; the bound is not established, has been reviewed by Dan Romik, and is not RH.
           A smaller candidate, <Link to="/lambda-01758354-candidate"><strong>Λ ≤ 0.1758354</strong></Link> (four

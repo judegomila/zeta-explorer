@@ -39,12 +39,14 @@ export const STATE_OF_PROGRAM_TRUTHS = [
   {
     badge: 'CONDITIONAL',
     color: '#fb923c',
-    title: 'Λ ≤ 0.116091488672439, conditional on two unrefereed results',
+    title: 'Λ ≤ 0.116091488672439, conditional on three inputs that are not established',
     body:
       'The value 116091488672439/10¹⁵ holds if ζ(s) ≠ 0 for Re s > 7/8 (openai/math family 003; Lean proof rebuilt ' +
       'locally with standard axioms only; not peer reviewed) and D. J. Raymond’s decreasing-barrier chain (Zenodo ' +
       '10.5281/zenodo.22867547; unrefereed) both hold, together with the Platt-Trudgian verified height 3000175332800 ' +
-      'and this project’s internal floor and kernel certificates. Without the internal certificates the same argument ' +
+      'and this project’s internal floor and kernel certificates, which are a third input that is not established: ' +
+      'they are internal and partly uncertified (89 of 468 floor entries rest on a measured allowance of 0.0023). ' +
+      'Without the internal certificates the same argument ' +
       'gives 0.118505710922701. It is the smallest value recorded in this project and it is not an established bound. ' +
       'Draft of 9 October 2026; not submitted, not peer reviewed.',
     route: '/lambda-0116091',
@@ -124,7 +126,7 @@ export const STATE_OF_PROGRAM_TRUTHS = [
     body:
       'A revised mollifier and an extended finite lane certify four independent gates — each machine-checked in Arb interval ' +
       'arithmetic, with the y-transfer reduction and Lemma B3 Lean-checked — for a de Bruijn–Newman bound Λ ≤ 0.1758354, below the earlier ' +
-      '0.1787854 candidate. Since 2026-10-09 a smaller value, 0.116091488672439, is recorded, conditional on two unrefereed results (first entry). Neither the Arb gates nor the Lean-checked ' +
+      '0.1787854 candidate. Since 2026-10-09 a smaller value, 0.116091488672439, is recorded, conditional on three inputs that are not established (first entry). Neither the Arb gates nor the Lean-checked ' +
       'components are a referee: the pipeline has not been independently audited end to end, the bound is not established, and it ' +
       'does not displace Platt-Trudgian Λ ≤ 0.2. It is not a proof of RH, which requires Λ ≤ 0.',
   },

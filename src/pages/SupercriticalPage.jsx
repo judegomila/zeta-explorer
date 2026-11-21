@@ -68,7 +68,7 @@ export default function SupercriticalPage() {
             The topological-winding thread that once succeeded this route is also closed: the winding /
             Cauchy-index argument re-derives Λ ≥ 0 and is capped by the same architecture as the
             Λ ≤ 0.2 bound. The program's recorded values are the conditional Λ ≤ 0.116091488672439
-            (depends on two unrefereed results), the two unrefereed candidates for an unconditional bound
+            (depends on three inputs that are not established), the two unrefereed candidates for an unconditional bound
             (Λ ≤ 0.1787854 and Λ ≤ 0.1758354) and the Λ ≤ 0.14 completion contract with its one
             open enclosure family — see <Link to="/state-of-program" style={{ color: 'var(--blue)' }}>the state of the program</Link>,{' '}
             <Link to="/permutation-architecture" style={{ color: 'var(--blue)' }}>the permutation architecture</Link> and{' '}

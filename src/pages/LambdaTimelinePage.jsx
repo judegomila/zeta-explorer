@@ -227,14 +227,14 @@ export default function LambdaTimelinePage() {
           <EvidenceCard
             label="sharper proof candidate · unrefereed"
             value="Λ ≤ 0.1758354"
-            detail="Four independent gates machine-checked in Arb interval arithmetic, with the reduction to the gates Lean-checked; unrefereed, not established. Since 2026-10-09 a smaller value, 0.116091488672439, is recorded; it is conditional on two unrefereed results (see the next card)."
+            detail="Four independent gates machine-checked in Arb interval arithmetic, with the reduction to the gates Lean-checked; unrefereed, not established. Since 2026-10-09 a smaller value, 0.116091488672439, is recorded; it is conditional on three inputs that are not established (see the next card)."
             color={ED.series1}
             route="/lambda-01758354-candidate"
           />
           <EvidenceCard
-            label="conditional on two unrefereed results · not peer reviewed"
+            label="conditional on three unestablished inputs · not peer reviewed"
             value="Λ ≤ 0.116091488672439"
-            detail="Holds if ζ(s) ≠ 0 for Re s > 7/8 (openai/math family 003; Lean proof rebuilt locally) and D. J. Raymond's decreasing-barrier chain (Zenodo 10.5281/zenodo.22867547) both hold, with the Platt–Trudgian verified height and internal certificates. Draft of 2026-10-09; not an established bound."
+            detail="Holds if ζ(s) ≠ 0 for Re s > 7/8 (openai/math family 003; Lean proof rebuilt locally) and D. J. Raymond's decreasing-barrier chain (Zenodo 10.5281/zenodo.22867547) both hold, with the Platt–Trudgian verified height and the project's own floor and kernel tables, which are internal and partly uncertified (0.118506 without them). Draft of 2026-10-09; not an established bound."
             color={ED.brass}
             route="/lambda-0116091"
           />

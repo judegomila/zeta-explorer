@@ -465,8 +465,8 @@ export default function FullStoryPage() {
         <strong>Route VII compute floor U ≈ 0.145–0.150</strong> — below it requires arithmetic
         input. The dated narrative continues on <Link to="/threads">/threads</Link>; the frontier
         graph of 2026-09-14 is <Link to="/frontier-dag">/frontier-dag</Link>. Since 2026-10-09 the smallest
-        recorded value is <Link to="/lambda-0116091">0.116091488672439</Link>, conditional on two unrefereed
-        results; status as of 2026-11-20 is at <Link to="/state-of-program">/state-of-program</Link>.
+        recorded value is <Link to="/lambda-0116091">0.116091488672439</Link>, conditional on three inputs that are not
+        established (two unrefereed external results and this project’s own partly uncertified tables); status as of 2026-11-20 is at <Link to="/state-of-program">/state-of-program</Link>.
       </p>
     </PostLayout>
   );

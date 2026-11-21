@@ -100,7 +100,7 @@ export const IRRATIONALITY_PIPELINE = Object.freeze({
     { target: 'ζ(3)', enc: 'trivial χ, k=3', predDim: 2, verdict: 'PROVEN (Apéry): α=3.53>β=3' },
     { target: 'ζ(2)', enc: 'trivial χ, k=2', predDim: 2, verdict: 'closed form (π²/6)' },
     { target: 'L(2,χ₋₃)', enc: 'χ₋₃, q=3, k=2', predDim: '≤3', verdict: 'PROVEN (CDT 2024): conductor-3 capacity clears' },
-    { target: 'G = β(2)', enc: 'χ₄, q=4, k=2', predDim: 5, verdict: 'OPEN in refereed literature: π-column forced for the tested mechanisms; β≳α after elimination. Claimed irrational in openai/math 005 (2026-10-06; Lean-formalized per the repository; not peer-reviewed)' },
+    { target: 'G = β(2)', enc: 'χ₄, q=4, k=2', predDim: 5, verdict: 'OPEN in refereed literature. The π-column is not forced (Zudilin 2003 gives forms in 1 and G alone) and the generator count 5 is not an obstruction; the known forms fail because decay 2.406 is below denominator growth of about 6.77. Claimed irrational in openai/math 005 (2026-10-06; Lean-formalized per the repository; not peer-reviewed)' },
     { target: 'β(4), β(6)', enc: 'χ₄, k=4,6', predDim: '≥5', verdict: 'OPEN: one-of-block (RZ 2003)' },
     { target: 'ζ(5), ζ(7)', enc: 'trivial χ, k=5,7', predDim: '≥2', verdict: 'OPEN: odd block coupled' },
   ],

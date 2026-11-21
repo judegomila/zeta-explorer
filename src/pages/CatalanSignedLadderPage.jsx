@@ -4,9 +4,11 @@ import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout
 import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import { CATALAN_SIGNED_LADDER as D } from '../data/catalan-signed-ladder.js';
 import { ED } from '../styles/tokens.js';
+import StatusNote from '../components/StatusNote.jsx';
 
 /* Editorial presentation of the signed-ladder ↔ Catalan correspondence and the
-   period-dimension obstruction. All mathematical content is sourced from
+   period-dimension count. The count is not an obstruction and the π term is not
+   forced: the page opens with a status note that governs the text below it. All mathematical content is sourced from
    src/data/catalan-signed-ladder.js (whose build tripwires re-verify the exact
    closed forms). This file only restyles it and makes no claim of its own. */
 
@@ -24,7 +26,7 @@ function DimTag({ n }) {
 export default function CatalanSignedLadderPage() {
   return (
     <PostLayout
-      grade="VERIFIED CORRESPONDENCE · OBSTRUCTION"
+      grade="VERIFIED IDENTITIES · NO OBSTRUCTION"
       meta={[D.status]}
       title={D.title}
       dek={D.oneLine}
@@ -38,6 +40,13 @@ export default function CatalanSignedLadderPage() {
         ← <Link to="/atlas">the atlas</Link>
       </>}
     >
+      <StatusNote item="catalan-ladder" recordsFormulation>
+        {D.statusNote.summary}
+        <ul style={{ margin: '6px 0 0', paddingLeft: 20 }}>
+          {D.statusNote.points.map((p) => <li key={p}>{p}</li>)}
+        </ul>
+      </StatusNote>
+
       <div style={{ maxWidth: 360, margin: '0 auto 1.5rem' }}>
         <WireframeAnim kind="dirichlet-ladder" />
       </div>

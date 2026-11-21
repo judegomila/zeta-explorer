@@ -8,6 +8,14 @@
 //   3. Every item has a unique id, a known group and a status from the fixed set.
 //   4. The review fields are null or of the documented type, and the ranked
 //      view orders items by rank.
+//   4b. Stress test of 2026-11-21: every item has a rank (1..n, no repeats), a
+//      tier from KEY_RESULT_TIERS, a verification label, a novelty label and
+//      both scores; rank order agrees with tier order; the ranked view lists
+//      every tier, empty ones included; each item's VERDICT.md and REFEREE.md
+//      and the ranking report exist in the repository; a "withdrawn" status
+//      goes with the tier "not established" and the reverse; the page has
+//      the "How to read this" paragraph, and neither the page nor the item
+//      notes narrate a change ("Corrected", "earlier wording").
 //   5. The data module imports nothing, and the page does not reach
 //      src/data/zeros-to-1e6.js.
 //   6. /key-results is registered as a route, as an editorial route and in the
@@ -22,6 +30,8 @@ import {
   KEY_RESULTS,
   KEY_RESULT_GROUPS,
   KEY_RESULT_STATUSES,
+  KEY_RESULT_TIERS,
+  STRESS_TEST_REPORT,
   hasRanking,
   rankedSections,
 } from '../src/data/key-results.js';
@@ -94,6 +104,53 @@ for (const r of KEY_RESULTS) {
   if (allRanked.length > 0 && allRanked.length < KEY_RESULTS.length) {
     console.log(`note: ${KEY_RESULTS.length - allRanked.length} item(s) have no rank and are listed last`);
   }
+}
+
+// ── stress test of 2026-11-21 ────────────────────────────────────────────────
+{
+  const tiers = KEY_RESULT_TIERS.map((t) => t.tier);
+  const n = KEY_RESULTS.length;
+  const ranks = KEY_RESULTS.map((r) => r.rank).sort((a, b) => a - b);
+  if (JSON.stringify(ranks) !== JSON.stringify(Array.from({ length: n }, (_, i) => i + 1))) {
+    fail(`ranks must be exactly 1..${n} with no repeats`);
+  }
+  for (const r of KEY_RESULTS) {
+    const at = `item "${r.id}"`;
+    if (!tiers.includes(r.tier)) fail(`${at}: tier "${r.tier}" is not in KEY_RESULT_TIERS`);
+    for (const k of ['verification', 'novelty']) if (!r[k]) fail(`${at}: ${k} is missing`);
+    for (const k of ['arbitrariness', 'importance']) if (!Number.isInteger(r[k])) fail(`${at}: ${k} is missing`);
+    if (!r.statusNote) fail(`${at}: statusNote is missing`);
+    if ((r.status === 'withdrawn') !== (r.tier === 'not established')) {
+      fail(`${at}: status "withdrawn" and tier "not established" must go together`);
+    }
+    for (const k of ['verdict', 'referee']) {
+      const f = r.review && r.review[k];
+      if (!f || !fs.existsSync(path.join(ROOT, f))) fail(`${at}: review file ${f} does not exist`);
+      else if (fs.statSync(path.join(ROOT, f)).size > 200 * 1024) fail(`${at}: review file ${f} is over 200 KB`);
+    }
+  }
+  const byRank = [...KEY_RESULTS].sort((a, b) => a.rank - b.rank);
+  for (let i = 1; i < byRank.length; i += 1) {
+    if (tiers.indexOf(byRank[i].tier) < tiers.indexOf(byRank[i - 1].tier)) {
+      fail(`rank ${byRank[i].rank} ("${byRank[i].id}") is in an earlier tier than rank ${byRank[i - 1].rank}`);
+    }
+  }
+  const shown = rankedSections(KEY_RESULTS, { withEmptyTiers: true });
+  if (JSON.stringify(shown.map((s) => s.tier)) !== JSON.stringify(tiers)) {
+    fail(`ranked view must list every tier in order, got ${JSON.stringify(shown.map((s) => s.tier))}`);
+  }
+  if (shown.reduce((a, s) => a + s.items.length, 0) !== n) fail('ranked view does not show every item');
+  if (!fs.existsSync(path.join(ROOT, STRESS_TEST_REPORT))) fail(`${STRESS_TEST_REPORT} does not exist`);
+  const pageSrc = read('src/pages/KeyResultsPage.jsx');
+  if (/being added/.test(pageSrc)) fail('the page carries a "being added" line');
+  if (!/both AI agents/.test(pageSrc)) fail('the page must say that both reviewers were AI agents');
+  for (const r of KEY_RESULTS) {
+    if (/Correct(ed|ion)\b|earlier wording|previously (said|stated|listed)/.test(`${r.statement} ${r.statusNote}`)) {
+      fail(`item "${r.id}": statement or note narrates a change`);
+    }
+  }
+  if (!/How to read this/.test(pageSrc)) fail('the page has no "How to read this" paragraph');
+  if (!/withEmptyTiers:\s*true/.test(pageSrc)) fail('the page must show empty tiers');
 }
 
 // ── import weight ────────────────────────────────────────────────────────────

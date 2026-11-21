@@ -5,7 +5,10 @@ been refereed: the zero-free half-plane `Re s > 7/8` (openai/math family 003, wh
 Lean proof was rebuilt here with standard axioms only) and D. J. Raymond's
 decreasing-barrier construction (Zenodo 10.5281/zenodo.22867547). The value
 0.116091 also uses this project's internal floor and kernel certificates; without
-them the same argument gives 0.118506. Not yet peer reviewed.
+them the same argument gives 0.118506. Those certificates, (H4) below, are a third
+input that is not established: they are internal and partly uncertified. So value
+(ii) depends on three inputs that are not established, (H1), (H2) and (H4); value (i)
+on two, (H1) and (H2). Not yet peer reviewed.
 
 Value (i), `Λ ≤ 0.118505710922701`, uses (H1)–(H3).
 Value (ii), `Λ ≤ 0.116091488672439`, uses (H1), the analytic part of (H2), (H3) and

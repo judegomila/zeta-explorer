@@ -4,20 +4,24 @@ import { EditorialHeader, GradeChip } from '../components/editorial/PostLayout.j
 import {
   KEY_RESULTS,
   KEY_RESULT_GROUPS,
+  KEY_RESULT_SCALES,
   KEY_RESULT_STATUSES,
+  KEY_RESULT_TIERS,
   REPO_BLOB_BASE,
+  STRESS_TEST_REPORT,
   hasRanking,
   rankedSections,
 } from '../data/key-results.js';
 
-/* /key-results — a summary of the project's main findings with links to the
-   pages and repository files where each one lives. Static and import-light:
-   all content is in src/data/key-results.js.
+/* /key-results — the project's listed findings as checked by the two-stage
+   review of 2026-11-21, and links to the pages and repository
+   files where each one lives. Static and import-light: all content is in
+   src/data/key-results.js.
 
-   Two views of the same items. Grouped view (default): the headings of
-   KEY_RESULT_GROUPS. Ranked view: used as soon as any item carries a numeric
-   `rank`; items are sorted by rank under their `tier` headings and show the
-   review fields that are present. */
+   Two views of the same items. Ranked view (the default, used whenever an item
+   carries a numeric `rank`): items sorted by rank under the tier headings of
+   KEY_RESULT_TIERS, every tier shown, an empty tier stated as empty. Grouped
+   view (fallback when no item is ranked): the headings of KEY_RESULT_GROUPS. */
 
 const H2 = { fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 22, margin: '30px 0 4px', color: 'var(--ink)' };
 const SEP = <span style={{ color: 'var(--faint)' }}> · </span>;
@@ -43,8 +47,17 @@ function ReviewFields({ r }) {
   const rows = [];
   if (r.verification) rows.push(<ReviewField key="v" label="Verification">{r.verification}</ReviewField>);
   if (r.novelty) rows.push(<ReviewField key="n" label="Novelty">{r.novelty}</ReviewField>);
-  if (isScore(r.importance)) rows.push(<ReviewField key="i" label="Importance">{r.importance} of 5</ReviewField>);
   if (isScore(r.arbitrariness)) rows.push(<ReviewField key="a" label="Arbitrariness">{r.arbitrariness} of 5</ReviewField>);
+  if (isScore(r.importance)) rows.push(<ReviewField key="i" label="Importance">{r.importance} of 5</ReviewField>);
+  if (r.review && isScore(r.rank)) {
+    rows.push(
+      <ReviewField key="f" label="Review files">
+        <a href={`${REPO_BLOB_BASE}${r.review.verdict}`} target="_blank" rel="noreferrer">first verdict ↗</a>
+        {SEP}
+        <a href={`${REPO_BLOB_BASE}${r.review.referee}`} target="_blank" rel="noreferrer">referee (final) ↗</a>
+      </ReviewField>,
+    );
+  }
   if (rows.length === 0) return null;
   return (
     <div className="kr-review" style={{ marginTop: 9, paddingTop: 8, borderTop: '1px solid var(--hairline)', display: 'grid', gap: 3 }}>
@@ -112,15 +125,48 @@ function GroupedView() {
   });
 }
 
+const TIER_MEANING = Object.fromEntries(KEY_RESULT_TIERS.map((t) => [t.tier, t.meaning]));
+const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
 function RankedView() {
-  return rankedSections(KEY_RESULTS).map((sec, i) => (
-    <section key={`${sec.tier || 'ranked'}-${i}`}>
-      {sec.tier ? <h2 style={H2}>{sec.tier}</h2> : <div style={{ height: 22 }} />}
-      <div style={{ display: 'grid', gap: 12, marginTop: 10 }}>
-        {sec.items.map((r) => <ResultCard key={r.id} r={r} showRank />)}
-      </div>
+  return rankedSections(KEY_RESULTS, { withEmptyTiers: true }).map((sec, i) => (
+    <section key={`${sec.tier || 'ranked'}-${i}`} className="kr-tier" data-tier={sec.tier || ''}>
+      {sec.tier ? <h2 style={H2}>{cap(sec.tier)}</h2> : <div style={{ height: 22 }} />}
+      {sec.tier && TIER_MEANING[sec.tier] && (
+        <p style={{ fontSize: 14, color: 'var(--ink-soft)', margin: '0 0 10px' }}>
+          {TIER_MEANING[sec.tier]}
+          {sec.items.length > 0 && <> {sec.items.length} {sec.items.length === 1 ? 'item' : 'items'}.</>}
+        </p>
+      )}
+      {sec.items.length === 0 ? (
+        <p className="kr-tier-empty" style={{ fontSize: 14, color: 'var(--ink)', margin: '0 0 4px' }}>
+          No item is placed in this tier.
+        </p>
+      ) : (
+        <div style={{ display: 'grid', gap: 12, marginTop: 10 }}>
+          {sec.items.map((r) => <ResultCard key={r.id} r={r} showRank />)}
+        </div>
+      )}
     </section>
   ));
+}
+
+function HowToRead() {
+  return (
+    <div className="kr-howto" style={{ margin: '16px 0 0', maxWidth: '54rem', border: '1px solid var(--hairline)', borderRadius: 8, background: 'var(--paper2)', padding: '14px 16px' }}>
+      <div className="ed-mono" style={{ fontSize: 10.5, color: 'var(--faint)', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 5 }}>How to read this</div>
+      <p style={{ fontSize: 14.5, color: 'var(--ink)', lineHeight: 1.6, margin: 0 }}>
+        Each item was re-run and checked by two independent reviewers, both AI agents; this is not external
+        peer review. Items are in rank order: what was verified, then how little it depends on the project’s
+        own choices, then consequence. Each item has two scores: arbitrariness
+        ({KEY_RESULT_SCALES.arbitrariness}) and importance ({KEY_RESULT_SCALES.importance}). Items that did
+        not hold are listed last.
+      </p>
+      <p style={{ fontSize: 13.5, margin: '8px 0 0' }}>
+        <a href={`${REPO_BLOB_BASE}${STRESS_TEST_REPORT}`} target="_blank" rel="noreferrer">Full ranking report ↗</a>
+      </p>
+    </div>
+  );
 }
 
 export default function KeyResultsPage() {
@@ -134,18 +180,14 @@ export default function KeyResultsPage() {
           Key results
         </h1>
         <p style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.6, maxWidth: '54rem' }}>
-          The main findings of the project. Each item states the result, carries one status label, and links
-          to the pages of this site and the files of the repository where the work is.
+          The findings the project listed as its main results. Each item states what holds, carries one
+          status label, and links to the pages of this site and the files of the repository where the work is.
         </p>
+        {ranked && <HowToRead />}
         <div className="ed-verdict" style={{ margin: '14px 0 0', maxWidth: '54rem' }}>
-          The results are unrefereed unless a Lean proof is noted, and a Lean note covers only the part it
-          names. Nothing here proves the Riemann Hypothesis.
+          None of the results is externally refereed. A Lean note covers only the part it names. Nothing
+          here proves the Riemann Hypothesis.
         </div>
-        {!ranked && (
-          <p className="kr-pending" style={{ fontSize: 13.5, color: 'var(--ink-soft)', margin: '12px 0 0' }}>
-            Ranking and independent verification notes are being added.
-          </p>
-        )}
 
         <h2 style={H2}>Status labels</h2>
         <div style={{ display: 'grid', gap: 7, marginTop: 8, maxWidth: '54rem' }}>

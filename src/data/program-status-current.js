@@ -53,7 +53,9 @@ export const PROGRAM_STATUS = [
       '(2) D. J. Raymond’s decreasing-barrier chain (Zenodo 10.5281/zenodo.22867547; unrefereed), ' +
       '(3) the Platt–Trudgian verification of RH to height 3000175332800 (peer reviewed), and (4) this project’s ' +
       'internal floor and kernel certificates. With (1)–(3) only, the same argument gives 0.118505710922701. ' +
-      'Two of the inputs are unrefereed, so this is not an established bound. Draft of 9 October 2026; not submitted, ' +
+      'Three of the four inputs are not established: (1) and (2) are unrefereed, and (4) is internal and partly ' +
+      'uncertified (89 of its 468 floor entries rest on a measured allowance of 0.0023 and an unreviewed lemma). ' +
+      'This is not an established bound. Draft of 9 October 2026; not submitted, ' +
       'not peer reviewed.',
     route: '/lambda-0116091',
     sources: ['papers/lambda-qrh-0.116091/README.md', 'src/data/qrh-path-push-2026-10-08.js'],
@@ -186,13 +188,16 @@ export const PROGRAM_STATUS = [
     id: 'lean-november',
     group: 'formal',
     label: 'Lean formalisations added in November 2026',
-    value: '8 files (44 theorems) and 7 files (29 theorems)',
+    value: 'Lee–Yang circle theorem (2 theorems, 407 lines) in a batch of 8 files; 7 files (29 theorems) for PR-48',
     statement:
-      'Two sets of Lean 4 / Mathlib files were added. (a) 2026-11-20: eight statement files, 44 theorems, 2576 lines, ' +
-      'checked locally with Lean v4.28.0, standard axioms only, no sorry; the first is the multivariate Lee–Yang ' +
-      'circle theorem in occupation form (2 theorems, 407 lines). (b) 2026-11-16: seven files, 29 theorems, 1612 ' +
+      'Two sets of Lean 4 / Mathlib files were added. (a) 2026-11-20: the multivariate Lee–Yang circle theorem in ' +
+      'occupation form (2 theorems, 407 lines) and parts (i) to (iii) of the stage theorem (6 theorems, 292 lines), ' +
+      'checked locally with Lean v4.28.0, standard axioms only, no sorry. They are two files of an eight-file batch; ' +
+      'the batch total is 44 theorems and 2576 lines, and the other six files (36 theorems, 1877 lines) are on other ' +
+      'topics. (b) 2026-11-16: seven files, 29 theorems, 1612 ' +
       'lines, no sorry, for the PR-48 theta-bridge residual target. A written theorem with one internal referee pass ' +
-      'identifies that residual target with Weil’s quadratic functional on one-sided tests; the Lean files check its ' +
+      'identifies that residual target with Weil’s quadratic functional on one-sided tests (this identity is not in ' +
+      'Lean); the Lean files check its ' +
       'Pick-matrix / Schur-complement equivalence for Mathlib’s ξ, and the equivalence with RH only as a logical ' +
       'assembly with two analytic statements as named hypotheses. None of these statements bears on whether RH is ' +
       'true, and no bound changes.',
@@ -232,9 +237,11 @@ export const PROGRAM_STATUS_BY_ID = Object.fromEntries(PROGRAM_STATUS.map((s) =>
 
 // One-paragraph summary used in page leads. Every clause repeats an entry above.
 export const PROGRAM_STATUS_SUMMARY =
-  'RH is open. The smallest value recorded in this project is Λ ≤ 0.116091488672439, which holds only if two ' +
-  'unrefereed results hold (the zero-free half-plane Re s > 7/8 and D. J. Raymond’s decreasing-barrier chain) together ' +
-  'with the Platt–Trudgian verified height and this project’s internal certificates; it is not an established bound. ' +
+  'RH is open. The smallest value recorded in this project is Λ ≤ 0.116091488672439, which holds only if three ' +
+  'inputs that are not established hold (the zero-free half-plane Re s > 7/8 and D. J. Raymond’s decreasing-barrier ' +
+  'chain, both unrefereed, and this project’s internal, partly uncertified floor and kernel tables) together with the ' +
+  'Platt–Trudgian verified height; with the two external results alone the value is 0.118505710922701. It is not an ' +
+  'established bound. ' +
   'The project’s candidates for an unconditional bound, Λ ≤ 0.1758354 and Λ ≤ 0.1787854, are computer-assisted and ' +
   'unrefereed. The earlier route-P value 0.144997 is unconfirmed below 0.145. No bound of this project is refereed.';
 
@@ -250,7 +257,7 @@ export const SUPERSEDED_HEADLINES = [
     was: 'smallest value recorded by this project (2026-08 to 2026-10)',
     now:
       'still an unrefereed candidate for an unconditional bound; no longer the smallest recorded value: the ' +
-      'conditional 0.116091488672439 (2026-10-09) is smaller and depends on two unrefereed results',
+      'conditional 0.116091488672439 (2026-10-09) is smaller and depends on three inputs that are not established (two unrefereed external results and this project’s own partly uncertified tables)',
   },
   {
     value: 'U ≈ 0.145–0.150 and 0.144997',

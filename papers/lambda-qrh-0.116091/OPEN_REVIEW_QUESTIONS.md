@@ -7,7 +7,8 @@ value (ii), value (i), or both.
 Status: computer-assisted upper bound depending on two unrefereed results (the
 zero-free half-plane `Re s > 7/8`, openai/math family 003, and D. J. Raymond's
 decreasing-barrier construction, Zenodo 10.5281/zenodo.22867547) and, for 0.116091,
-on this project's internal certificates (0.118506 without them). Draft, not
+on this project's internal certificates (0.118506 without them), which are a third
+input that is not established: internal and partly uncertified. Draft, not
 submitted, not yet peer reviewed. The accepted peer-reviewed bound remains
 Platt–Trudgian's `Λ ≤ 0.2`. RH is open.
 

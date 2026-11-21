@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import StatusNote from '../components/StatusNote.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { HIDDEN_SQUARE_PROGRAM_SECTION } from '../data/hidden-square-program-section.js';
 import { ED } from '../styles/tokens.js';
@@ -445,6 +446,13 @@ export default function HiddenSquareProgramPage() {
             §25–27 chain is retained below as a retracted route, not an RH reduction.
           </p>
         </header>
+
+        <StatusNote item="hidden-square" recordsFormulation>
+          {S.statusNote.summary}
+          <ul style={{ margin: '6px 0 0', paddingLeft: 20 }}>
+            {S.statusNote.points.map((p) => <li key={p}>{p}</li>)}
+          </ul>
+        </StatusNote>
 
         <Card accent={ED.series2}>
           <div style={{ color: 'var(--terra-dk)', fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', letterSpacing: 0.5 }}>

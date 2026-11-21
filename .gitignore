@@ -26,6 +26,14 @@ scripts/.vite-ssr-pool.sock
 rust/*/target/
 rust/*/Cargo.lock
 
+# Finite de Branges Gram certifier local state
+.pydeps/
+**/__pycache__/
+**/.pytest_cache/
+rigorous/shear_gram/build/
+rigorous/shear_gram/*.egg-info/
+rigorous/shear_gram/out/
+
 # imp-1131 large-file regression prevention (2026-05-19): the engine accidentally
 # committed the session-archive extraction directory + the on-disk tar.gz. These
 # files are NOT project content; they are local cache/extraction artifacts.

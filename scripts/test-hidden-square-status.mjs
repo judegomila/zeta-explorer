@@ -100,7 +100,10 @@ test('newer finite-Gram/theta guards and diagnostic implementations are byte-pre
   const end = page.indexOf('export default function HiddenSquareProgramPage');
   assert.ok(start >= 0 && end > start);
   const hash = createHash('sha256').update(page.slice(start, end)).digest('hex');
-  assert.equal(hash, '43ec3b932880ee37365cebc70d8d259fd9cf52f077456446e946e41451aaf6f8');
+  // 43ec3b93... was the hash of this block in the earlier repository. Here the
+  // block differs from it only by two colour tokens in ChainDiagram
+  // (fill={ED.inkSoft}, stroke={ED.rule} in place of the hex literals).
+  assert.equal(hash, 'a0a5de7cb189931643377edcaa793d4e6a0033745d9edf7245990c75a34cb04b');
 });
 
 test('only this inspected record’s focused assertions run', () => {

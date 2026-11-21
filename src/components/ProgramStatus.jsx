@@ -29,7 +29,8 @@ export function SnapshotBanner({ date, children }) {
     <div style={box} role="note" data-status-banner="snapshot">
       <strong style={{ color: 'var(--ink, inherit)' }}>Snapshot as of {date}.</strong>{' '}
       {children || 'This page is kept as it was written and does not include later results.'}{' '}
-      Current status (as of {PROGRAM_STATUS_AS_OF}): <Link to="/state-of-program">/state-of-program</Link>.
+      Current status (as of {PROGRAM_STATUS_AS_OF}): <Link to="/state-of-program">/state-of-program</Link>
+      {' · '}<Link to="/key-results">/key-results</Link>.
     </div>
   );
 }

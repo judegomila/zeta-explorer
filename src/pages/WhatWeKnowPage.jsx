@@ -88,7 +88,8 @@ export default function WhatWeKnowPage() {
       <p>
         Each entry names the file of the repository that supports it. The full list, including the Lean
         formalisations, the Observatory and the repository, is at{' '}
-        <Link to="/state-of-program">/state-of-program</Link>.
+        <Link to="/state-of-program">/state-of-program</Link>; the selected results are at{' '}
+        <Link to="/key-results">/key-results</Link>.
       </p>
       <CurrentStatusList ids={['lambda-conditional-0116091', 'lambda-candidates-unconditional', 'lambda-route-p-0144997',
         'lambda-third-party-0107965', 'zero-free', 'direct-attempts', 'obstruction-controls']} />

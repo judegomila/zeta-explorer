@@ -166,6 +166,7 @@ export default function StateOfProgramPage() {
           { to: '/route-map', label: 'Route Map' },
           { to: '/rh-dag', label: 'Proof DAG' },
           { to: '/lambda-bounds', label: 'Lambda Bounds' },
+          { to: '/key-results', label: 'Key results' },
           { to: '/lambda-0116091', label: 'Conditional 0.116091' },
           { to: '/rh-research-modules', label: 'RH research modules' },
           { to: '/rigor-dashboard', label: 'Rigor Dashboard' },

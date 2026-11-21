@@ -1,4 +1,5 @@
 import React from 'react';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
@@ -127,6 +128,7 @@ export default function ProofOverviewPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <HonestCeilingBanner />
         <h1 className="ed-h1" style={{ marginTop: 18, marginBottom: 10 }}>Proof-Attempt Overview — Audited</h1>
+        <SnapshotBanner date="2026-10-04">The lists below end with the 0.1758354 candidate; the conditional value 0.116091488672439 (2026-10-09) and later records are not included.</SnapshotBanner>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760, marginBottom: 22 }}>
           A step-by-step separation of classical identities, corrected model claims, finite
           diagnostics, and genuinely open theorems.

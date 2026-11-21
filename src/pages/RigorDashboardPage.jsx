@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import {
@@ -980,6 +981,7 @@ export default function RigorDashboardPage() {
         <HonestCeilingBanner variant="PROOF-CANDIDATE" />
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Rigor Dashboard</h1>
+          <SnapshotBanner date="2026-10-04">The proof-chain and route data on this page are dated 2026-06-19 to 2026-06-30.</SnapshotBanner>
           <FreshnessStamp />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             Interactive proof-chain visualization with rigor-level coloring.

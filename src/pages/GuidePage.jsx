@@ -164,7 +164,11 @@ export default function GuidePage() {
         project's lower candidate values — {' '}
         <Link to="/lambda-01758354-candidate">0.1758354</Link>,{' '}
         <Link to="/newman-lambda-01787854-candidate">0.1787854</Link>, the y-thaw package —
-        are computer-assisted and <em>unrefereed</em>: they are candidates, not bounds.
+        are computer-assisted and <em>unrefereed</em>: they are candidates, not bounds. The smallest
+        value recorded here, <Link to="/lambda-0116091">0.116091488672439</Link>, is conditional on two
+        unrefereed results (the zero-free half-plane <InlineMath tex="\Re s > 7/8" /> and D. J. Raymond's
+        decreasing-barrier chain); it is not an established bound. Status as of 2026-11-20:{' '}
+        <Link to="/state-of-program">state of the program</Link>.
       </p>
       <p>
         The honest current state is that every mapped route reduces to one of three things —

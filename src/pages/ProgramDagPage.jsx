@@ -1,4 +1,5 @@
 import React from 'react';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { NODES, EDGES, PROGRAM_DAG } from '../data/program-dag.js';
@@ -262,6 +263,7 @@ export default function ProgramDagPage() {
         <h1 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 38, lineHeight: 1.1, margin: '6px 0 10px', color: 'var(--ink)' }}>
           The Program DAG
         </h1>
+        <SnapshotBanner date="2026-10-06">Node statuses are those of the source modules at that date.</SnapshotBanner>
         <p style={{ fontSize: 16, color: 'var(--ink-soft)', maxWidth: '58rem', lineHeight: 1.6 }}>
           The complete retrospective graph of the freeze/permutation-calculus program: every attempt,
           result, merge and pivot — {counts.won || 0} won, {counts['ruled-out'] || 0} ruled out,{' '}

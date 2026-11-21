@@ -7,6 +7,8 @@ import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js
 import { ZETAEXPLORER_NO_GOS, FIELD_NO_GOS } from '../data/rh-no-go-theorems.js';
 import { STATUS } from '../styles/tokens.js';
 import { RH_DIRECTION_AUDIT as AUDIT } from '../data/rh-direction-audit-2026-09-30.js';
+import { PROGRAM_STATUS_AS_OF, PROGRAM_STATUS_SUMMARY } from '../data/program-status-current.js';
+import { AsOfLine, CurrentStatusList } from '../components/ProgramStatus.jsx';
 
 const KIND_COLOR = { theorem: STATUS.proved.fg, barrier: STATUS.nogo.fg, equivalence: STATUS.rhequiv.fg };
 
@@ -56,13 +58,13 @@ export default function WhatWeKnowPage() {
   return (
     <PostLayout
       grade="NO-GO"
-      meta={[`${ROUTE_COUNT} mapped routes`, 'calibrated clarity']}
+      meta={[`${ROUTE_COUNT} mapped routes`, `as of ${PROGRAM_STATUS_AS_OF}`]}
       title="What We Know"
       dek={
         <>The consolidated, state of what this project has actually figured out about
         ζ, the Riemann Hypothesis, and the primes — where the walls are and why.</>
       }
-      byline={['mathexplorer', 'no RH proof · no beat of the Λ record']}
+      byline={['exploreriemann', 'no RH proof · no refereed bound of this project']}
       ticker={<span>no-go theorems · the remaining gap, located</span>}
       footer={<>
         Related: <Link to="/frontier-dag">The frontier DAG</Link>
@@ -76,13 +78,20 @@ export default function WhatWeKnowPage() {
       </>}
     >
       <p className="lead">
-        The discipline throughout is calibrated clarity — so the headline first:{' '}
-        <strong>RH is not proved. The standalone repository presents
-        Λ ≤ 0.1787854 as a computer-assisted candidate for an unconditional proof.
-        The bound is not established, has been reviewed by Dan Romik, and is not RH.</strong> Across{' '}
+        The headline first: <strong>{PROGRAM_STATUS_SUMMARY}</strong> Across{' '}
         <strong>{ROUTE_COUNT} mapped routes</strong>, every surviving route from a positive
         Newman bound to RH is still open, RH-equivalent, or dead.
       </p>
+      <AsOfLine />
+
+      <h2>Status as of {PROGRAM_STATUS_AS_OF}</h2>
+      <p>
+        Each entry names the file of the repository that supports it. The full list, including the Lean
+        formalisations, the Observatory and the repository, is at{' '}
+        <Link to="/state-of-program">/state-of-program</Link>.
+      </p>
+      <CurrentStatusList ids={['lambda-conditional-0116091', 'lambda-candidates-unconditional', 'lambda-route-p-0144997',
+        'lambda-third-party-0107965', 'zero-free', 'direct-attempts', 'obstruction-controls']} />
 
       <h2>Research direction audit · {AUDIT.date}</h2>
       <p><strong>{AUDIT.recommendation}</strong> {AUDIT.reason}</p>
@@ -114,10 +123,10 @@ export default function WhatWeKnowPage() {
       </ul>
 
       <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)' }}>
-        <div className="tlab">CURRENT FRONTIER (2026-09)</div>
+        <div className="tlab">FRONTIER ITEMS OF 2026-09 (superseded as the leading items; see the status list above)</div>
         <ul style={{ paddingLeft: 20, lineHeight: 1.75, margin: 0 }}>
-          <li><strong>Λ ≤ 0.17759432 y-thaw package</strong> — candidate-unrefereed; 4 of 8 obligations closed, O1 at Aristotle; a package value, not a bound. Detail: <Link to="/threads">Research Threads</Link>.</li>
-          <li><strong>Route VII derived floor:</strong> the reachable-floor analysis puts the compute-derived floor at U ≈ 0.145–0.150; below it requires arithmetic input. Detail: <Link to="/frontier-dag">Frontier DAG</Link>.</li>
+          <li><strong>Λ ≤ 0.17759432 y-thaw package</strong> — a package value, not a bound. Obligations O3 and O5 are closed; O1, O2, O4 and O6 are open. The theorem behind O1 is Lean-checked with its gates G1–G4 as hypotheses; the gate computation is not done. Detail: <Link to="/threads">Research Threads</Link>.</li>
+          <li><strong>Route VII derived floor:</strong> the reachable-floor analysis of 2026-09 put the compute-derived floor at U ≈ 0.145–0.150, with arithmetic input required below it. The later conditional value 0.116091 uses such an input (the unrefereed half-plane Re s &gt; 7/8). Detail: <Link to="/frontier-dag">Frontier DAG</Link>.</li>
           <li><strong>Inertia-PCC verdict:</strong> the inertia route meets the same pair-correlation wall (λ_max(ρ) = 0.6231344958476320). Detail: <Link to="/threads">Research Threads</Link>.</li>
         </ul>
       </div>
@@ -208,10 +217,13 @@ export default function WhatWeKnowPage() {
       <h2>One-sentence version</h2>
       <TheoremBox label="Bottom line">
         <p style={{ margin: 0 }}>
-          The standalone repository presents
-          <strong> Λ ≤ 0.1787854</strong> as a computer-assisted candidate for an
+          As of {PROGRAM_STATUS_AS_OF}: the smallest value recorded here is{' '}
+          <Link to="/lambda-0116091"><strong>Λ ≤ 0.116091488672439</strong></Link>, conditional on two unrefereed
+          results (the half-plane Re s &gt; 7/8 and D. J. Raymond’s chain), on the Platt–Trudgian verified height and
+          on internal certificates; it is not an established bound.
+          <strong> Λ ≤ 0.1787854</strong> is a computer-assisted candidate for an
           unconditional proof; the bound is not established, has been reviewed by Dan Romik, and is not RH.
-          A sharper candidate, <Link to="/lambda-01758354-candidate"><strong>Λ ≤ 0.1758354</strong></Link> (four
+          A smaller candidate, <Link to="/lambda-01758354-candidate"><strong>Λ ≤ 0.1758354</strong></Link> (four
           Arb-certified gates + a Lean-checked y-transfer reduction and Lemma B3), is likewise unrefereed. The{' '}
           <Link to="/permutation-architecture"><strong>Λ ≤ 0.14</strong> completion contract</Link> is a
           conditional contract, not a bound — reduced to one open family. The exact global Twin Ladder

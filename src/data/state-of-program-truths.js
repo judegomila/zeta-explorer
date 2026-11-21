@@ -2,8 +2,16 @@
 // both StateOfProgramPage (full page) and DashboardPage (compact summary card),
 // so the top-line status cannot drift between the two surfaces.
 //
-// Facts mirror the full route map and the fixed-height candidate proof package
-// (status reconciliation, 2026-08-24):
+// Reconciled 2026-11-20 against src/data/program-status-current.js (which names
+// the source file of each statement). The first three entries below were added
+// then; the remaining entries date from the 2026-08-24 and 2026-09-30
+// reconciliations and are kept, with superseded wording corrected:
+//   CONDITIONAL   = Lambda <= 0.116091488672439, conditional on the 7/8 half-plane
+//                   and Raymond's chain (both unrefereed), PT height, internal certificates
+//   UNCONFIRMED   = route-P value 0.144997328111268 (0 of 36 floors re-certified)
+//   THIRD-PARTY CLAIM = Lambda <= 0.107964910079 (D. J. Raymond), replayed and
+//                   partially refereed here, not verified
+// Earlier summary (2026-08-24):
 //   PEER-REVIEWED = Platt-Trudgian Lambda <= 0.2 (NOT this program)
 //   PUBLIC CLAIM  = Lambda <= 0.1875 certificate package, locally repaired,
 //                   listed publicly but unrefereed
@@ -25,12 +33,58 @@
 // Intentionally has NO imports so it stays light and never drags in the
 // 16.7MB zeros bundle through a page import.
 
-export const STATE_OF_PROGRAM_SUMMARY_DATE = '2026-09-30';
+export const STATE_OF_PROGRAM_SUMMARY_DATE = '2026-11-20';
 
 export const STATE_OF_PROGRAM_TRUTHS = [
   {
+    badge: 'CONDITIONAL',
+    color: '#fb923c',
+    title: 'Λ ≤ 0.116091488672439, conditional on two unrefereed results',
+    body:
+      'The value 116091488672439/10¹⁵ holds if ζ(s) ≠ 0 for Re s > 7/8 (openai/math family 003; Lean proof rebuilt ' +
+      'locally with standard axioms only; not peer reviewed) and D. J. Raymond’s decreasing-barrier chain (Zenodo ' +
+      '10.5281/zenodo.22867547; unrefereed) both hold, together with the Platt-Trudgian verified height 3000175332800 ' +
+      'and this project’s internal floor and kernel certificates. Without the internal certificates the same argument ' +
+      'gives 0.118505710922701. It is the smallest value recorded in this project and it is not an established bound. ' +
+      'Draft of 9 October 2026; not submitted, not peer reviewed.',
+    route: '/lambda-0116091',
+    routeLabel: 'The conditional value, its four inputs and the Lean status',
+  },
+  {
+    badge: 'UNCONFIRMED',
+    color: '#fbbf24',
+    title: 'The route-P value 0.144997 is unconfirmed below 0.145',
+    body:
+      'Route P recorded 0.144997328111268, conditional on Raymond’s chain and the internal route-P ledger. It uses 369 ' +
+      'floors, 36 of them on incomplete covers. An independent re-certification (2026-11-16/17) confirmed 0 of those ' +
+      '36; with the 36 excluded the same computation returns 0.145135157752420. The re-certification record has no ' +
+      'referee pass.',
+  },
+  {
+    badge: 'THIRD-PARTY CLAIM',
+    color: '#38bdf8',
+    title: 'D. J. Raymond claims Λ ≤ 0.107964910079 — replayed and partially refereed here, not verified',
+    body:
+      'This is a third-party manuscript, not a result of this project, and it depends on the unrefereed half-plane ' +
+      'Re s > 7/8. The author’s exact-rational checker was replayed in full (15 stages) and the stage that fixes the ' +
+      'final fraction was re-implemented independently (221,010 arcs, 0 failures). Proposition 3.2 of the manuscript ' +
+      'is not proved in the paper, and each analytic part had one internal reading only (report of 2026-11-17).',
+  },
+  {
+    badge: 'DIRECT ATTEMPTS',
+    color: '#f87171',
+    title: 'Every direct attempt at RH recorded here failed; the failures are collected in one obstruction map',
+    body:
+      'Fifteen written attempts (three rounds, 2026-11-01) each failed under an internal referee. A push of ' +
+      '2026-11-16/17 ran 196 lanes; none scores above 0 of 4 on the campaign’s requirements for a mechanism outside the ' +
+      '7/8 method. The obstruction map lists, for each route, where it stops and which of seven control functions ' +
+      '(Davenport-Heilbronn, backward heat family, two sign twists, ζ(s+a)ζ(s−a), the T-NR twin, Beurling zeta) ' +
+      'defeats it. Common finding: positivity and support of the von Mangoldt function with the functional equation ' +
+      'do not suffice; a proof must use multiplicativity in an essential step.',
+  },
+  {
     badge: 'RESEARCH PRIORITY', color: '#22d3ee',
-    title: 'Prioritize exact arithmetic positivity for direct RH work',
+    title: 'Direction audit of 2026-09-30: prioritize exact arithmetic positivity for direct RH work',
     body: 'The twin-ladder / Weil / Toeplitz–Krein direction has an exact criterion and independently replayable finite-support certificates. All-support pole-free positivity already suffices for RH; it needs neither a separate pole-inclusive bridge nor a uniform positive margin. Extending the exact arithmetic form to unbounded supports remains open. No new Λ bound follows.',
     route: '/what-we-know', routeLabel: 'September 30 direction audit and corrected claims',
   },
@@ -66,11 +120,11 @@ export const STATE_OF_PROGRAM_TRUTHS = [
   {
     badge: 'SHARPER CANDIDATE',
     color: '#22d3ee',
-    title: 'A sharper computer-assisted candidate reaches Λ ≤ 0.1758354, below the 0.1787854 candidate',
+    title: 'A computer-assisted candidate for an unconditional bound reaches Λ ≤ 0.1758354, below the 0.1787854 candidate',
     body:
       'A revised mollifier and an extended finite lane certify four independent gates — each machine-checked in Arb interval ' +
       'arithmetic, with the y-transfer reduction and Lemma B3 Lean-checked — for a de Bruijn–Newman bound Λ ≤ 0.1758354, below the earlier ' +
-      '0.1787854 candidate. It is the lowest value the barrier method currently reaches. Neither the Arb gates nor the Lean-checked ' +
+      '0.1787854 candidate. Since 2026-10-09 a smaller value, 0.116091488672439, is recorded, conditional on two unrefereed results (first entry). Neither the Arb gates nor the Lean-checked ' +
       'components are a referee: the pipeline has not been independently audited end to end, the bound is not established, and it ' +
       'does not displace Platt-Trudgian Λ ≤ 0.2. It is not a proof of RH, which requires Λ ≤ 0.',
   },

@@ -6,6 +6,7 @@ import { useConceptLinker } from '../components/ConceptText.jsx';
 import { ZETAEXPLORER_NO_GOS } from '../data/rh-no-go-theorems.js';
 import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 import { RESULTS_COUNT } from '../data/graded-results.js';
+import { PROGRAM_STATUS_AS_OF } from '../data/program-status-current.js';
 
 // The real interactive explorers, lazy-loaded so the landing stays light.
 const TwinLadderViz = lazy(() => import('../components/TwinLadderViz.jsx'));
@@ -19,9 +20,9 @@ const WaveSimViz = lazy(() => import('../components/WaveSimViz.jsx'));
 const FINDINGS = [
   { to: '/lambda-0116091', grade: 'CANDIDATE', date: '2026-10', isNew: true,
     title: 'Λ ≤ 0.116091 from a zero-free half-plane',
-    desc: 'Computer-assisted upper bound. Depends on two unrefereed results: the zero-free half-plane Re s > 7/8 (openai/math family 003; Lean proof rebuilt here, standard axioms only) and D. J. Raymond’s decreasing-barrier construction. 0.116091 also uses internal floor and kernel certificates (0.118506 without them). Not yet peer reviewed; PT Λ ≤ 0.2 stands.' },
+    desc: 'Computer-assisted upper bound. Depends on two unrefereed results: the zero-free half-plane Re s > 7/8 (openai/math family 003; Lean proof rebuilt here, standard axioms only) and D. J. Raymond’s decreasing-barrier construction. 0.116091 also uses internal floor and kernel certificates (0.118506 without them). Not peer reviewed; not an established bound.' },
   { to: '/lambda-01758354-candidate', grade: 'CANDIDATE', date: '2026-08',
-    title: 'Λ ≤ 0.1758354', desc: 'Computer-assisted candidate: four barrier gates certified in Arb, y-transfer reduction and Lemma B3 Lean-checked. Unreviewed and unpublished; PT Λ ≤ 0.2 stands.' },
+    title: 'Λ ≤ 0.1758354', desc: 'Computer-assisted candidate for an unconditional bound: four barrier gates certified in Arb, y-transfer reduction and Lemma B3 Lean-checked. Unrefereed; not established.' },
   { to: '/newman-lambda-01787854-candidate', grade: 'CANDIDATE', date: '2026-08',
     title: 'Λ ≤ 0.1787854 (v3 package)', desc: 'Private v3 package: slab, half-strip, 3,149,013-row replay, tail and height certificates. Unreviewed, unpublished, not accepted.' },
   { to: '/rh-landscape-dag', grade: 'MAP', date: '2026-09', isNew: true,
@@ -43,7 +44,7 @@ const FINDINGS = [
   { to: '/rh-novel-routes-roadmap', grade: 'NO-GO', date: '2026-09', isNew: true,
     title: 'Sonine port obstruction past ln 2', desc: 'Past 2a = ln 2 the S = {∞, 2} Sonine excess carries half the p = 2 log cusp and is unbounded along its resonances. No finite-rank fix.' },
   { to: '/frontier-dag', grade: 'NO-GO', date: '2026-09', isNew: true,
-    title: 'Route VII derived floor U ≈ 0.145–0.150', desc: 'Reachable-floor analysis for Route VII: going below it requires arithmetic input, not more compute. A route floor, not a bound on Λ.' },
+    title: 'Route VII derived floor U ≈ 0.145–0.150', desc: 'Reachable-floor analysis for Route VII (2026-09): going below it requires arithmetic input, not more compute. A route floor, not a bound on Λ. The route-P value 0.144997 is unconfirmed below 0.145 (2026-11).' },
   { to: '/threads', grade: 'NO-GO', date: '2026-09', isNew: true,
     title: 'Inertia-PCC: same wall', desc: 'The inertia route meets the pair-correlation wall (λ_max(ρ) = 0.6231344958476320). Measurement only.' },
   { to: '/viz-imp96646-krein-certificate-margin', grade: 'CERTIFIED', date: '2026-09', isNew: true,
@@ -77,7 +78,7 @@ const FINDINGS = [
   { to: '/formalization-status', grade: 'FORMAL', date: '2026-09', isNew: true,
     title: 'Lean formalization (Aristotle)', desc: 'Aristotle Lean, 0 sorry: five-shell identity, flow-blindness no-go, frozen-rung parts, O1 lemma. expSum_hasDerivAt discharges DiniGate hA.' },
   { to: '/viz-imp95141-ythaw-obligation-meter', grade: 'CONDITIONAL', date: '2026-09', isNew: true,
-    title: 'Λ ≤ 0.17759432 y-thaw package', desc: 'Package value, not a bound. Obligations O3, O5 closed; O1, O2, O4, O6 open. O1 is Lean-formalized with gates G1–G4 as hypotheses.' },
+    title: 'Λ ≤ 0.17759432 y-thaw package', desc: 'Package value, not a bound. Obligations O3, O5 closed; O1, O2, O4, O6 open. The theorem behind O1 is Lean-formalized with gates G1–G4 as hypotheses.' },
   { to: '/route-map', grade: 'MAP', date: '2026-06',
     title: `The wall map · ${FULL_ROUTE_MAP.totalRoutes} routes`, desc: 'Each mapped closure route across 6 clusters, and where it splits.' },
   { to: '/critical-line-proportion', grade: 'MAP', date: '2026-08',
@@ -122,6 +123,8 @@ export default function HomePageEditorial() {
               <div className="ed-mk" style={{ left: '0%', background: 'var(--green)' }} />
               <div className="ed-mktop ed-mkedge-l" style={{ color: 'var(--green)' }}>0 · Λ ≥ 0 proved</div>
               <div className="ed-mkcap ed-mkedge-l">0</div>
+              <div className="ed-mk" style={{ left: '58%', background: 'var(--brass-dk)' }} />
+              <div className="ed-mkcap" style={{ left: '58%', color: 'var(--brass-dk)' }}>0.116091 conditional</div>
               <div className="ed-mk" style={{ left: '88%', background: 'var(--brass-dk)' }} />
               <div className="ed-mktop" style={{ left: '86%', color: 'var(--brass)' }}>0.1758354 candidate</div>
               <div className="ed-mk" style={{ left: '100%', background: 'var(--terra)' }} />
@@ -138,7 +141,7 @@ export default function HomePageEditorial() {
 
       {/* KPIs */}
       <div className="ed-full"><div className="ed-kpis">
-        <div className="ed-kpi"><b style={{ color: 'var(--brass-dk)' }}>0.1758354</b><span>Λ candidate</span></div>
+        <Link className="ed-kpi ed-kpi-link" to="/lambda-0116091"><b style={{ color: 'var(--brass-dk)' }}>0.116091</b><span>Λ value, conditional on two unrefereed results</span></Link>
         <Link className="ed-kpi ed-kpi-link" to="/route-map"><b>{FULL_ROUTE_MAP.totalRoutes}</b><span>routes mapped</span></Link>
         <Link className="ed-kpi ed-kpi-link" to="/no-gos"><b style={{ color: 'var(--terra-dk)' }}>{ZETAEXPLORER_NO_GOS.length}</b><span>no-go theorems</span></Link>
         <Link className="ed-kpi ed-kpi-link" to="/results"><b>{RESULTS_COUNT}</b><span>graded results</span></Link>
@@ -255,14 +258,16 @@ export default function HomePageEditorial() {
 
       {/* verdict */}
       <div className="ed-full"><section className="ed-sec">
-        <div className="ed-lbl" style={{ marginBottom: 12 }}>status</div>
-        <div className="ed-verdict">Λ ≤ 0.2 (Platt–Trudgian) is the peer-reviewed benchmark. The 0.1758354 and
-          0.1787854 candidates are computer-assisted and unrefereed; the 0.14 value is a conditional completion
-          contract, not a bound. RH remains open: it requires Λ ≤ 0. The only
-          input that moves the floor is verified zero height — derived twice, from Sylvester inertia and de
-          Bruijn–Newman flow rigidity.</div>
+        <div className="ed-lbl" style={{ marginBottom: 12 }}>status · as of {PROGRAM_STATUS_AS_OF}</div>
+        <div className="ed-verdict">RH is open: it requires Λ ≤ 0. The smallest value recorded here is
+          Λ ≤ 0.116091488672439, conditional on two unrefereed results (the zero-free half-plane Re s &gt; 7/8 and
+          D. J. Raymond’s decreasing-barrier chain), on the Platt–Trudgian verified height and on internal
+          certificates; it is not an established bound. The 0.1758354 and 0.1787854 candidates for an unconditional
+          bound are computer-assisted and unrefereed; the 0.14 value is a conditional completion contract, not a
+          bound. Every direct attempt at RH recorded here failed, and the failures are collected in one obstruction
+          map.</div>
         <div style={{ marginTop: 10, fontSize: 14 }}>
-          <Link to="/frontier-dag">The frontier DAG — the open objects and what each one closes →</Link>
+          <Link to="/state-of-program">State of the program — each statement with its source file →</Link>
         </div>
       </section></div>
 

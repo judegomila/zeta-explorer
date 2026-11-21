@@ -9,6 +9,8 @@ import {
 } from '../data/state-of-program-truths.js';
 import { CAUGHT_OVERCLAIMS, OVERCLAIM_COUNT } from '../data/overclaim-ledger.js';
 import { ED } from '../styles/tokens.js';
+import { PROGRAM_STATUS_SUMMARY, SUPERSEDED_HEADLINES } from '../data/program-status-current.js';
+import { AsOfLine, CurrentStatusList } from '../components/ProgramStatus.jsx';
 
 // The, single canonical top-of-funnel summary. Facts are sourced from
 // the shared STATE_OF_PROGRAM_TRUTHS data module, reconciled against the route
@@ -34,20 +36,32 @@ export default function StateOfProgramPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>State of the Program</h1>
+          <AsOfLine />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55 }}>
-            One, plain-language summary of where this RH / de&nbsp;Bruijn-Newman Λ approach actually stands.
-            The truth is otherwise scattered across the route map, dashboards and self-correction notes — this page
-            exists so a reader cannot over-read any single partial page. The summary was reconciled on{' '}
-            <strong>{STATE_OF_PROGRAM_SUMMARY_DATE}</strong> against the{' '}
-            <strong>full route map ({FULL_ROUTE_MAP.date}, {FULL_ROUTE_MAP.totalRoutes} routes)</strong>,
-            the public fixed-height package, and the standalone private candidate package. The one-line truth:{' '}
-            <strong>Λ ≤ 0.1787854 is a computer-assisted candidate for an unconditional proof (reviewed by Dan Romik, publicly posted (judegomila.com/posts/riemann-lambda-0.1787854)), and a sharper four-gate candidate reaches Λ ≤ 0.1758354; neither bound is established or refereed, and neither is RH. A further Λ ≤ 0.14 statement is a conditional completion contract with one open family, not a bound.</strong>{' '}
-            Since 2026-09 the frontier has moved past this summary's reconciliation date: a
-            Λ ≤ 0.17759432 y-thaw package (candidate-unrefereed; 4/8 obligations closed, O1 at Aristotle;
-            a package value, not a bound) and a Route VII derived compute floor U ≈ 0.145–0.150 — current
-            status at <Link to="/frontier-dag" style={{ color: 'var(--brass-dk)' }}>/frontier-dag</Link>.
+            One summary of where this RH / de&nbsp;Bruijn-Newman Λ program stands. Each statement in the first
+            list names the file of the repository that supports it. Reconciled on{' '}
+            <strong>{STATE_OF_PROGRAM_SUMMARY_DATE}</strong>. <strong>{PROGRAM_STATUS_SUMMARY}</strong>
           </p>
         </div>
+
+        <h2 className="ed-h2" style={{ marginBottom: 12 }}>Current status</h2>
+        <CurrentStatusList />
+
+        <h2 className="ed-h2" style={{ marginTop: 28, marginBottom: 12 }}>Values shown as leading on older pages</h2>
+        <div className="card" style={{ marginBottom: 16 }}>
+          <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.65 }}>
+            {SUPERSEDED_HEADLINES.map((h) => (
+              <li key={h.value}><strong style={{ color: 'var(--ink)' }}>{h.value}</strong> — {h.was}. Now: {h.now}.</li>
+            ))}
+          </ul>
+        </div>
+
+        <h2 className="ed-h2" style={{ marginTop: 28, marginBottom: 6 }}>Graded statements</h2>
+        <p style={{ fontSize: 12.5, color: 'var(--ink-soft)', marginTop: 0 }}>
+          The first four cards were added on {STATE_OF_PROGRAM_SUMMARY_DATE}. The others were written between
+          2026-08-24 and 2026-09-30 and are kept; they refer to the{' '}
+          <Link to="/route-map">route map</Link> ({FULL_ROUTE_MAP.date}, {FULL_ROUTE_MAP.totalRoutes} routes).
+        </p>
 
         {TRUTHS.map((t, i) => (
           <div className="card" key={i} style={{ marginBottom: 16, borderLeft: `3px solid ${t.color}` }}>
@@ -152,6 +166,8 @@ export default function StateOfProgramPage() {
           { to: '/route-map', label: 'Route Map' },
           { to: '/rh-dag', label: 'Proof DAG' },
           { to: '/lambda-bounds', label: 'Lambda Bounds' },
+          { to: '/lambda-0116091', label: 'Conditional 0.116091' },
+          { to: '/rh-research-modules', label: 'RH research modules' },
           { to: '/rigor-dashboard', label: 'Rigor Dashboard' },
           { to: '/research-journal', label: 'Research Journal', color: ED.series3 },
         ]} />

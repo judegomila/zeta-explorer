@@ -4,6 +4,7 @@
 // (status, batch, result) lives in the data module.
 
 import React, { useMemo, useState } from 'react';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import { Link } from 'react-router-dom';
 import {
   RESEARCH_ROUTES,
@@ -121,6 +122,7 @@ export default function ResearchRoutesRoadmapPage() {
             Roadmap · {META.date}
           </div>
           <h1 className="ed-h1" style={{ margin: '6px 0 10px' }}>Fifty research routes</h1>
+          <SnapshotBanner date="2026-10-06">The statuses below are those of the roadmap at that date. By 2026-10-15 all fifty routes had result modules: 43 done, 6 partial, 1 in progress (src/data/fifty-routes-synthesis-2026-10-15.js).</SnapshotBanner>
           <p style={{ color: 'var(--ink-soft)', fontSize: 16, lineHeight: 1.65 }}>{META.frame}</p>
           <p style={{ color: 'var(--faint)', fontSize: 13, lineHeight: 1.6, marginTop: 8 }}>
             Closed classes: {META.closedClasses.join(' · ')}.

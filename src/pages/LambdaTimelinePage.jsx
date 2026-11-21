@@ -227,11 +227,25 @@ export default function LambdaTimelinePage() {
           <EvidenceCard
             label="sharper proof candidate · unrefereed"
             value="Λ ≤ 0.1758354"
-            detail="Four independent gates machine-checked in Arb interval arithmetic, with the reduction to the gates Lean-checked; unrefereed, not established. The lowest value the barrier method currently reaches."
+            detail="Four independent gates machine-checked in Arb interval arithmetic, with the reduction to the gates Lean-checked; unrefereed, not established. Since 2026-10-09 a smaller value, 0.116091488672439, is recorded; it is conditional on two unrefereed results (see the next card)."
             color={ED.series1}
             route="/lambda-01758354-candidate"
           />
+          <EvidenceCard
+            label="conditional on two unrefereed results · not peer reviewed"
+            value="Λ ≤ 0.116091488672439"
+            detail="Holds if ζ(s) ≠ 0 for Re s > 7/8 (openai/math family 003; Lean proof rebuilt locally) and D. J. Raymond's decreasing-barrier chain (Zenodo 10.5281/zenodo.22867547) both hold, with the Platt–Trudgian verified height and internal certificates. Draft of 2026-10-09; not an established bound."
+            color={ED.brass}
+            route="/lambda-0116091"
+          />
+          <EvidenceCard
+            label="third-party claim · replayed, partially refereed here · not verified"
+            value="Λ ≤ 0.107964910079"
+            detail="D. J. Raymond, 63-page computer-assisted manuscript; depends on the unrefereed half-plane Re s > 7/8. Checker replayed in full here; Proposition 3.2 is not proved in the paper (report of 2026-11-17)."
+            color={ED.brass}
+          />
         </div>
+        <div className="ed-mono" style={{ fontSize: 11.5, color: 'var(--faint)', marginTop: 6 }}>cards as of 2026-11-20 · the timeline below ends at 2026-09 · current status: <Link to="/state-of-program">/state-of-program</Link></div>
 
         <div
           className="card"

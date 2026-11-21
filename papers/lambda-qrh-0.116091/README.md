@@ -23,8 +23,8 @@
 > 0.118505710922701`. Without (1) the chain gives Raymond's
 > 0.149395; without (2) or (3) it gives nothing below the accepted 0.2.
 
-This folder is private. It lives in the private `mathexplorer` repository, is not
-under `public/`, and is not linked from any page of the site.
+This folder is a draft in a public repository (`judegomila/zeta-explorer`). The paper
+has not been submitted to a journal or preprint server and has not been refereed.
 
 ## The result
 
@@ -69,7 +69,7 @@ falls back to value (i). No input can be dropped without losing the stated value
 | [`OPEN_REVIEW_QUESTIONS.md`](OPEN_REVIEW_QUESTIONS.md) | What a referee should check, in priority order. |
 | [`PROVENANCE.md`](PROVENANCE.md) | SHA-256 of every source module, script, run artefact, Lean file and reference copy used. |
 | [`BIBLIOGRAPHY.md`](BIBLIOGRAPHY.md) | The references, each checked against Crossref, arXiv, Zenodo or GitHub on 2026-10-09. |
-| [`CITATION.md`](CITATION.md) | How to refer to this draft internally. |
+| [`CITATION.md`](CITATION.md) | How to refer to this draft. |
 
 ## How the argument is organised
 
@@ -136,7 +136,7 @@ papers/lambda-qrh-0.116091/
 ├── OPEN_REVIEW_QUESTIONS.md  referee questions
 ├── PROVENANCE.md             sha256 of every file used
 ├── BIBLIOGRAPHY.md           checked references
-├── CITATION.md               internal citation
+├── CITATION.md               how to refer to this draft
 ├── lambda-qrh-0.116091-draft.pdf  copy of paper/main.pdf
 ├── paper/
 │   ├── main.tex              the paper (article class, amsthm)

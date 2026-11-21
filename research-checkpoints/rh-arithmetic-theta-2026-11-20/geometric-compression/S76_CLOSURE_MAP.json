@@ -1,0 +1,776 @@
+{
+  "schema": "source-dependency-audit/1",
+  "repository": "https://github.com/leanprover-community/riemann-hypothesis",
+  "commit": "c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2",
+  "date": "2026-11-20",
+  "verification_level": "read-only source inspection; not a compiled proof-term dependency graph",
+  "lean_executed": false,
+  "kernel_replay_performed": false,
+  "scope": "generic S76 supplier; visible Main route to selected off-diagonal supplier, actual family construction, and window endpoint",
+  "files": {
+    "src/Main.lean": {
+      "sha256": "017645ca448f2fd1f6fd5c4c2cb2c6e96e472725be13f6e180ca6e1574360939",
+      "bytes": 433
+    },
+    "src/Supplements/Kernels/MainTheorems.lean": {
+      "sha256": "1e734200b9b6a6d2a968743bd0c433d614bd6606cf538ac6d4f0ff70044dde53",
+      "bytes": 740
+    },
+    "src/Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean": {
+      "sha256": "a5f71e107087e37b2c598709795b0f56c0a6741cf1e8ab99ee1f97e2fce0fe34",
+      "bytes": 1213
+    },
+    "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean": {
+      "sha256": "246b74eeb03dae250c45b46c155b3590cb53c2bac86f5e35f4b74338db487068",
+      "bytes": 97393
+    },
+    "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean": {
+      "sha256": "e761e876e3236895eec1b67b5a2118846ddfcc6883eed367ac6cc78523da15f2",
+      "bytes": 8752
+    },
+    "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean": {
+      "sha256": "7d1d7972a4abe1284c5e4da9dd65a6eb605b06efb5e993b298fe5aaed88e9adf",
+      "bytes": 1667
+    },
+    "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ShapeOf.lean": {
+      "sha256": "c37a51fd244c4812302bf5d816a248e119ec9ed84089869752267ae741a61705",
+      "bytes": 3679
+    },
+    "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean": {
+      "sha256": "9647d4cbe444f79de90c7a5371801e83c58a040499bf03fd61faf37be9e6eaa3",
+      "bytes": 6555
+    },
+    "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LinkAltAltBis.lean": {
+      "sha256": "11ed238739b6a58a2a79a50ed5646735983864ea40e24a8c579418b7e2498652",
+      "bytes": 4068
+    },
+    "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSPos.lean": {
+      "sha256": "c1c0946547f585bad02bbc8aaa82f3541f8e57167ccdb5e9268a62d01273102a",
+      "bytes": 11031
+    },
+    "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/ThmSOwn.lean": {
+      "sha256": "76dd5b176372d9854a279814f2beff6600db32b20c25b43cc8b41a8705d331d3",
+      "bytes": 68244
+    },
+    "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSFinalP.lean": {
+      "sha256": "87fbc06df615d47aef9ee5cbde116fcb7552ff95e3179318a6d0aef813e94089",
+      "bytes": 10578
+    },
+    "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/TheoremSConclusion.lean": {
+      "sha256": "56c66de4b05f0f508af0bfbd3cfb99ff10ada21341f9ffe31ca4e3f1f5e55fac",
+      "bytes": 8543
+    },
+    "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/TheoremSClosedP.lean": {
+      "sha256": "38fdbc53dd5a8f3dea35fb689f5f4eff66101df7299ac1daf7a961f52f4b422e",
+      "bytes": 24985
+    },
+    "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OffK0Closed.lean": {
+      "sha256": "6106e5135b95d995359a699850a21dab7ec7159121c67b3adf86461d10b19328",
+      "bytes": 50473
+    },
+    "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/AtChoice.lean": {
+      "sha256": "2c7601df49c7bb7d351354fc1cc3cc07748f1e08de254e26990bffef952a0a62",
+      "bytes": 3748
+    },
+    "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LinkROfIsLinked.lean": {
+      "sha256": "ebb41248d0b20042bb45eba42ac5eb57af75b42604d3011d55fbf0e1d002c611",
+      "bytes": 9726
+    },
+    "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/HypothesesNonemptyOfUnramifiedExponents.lean": {
+      "sha256": "80ebd1ee514d8a6a7967fe3e87c775148615416906038a046b27ea9436a2cc1f",
+      "bytes": 7404
+    },
+    "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/NonemptyHypsOfAllRows.lean": {
+      "sha256": "5f2e7ad22b2d3d298ead1ad2de7a51529f37609ad0ed59daeca707ac281e6ebc",
+      "bytes": 7843
+    },
+    "src/Development/AutomorphicArithmetic/CharacterBoxes/DesWin.lean": {
+      "sha256": "655762e90a0d7aae940774b631286a6cb942e59f68d7a3c350c05274487bf6ec",
+      "bytes": 2157
+    },
+    "src/Development/AutomorphicArithmetic/CharacterBoxes/ZeroFreeAllOfTopG.lean": {
+      "sha256": "349d9eafe63952c2fa4ccb2055bef7de0144d442c552196183fe48f01958f033",
+      "bytes": 1791
+    },
+    "src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/TopWin.lean": {
+      "sha256": "afbbf8ec0a8aca08b7935c6118c76eef06b2eee896805e7de277b9d4e09fc52b",
+      "bytes": 8117
+    },
+    "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean": {
+      "sha256": "0cfbca6cb7d1da543ee9d24c30faeeb3f68838f91c4f6c2c0e682e025c8b9a44",
+      "bytes": 433
+    },
+    "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GaloisRepresentationsOfThetaLift.lean": {
+      "sha256": "3f72f1644a6214bb5b90a5e9bac5e33b0474d52eb22f2f1841d443ed342531c2",
+      "bytes": 495
+    },
+    "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean": {
+      "sha256": "b78ea71866812c4d1f3df65f1f3f3e702fa65ec2bb1ea61ca1a250b6fdd536bd",
+      "bytes": 2933
+    },
+    "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TLiftK.lean": {
+      "sha256": "cb810adcf09297fdd356174b67d6abdc43c079dbe65797b1f47383871c1bf6ca",
+      "bytes": 316
+    },
+    "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/Imports.lean": {
+      "sha256": "0bfd9a5e2407ebe9f5adce6a56e97b7b46ff829006790389256b156f0283bd16",
+      "bytes": 831
+    },
+    "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelDensitiesOfHermitianForm.lean": {
+      "sha256": "cac1d8d58c8ec788a1c68965a9280a5a71242b39b2251ccb4ca02f6bc8c0aded",
+      "bytes": 8204
+    },
+    "src/Formalism/SharpRestriction/CuspSpanNormBounds/AdmissibleBoundsFromSource.lean": {
+      "sha256": "fdd8922dcd54badfe1a700feba89a02a8359c1bc93f839283c278f5b146b3cb8",
+      "bytes": 21739
+    },
+    "src/Formalism/SharpRestriction/CuspSpanNormBounds/BruhatCellsKronecker/ShiftedParametersOfDifferingLetters.lean": {
+      "sha256": "a6fdbf8c17d82c9567667639bb7348e129e635f1e345c3335763bee34b94f243",
+      "bytes": 54810
+    }
+  },
+  "nodes": [
+    {
+      "id": "main",
+      "declaration": "riemannHypothesis",
+      "kind": "theorem",
+      "path": "src/Main.lean",
+      "line": 4,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "rhOfAll",
+      "declaration": "rhOfAll",
+      "kind": "theorem",
+      "path": "src/Supplements/Kernels/MainTheorems.lean",
+      "line": 9,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "allChi",
+      "declaration": "allChi",
+      "kind": "theorem",
+      "path": "src/Supplements/Kernels/MainTheorems.lean",
+      "line": 7,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "everyCharacter",
+      "declaration": "UpperTheory.FinalTheorems.everyCharacter",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean",
+      "line": 10,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "everyCharacterOfRow",
+      "declaration": "UpperTheory.FinalTheorems.everyCharacter_of_row",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean",
+      "line": 7,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "openLiterature",
+      "declaration": "UpperTheory.LiteratureTheorems.OpenLiteratureStatements",
+      "kind": "structure",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean",
+      "line": 215,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "everyLiterature",
+      "declaration": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean",
+      "line": 810,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "publishedEigen",
+      "declaration": "UpperTheory.LiteratureTheorems.published_results_eigen",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean",
+      "line": 666,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "everyTheta",
+      "declaration": "UpperTheory.Lit.every_character_of_theta_integrals_local_matching",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean",
+      "line": 69,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "nonemptyClosed",
+      "declaration": "UpperTheory.Lit.nonempty_hyps_definite_side_of_closed_bound",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean",
+      "line": 44,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "everyGreen",
+      "declaration": "UpperTheory.Top.every_character_of_green_v_win",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean",
+      "line": 16,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "zeroGreen",
+      "declaration": "UpperTheory.Top.zero_free_all_of_green_v_win",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean",
+      "line": 12,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "shapeGoal",
+      "declaration": "GlobalTheory.Fc.forall_goal_of_shape_of_hyps",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ShapeOf.lean",
+      "line": 31,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "shapeGoalBody",
+      "declaration": "GlobalTheory.Fc.goal_of_shape_of_hyps",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ShapeOf.lean",
+      "line": 24,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "shape",
+      "declaration": "UpperTheory.Top.shape_closed_link_n_of_green",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean",
+      "line": 33,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "linkSelected",
+      "declaration": "GlobalTheory.Top.link_alt_alt_bis",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LinkAltAltBis.lean",
+      "line": 16,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "transport",
+      "declaration": "Formalism.L2.SG.ThmSOwn.theoremS_transport_link_zero",
+      "kind": "theorem",
+      "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSPos.lean",
+      "line": 131,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "selected",
+      "declaration": "Formalism.L2.SG.ThmSOwn.TheoremSSelected",
+      "kind": "def",
+      "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/ThmSOwn.lean",
+      "line": 669,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "offDiagonalFamily",
+      "declaration": "Formalism.L2.SG.ThmSOwn.offDiagonalK0_of_rows",
+      "kind": "theorem",
+      "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSFinalP.lean",
+      "line": 58,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "distinct",
+      "declaration": "Formalism.L2.SG.ThmSOwn.theoremS_distinct_of_closed",
+      "kind": "theorem",
+      "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSFinalP.lean",
+      "line": 46,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "conj",
+      "declaration": "Formalism.L2.SG.TheoremSConclusion.theoremS_of_conj",
+      "kind": "theorem",
+      "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/TheoremSConclusion.lean",
+      "line": 68,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "closedHyp",
+      "declaration": "Formalism.L2.SG.TheoremSConclusion.TheoremSClosedHypotheses",
+      "kind": "def",
+      "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/TheoremSConclusion.lean",
+      "line": 58,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "closedP",
+      "declaration": "Formalism.L2.SG.PoincareAmplitudeLowerBounds.theoremS_closedP",
+      "kind": "theorem",
+      "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/TheoremSClosedP.lean",
+      "line": 256,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "offDiag",
+      "declaration": "GlobalTheory.CarrierGap.offDiag",
+      "kind": "theorem",
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OffK0Closed.lean",
+      "line": 673,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "leaves",
+      "declaration": "GlobalTheory.CarrierGap.theoremS_leaves_of_carrierG",
+      "kind": "theorem",
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OffK0Closed.lean",
+      "line": 633,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "carrier",
+      "declaration": "GlobalTheory.CarrierGap.carrierP",
+      "kind": "theorem",
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OffK0Closed.lean",
+      "line": 665,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "atChoice",
+      "declaration": "GlobalTheory.LocalRows.at_choice_alt",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/AtChoice.lean",
+      "line": 16,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "sLpSO",
+      "declaration": "GlobalTheory.LocalRows.sLp_sO_hTF_of_siegelWeil",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/AtChoice.lean",
+      "line": 24,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "lg1",
+      "declaration": "GlobalTheory.LocalRows.lg1_sLp_sO_hTF",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/AtChoice.lean",
+      "line": 27,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "allRows",
+      "declaration": "GlobalTheory.Fc.AllAtMemberStage0.allRows_of_open0_alt",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LinkROfIsLinked.lean",
+      "line": 50,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "unramified",
+      "declaration": "GlobalTheory.Fc.S0.StageU.hypotheses_nonempty_of_unramified_exponents_alt",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/HypothesesNonemptyOfUnramifiedExponents.lean",
+      "line": 41,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "hyps",
+      "declaration": "GlobalTheory.Fc.nonempty_hyps_of_allRows_alt",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/NonemptyHypsOfAllRows.lean",
+      "line": 19,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "topDes",
+      "declaration": "UpperTheory.Top.topDesWin",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/DesWin.lean",
+      "line": 11,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "zeroTop",
+      "declaration": "UpperTheory.Top.zeroFreeAll_of_topG",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/ZeroFreeAllOfTopG.lean",
+      "line": 26,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "zeroWindow",
+      "declaration": "Formalism.HC.zeroFreeOn_of_tiedWin_cyc",
+      "kind": "theorem",
+      "path": "src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/TopWin.lean",
+      "line": 90,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "row",
+      "declaration": "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean",
+      "line": 6,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "rowTheta",
+      "declaration": "UpperTheory.Gal.Int.galoisRepresentations_of_thetaLift",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GaloisRepresentationsOfThetaLift.lean",
+      "line": 6,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "rowGeo",
+      "declaration": "UpperTheory.Gal.Int.galoisLocalGlobalStrong_of_geometry_lift",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean",
+      "line": 30,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "thetaLift",
+      "declaration": "UpperTheory.TP.K.tLiftK",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TLiftK.lean",
+      "line": 4,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "siegelWrapper",
+      "declaration": "UpperTheory.LiteratureTheorems.siegelWeilU_unitary_convergent_of_literature",
+      "kind": "theorem",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean",
+      "line": 581,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "siegel",
+      "declaration": "GlobalTheory.CompanionTheory.SW.siegelWeilUnitaryConvergent",
+      "kind": "theorem",
+      "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/Imports.lean",
+      "line": 10,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "siegelDensity",
+      "declaration": "GlobalTheory.CompanionTheory.SW.TopDens.siegelDensities",
+      "kind": "theorem",
+      "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelDensitiesOfHermitianForm.lean",
+      "line": 47,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "s76Interface",
+      "declaration": "Formalism.MainNotions.AdmissibleBoundsFromSource.PeriodFamilyStatement",
+      "kind": "def",
+      "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/AdmissibleBoundsFromSource.lean",
+      "line": 376,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "s76Family",
+      "declaration": "Formalism.MainNotions.BridgeLemma.theorem_S_family",
+      "kind": "theorem",
+      "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BruhatCellsKronecker/ShiftedParametersOfDifferingLetters.lean",
+      "line": 862,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "s76Closed",
+      "declaration": "Formalism.MainNotions.BridgeLemma.theorem_S_closed_form",
+      "kind": "theorem",
+      "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BruhatCellsKronecker/ShiftedParametersOfDifferingLetters.lean",
+      "line": 977,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "s76Point",
+      "declaration": "Formalism.MainNotions.BridgeLemma.theorem_S_of_numerical_inequalities",
+      "kind": "theorem",
+      "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BruhatCellsKronecker/ShiftedParametersOfDifferingLetters.lean",
+      "line": 327,
+      "inspection": "source body and/or definition read; not independently compiled"
+    },
+    {
+      "id": "s76Numerics",
+      "declaration": "Formalism.MainNotions.BridgeLemma.assembly_numerics_of_large",
+      "kind": "theorem",
+      "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BruhatCellsKronecker/ShiftedParametersOfDifferingLetters.lean",
+      "line": 779,
+      "inspection": "source body and/or definition read; not independently compiled"
+    }
+  ],
+  "edges": [
+    {
+      "consumer": "main",
+      "supplier": "rhOfAll",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "rhOfAll",
+      "supplier": "allChi",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "allChi",
+      "supplier": "everyCharacter",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "everyCharacter",
+      "supplier": "everyCharacterOfRow",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "everyCharacter",
+      "supplier": "row",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "everyCharacterOfRow",
+      "supplier": "everyLiterature",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "everyLiterature",
+      "supplier": "everyTheta",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "everyLiterature",
+      "supplier": "publishedEigen",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "everyTheta",
+      "supplier": "everyGreen",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "everyTheta",
+      "supplier": "nonemptyClosed",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "everyGreen",
+      "supplier": "zeroGreen",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "zeroGreen",
+      "supplier": "shapeGoal",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "zeroGreen",
+      "supplier": "shape",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "zeroGreen",
+      "supplier": "zeroTop",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "shapeGoal",
+      "supplier": "shapeGoalBody",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "shape",
+      "supplier": "linkSelected",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "shape",
+      "supplier": "topDes",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "linkSelected",
+      "supplier": "transport",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "nonemptyClosed",
+      "supplier": "unramified",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "unramified",
+      "supplier": "allRows",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "unramified",
+      "supplier": "hyps",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "allRows",
+      "supplier": "lg1",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "lg1",
+      "supplier": "sLpSO",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "sLpSO",
+      "supplier": "atChoice",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "atChoice",
+      "supplier": "offDiag",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "offDiag",
+      "supplier": "leaves",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "offDiag",
+      "supplier": "carrier",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "offDiag",
+      "supplier": "conj",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "offDiag",
+      "supplier": "distinct",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "offDiag",
+      "supplier": "offDiagonalFamily",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "conj",
+      "supplier": "closedP",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "row",
+      "supplier": "rowTheta",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "row",
+      "supplier": "thetaLift",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "rowTheta",
+      "supplier": "rowGeo",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "publishedEigen",
+      "supplier": "siegelWrapper",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "siegelWrapper",
+      "supplier": "siegel",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "zeroTop",
+      "supplier": "zeroWindow",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "s76Closed",
+      "supplier": "s76Family",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "s76Family",
+      "supplier": "s76Numerics",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "s76Family",
+      "supplier": "s76Point",
+      "edge_type": "explicit_named_application"
+    },
+    {
+      "consumer": "everyCharacterOfRow",
+      "supplier": "openLiterature",
+      "edge_type": "explicit_record_construction",
+      "note": "The three fields are supplied by h, recTExists, h."
+    },
+    {
+      "consumer": "hyps",
+      "supplier": "allRows",
+      "edge_type": "record_field_transport",
+      "note": "allRows supplies sO/sLp/hTF; nonempty_hyps_of_allRows_alt obtains actual class and selection via classSel and stores those fields."
+    },
+    {
+      "consumer": "shapeGoalBody",
+      "supplier": "hyps",
+      "edge_type": "record_field_transport",
+      "note": "goal_of_shape_of_hyps consumes a HypsAlt record; higher-level construction supplies the result of nonempty_hyps_of_allRows_alt."
+    },
+    {
+      "consumer": "transport",
+      "supplier": "selected",
+      "edge_type": "hypothesis_type",
+      "note": "hO has closed-family TheoremSSelected type. This edge records the premise, not a supplier proof."
+    },
+    {
+      "consumer": "offDiagonalFamily",
+      "supplier": "selected",
+      "edge_type": "conclusion_type"
+    },
+    {
+      "consumer": "leaves",
+      "supplier": "closedHyp",
+      "edge_type": "conclusion_type",
+      "note": "The 19-field package is built explicitly from named suppliers; deep dependencies and Fact-instance resolution are not all audited."
+    },
+    {
+      "consumer": "s76Family",
+      "supplier": "s76Interface",
+      "edge_type": "conclusion_type",
+      "note": "A genuine theorem body supplies the conditional interface; first-filtration premises remain inputs."
+    },
+    {
+      "consumer": "siegel",
+      "supplier": "siegelDensity",
+      "edge_type": "wrapper_application",
+      "note": "Via GlobalTheory.T.siegel_densities_of_hermitian_form in SiegelDensitiesOfHermitianFormStatement.lean."
+    }
+  ],
+  "non_edges_and_boundaries": [
+    {
+      "from": "s76Family",
+      "to": "main",
+      "status": "no explicit external use found; implicit/generated proof dependencies unverified"
+    },
+    {
+      "from": "leaves",
+      "to": "all_deep_suppliers",
+      "status": "immediate constructors located; full deep mathematical and instance audit incomplete"
+    },
+    {
+      "from": "main",
+      "to": "independent_kernel_verdict",
+      "status": "no replay performed"
+    }
+  ]
+}

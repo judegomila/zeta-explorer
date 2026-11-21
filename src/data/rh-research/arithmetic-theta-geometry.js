@@ -3,7 +3,7 @@ import { createResearchModule } from './module-contract.js';
 const tex = String.raw;
 const CHECKPOINT = 'research-checkpoints/rh-arithmetic-theta-2026-11-20/geometric-compression';
 const PUBLIC_TREE = 'https://github.com/judegomila/zeta-explorer/blob/main';
-const EXTERNAL_COMMIT = '712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9';
+const EXTERNAL_COMMIT = 'c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2';
 const HISTORICAL_COMMIT = '2c628f61cdee35e3af7a2e23da43eaaf716fb8dd';
 
 const checkpointArtifact = (label, file, sha256, requiredForClaim = false) => ({
@@ -26,18 +26,19 @@ export const ARITHMETIC_THETA_GEOMETRY = createResearchModule({
   reviewScope: 'internal',
   reviewStatus: 'conditional',
   summary:
-    'Frame projections, squared distances, weighted packing, and lattice costs explain a finite geometric part of the arithmetic route. ' +
-    'The twin ladder supplies an exact prime encoding; the arithmetic estimate needed to complete the proof remains open in this synthesis.',
+    'Version 0.2 removes an unnecessary support-counting factor, identifies the exact minimum lattice cost, and locates the source’s selected arithmetic family and window endpoint. ' +
+    'The twin-ladder completion criterion is an exact reformulation of the remaining prime-ramp estimate; RH remains open in this work.',
   bodyPath: 'research/rh/modules/arithmetic-theta-geometry.md',
 
   claimBoundary: {
-    title: 'Partial geometric compression; arithmetic completion remains open',
+    title: 'Sharper compression and source map; arithmetic validation remains open',
     statement:
       'This is a conditional research note, not a complete compression of an RH proof. ' +
-      'The finite geometry is proved; the decisive arithmetic family, kernel and dimension estimates, and combined chain cost remain unproved here.',
+      'The finite geometry, packing refinement, and lattice-cost equivalence are proved. ' +
+      'Source constructors have been located, but their complete mathematical dependencies and a direct arithmetic realization of the twin-ladder form remain unverified here.',
     doesNotClaim: [
       'No RH proof, new general geometric theorem, or external peer review is claimed.',
-      'Twenty exact algebra checks do not independently replay the complete Lean project, its ultimate S76 supplier, or its import closure.',
+      'Finite algebra checks and a static import inventory do not constitute a Lean build, axiom-closure audit, or independent kernel replay.',
     ],
   },
 
@@ -106,12 +107,54 @@ export const ARITHMETIC_THETA_GEOMETRY = createResearchModule({
         },
       ],
     },
+    {
+      id: 'packing-without-support-split',
+      title: 'Count integral labels without splitting their zero coordinates',
+      body:
+        'Let E be a CM field of degree 2f and Phi one embedding from each conjugate pair. ' +
+        'Take integers 0 ≤ j ≤ r, positive scales s_l, and a finite set A of distinct integral sequences with a_0 = 1 and a_l = 0 for l > j. ' +
+        'The fixed initial coordinate and zero tail make the first j coordinates injective labels. The maximum below includes 1 even when j = 0.',
+      equations: [
+        {
+          id: 'integral-label-packing-definitions',
+          tex: tex`\begin{aligned}\Sigma_\sigma(a)&=\max\!\left(\{1\}\cup\{|\sigma(a_\ell)|/s_\ell:1\le\ell\le j\}\right),\\ K(a)&=\prod_{\sigma\in\Phi}\Sigma_\sigma(a),\qquad R_\ell=\max(1,s_\ell).\end{aligned}`,
+        },
+        {
+          id: 'integral-label-packing-no-support-factor',
+          tex: tex`\sum_{a\in A}K(a)^{-3r}\le\prod_{\ell=1}^{j}(18R_\ell)^{2f}`,
+          explanation:
+            'An integral nonzero difference has nonzero integer norm, giving multiplicative separation. ' +
+            'Zero coordinates have weight one, so one product argument removes the source’s extra factor 2^j. The constant 18 already appears in its packing proof.',
+        },
+      ],
+    },
+    {
+      id: 'exact-minimum-complete-cost',
+      title: 'Separate the unavoidable index cost from anisotropy',
+      body:
+        'For an injective integral map of real Euclidean lattices of positive rank r, let N be the saturation of its image, I its index there, and s_l its positive singular values. ' +
+        'The complete Hilbert–Schmidt cost equals log I plus an explicit nonnegative term. Rank-one multiplication by Q attains the unrestricted minimum. ' +
+        'Uniform metric rescaling preserves the complete cost; arbitrary anisotropic changes can remove only the excess above log I.',
+      equations: [
+        {
+          id: 'complete-cost-exact-slack',
+          tex: tex`\begin{aligned}\mathcal C(T)&=\log\frac{\operatorname{covol}L}{\operatorname{covol}N}+\frac r2\log\frac{\|T\|_{\mathrm{HS}}^2}{r}\\ &=\log I+\frac r2\log\frac{r^{-1}\sum_{\ell=1}^r s_\ell^2}{(\prod_{\ell=1}^r s_\ell^2)^{1/r}}.\end{aligned}`,
+        },
+        {
+          id: 'complete-cost-minimum',
+          tex: tex`\min_{\substack{T\text{ injective integral}\\ I(T)\ge Q}}\mathcal C(T)=\log Q\qquad(Q\in\mathbb N,\ Q\ge1)`,
+          explanation:
+            'With freely chosen lattices and metrics, the proposed Q-index cost condition is equivalent to the scalar prime-ramp estimate. ' +
+            'An independent estimate for the specified arithmetic construction is still required.',
+        },
+      ],
+    },
   ],
 
   verification: {
-    result: 'The two companion reports record 20 passing exact algebra checks.',
+    result: 'Four companion checkers cover frame geometry, lattice rounding, arithmetic packing, and the cost/window refinements. The new ladder checker records 21 passing exact checks.',
     scope:
-      'General proofs are supplied in the manuscript. Symbolic examples check constants, singular cases, rounding, and countercontrols; they do not certify the missing arithmetic family or RH.',
+      'General proofs are supplied in the manuscript and companion notes. The pinned static inventory reaches 175,187 project Lean files from Main; this is an import count, not a count of verified proof dependencies. No Lean compilation or independent kernel replay was performed.',
     reproducibilityStatus: 'partial',
     commands: [
       {
@@ -131,6 +174,18 @@ export const ARITHMETIC_THETA_GEOMETRY = createResearchModule({
         command: 'python check_lattice_bridge.py',
         expected: '10 exact checks pass.',
       },
+      {
+        label: 'Integral labels and arithmetic compression',
+        cwd: CHECKPOINT,
+        command: 'python check_arithmetic_compression.py',
+        expected: 'All exact arithmetic sanity checks pass; writes arithmetic_compression_checks.json.',
+      },
+      {
+        label: 'Cost equivalence and window countercontrols',
+        cwd: CHECKPOINT,
+        command: 'python check_ladder_completion.py',
+        expected: '21 exact checks pass; writes ladder_completion_check_results.json.',
+      },
     ],
     artifacts: [
       {
@@ -138,8 +193,8 @@ export const ARITHMETIC_THETA_GEOMETRY = createResearchModule({
         path: 'public/research/rh/arithmetic-theta-geometry/RH_Geometric_Compression.pdf',
         availability: 'available',
         requiredForClaim: true,
-        sha256: '2e2dee16450610a920caf39344bb7d141c2bf7366950dc2632c4d8cdd2de527d',
-        sizeBytes: 327434,
+        sha256: 'e2688d1eb3efda83ae454aae83506076f1f72c44d9fcf20605582a52412e99bc',
+        sizeBytes: 392672,
         href: '/research/rh/arithmetic-theta-geometry/RH_Geometric_Compression.pdf',
       },
       {
@@ -147,8 +202,8 @@ export const ARITHMETIC_THETA_GEOMETRY = createResearchModule({
         path: 'public/research/rh/arithmetic-theta-geometry/RH_Geometric_Compression.tex',
         availability: 'available',
         requiredForClaim: true,
-        sha256: '5bb7c50548fe6f107b3ec116726cc2b3e8e5a0dbc750a948974d227b362b364e',
-        sizeBytes: 27146,
+        sha256: '16fa3863170c2fe34ebed401cd4eb143a32e9b415563f2f5bbb45abc57462e82',
+        sizeBytes: 41352,
         href: '/research/rh/arithmetic-theta-geometry/RH_Geometric_Compression.tex',
       },
       {
@@ -156,19 +211,29 @@ export const ARITHMETIC_THETA_GEOMETRY = createResearchModule({
         path: 'research/rh/modules/arithmetic-theta-geometry.md',
         availability: 'available',
         requiredForClaim: true,
-        sha256: '54052fd8d0a87e6c6faa9e06d76e6333ffe642eb76b76d502d0a7bca7219d849',
+        sha256: '10f075ba66453d2feea403131640823859ae14eac3a6f650ac9faa46a1a6494b',
         href: `${PUBLIC_TREE}/research/rh/modules/arithmetic-theta-geometry.md`,
       },
       checkpointArtifact('Frame algebra report', 'FRAME_GEOMETRY_CHECKS.json', 'b731599cfcce6ab14c2caddbabf18eb171802690f7acc084a7b668f8207d431b'),
       checkpointArtifact('Lattice algebra report', 'LATTICE_BRIDGE_CHECKS.json', '7ad08875c25b69b872499112b4368f597669f93a72f80641d877e66b4e942e10'),
+      checkpointArtifact('Arithmetic family and packing proof', 'ARITHMETIC_FAMILY.md', 'f2f9e3861ee8a9d5fa72f2dd892eb9185af3f806ba467ec7533d38967a87c32b'),
+      checkpointArtifact('Exact cost and window bridge', 'LADDER_COMPLETION.md', '086fab4bb77b33c14b9cb138565bdff64a155ac2013bb283d339b2172592b061'),
+      checkpointArtifact('S76 and selected Main route', 'S76_CLOSURE.md', 'e0fd4ecd0e62cc79b565ec3c94dcaa92f336b2b1a1e1a5645e9c816092a598a5'),
+      checkpointArtifact('Selected source application map', 'S76_CLOSURE_MAP.json', 'a72f3bc45d44b5030b4691e2fda83a7a07a1f7259f9724e4a4740a274da081a6'),
+      checkpointArtifact('Pinned static source inventory', 'SOURCE_SNAPSHOT.json', 'a2d49b258251faa8d42e14dfd572b15d69e709053311d9e45eec6841b5fb171d'),
+      checkpointArtifact('Arithmetic compression check report', 'arithmetic_compression_checks.json', '266542a24db9a03d2e07b988b680422303706d13401f0e59888b310e19e5b362'),
+      checkpointArtifact('Ladder completion check report', 'ladder_completion_check_results.json', '30e5acf9d1b571b806f2a2a830df3b8b387e3ddec1b4378b68c0fe6ca87efb38'),
+      checkpointArtifact('Proof-obligation register', 'PROOF_OBLIGATIONS.md', 'afc967d6928d7cda5584164adde4b8f763f24ad5d000e4b3ca4fdd66023adac9', true),
+      checkpointArtifact('Independent verification protocol', 'VERIFICATION_PROTOCOL.md', 'f9b4a734a292f9e229128d454c1cfa614babd4b3f7b05b0c3c01db3c806c40af'),
     ],
     replays: [],
     evidence: [
       {
-        label: 'Source dependency audit',
-        kind: 'bounded source inspection',
-        location: `${CHECKPOINT}/SOURCE_DEPENDENCY_AUDIT.md`,
-        href: `${PUBLIC_TREE}/${CHECKPOINT}/SOURCE_DEPENDENCY_AUDIT.md`,
+        label: 'Located generic supplier and selected window route',
+        kind: 'source-body inspection, not kernel verification',
+        location: CHECKPOINT + '/S76_CLOSURE.md',
+        href: PUBLIC_TREE + '/' + CHECKPOINT + '/S76_CLOSURE.md',
+        note: 'The analytic level remains fixed; auxiliary arithmetic families may depend on epsilon when their comparison controls that same level.',
       },
       {
         label: 'Internal review and proof scope',
@@ -183,22 +248,24 @@ export const ARITHMETIC_THETA_GEOMETRY = createResearchModule({
   blockers: [
     {
       id: 'arithmetic-family-and-complete-cost',
-      title: 'Construct the arithmetic family and prove its complete cost bound',
+      title: 'Validate the selected arithmetic route and its twin-ladder transport',
       statement:
-        'The canonical note states a sufficient lattice-index and metric-cost inequality for every fixed epsilon and all sufficiently large X. ' +
-        'Its implication is proved; its independent arithmetic hypotheses remain open in this synthesis.',
+        'The generic S76 supplier and a selected Main-family constructor have been located in source. ' +
+        'Their deep arithmetic inputs, instance dependencies, and a direct map to the twin-ladder Weil form remain unverified here. ' +
+        'The unrestricted lattice-cost condition is equivalent to the scalar RH target.',
       physicsAnalogy:
         'Coupled modes can each have positive self-energy while their interaction changes the combined energy. ' +
         'The squared-distance picture becomes valid only after the complete arithmetic form is identified with a positive energy.',
       nextTest:
-        'Verify the actual integral structures, uniform kernel and dimension estimates, and the costed passage to the signed prime discrepancy. A positive lift norm alone is insufficient.',
+        'Audit the selected kernel, arithmetic rows, mass and dimension normalization, uniform family estimates, and fixed-level window theorem. ' +
+        'Then prove the precise whole-form transport into the twin-ladder test space.',
     },
   ],
 
   provenance: {
     sourceRefs: [
       {
-        repository: 'Deicyde/riemann-hypothesis',
+        repository: 'leanprover-community/riemann-hypothesis',
         branch: 'commit-pinned source snapshot',
         commit: EXTERNAL_COMMIT,
         access: 'public',
@@ -206,9 +273,13 @@ export const ARITHMETIC_THETA_GEOMETRY = createResearchModule({
           'src/Formalism/SharpRestriction/CuspSpanNormBounds/RelevantZeroGramTerms.lean',
           'src/Formalism/SharpRestriction/CuspSpanNormBounds/AdmissibleBoundsFromSource.lean',
           'src/Formalism/SharpRestriction/CuspSpanNormBounds/WeightedLatticeSum.lean',
+          'src/Formalism/SharpRestriction/CuspSpanNormBounds/MinorIntegralityTorus.lean',
+          'src/Formalism/SharpRestriction/CuspSpanNormBounds/KTwoCosetCount.lean',
+          'src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OffK0Closed.lean',
+          'src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/TopWin.lean',
           'src/Formalism/LatticeSlopes/LatticeSlopesProofs/SlopeInequality.lean',
         ],
-        note: 'Selected definitions and proof bodies were inspected; this record does not certify the complete external formalization.',
+        note: 'Selected proof bodies and a pinned static import inventory were inspected. The src tree is unchanged from the earlier pin; theorem-term dependencies and independent replay remain unverified.',
       },
       {
         repository: 'judegomila/MathExplorer',
@@ -220,7 +291,7 @@ export const ARITHMETIC_THETA_GEOMETRY = createResearchModule({
       },
     ],
     curatorNote:
-      'This synthesis explains a finite geometric module and a conditional completion target. Attribution to the announced arithmetic route does not make the remaining estimate a result of this module.',
+      'Version 0.2 supplies sharper finite reductions and a more precise source boundary. The window endpoint retains a fixed analytic level while auxiliary families may vary with epsilon. No historical novelty or complete RH proof is claimed.',
   },
 });
 

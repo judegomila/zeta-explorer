@@ -1,45 +1,52 @@
 # Review and verification record
 
-20 November 2026 · AI-assisted internal review; not external peer review.
+**Version 0.2 · 20 November 2026 · AI-assisted internal review; not external peer review.**
 
 ## Mathematical review
 
-The root derivation and two separate assistant reviews checked the finite frame inequalities and exact source dictionary. A further review checked the lattice determinant identity, slope signs, trace-dual discriminant/index factors, conditional scalar completion target, singular Schur control, and the weighted packing proof.
+The earlier frame/projection, singular Schur and lattice/trace-dual proofs remain part of the paper. This revision adds complete proofs of CM minor separation, the minor-label packing estimate without a support factor, exact logarithmic costs, the rank/prime-window calculation, exact complete-cost minimization, the scalar/lattice equivalence and its RH dependencies, a quantified mesh bridge, and a C² convex-window obstruction.
 
-One definition was corrected before release: the prime-power ramp is defined for (X\ge1), including its zero extension below the first prime, because the exact Mellin transform integrates from 1. The strict rounding bound remains stated for (X\ge2). The printed order of the source's `BF` arguments was also corrected to match the pinned declaration.
+Separate assistant reviews checked the arithmetic and completion derivations. The coordinating review checked the revised LaTeX statements and proofs and applied five precision improvements: explicit positive rank in the unrestricted minimum, root-discriminant assumptions in the coarse cost, fixed nonnegative mesh constant, covolume notation, and the correct distinction between a source file and a theorem namespace.
 
-The packing review checked the half-unit cell injection, the coordinate-weight inequality, the tail indices, and the constants (9U), (18U), and ((18U)^{2d}). No further mathematical correction was identified in these reviewed results.
+The review retains necessary qualifications:
 
-The finite theorem in `FRAME_GEOMETRY.md` permits an aggregate source rank-loss bound. The paper states the simpler sufficient individual bounds and obtains the same constants. The note uses alpha for the frame second-moment constant and kappa for the source rank loss; the paper uses (a) and alpha, respectively. These are explicit local notation choices, not different assertions.
+- The packing improvement sums **distinct label sequences**. Coordinate zero is fixed at one and the tail vanishes; object multiplicities need a separate bound. The case `j=0` is covered.
+- Constant 18 was already present in the source's packing proof. No historical novelty is claimed.
+- The determinant cost is invariant under arbitrary metrics; the Hilbert–Schmidt upper cost is invariant under uniform rescaling and can vary with anisotropy.
+- The unrestricted lattice target is an RH-equivalent reformulation. Its independent arithmetic hypotheses have not been proved.
+- The counterexample is C² and globally Lipschitz with a convex uncentred ramp. It challenges a generic window-to-full-ray shortcut, not the source's special analytic window theorem.
+- The fixed analytic level and averaged function remain fixed even if an auxiliary arithmetic family depends on epsilon.
 
-## Source inspection
+Detailed records: [arithmetic review](CROSS_REVIEW_ARITHMETIC.md), [completion review](CROSS_REVIEW_LADDER.md), and [source review](CROSS_REVIEW_SOURCE.md). These are internal checks by collaborating assistants, not independent human refereeing.
 
-Source pin: `Deicyde/riemann-hypothesis@712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9`.
+## Source inspection and reproducibility
 
-The source audit distinguishes actual theorem bodies from proposition interfaces and adapters receiving proof arguments. Inspected facts include the normalized adjoint Gram kernel, the projection definition, dimension and common-scale ties, diagonal-defect conversion, separate ambient row count, eventual quantifiers, weighted packing, and a conditional arithmetic minor-label application.
+At `c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2`, actual bodies supplying generic S76, selected Main off-diagonal estimates, family construction and the character-window endpoint were located. The map's 30 source-file fingerprints and 47 declaration locations were independently rechecked. Its 48 edges describe explicit source applications, record transport or declared roles; they do not constitute a compiled proof graph.
 
-The audit did not locate and check the ultimate implementation of the `S76` argument. It therefore does not certify the external source's full arithmetic kernel theorem or its RH endpoint. It also does not allege that an implementation is absent. The scalar full-ray analytic criterion in this paper is the earlier project criterion; it is not silently substituted for the external multiplicative-window theorem.
+The root read the actual selected closed-hypothesis constructor, off-diagonal supplier and fixed-level window endpoint. The deep theorem and implicit-instance closure was not independently validated. The source tree was compared with the earlier pin and found identical.
+
+The read-only snapshot script verified all tracked Lean file bytes and parsed an acyclic project import graph with 175,187 files reachable from Main. The extra Challenge file is outside that closure and contains intentional placeholders. No scanned admission/unsafe keywords were found in the parsed Main closure. The lexer self-tests passed. External package contents, elaboration, proof terms, axiom closure and kernel replay are outside this static audit.
 
 ## Exact executable checks
 
-Executed with Python and SymPy 1.14.0:
+The following were executed successfully from the revised public checkpoint, using Python and SymPy 1.14.0 where needed:
 
-| Script | Result | Main controls |
+| Checker | Actual result | Scope |
 |---|---|---|
-| `check_frame_geometry.py` | 10/10 pass | Complex noncommuting projections; source and ambient losses; zero-weight normalization; singular pseudoinverse; absence of a spectral-gap conclusion; average versus subfamily control; signed-matrix countercontrol; stable whole-form limits. |
-| `check_lattice_bridge.py` | 10/10 pass | Nonorthonormal covolumes; saturation index; Hilbert–Schmidt determinant bound; slope normalization; sharp Gaussian-integer trace-dual example; exact prime encoding; rounding scale; cost cancellation under metric rescaling. |
+| `check_frame_geometry.py` | 10/10 | Noncommuting projections, trace losses, singular pseudoinverse, whole-form limits and negative controls. |
+| `check_lattice_bridge.py` | 10/10 | Covolumes, saturation, determinant bound, slope and trace-dual normalization, exact rounding and uniform rescaling. |
+| `check_ladder_completion.py` | 21/21 | Exact cost/slack, metric choices, prime rounding, tail antiderivative and the C² window obstruction. |
+| `check_arithmetic_compression.py` | All checks passed | 252 product cases / 26,910 points; injectivity negative controls; 180 Gaussian minors and 179 nonzero differences; 3,321 exponent identities; 10,560 rational cost comparisons; 711 dimension cases. |
+| `audit_source_snapshot.py --self-test` | Passed | Comment/string masking, import recognition and lexical control cases. |
 
-The JSON reports record exact examples and their qualifications. They validate algebra and normalization. They do not replace the general written proofs or establish any RH-equivalent positivity assertion.
+The JSON reports contain the finite results. Universal mathematical statements rest on the proofs, not on enumeration. No checker here verifies RH or the external formalization.
 
-## Manuscript quality check
+## Manuscript quality
 
-The LaTeX manuscript compiled in two successful final passes to a 10-page PDF. The final pass had no undefined references, overfull boxes, or compilation warnings. All ten pages were rendered and visually inspected for clipping, missing symbols, and layout. Build intermediates are not included in the research package.
+The revised manuscript compiled in two successful final passes to **15 pages**, with no undefined references, overfull boxes or compilation warnings on the final pass. All 15 pages were rendered and visually inspected; the new packing, equivalence and source-route pages were additionally inspected at full rendering size. No clipping, missing symbols or unresolved citations were found. Build logs and render intermediates are excluded from the public package.
 
-## Explicit unresolved obligations
+## Remaining claim boundary
 
-1. A concrete arithmetic construction and useful bound for the complete lattice metric cost in the scalar completion corollary, with its full-ray quantifiers.
-2. Alternatively, an independent arithmetic realization or comparison of the entire Weil/Pick form, including mixed terms and vanishing finite-family error.
-3. For a self-contained compression of the external route: the ultimate arithmetic kernel supplier, all embedding/minor normalizations, the dimension window and row count, and uniform control through the whole theta chain.
-4. A full external Lean build and dependency/axiom check, if formal verification of that released proof is to be claimed. Lean and Lake were not available in this execution environment; no such replay was performed.
+The [proof-obligation register](PROOF_OBLIGATIONS.md) and [verification protocol](VERIFICATION_PROTOCOL.md) control future status changes. A specified arithmetic complete-cost bound or a direct whole-form twin-ladder comparison is still unproved here. Deep source validation and independent formal replay remain outstanding.
 
-The finite geometry gives a clean exposition of a real module. It does not establish the remaining arithmetic obligations or justify calling this a complete proof of RH.
+No Lean build, export, axiom-closure check or independent kernel replay was performed. The source's reported large-resource build and judging workflow could not be reproduced in this session's environment. The release records a concrete protocol and acceptance artifacts rather than claiming a partial operation as a complete verdict.

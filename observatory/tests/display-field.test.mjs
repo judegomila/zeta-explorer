@@ -31,3 +31,20 @@ test('visual damping is excluded from the exact field and buffered heat cache id
   const shown={...base,displayDamping:true,displayDampingScale:37};
   assert.equal(fieldKey(base),fieldKey(shown));assert.equal(sequenceKey(base),sequenceKey(shown));
 });
+
+test('edge fade is 1 inside, 0 at the stops, and leaves a full grid alone',async()=>{
+  const {edgeFadeWeights}=await import('../dist/display-field.js');
+  const nx=40,ny=30,W=nx+1,valid=new Uint8Array(W*(ny+1)).fill(1);
+  // No stops: a closed surface with every sample drawn is not dimmed.
+  assert.ok(edgeFadeWeights(valid,nx,ny).every(w=>w===1));
+  // Plane chart: the border is a stop, the middle is untouched.
+  const plane=edgeFadeWeights(valid,nx,ny,{edges:true,width:5});
+  assert.equal(plane[0],0);assert.equal(plane[15*W+nx],0);assert.equal(plane[15*W+20],1);
+  assert.ok(plane[15*W+2]>0&&plane[15*W+2]<1);
+  assert.ok(plane[15*W+1]<plane[15*W+2]&&plane[15*W+2]<plane[15*W+3]);
+  // A left-out sample (the cap at infinity) is a stop on any geometry.
+  valid[10*W+10]=0;
+  const hole=edgeFadeWeights(valid,nx,ny,{width:4});
+  assert.equal(hole[10*W+10],0);assert.ok(hole[10*W+12]>0&&hole[10*W+12]<1);assert.equal(hole[10*W+20],1);assert.equal(hole[0],1);
+  assert.ok(hole.every(w=>w>=0&&w<=1));
+});

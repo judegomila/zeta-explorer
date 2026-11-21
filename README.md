@@ -62,6 +62,7 @@ npm run build      # → dist/ (regenerates the live fleet-status snapshot)
 | `/lambda-bounds`, `/lambda-timeline` | The evidence-graded Λ ledger and its history |
 | `/critical-line-proportion` | The κ record (peer-reviewed 5/12; the external Claude/Anthropic ≥ 2/3 result, qualified) |
 | `/viz-twistor-dual-intertwiner` | Flagship 3D: the Robinson congruence, its dual, the intertwiner, ζ on the fibers, fiber freezing |
+| `/sign-switching` | Linked exact collision half-disk / modal diameter and full-kernel even-minus-odd energy identity; finite Ξ benchmarks, global inequality open |
 | `/visualizations`, `/animations`, `/simulators` | 120+ visualization pages, 53 rendered films, 12 interactive simulators |
 | `/engine-room`, `/improvement-queue` | Live fleet ops + the ticket queue |
 

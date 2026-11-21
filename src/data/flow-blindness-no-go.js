@@ -8,7 +8,7 @@ export const FLOW_BLINDNESS_NO_GO = Object.freeze({
   title: 'Flow-blindness: the scope of the no-go',
   status: 'THEOREM for an explicitly flow-stable class containing Φ (Rodgers–Tao Λ ≥ 0)',
   paperPdf: '/flow-blindness-no-go.pdf',
-  paperSource: 'https://github.com/judegomila/mathexplorer/blob/editorial-redesign/formalization/paper/flow-blindness-no-go.tex',
+  paperSource: 'https://github.com/judegomila/zeta-explorer/blob/main/formalization/paper/flow-blindness-no-go.tex',
   oneLine:
     'A hypothesis class containing Φ and its backward heat deformations cannot force all zeros real. ' +
     'This does not exclude analytic proofs using additional properties that those deformations lack.',
